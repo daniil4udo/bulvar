@@ -1,0 +1,42 @@
+@import "../utilities/mixins"
+
+$tile-spacing: 0.75rem !default
+
+$css-vars-map: ('tile-spacing': ($tile-spacing))
+// --tile-spacing: #{$tile-spacing}
+
+.tile, [class^="tile-"]
+  +registerCSSVars($css-vars-map, $at-root)
+
+.tile
+  align-items: stretch
+  display: block
+  flex-basis: 0
+  flex-grow: 1
+  flex-shrink: 1
+  min-height: min-content
+  // Modifiers
+  &.is-ancestor
+    margin-left: calc(-1 * #{var(--tile-spacing)})
+    margin-right: calc(-1 * #{var(--tile-spacing)})
+    margin-top: calc(-1 * #{var(--tile-spacing)})
+    &:last-child
+      margin-bottom: calc(-1 * #{var(--tile-spacing)})
+    &:not(:last-child)
+      margin-bottom: var(--tile-spacing)
+  &.is-child
+    margin: 0 !important
+  &.is-parent
+    padding: var(--tile-spacing)
+  &.is-vertical
+    flex-direction: column
+    & > .tile.is-child:not(:last-child)
+      margin-bottom: 1.5rem !important
+  // Responsiveness
+  +tablet
+    &:not(.is-child)
+      display: flex
+    @for $i from 1 through 12
+      &.is-#{$i}
+        flex: none
+        width: (divide($i, 12)) * 100%

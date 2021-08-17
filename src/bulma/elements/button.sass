@@ -1,0 +1,390 @@
+@import "../utilities/controls"
+@import "../utilities/mixins"
+
+$button-color: var(--text-strong, #{$text-strong}) !default
+$button-background-color: var(--scheme-main, #{$scheme-main}) !default
+$button-family: false !default
+
+$button-border-color: var(--border, #{$border}) !default
+$button-border-width: var(--control-border-width, #{$control-border-width}) !default
+
+$button-padding-vertical: calc(0.5em - #{$button-border-width}) !default
+$button-padding-horizontal: 1em !default
+
+$button-hover-color: var(--link-hover, #{$link-hover}) !default
+$button-hover-border-color: var(--link-hover-border, #{$link-hover-border}) !default
+
+$button-focus-color: var(--link-focus, #{$link-focus}) !default
+$button-focus-border-color: var(--link-focus-border, #{$link-focus-border}) !default
+$button-focus-box-shadow-size: 0 0 0 0.125em !default
+$button-focus-box-shadow-color-hsla: bulmaCSSVarHsla(var(--link, #{$link}), 0.25) !default // has to be declared in css vars
+$button-focus-box-shadow-color: var(--button-focus-box-shadow-color-hsla, #{bulmaRgba($link, 0.25)}) !default
+
+$button-active-color: var(--link-active, #{$link-active}) !default
+$button-active-border-color: var(--link-active-border, #{$link-active-border}) !default
+
+$button-text-color: var(--text, #{$text}) !default
+$button-text-decoration: underline !default
+$button-text-hover-background-color: var(--background, #{$background}) !default
+$button-text-hover-color: var(--text-strong, #{$text-strong}) !default
+
+$button-ghost-background: none !default
+$button-ghost-border-color: transparent !default
+$button-ghost-color: var(--link, #{$link}) !default
+$button-ghost-decoration: none !default
+$button-ghost-hover-color: var(--link, #{$link}) !default
+$button-ghost-hover-decoration: underline !default
+
+$button-disabled-background-color: var(--scheme-main, #{$scheme-main}) !default
+$button-disabled-border-color: var(--border, #{$border}) !default
+$button-disabled-shadow: none !default
+$button-disabled-opacity: 0.5 !default
+
+$button-static-color: var(--text-light, #{$text-light}) !default
+$button-static-background-color: var(--scheme-main-ter, #{$scheme-main-ter}) !default
+$button-static-border-color: var(--border, #{$border}) !default
+
+$button-colors: $colors !default
+
+// The button sizes use mixins so they can be used at different breakpoints
+=button-small
+  --button-font-size: var(--size-small, #{$size-small})
+  &:not(.is-rounded)
+    border-radius: var(--radius-small, #{$radius-small})
+=button-normal
+  --button-font-size: var(--size-normal, #{$size-normal})
+=button-medium
+  --button-font-size: var(--size-medium, #{$size-medium})
+=button-large
+  --button-font-size: var(--size-large, #{$size-large})
+
+$css-vars-map: ('button-color': ($button-color),'button-background-color': ($button-background-color),'button-family': ($button-family),'button-border-color': ($button-border-color),'button-border-width': ($button-border-width),'button-padding-vertical': ($button-padding-vertical),'button-padding-horizontal': ($button-padding-horizontal),'button-hover-color': ($button-hover-color),'button-hover-border-color': ($button-hover-border-color),'button-focus-color': ($button-focus-color),'button-focus-border-color': ($button-focus-border-color),'button-focus-box-shadow-size': ($button-focus-box-shadow-size),'button-focus-box-shadow-color-hsla':($button-focus-box-shadow-color-hsla),'button-focus-box-shadow-color': ($button-focus-box-shadow-color),'button-active-color': ($button-active-color),'button-active-border-color': ($button-active-border-color),'button-text-color': ($button-text-color),'button-text-decoration': ($button-text-decoration),'button-text-hover-background-color': ($button-text-hover-background-color),'button-text-hover-color': ($button-text-hover-color),'button-ghost-background': ($button-ghost-background),'button-ghost-border-color': ($button-ghost-border-color),'button-ghost-color': ($button-ghost-color),'button-ghost-decoration': ($button-ghost-decoration),'button-ghost-hover-color': ($button-ghost-hover-color),'button-ghost-hover-decoration': ($button-ghost-hover-decoration),'button-disabled-background-color': ($button-disabled-background-color),'button-disabled-border-color': ($button-disabled-border-color),'button-disabled-shadow': ($button-disabled-shadow),'button-disabled-opacity': ($button-disabled-opacity),'button-static-color': ($button-static-color),'button-static-background-color': ($button-static-background-color),'button-static-border-color': ($button-static-border-color))
+// --button-color: #{$button-color}
+// --button-background-color: #{$button-background-color}
+// --button-family: #{$button-family}
+// --button-border-color: #{$button-border-color}
+// --button-border-width: #{$button-border-width}
+// --button-padding-vertical: #{$button-padding-vertical}
+// --button-padding-horizontal: #{$button-padding-horizontal}
+// --button-hover-color: #{$button-hover-color}
+// --button-hover-border-color: #{$button-hover-border-color}
+// --button-focus-color: #{$button-focus-color}
+// --button-focus-border-color: #{$button-focus-border-color}
+// --button-focus-box-shadow-size: #{$button-focus-box-shadow-size}
+// --button-focus-box-shadow-color-hsla: #{$button-focus-box-shadow-color-hsla}
+// --button-focus-box-shadow-color: #{$button-focus-box-shadow-color}
+// --button-active-color: #{$button-active-color}
+// --button-active-border-color: #{$button-active-border-color}
+// --button-text-color: #{$button-text-color}
+// --button-text-decoration: #{$button-text-decoration}
+// --button-text-hover-background-color: #{$button-text-hover-background-color}
+// --button-text-hover-color: #{$button-text-hover-color}
+// --button-ghost-background: #{$button-ghost-background}
+// --button-ghost-border-color: #{$button-ghost-border-color}
+// --button-ghost-color: #{$button-ghost-color}
+// --button-ghost-decoration: #{$button-ghost-decoration}
+// --button-ghost-hover-color: #{$button-ghost-hover-color}
+// --button-ghost-hover-decoration: #{$button-ghost-hover-decoration}
+// --button-disabled-background-color: #{$button-disabled-background-color}
+// --button-disabled-border-color: #{$button-disabled-border-color}
+// --button-disabled-shadow: #{$button-disabled-shadow}
+// --button-disabled-opacity: #{$button-disabled-opacity}
+// --button-static-color: #{$button-static-color}
+// --button-static-background-color: #{$button-static-background-color}
+// --button-static-border-color: #{$button-static-border-color}
+
+.buttons, .button, [class^="button-"]
+  +registerCSSVars($css-vars-map, $at-root)
+
+.button
+  @extend %control
+  @extend %unselectable
+  background-color: var(--button-background-color)
+  border-color: var(--button-border-color)
+  border-width: var(--button-border-width)
+  color: var(--button-color)
+  cursor: pointer
+  @if $button-family
+    font-family: var(--button-family)
+  font-size: var(--button-font-size)
+  justify-content: center
+  padding-bottom: var(--button-padding-vertical)
+  padding-left: var(--button-padding-horizontal)
+  padding-right: var(--button-padding-horizontal)
+  padding-top: var(--button-padding-vertical)
+  text-align: center
+  white-space: nowrap
+  strong
+    color: inherit
+  .icon
+    &,
+    &.is-small,
+    &.is-medium,
+    &.is-large
+      height: 1.5em
+      width: 1.5em
+    &:first-child:not(:last-child)
+      +ltr-property("margin", calc(-0.5 * #{var(--button-padding-horizontal, #{$button-padding-horizontal})} - #{var(--button-border-width, #{$button-border-width})}), false)
+      +ltr-property("margin", calc(#{var(--button-padding-horizontal, #{$button-padding-horizontal})} * 0.25))
+    &:last-child:not(:first-child)
+      +ltr-property("margin", calc(#{var(--button-padding-horizontal, #{$button-padding-horizontal})} * 0.25), false)
+      +ltr-property("margin", calc(-0.5 * #{var(--button-padding-horizontal, #{$button-padding-horizontal})} - #{var(--button-border-width, #{$button-border-width})}))
+    &:first-child:last-child
+      margin-left: calc(-0.5 * #{var(--button-padding-horizontal, #{$button-padding-horizontal})} - #{var(--button-border-width, #{$button-border-width})})
+      margin-right: calc(-0.5 * #{var(--button-padding-horizontal, #{$button-padding-horizontal})} - #{var(--button-border-width, #{$button-border-width})})
+  // States
+  &:hover,
+  &.is-hovered
+    border-color: var(--button-hover-border-color)
+    color: var(--button-hover-color)
+  &:focus,
+  &.is-focused
+    border-color: var(--button-focus-border-color)
+    color: var(--button-focus-color)
+    &:not(:active)
+      box-shadow: var(--button-focus-box-shadow-size) var(--button-focus-box-shadow-color)
+  &:active,
+  &.is-active
+    border-color: var(--button-active-border-color)
+    color: var(--button-active-color)
+  // Colors
+  &.is-text
+    background-color: transparent
+    border-color: transparent
+    color: var(--button-text-color)
+    text-decoration: var(--button-text-decoration)
+    &:hover,
+    &.is-hovered,
+    &:focus,
+    &.is-focused
+      background-color: var(--button-text-hover-background-color)
+      color: var(--button-text-hover-color)
+    &:active,
+    &.is-active
+      background-color: bulmaDarken($button-text-hover-background-color, 5%)
+      color: var(--button-text-hover-color)
+    &[disabled],
+    fieldset[disabled] &
+      background-color: transparent
+      border-color: transparent
+      box-shadow: none
+  &.is-ghost
+    background: var(--button-ghost-background)
+    border-color: var(--button-ghost-border-color)
+    color: var(--button-ghost-color)
+    text-decoration: var(--button-ghost-decoration)
+    &:hover,
+    &.is-hovered
+      color: var(--button-ghost-hover-color)
+      text-decoration: var(--button-ghost-hover-decoration)
+  @each $name, $pair in $button-colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+    &.is-#{$name}
+      --hover-background-color: #{bulmaCSSVarDarken($name, 2.5%)}
+      --focus-box-shadow-color: #{bulmaCSSVarHsla($name, 0.25)}
+      --active-background-color: #{bulmaCSSVarDarken($name, 5%)}
+      background-color: var(--#{$name}, #{$color})
+      border-color: transparent
+      color: var(--#{$name}-invert, #{$color-invert})
+      &:hover,
+      &.is-hovered
+        background-color: var(--hover-background-color, #{bulmaDarken($color, 2.5%)})
+        border-color: transparent
+        color: var(--#{$name}-invert, #{$color-invert})
+      &:focus,
+      &.is-focused
+        border-color: transparent
+        color: var(--#{$name}-invert, #{$color-invert})
+        &:not(:active)
+          box-shadow: var(--button-focus-box-shadow-size) var(--focus-box-shadow-color, #{bulmaRgba($color, 0.25)})
+      &:active,
+      &.is-active
+        background-color: var(--active-background-color, #{bulmaDarken($color, 5%)})
+        border-color: transparent
+        color: var(--#{$name}-invert, #{$color-invert})
+      &[disabled],
+      fieldset[disabled] &
+        background-color: var(--#{$name}, #{$color})
+        border-color: transparent
+        box-shadow: none
+      &.is-inverted
+        background-color: var(--#{$name}-invert, #{$color-invert})
+        color: var(--#{$name}, #{$color})
+        &:hover,
+        &.is-hovered
+          background-color: bulmaDarken($color-invert, 5%)
+        &[disabled],
+        fieldset[disabled] &
+          background-color: var(--#{$name}-invert, #{$color-invert})
+          border-color: transparent
+          box-shadow: none
+          color: var(--#{$name}, #{$color})
+      &.is-loading
+        &::after
+          border-color: transparent transparent var(--#{$name}-invert, #{$color-invert}) var(--#{$name}-invert, #{$color-invert}) !important
+      &.is-outlined
+        background-color: transparent
+        border-color: var(--#{$name}, #{$color})
+        color: var(--#{$name}, #{$color})
+        &:hover,
+        &.is-hovered,
+        &:focus,
+        &.is-focused
+          background-color: var(--#{$name}, #{$color})
+          border-color: var(--#{$name}, #{$color})
+          color: var(--#{$name}-invert, #{$color-invert})
+        &.is-loading
+          &::after
+            border-color: transparent transparent var(--#{$name}, #{$color}) var(--#{$name}, #{$color}) !important
+          &:hover,
+          &.is-hovered,
+          &:focus,
+          &.is-focused
+            &::after
+              border-color: transparent transparent var(--#{$name}-invert, #{$color-invert}) var(--#{$name}-invert, #{$color-invert}) !important
+        &[disabled],
+        fieldset[disabled] &
+          background-color: transparent
+          border-color: var(--#{$name}, #{$color})
+          box-shadow: none
+          color: var(--#{$name}, #{$color})
+      &.is-inverted.is-outlined
+        background-color: transparent
+        border-color: var(--#{$name}-invert, #{$color-invert})
+        color: var(--#{$name}-invert, #{$color-invert})
+        &:hover,
+        &.is-hovered,
+        &:focus,
+        &.is-focused
+          background-color: var(--#{$name}-invert, #{$color-invert})
+          color: var(--#{$name}, #{$color})
+        &.is-loading
+          &:hover,
+          &.is-hovered,
+          &:focus,
+          &.is-focused
+            &::after
+              border-color: transparent transparent var(--#{$name}, #{$color}) var(--#{$name}, #{$color}) !important
+        &[disabled],
+        fieldset[disabled] &
+          background-color: transparent
+          border-color: var(--#{$name}-invert, #{$color-invert})
+          box-shadow: none
+          color: var(--#{$name}-invert, #{$color-invert})
+      // If light and dark colors are provided
+      @if length($pair) >= 4
+        $color-light: nth($pair, 3)
+        $color-dark: nth($pair, 4)
+        &.is-light
+          --hover-background-color: #{bulmaCSSVarDarken($name, calc(#{var(--#{$name}-light-l)} - 2.5%))}
+          --active-background-color: #{bulmaCSSVarDarken($name, calc(#{var(--#{$name}-light-l)} - 5%))}
+          background-color: var(--#{$name}-light, #{$color-light})
+          color: var(--#{$name}-dark, #{$color-dark})
+          &:hover,
+          &.is-hovered
+            background-color: var(--hover-background-color, #{bulmaDarken($color-light, 2.5%)})
+            border-color: transparent
+            color: var(--#{$name}-dark, #{$color-dark})
+          &:active,
+          &.is-active
+            background-color: var(--active-background-color, #{bulmaDarken($color-light, 5%)})
+            border-color: transparent
+            color: var(--#{$name}-dark, #{$color-dark})
+  // Sizes
+  &.is-small
+    +button-small
+  &.is-normal
+    +button-normal
+  &.is-medium
+    +button-medium
+  &.is-large
+    +button-large
+  // Modifiers
+  &[disabled],
+  fieldset[disabled] &
+    background-color: var(--button-disabled-background-color)
+    border-color: var(--button-disabled-border-color)
+    box-shadow: var(--button-disabled-shadow)
+    opacity: var(--button-disabled-opacity)
+  &.is-fullwidth
+    display: flex
+    width: 100%
+  &.is-loading
+    color: transparent !important
+    pointer-events: none
+    &::after
+      @extend %loader
+      +center(1em)
+      position: absolute !important
+  &.is-static
+    background-color: var(--button-static-background-color)
+    border-color: var(--button-static-border-color)
+    color: var(--button-static-color)
+    box-shadow: none
+    pointer-events: none
+  &.is-rounded
+    border-radius: var(--radius-rounded, #{$radius-rounded})
+    padding-left: calc(#{var(--button-padding-horizontal, #{$button-padding-horizontal})} + 0.25em)
+    padding-right: calc(#{var(--button-padding-horizontal, #{$button-padding-horizontal})} + 0.25em)
+
+.buttons
+  align-items: center
+  display: flex
+  flex-wrap: wrap
+  justify-content: flex-start
+  .button
+    margin-bottom: 0.5rem
+    &:not(:last-child):not(.is-fullwidth)
+      +ltr-property("margin", 0.5rem)
+  &:last-child
+    margin-bottom: -0.5rem
+  &:not(:last-child)
+    margin-bottom: 1rem
+  // Sizes
+  &.are-small
+    .button:not(.is-normal):not(.is-medium):not(.is-large)
+      +button-small
+  &.are-medium
+    .button:not(.is-small):not(.is-normal):not(.is-large)
+      +button-medium
+  &.are-large
+    .button:not(.is-small):not(.is-normal):not(.is-medium)
+      +button-large
+  &.has-addons
+    .button
+      &:not(:first-child)
+        border-bottom-left-radius: 0
+        border-top-left-radius: 0
+      &:not(:last-child)
+        border-bottom-right-radius: 0
+        border-top-right-radius: 0
+        +ltr-property("margin", -1px)
+      &:last-child
+        +ltr-property("margin", 0)
+      &:hover,
+      &.is-hovered
+        z-index: 2
+      &:focus,
+      &.is-focused,
+      &:active,
+      &.is-active,
+      &.is-selected
+        z-index: 3
+        &:hover
+          z-index: 4
+      &.is-expanded
+        flex-grow: 1
+        flex-shrink: 1
+  &.is-centered
+    justify-content: center
+    &:not(.has-addons)
+      .button:not(.is-fullwidth)
+        margin-left: 0.25rem
+        margin-right: 0.25rem
+  &.is-right
+    justify-content: flex-end
+    &:not(.has-addons)
+      .button:not(.is-fullwidth)
+        margin-left: 0.25rem
+        margin-right: 0.25rem

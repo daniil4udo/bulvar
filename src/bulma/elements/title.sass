@@ -1,0 +1,92 @@
+@import "../utilities/mixins"
+
+$title-color: var(--text-strong, #{$text-strong}) !default
+$title-family: false !default
+$title-size: var(--size-3, #{$size-3}) !default
+$title-weight: var(--weight-semibold, #{$weight-semibold}) !default
+$title-line-height: 1.125 !default
+$title-strong-color: inherit !default
+$title-strong-weight: inherit !default
+$title-sub-size: 0.75em !default
+$title-sup-size: 0.75em !default
+
+$subtitle-color: var(--text, #{$text}) !default
+$subtitle-family: false !default
+$subtitle-size: var(--size-5, #{$size-5}) !default
+$subtitle-weight: var(--weight-normal, #{$weight-normal}) !default
+$subtitle-line-height: 1.25 !default
+$subtitle-strong-color: var(--text-strong, #{$text-strong}) !default
+$subtitle-strong-weight: var(--weight-semibold, #{$weight-semibold}) !default
+$subtitle-negative-margin: -1.25rem !default
+
+$css-vars-map: ('title-sub-size': ($title-sub-size),'title-family': ($title-family),'title-sup-size': ($title-sup-size),'title-color': ($title-color),'title-font-size': ($title-size),'title-weight': ($title-weight),'title-line-height': ($title-line-height),'title-strong-color': ($title-strong-color),'title-strong-weight': ($title-strong-weight),'subtitle-color': ($subtitle-color),'subtitle-family': ($subtitle-family),'subtitle-font-size': ($subtitle-size),'subtitle-weight': ($subtitle-weight),'subtitle-line-height': ($subtitle-line-height),'subtitle-strong-color': ($subtitle-strong-color),'subtitle-strong-weight': ($subtitle-strong-weight),'subtitle-negative-margin': ($subtitle-negative-margin))
+// --title-sub-size: #{$title-sub-size}
+// --title-sup-size: #{$title-sup-size}
+// --title-color: #{$title-color}
+// --title-family: #{$title-family}
+// --title-font-size: #{$title-size}
+// --title-weight: #{$title-weight}
+// --title-line-height: #{$title-line-height}
+// --title-strong-color: #{$title-strong-color}
+// --title-strong-weight: #{$title-strong-weight}
+// --subtitle-color: #{$subtitle-color}
+// --subtitle-family: #{$subtitle-family}
+// --subtitle-font-size: #{$subtitle-size}
+// --subtitle-weight: #{$subtitle-weight}
+// --subtitle-line-height: #{$subtitle-line-height}
+// --subtitle-strong-color: #{$subtitle-strong-color}
+// --subtitle-strong-weight: #{$subtitle-strong-weight}
+// --subtitle-negative-margin: #{$subtitle-negative-margin}
+
+.title, .subtitle, [class^="title-"], [class^="subtitle-"]
+  +registerCSSVars($css-vars-map, $at-root)
+
+.title,
+.subtitle
+  @extend %block
+  word-break: break-word
+  em,
+  span
+    font-weight: inherit
+  sub
+    font-size: var(--title-sub-size)
+  sup
+    font-size: var(--title-sup-size)
+  .tag
+    vertical-align: middle
+
+.title
+  color: var(--title-color)
+  @if $title-family
+    font-family: var(--title-family)
+  font-size: var(--title-font-size)
+  font-weight: var(--title-weight)
+  line-height: var(--title-line-height)
+  strong
+    color: var(--title-strong-color)
+    font-weight: var(--title-strong-weight)
+  &:not(.is-spaced) + .subtitle
+    margin-top: var(--subtitle-negative-margin)
+  // Sizes
+  @each $size in $sizes
+    $i: index($sizes, $size)
+    &.is-#{$i}
+      font-size: $size
+
+.subtitle
+  color: var(--subtitle-color)
+  @if $subtitle-family
+    font-family: var(--subtitle-family)
+  font-size: var(--subtitle-font-size)
+  font-weight: var(--subtitle-weight)
+  line-height: var(--subtitle-line-height)
+  strong
+    color: var(--subtitle-strong-color)
+    font-weight: var(--subtitle-strong-weight)
+  &:not(.is-spaced) + .title
+    margin-top: var(--subtitle-negative-margin)
+  // Sizes
+  @each $size in $sizes
+    $i: index($sizes, $size)
+    &.is-#{$i}
+      font-size: $size

@@ -1,0 +1,87 @@
+$rate-color: var(--grey-lighter, #{$grey-lighter}) !default;
+$rate-color-active-hsla: bulmaCSSVarDarken('warning', 5%) !default;
+$rate-color-active: var(--rate-color-active-hsla, #{bulmaDarken($warning, 5%)}) !default;
+$rate-spaced: 0.25rem !default;
+$rate-text-spaced: 0.35rem !default;
+$rate-text-font-size: var(--size-normal, #{$size-normal}) !default;
+
+$css-vars-map: (
+    'rate-color': ($rate-color),
+    'rate-color-active-hsla': ($rate-color-active-hsla),
+    'rate-color-active': ($rate-color-active),
+    'rate-spaced': ($rate-spaced),
+    'rate-text-spaced': ($rate-text-spaced),
+    'rate-text-font-size': ($rate-text-font-size),
+);
+
+.rate, [class^="rate-"] {
+    @include registerCSSVars($css-vars-map, $at-root)
+}
+
+.rate {
+    align-items: center;
+    display: flex;
+    &:not(:last-child) {
+        margin-bottom: calc(#{var(--block-spacing, #{$block-spacing})} * 0.5);
+    }
+    &.is-spaced .rate-item:not(:last-child) {
+        margin-right: var(--rate-spaced);
+    }
+    &.is-disabled .rate-item {
+        cursor: initial;
+        &:hover {
+            transform: none;
+        }
+    }
+    &.is-rtl {
+       .rate-item {
+            order: 1;
+       }
+       .rate-text {
+            margin-left: 0;
+            margin-right: var(--rate-text-spaced);
+       }
+    }
+    .rate-item {
+        cursor: pointer;
+        display: inline-flex;
+        position: relative;
+        transition: all 0.3s;
+        &:hover {
+            transform: scale(1.1);
+        }
+        &.set-on .icon,
+        &.set-half .is-half {
+            color: var(--rate-color-active);
+        }
+        &.set-half .is-half {
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+        }
+    }
+    .icon {
+        color: var(--rate-color);
+        line-height: 1;
+        pointer-events: none;
+        width: inherit;
+    }
+    .is-half > i {
+        position: absolute;
+        left: 0;
+    }
+    .rate-text {
+        font-size: calc(var(--rate-text-font-size) / 1.25);
+        margin-left: var(--rate-text-spaced);
+        &.is-small {
+            --rate-text-font-size: var(--size-small, #{$size-small});
+        }
+        &.is-medium {
+            --rate-text-font-size: var(--size-medium, #{$size-medium});
+        }
+        &.is-large {
+            --rate-text-font-size: var(--size-large, #{$size-large});
+        }
+    }
+}

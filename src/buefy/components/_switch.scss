@@ -1,0 +1,230 @@
+
+$switch-width: 2.75em !default;
+$switch-padding: 0.2em !default;
+$switch-active-background-color: $primary !default;
+$switch-colors: $form-colors !default;
+
+$css-vars-map: (
+    'switch-width': ($switch-width),
+    'switch-padding': ($switch-padding),
+    'switch-active-background-color': ($switch-active-background-color),
+);
+
+.switch, [class^="switch-"] {
+    @include registerCSSVars($css-vars-map, $at-root)
+}
+
+.switch {
+    @extend %unselectable;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    margin-right: 0.5em;
+    & + .switch:last-child {
+        margin-right: 0;
+    }
+    input[type=checkbox] {
+        position: absolute;
+        left: 0;
+        opacity: 0;
+        outline: none;
+        z-index: -1;
+        + .check {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            width: var(--switch-width);
+            height: calc(#{var(--switch-width)} * .5 + #{var(--switch-padding)});
+            padding: var(--switch-padding);
+            background: $grey-light;
+            border-radius: var(--radius, #{$radius});
+            // transition: background $speed-slow $easing, box-shadow $speed-slow $easing;
+            transition-property: background, box-shadow;
+            transition-duration: calc(var(--speed, #{$speed}) * 2), calc(var(--speed, #{$speed}) * 2);
+            transition-timing-function: var(--easing, #{$easing}), var(--easing, #{$easing});
+            @each $name, $pair in $switch-colors {
+                $color: nth($pair, 1);
+                &.is-#{$name}-passive, &:hover {
+                    background: var(--#{$name}, #{$color});
+                }
+                &.input[type=checkbox] + &.check {
+                    background: 'pink';
+                }
+            }
+            &:before {
+                content: "";
+                display: block;
+                border-radius: var(--radius, #{$radius});
+                width: calc((#{var(--switch-width)} - #{var(--switch-padding)} * 2) * .5);
+                height: calc((#{var(--switch-width)} - #{var(--switch-padding)} * 2) * .5);
+                background: var(--background, #{$background});
+                box-shadow: 0 3px 1px 0 rgba(var(--scheme-invert-rgb, #{bulmaToRGB($black)}), 0.05), 0 2px 2px 0 rgba(var(--scheme-invert-rgb, #{bulmaToRGB($black)}), 0.1), 0 3px 3px 0 rgba(var(--scheme-invert-rgb, #{bulmaToRGB($black)}), 0.05);
+                // transition: transform $speed-slow $easing;
+                transition-property: transform;
+                transition-duration: calc(var(--speed, #{$speed}) * 2);
+                transition-timing-function: var(--easing, #{$easing});
+                will-change: transform;
+                transform-origin: left;
+            }
+            &.is-elastic:before {
+                transform: scaleX(1.5);
+                border-radius: var(--radius, #{$radius});
+            }
+        }
+        &:checked + .check {
+            background: var(--switch-active-background-color);
+            @each $name, $pair in $switch-colors {
+                $color: nth($pair, 1);
+                &.is-#{$name} {
+                    background: var(--#{$name}, #{$color});
+                }
+            }
+            &:before {
+                transform: translate3d(100%, 0, 0);
+            }
+            &.is-elastic:before {
+                // Might be a little offset if base font is not 16px
+                transform: translate3d(50%, 0, 0) scaleX(1.5);
+            }
+        }
+        &:focus, &:active {
+            outline: none;
+            + .check {
+                box-shadow: 0 0 0.5em rgba($grey, 0.6);
+                @each $name, $pair in $switch-colors {
+                    $color: nth($pair, 1);
+                    &.is-#{$name}-passive {
+                        box-shadow: 0 0 0.5em bulmaCSSVarHsla($name, 0.8);
+                    }
+                }
+            }
+            &:checked + .check {
+                box-shadow: 0 0 0.5em rgba($grey-light, 0.8);
+                @each $name, $pair in $switch-colors {
+                    $color: nth($pair, 1);
+                    &.is-#{$name} {
+                        box-shadow: 0 0 0.5em bulmaCSSVarHsla($name, 0.8);
+                    }
+                }
+            }
+        }
+    }
+
+    &.has-left-label {
+        flex-direction: row-reverse;
+        .control-label {
+            padding-right: var(--control-padding-horizontal, #{$control-padding-horizontal});
+        }
+    }
+
+    &:not(.has-left-label) {
+        .control-label {
+            padding-left: var(--control-padding-horizontal, #{$control-padding-horizontal});
+        }
+    }
+
+    &:hover {
+        input[type=checkbox] + .check {
+            background: rgba($grey-light, 0.9);
+            @each $name, $pair in $switch-colors {
+                $color: nth($pair, 1);
+                &.is-#{$name}-passive {
+                    background: bulmaCSSVarHsla($name, 0.9);
+                }
+            }
+        }
+        input[type=checkbox]:checked + .check {
+            background: rgba($grey-light, 0.9);
+            @each $name, $pair in $switch-colors {
+                $color: nth($pair, 1);
+                &.is-#{$name} {
+                    background: bulmaCSSVarHsla($name, 0.9);
+                }
+            }
+        }
+    }
+    &.is-rounded {
+        input[type=checkbox] {
+            + .check {
+                border-radius: var(--radius-rounded, #{$radius-rounded});
+                &:before {
+                    border-radius: var(--radius-rounded, #{$radius-rounded});
+                }
+            }
+            &.is-elastic:before {
+                transform: scaleX(1.5);
+                border-radius: var(--radius-rounded, #{$radius-rounded});
+            }
+        }
+    }
+    &.is-outlined {
+        input[type=checkbox] {
+            + .check {
+                background: transparent;
+                border: .1rem solid $grey-light;
+                @each $name, $pair in $switch-colors {
+                    $color: nth($pair, 1);
+                    &.is-#{$name}-passive {
+                        border: .1rem solid bulmaCSSVarHsla($name, 0.9);
+                        &:before {
+                            background: var(--#{$name}, #{$color});
+                        }
+                        &:hover {
+                            border-color: bulmaCSSVarHsla($name, 0.9);
+                        }
+                    }
+                }
+                &:before {
+                    background: $grey-light;
+                }
+            }
+            &:checked + .check {
+                border-color: var(--switch-active-background-color);
+                @each $name, $pair in $switch-colors {
+                    $color: nth($pair, 1);
+                    &.is-#{$name} {
+                        background: transparent;
+                        border-color: var(--#{$name}, #{$color});
+                        &:before {
+                            background: var(--#{$name}, #{$color});
+                        }
+                    }
+                }
+                &:before {
+                    background: var(--switch-active-background-color);
+                }
+            }
+        }
+        &:hover {
+            input[type=checkbox] + .check {
+                background: transparent;
+                border-color: rgba($grey-light, 0.9);
+            }
+            input[type=checkbox]:checked + .check {
+                background: transparent;
+                border-color: rgba($switch-active-background-color, 0.9);
+                @each $name, $pair in $switch-colors {
+                    $color: nth($pair, 1);
+                    &.is-#{$name} {
+                        border-color: bulmaCSSVarHsla($name, 0.9);
+                    }
+                }
+            }
+        }
+    }
+    &.is-small {
+        @include control-small;
+    }
+    &.is-medium{
+        @include control-medium;
+    }
+    &.is-large {
+        @include control-large;
+    }
+    &[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+        color: $grey;
+    }
+}

@@ -1,0 +1,81 @@
+{
+  "name": "bulma-buefy-css-variables",
+  "version": "0.9.0",
+  "homepage": "https://bulma.io",
+  "author": {
+    "name": "Daniil Chumachenko",
+    "email": "daniil4udo@gmail.com"
+  },
+  "description": "Modern CSS framework based on Flexbox and CSS Variables",
+  "main": "buefy.sass",
+  "unpkg": "css/buefy.css",
+  "style": "css/buefy.min.css",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dino4udo/bulma-buefy-css-variables.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "css",
+    "css vars",
+    "css properties",
+    "sass",
+    "flexbox",
+    "responsive",
+    "framework"
+  ],
+  "bugs": {
+    "url": "https://github.com/dino4udo/bulma-buefy-css-variables/issues"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.3.1",
+    "clean-css-cli": "^5.3.3",
+    "lint-staged": "^11.1.2",
+    "node-sass": "^6.0.1",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.6",
+    "postcss-cli": "^8.3.1",
+    "rimraf": "^3.0.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-css-modules": "^2.2.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-recess-order": "^2.4.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-no-unsupported-browser-features": "^5.0.1",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.20.1",
+    "stylelint-selector-bem-pattern": "^2.1.1",
+    "stylelint-selector-no-empty": "^1.0.8"
+  },
+  "scripts": {
+    "lint:stylelint": "stylelint --fix",
+    "lint:all:stylelint": "yarn lint:stylelint \"src/**/*.{sass,scss}\"",
+    "build": "run-s  build:*",
+    "build:bulma-sass": "node-sass --output-style expanded --source-map true src/bulma.sass css/bulma.css",
+    "build:bulma-autoprefix": "postcss --use autoprefixer --map false --output css/bulma.css css/bulma.css",
+    "build:bulma-cleancss": "cleancss -o css/bulma.min.css css/bulma.css",
+    "build:buefy-sass": "node-sass --output-style expanded --source-map true src/buefy.sass css/buefy.css",
+    "build:buefy-autoprefix": "postcss --use autoprefixer --map false --output css/buefy.css css/buefy.css",
+    "build:buefy-cleancss": "cleancss -o css/buefy.min.css css/buefy.css",
+    "rtl": "run-s rtl:*",
+    "rtl:bulma-sass": "node-sass --output-style expanded --source-map true src/bulma-rtl.sass css/bulma-rtl.css",
+    "rtl:bulma-autoprefix": "postcss --use autoprefixer --map false --output css/bulma-rtl.css css/bulma-rtl.css",
+    "rtl:bulma-cleancss": "cleancss -o css/bulma-rtl.min.css css/bulma-rtl.css",
+    "rtl:buefy-sass": "node-sass --output-style expanded --source-map true src/buefy-rtl.sass css/buefy-rtl.css",
+    "rtl:buefy-autoprefix": "postcss --use autoprefixer --map false --output css/buefy-rtl.css css/buefy-rtl.css",
+    "rtl:buefy-cleancss": "cleancss -o css/buefy-rtl.min.css css/buefy-rtl.css",
+    "clean": "rimraf css",
+    "deploy": "yarn clean && yarn build && yarn rtl",
+    "start": "yarn build-sass -- --watch"
+  },
+  "files": [
+    "css",
+    "src",
+    "bulma.sass",
+    "buefy.sass",
+    "bulma-rtl.sass",
+    "buefy-rtl.sass",
+    "LICENSE",
+    "README.md"
+  ]
+}

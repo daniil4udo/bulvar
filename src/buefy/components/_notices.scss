@@ -1,0 +1,163 @@
+$notices-shadow-color: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($black)}), 0.12) !default;
+$notices-shadow-color-bis: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($black)}), 0.04) !default;
+$notices-box-shadow: 0 1px 4px $notices-shadow-color, 0 0 6px $notices-shadow-color-bis !default;
+
+$toast-border-radius: 2em !default;
+$toast-opacity: 0.92 !default;
+$toast-box-shadow: $notices-box-shadow !default;
+
+$snackbar-background-color: var(--dark, #{$dark}) !default; // dark is registered as var hence has hsl map
+$snackbar-color: var(--dark-invert, #{$dark-invert}) !default;
+$snackbar-border-radius: var(--radius, #{$radius}) !default;
+$snackbar-button-text-transform: uppercase !default;
+$snackbar-box-shadow: $notices-box-shadow !default;
+
+$css-vars-map: (
+    'notices-box-shadow': ($notices-box-shadow),
+    'toast-border-radius': ($toast-border-radius),
+    'toast-opacity': ($toast-opacity),
+    'toast-box-shadow': ($toast-box-shadow),
+    'snackbar-background-color': ($snackbar-background-color),
+    'snackbar-color': ($snackbar-color),
+    'snackbar-border-radius': ($snackbar-border-radius),
+    'snackbar-button-text-transform': ($snackbar-button-text-transform),
+    'snackbar-box-shadow': ($snackbar-box-shadow),
+);
+
+.notices, [class^="notices-"] {
+    @include registerCSSVars($css-vars-map, $at-root)
+}
+
+.notices {
+    position: fixed;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2em;
+    overflow: hidden;
+    z-index: 1000;
+    pointer-events: none;
+    .toast {
+        display: inline-flex;
+        animation-duration: calc(var(--speed, #{$speed}) * 2);
+        margin: 0.5em 0;
+        text-align: center;
+        box-shadow: var(--toast-box-shadow);
+        border-radius: var(--toast-border-radius);
+        padding: 0.75em 1.5em;
+        pointer-events: auto;
+        opacity: var(--toast-opacity);
+        @each $name, $pair in $notification-colors {
+            $color: nth($pair, 1);
+            $color-invert: nth($pair, 2);
+            &.is-#{$name} {
+                color: var(--#{$name}-invert, #{$color-invert});
+                background: var(--#{$name}, #{$color});
+            }
+        }
+    }
+    .snackbar {
+        --snackbar-button-background-color: #{bulmaCSSVarDarken('dark', 5%)};
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-around;
+        animation-duration: calc(var(--speed, #{$speed}) * 2);
+        margin: 0.5em 0;
+        box-shadow: var(--snackbar-box-shadow);
+        border-radius: var(--snackbar-border-radius);
+        pointer-events: auto;
+        background: var(--snackbar-background-color);
+        color: var(--snackbar-color);
+        min-height: 3em;
+        .text {
+            padding: 0.5em 1em;
+        }
+        .action {
+            margin-left: auto;
+            padding: 0.5em;
+            padding-left: 0;
+            .button {
+                font-weight: var(--weight-semibold, #{$weight-semibold});
+                text-transform: var(--snackbar-button-text-transform);
+                background: var(--snackbar-background-color);
+                border: transparent;
+            }
+            .button:hover {
+                // TODO: revisit
+                background: var(--snackbar-button-background-color, #{bulmaDarken($dark, 5%)});
+            }
+            .button:active {
+                background: var(--snackbar-button-background-color, #{bulmaDarken($dark, 5%)});
+            }
+            @each $name, $pair in $notification-colors {
+                $color: nth($pair, 1);
+                &.is-#{$name} {
+                    .button {
+                        color: var(--#{$name}, #{$color});
+                    }
+                }
+            }
+        }
+        .action.is-cancel {
+            padding-right: 0;
+        }
+        @include mobile {
+            width: 100%;
+            margin: 0;
+            border-radius: 0;
+        }
+        @include tablet {
+            min-width: 350px;
+            max-width: 600px;
+            overflow: hidden;
+        }
+    }
+    .notification {
+        max-width: 600px;
+    }
+
+    .toast,
+    .snackbar,
+    .notification {
+        // Modifiers
+        &.is-top, &.is-bottom {
+            align-self: center;
+        }
+        &.is-top-right, &.is-bottom-right {
+            align-self: flex-end;
+        }
+        &.is-top-left, &.is-bottom-left {
+            align-self: flex-start;
+        }
+        &.is-toast {
+            opacity: var(--toast-opacity);
+        }
+    }
+
+    // Modifiers
+    &.is-top {
+        flex-direction: column;
+    }
+    &.is-bottom {
+        flex-direction: column-reverse;
+
+        // Since the columns are reversed, we need to reverse the margin logic from
+        // :not(:last-child) to :not(:first-child)
+        .notification {
+            margin-bottom: 0;
+            &:not(:first-child) {
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+    &.has-custom-container {
+        position: absolute;
+    }
+
+    @include mobile {
+        padding: 0;
+        position: fixed !important;
+    }
+}

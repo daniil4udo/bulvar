@@ -1,0 +1,179 @@
+@import "../utilities/mixins"
+
+$body-background-color: var(--scheme-main, #{$scheme-main}) !default
+$body-size: 16px !default
+$body-min-width: 300px !default
+$body-rendering: optimizeLegibility !default
+$body-family: var(--family-primary, #{$family-primary}) !default
+$body-overflow-x: hidden !default
+$body-overflow-y: scroll !default
+
+$body-color: var(--text, #{$text}) !default
+$body-font-size: 1em !default
+$body-weight: var(--weight-normal, #{$weight-normal}) !default
+$body-line-height: 1.5 !default
+
+$code-family: var(--family-code, #{$family-code}) !default
+$code-padding: 0.25em 0.5em 0.25em !default
+$code-weight: normal !default
+$code-size: 0.875em !default
+
+$small-font-size: 0.875em !default
+
+$hr-background-color: var(--background, #{$background}) !default
+$hr-height: 2px !default
+$hr-margin: 1.5rem 0 !default
+
+$strong-color: var(--text-strong, #{$text-strong}) !default
+$strong-weight: var(--weight-bold, #{$weight-bold}) !default
+
+$pre-font-size: 0.875em !default
+$pre-padding: 1.25rem 1.5rem !default
+$pre-code-font-size: 1em !default
+
+$css-vars-map: ('body-background-color': ($body-background-color),'body-size': ($body-size),'body-min-width': ($body-min-width),'body-rendering': ($body-rendering),'body-family': ($body-family),'body-overflow-x': ($body-overflow-x),'body-overflow-y': ($body-overflow-y),'body-color': ($body-color),'body-font-size': ($body-font-size),'body-weight': ($body-weight),'body-line-height': ($body-line-height),'code-family': ($code-family),'code-padding': ($code-padding),'code-weight': ($code-weight),'code-size': ($code-size),'small-font-size': ($small-font-size),'hr-background-color': ($hr-background-color),'hr-height': ($hr-height),'hr-margin': ($hr-margin),'strong-color': ($strong-color),'strong-weight': ($strong-weight),'pre-font-size': ($pre-font-size),'pre-padding': ($pre-padding),'pre-code-font-size': ($pre-code-font-size))
+// --body-background-color: #{$body-background-color}
+// --body-size: #{$body-size}
+// --body-min-width: #{$body-min-width}
+// --body-overflow-x: #{$body-overflow-x}
+// --body-overflow-y: #{$body-overflow-y}
+// --body-rendering: #{$body-rendering}
+// --body-family: #{$body-family}
+// --code-family: #{$code-family}
+// --body-color: #{$body-color}
+// --body-font-size: #{$body-font-size}
+// --body-weight: #{$body-weight}
+// --body-line-height: #{$body-line-height}
+// --link: #{$link}
+// --link-hover: #{$link-hover}
+// --code-background: #{$code-background}
+// --code: #{$code}
+// --code-size: #{$code-size}
+// --code-weight: #{$code-weight}
+// --code-padding: #{$code-padding}
+// --hr-background-color: #{$hr-background-color}
+// --hr-height: #{$hr-height}
+// --hr-margin: #{$hr-margin}
+// --small-font-size: #{$small-font-size}
+// --strong-color: #{$strong-color}
+// --strong-weight: #{$strong-weight}
+// --pre-background: #{$pre-background}
+// --pre: #{$pre}
+// --pre-font-size: #{$pre-font-size}
+// --pre-padding: #{$pre-padding}
+// --pre-code-font-size: #{$pre-code-font-size}
+// --text-strong: #{$text-strong}
+
+html
+  +registerCSSVars($css-vars-map, $at-root)
+  background-color: var(--body-background-color)
+  font-size: var(--body-size)
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
+  min-width: var(--body-min-width)
+  overflow-x: var(--body-overflow-x)
+  overflow-y: var(--body-overflow-y)
+  text-rendering: var(--body-rendering)
+  text-size-adjust: 100%
+
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+section
+  display: block
+
+body,
+button,
+input,
+optgroup,
+select,
+textarea
+  font-family: var(--body-family)
+
+code,
+pre
+  -moz-osx-font-smoothing: auto
+  -webkit-font-smoothing: auto
+  font-family: var(--code-family)
+
+body
+  color: var(--body-color)
+  font-size: var(--body-font-size)
+  font-weight: var(--body-weight)
+  line-height: var(--body-line-height)
+
+// Inline
+
+a
+  color: var(--link)
+  cursor: pointer
+  text-decoration: none
+  strong
+    color: currentColor
+  &:hover
+    color: var(--link-hover)
+
+code
+  background-color: var(--code-background)
+  color: var(--code)
+  font-size: var(--code-size)
+  font-weight: var(--code-weight)
+  padding: var(--code-padding)
+
+hr
+  background-color: var(--hr-background-color)
+  border: none
+  display: block
+  height: var(--hr-height)
+  margin: var(--hr-margin)
+
+img
+  height: auto
+  max-width: 100%
+
+input[type="checkbox"],
+input[type="radio"]
+  vertical-align: baseline
+
+small
+  font-size: var(--small-font-size)
+
+span
+  font-style: inherit
+  font-weight: inherit
+
+strong
+  color: var(--strong-color)
+  font-weight: var(--strong-weight)
+
+// Block
+
+fieldset
+  border: none
+
+pre
+  +overflow-touch
+  background-color: var(--pre-background)
+  color: var(--pre)
+  font-size: var(--pre-font-size)
+  overflow-x: auto
+  padding: var(--pre-padding)
+  white-space: pre
+  word-wrap: normal
+  code
+    background-color: transparent
+    color: currentColor
+    font-size: var(--pre-code-font-size)
+    padding: 0
+
+table
+  td,
+  th
+    vertical-align: top
+    &:not([align])
+      text-align: inherit
+  th
+    color: var(--text-strong)

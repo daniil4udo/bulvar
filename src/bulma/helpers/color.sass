@@ -1,0 +1,42 @@
+@import "../utilities/derived-variables"
+
+@each $name, $pair in $colors
+  $color: nth($pair, 1)
+  .has-text-#{$name}
+    --has-text-hover-color: #{bulmaCSSVarDarken($name, 10%)}
+    color: var(--#{$name}, #{$color}) !important
+  a.has-text-#{$name}
+    &:hover,
+    &:focus
+      color: var(--has-text-hover-color, #{bulmaDarken($color, 10%)}) !important
+  .has-background-#{$name}
+    background-color: var(--#{$name}, #{$color}) !important
+  @if length($pair) >= 4
+    $color-light: nth($pair, 3)
+    $color-dark: nth($pair, 4)
+    // Light
+    .has-text-#{$name}-light
+      --has-text-light-hover-color: #{bulmaCSSVarDarken($name, calc(#{var(--#{$name}-light-l)} - 10%))}
+      color: var(--#{$name}-light, #{$color-light}) !important
+    a.has-text-#{$name}-light
+      &:hover,
+      &:focus
+        color: var(--has-text-light-hover-color, #{bulmaDarken($color-light, 10%)}) !important
+    .has-background-#{$name}-light
+      background-color: var(--#{$name}-light, #{$color-light}) !important
+    // Dark
+    .has-text-#{$name}-dark
+      --has-text-dark-hover-color: #{bulmaCSSVarLighten($name, calc(#{var(--#{$name}-light-l)} + 10%))}
+      color: var(--#{$name}-dark, #{$color-dark}) !important
+    a.has-text-#{$name}-dark
+      &:hover,
+      &:focus
+        color: var(--has-text-dark-hover-color, #{bulmaLighten($color-dark, 10%)}) !important
+    .has-background-#{$name}-dark
+      background-color: var(--#{$name}-dark, #{$color-dark}) !important
+
+@each $name, $shade in $shades
+  .has-text-#{$name}
+    color: var(--#{$name}, #{$shade}) !important
+  .has-background-#{$name}
+    background-color: var(--#{$name}, #{$shade}) !important

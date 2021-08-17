@@ -1,0 +1,131 @@
+$checkbox-active-background-color: var(--primary, #{$primary}) !default;
+$checkbox-focus-box-shadow-color-hsla: bulmaCSSVarHsla('primary', 0.8) !default;
+$checkbox-focus-box-shadow-color: var(--checkbox-focus-box-shadow-color-hsla, #{bulmaRgba($primary, 0.8)}) !default;
+$checkbox-background-color: transparent !default;
+$checkbox-border-color: $grey !default;
+$checkbox-border-radius: var(--radius, #{$radius}) !default;
+$checkbox-border-width: 2px !default;
+$checkbox-checkmark-color: var(--primary-invert, #{$primary-invert}) !default;
+$checkbox-size: 1.25em !default;
+$checkbox-padding: var(--control-padding-horizontal, #{$control-padding-horizontal}) !default;
+
+$checkbox-colors: $form-colors !default;
+
+$css-vars-map: (
+    'checkbox-active-background-color': ($checkbox-active-background-color),
+    'checkbox-focus-box-shadow-color-hsla': ($checkbox-focus-box-shadow-color-hsla),
+    'checkbox-focus-box-shadow-color': ($checkbox-focus-box-shadow-color),
+    'checkbox-background-color': ($checkbox-background-color),
+    'checkbox-border-color': ($checkbox-border-color),
+    'checkbox-border-radius': ($checkbox-border-radius),
+    'checkbox-border-width': ($checkbox-border-width),
+    'checkbox-checkmark-color': ($checkbox-checkmark-color),
+    'checkbox-size': ($checkbox-size),
+    'checkbox-padding': ($checkbox-padding),
+);
+
+.b-checkbox, [class^="b-checkbox-"] {
+    @include registerCSSVars($css-vars-map, $at-root)
+}
+
+.b-checkbox {
+    &.checkbox {
+        @extend %unselectable;
+        outline: none;
+        display: inline-flex;
+        align-items: center;
+        &:not(.button) {
+            margin-right: 0.5em;
+            & + .checkbox:last-child {
+                margin-right: 0;
+            }
+        }
+        input[type=checkbox] {
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            outline: none;
+            z-index: -1;
+            + .check {
+                width: var(--checkbox-size, #{$checkbox-size});
+                height: var(--checkbox-size, #{$checkbox-size});
+                flex-shrink: 0;
+                border-radius: var(--checkbox-border-radius);
+                border: var(--checkbox-border-width) solid var(--checkbox-border-color);
+                // transition: background $speed-slow $easing;
+                transition-property: background;
+                transition-duration: calc(var(--speed, #{$speed}) * 2);
+                transition-timing-function: var(--easing, #{$easing});
+                background: var(--checkbox-background-color)
+            }
+            &:checked + .check {
+                background: var(--checkbox-active-background-color) url(checkmark($checkbox-checkmark-color)) no-repeat center center;
+                border-color: var(--checkbox-active-background-color);
+                @each $name, $pair in $checkbox-colors {
+                    $color: nth($pair, 1);
+                    $color-invert: nth($pair, 2);
+                    &.is-#{$name} {
+                        background: var(--#{$name}, #{$color}) url(checkmark($color-invert)) no-repeat center center;
+                        border-color: var(--#{$name}, #{$color});
+                    }
+                }
+            }
+            &:indeterminate + .check {
+                background: var(--checkbox-active-background-color) url(indeterminate($checkbox-checkmark-color)) no-repeat center center;
+                border-color: var(--checkbox-active-background-color);
+                @each $name, $pair in $checkbox-colors {
+                    $color: nth($pair, 1);
+                    $color-invert: nth($pair, 2);
+                    &.is-#{$name} {
+                        background: var(--#{$name}, #{$color}) url(indeterminate($color-invert)) no-repeat center center;
+                        border-color: var(--#{$name}, #{$color});
+                    }
+                }
+            }
+            &:focus {
+                + .check {
+                    box-shadow: 0 0 0.5em bulmaRgba($grey, 0.8);
+                }
+                &:checked + .check {
+                    box-shadow: 0 0 0.5em var(--checkbox-focus-box-shadow-color);
+                    @each $name, $pair in $checkbox-colors {
+                        $color: nth($pair, 1);
+                        &.is-#{$name} {
+                            --focus-box-shadow-color: #{bulmaCSSVarHsla($name, 0.8)};
+                            box-shadow: 0 0 0.5em var(--focus-box-shadow-color, #{bulmaRgba($color, 0.8)});
+                        }
+                    }
+                }
+            }
+        }
+        .control-label {
+            padding-left: var(--checkbox-padding);
+        }
+        &.button {
+            display: flex;
+        }
+        &[disabled] {
+            opacity: 0.5;
+        }
+        &:hover {
+            input[type=checkbox]:not(:disabled) + .check {
+                border-color: var(--checkbox-active-background-color);
+                @each $name, $pair in $checkbox-colors {
+                    $color: nth($pair, 1);
+                    &.is-#{$name} {
+                        border-color: var(--#{$name}, #{$color});
+                    }
+                }
+            }
+        }
+        &.is-small {
+            @include control-small;
+        }
+        &.is-medium{
+            @include control-medium;
+        }
+        &.is-large {
+            @include control-large;
+        }
+    }
+}

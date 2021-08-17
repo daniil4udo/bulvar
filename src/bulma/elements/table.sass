@@ -1,0 +1,155 @@
+@import "../utilities/mixins"
+
+$table-color: var(--text-strong, #{$text-strong}) !default
+$table-background-color: var(--scheme-main, #{$scheme-main}) !default
+
+$table-cell-border: 1px solid var(--border, #{$border}) !default
+$table-cell-border-width: 0 0 1px !default
+$table-cell-padding: 0.5em 0.75em !default
+$table-cell-heading-color: var(--text-strong, #{$text-strong}) !default
+
+$table-head-cell-border-width: 0 0 2px !default
+$table-head-cell-color: var(--text-strong, #{$text-strong}) !default
+$table-foot-cell-border-width: 2px 0 0 !default
+$table-foot-cell-color: var(--text-strong, #{$text-strong}) !default
+
+$table-head-background-color: transparent !default
+$table-body-background-color: transparent !default
+$table-foot-background-color: transparent !default
+
+$table-row-hover-background-color: var(--scheme-main-bis, #{$scheme-main-bis}) !default
+
+$table-row-active-background-color: var(--primary, #{$primary}) !default
+$table-row-active-color: var(--primary-invert, #{$primary-invert}) !default
+
+$table-striped-row-even-background-color: var(--scheme-main-bis, #{$scheme-main-bis}) !default
+$table-striped-row-even-hover-background-color: var(--scheme-main-ter, #{$scheme-main-ter}) !default
+
+$table-colors: $colors !default
+
+$css-vars-map: ('table-color': ($table-color),'table-cell-border-width': ($table-cell-border-width),'table-cell-border': ($table-cell-border),'table-cell-heading-color': ($table-cell-heading-color),'table-cell-padding': ($table-cell-padding),'table-head-cell-border-width': ($table-head-cell-border-width),'table-head-cell-color': ($table-head-cell-color),'table-foot-cell-border-width': ($table-foot-cell-border-width),'table-foot-cell-color': ($table-foot-cell-color),'table-head-background-color': ($table-head-background-color),'table-body-background-color': ($table-body-background-color),'table-foot-background-color': ($table-foot-background-color),'table-row-hover-background-color': ($table-row-hover-background-color),'table-row-active-background-color': ($table-row-active-background-color),'table-row-active-color': ($table-row-active-color),'table-striped-row-even-background-color': ($table-striped-row-even-background-color),'table-striped-row-even-hover-background-color': ($table-striped-row-even-hover-background-color))
+// --table-color: #{$table-color}
+// --table-cell-border-width: #{$table-cell-border-width}
+// --table-cell-border: #{$table-cell-border}
+// --table-cell-heading-color: #{$table-cell-heading-color}
+// --table-cell-padding: #{$table-cell-padding}
+// --table-head-cell-border-width: #{$table-head-cell-border-width}
+// --table-head-cell-color: #{$table-head-cell-color}
+// --table-foot-cell-border-width: #{$table-foot-cell-border-width}
+// --table-foot-cell-color: #{$table-foot-cell-color}
+// --table-head-background-color: #{$table-head-background-color}
+// --table-body-background-color: #{$table-body-background-color}
+// --table-foot-background-color: #{$table-foot-background-color}
+// --table-row-hover-background-color: #{$table-row-hover-background-color}
+// --table-row-active-background-color: #{$table-row-active-background-color}
+// --table-row-active-color: #{$table-row-active-color}
+// --table-striped-row-even-background-color: #{$table-striped-row-even-background-color}
+// --table-striped-row-even-hover-background-color: #{$table-striped-row-even-hover-background-color}
+
+.table, [class^="table-"]
+  +registerCSSVars($css-vars-map, $at-root)
+
+.table
+  @extend %block
+  background-color: var(--table-body-background-color)
+  color: var(--table-color)
+  td,
+  th
+    border: var(--table-cell-border)
+    border-width: var(--table-cell-border-width)
+    padding: var(--table-cell-padding)
+    vertical-align: top
+    // Colors
+    @each $name, $pair in $table-colors
+      $color: nth($pair, 1)
+      $color-invert: nth($pair, 2)
+      &.is-#{$name}
+        background-color: var(--#{$name}, #{$color})
+        border-color: var(--#{$name}, #{$color})
+        color: var(--#{$name}-invert, #{$color-invert})
+    // Modifiers
+    &.is-narrow
+      white-space: nowrap
+      width: 1%
+    &.is-selected
+      background-color: var(--table-row-active-background-color)
+      color: var(--table-row-active-color)
+      a,
+      strong
+        color: currentColor
+    &.is-vcentered
+      vertical-align: middle
+  th
+    color: var(--table-cell-heading-color)
+    &:not([align])
+      text-align: inherit
+  tr
+    &.is-selected
+      background-color: var(--table-row-active-background-color)
+      color: var(--table-row-active-color)
+      a,
+      strong
+        color: currentColor
+      td,
+      th
+        border-color: var(--table-row-active-color)
+        color: currentColor
+  thead
+    background-color: var(--table-head-background-color)
+    td,
+    th
+      border-width: var(--table-head-cell-border-width)
+      color: var(--table-head-cell-color)
+  tfoot
+    background-color: var(--table-foot-background-color)
+    td,
+    th
+      border-width: var(--table-foot-cell-border-width)
+      color: var(--table-foot-cell-color)
+  tbody
+    background-color: var(--table-body-background-color)
+    tr
+      &:last-child
+        td,
+        th
+          border-bottom-width: 0
+  // Modifiers
+  &.is-bordered
+    td,
+    th
+      border-width: 1px
+    tr
+      &:last-child
+        td,
+        th
+          border-bottom-width: 1px
+  &.is-fullwidth
+    width: 100%
+  &.is-hoverable
+    tbody
+      tr:not(.is-selected)
+        &:hover
+          background-color: var(--table-row-hover-background-color)
+    &.is-striped
+      tbody
+        tr:not(.is-selected)
+          &:hover
+            background-color: var(--table-row-hover-background-color)
+            &:nth-child(even)
+              background-color: var(--table-striped-row-even-hover-background-color)
+  &.is-narrow
+    td,
+    th
+      padding: 0.25em 0.5em
+  &.is-striped
+    tbody
+      tr:not(.is-selected)
+        &:nth-child(even)
+          background-color: var(--table-striped-row-even-background-color)
+
+.table-container
+  @extend %block
+  +overflow-touch
+  overflow: auto
+  overflow-y: hidden
+  max-width: 100%

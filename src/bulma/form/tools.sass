@@ -1,0 +1,238 @@
+$label-font-size: var(--size-normal, #{$size-normal}) !default
+$label-color: var(--text-strong, #{$text-strong}) !default
+$label-weight: var(--weight-bold, #{$weight-bold}) !default
+
+$help-size: var(--size-small, #{$size-small}) !default
+
+$control-font-size: var(--size-normal, #{$size-normal}) !default
+
+$label-colors: $form-colors !default
+
+$css-vars-map: ('label-font-size': ($label-font-size),'label-color': ($label-color),'label-font-weight': ($label-weight))
+// --label-font-size: #{$label-font-size}
+// --label-color: #{$label-color}
+// --label-font-weight: #{$label-weight}
+
+.label, [class^="label-"]
+  +registerCSSVars($css-vars-map, $at-root)
+
+.label
+  color: var(--label-color)
+  display: block
+  font-size: var(--label-font-size)
+  font-weight: var(--label-font-weight)
+  &:not(:last-child)
+    margin-bottom: 0.5em
+  // Sizes
+  &.is-small
+    --label-font-size: var(--size-small, #{$size-small})
+  &.is-medium
+    --label-font-size: var(--size-medium, #{$size-medium})
+  &.is-large
+    --label-font-size: var(--size-large, #{$size-large})
+
+$css-vars-map: ('help-font-size': ($help-size))
+// --help-font-size: #{$help-size}
+
+.help, [class^="help-"]
+  +registerCSSVars($css-vars-map, $at-root)
+
+.help
+  display: block
+  font-size: var(--help-font-size)
+  margin-top: 0.25rem
+  @each $name, $pair in $label-colors
+    $color: nth($pair, 1)
+    &.is-#{$name}
+      color: var(--#{$name}, #{$color})
+
+// Containers
+
+.field
+  &:not(:last-child)
+    margin-bottom: 0.75rem
+  // Modifiers
+  &.has-addons
+    display: flex
+    justify-content: flex-start
+    .control
+      &:not(:last-child)
+        +ltr-property("margin", -1px)
+      &:not(:first-child):not(:last-child)
+        .button,
+        .input,
+        .select select
+          border-radius: 0
+      &:first-child:not(:only-child)
+        .button,
+        .input,
+        .select select
+          +ltr
+            border-bottom-right-radius: 0
+            border-top-right-radius: 0
+          +rtl
+            border-bottom-left-radius: 0
+            border-top-left-radius: 0
+      &:last-child:not(:only-child)
+        .button,
+        .input,
+        .select select
+          +ltr
+            border-bottom-left-radius: 0
+            border-top-left-radius: 0
+          +rtl
+            border-bottom-right-radius: 0
+            border-top-right-radius: 0
+      .button,
+      .input,
+      .select select
+        &:not([disabled])
+          &:hover,
+          &.is-hovered
+            z-index: 2
+          &:focus,
+          &.is-focused,
+          &:active,
+          &.is-active
+            z-index: 3
+            &:hover
+              z-index: 4
+      &.is-expanded
+        flex-grow: 1
+        flex-shrink: 1
+    &.has-addons-centered
+      justify-content: center
+    &.has-addons-right
+      justify-content: flex-end
+    &.has-addons-fullwidth
+      .control
+        flex-grow: 1
+        flex-shrink: 0
+  &.is-grouped
+    display: flex
+    justify-content: flex-start
+    & > .control
+      flex-shrink: 0
+      &:not(:last-child)
+        margin-bottom: 0
+        +ltr-property("margin", 0.75rem)
+      &.is-expanded
+        flex-grow: 1
+        flex-shrink: 1
+    &.is-grouped-centered
+      justify-content: center
+    &.is-grouped-right
+      justify-content: flex-end
+    &.is-grouped-multiline
+      flex-wrap: wrap
+      & > .control
+        &:last-child,
+        &:not(:last-child)
+          margin-bottom: 0.75rem
+      &:last-child
+        margin-bottom: -0.75rem
+      &:not(:last-child)
+        margin-bottom: 0
+  &.is-horizontal
+    +tablet
+      display: flex
+
+.field-label
+  .label
+    font-size: inherit
+  +mobile
+    margin-bottom: 0.5rem
+  +tablet
+    flex-basis: 0
+    flex-grow: 1
+    flex-shrink: 0
+    +ltr-property("margin", 1.5rem)
+    text-align: right
+    &.is-small
+      font-size: var(--size-small, #{$size-small})
+      padding-top: 0.375em
+    &.is-normal
+      padding-top: 0.375em
+    &.is-medium
+      font-size: var(--size-medium, #{$size-medium})
+      padding-top: 0.375em
+    &.is-large
+      font-size: var(--size-large, #{$size-large})
+      padding-top: 0.375em
+
+.field-body
+  .field .field
+    margin-bottom: 0
+  +tablet
+    display: flex
+    flex-basis: 0
+    flex-grow: 5
+    flex-shrink: 1
+    .field
+      margin-bottom: 0
+    & > .field
+      flex-shrink: 1
+      &:not(.is-narrow)
+        flex-grow: 1
+      &:not(:last-child)
+        +ltr-property("margin", 0.75rem)
+
+$css-vars-map: ('control-font-size': ($control-font-size))
+// --control-font-size: #{$control-font-size}
+
+.control, [class^="control-"]
+  +registerCSSVars($css-vars-map, $at-root)
+
+.control
+  box-sizing: border-box
+  clear: both
+  font-size: var(--control-font-size, #{$control-font-size})
+  position: relative
+  text-align: inherit
+  // Modifiers
+  &.has-icons-left,
+  &.has-icons-right
+    .input,
+    .select
+      &:focus
+        & ~ .icon
+          color: var(--input-icon-active-color, #{$input-icon-active-color})
+      &.is-small ~ .icon
+        font-size: var(--size-small, #{$size-small})
+      &.is-medium ~ .icon
+        font-size: var(--size-medium, #{$size-medium})
+      &.is-large ~ .icon
+        font-size: var(--size-large, #{$size-large})
+    .icon
+      color: var(--input-icon-color, #{$input-icon-color})
+      height: var(--input-height, #{$input-height})
+      pointer-events: none
+      position: absolute
+      top: 0
+      width: var(--input-height, #{$input-height})
+      z-index: 4
+  &.has-icons-left
+    .input,
+    .select select
+      padding-left: var(--input-height, #{$input-height})
+    .icon.is-left
+      left: 0
+  &.has-icons-right
+    .input,
+    .select select
+      padding-right: var(--input-height, #{$input-height})
+    .icon.is-right
+      right: 0
+  &.is-loading
+    &::after
+      @extend %loader
+      position: absolute !important
+      +ltr-position(0.625em)
+      top: 0.625em
+      z-index: 4
+    &.is-small:after
+      font-size: var(--size-small, #{$size-small})
+    &.is-medium:after
+      font-size: var(--size-medium, #{$size-medium})
+    &.is-large:after
+      font-size: var(--size-large, #{$size-large})
