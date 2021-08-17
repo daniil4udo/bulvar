@@ -1,0 +1,138 @@
+$radio-active-background-color: var(--primary, #{$primary}) !default;
+$radio-size: 1.25em !default;
+
+$radio-colors: $form-colors !default;
+
+$css-vars-map: (
+    'radio-active-background-color': ($radio-active-background-color),
+    'radio-size': ($radio-size),
+);
+
+.b-radio, [class^="b-radio-"] {
+    @include registerCSSVars($css-vars-map, $at-root)
+}
+
+.b-radio {
+    &.radio {
+        @extend %unselectable;
+        outline: none;
+        display: inline-flex;
+        align-items: center;
+        &:not(.button) {
+            margin-right: 0.5em;
+            & + .radio:last-child {
+                margin-right: 0;
+            }
+        }
+        // reset Bulma
+        & + .radio {
+            margin-left: 0;
+        }
+        input[type=radio] {
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            outline: none;
+            z-index: -1;
+            + .check {
+                display: flex;
+                flex-shrink: 0;
+                position: relative;
+                cursor: pointer;
+                width: var(--radio-size);
+                height: var(--radio-size);
+                // transition: background $speed-slow $easing;
+                transition-property: background;
+                transition-duration: calc(var(--speed, #{$speed}) * 2);
+                transition-timing-function: var(--easing, #{$easing});
+                border-radius: 50%;
+                border: 2px solid $grey;
+                &:before {
+                    content: "";
+                    display: flex;
+                    position: absolute;
+                    left: 50%;
+                    margin-left: calc(-0.5 * #{var(--radio-size)});
+                    bottom: 50%;
+                    margin-bottom: calc(-0.5 * #{var(--radio-size)});
+                    width: var(--radio-size);
+                    height: var(--radio-size);
+                    // transition: transform $speed-slow $easing;
+                    transition-property: transform;
+                    transition-duration: calc(var(--speed, #{$speed}) * 2);
+                    transition-timing-function: var(--easing, #{$easing});
+                    border-radius: 50%;
+                    transform: scale(0);
+                    background-color: var(--radio-active-background-color);
+                }
+                @each $name, $pair in $radio-colors {
+                    $color: nth($pair, 1);
+                    &.is-#{$name}:before {
+                        background: var(--#{$name} #{$color});
+                    }
+                }
+            }
+            &:checked + .check {
+                border-color: var(--radio-active-background-color);
+                @each $name, $pair in $radio-colors {
+                    $color: nth($pair, 1);
+                    &.is-#{$name} {
+                        border-color: var(--#{$name} #{$color});
+                    }
+                }
+                &:before {
+                    transform: scale(.5);
+                }
+            }
+            &:focus {
+                + .check {
+                    box-shadow: 0 0 0.5em rgba($grey, 0.8);
+                }
+                &:checked + .check {
+                    box-shadow: 0 0 0.5em rgba(var(--scheme-invert-rgb, #{bulmaToRGB($black)}), 0.1);
+                    
+                    @each $name, $pair in $radio-colors {
+                        $color: nth($pair, 1);
+                        &.is-#{$name} {
+                            --focus-box-shadow-color: #{bulmaCSSVarHsla($name, 0.8)};
+                            box-shadow: 0 0 0.5em var(--focus-box-shadow-color, #{bulmaRgba($color, 0.8)});
+                        }
+                    }
+                }
+            }
+        }
+        .control-label {
+            padding-left: var(--control-padding-horizontal, #{$control-padding-horizontal});
+        }
+        &.button {
+            display: flex;
+
+            &.is-selected {
+                z-index: 1;
+            }
+        }
+        &[disabled] {
+            opacity: 0.5;
+        }
+        &:hover {
+            input[type=radio]:not(:disabled) + .check {
+                border-color: var(--radio-active-background-color);
+                @each $name, $pair in $radio-colors {
+                    $color: nth($pair, 1);
+                    &.is-#{$name} {
+                        border-color: var(--#{$name}, #{$color});
+                    }
+                }
+            }
+        }
+        &.is-small {
+            @include control-small;
+        }
+        &.is-medium{
+            @include control-medium;
+        }
+        &.is-large {
+            @include control-large;
+        }
+    }
+}

@@ -1,0 +1,152 @@
+@import "../utilities/mixins"
+
+$tag-background-color: $background !default
+$tag-color: var(--text, #{$text}) !default
+$tag-radius: var(--radius, #{$radius}) !default
+$tag-delete-margin: 1px !default
+$tag-font-size: var(--size-small, #{$size-small}) !default
+
+$tag-colors: $colors !default
+
+$css-vars-map: ('tag-background-color': ($tag-background-color),'tag-color': ($tag-color),'tag-radius': ($tag-radius),'tag-font-size': ($tag-font-size),'tag-delete-margin': ($tag-delete-margin))
+// --tag-background-color: #{$tag-background-color}
+// --tag-color: #{$tag-color}
+// --tag-radius: #{$tag-radius}
+// --tag-font-size: #{$tag-font-size}
+// --tag-delete-margin: #{$tag-delete-margin}
+
+.tags, .tag, [class^="tag-"]
+  +registerCSSVars($css-vars-map, $at-root)
+
+.tags
+  align-items: center
+  display: flex
+  flex-wrap: wrap
+  justify-content: flex-start
+  .tag
+    margin-bottom: 0.5rem
+    &:not(:last-child)
+      +ltr-property("margin", 0.5rem)
+  &:last-child
+    margin-bottom: -0.5rem
+  &:not(:last-child)
+    margin-bottom: 1rem
+  // Sizes
+  &.are-medium
+    .tag:not(.is-normal):not(.is-large)
+      --tag-font-size: var(--size-normal, #{$size-normal})
+  &.are-large
+    .tag:not(.is-normal):not(.is-medium)
+      --tag-font-size: var(--size-medium, #{$size-medium})
+  &.is-centered
+    justify-content: center
+    .tag
+      margin-right: 0.25rem
+      margin-left: 0.25rem
+  &.is-right
+    justify-content: flex-end
+    .tag
+      &:not(:first-child)
+        margin-left: 0.5rem
+      &:not(:last-child)
+        margin-right: 0
+  &.has-addons
+    .tag
+      +ltr-property("margin", 0)
+      &:not(:first-child)
+        +ltr-property("margin", 0, false)
+        +ltr
+          border-top-left-radius: 0
+          border-bottom-left-radius: 0
+        +rtl
+          border-top-right-radius: 0
+          border-bottom-right-radius: 0
+      &:not(:last-child)
+        +ltr
+          border-top-right-radius: 0
+          border-bottom-right-radius: 0
+        +rtl
+          border-top-left-radius: 0
+          border-bottom-left-radius: 0
+
+.tag:not(body)
+  align-items: center
+  background-color: var(--tag-background-color)
+  border-radius: var(--tag-radius)
+  color: var(--tag-color)
+  display: inline-flex
+  font-size: var(--tag-font-size)
+  height: 2em
+  justify-content: center
+  line-height: 1.5
+  padding-left: 0.75em
+  padding-right: 0.75em
+  white-space: nowrap
+  .delete
+    +ltr-property("margin", 0.25rem, false)
+    +ltr-property("margin", -0.375rem)
+  // Colors
+  @each $name, $pair in $tag-colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+    &.is-#{$name}
+      --tag-background-color: var(--#{$name}, #{$color})
+      --tag-color: var(--#{$name}-invert, #{$color-invert})
+      // If a light and dark colors are provided
+      @if length($pair) > 3
+        $color-light: nth($pair, 3)
+        $color-dark: nth($pair, 4)
+        &.is-light
+          --tag-background-color: var(--#{$name}-light, #{$color-light})
+          --tag-color: var(--#{$name}-dark, #{$color-dark})
+  // Sizes
+  &.is-small
+    --tag-font-size: var(--size-small, #{$size-small})
+  &.is-medium
+    --tag-font-size: var(--size-medium, #{$size-medium})
+  &.is-large
+    --tag-font-size: var(--size-large, #{$size-large})
+  .icon
+    &:first-child:not(:last-child)
+      +ltr-property("margin", -0.375em, false)
+      +ltr-property("margin", 0.1875em)
+    &:last-child:not(:first-child)
+      +ltr-property("margin", 0.1875em, false)
+      +ltr-property("margin", -0.375em)
+    &:first-child:last-child
+      +ltr-property("margin", -0.375em, false)
+      +ltr-property("margin", -0.375em)
+  // Modifiers
+  &.is-delete
+    +ltr-property("margin", var(--tag-delete-margin), false)
+    padding: 0
+    position: relative
+    width: 2em
+    &::before,
+    &::after
+      background-color: currentColor
+      content: ""
+      display: block
+      left: 50%
+      position: absolute
+      top: 50%
+      transform: translateX(-50%) translateY(-50%) rotate(45deg)
+      transform-origin: center center
+    &::before
+      height: 1px
+      width: 50%
+    &::after
+      height: 50%
+      width: 1px
+    &:hover,
+    &:focus
+      // TTODO: make vwork with ar()
+      background-color: bulmaDarken($tag-background-color, 5%)
+    &:active
+      background-color: bulmaDarken($tag-background-color, 10%)
+  &.is-rounded
+    border-radius: var(--radius-rounded, #{$radius-rounded})
+
+a.tag
+  &:hover
+    text-decoration: underline

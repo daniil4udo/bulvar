@@ -1,0 +1,527 @@
+/*
+This project is based on
+"bulma-steps" (https://github.com/Wikiki/bulma-steps) by
+Wikiki (https://github.com/Wikiki) licensed under
+MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
+*/
+
+$steps-size: var(--size-normal, #{$size-normal}) !default;
+$steps-height: auto !default;
+$steps-background-color: var(--body-background-color, #{$body-background-color}) !default;
+$steps-items-focused-outline: none !default;
+$steps-details-background-color: var(--body-background-color, #{$body-background-color}) !default;
+$steps-maker-default-color: var(--grey-light, #{$grey-light}) !default;
+$steps-maker-color: var(--scheme-main, #{$scheme-main}) !default;
+$steps-marker-default-border: .2em solid #fff !default;
+$steps-default-color: var(--grey-lighter, #{$grey-lighter}) !default;
+$steps-previous-color: var(--primary, #{$primary}) !default;
+$steps-active-color: var(--primary, #{$primary}) !default;
+$steps-divider-height: .2em !default;
+$steps-vertical-padding: 1em 0 !default;
+$steps-mobile-max-width: $tablet !default;
+
+$steps-colors: $colors !default;
+
+$css-vars-map: (
+    'steps-size': ($steps-size),
+    'steps-height': ($steps-height),
+    'steps-background-color': ($steps-background-color),
+    'steps-items-focused-outline': ($steps-items-focused-outline),
+    'steps-details-background-color': ($steps-details-background-color),
+    'steps-maker-default-color': ($steps-maker-default-color),
+    'steps-maker-color': ($steps-maker-color),
+    'steps-marker-default-border': ($steps-marker-default-border),
+    'steps-default-color': ($steps-default-color),
+    'steps-previous-color': ($steps-previous-color),
+    'steps-active-color': ($steps-active-color),
+    'steps-divider-height': ($steps-divider-height),
+    'steps-vertical-padding': ($steps-vertical-padding),
+    'steps-mobile-max-width': ($steps-mobile-max-width),
+);
+
+.b-steps, [class^="b-steps-"] {
+    @include registerCSSVars($css-vars-map, $at-root)
+}
+
+@mixin steps-size {
+    .steps {
+        background-color: var(--steps-background-color);
+        font-size: var(--steps-size);
+        min-height: calc(#{var(--steps-size)} * 2);
+        
+        .step-items {
+            height: var(--steps-height);
+            align-items: center;
+
+            .step-item {
+                .step-marker {
+                    height: calc(#{var(--steps-size)} * 2);
+                    width: calc(#{var(--steps-size)} * 2);
+
+                    .icon {
+                *, *:before {
+                            font-size: var(--steps-size);
+                        }
+                    }
+                }
+
+                .step-details {
+                    background-color: var(--steps-background-color);
+
+                    .step-title {
+                        font-size: calc(#{var(--steps-size)} * 1.2);
+                        font-weight: var(--weight-semibold, #{$weight-semibold});
+                        line-height: var(--steps-size);
+                    }
+                }
+
+                &:not(:first-child), &:only-child {
+                    &::before {
+                        height: var(--steps-divider-height);
+                        top: #{var(--steps-size)};
+                    }
+                }
+                &:only-child {
+                    &::after {
+                        top: #{var(--steps-size)};
+                    }
+                }
+
+                @include until($steps-mobile-max-width) {
+                    &::before, &::after, &:not(:first-child)::before {
+                        top: #{var(--steps-size)};
+                    }
+                }
+            }
+        }
+    }
+
+    &.is-vertical {
+        --steps-divider-indent-height: #{calc(#{var(--steps-size)} - (#{var(--steps-divider-height)} * 0.5))};
+        > .steps {
+            &.has-label-right {
+                .step-items {
+                    .step-item {
+                        &:not(:first-child), &:only-child {
+                            &::before, &::after {
+                                left: var(--steps-divider-indent-height);
+                            }
+                        }
+                    }
+                }
+            }
+            &.has-label-left {
+                .step-items {
+                    .step-item {
+                        &:not(:first-child), &:only-child {
+                            &::before, &::after {
+                                left: auto;
+                                right: var(--steps-divider-indent-height);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.is-right {
+            > .steps {
+                &.has-label-right {
+                    .step-items {
+                        .step-item {
+                            &:not(:first-child), &:only-child {
+                                &::before, &::after {
+                                    left: var(--steps-divider-indent-height);
+                                }
+                            }
+                        }
+                    }
+                }
+                &.has-label-left {
+                    .step-items {
+                        .step-item {
+                            &:not(:first-child), &:only-child {
+                                &::before, &::after {
+                                    left: auto;
+                                    right: var(--steps-divider-indent-height);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.b-steps {
+    .steps {
+        .step-items {
+            display: flex;
+            flex-wrap: wrap;
+
+            .step-item {
+                margin-top: 0;
+                position: relative;
+                flex-grow: 1;
+                flex-basis: 1em;
+
+                .step-link {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    color: $body-color;
+
+                    &:not(.is-clickable) {
+                        cursor: not-allowed;
+                    }
+                }
+
+                .step-marker {
+                    align-items: center;
+                    display: flex;
+                    border-radius: var(--radius, #{$radius});
+                    font-weight: var(--weight-bold, #{$weight-bold});
+                    justify-content: center;
+                    background: var(--steps-maker-default-color);
+                    color: var(--steps-maker-color);
+                    border: var(--steps-marker-default-border);
+                    z-index: 1;
+                    overflow: hidden;
+                }
+
+                // Override marker color per step
+                @each $name, $pair in $steps-colors {
+                    $color: nth($pair, 1);
+                    $color-invert: nth($pair, 2);
+
+                    &.is-#{$name} {
+                        &::before, &::after {
+                            background: linear-gradient(to left, var(--steps-default-color) 50%, var(--#{$name}, #{$color}) 50%);
+                            background-size: 200% 100%;
+                            background-position: right bottom;
+                        }
+                        &.is-active {
+                            .step-marker {
+                                background-color: var(--steps-maker-color);
+                                border-color: var(--#{$name}, #{$color});
+                                color: var(--#{$name}, #{$color});
+                            }
+
+                            &::before, &::after {
+                                background-position: left bottom;
+                            }
+                        }
+                        &.is-previous {
+                            .step-marker {
+                                color: var(--#{$name}-invert, #{$color-invert});
+                                background-color: var(--#{$name}, #{$color});
+                            }
+
+                            &::before, &::after {
+                                background-position: left bottom;
+                            }
+                        }
+                    }
+                }
+
+                .step-marker{
+                    color: var(--steps-maker-color);
+                }
+
+                .step-details {
+                    text-align: center;
+                    z-index: 1;
+                }
+
+                &:not(:first-child), &:only-child {
+                    flex-shrink: 1;
+
+                    &::before {
+                        // This will contain the divider
+                        content: " ";
+                        display: block;
+                        position: absolute;
+                        width: 100%;
+                        bottom: 0;
+                        left: -50%;
+                    }
+                }
+                &:only-child {
+                    &::after {
+                        // This will contain the divider
+                        content: " ";
+                        display: block;
+                        position: absolute;
+                        height: var(--steps-divider-height);
+                        bottom: 0;
+                    }
+                    &::before, &::after {
+                        width: 25%;
+                        left: 50%;
+                    }
+                    &::before {
+                        right: 50%;
+                        left: auto;
+                    }
+                }
+
+                &::before, &::after {
+                    background: linear-gradient(to left, var(--steps-default-color) 50%, var(--steps-active-color) 50%);
+                    background-size: 200% 100%;
+                    background-position: right bottom;
+                }
+
+                &.is-active {
+                    .step-link {
+                        cursor: default;
+                    }
+
+                    .step-marker {
+                        background-color: var(--steps-maker-color);
+                        border-color: var(--steps-active-color);
+                        color: var(--steps-active-color);
+                    }
+
+                    &::before, &::after {
+                        background-position: left bottom;
+                    }
+                }
+                &.is-previous {
+                    .step-marker {
+                        color: var(--steps-maker-color);
+                        background-color: var(--steps-previous-color);
+                    }
+
+                    &::before, &::after {
+                        background-position: left bottom;
+                    }
+                }
+            }
+        }
+
+        + .step-content {
+            position: relative;
+            overflow: visible;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            .step-item {
+                flex-shrink: 0;
+                flex-basis: auto;
+
+                &:focus {
+                    outline: var(--steps-items-focused-outline);
+                }
+            }
+            &.is-transitioning {
+                overflow: hidden;
+            }
+        }
+
+        &.is-rounded {
+            .step-item {
+                .step-marker {
+                    border-radius: var(--radius-rounded, #{$radius-rounded});
+                }
+            }
+        }
+
+        &.is-animated {
+            .step-item {
+                &:not(:first-child), &:only-child {
+                    &::before {
+                        // transition: background $speed-slow $easing;
+                        transition-property: background;
+                        transition-duration: calc(#{var(--speed, #{$speed})} * 2);
+                        transition-timing-function: var(--easing, #{$easing});
+                    }
+                }
+            }
+        }
+
+        &.has-label-right, &.has-label-left {
+            .step-items {
+                .step-item {
+                    .step-link {
+                        flex-direction: row;
+
+                        > .step-details {
+                            background-color: var(--steps-details-background-color);
+                            padding: .2em;
+                        }
+                    }
+                }
+            }
+        }
+        &.has-label-left {
+            .step-items {
+                .step-item {
+                    .step-link {
+                        flex-direction: row-reverse;
+                    }
+                }
+            }
+        }
+    }
+
+    @include steps-size();
+    &.is-small {
+        --steps-size: var(--size-small, #{$size-small}); 
+    }
+    &.is-medium {
+        --steps-size: var(--size-medium, #{$size-medium}); 
+    }
+    &.is-large {
+        --steps-size: var(--size-large, #{$size-large}); 
+    }
+
+    &.is-vertical {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        > .steps {
+            .step-items {
+                height: 100%;
+                flex-direction: column;
+                border-bottom-color: transparent;
+
+                .step-item {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: var(--steps-vertical-padding);
+
+                    &::before, &::after {
+                        background: linear-gradient(to top, var(--steps-default-color) 50%, var(--steps-active-color) 50%);
+                        background-size: 100% 200%;
+                        background-position: left bottom;
+                    }
+
+                    // Override marker connector color per step
+                    @each $name, $pair in $steps-colors {
+                        $color: nth($pair, 1);
+
+                        &.is-#{$name} {
+                            &::before, &::after {
+                                background: linear-gradient(to top, var(--steps-default-color) 50%, var(--#{$name}, #{$color}) 50%);
+                                background-size: 100% 200%;
+                                background-position: left bottom;
+                            }
+                        }
+                    }
+
+                    &:not(:first-child), &:only-child {
+                        &::before {
+                            height: 100%;
+                            width: var(--steps-divider-height);
+                            top: -50%;
+                            left: calc(50% - #{var(--steps-divider-height)} * 0.5);
+                        }
+                    }
+
+                    &.is-active, &.is-previous {
+                        &::before, &::after {
+                            background-position: right top;
+                        }
+                    }
+
+                    &:only-child {
+                        &::before {
+                            top: 50%;
+                        }
+                        &::after {
+                            width: var(--steps-divider-height);
+                            top: auto;
+                            bottom: 50%;
+                        }
+                        &::before, &::after {
+                            height: 25%;
+                        }
+                    }
+                }
+            }
+
+            &.has-label-right {
+                .step-items {
+                    .step-item {
+                        justify-content: flex-start;
+                    }
+                }
+            }
+            &.has-label-left {
+                .step-items {
+                    .step-item {
+                        justify-content: flex-end;
+                    }
+                }
+            }
+            &:not(.has-label-right):not(.has-label-left) {
+                .step-items {
+                    .step-item {
+                        .step-link {
+                            > .step-details {
+                                background-color: var(--steps-details-background-color);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        > .step-content {
+            flex-grow: 1;
+        }
+
+        > .step-navigation {
+            flex-basis: 100%;
+        }
+
+        &.is-right {
+            flex-direction: row-reverse;
+        }
+    }
+    &:not(.is-vertical) {
+        .steps {
+            @include until($steps-mobile-max-width) {
+                &.mobile-minimalist {
+                    .step-items {
+                        .step-item {
+                            &:not(.is-active) {
+                                display: none;
+                            }
+                            &::before, &::after, &:not(:first-child)::before {
+                                // This will contain the divider
+                                content: " ";
+                                display: block;
+                                position: absolute;
+                                height: var(--steps-divider-height);
+                                width: 25%;
+                                bottom: 0;
+                                left: 50%;
+                            }
+                            &::before, &:not(:first-child)::before {
+                                right: 50%;
+                                left: auto;
+                            }
+                        }
+                    }
+                }
+                &.mobile-compact {
+                    .step-items {
+                        .step-item {
+                            &:not(.is-active) {
+                                .step-details {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,195 @@
+@import "../utilities/controls"
+@import "../utilities/mixins"
+
+$pagination-color: var(--text-strong, #{$text-strong}) !default
+$pagination-border-color: var(--border, #{$border}) !default
+$pagination-margin: -0.25rem !default
+$pagination-min-width: var(--control-height, #{$control-height}) !default
+$pagination-font-size: var(--size-normal, #{$size-normal}) !default
+
+$pagination-item-font-size: 1em !default
+$pagination-item-margin: 0.25rem !default
+$pagination-item-padding-left: 0.5em !default
+$pagination-item-padding-right: 0.5em !default
+
+$pagination-nav-padding-left: 0.75em !default
+$pagination-nav-padding-right: 0.75em !default
+
+$pagination-hover-color: var(--link-hover, #{$link-hover}) !default
+$pagination-hover-border-color: var(--link-hover-border, #{$link-hover-border}) !default
+
+$pagination-focus-color: var(--link-focus, #{$link-focus}) !default
+$pagination-focus-border-color: var(--link-focus-border, #{$link-focus-border}) !default
+
+$pagination-active-color: var(--link-active, #{$link-active}) !default
+$pagination-active-border-color: var(--link-active-border, #{$link-active-border}) !default
+
+$pagination-disabled-color: var(--text-light, #{$text-light}) !default
+$pagination-disabled-background-color: var(--border, #{$border}) !default
+$pagination-disabled-border-color: var(--border, #{$border}) !default
+
+$pagination-current-color: var(--link-invert, #{$link-invert}) !default
+$pagination-current-background-color: var(--link, #{$link}) !default
+$pagination-current-border-color: var(--link, #{$link}) !default
+
+$pagination-ellipsis-color: var(--grey-light, #{$grey-light}) !default
+
+$pagination-shadow-inset: inset 0 1px 2px rgba(var(--scheme-invert-rgb, #{bulmaToRGB($black)}), 0.2) !default
+
+$css-vars-map: ('pagination-color': ($pagination-color),'pagination-border-color': ($pagination-border-color),'pagination-font-size': ($pagination-font-size),'pagination-margin': ($pagination-margin),'pagination-min-width': ($pagination-min-width),'pagination-item-font-size': ($pagination-item-font-size),'pagination-item-margin': ($pagination-item-margin),'pagination-item-padding-left': ($pagination-item-padding-left),'pagination-item-padding-right': ($pagination-item-padding-right),'pagination-nav-padding-left': ($pagination-nav-padding-left),'pagination-nav-padding-right': ($pagination-nav-padding-right),'pagination-hover-color': ($pagination-hover-color),'pagination-hover-border-color': ($pagination-hover-border-color),'pagination-focus-color': ($pagination-focus-color),'pagination-focus-border-color': ($pagination-focus-border-color),'pagination-disabled-color': ($pagination-disabled-color),'pagination-disabled-background-color': ($pagination-disabled-background-color),'pagination-disabled-border-color': ($pagination-disabled-border-color),'pagination-current-color': ($pagination-current-color),'pagination-current-background-color': ($pagination-current-background-color),'pagination-current-border-color': ($pagination-current-border-color),'pagination-ellipsis-color': ($pagination-ellipsis-color),'pagination-shadow-inset': ($pagination-shadow-inset))
+// --pagination-color: #{$pagination-color}
+// --pagination-border-color: #{$pagination-border-color}
+// --pagination-font-size: #{$pagination-font-size}
+// --pagination-margin: #{$pagination-margin}
+// --pagination-min-width: #{$pagination-min-width}
+// --pagination-item-font-size: #{$pagination-item-font-size}
+// --pagination-item-margin: #{$pagination-item-margin}
+// --pagination-item-padding-left: #{$pagination-item-padding-left}
+// --pagination-item-padding-right: #{$pagination-item-padding-right}
+// --pagination-nav-padding-left: #{$pagination-nav-padding-left}
+// --pagination-nav-padding-right: #{$pagination-nav-padding-right}
+// --pagination-hover-color: #{$pagination-hover-color}
+// --pagination-hover-border-color: #{$pagination-hover-border-color}
+// --pagination-focus-color: #{$pagination-focus-color}
+// --pagination-focus-border-color: #{$pagination-focus-border-color}
+// --pagination-disabled-color: #{$pagination-disabled-color}
+// --pagination-disabled-background-color: #{$pagination-disabled-background-color}
+// --pagination-disabled-border-color: #{$pagination-disabled-border-color}
+// --pagination-current-color: #{$pagination-current-color}
+// --pagination-current-background-color: #{$pagination-current-background-color}
+// --pagination-current-border-color: #{$pagination-current-border-color}
+// --pagination-ellipsis-color: #{$pagination-ellipsis-color}
+// --pagination-shadow-inset: #{$pagination-shadow-inset}
+
+.pagination, [class^="pagination-"]
+  +registerCSSVars($css-vars-map, $at-root)
+
+.pagination
+  @extend %block
+  font-size: var(--pagination-font-size)
+  margin: var(--pagination-margin)
+  // Sizes
+  &.is-small
+    --pagination-font-size: var(--size-small, #{$size-small})
+  &.is-medium
+    --pagination-font-size: var(--size-medium, #{$size-medium})
+  &.is-large
+    --pagination-font-size: var(--size-large, #{$size-large})
+  &.is-rounded
+    .pagination-previous,
+    .pagination-next
+      padding-left: 1em
+      padding-right: 1em
+      border-radius: var(--radius-rounded, #{$radius-rounded})
+    .pagination-link
+      border-radius: var(--radius-rounded, #{$radius-rounded})
+
+.pagination,
+.pagination-list
+  align-items: center
+  display: flex
+  justify-content: center
+  text-align: center
+
+.pagination-previous,
+.pagination-next,
+.pagination-link,
+.pagination-ellipsis
+  @extend %control
+  @extend %unselectable
+  font-size: var(--pagination-item-font-size)
+  justify-content: center
+  margin: var(--pagination-item-margin)
+  padding-left: var(--pagination-item-padding-left)
+  padding-right: var(--pagination-item-padding-right)
+  text-align: center
+
+.pagination-previous,
+.pagination-next,
+.pagination-link
+  border-color: var(--pagination-border-color)
+  color: var(--pagination-color)
+  min-width: var(--pagination-min-width)
+  &:hover
+    border-color: var(--pagination-hover-border-color)
+    color: var(--pagination-hover-color)
+  &:focus
+    border-color: var(--pagination-focus-border-color)
+  &:active
+    box-shadow: var(--pagination-shadow-inset)
+  &[disabled]
+    background-color: var(--pagination-disabled-background-color)
+    border-color: var(--pagination-disabled-border-color)
+    box-shadow: none
+    color: var(--pagination-disabled-color)
+    opacity: 0.5
+
+.pagination-previous,
+.pagination-next
+  padding-left: var(--pagination-nav-padding-left)
+  padding-right: var(--pagination-nav-padding-right)
+  white-space: nowrap
+
+.pagination-link
+  &.is-current
+    background-color: var(--pagination-current-background-color)
+    border-color: var(--pagination-current-border-color)
+    color: var(--pagination-current-color)
+
+.pagination-ellipsis
+  color: var(--pagination-ellipsis-color)
+  pointer-events: none
+
+.pagination-list
+  flex-wrap: wrap
+  li
+    list-style: none
+
++mobile
+  .pagination
+    flex-wrap: wrap
+  .pagination-previous,
+  .pagination-next
+    flex-grow: 1
+    flex-shrink: 1
+  .pagination-list
+    li
+      flex-grow: 1
+      flex-shrink: 1
+
++tablet
+  .pagination-list
+    flex-grow: 1
+    flex-shrink: 1
+    justify-content: flex-start
+    order: 1
+  .pagination-previous,
+  .pagination-next,
+  .pagination-link,
+  .pagination-ellipsis
+    margin-bottom: 0
+    margin-top: 0
+  .pagination-previous
+    order: 2
+  .pagination-next
+    order: 3
+  .pagination
+    justify-content: space-between
+    margin-bottom: 0
+    margin-top: 0
+    &.is-centered
+      .pagination-previous
+        order: 1
+      .pagination-list
+        justify-content: center
+        order: 2
+      .pagination-next
+        order: 3
+    &.is-right
+      .pagination-previous
+        order: 1
+      .pagination-next
+        order: 2
+      .pagination-list
+        justify-content: flex-end
+        order: 3

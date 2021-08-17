@@ -1,0 +1,28 @@
+$image-placeholder-blur-enabled: true !default;
+$image-placeholder-blur: 10px !default;
+
+$css-vars-map: (
+    'image-placeholder-blur': ($image-placeholder-blur),
+);
+
+.b-image-wrapper, [class^="b-image-wrapper-"] {
+    @include registerCSSVars($css-vars-map, $at-root)
+}
+
+.b-image-wrapper {
+    > img {
+        object-fit: cover;
+
+        &.has-ratio,
+        &.placeholder {
+            @extend %overlay;
+            height: 100%;
+            width: 100%;
+        }
+        @if $image-placeholder-blur-enabled {
+            &.placeholder {
+                filter: blur(var(--image-placeholder-blur));
+            }
+        }
+    }
+}

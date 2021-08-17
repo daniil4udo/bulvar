@@ -1,0 +1,53 @@
+$icon-dimensions: 1.5rem !default
+$icon-dimensions-small: 1rem !default
+$icon-dimensions-medium: 2rem !default
+$icon-dimensions-large: 3rem !default
+$icon-text-spacing: 0.25em !default
+
+$css-vars-map: ('icon-dimensions': ($icon-dimensions),'icon-dimensions-small': ($icon-dimensions-small),'icon-dimensions-medium': ($icon-dimensions-medium),'icon-dimensions-large': ($icon-dimensions-large),'icon-text-spacing': ($icon-text-spacing))
+// --icon-dimensions: #{$icon-dimensions}
+// --icon-dimensions-small: #{$icon-dimensions-small}
+// --icon-dimensions-medium: #{$icon-dimensions-medium}
+// --icon-dimensions-large: #{$icon-dimensions-large}
+// --icon-text-spacing: #{$icon-text-spacing}
+
+.icon, [class^="icon-"]
+  +registerCSSVars($css-vars-map, $at-root)
+
+.icon
+  align-items: center
+  display: inline-flex
+  justify-content: center
+  height: var(--icon-dimensions)
+  width: var(--icon-dimensions)
+  // Sizes
+  &.is-small
+    --icon-dimensions: var(--icon-dimensions-small)
+  &.is-medium
+    --icon-dimensions: var(--icon-dimensions-medium)
+  &.is-large
+    --icon-dimensions: var(--icon-dimensions-large)
+
+.icon-text
+  align-items: flex-start
+  color: inherit
+  display: inline-flex
+  flex-wrap: wrap
+  line-height: var(--icon-dimensions)
+  vertical-align: top
+  .icon
+    flex-grow: 0
+    flex-shrink: 0
+    &:not(:last-child)
+      +ltr
+        margin-right: var(--icon-text-spacing)
+      +rtl
+        margin-left: var(--icon-text-spacing)
+    &:not(:first-child)
+      +ltr
+        margin-left: var(--icon-text-spacing)
+      +rtl
+        margin-right: var(--icon-text-spacing)
+
+div.icon-text
+  display: flex

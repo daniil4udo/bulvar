@@ -1,0 +1,84 @@
+@import "../utilities/mixins"
+
+$progress-bar-background-color: var(--border-light, #{$border-light}) !default
+$progress-value-background-color: var(--text, #{$text}) !default
+$progress-border-radius: var(--radius-rounded, #{$radius-rounded}) !default
+$progress-height: var(--size-normal, #{$size-normal}) !default
+
+$progress-indeterminate-duration: 1.5s !default
+
+$progress-colors: $colors !default
+
+$css-vars-map: ('progress-height': ($progress-height),'progress-bar-background-color': ($progress-bar-background-color),'progress-value-background-color': ($progress-value-background-color),'progress-border-radius': ($progress-border-radius),'progress-indeterminate-duration': ($progress-indeterminate-duration))
+// --progress-height: #{$progress-height}
+// --progress-bar-background-color: #{$progress-bar-background-color}
+// --progress-value-background-color: #{$progress-value-background-color}
+// --progress-border-radius: #{$progress-border-radius}
+// --progress-indeterminate-duration: #{$progress-indeterminate-duration}
+
+.progress, [class^="progress-"]
+  +registerCSSVars($css-vars-map, $at-root)
+
+.progress
+  @extend %block
+  -moz-appearance: none
+  -webkit-appearance: none
+  border: none
+  border-radius: var(--progress-border-radius)
+  display: block
+  height: var(--progress-height)
+  overflow: hidden
+  padding: 0
+  width: 100%
+  &::-webkit-progress-bar
+    background-color: var(--progress-bar-background-color)
+  &::-webkit-progress-value
+    background-color: var(--progress-value-background-color)
+  &::-moz-progress-bar
+    background-color: var(--progress-value-background-color)
+  &::-ms-fill
+    background-color: var(--progress-value-background-color)
+    border: none
+  // Colors
+  @each $name, $pair in $progress-colors
+    $color: nth($pair, 1)
+    &.is-#{$name}
+      &::-webkit-progress-value
+        --progress-value-background-color: var(--#{$name}, #{$color})
+      &::-moz-progress-bar
+        --progress-value-background-color: var(--#{$name}, #{$color})
+      &::-ms-fill
+        --progress-value-background-color: var(--#{$name}, #{$color})
+      &:indeterminate
+        background-image: linear-gradient(to right, var(--#{$name}, #{$color}) 30%, var(--progress-bar-background-color) 30%)
+
+  &:indeterminate
+    animation-duration: var(--progress-indeterminate-duration)
+    animation-iteration-count: infinite
+    animation-name: moveIndeterminate
+    animation-timing-function: linear
+    background-color: var(--progress-bar-background-color)
+    background-image: linear-gradient(to right, var(--text, #{$text}) 30%, var(--progress-bar-background-color) 30%)
+    background-position: top left
+    background-repeat: no-repeat
+    background-size: 150% 150%
+    &::-webkit-progress-bar
+      background-color: transparent
+    &::-moz-progress-bar
+      background-color: transparent
+    &::-ms-fill
+      animation-name: none
+
+  // Sizes
+  &.is-small
+    --progress-height: var(--size-small, #{$size-small})
+  &.is-medium
+    --progress-height: var(--size-medium, #{$size-medium})
+  &.is-large
+    --progress-height: var(--size-large, #{$size-large})
+
+@keyframes moveIndeterminate
+  from
+    background-position: 200% 0
+  to
+    background-position: -200% 0

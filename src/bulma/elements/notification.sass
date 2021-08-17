@@ -1,0 +1,63 @@
+@import "../utilities/mixins"
+
+$notification-background-color: var(--background, #{$background}) !default
+$notification-code-background-color: var(--scheme-main, #{$scheme-main}) !default
+$notification-radius: var(--radius, #{$radius}) !default
+$notification-padding: 1.25rem 2.5rem 1.25rem 1.5rem !default
+$notification-padding-ltr: 1.25rem 2.5rem 1.25rem 1.5rem !default
+$notification-padding-rtl: 1.25rem 1.5rem 1.25rem 2.5rem !default
+
+$notification-colors: $colors !default
+
+$css-vars-map: ('notification-background-color': ($notification-background-color),'notification-code-background-color': ($notification-code-background-color),'notification-radius': ($notification-radius),'notification-padding-ltr': ($notification-padding-ltr),'notification-padding-rtl': ($notification-padding-rtl))
+// --notification-background-color: #{$notification-background-color}
+// --notification-code-background-color: #{$notification-code-background-color}
+// --notification-radius: #{$notification-radius}
+// --notification-padding-ltr: #{$notification-padding-ltr}
+// --notification-padding-rtl: #{$notification-padding-rtl}
+
+.notification, [class^="notification-"]
+  +registerCSSVars($css-vars-map, $at-root)
+
+.notification
+  @extend %block
+  background-color: var(--notification-background-color)
+  border-radius: var(--notification-radius)
+  color: var(--notification-color)
+  position: relative
+  +ltr
+    padding: var(--notification-padding-ltr)
+  +rtl
+    padding: var(--notification-padding-rtl)
+  a:not(.button):not(.dropdown-item)
+    color: currentColor
+    text-decoration: underline
+  strong
+    color: currentColor
+  code,
+  pre
+    background: var(--notification-code-background-color)
+  pre code
+    background: transparent
+  & > .delete
+    +ltr-position(0.5rem)
+    position: absolute
+    top: 0.5rem
+  .title,
+  .subtitle,
+  .content
+    color: currentColor
+  // Colors
+  @each $name, $pair in $notification-colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+    &.is-#{$name}
+      --notification-background-color: var(--#{$name}, #{$color})
+      --notification-color: var(--#{$name}-invert, #{$color-invert})
+      // If light and dark colors are provided
+      @if length($pair) >= 4
+        $color-light: nth($pair, 3)
+        $color-dark: nth($pair, 4)
+        &.is-light
+          --notification-background-color: var(--#{$name}-light, #{$color-light})
+          --notification-color: var(--#{$name}-dark, #{$color-dark})

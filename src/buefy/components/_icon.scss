@@ -1,0 +1,25 @@
+$icon-svg-width: auto !default;
+$icon-svg-height: auto !default;
+
+$css-vars-map: (
+    'icon-svg-width': ($icon-svg-width),
+    'icon-svg-height': ($icon-svg-height),
+);
+
+.icon, [class^="icon-"] {
+    @include registerCSSVars($css-vars-map, $at-root)
+}
+
+.icon {
+    @include unselectable;
+    cursor: inherit;
+    svg {
+        background-color: transparent;
+        fill: currentColor;
+        stroke-width: 0;
+        stroke: currentColor;
+        pointer-events: none;
+        width: var(--icon-svg-width);
+        height: var(--icon-svg-height);
+    }
+}

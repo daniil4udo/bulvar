@@ -1,0 +1,76 @@
+
+$skeleton-color: $grey-lighter !default;
+$skeleton-background: linear-gradient(90deg, $skeleton-color 25%, rgba($skeleton-color, 0.5) 50%, $skeleton-color 75%) !default; // RBGA?!?!
+$skeleton-border-radius: var(--radius, #{$radius}) !default;
+$skeleton-duration: 1.5s !default;
+$skeleton-margin-top: .5rem !default;
+
+$skeleton-line-height-size: var(--size-normal, #{$size-normal}) !default;
+
+$css-vars-map: (
+    'skeleton-background': ($skeleton-background),
+    'skeleton-border-radius': ($skeleton-border-radius),
+    'skeleton-duration': ($skeleton-duration),
+    'skeleton-margin-top': ($skeleton-margin-top),
+    'skeleton-line-height-size': ($skeleton-line-height-size),
+);
+
+.b-skeleton, [class^="b-skeleton-"] {
+    @include registerCSSVars($css-vars-map, $at-root)
+}
+
+.b-skeleton {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    width: 100%;
+    > .b-skeleton-item {
+        background: var(--skeleton-background);
+        background-size: 400% 100%;
+        width: 100%;
+        &.is-rounded {
+            border-radius: var(--skeleton-border-radius);
+        }
+        &::after {
+            content: "\00a0";
+        }
+        + .b-skeleton-item {
+            margin-top: var(--skeleton-margin-top);
+        }
+    }
+    &.is-animated {
+        > .b-skeleton-item {
+            animation: skeleton-loading var(--skeleton-duration) infinite;
+        }
+    }
+    &.is-centered {
+        align-items: center;
+    }
+    &.is-right {
+        align-items: flex-end;
+    }
+    + .b-skeleton {
+        margin-top: var(--skeleton-margin-top);
+    }
+    > .b-skeleton-item {
+        line-height: var(--skeleton-line-height-size);
+    }
+    &.is-small {
+        --skeleton-line-height-size: var(--size-small, #{$size-small});
+    }
+    &.is-medium {
+        --skeleton-line-height-size: var(--size-medium, #{$size-medium});
+    }
+    &.is-large {
+        --skeleton-line-height-size: var(--size-large, #{$size-large});
+    }
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
