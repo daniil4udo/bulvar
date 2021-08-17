@@ -115,6 +115,7 @@ $css-vars-map: (
         }
     }
     .notification {
+        pointer-events: auto;
         max-width: 600px;
     }
 
