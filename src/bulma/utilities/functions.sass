@@ -150,7 +150,9 @@
     $remainder: divide($remainder * 10, $divisor, $precision - 1) * .1
   @return ($quotient + $remainder) * $sign
 
-// Additional funtion for bulma-buefy-css-variables
+//
+// Additional @funtion for bulma-buefy-css-variables
+//
 
 @function camelCase($str)
   $camelCase: ''
@@ -224,68 +226,3 @@
       $name-l: calc(#{var(--#{$name}-l)} + #{$amount})
     @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{$name-l}, #{var(--#{$name}-a)})
   @return $name
-
-=exportVar($name, $value)
-  @at-root :export
-    #{camelCase($name)}: #{$value}
-
-=exportVars($list)
-    @at-root :export
-      @each $name, $value in $list
-        #{camelCase($name)}: #{$value}
-
-=registerCSSVar($name, $value, $at-root: true)
-  @if $at-root
-    @at-root :root
-      --#{$name}: #{$value}
-  @else
-    --#{$name}: #{$value}
-
-=registerCSSVars($list, $at-root: true)
-  @if $at-root
-    @at-root :root
-      @each $name, $value in $list
-        --#{$name}: #{$value}
-  @else
-    @each $name, $value in $list
-      --#{$name}: #{$value}
-
-=registerCSSVarColor($name, $components, $prefix: '')
-  $color: nth($components, 1)
-  $color-invert: nth($components, 2)
-  $color-light: null
-  @if length($components) >= 3
-    $color-light: nth($components, 3)
-  @else
-    $color-light: findLightColor($color)
-  $color-dark: null
-  @if length($components) >= 4
-    $color-dark: nth($components, 4)
-  @else
-    $color-dark: findDarkColor($color)
-  $base: $prefix + $name
-
-  --#{$base}-h: #{hue($color)}
-  --#{$base}-s: #{saturation($color)}
-  --#{$base}-l: #{lightness($color)}
-  --#{$base}-a: 1
-  --#{$base}: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-l), var(--#{$base}-a))
-
-  // Invert color
-  $invert-l: lightness($color-invert)
-  --#{$base}-invert-l: #{$invert-l}
-  --#{$base}-invert: #{$color-invert}
-
-  // Light color
-  $light-l: lightness($color-light)
-  --#{$base}-light-l: #{$light-l}
-  --#{$base}-light: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-light-l), var(--#{$base}-a))
-
-  // Dark color
-  $dark-l: lightness($color-dark)
-  --#{$base}-dark-l: #{$dark-l}
-  --#{$base}-dark: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-dark-l), var(--#{$base}-a))
-
-=registerCSSVarColors($colors, $prefix: '')
-  @each $name, $components in $colors
-    +registerCSSVarColor($name, $components, $prefix)
