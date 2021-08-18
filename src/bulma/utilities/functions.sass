@@ -140,6 +140,15 @@
       @return $color
   @return red($color), green($color), blue($color)
 
+=exportVar($name, $value)
+  @at-root :export
+    #{$name}: #{$value}
+
+=exportVars($list)
+    @at-root :export
+      @each $name, $value in $list
+        #{$name}: #{$value}
+
 =registerCSSVar($name, $value, $at-root: true)
   @if $at-root
     @at-root :root
