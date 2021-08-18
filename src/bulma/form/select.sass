@@ -1,14 +1,13 @@
 $select-colors: $form-colors !default
 
 $css-vars-map: ('select-arrow': ($input-arrow),'select-disabled-border-color': ($input-disabled-border-color),'select-hover-color': ($input-hover-color),'select-disabled-color': ($input-disabled-color),'select-focus-box-shadow-size': ($input-focus-box-shadow-size))
++exportVars($css-vars-map)
++registerMap('select')
 // --select-arrow: #{$input-arrow}
 // --select-disabled-border-color: #{$input-disabled-border-color}
 // --select-hover-color: #{$input-hover-color}
 // --select-disabled-color: #{$input-disabled-color}
 // --select-focus-box-shadow-size: #{$input-focus-box-shadow-size}
-
-.select, [class^="select-"]
-  +registerCSSVars($css-vars-map, $at-root)
 
 .select
   display: inline-block

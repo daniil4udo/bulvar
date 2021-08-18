@@ -11,6 +11,8 @@ $breadcrumb-item-padding-horizontal: 0.75em !default
 $breadcrumb-item-separator-color: var(--border-hover, #{$border-hover}) !default
 
 $css-vars-map: ('breadcrumb-font-size': ($breadcrumb-font-size), 'breadcrumb-item-color': ($breadcrumb-item-color), 'breadcrumb-item-hover-color': ($breadcrumb-item-hover-color), 'breadcrumb-item-active-color': ($breadcrumb-item-active-color), 'breadcrumb-item-separator-color': ($breadcrumb-item-separator-color), 'breadcrumb-item-padding-vertical': ($breadcrumb-item-padding-vertical), 'breadcrumb-item-padding-horizontal': ($breadcrumb-item-padding-horizontal))
++exportVars($css-vars-map)
++registerMap('breadcrumb')
 // --breadcrumb-font-size: #{$breadcrumb-font-size}
 // --breadcrumb-item-color: #{$breadcrumb-item-color}
 // --breadcrumb-item-hover-color: #{$breadcrumb-item-hover-color}
@@ -18,9 +20,6 @@ $css-vars-map: ('breadcrumb-font-size': ($breadcrumb-font-size), 'breadcrumb-ite
 // --breadcrumb-item-separator-color: #{$breadcrumb-item-separator-color}
 // --breadcrumb-item-padding-vertical: #{$breadcrumb-item-padding-vertical}
 // --breadcrumb-item-padding-horizontal: #{$breadcrumb-item-padding-horizontal}
-
-.breadcrumb, [class^="breadcrumb-"]
-  +registerCSSVars($css-vars-map, $at-root)
 
 .breadcrumb
   @extend %block

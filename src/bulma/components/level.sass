@@ -3,10 +3,9 @@
 $level-item-spacing: calc(#{var(--block-spacing, #{$block-spacing})} * 0.5) !default
 
 $css-vars-map: ('level-item-spacing': ($level-item-spacing))
++exportVars($css-vars-map)
++registerMap('level')
 // --level-item-spacing: #{$level-item-spacing}
-
-.level, [class^="level-"]
-  +registerCSSVars($css-vars-map, $at-root)
 
 .level
   @extend %block

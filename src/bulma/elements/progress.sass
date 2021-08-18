@@ -10,14 +10,13 @@ $progress-indeterminate-duration: 1.5s !default
 $progress-colors: $colors !default
 
 $css-vars-map: ('progress-height': ($progress-height),'progress-bar-background-color': ($progress-bar-background-color),'progress-value-background-color': ($progress-value-background-color),'progress-border-radius': ($progress-border-radius),'progress-indeterminate-duration': ($progress-indeterminate-duration))
++exportVars($css-vars-map)
++registerMap('progress')
 // --progress-height: #{$progress-height}
 // --progress-bar-background-color: #{$progress-bar-background-color}
 // --progress-value-background-color: #{$progress-value-background-color}
 // --progress-border-radius: #{$progress-border-radius}
 // --progress-indeterminate-duration: #{$progress-indeterminate-duration}
-
-.progress, [class^="progress-"]
-  +registerCSSVars($css-vars-map, $at-root)
 
 .progress
   @extend %block
