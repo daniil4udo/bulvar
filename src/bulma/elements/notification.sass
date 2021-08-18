@@ -10,14 +10,13 @@ $notification-padding-rtl: 1.25rem 1.5rem 1.25rem 2.5rem !default
 $notification-colors: $colors !default
 
 $css-vars-map: ('notification-background-color': ($notification-background-color),'notification-code-background-color': ($notification-code-background-color),'notification-radius': ($notification-radius),'notification-padding-ltr': ($notification-padding-ltr),'notification-padding-rtl': ($notification-padding-rtl))
++exportVars($css-vars-map)
++registerMap('notification')
 // --notification-background-color: #{$notification-background-color}
 // --notification-code-background-color: #{$notification-code-background-color}
 // --notification-radius: #{$notification-radius}
 // --notification-padding-ltr: #{$notification-padding-ltr}
 // --notification-padding-rtl: #{$notification-padding-rtl}
-
-.notification, [class^="notification-"]
-  +registerCSSVars($css-vars-map, $at-root)
 
 .notification
   @extend %block

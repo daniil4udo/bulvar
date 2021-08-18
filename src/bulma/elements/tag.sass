@@ -9,14 +9,13 @@ $tag-font-size: var(--size-small, #{$size-small}) !default
 $tag-colors: $colors !default
 
 $css-vars-map: ('tag-background-color': ($tag-background-color),'tag-color': ($tag-color),'tag-radius': ($tag-radius),'tag-font-size': ($tag-font-size),'tag-delete-margin': ($tag-delete-margin))
++exportVars($css-vars-map)
++registerMap(('tag', 'tags'))
 // --tag-background-color: #{$tag-background-color}
 // --tag-color: #{$tag-color}
 // --tag-radius: #{$tag-radius}
 // --tag-font-size: #{$tag-font-size}
 // --tag-delete-margin: #{$tag-delete-margin}
-
-.tags, .tag, [class^="tag-"]
-  +registerCSSVars($css-vars-map, $at-root)
 
 .tags
   align-items: center

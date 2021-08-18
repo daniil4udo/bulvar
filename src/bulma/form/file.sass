@@ -14,6 +14,8 @@ $file-name-max-width: 16em !default
 $file-colors: $form-colors !default
 
 $css-vars-map: ('file-border-color': ($file-border-color),'file-radius': ($file-radius),'file-cta-background-color': ($file-cta-background-color),'file-cta-color': ($file-cta-color),'file-cta-hover-color': ($file-cta-hover-color),'file-cta-active-color': ($file-cta-active-color),'file-name-border-color': ($file-name-border-color),'file-name-border-style': ($file-name-border-style),'file-name-border-width': ($file-name-border-width),'file-name-max-width': ($file-name-max-width))
++exportVars($css-vars-map)
++registerMap('file')
 // --file-border-color: #{$file-border-color}
 // --file-radius: #{$file-radius}
 // --file-cta-background-color: #{$file-cta-background-color}
@@ -24,9 +26,6 @@ $css-vars-map: ('file-border-color': ($file-border-color),'file-radius': ($file-
 // --file-name-border-style: #{$file-name-border-style}
 // --file-name-border-width: #{$file-name-border-width}
 // --file-name-max-width: #{$file-name-max-width}
-
-.file, [class^="file-"]
-  +registerCSSVars($css-vars-map, $at-root)
 
 .file
   @extend %unselectable

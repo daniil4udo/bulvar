@@ -9,12 +9,11 @@ $control-font-size: var(--size-normal, #{$size-normal}) !default
 $label-colors: $form-colors !default
 
 $css-vars-map: ('label-font-size': ($label-font-size),'label-color': ($label-color),'label-font-weight': ($label-weight))
++exportVars($css-vars-map)
++registerMap('label')
 // --label-font-size: #{$label-font-size}
 // --label-color: #{$label-color}
 // --label-font-weight: #{$label-weight}
-
-.label, [class^="label-"]
-  +registerCSSVars($css-vars-map, $at-root)
 
 .label
   color: var(--label-color)
@@ -32,10 +31,9 @@ $css-vars-map: ('label-font-size': ($label-font-size),'label-color': ($label-col
     --label-font-size: var(--size-large, #{$size-large})
 
 $css-vars-map: ('help-font-size': ($help-size))
++exportVars($css-vars-map)
++registerMap('help')
 // --help-font-size: #{$help-size}
-
-.help, [class^="help-"]
-  +registerCSSVars($css-vars-map, $at-root)
 
 .help
   display: block
@@ -178,10 +176,9 @@ $css-vars-map: ('help-font-size': ($help-size))
         +ltr-property("margin", 0.75rem)
 
 $css-vars-map: ('control-font-size': ($control-font-size))
++exportVars($css-vars-map)
++registerMap('control')
 // --control-font-size: #{$control-font-size}
-
-.control, [class^="control-"]
-  +registerCSSVars($css-vars-map, $at-root)
 
 .control
   box-sizing: border-box
