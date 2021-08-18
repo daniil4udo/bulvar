@@ -107,6 +107,18 @@ In case you need more strict scoping, you can set it to `false`, wich will trnas
 }
 ```
 
+## EXPORTS
+
+If you are using style modules SASS variable in you JS files, you can set `$exports` to true, which will generate
+
+```sass
+:export {
+  variableName: VALUE
+}
+```
+
+Note that all SASS variable will be camelcased.
+
 ## VERSIONING
 
 Version will follow **v0.Y.Z**, where:
