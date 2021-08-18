@@ -21,12 +21,11 @@ $number-font-size: var(--size-medium, #{$size-medium}) !default
   @extend %loader
 
 $css-vars-map: ('number-background': ($number-background),'number-radius-rounded': ($number-radius-rounded),'number-font-size': ($number-font-size))
++exportVars($css-vars-map)
++registerMap('number')
 // --number-background: var(--background, #{$background})
 // --number-radius-rounded: var(--radius-rounded, #{$radius-rounded})
 // --number-font-size: var(--size-medium, #{$size-medium})
-
-.number, [class^="number-"]
-  +registerCSSVars($css-vars-map, $at-root)
 
 .number
   align-items: center

@@ -5,14 +5,13 @@ $icon-dimensions-large: 3rem !default
 $icon-text-spacing: 0.25em !default
 
 $css-vars-map: ('icon-dimensions': ($icon-dimensions),'icon-dimensions-small': ($icon-dimensions-small),'icon-dimensions-medium': ($icon-dimensions-medium),'icon-dimensions-large': ($icon-dimensions-large),'icon-text-spacing': ($icon-text-spacing))
++exportVars($css-vars-map)
++registerMap('icon')
 // --icon-dimensions: #{$icon-dimensions}
 // --icon-dimensions-small: #{$icon-dimensions-small}
 // --icon-dimensions-medium: #{$icon-dimensions-medium}
 // --icon-dimensions-large: #{$icon-dimensions-large}
 // --icon-text-spacing: #{$icon-text-spacing}
-
-.icon, [class^="icon-"]
-  +registerCSSVars($css-vars-map, $at-root)
 
 .icon
   align-items: center

@@ -3,10 +3,9 @@
 $tile-spacing: 0.75rem !default
 
 $css-vars-map: ('tile-spacing': ($tile-spacing))
++exportVars($css-vars-map)
++registerMap('tile')
 // --tile-spacing: #{$tile-spacing}
-
-.tile, [class^="tile-"]
-  +registerCSSVars($css-vars-map, $at-root)
 
 .tile
   align-items: stretch
