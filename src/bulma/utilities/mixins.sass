@@ -344,3 +344,20 @@
 =registerCSSVarColors($colors, $prefix: '')
   @each $name, $components in $colors
     +registerCSSVarColor($name, $components, $prefix)
+
+=registerMap($component-class, $map: $css-vars-map, $has-starts-from: true)
+  // If declare variables only in component's root selector, i.e. .card
+  // .card-item, .card-header etc. wont have acces to CSS Vars due to the scoping
+  // so if $at-root is false, use starts-with selector
+  $class: ''
+  $glue: ','
+  $list: if(type-of($component-class) == 'list', $component-class, ($component-class))
+
+  @for $i from 1 through length($component-class)
+    $name: nth($list, $i)
+    $current-class: if($has-starts-from, '.#{$name}#{$glue}[class^=#{$name}-]', '.#{$name}')
+
+    $class: if($i != length($component-class), #{$class}#{$current-class}#{$glue}, #{$class}#{$current-class})
+
+  #{$class}
+    +registerCSSVars($map, $at-root)
