@@ -61,12 +61,6 @@
       $value: divide($value, $number)
   @return $value
 
-@function str-split($string, $separator: '-')
-    $i: str-index($string, $separator)
-    @if $i != null
-        @return append(str-slice($string, 1, $i - 1), str-split(str-slice($string, $i + str-length($separator)), $separator))
-    @return $string
-
 @function colorLuminance($color)
   @if type-of($color) != 'color'
     @return 0.55
@@ -135,19 +129,110 @@
     @return $color
   @return lighten($color, $amount)
 
+// Custom divide function by @mdo from https://github.com/twbs/bootstrap/pull/34245
+// Replaces old slash division deprecated in Dart Sass
+@function divide($dividend, $divisor, $precision: 10)
+  $sign: if($dividend > 0 and $divisor > 0, 1, -1)
+  $dividend: abs($dividend)
+  $divisor: abs($divisor)
+  $quotient: 0
+  $remainder: $dividend
+  @if $dividend == 0
+    @return 0
+  @if $divisor == 0
+    @error "Cannot divide by 0"
+  @if $divisor == 1
+    @return $dividend
+  @while $remainder >= $divisor
+    $quotient: $quotient + 1
+    $remainder: $remainder - $divisor
+  @if $remainder > 0 and $precision > 0
+    $remainder: divide($remainder * 10, $divisor, $precision - 1) * .1
+  @return ($quotient + $remainder) * $sign
+
+// Additional funtion for bulma-buefy-css-variables
+
+@function camelCase($str)
+  $camelCase: ''
+  $prevCharWasDash: false
+
+  @for $i from 1 to str-length($str) + 1
+    $char: str-slice($str, $i, $i)
+
+    @if $char == '-'
+      // If $prevCharWasDash is true, then we've encountered a double dash '--'
+      @if $prevCharWasDash
+        // Turn double dashes into single dashes
+        $camelCase: $camelCase + '-'
+        $prevCharWasDash: false
+
+      @else
+        // This is a single dash. Skip adding it to the string and uppercase the next
+        // character.
+        $prevCharWasDash: true
+
+    @else if $prevCharWasDash
+      // The current $char is not a dash. If the previous character
+      // was a dash and we should uppercase this char.
+      $camelCase: $camelCase + to-upper-case($char)
+      $prevCharWasDash: false
+    @else
+      // Add current $char as-is
+      $camelCase: $camelCase + $char
+      $prevCharWasDash: false
+
+  @return $camelCase
+
+@function assignCSSVar($name, $fallback)
+  @return var(--#{$name}, #{$fallback})
+
+@function unwrapCSSVar($cssVar)
+  @if type-of($cssVar) == string and str-index($cssVar, "var(") == 1
+    $end-at: (str-index($cssVar, ',') or 0) - 1
+    @return str-slice($cssVar, 7, $end-at)
+  @return $cssVar
+
 @function bulmaToRGB($color)
   @if type-of($color) != 'color'
       @return $color
   @return red($color), green($color), blue($color)
 
+@function bulmaCSSVarHsla($color, $alpha)
+  $name: unwrapCSSVar($color)
+  @if type-of($name) == 'string' // and map-has-key($colors, $name)
+    @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{var(--#{$name}-l)}, #{$alpha})
+  @return $color
+
+@function bulmaCSSVarDarken($name, $amount)
+  @if type-of($name) == 'string' // and map-has-key($colors, $name)
+    $name-l: null
+    // to be able to pass calc(var(--lightness) - 5%)
+    @if type-of($amount) == 'string'
+      $name-l: $amount
+    @else
+      $name-l: calc(#{var(--#{$name}-l)} - #{$amount})
+    @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{$name-l}, #{var(--#{$name}-a)})
+  @return $name
+
+@function bulmaCSSVarLighten($name, $amount)
+  @if type-of($name) == 'string' // and map-has-key($colors, $name)
+    $name-l: null
+    // to be able to pass calc(var(--lightness) - 5%)
+    @if type-of($amount) == 'string'
+      $name-l: $amount
+    @else
+      $name-l: calc(#{var(--#{$name}-l)} + #{$amount})
+    @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{$name-l}, #{var(--#{$name}-a)})
+  @return $name
+
 =exportVar($name, $value)
   @at-root :export
-    #{$name}: #{$value}
+    #{camelCase($name)}: #{$value}
 
 =exportVars($list)
     @at-root :export
       @each $name, $value in $list
-        #{$name}: #{$value}
+        #{camelCase($name)}: #{$value}
 
 =registerCSSVar($name, $value, $at-root: true)
   @if $at-root
@@ -204,61 +289,3 @@
 =registerCSSVarColors($colors, $prefix: '')
   @each $name, $components in $colors
     +registerCSSVarColor($name, $components, $prefix)
-
-@function assignCSSVar($name, $fallback)
-  @return var(--#{$name}, #{$fallback})
-
-@function unwrapCSSVar($cssVar)
-  @if type-of($cssVar) == string and str-index($cssVar, "var(") == 1
-    $end-at: (str-index($cssVar, ',') or 0) - 1
-    @return str-slice($cssVar, 7, $end-at)
-  @return $cssVar
-
-@function bulmaCSSVarHsla($color, $alpha)
-  $name: unwrapCSSVar($color)
-  @if type-of($name) == 'string' // and map-has-key($colors, $name)
-    @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{var(--#{$name}-l)}, #{$alpha})
-  @return $color
-
-@function bulmaCSSVarDarken($name, $amount)
-  @if type-of($name) == 'string' // and map-has-key($colors, $name)
-    $name-l: null
-    // to be able to pass calc(var(--lightness) - 5%)
-    @if type-of($amount) == 'string'
-      $name-l: $amount
-    @else
-      $name-l: calc(#{var(--#{$name}-l)} - #{$amount})
-    @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{$name-l}, #{var(--#{$name}-a)})
-  @return $name
-
-@function bulmaCSSVarLighten($name, $amount)
-  @if type-of($name) == 'string' // and map-has-key($colors, $name)
-    $name-l: null
-    // to be able to pass calc(var(--lightness) - 5%)
-    @if type-of($amount) == 'string'
-      $name-l: $amount
-    @else
-      $name-l: calc(#{var(--#{$name}-l)} + #{$amount})
-    @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{$name-l}, #{var(--#{$name}-a)})
-  @return $name
-
-// Custom divide function by @mdo from https://github.com/twbs/bootstrap/pull/34245
-// Replaces old slash division deprecated in Dart Sass
-@function divide($dividend, $divisor, $precision: 10)
-  $sign: if($dividend > 0 and $divisor > 0, 1, -1)
-  $dividend: abs($dividend)
-  $divisor: abs($divisor)
-  $quotient: 0
-  $remainder: $dividend
-  @if $dividend == 0
-    @return 0
-  @if $divisor == 0
-    @error "Cannot divide by 0"
-  @if $divisor == 1
-    @return $dividend
-  @while $remainder >= $divisor
-    $quotient: $quotient + 1
-    $remainder: $remainder - $divisor
-  @if $remainder > 0 and $precision > 0
-    $remainder: divide($remainder * 10, $divisor, $precision - 1) * .1
-  @return ($quotient + $remainder) * $sign
