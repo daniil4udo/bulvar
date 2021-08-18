@@ -190,7 +190,7 @@
 
 @function unwrapCSSVar($cssVar)
   @if type-of($cssVar) == string and str-index($cssVar, "var(") == 1
-    $end-at: (str-index($cssVar, ',') or 0) - 1
+    $end-at: (str-index($cssVar, ',') or -1) - 1
     @return str-slice($cssVar, 7, $end-at)
   @return $cssVar
 
