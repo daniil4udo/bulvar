@@ -276,8 +276,8 @@ $css-vars-map: ('button-color': ($button-color),'button-background-color': ($but
         $color-light: nth($pair, 3)
         $color-dark: nth($pair, 4)
         &.is-light
-          --hover-background-color: #{bulmaCSSVarDarken($name, calc(#{var(--#{$name}-light-l)} - 2.5%))}
-          --active-background-color: #{bulmaCSSVarDarken($name, calc(#{var(--#{$name}-light-l)} - 5%))}
+          --hover-background-color: #{bulmaCSSVarLighteness($name, calc(#{var(--#{$name}-light-l)} - 2.5%))}
+          --active-background-color: #{bulmaCSSVarLighteness($name, calc(#{var(--#{$name}-light-l)} - 5%))}
           background-color: var(--#{$name}-light, #{$color-light})
           color: var(--#{$name}-dark, #{$color-dark})
           &:hover,

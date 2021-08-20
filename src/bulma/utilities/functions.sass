@@ -207,30 +207,26 @@
       @return $color
   @return red($color), green($color), blue($color)
 
+/// lighten & darken with css vars
+
 @function bulmaCSSVarHsla($color, $alpha)
   $name: unwrap($color)
   @if type-of($name) == 'string'
     @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{var(--#{$name}-l)}, #{$alpha})
   @return $color
 
-@function bulmaCSSVarDarken($name, $amount)
+@function bulmaCSSVarLighteness($color, $amount)
+  $name: unwrap($color)
   @if type-of($name) == 'string' // and map-has-key($colors, $name)
-    $name-l: null
-    // to be able to pass calc(var(--lightness) - 5%)
-    @if type-of($amount) == 'string'
-      $name-l: $amount
-    @else
-      $name-l: calc(#{var(--#{$name}-l)} - #{$amount})
-    @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{$name-l}, #{var(--#{$name}-a)})
-  @return $name
+    @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{$amount}, #{var(--#{$name}-a)})
+  @return $color
 
-@function bulmaCSSVarLighten($name, $amount)
+@function bulmaCSSVarLighten($color, $amount)
+  $name: unwrap($color)
   @if type-of($name) == 'string' // and map-has-key($colors, $name)
-    $name-l: null
-    // to be able to pass calc(var(--lightness) - 5%)
-    @if type-of($amount) == 'string'
-      $name-l: $amount
-    @else
-      $name-l: calc(#{var(--#{$name}-l)} + #{$amount})
+    $name-l: calc(#{var(--#{$name}-l)} + #{if(unitless($amount), ($amount * 1%), $amount)})
     @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{$name-l}, #{var(--#{$name}-a)})
-  @return $name
+  @return $color
+
+@function bulmaCSSVarDarken($color, $amount)
+  @return bulmaCSSVarLighten($color, ($amount * -1))

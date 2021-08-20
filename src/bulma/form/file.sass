@@ -38,10 +38,10 @@ $css-vars-map: ('file-border-color': ($file-border-color),'file-radius': ($file-
     $color: nth($pair, 1)
     $color-invert: nth($pair, 2)
     &.is-#{$name}
-      --hover-background-color: #{bulmaCSSVarDarken($name, calc(#{var(--#{$name}-light-l)} - 2.5%))}
+      --hover-background-color: #{bulmaCSSVarLighteness($name, calc(#{var(--#{$name}-light-l)} - 2.5%))}
       --focus-box-shadow-color-hsla: hsla(var(--#{$name}-h), var(--#{$name}-s), var(--#{$name}-l), 0.25)
       --focus-box-shadow-color: var(--focus-box-shadow-color-hsla, #{bulmaRgba($color, 0.25)})
-      --active-background-color: #{bulmaCSSVarDarken($name, calc(#{var(--#{$name}-light-l)} - 5%))}
+      --active-background-color: #{bulmaCSSVarLighteness($name, calc(#{var(--#{$name}-light-l)} - 5%))}
       .file-cta
         background-color: var(--#{$name} #{$color})
         border-color: transparent
