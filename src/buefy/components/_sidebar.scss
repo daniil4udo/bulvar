@@ -16,9 +16,8 @@ $css-vars-map: (
     'sidebar-mobile-breakpoint': ($sidebar-mobile-breakpoint),
 );
 
-.b-sidebar, [class^="b-sidebar-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportVars($css-vars-map);
+@include registerMap('b-sidebar');
 
 .b-sidebar {
     .sidebar-content {

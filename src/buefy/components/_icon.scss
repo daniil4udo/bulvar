@@ -6,9 +6,8 @@ $css-vars-map: (
     'icon-svg-height': ($icon-svg-height),
 );
 
-.icon, [class^="icon-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportVars($css-vars-map);
+@include registerMap('icon');
 
 .icon {
     @include unselectable;

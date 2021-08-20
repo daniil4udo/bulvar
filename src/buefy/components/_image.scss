@@ -5,9 +5,8 @@ $css-vars-map: (
     'image-placeholder-blur': ($image-placeholder-blur),
 );
 
-.b-image-wrapper, [class^="b-image-wrapper-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportVars($css-vars-map);
+@include registerMap('b-image-wrapper');
 
 .b-image-wrapper {
     > img {
