@@ -278,16 +278,20 @@
 // Additional @mixins for bulma-buefy-css-variables
 //
 
+// 🧩 register :export {}
+
 =exportVar($name, $value)
   @if $export
     @at-root :export
-      #{camelCase($name)}: #{$value}
+      #{camel-case($name)}: #{$value}
 
 =exportVars($list)
   @if $export
     @at-root :export
       @each $name, $value in $list
-        #{camelCase($name)}: #{$value}
+        #{camel-case($name)}: #{$value}
+
+// 🧩 register var() base on $at-root flag
 
 =registerCSSVar($name, $value, $at-root: true)
   @if $at-root

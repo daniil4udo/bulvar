@@ -76,7 +76,6 @@
     $color-rgb: map-merge($color-rgb, ($name: $value))
   @return (map-get($color-rgb, 'red') * .2126) + (map-get($color-rgb, 'green') * .7152) + (map-get($color-rgb, 'blue') * .0722)
 
-
 @function calculateInvertColor($color)
   @return if(colorLuminance($color) > 0.55, rgba(#000, 0.7), #fff)
 
@@ -154,7 +153,9 @@
 // Additional @funtion for bulma-buefy-css-variables
 //
 
-@function camelCase($str)
+// Utility functions
+
+@function camel-case($str)
   $camelCase: ''
   $prevCharWasDash: false
 
@@ -185,14 +186,21 @@
 
   @return $camelCase
 
-@function assignCSSVar($name, $fallback)
-  @return var(--#{$name}, #{$fallback})
+// assign variable to a property
+// base on $css-variables flag
+@function assign($name-or-value, $fallback)
+  @if $css-variables
+    @return var(--#{$name-or-value}, #{$fallback})
+  @else 
+    @return $name-or-value
 
-@function unwrapCSSVar($cssVar)
-  @if type-of($cssVar) == string and str-index($cssVar, "var(") == 1
-    $end-at: (str-index($cssVar, ',') or -1) - 1
-    @return str-slice($cssVar, 7, $end-at)
-  @return $cssVar
+// extracts var(--var-name) -> var-name
+@function unwrap($variable)
+  @if type-of($variable) == 'string' and str-index($variable, "var(") == 1
+    $start-at: str-index($variable, "--") + str-length("--")
+    $end-at: (str-index($variable, ',') or -1) - 1
+    @return str-slice($variable, $start-at, $end-at)
+  @return $variable
 
 @function bulmaToRGB($color)
   @if type-of($color) != 'color'
@@ -200,8 +208,8 @@
   @return red($color), green($color), blue($color)
 
 @function bulmaCSSVarHsla($color, $alpha)
-  $name: unwrapCSSVar($color)
-  @if type-of($name) == 'string' // and map-has-key($colors, $name)
+  $name: unwrap($color)
+  @if type-of($name) == 'string'
     @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{var(--#{$name}-l)}, #{$alpha})
   @return $color
 
