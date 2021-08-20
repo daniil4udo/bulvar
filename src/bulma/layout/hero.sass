@@ -33,7 +33,7 @@ $css-vars-map: ('hero-body-padding': ($hero-body-padding),'hero-body-padding-tab
     $color: nth($pair, 1)
     $color-invert: nth($pair, 2)
     &.is-#{$name}
-      --hover-background-color: #{bulmaCSSVarDarken($name, 5%)}
+      --hover-background-color: #{bulmaVarDarken($name, 5%)}
       background-color: var(--#{$name}, #{$color})
       color: var(--#{$name}-invert, #{$color-invert})
       a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),

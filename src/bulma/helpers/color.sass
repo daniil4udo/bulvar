@@ -3,7 +3,7 @@
 @each $name, $pair in $colors
   $color: nth($pair, 1)
   .has-text-#{$name}
-    --has-text-hover-color: #{bulmaCSSVarDarken($name, 10%)}
+    --has-text-hover-color: #{bulmaVarDarken($name, 10%)}
     color: var(--#{$name}, #{$color}) !important
   a.has-text-#{$name}
     &:hover,
@@ -16,7 +16,7 @@
     $color-dark: nth($pair, 4)
     // Light
     .has-text-#{$name}-light
-      --has-text-light-hover-color: #{bulmaCSSVarLighteness($name, calc(#{var(--#{$name}-light-l)} - 10%))}
+      --has-text-light-hover-color: #{bulmaVarLighteness($name, calc(#{var(--#{$name}-light-l)} - 10%))}
       color: var(--#{$name}-light, #{$color-light}) !important
     a.has-text-#{$name}-light
       &:hover,
@@ -26,7 +26,7 @@
       background-color: var(--#{$name}-light, #{$color-light}) !important
     // Dark
     .has-text-#{$name}-dark
-      --has-text-dark-hover-color: #{bulmaCSSVarLighteness($name, calc(#{var(--#{$name}-light-l)} + 10%))}
+      --has-text-dark-hover-color: #{bulmaVarLighteness($name, calc(#{var(--#{$name}-light-l)} + 10%))}
       color: var(--#{$name}-dark, #{$color-dark}) !important
     a.has-text-#{$name}-dark
       &:hover,

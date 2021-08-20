@@ -209,24 +209,24 @@
 
 /// lighten & darken with css vars
 
-@function bulmaCSSVarHsla($color, $alpha)
+@function bulmaVarOpacity($color, $alpha)
   $name: unwrap($color)
   @if type-of($name) == 'string'
     @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{var(--#{$name}-l)}, #{$alpha})
   @return $color
 
-@function bulmaCSSVarLighteness($color, $amount)
+@function bulmaVarLighteness($color, $amount)
   $name: unwrap($color)
   @if type-of($name) == 'string' // and map-has-key($colors, $name)
     @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{$amount}, #{var(--#{$name}-a)})
   @return $color
 
-@function bulmaCSSVarLighten($color, $amount)
+@function bulmaVarLighten($color, $amount)
   $name: unwrap($color)
   @if type-of($name) == 'string' // and map-has-key($colors, $name)
     $name-l: calc(#{var(--#{$name}-l)} + #{if(unitless($amount), ($amount * 1%), $amount)})
     @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{$name-l}, #{var(--#{$name}-a)})
   @return $color
 
-@function bulmaCSSVarDarken($color, $amount)
-  @return bulmaCSSVarLighten($color, ($amount * -1))
+@function bulmaVarDarken($color, $amount)
+  @return bulmaVarLighten($color, ($amount * -1))
