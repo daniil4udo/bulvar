@@ -192,7 +192,7 @@
   @if $css-variables
     @return var(--#{$name-or-value}, #{$fallback})
   @else 
-    @return $name-or-value
+    @return $fallback
 
 // extracts var(--var-name) -> var-name
 @function unwrap($variable)
