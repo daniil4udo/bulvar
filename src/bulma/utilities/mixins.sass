@@ -309,19 +309,10 @@
     @each $name, $value in $list
       --#{$name}: #{$value}
 
+// 🧩 register var() JUST(⚠️) for colors in $colors map
+
 =registerCSSVarColor($name, $components, $prefix: '')
   $color: nth($components, 1)
-  $color-invert: nth($components, 2)
-  $color-light: null
-  @if length($components) >= 3
-    $color-light: nth($components, 3)
-  @else
-    $color-light: findLightColor($color)
-  $color-dark: null
-  @if length($components) >= 4
-    $color-dark: nth($components, 4)
-  @else
-    $color-dark: findDarkColor($color)
   $base: $prefix + $name
 
   --#{$base}-h: #{hue($color)}
@@ -331,16 +322,18 @@
   --#{$base}: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-l), var(--#{$base}-a))
 
   // Invert color
+  $color-invert: nth($components, 2)
   $invert-l: lightness($color-invert)
-  --#{$base}-invert-l: #{$invert-l}
   --#{$base}-invert: #{$color-invert}
 
   // Light color
+  $color-light: if(length($components) >= 3, nth($components, 3), findLightColor($color))
   $light-l: lightness($color-light)
   --#{$base}-light-l: #{$light-l}
   --#{$base}-light: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-light-l), var(--#{$base}-a))
 
   // Dark color
+  $color-dark: if(length($components) >= 4, nth($components, 4), findDarkColor($color))
   $dark-l: lightness($color-dark)
   --#{$base}-dark-l: #{$dark-l}
   --#{$base}-dark: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-dark-l), var(--#{$base}-a))
