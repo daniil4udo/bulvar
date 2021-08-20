@@ -188,9 +188,12 @@
 
 // assign variable to a property
 // base on $css-variables flag
-@function assign($name-or-value, $fallback)
+@function assign($name-or-value, $fallback, $force-fallback: false)
   @if $css-variables
-    @return var(--#{$name-or-value}, #{$fallback})
+    @if $force-fallback
+      @return var(--#{$name-or-value}, #{$fallback})
+    @else $force-fallback
+      @return var(--#{$name-or-value})
   @else 
     @return $fallback
 
