@@ -95,7 +95,7 @@ $css-vars-map: (
                 @each $name, $pair in $switch-colors {
                     $color: nth($pair, 1);
                     &.is-#{$name}-passive {
-                        box-shadow: 0 0 0.5em bulmaCSSVarHsla($name, 0.8);
+                        box-shadow: 0 0 0.5em bulmaVarOpacity($name, 0.8);
                     }
                 }
             }
@@ -104,7 +104,7 @@ $css-vars-map: (
                 @each $name, $pair in $switch-colors {
                     $color: nth($pair, 1);
                     &.is-#{$name} {
-                        box-shadow: 0 0 0.5em bulmaCSSVarHsla($name, 0.8);
+                        box-shadow: 0 0 0.5em bulmaVarOpacity($name, 0.8);
                     }
                 }
             }
@@ -130,7 +130,7 @@ $css-vars-map: (
             @each $name, $pair in $switch-colors {
                 $color: nth($pair, 1);
                 &.is-#{$name}-passive {
-                    background: bulmaCSSVarHsla($name, 0.9);
+                    background: bulmaVarOpacity($name, 0.9);
                 }
             }
         }
@@ -139,7 +139,7 @@ $css-vars-map: (
             @each $name, $pair in $switch-colors {
                 $color: nth($pair, 1);
                 &.is-#{$name} {
-                    background: bulmaCSSVarHsla($name, 0.9);
+                    background: bulmaVarOpacity($name, 0.9);
                 }
             }
         }
@@ -166,12 +166,12 @@ $css-vars-map: (
                 @each $name, $pair in $switch-colors {
                     $color: nth($pair, 1);
                     &.is-#{$name}-passive {
-                        border: .1rem solid bulmaCSSVarHsla($name, 0.9);
+                        border: .1rem solid bulmaVarOpacity($name, 0.9);
                         &:before {
                             background: var(--#{$name}, #{$color});
                         }
                         &:hover {
-                            border-color: bulmaCSSVarHsla($name, 0.9);
+                            border-color: bulmaVarOpacity($name, 0.9);
                         }
                     }
                 }
@@ -207,7 +207,7 @@ $css-vars-map: (
                 @each $name, $pair in $switch-colors {
                     $color: nth($pair, 1);
                     &.is-#{$name} {
-                        border-color: bulmaCSSVarHsla($name, 0.9);
+                        border-color: bulmaVarOpacity($name, 0.9);
                     }
                 }
             }

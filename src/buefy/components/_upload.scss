@@ -39,7 +39,7 @@
             @each $name, $pair in $file-colors {
                 $color: nth($pair, 1);
                 &.is-#{$name} {
-                    --hover-background-color: #{bulmaCSSVarHsla($name, 0.05)};
+                    --hover-background-color: #{bulmaVarOpacity($name, 0.05)};
                     border-color: var(--#{$name}, #{$color});
                     background: var(--hover-box-shadow-color, #{bulmaRgba($color, 0.05)});
                 }

@@ -1,5 +1,5 @@
 $rate-color: var(--grey-lighter, #{$grey-lighter}) !default;
-$rate-color-active-hsla: bulmaCSSVarDarken('warning', 5%) !default;
+$rate-color-active-hsla: bulmaVarDarken(warning, 5%) !default;
 $rate-color-active: var(--rate-color-active-hsla, #{bulmaDarken($warning, 5%)}) !default;
 $rate-spaced: 0.25rem !default;
 $rate-text-spaced: 0.35rem !default;

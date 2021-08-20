@@ -217,7 +217,7 @@ $css-vars-map: (
             }
         }
         &:focus {
-            --focus-box-shadow-color: #{bulmaCSSVarHsla('link', 0.25)};
+            --focus-box-shadow-color: #{bulmaVarOpacity(link, 0.25)};
             border-color: var(--link, #{$link});
             box-shadow: 0 0 0 0.125em var(--focus-box-shadow-color, #{bulmaRgba($link, 0.25)});
         }

@@ -59,7 +59,7 @@ $css-vars-map: (
         }
     }
     .snackbar {
-        --snackbar-button-background-color: #{bulmaCSSVarDarken('dark', 5%)};
+        --snackbar-button-background-color: #{bulmaVarDarken(dark, 5%)};
         display: inline-flex;
         align-items: center;
         justify-content: space-around;

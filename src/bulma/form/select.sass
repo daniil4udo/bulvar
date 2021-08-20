@@ -53,8 +53,8 @@ $css-vars-map: ('select-arrow': ($input-arrow),'select-disabled-border-color': (
   @each $name, $pair in $select-colors
     $color: nth($pair, 1)
     &.is-#{$name}
-      --hover-border-color: #{bulmaCSSVarDarken($name, 5%)}
-      --focus-box-shadow-color: #{bulmaCSSVarHsla($name, 0.25)}
+      --hover-border-color: #{bulmaVarDarken($name, 5%)}
+      --focus-box-shadow-color: #{bulmaVarOpacity($name, 0.25)}
       &:not(:hover)::after
         border-color: var(--#{$name}, #{$color})
       select

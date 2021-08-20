@@ -94,7 +94,7 @@ $css-vars-map: (
                     @each $name, $pair in $radio-colors {
                         $color: nth($pair, 1);
                         &.is-#{$name} {
-                            --focus-box-shadow-color: #{bulmaCSSVarHsla($name, 0.8)};
+                            --focus-box-shadow-color: #{bulmaVarOpacity($name, 0.8)};
                             box-shadow: 0 0 0.5em var(--focus-box-shadow-color, #{bulmaRgba($color, 0.8)});
                         }
                     }
