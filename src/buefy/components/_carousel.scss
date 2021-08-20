@@ -14,21 +14,21 @@ $carousel-overlay-background: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($black)
 $carousel-overlay-z: 40 !default;
 
 $css-vars-map: (
-    'carousel-min-height': ($carousel-min-height),
-    'carousel-arrow-background': ($carousel-arrow-background),
-    'carousel-arrow-color': ($carousel-arrow-color),
-    'carousel-arrow-icon-spaced': ($carousel-arrow-icon-spaced),
-    'carousel-arrow-top': ($carousel-arrow-top),
-    'carousel-indicator-background': ($carousel-indicator-background),
-    'carousel-indicator-border': ($carousel-indicator-border),
-    'carousel-indicator-color': ($carousel-indicator-color),
-    'carousel-indicator-spaced': ($carousel-indicator-spaced),
-    'carousel-overlay-background': ($carousel-overlay-background),
-    'carousel-overlay-z': ($carousel-overlay-z),
+    'carousel-min-height': $carousel-min-height,
+    'carousel-arrow-background': $carousel-arrow-background,
+    'carousel-arrow-color': $carousel-arrow-color,
+    'carousel-arrow-icon-spaced': $carousel-arrow-icon-spaced,
+    'carousel-arrow-top': $carousel-arrow-top,
+    'carousel-indicator-background': $carousel-indicator-background,
+    'carousel-indicator-border': $carousel-indicator-border,
+    'carousel-indicator-color': $carousel-indicator-color,
+    'carousel-indicator-spaced': $carousel-indicator-spaced,
+    'carousel-overlay-background': $carousel-overlay-background,
+    'carousel-overlay-z': $carousel-overlay-z,
 );
 
 @include exportVars($css-vars-map);
-@include registerMap('autocomplete');
+@include registerMap('carousel');
 
 .carousel {
     @extend %unselectable;

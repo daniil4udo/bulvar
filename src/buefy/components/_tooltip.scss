@@ -9,8 +9,8 @@ $tooltip-multiline-sizes: (
 $tooltip-colors: $colors !default;
 
 $css-vars-map: (
-    'tooltip-arrow-size': ($tooltip-arrow-size),
-    'tooltip-arrow-margin': ($tooltip-arrow-margin),
+    'tooltip-arrow-size': $tooltip-arrow-size,
+    'tooltip-arrow-margin': $tooltip-arrow-margin,
 );
 
 @include exportVars($css-vars-map);

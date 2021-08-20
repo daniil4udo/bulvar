@@ -4,8 +4,8 @@ $radio-size: 1.25em !default;
 $radio-colors: $form-colors !default;
 
 $css-vars-map: (
-    'radio-active-background-color': ($radio-active-background-color),
-    'radio-size': ($radio-size),
+    'radio-active-background-color': $radio-active-background-color,
+    'radio-size': $radio-size,
 );
 
 @include exportVars($css-vars-map);

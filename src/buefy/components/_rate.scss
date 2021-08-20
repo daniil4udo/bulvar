@@ -6,12 +6,12 @@ $rate-text-spaced: 0.35rem !default;
 $rate-text-font-size: var(--size-normal, #{$size-normal}) !default;
 
 $css-vars-map: (
-    'rate-color': ($rate-color),
-    'rate-color-active-hsla': ($rate-color-active-hsla),
-    'rate-color-active': ($rate-color-active),
-    'rate-spaced': ($rate-spaced),
-    'rate-text-spaced': ($rate-text-spaced),
-    'rate-text-font-size': ($rate-text-font-size),
+    'rate-color': $rate-color,
+    'rate-color-active-hsla': $rate-color-active-hsla,
+    'rate-color-active': $rate-color-active,
+    'rate-spaced': $rate-spaced,
+    'rate-text-spaced': $rate-text-spaced,
+    'rate-text-font-size': $rate-text-font-size,
 );
 
 @include exportVars($css-vars-map);

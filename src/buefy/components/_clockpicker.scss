@@ -1,7 +1,7 @@
 $clockpicker-card-radius: var(--card-radius, #{$card-radius});
 
 $css-vars-map: (
-    'clockpicker-card-radius': ($clockpicker-card-radius)
+    'clockpicker-card-radius': $clockpicker-card-radius
 );
 
 @include exportVars($css-vars-map);

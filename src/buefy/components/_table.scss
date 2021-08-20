@@ -1,7 +1,7 @@
 $table-sticky-header-height: 300px !default;
 
 $css-vars-map: (
-    'table-sticky-header-height': ($table-sticky-header-height),
+    'table-sticky-header-height': $table-sticky-header-height,
 );
 
 @include exportVars($css-vars-map);

@@ -8,11 +8,11 @@ $skeleton-margin-top: .5rem !default;
 $skeleton-line-height-size: var(--size-normal, #{$size-normal}) !default;
 
 $css-vars-map: (
-    'skeleton-background': ($skeleton-background),
-    'skeleton-border-radius': ($skeleton-border-radius),
-    'skeleton-duration': ($skeleton-duration),
-    'skeleton-margin-top': ($skeleton-margin-top),
-    'skeleton-line-height-size': ($skeleton-line-height-size),
+    'skeleton-background': $skeleton-background,
+    'skeleton-border-radius': $skeleton-border-radius,
+    'skeleton-duration': $skeleton-duration,
+    'skeleton-margin-top': $skeleton-margin-top,
+    'skeleton-line-height-size': $skeleton-line-height-size,
 );
 
 @include exportVars($css-vars-map);

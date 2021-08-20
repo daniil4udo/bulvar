@@ -3,8 +3,8 @@ $progress-value-color: var(--scheme-main, #{$scheme-main}) !default;
 $progress-value-size: var(--size-normal, #{$size-normal}) !default;
 
 $css-vars-map: (
-    'progress-value-color': ($progress-value-color),
-    'progress-value-size': ($progress-value-size),
+    'progress-value-color': $progress-value-color,
+    'progress-value-size': $progress-value-size,
 );
 
 @include exportVars($css-vars-map);

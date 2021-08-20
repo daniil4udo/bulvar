@@ -8,12 +8,12 @@ $sidebar-mobile-breakpoint: $tablet !default;
 $sidebar-colors: $navbar-colors !default;
 
 $css-vars-map: (
-    'sidebar-background': ($sidebar-background),
-    'sidebar-shadow-color': ($sidebar-shadow-color),
-    'sidebar-box-shadow': ($sidebar-box-shadow),
-    'sidebar-width': ($sidebar-width),
-    'sidebar-mobile-width': ($sidebar-mobile-width),
-    'sidebar-mobile-breakpoint': ($sidebar-mobile-breakpoint),
+    'sidebar-background': $sidebar-background,
+    'sidebar-shadow-color': $sidebar-shadow-color,
+    'sidebar-box-shadow': $sidebar-box-shadow,
+    'sidebar-width': $sidebar-width,
+    'sidebar-mobile-width': $sidebar-mobile-width,
+    'sidebar-mobile-breakpoint': $sidebar-mobile-breakpoint,
 );
 
 @include exportVars($css-vars-map);
