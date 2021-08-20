@@ -15,7 +15,7 @@ $textarea-colors: $form-colors !default
   @each $name, $pair in $textarea-colors
     $color: nth($pair, 1)
     &.is-#{$name}
-      --focus-box-shadow-color: #{bulmaCSSVarHsla($name, 0.25)}
+      --focus-box-shadow-color: #{bulmaVarOpacity($name, 0.25)}
       border-color: var(--#{$name}, #{$color})
       &:focus,
       &.is-focused,

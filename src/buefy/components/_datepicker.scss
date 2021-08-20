@@ -108,7 +108,7 @@ $css-vars-map: (
                     color: var(--datepicker-item-disabled-color);
                 }
                 &.is-today {
-                    --datepicker-today-border-color: #{bulmaCSSVarHsla('primary', 0.5)};
+                    --datepicker-today-border-color: #{bulmaVarOpacity(primary, 0.5)};
                     border: var(--datepicker-today-border) var(--datepicker-today-border-color, #{bulmaRgba($primary, 0.5)});
                 }
                 &.is-selectable {
@@ -149,7 +149,7 @@ $css-vars-map: (
                         border-top-right-radius: 0;
                     }
                     &.is-within-selected {
-                        --datepicker-item-selected-background-color: #{bulmaCSSVarHsla('primary', 0.5)};
+                        --datepicker-item-selected-background-color: #{bulmaVarOpacity(primary, 0.5)};
                         background-color: var(--datepicker-item-selected-background-color, #{bulmaRgba($primary, 0.5)});
                         border-radius: 0;
                     }
@@ -206,7 +206,7 @@ $css-vars-map: (
                             // Currently datepicker only uses primary coloring
                             // Ensure indicator is visible when selected
                             &.is-primary {
-                                --datepicker-background-color-selected: #{bulmaCSSVarLighten('primary', 15%)};
+                                --datepicker-background-color-selected: #{bulmaVarLighten(primary, 15%)};
                                 background-color: var(--datepicker-background-color-selected, #{bulmaLighten($primary, 15%)});
                             }
                         }

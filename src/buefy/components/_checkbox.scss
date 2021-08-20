@@ -1,5 +1,5 @@
 $checkbox-active-background-color: var(--primary, #{$primary}) !default;
-$checkbox-focus-box-shadow-color-hsla: bulmaCSSVarHsla('primary', 0.8) !default;
+$checkbox-focus-box-shadow-color-hsla: bulmaVarOpacity(primary, 0.8) !default;
 $checkbox-focus-box-shadow-color: var(--checkbox-focus-box-shadow-color-hsla, #{bulmaRgba($primary, 0.8)}) !default;
 $checkbox-background-color: transparent !default;
 $checkbox-border-color: $grey !default;
@@ -91,7 +91,7 @@ $css-vars-map: (
                     @each $name, $pair in $checkbox-colors {
                         $color: nth($pair, 1);
                         &.is-#{$name} {
-                            --focus-box-shadow-color: #{bulmaCSSVarHsla($name, 0.8)};
+                            --focus-box-shadow-color: #{bulmaVarOpacity($name, 0.8)};
                             box-shadow: 0 0 0.5em var(--focus-box-shadow-color, #{bulmaRgba($color, 0.8)});
                         }
                     }

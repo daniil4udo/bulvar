@@ -9,7 +9,7 @@
         @each $name, $pair in $tag-colors {
             $color: nth($pair, 1);
             &.is-#{$name} {
-                --tag-delete-background-color: #{bulmaCSSVarDarken($name, 10%)};
+                --tag-delete-background-color: #{bulmaVarDarken($name, 10%)};
                 background: var(--#{$name}, #{$color});
                 &:hover {
                     background-color: var(--tag-delete-background-color, #{bulmaDarken($color, 10%)});
