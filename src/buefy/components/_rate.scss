@@ -6,17 +6,16 @@ $rate-text-spaced: 0.35rem !default;
 $rate-text-font-size: var(--size-normal, #{$size-normal}) !default;
 
 $css-vars-map: (
-    'rate-color': ($rate-color),
-    'rate-color-active-hsla': ($rate-color-active-hsla),
-    'rate-color-active': ($rate-color-active),
-    'rate-spaced': ($rate-spaced),
-    'rate-text-spaced': ($rate-text-spaced),
-    'rate-text-font-size': ($rate-text-font-size),
+    'rate-color': $rate-color,
+    'rate-color-active-hsla': $rate-color-active-hsla,
+    'rate-color-active': $rate-color-active,
+    'rate-spaced': $rate-spaced,
+    'rate-text-spaced': $rate-text-spaced,
+    'rate-text-font-size': $rate-text-font-size,
 );
 
-.rate, [class^="rate-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportVars($css-vars-map);
+@include registerMap('rate');
 
 .rate {
     align-items: center;

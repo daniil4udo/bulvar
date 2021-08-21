@@ -1,12 +1,11 @@
 $taginput-height: calc(2em - 1px) !default;
 
 $css-vars-map: (
-    'taginput-height': ($taginput-height),
+    'taginput-height': $taginput-height,
 );
 
-.taginput, [class^="taginput-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportVars($css-vars-map);
+@include registerMap('taginput');
 
 .taginput {
     .taginput-container {

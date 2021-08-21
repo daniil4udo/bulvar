@@ -12,21 +12,20 @@ $tabs-toggle-link-focus-active-border-color: $tabs-toggle-link-active-border-col
 $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !default;
 
 $css-vars-map: (
-    'tabs-link-focus-active-border-bottom-color': ($tabs-link-focus-active-border-bottom-color),
-    'tabs-link-focus-border-bottom-color': ($tabs-link-focus-border-bottom-color),
-    'tabs-boxed-link-focus-active-background-color': ($tabs-boxed-link-focus-active-background-color),
-    'tabs-boxed-link-focus-background-color': ($tabs-boxed-link-focus-background-color),
-    'tabs-boxed-link-focus-active-border-bottom-color': ($tabs-boxed-link-focus-active-border-bottom-color),
-    'tabs-boxed-link-focus-border-bottom-color': ($tabs-boxed-link-focus-border-bottom-color),
-    'tabs-toggle-link-focus-active-background-color': ($tabs-toggle-link-focus-active-background-color),
-    'tabs-toggle-link-focus-background-color': ($tabs-toggle-link-focus-background-color),
-    'tabs-toggle-link-focus-active-border-color': ($tabs-toggle-link-focus-active-border-color),
-    'tabs-toggle-link-focus-border-color': ($tabs-toggle-link-focus-border-color),
+    'tabs-link-focus-active-border-bottom-color': $tabs-link-focus-active-border-bottom-color,
+    'tabs-link-focus-border-bottom-color': $tabs-link-focus-border-bottom-color,
+    'tabs-boxed-link-focus-active-background-color': $tabs-boxed-link-focus-active-background-color,
+    'tabs-boxed-link-focus-background-color': $tabs-boxed-link-focus-background-color,
+    'tabs-boxed-link-focus-active-border-bottom-color': $tabs-boxed-link-focus-active-border-bottom-color,
+    'tabs-boxed-link-focus-border-bottom-color': $tabs-boxed-link-focus-border-bottom-color,
+    'tabs-toggle-link-focus-active-background-color': $tabs-toggle-link-focus-active-background-color,
+    'tabs-toggle-link-focus-background-color': $tabs-toggle-link-focus-background-color,
+    'tabs-toggle-link-focus-active-border-color': $tabs-toggle-link-focus-active-border-color,
+    'tabs-toggle-link-focus-border-color': $tabs-toggle-link-focus-border-color,
 );
 
-.b-tabs, [class^="b-tabs-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportVars($css-vars-map);
+@include registerMap('b-tabs');
 
 .b-tabs {
     .tabs {

@@ -23,25 +23,24 @@ $steps-mobile-max-width: $tablet !default;
 $steps-colors: $colors !default;
 
 $css-vars-map: (
-    'steps-size': ($steps-size),
-    'steps-height': ($steps-height),
-    'steps-background-color': ($steps-background-color),
-    'steps-items-focused-outline': ($steps-items-focused-outline),
-    'steps-details-background-color': ($steps-details-background-color),
-    'steps-maker-default-color': ($steps-maker-default-color),
-    'steps-maker-color': ($steps-maker-color),
-    'steps-marker-default-border': ($steps-marker-default-border),
-    'steps-default-color': ($steps-default-color),
-    'steps-previous-color': ($steps-previous-color),
-    'steps-active-color': ($steps-active-color),
-    'steps-divider-height': ($steps-divider-height),
-    'steps-vertical-padding': ($steps-vertical-padding),
-    'steps-mobile-max-width': ($steps-mobile-max-width),
+    'steps-size': $steps-size,
+    'steps-height': $steps-height,
+    'steps-background-color': $steps-background-color,
+    'steps-items-focused-outline': $steps-items-focused-outline,
+    'steps-details-background-color': $steps-details-background-color,
+    'steps-maker-default-color': $steps-maker-default-color,
+    'steps-maker-color': $steps-maker-color,
+    'steps-marker-default-border': $steps-marker-default-border,
+    'steps-default-color': $steps-default-color,
+    'steps-previous-color': $steps-previous-color,
+    'steps-active-color': $steps-active-color,
+    'steps-divider-height': $steps-divider-height,
+    'steps-vertical-padding': $steps-vertical-padding,
+    'steps-mobile-max-width': $steps-mobile-max-width,
 );
 
-.b-steps, [class^="b-steps-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportVars($css-vars-map);
+@include registerMap('b-steps');
 
 @mixin steps-size {
     .steps {

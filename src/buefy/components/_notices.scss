@@ -13,20 +13,19 @@ $snackbar-button-text-transform: uppercase !default;
 $snackbar-box-shadow: $notices-box-shadow !default;
 
 $css-vars-map: (
-    'notices-box-shadow': ($notices-box-shadow),
-    'toast-border-radius': ($toast-border-radius),
-    'toast-opacity': ($toast-opacity),
-    'toast-box-shadow': ($toast-box-shadow),
-    'snackbar-background-color': ($snackbar-background-color),
-    'snackbar-color': ($snackbar-color),
-    'snackbar-border-radius': ($snackbar-border-radius),
-    'snackbar-button-text-transform': ($snackbar-button-text-transform),
-    'snackbar-box-shadow': ($snackbar-box-shadow),
+    'notices-box-shadow': $notices-box-shadow,
+    'toast-border-radius': $toast-border-radius,
+    'toast-opacity': $toast-opacity,
+    'toast-box-shadow': $toast-box-shadow,
+    'snackbar-background-color': $snackbar-background-color,
+    'snackbar-color': $snackbar-color,
+    'snackbar-border-radius': $snackbar-border-radius,
+    'snackbar-button-text-transform': $snackbar-button-text-transform,
+    'snackbar-box-shadow': $snackbar-box-shadow,
 );
 
-.notices, [class^="notices-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportVars($css-vars-map);
+@include registerMap('notices');
 
 .notices {
     position: fixed;

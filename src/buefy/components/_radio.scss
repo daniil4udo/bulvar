@@ -4,13 +4,12 @@ $radio-size: 1.25em !default;
 $radio-colors: $form-colors !default;
 
 $css-vars-map: (
-    'radio-active-background-color': ($radio-active-background-color),
-    'radio-size': ($radio-size),
+    'radio-active-background-color': $radio-active-background-color,
+    'radio-size': $radio-size,
 );
 
-.b-radio, [class^="b-radio-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportVars($css-vars-map);
+@include registerMap('b-radio');
 
 .b-radio {
     &.radio {

@@ -1,12 +1,11 @@
 $table-sticky-header-height: 300px !default;
 
 $css-vars-map: (
-    'table-sticky-header-height': ($table-sticky-header-height),
+    'table-sticky-header-height': $table-sticky-header-height,
 );
 
-.b-table, [class^="b-table-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportVars($css-vars-map);
+@include registerMap('b-table');
 
 @mixin table-cards {
     .table {
