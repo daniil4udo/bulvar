@@ -15,12 +15,12 @@ const exportDartCSS = (filepath, options) => {
 
 // Full import
 
-exportDartCSS('bulma', {
-  file: './bulma.sass',
+exportDartCSS('buefy', {
+  file: './buefy.sass',
 });
 
-exportDartCSS('bulma-rtl', {
-  file: './bulma-rtl.sass',
+exportDartCSS('buefy-rtl', {
+  file: './buefy-rtl.sass',
 });
 
 // Custom import
@@ -35,7 +35,7 @@ utils.exportCSS(sass, fs, DART_BASE_PATH, 'custom/navbar', {
 
 // Single imports
 
-const BULMA_IMPORT_PATH = `./src/bulma/`;
+const BULMA_IMPORT_PATH = `./buefy/`;
 
 utils.SOURCES.forEach((source) => {
   const parsed = path.parse(source);
