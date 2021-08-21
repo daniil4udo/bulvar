@@ -15,17 +15,17 @@ const exportNodeSassCSS = (filepath, options) => {
 
 // Full import
 
-exportNodeSassCSS('bulma', {
-  file: './bulma.sass',
+exportNodeSassCSS('buefy', {
+  file: './buefy.sass',
 });
 
-exportNodeSassCSS('bulma-rtl', {
-  file: './bulma-rtl.sass',
+exportNodeSassCSS('buefy-rtl', {
+  file: './buefy-rtl.sass',
 });
 
 // Single imports
 
-const BULMA_IMPORT_PATH = `./src/bulma/`;
+const BULMA_IMPORT_PATH = `./buefy/`;
 
 utils.SOURCES.forEach((source) => {
   const parsed = path.parse(source);
