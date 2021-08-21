@@ -53,7 +53,7 @@
   "scripts": {
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel lint-*",
     "lint-stylelint": "stylelint \"**/*.{sass,scss}\" --cache --cache-location .cache/.stylelintcache --rd",
-    "lint-vars": "fusv scss/ site/assets/scss/",
+    "lint-vars": "fusv src/",
     "build": "npm-run-all compile prefix minify",
     "compile": "npm-run-all --parallel compile:*",
     "compile:bulma": "sass bulma.sass | node banner.js > css/bulma.css",
