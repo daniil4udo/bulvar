@@ -9,14 +9,12 @@ $tooltip-multiline-sizes: (
 $tooltip-colors: $colors !default;
 
 $css-vars-map: (
-    'tooltip-arrow-size': ($tooltip-arrow-size),
-    'tooltip-arrow-margin': ($tooltip-arrow-margin),
+    'tooltip-arrow-size': $tooltip-arrow-size,
+    'tooltip-arrow-margin': $tooltip-arrow-margin,
 );
 
-.b-tooltip, [class^="b-tooltip-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
-
+@include exportVars($css-vars-map);
+@include registerMap('b-tooltip');
 
 @mixin tooltip-arrow-color($direction, $color) {
     @if ($direction == "is-top") {

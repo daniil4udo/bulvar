@@ -2,13 +2,12 @@ $floating-in-height: 3.25em !default;
 $field-label-font-size: var(--size-normal, #{$size-normal}) !default;
 
 $css-vars-map: (
-    'floating-in-height': ($floating-in-height),
-    'field-label-font-size': ($field-label-font-size),
+    'floating-in-height': $floating-in-height,
+    'field-label-font-size': $field-label-font-size,
 );
 
-.field, [class^="field-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportVars($css-vars-map);
+@include registerMap('field');
 
 .field {
     &.is-grouped {

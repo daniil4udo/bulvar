@@ -5,14 +5,13 @@ $switch-active-background-color: $primary !default;
 $switch-colors: $form-colors !default;
 
 $css-vars-map: (
-    'switch-width': ($switch-width),
-    'switch-padding': ($switch-padding),
-    'switch-active-background-color': ($switch-active-background-color),
+    'switch-width': $switch-width,
+    'switch-padding': $switch-padding,
+    'switch-active-background-color': $switch-active-background-color,
 );
 
-.switch, [class^="switch-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportVars($css-vars-map);
+@include registerMap('switch');
 
 .switch {
     @extend %unselectable;

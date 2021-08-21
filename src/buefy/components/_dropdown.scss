@@ -3,13 +3,12 @@ $dropdown-background-color: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($black)})
 $dropdown-disabled-opacity: 0.5 !default;
 
 $css-vars-map: (
-    'dropdown-background-color': ($dropdown-background-color),
-    'dropdown-disabled-opacity': ($dropdown-disabled-opacity),
+    'dropdown-background-color': $dropdown-background-color,
+    'dropdown-disabled-opacity': $dropdown-disabled-opacity,
 );
 
-.dropdown, [class^="dropdown-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportVars($css-vars-map);
+@include registerMap('dropdown');
 
 .dropdown {
     & + .dropdown {

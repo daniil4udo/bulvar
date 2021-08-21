@@ -1,12 +1,11 @@
 $modal-background-color: var(--background, #{$background}) !default;
 
 $css-vars-map: (
-    'modal-background-color': ($modal-background-color),
+    'modal-background-color': $modal-background-color,
 );
 
-.modal, [class^="modal-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportVars($css-vars-map);
+@include registerMap('modal');
 
 .modal {
     &.is-full-screen {
