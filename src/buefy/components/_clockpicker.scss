@@ -4,8 +4,8 @@ $css-vars-map: (
     'clockpicker-card-radius': $clockpicker-card-radius
 );
 
-@include exportVars($css-vars-map);
-@include registerMap('b-clockpicker');
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('b-clockpicker');
 
 .b-clockpicker {
     // Clockpicker variables defined here as exact numbers

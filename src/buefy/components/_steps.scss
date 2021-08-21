@@ -39,8 +39,8 @@ $css-vars-map: (
     'steps-mobile-max-width': $steps-mobile-max-width,
 );
 
-@include exportVars($css-vars-map);
-@include registerMap('b-steps');
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('b-steps');
 
 @mixin steps-size {
     .steps {

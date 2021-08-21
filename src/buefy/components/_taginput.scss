@@ -4,8 +4,8 @@ $css-vars-map: (
     'taginput-height': $taginput-height,
 );
 
-@include exportVars($css-vars-map);
-@include registerMap('taginput');
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('taginput');
 
 .taginput {
     .taginput-container {

@@ -20,8 +20,8 @@ $menu-label-letter-spacing: 0.1em !default
 $menu-label-spacing: 1em !default
 
 $css-vars-map: ('menu-font-size': ($menu-font-size),'menu-list-line-height': ($menu-list-line-height),'menu-item-radius': ($menu-item-radius),'menu-item-color': ($menu-item-color),'menu-list-link-padding': ($menu-list-link-padding),'menu-item-hover-background-color': ($menu-item-hover-background-color),'menu-item-hover-color': ($menu-item-hover-color),'menu-item-active-background-color': ($menu-item-active-background-color),'menu-item-active-color': ($menu-item-active-color),'menu-list-border-left': ($menu-list-border-left),'menu-nested-list-padding-left': ($menu-nested-list-padding-left),'menu-nested-list-margin': ($menu-nested-list-margin),'menu-label-color': ($menu-label-color),'menu-label-font-size': ($menu-label-font-size),'menu-label-letter-spacing': ($menu-label-letter-spacing),'menu-label-spacing': ($menu-label-spacing))
-+exportVars($css-vars-map)
-+registerMap('menu')
++exportCSSVars($css-vars-map)
++registerComponentCSSVars('menu')
 // --menu-font-size: #{$menu-font-size}
 // --menu-list-line-height: #{$menu-list-line-height}
 // --menu-item-radius: #{$menu-item-radius}

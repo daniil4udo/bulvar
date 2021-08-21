@@ -8,8 +8,8 @@ $css-vars-map: (
     'radio-size': $radio-size,
 );
 
-@include exportVars($css-vars-map);
-@include registerMap('b-radio');
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('b-radio');
 
 .b-radio {
     &.radio {

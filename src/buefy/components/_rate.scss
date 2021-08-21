@@ -14,8 +14,8 @@ $css-vars-map: (
     'rate-text-font-size': $rate-text-font-size,
 );
 
-@include exportVars($css-vars-map);
-@include registerMap('rate');
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('rate');
 
 .rate {
     align-items: center;

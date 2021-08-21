@@ -24,8 +24,8 @@ $css-vars-map: (
     'tabs-toggle-link-focus-border-color': $tabs-toggle-link-focus-border-color,
 );
 
-@include exportVars($css-vars-map);
-@include registerMap('b-tabs');
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('b-tabs');
 
 .b-tabs {
     .tabs {

@@ -280,12 +280,12 @@
 
 // 🧩 register :export {}
 
-=exportVar($name, $value)
+=exportCSSVar($name, $value)
   @if $export
     @at-root :export
       #{camel-case($name)}: #{$value}
 
-=exportVars($list)
+=exportCSSVars($list)
   @if $export
     @at-root :export
       @each $name, $value in $list
@@ -323,7 +323,6 @@
 
   // Invert color
   $color-invert: nth($components, 2)
-  $invert-l: lightness($color-invert)
   --#{$base}-invert: #{$color-invert}
 
   // Light color
@@ -350,7 +349,7 @@
 // i.e. ('tag', 'tags')
 // into ('.tag', 'class^=tag', '.tags', 'class^=tags')
 // to use as dynamic selector
-=registerMap($component-class, $map: $css-vars-map, $has-starts-from: true)
+=registerComponentCSSVars($component-class, $map: $css-vars-map, $has-starts-from: true)
   $list: if(type-of($component-class) == 'list', $component-class, ($component-class))
   $new-list: ()
 

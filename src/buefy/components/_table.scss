@@ -4,8 +4,8 @@ $css-vars-map: (
     'table-sticky-header-height': $table-sticky-header-height,
 );
 
-@include exportVars($css-vars-map);
-@include registerMap('b-table');
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('b-table');
 
 @mixin table-cards {
     .table {
