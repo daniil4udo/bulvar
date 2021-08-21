@@ -24,8 +24,8 @@ $css-vars-map: (
     'snackbar-box-shadow': $snackbar-box-shadow,
 );
 
-@include exportVars($css-vars-map);
-@include registerMap('notices');
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('notices');
 
 .notices {
     position: fixed;

@@ -6,8 +6,8 @@ $css-vars-map: (
     'field-label-font-size': $field-label-font-size,
 );
 
-@include exportVars($css-vars-map);
-@include registerMap('field');
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('field');
 
 .field {
     &.is-grouped {

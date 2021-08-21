@@ -6,8 +6,8 @@ $section-padding-medium: 9rem 4.5rem !default
 $section-padding-large: 18rem 6rem !default
 
 $css-vars-map: ('section-padding': ($section-padding),'section-padding-medium': ($section-padding-medium),'section-padding-large': ($section-padding-large))
-+exportVars($css-vars-map)
-+registerMap('section')
++exportCSSVars($css-vars-map)
++registerComponentCSSVars('section')
 // --section-padding: #{$section-padding}
 // --section-padding-medium: #{$section-padding-medium}
 // --section-padding-large: #{$section-padding-large}
