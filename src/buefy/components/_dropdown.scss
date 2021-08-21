@@ -7,8 +7,8 @@ $css-vars-map: (
     'dropdown-disabled-opacity': $dropdown-disabled-opacity,
 );
 
-@include exportVars($css-vars-map);
-@include registerMap('dropdown');
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('dropdown');
 
 .dropdown {
     & + .dropdown {

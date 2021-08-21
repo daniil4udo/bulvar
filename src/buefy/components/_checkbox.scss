@@ -24,8 +24,8 @@ $css-vars-map: (
     'checkbox-padding': $checkbox-padding,
 );
 
-@include exportVars($css-vars-map);
-@include registerMap('checkbox');
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('checkbox');
 
 .b-checkbox {
     &.checkbox {

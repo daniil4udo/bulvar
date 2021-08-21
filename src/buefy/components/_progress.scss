@@ -7,8 +7,8 @@ $css-vars-map: (
     'progress-value-size': $progress-value-size,
 );
 
-@include exportVars($css-vars-map);
-@include registerMap('progress-wrapper');
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('progress-wrapper');
 
 @mixin progress-size() {
     &.is-small {
