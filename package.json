@@ -66,7 +66,7 @@
     "minify": "npm-run-all --aggregate-output --parallel minify-*",
     "minify-main": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output css/ --batch --batch-suffix \".min\" \"css/*.css\" \"!css/*.min.css\" \"!css/*rtl*.css\"",
     "minify-rtl": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output css/ --batch --batch-suffix \".min\" \"css/*rtl.css\" \"!css/*.min.css\"",
-    "compile:watch": "sass buefy.sass:css/buefy.css --watch",
+    "watch": "sass buefy.sass:css/buefy.css --watch",
     "clean": "rimraf css && mkdir css",
     "deploy": "npm-run-all clean build"
   },
