@@ -1,4 +1,8 @@
-/*! bulma-buefy-css-variables v0.9.1 | MIT License | github.com/dino4udo/bulma-buefy-css-variables */
+/*!
+  * bulma-buefy-css-variables v0.9.2 (https://github.com/dino4udo/bulma-buefy-css-variables)
+  * Copyright 2021 Daniil Chumachenko daniil4udo@gmail.com
+  * Licensed under MIT (https://github.com/dino4udo/bulma-buefy-css-variables/blob/master/LICENSE)
+  */
 @charset "UTF-8";
 /* Bulma Utilities */
 .pagination-previous,
@@ -162,7 +166,7 @@ fieldset[disabled] .file-name, fieldset[disabled] .select select, .select fields
 .control.is-loading::after, .select.is-loading::after, .loader, .button.is-loading::after {
   --loader-border-color: var(--grey-lighter, #dbdbdb);
   -webkit-animation: spinAround 500ms infinite linear;
-          animation: spinAround 500ms infinite linear;
+  animation: spinAround 500ms infinite linear;
   border: 2px solid var(--loader-border-color);
   border-radius: var(--radius-rounded, 9999px);
   border-right-color: transparent;
@@ -212,7 +216,6 @@ fieldset[disabled] .file-name, fieldset[disabled] .select select, .select fields
 }
 
 /* Bulma Base */
-/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
 html,
 body,
 p,
@@ -303,8 +306,8 @@ html {
   overflow-y: var(--body-overflow-y);
   text-rendering: var(--body-rendering);
   -webkit-text-size-adjust: 100%;
-     -moz-text-size-adjust: 100%;
-          text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 :root {
   --body-background-color: var(--scheme-main, white);
@@ -585,7 +588,7 @@ a.box:active {
   border-color: transparent;
   color: var(--button-text-color);
   -webkit-text-decoration: var(--button-text-decoration);
-          text-decoration: var(--button-text-decoration);
+  text-decoration: var(--button-text-decoration);
 }
 .button.is-text:hover, .button.is-text.is-hovered, .button.is-text:focus, .button.is-text.is-focused {
   background-color: var(--button-text-hover-background-color);
@@ -605,17 +608,17 @@ a.box:active {
   border-color: var(--button-ghost-border-color);
   color: var(--button-ghost-color);
   -webkit-text-decoration: var(--button-ghost-decoration);
-          text-decoration: var(--button-ghost-decoration);
+  text-decoration: var(--button-ghost-decoration);
 }
 .button.is-ghost:hover, .button.is-ghost.is-hovered {
   color: var(--button-ghost-hover-color);
   -webkit-text-decoration: var(--button-ghost-hover-decoration);
-          text-decoration: var(--button-ghost-hover-decoration);
+  text-decoration: var(--button-ghost-hover-decoration);
 }
 .button.is-white {
-  --hover-background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) - 2.5%), var(--white-a));
+  --hover-background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) + -2.5%), var(--white-a));
   --focus-box-shadow-color: hsla(var(--white-h), var(--white-s), var(--white-l), 0.25);
-  --active-background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) - 5%), var(--white-a));
+  --active-background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) + -5%), var(--white-a));
   background-color: var(--white, white);
   border-color: transparent;
   color: var(--white-invert, #0a0a0a);
@@ -699,9 +702,9 @@ a.box:active {
   color: var(--white-invert, #0a0a0a);
 }
 .button.is-black {
-  --hover-background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) - 2.5%), var(--black-a));
+  --hover-background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) + -2.5%), var(--black-a));
   --focus-box-shadow-color: hsla(var(--black-h), var(--black-s), var(--black-l), 0.25);
-  --active-background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) - 5%), var(--black-a));
+  --active-background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) + -5%), var(--black-a));
   background-color: var(--black, #0a0a0a);
   border-color: transparent;
   color: var(--black-invert, white);
@@ -785,9 +788,9 @@ a.box:active {
   color: var(--black-invert, white);
 }
 .button.is-light {
-  --hover-background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) - 2.5%), var(--light-a));
+  --hover-background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) + -2.5%), var(--light-a));
   --focus-box-shadow-color: hsla(var(--light-h), var(--light-s), var(--light-l), 0.25);
-  --active-background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) - 5%), var(--light-a));
+  --active-background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) + -5%), var(--light-a));
   background-color: var(--light, whitesmoke);
   border-color: transparent;
   color: var(--light-invert, rgba(0, 0, 0, 0.7));
@@ -871,9 +874,9 @@ a.box:active {
   color: var(--light-invert, rgba(0, 0, 0, 0.7));
 }
 .button.is-dark {
-  --hover-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) - 2.5%), var(--dark-a));
+  --hover-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) + -2.5%), var(--dark-a));
   --focus-box-shadow-color: hsla(var(--dark-h), var(--dark-s), var(--dark-l), 0.25);
-  --active-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) - 5%), var(--dark-a));
+  --active-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) + -5%), var(--dark-a));
   background-color: var(--dark, #363636);
   border-color: transparent;
   color: var(--dark-invert, #fff);
@@ -957,9 +960,9 @@ a.box:active {
   color: var(--dark-invert, #fff);
 }
 .button.is-primary {
-  --hover-background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 2.5%), var(--primary-a));
+  --hover-background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) + -2.5%), var(--primary-a));
   --focus-box-shadow-color: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.25);
-  --active-background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 5%), var(--primary-a));
+  --active-background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) + -5%), var(--primary-a));
   background-color: var(--primary, #00d1b2);
   border-color: transparent;
   color: var(--primary-invert, #fff);
@@ -1059,9 +1062,9 @@ a.box:active {
   color: var(--primary-dark, #00947e);
 }
 .button.is-link {
-  --hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) - 2.5%), var(--link-a));
+  --hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) + -2.5%), var(--link-a));
   --focus-box-shadow-color: hsla(var(--link-h), var(--link-s), var(--link-l), 0.25);
-  --active-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) - 5%), var(--link-a));
+  --active-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) + -5%), var(--link-a));
   background-color: var(--link, #485fc7);
   border-color: transparent;
   color: var(--link-invert, #fff);
@@ -1161,9 +1164,9 @@ a.box:active {
   color: var(--link-dark, #3850b7);
 }
 .button.is-info {
-  --hover-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) - 2.5%), var(--info-a));
+  --hover-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) + -2.5%), var(--info-a));
   --focus-box-shadow-color: hsla(var(--info-h), var(--info-s), var(--info-l), 0.25);
-  --active-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) - 5%), var(--info-a));
+  --active-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) + -5%), var(--info-a));
   background-color: var(--info, #3e8ed0);
   border-color: transparent;
   color: var(--info-invert, #fff);
@@ -1263,9 +1266,9 @@ a.box:active {
   color: var(--info-dark, #296fa8);
 }
 .button.is-success {
-  --hover-background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) - 2.5%), var(--success-a));
+  --hover-background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) + -2.5%), var(--success-a));
   --focus-box-shadow-color: hsla(var(--success-h), var(--success-s), var(--success-l), 0.25);
-  --active-background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) - 5%), var(--success-a));
+  --active-background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) + -5%), var(--success-a));
   background-color: var(--success, #48c78e);
   border-color: transparent;
   color: var(--success-invert, #fff);
@@ -1365,9 +1368,9 @@ a.box:active {
   color: var(--success-dark, #257953);
 }
 .button.is-warning {
-  --hover-background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) - 2.5%), var(--warning-a));
+  --hover-background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) + -2.5%), var(--warning-a));
   --focus-box-shadow-color: hsla(var(--warning-h), var(--warning-s), var(--warning-l), 0.25);
-  --active-background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) - 5%), var(--warning-a));
+  --active-background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) + -5%), var(--warning-a));
   background-color: var(--warning, #ffe08a);
   border-color: transparent;
   color: var(--warning-invert, rgba(0, 0, 0, 0.7));
@@ -1467,9 +1470,9 @@ a.box:active {
   color: var(--warning-dark, #946c00);
 }
 .button.is-danger {
-  --hover-background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) - 2.5%), var(--danger-a));
+  --hover-background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) + -2.5%), var(--danger-a));
   --focus-box-shadow-color: hsla(var(--danger-h), var(--danger-s), var(--danger-l), 0.25);
-  --active-background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) - 5%), var(--danger-a));
+  --active-background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) + -5%), var(--danger-a));
   background-color: var(--danger, #f14668);
   border-color: transparent;
   color: var(--danger-invert, #fff);
@@ -2326,13 +2329,13 @@ div.icon-text {
 }
 .progress:indeterminate {
   -webkit-animation-duration: var(--progress-indeterminate-duration);
-          animation-duration: var(--progress-indeterminate-duration);
+  animation-duration: var(--progress-indeterminate-duration);
   -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
   -webkit-animation-name: moveIndeterminate;
-          animation-name: moveIndeterminate;
+  animation-name: moveIndeterminate;
   -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-timing-function: linear;
   background-color: var(--progress-bar-background-color);
   background-image: linear-gradient(to right, var(--text, #4a4a4a) 30%, var(--progress-bar-background-color) 30%);
   background-position: top left;
@@ -3187,7 +3190,7 @@ a.tag:hover {
   border-color: var(--select-hover-color);
 }
 .select.is-white {
-  --hover-border-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) - 5%), var(--white-a));
+  --hover-border-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) + -5%), var(--white-a));
   --focus-box-shadow-color: hsla(var(--white-h), var(--white-s), var(--white-l), 0.25);
 }
 .select.is-white:not(:hover)::after {
@@ -3203,7 +3206,7 @@ a.tag:hover {
   box-shadow: var(--select-focus-box-shadow-size) var(--focus-box-shadow-color, rgba(255, 255, 255, 0.25));
 }
 .select.is-black {
-  --hover-border-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) - 5%), var(--black-a));
+  --hover-border-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) + -5%), var(--black-a));
   --focus-box-shadow-color: hsla(var(--black-h), var(--black-s), var(--black-l), 0.25);
 }
 .select.is-black:not(:hover)::after {
@@ -3219,7 +3222,7 @@ a.tag:hover {
   box-shadow: var(--select-focus-box-shadow-size) var(--focus-box-shadow-color, rgba(10, 10, 10, 0.25));
 }
 .select.is-light {
-  --hover-border-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) - 5%), var(--light-a));
+  --hover-border-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) + -5%), var(--light-a));
   --focus-box-shadow-color: hsla(var(--light-h), var(--light-s), var(--light-l), 0.25);
 }
 .select.is-light:not(:hover)::after {
@@ -3235,7 +3238,7 @@ a.tag:hover {
   box-shadow: var(--select-focus-box-shadow-size) var(--focus-box-shadow-color, rgba(245, 245, 245, 0.25));
 }
 .select.is-dark {
-  --hover-border-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) - 5%), var(--dark-a));
+  --hover-border-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) + -5%), var(--dark-a));
   --focus-box-shadow-color: hsla(var(--dark-h), var(--dark-s), var(--dark-l), 0.25);
 }
 .select.is-dark:not(:hover)::after {
@@ -3251,7 +3254,7 @@ a.tag:hover {
   box-shadow: var(--select-focus-box-shadow-size) var(--focus-box-shadow-color, rgba(54, 54, 54, 0.25));
 }
 .select.is-primary {
-  --hover-border-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 5%), var(--primary-a));
+  --hover-border-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) + -5%), var(--primary-a));
   --focus-box-shadow-color: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.25);
 }
 .select.is-primary:not(:hover)::after {
@@ -3267,7 +3270,7 @@ a.tag:hover {
   box-shadow: var(--select-focus-box-shadow-size) var(--focus-box-shadow-color, rgba(0, 209, 178, 0.25));
 }
 .select.is-link {
-  --hover-border-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) - 5%), var(--link-a));
+  --hover-border-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) + -5%), var(--link-a));
   --focus-box-shadow-color: hsla(var(--link-h), var(--link-s), var(--link-l), 0.25);
 }
 .select.is-link:not(:hover)::after {
@@ -3283,7 +3286,7 @@ a.tag:hover {
   box-shadow: var(--select-focus-box-shadow-size) var(--focus-box-shadow-color, rgba(72, 95, 199, 0.25));
 }
 .select.is-info {
-  --hover-border-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) - 5%), var(--info-a));
+  --hover-border-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) + -5%), var(--info-a));
   --focus-box-shadow-color: hsla(var(--info-h), var(--info-s), var(--info-l), 0.25);
 }
 .select.is-info:not(:hover)::after {
@@ -3299,7 +3302,7 @@ a.tag:hover {
   box-shadow: var(--select-focus-box-shadow-size) var(--focus-box-shadow-color, rgba(62, 142, 208, 0.25));
 }
 .select.is-success {
-  --hover-border-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) - 5%), var(--success-a));
+  --hover-border-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) + -5%), var(--success-a));
   --focus-box-shadow-color: hsla(var(--success-h), var(--success-s), var(--success-l), 0.25);
 }
 .select.is-success:not(:hover)::after {
@@ -3315,7 +3318,7 @@ a.tag:hover {
   box-shadow: var(--select-focus-box-shadow-size) var(--focus-box-shadow-color, rgba(72, 199, 142, 0.25));
 }
 .select.is-warning {
-  --hover-border-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) - 5%), var(--warning-a));
+  --hover-border-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) + -5%), var(--warning-a));
   --focus-box-shadow-color: hsla(var(--warning-h), var(--warning-s), var(--warning-l), 0.25);
 }
 .select.is-warning:not(:hover)::after {
@@ -3331,7 +3334,7 @@ a.tag:hover {
   box-shadow: var(--select-focus-box-shadow-size) var(--focus-box-shadow-color, rgba(255, 224, 138, 0.25));
 }
 .select.is-danger {
-  --hover-border-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) - 5%), var(--danger-a));
+  --hover-border-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) + -5%), var(--danger-a));
   --focus-box-shadow-color: hsla(var(--danger-h), var(--danger-s), var(--danger-l), 0.25);
 }
 .select.is-danger:not(:hover)::after {
@@ -4975,7 +4978,7 @@ button.dropdown-item.is-active {
 .navbar.is-white .navbar-brand .navbar-link:focus,
 .navbar.is-white .navbar-brand .navbar-link:hover,
 .navbar.is-white .navbar-brand .navbar-link.is-active {
-  --navbar-item-hover-background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) - 5%), var(--white-a));
+  --navbar-item-hover-background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) + -5%), var(--white-a));
   background-color: var(--navbar-item-hover-background-color, #f2f2f2);
   color: var(--white-invert, #0a0a0a);
 }
@@ -5011,7 +5014,7 @@ button.dropdown-item.is-active {
 .navbar.is-white .navbar-end .navbar-link:focus,
 .navbar.is-white .navbar-end .navbar-link:hover,
 .navbar.is-white .navbar-end .navbar-link.is-active {
-    --navbar-item-hover-background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) - 5%), var(--white-a));
+    --navbar-item-hover-background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) + -5%), var(--white-a));
     background-color: var(--navbar-item-hover-background-color, #f2f2f2);
     color: var(--white-invert, #0a0a0a);
   }
@@ -5023,7 +5026,7 @@ button.dropdown-item.is-active {
   .navbar.is-white .navbar-item.has-dropdown:focus .navbar-link,
 .navbar.is-white .navbar-item.has-dropdown:hover .navbar-link,
 .navbar.is-white .navbar-item.has-dropdown.is-active .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) - 5%), var(--white-a));
+    --navbar-dropdown-item-hover-background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) + -5%), var(--white-a));
     background-color: var(--navbar-dropdown-item-hover-background-color, #f2f2f2);
     color: var(--white-invert, #0a0a0a);
   }
@@ -5045,7 +5048,7 @@ button.dropdown-item.is-active {
 .navbar.is-black .navbar-brand .navbar-link:focus,
 .navbar.is-black .navbar-brand .navbar-link:hover,
 .navbar.is-black .navbar-brand .navbar-link.is-active {
-  --navbar-item-hover-background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) - 5%), var(--black-a));
+  --navbar-item-hover-background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) + -5%), var(--black-a));
   background-color: var(--navbar-item-hover-background-color, black);
   color: var(--black-invert, white);
 }
@@ -5081,7 +5084,7 @@ button.dropdown-item.is-active {
 .navbar.is-black .navbar-end .navbar-link:focus,
 .navbar.is-black .navbar-end .navbar-link:hover,
 .navbar.is-black .navbar-end .navbar-link.is-active {
-    --navbar-item-hover-background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) - 5%), var(--black-a));
+    --navbar-item-hover-background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) + -5%), var(--black-a));
     background-color: var(--navbar-item-hover-background-color, black);
     color: var(--black-invert, white);
   }
@@ -5093,7 +5096,7 @@ button.dropdown-item.is-active {
   .navbar.is-black .navbar-item.has-dropdown:focus .navbar-link,
 .navbar.is-black .navbar-item.has-dropdown:hover .navbar-link,
 .navbar.is-black .navbar-item.has-dropdown.is-active .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) - 5%), var(--black-a));
+    --navbar-dropdown-item-hover-background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) + -5%), var(--black-a));
     background-color: var(--navbar-dropdown-item-hover-background-color, black);
     color: var(--black-invert, white);
   }
@@ -5115,7 +5118,7 @@ button.dropdown-item.is-active {
 .navbar.is-light .navbar-brand .navbar-link:focus,
 .navbar.is-light .navbar-brand .navbar-link:hover,
 .navbar.is-light .navbar-brand .navbar-link.is-active {
-  --navbar-item-hover-background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) - 5%), var(--light-a));
+  --navbar-item-hover-background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) + -5%), var(--light-a));
   background-color: var(--navbar-item-hover-background-color, #e8e8e8);
   color: var(--light-invert, rgba(0, 0, 0, 0.7));
 }
@@ -5151,7 +5154,7 @@ button.dropdown-item.is-active {
 .navbar.is-light .navbar-end .navbar-link:focus,
 .navbar.is-light .navbar-end .navbar-link:hover,
 .navbar.is-light .navbar-end .navbar-link.is-active {
-    --navbar-item-hover-background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) - 5%), var(--light-a));
+    --navbar-item-hover-background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) + -5%), var(--light-a));
     background-color: var(--navbar-item-hover-background-color, #e8e8e8);
     color: var(--light-invert, rgba(0, 0, 0, 0.7));
   }
@@ -5163,7 +5166,7 @@ button.dropdown-item.is-active {
   .navbar.is-light .navbar-item.has-dropdown:focus .navbar-link,
 .navbar.is-light .navbar-item.has-dropdown:hover .navbar-link,
 .navbar.is-light .navbar-item.has-dropdown.is-active .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) - 5%), var(--light-a));
+    --navbar-dropdown-item-hover-background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) + -5%), var(--light-a));
     background-color: var(--navbar-dropdown-item-hover-background-color, #e8e8e8);
     color: var(--light-invert, rgba(0, 0, 0, 0.7));
   }
@@ -5185,7 +5188,7 @@ button.dropdown-item.is-active {
 .navbar.is-dark .navbar-brand .navbar-link:focus,
 .navbar.is-dark .navbar-brand .navbar-link:hover,
 .navbar.is-dark .navbar-brand .navbar-link.is-active {
-  --navbar-item-hover-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) - 5%), var(--dark-a));
+  --navbar-item-hover-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) + -5%), var(--dark-a));
   background-color: var(--navbar-item-hover-background-color, #292929);
   color: var(--dark-invert, #fff);
 }
@@ -5221,7 +5224,7 @@ button.dropdown-item.is-active {
 .navbar.is-dark .navbar-end .navbar-link:focus,
 .navbar.is-dark .navbar-end .navbar-link:hover,
 .navbar.is-dark .navbar-end .navbar-link.is-active {
-    --navbar-item-hover-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) - 5%), var(--dark-a));
+    --navbar-item-hover-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) + -5%), var(--dark-a));
     background-color: var(--navbar-item-hover-background-color, #292929);
     color: var(--dark-invert, #fff);
   }
@@ -5233,7 +5236,7 @@ button.dropdown-item.is-active {
   .navbar.is-dark .navbar-item.has-dropdown:focus .navbar-link,
 .navbar.is-dark .navbar-item.has-dropdown:hover .navbar-link,
 .navbar.is-dark .navbar-item.has-dropdown.is-active .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) - 5%), var(--dark-a));
+    --navbar-dropdown-item-hover-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) + -5%), var(--dark-a));
     background-color: var(--navbar-dropdown-item-hover-background-color, #292929);
     color: var(--dark-invert, #fff);
   }
@@ -5255,7 +5258,7 @@ button.dropdown-item.is-active {
 .navbar.is-primary .navbar-brand .navbar-link:focus,
 .navbar.is-primary .navbar-brand .navbar-link:hover,
 .navbar.is-primary .navbar-brand .navbar-link.is-active {
-  --navbar-item-hover-background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 5%), var(--primary-a));
+  --navbar-item-hover-background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) + -5%), var(--primary-a));
   background-color: var(--navbar-item-hover-background-color, #00b89c);
   color: var(--primary-invert, #fff);
 }
@@ -5291,7 +5294,7 @@ button.dropdown-item.is-active {
 .navbar.is-primary .navbar-end .navbar-link:focus,
 .navbar.is-primary .navbar-end .navbar-link:hover,
 .navbar.is-primary .navbar-end .navbar-link.is-active {
-    --navbar-item-hover-background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 5%), var(--primary-a));
+    --navbar-item-hover-background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) + -5%), var(--primary-a));
     background-color: var(--navbar-item-hover-background-color, #00b89c);
     color: var(--primary-invert, #fff);
   }
@@ -5303,7 +5306,7 @@ button.dropdown-item.is-active {
   .navbar.is-primary .navbar-item.has-dropdown:focus .navbar-link,
 .navbar.is-primary .navbar-item.has-dropdown:hover .navbar-link,
 .navbar.is-primary .navbar-item.has-dropdown.is-active .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 5%), var(--primary-a));
+    --navbar-dropdown-item-hover-background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) + -5%), var(--primary-a));
     background-color: var(--navbar-dropdown-item-hover-background-color, #00b89c);
     color: var(--primary-invert, #fff);
   }
@@ -5325,7 +5328,7 @@ button.dropdown-item.is-active {
 .navbar.is-link .navbar-brand .navbar-link:focus,
 .navbar.is-link .navbar-brand .navbar-link:hover,
 .navbar.is-link .navbar-brand .navbar-link.is-active {
-  --navbar-item-hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) - 5%), var(--link-a));
+  --navbar-item-hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) + -5%), var(--link-a));
   background-color: var(--navbar-item-hover-background-color, #3a51bb);
   color: var(--link-invert, #fff);
 }
@@ -5361,7 +5364,7 @@ button.dropdown-item.is-active {
 .navbar.is-link .navbar-end .navbar-link:focus,
 .navbar.is-link .navbar-end .navbar-link:hover,
 .navbar.is-link .navbar-end .navbar-link.is-active {
-    --navbar-item-hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) - 5%), var(--link-a));
+    --navbar-item-hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) + -5%), var(--link-a));
     background-color: var(--navbar-item-hover-background-color, #3a51bb);
     color: var(--link-invert, #fff);
   }
@@ -5373,7 +5376,7 @@ button.dropdown-item.is-active {
   .navbar.is-link .navbar-item.has-dropdown:focus .navbar-link,
 .navbar.is-link .navbar-item.has-dropdown:hover .navbar-link,
 .navbar.is-link .navbar-item.has-dropdown.is-active .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) - 5%), var(--link-a));
+    --navbar-dropdown-item-hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) + -5%), var(--link-a));
     background-color: var(--navbar-dropdown-item-hover-background-color, #3a51bb);
     color: var(--link-invert, #fff);
   }
@@ -5395,7 +5398,7 @@ button.dropdown-item.is-active {
 .navbar.is-info .navbar-brand .navbar-link:focus,
 .navbar.is-info .navbar-brand .navbar-link:hover,
 .navbar.is-info .navbar-brand .navbar-link.is-active {
-  --navbar-item-hover-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) - 5%), var(--info-a));
+  --navbar-item-hover-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) + -5%), var(--info-a));
   background-color: var(--navbar-item-hover-background-color, #3082c5);
   color: var(--info-invert, #fff);
 }
@@ -5431,7 +5434,7 @@ button.dropdown-item.is-active {
 .navbar.is-info .navbar-end .navbar-link:focus,
 .navbar.is-info .navbar-end .navbar-link:hover,
 .navbar.is-info .navbar-end .navbar-link.is-active {
-    --navbar-item-hover-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) - 5%), var(--info-a));
+    --navbar-item-hover-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) + -5%), var(--info-a));
     background-color: var(--navbar-item-hover-background-color, #3082c5);
     color: var(--info-invert, #fff);
   }
@@ -5443,7 +5446,7 @@ button.dropdown-item.is-active {
   .navbar.is-info .navbar-item.has-dropdown:focus .navbar-link,
 .navbar.is-info .navbar-item.has-dropdown:hover .navbar-link,
 .navbar.is-info .navbar-item.has-dropdown.is-active .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) - 5%), var(--info-a));
+    --navbar-dropdown-item-hover-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) + -5%), var(--info-a));
     background-color: var(--navbar-dropdown-item-hover-background-color, #3082c5);
     color: var(--info-invert, #fff);
   }
@@ -5465,7 +5468,7 @@ button.dropdown-item.is-active {
 .navbar.is-success .navbar-brand .navbar-link:focus,
 .navbar.is-success .navbar-brand .navbar-link:hover,
 .navbar.is-success .navbar-brand .navbar-link.is-active {
-  --navbar-item-hover-background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) - 5%), var(--success-a));
+  --navbar-item-hover-background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) + -5%), var(--success-a));
   background-color: var(--navbar-item-hover-background-color, #3abb81);
   color: var(--success-invert, #fff);
 }
@@ -5501,7 +5504,7 @@ button.dropdown-item.is-active {
 .navbar.is-success .navbar-end .navbar-link:focus,
 .navbar.is-success .navbar-end .navbar-link:hover,
 .navbar.is-success .navbar-end .navbar-link.is-active {
-    --navbar-item-hover-background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) - 5%), var(--success-a));
+    --navbar-item-hover-background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) + -5%), var(--success-a));
     background-color: var(--navbar-item-hover-background-color, #3abb81);
     color: var(--success-invert, #fff);
   }
@@ -5513,7 +5516,7 @@ button.dropdown-item.is-active {
   .navbar.is-success .navbar-item.has-dropdown:focus .navbar-link,
 .navbar.is-success .navbar-item.has-dropdown:hover .navbar-link,
 .navbar.is-success .navbar-item.has-dropdown.is-active .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) - 5%), var(--success-a));
+    --navbar-dropdown-item-hover-background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) + -5%), var(--success-a));
     background-color: var(--navbar-dropdown-item-hover-background-color, #3abb81);
     color: var(--success-invert, #fff);
   }
@@ -5535,7 +5538,7 @@ button.dropdown-item.is-active {
 .navbar.is-warning .navbar-brand .navbar-link:focus,
 .navbar.is-warning .navbar-brand .navbar-link:hover,
 .navbar.is-warning .navbar-brand .navbar-link.is-active {
-  --navbar-item-hover-background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) - 5%), var(--warning-a));
+  --navbar-item-hover-background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) + -5%), var(--warning-a));
   background-color: var(--navbar-item-hover-background-color, #ffd970);
   color: var(--warning-invert, rgba(0, 0, 0, 0.7));
 }
@@ -5571,7 +5574,7 @@ button.dropdown-item.is-active {
 .navbar.is-warning .navbar-end .navbar-link:focus,
 .navbar.is-warning .navbar-end .navbar-link:hover,
 .navbar.is-warning .navbar-end .navbar-link.is-active {
-    --navbar-item-hover-background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) - 5%), var(--warning-a));
+    --navbar-item-hover-background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) + -5%), var(--warning-a));
     background-color: var(--navbar-item-hover-background-color, #ffd970);
     color: var(--warning-invert, rgba(0, 0, 0, 0.7));
   }
@@ -5583,7 +5586,7 @@ button.dropdown-item.is-active {
   .navbar.is-warning .navbar-item.has-dropdown:focus .navbar-link,
 .navbar.is-warning .navbar-item.has-dropdown:hover .navbar-link,
 .navbar.is-warning .navbar-item.has-dropdown.is-active .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) - 5%), var(--warning-a));
+    --navbar-dropdown-item-hover-background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) + -5%), var(--warning-a));
     background-color: var(--navbar-dropdown-item-hover-background-color, #ffd970);
     color: var(--warning-invert, rgba(0, 0, 0, 0.7));
   }
@@ -5605,7 +5608,7 @@ button.dropdown-item.is-active {
 .navbar.is-danger .navbar-brand .navbar-link:focus,
 .navbar.is-danger .navbar-brand .navbar-link:hover,
 .navbar.is-danger .navbar-brand .navbar-link.is-active {
-  --navbar-item-hover-background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) - 5%), var(--danger-a));
+  --navbar-item-hover-background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) + -5%), var(--danger-a));
   background-color: var(--navbar-item-hover-background-color, #ef2e55);
   color: var(--danger-invert, #fff);
 }
@@ -5641,7 +5644,7 @@ button.dropdown-item.is-active {
 .navbar.is-danger .navbar-end .navbar-link:focus,
 .navbar.is-danger .navbar-end .navbar-link:hover,
 .navbar.is-danger .navbar-end .navbar-link.is-active {
-    --navbar-item-hover-background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) - 5%), var(--danger-a));
+    --navbar-item-hover-background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) + -5%), var(--danger-a));
     background-color: var(--navbar-item-hover-background-color, #ef2e55);
     color: var(--danger-invert, #fff);
   }
@@ -5653,7 +5656,7 @@ button.dropdown-item.is-active {
   .navbar.is-danger .navbar-item.has-dropdown:focus .navbar-link,
 .navbar.is-danger .navbar-item.has-dropdown:hover .navbar-link,
 .navbar.is-danger .navbar-item.has-dropdown.is-active .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) - 5%), var(--danger-a));
+    --navbar-dropdown-item-hover-background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) + -5%), var(--danger-a));
     background-color: var(--navbar-dropdown-item-hover-background-color, #ef2e55);
     color: var(--danger-invert, #fff);
   }
@@ -8433,7 +8436,7 @@ label.panel-block:hover {
 
 /* Bulma Helpers */
 .has-text-white {
-  --has-text-hover-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) - 10%), var(--white-a));
+  --has-text-hover-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) + -10%), var(--white-a));
   color: var(--white, white) !important;
 }
 
@@ -8446,7 +8449,7 @@ a.has-text-white:hover, a.has-text-white:focus {
 }
 
 .has-text-black {
-  --has-text-hover-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) - 10%), var(--black-a));
+  --has-text-hover-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) + -10%), var(--black-a));
   color: var(--black, #0a0a0a) !important;
 }
 
@@ -8459,7 +8462,7 @@ a.has-text-black:hover, a.has-text-black:focus {
 }
 
 .has-text-light {
-  --has-text-hover-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) - 10%), var(--light-a));
+  --has-text-hover-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) + -10%), var(--light-a));
   color: var(--light, whitesmoke) !important;
 }
 
@@ -8472,7 +8475,7 @@ a.has-text-light:hover, a.has-text-light:focus {
 }
 
 .has-text-dark {
-  --has-text-hover-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) - 10%), var(--dark-a));
+  --has-text-hover-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) + -10%), var(--dark-a));
   color: var(--dark, #363636) !important;
 }
 
@@ -8485,7 +8488,7 @@ a.has-text-dark:hover, a.has-text-dark:focus {
 }
 
 .has-text-primary {
-  --has-text-hover-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 10%), var(--primary-a));
+  --has-text-hover-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) + -10%), var(--primary-a));
   color: var(--primary, #00d1b2) !important;
 }
 
@@ -8524,7 +8527,7 @@ a.has-text-primary-dark:hover, a.has-text-primary-dark:focus {
 }
 
 .has-text-link {
-  --has-text-hover-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) - 10%), var(--link-a));
+  --has-text-hover-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) + -10%), var(--link-a));
   color: var(--link, #485fc7) !important;
 }
 
@@ -8563,7 +8566,7 @@ a.has-text-link-dark:hover, a.has-text-link-dark:focus {
 }
 
 .has-text-info {
-  --has-text-hover-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) - 10%), var(--info-a));
+  --has-text-hover-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) + -10%), var(--info-a));
   color: var(--info, #3e8ed0) !important;
 }
 
@@ -8602,7 +8605,7 @@ a.has-text-info-dark:hover, a.has-text-info-dark:focus {
 }
 
 .has-text-success {
-  --has-text-hover-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) - 10%), var(--success-a));
+  --has-text-hover-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) + -10%), var(--success-a));
   color: var(--success, #48c78e) !important;
 }
 
@@ -8641,7 +8644,7 @@ a.has-text-success-dark:hover, a.has-text-success-dark:focus {
 }
 
 .has-text-warning {
-  --has-text-hover-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) - 10%), var(--warning-a));
+  --has-text-hover-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) + -10%), var(--warning-a));
   color: var(--warning, #ffe08a) !important;
 }
 
@@ -8680,7 +8683,7 @@ a.has-text-warning-dark:hover, a.has-text-warning-dark:focus {
 }
 
 .has-text-danger {
-  --has-text-hover-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) - 10%), var(--danger-a));
+  --has-text-hover-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) + -10%), var(--danger-a));
   color: var(--danger, #f14668) !important;
 }
 
@@ -10363,7 +10366,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   border-bottom: none;
 }
 .hero.is-white {
-  --hover-background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) - 5%), var(--white-a));
+  --hover-background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) + -5%), var(--white-a));
   background-color: var(--white, white);
   color: var(--white-invert, #0a0a0a);
 }
@@ -10427,7 +10430,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   }
 }
 .hero.is-black {
-  --hover-background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) - 5%), var(--black-a));
+  --hover-background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) + -5%), var(--black-a));
   background-color: var(--black, #0a0a0a);
   color: var(--black-invert, white);
 }
@@ -10491,7 +10494,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   }
 }
 .hero.is-light {
-  --hover-background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) - 5%), var(--light-a));
+  --hover-background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) + -5%), var(--light-a));
   background-color: var(--light, whitesmoke);
   color: var(--light-invert, rgba(0, 0, 0, 0.7));
 }
@@ -10555,7 +10558,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   }
 }
 .hero.is-dark {
-  --hover-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) - 5%), var(--dark-a));
+  --hover-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) + -5%), var(--dark-a));
   background-color: var(--dark, #363636);
   color: var(--dark-invert, #fff);
 }
@@ -10619,7 +10622,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   }
 }
 .hero.is-primary {
-  --hover-background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 5%), var(--primary-a));
+  --hover-background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) + -5%), var(--primary-a));
   background-color: var(--primary, #00d1b2);
   color: var(--primary-invert, #fff);
 }
@@ -10683,7 +10686,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   }
 }
 .hero.is-link {
-  --hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) - 5%), var(--link-a));
+  --hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) + -5%), var(--link-a));
   background-color: var(--link, #485fc7);
   color: var(--link-invert, #fff);
 }
@@ -10747,7 +10750,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   }
 }
 .hero.is-info {
-  --hover-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) - 5%), var(--info-a));
+  --hover-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) + -5%), var(--info-a));
   background-color: var(--info, #3e8ed0);
   color: var(--info-invert, #fff);
 }
@@ -10811,7 +10814,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   }
 }
 .hero.is-success {
-  --hover-background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) - 5%), var(--success-a));
+  --hover-background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) + -5%), var(--success-a));
   background-color: var(--success, #48c78e);
   color: var(--success-invert, #fff);
 }
@@ -10875,7 +10878,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   }
 }
 .hero.is-warning {
-  --hover-background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) - 5%), var(--warning-a));
+  --hover-background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) + -5%), var(--warning-a));
   background-color: var(--warning, #ffe08a);
   color: var(--warning-invert, rgba(0, 0, 0, 0.7));
 }
@@ -10939,7 +10942,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   }
 }
 .hero.is-danger {
-  --hover-background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) - 5%), var(--danger-a));
+  --hover-background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) + -5%), var(--danger-a));
   background-color: var(--danger, #f14668);
   color: var(--danger-invert, #fff);
 }
