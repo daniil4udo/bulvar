@@ -6,7 +6,7 @@ const homepage = `(${pack.homepage})` || ''
 const bannerTxt = `/*!
   * bulma-buefy-css-variables v${pack.version} ${homepage}
   * Copyright ${year} ${pack.author.name} ${pack.author.email}
-  * Licensed under MIT (https://github.com/dino4udo/bulma-buefy-css-variables/blob/main/LICENSE)
+  * Licensed under MIT (https://github.com/dino4udo/bulma-buefy-css-variables/blob/master/LICENSE)
   */\n`
 
 process.stdout.write(bannerTxt)
