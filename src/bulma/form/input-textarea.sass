@@ -51,8 +51,8 @@ $textarea-colors: $form-colors !default
     padding-right: 0
 
 $css-vars-map: ('textarea-padding': ($textarea-padding),'textarea-max-height': ($textarea-max-height),'textarea-min-height': ($textarea-min-height))
-+exportVars($css-vars-map)
-+registerMap('textarea')
++exportCSSVars($css-vars-map)
++registerComponentCSSVars('textarea')
 // --textarea-padding: #{$textarea-padding}
 // --textarea-max-height: #{$textarea-max-height}
 // --textarea-min-height: #{$textarea-min-height}

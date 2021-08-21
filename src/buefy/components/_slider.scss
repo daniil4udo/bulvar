@@ -40,9 +40,8 @@ $css-vars-map: (
     'slider-mark-size': ($slider-mark-size),
 );
 
-.b-slider, [class^="b-slider-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('b-slider');
 
 @mixin slider-size {
 	$track-height: calc(#{var(--slider-size)} / #{var(--slider-thumb-to-track-ratio)});

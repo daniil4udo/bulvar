@@ -27,9 +27,8 @@ $css-vars-map: (
     'carousel-overlay-z': ($carousel-overlay-z),
 );
 
-.carousel, [class^="carousel-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('carousel');
 
 .carousel {
     @extend %unselectable;

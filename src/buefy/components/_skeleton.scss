@@ -15,9 +15,8 @@ $css-vars-map: (
     'skeleton-line-height-size': ($skeleton-line-height-size),
 );
 
-.b-skeleton, [class^="b-skeleton-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('b-skeleton');
 
 .b-skeleton {
     display: inline-flex;

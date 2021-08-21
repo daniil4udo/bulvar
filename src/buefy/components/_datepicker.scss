@@ -24,9 +24,8 @@ $css-vars-map: (
     'datepicker-item-selected-background-color': ($datepicker-item-selected-background-color),
 );
 
-.datepicker, [class^="datepicker-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('datepicker');
 
 .datepicker {
     font-size: 0.875rem;

@@ -13,10 +13,8 @@ $css-vars-map: (
     'tooltip-arrow-margin': ($tooltip-arrow-margin),
 );
 
-.b-tooltip, [class^="b-tooltip-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
-
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('b-tooltip');
 
 @mixin tooltip-arrow-color($direction, $color) {
     @if ($direction == "is-top") {

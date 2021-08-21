@@ -10,9 +10,8 @@ $css-vars-map: (
     'switch-active-background-color': ($switch-active-background-color),
 );
 
-.switch, [class^="switch-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('switch');
 
 .switch {
     @extend %unselectable;

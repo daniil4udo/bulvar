@@ -4,9 +4,8 @@ $css-vars-map: (
     'dropdown-content-max-height': ($dropdown-content-max-height)
 );
 
-.autocomplete, [class^="autocomplete-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('autocomplete');
 
 .autocomplete {
     position: relative;

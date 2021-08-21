@@ -21,8 +21,8 @@ $dropdown-item-active-background-color: var(--link, #{$link}) !default
 $dropdown-divider-background-color: var(--border-light, #{$border-light}) !default
 
 $css-vars-map: ('dropdown-content-offset': ($dropdown-content-offset),'dropdown-menu-min-width': ($dropdown-menu-min-width),'dropdown-content-z': ($dropdown-content-z),'dropdown-content-background-color': ($dropdown-content-background-color),'dropdown-content-radius': ($dropdown-content-radius),'dropdown-content-shadow': ($dropdown-content-shadow),'dropdown-content-padding-bottom': ($dropdown-content-padding-bottom),'dropdown-content-padding-top': ($dropdown-content-padding-top),'dropdown-item-color': ($dropdown-item-color),'dropdown-item-padding':($dropdown-item-padding),'dropdown-item-hover-background-color': ($dropdown-item-hover-background-color),'dropdown-item-hover-color': ($dropdown-item-hover-color),'dropdown-item-active-background-color': ($dropdown-item-active-background-color),'dropdown-item-active-color': ($dropdown-item-active-color),'dropdown-divider-background-color': ($dropdown-divider-background-color))
-+exportVars($css-vars-map)
-+registerMap('dropdown')
++exportCSSVars($css-vars-map)
++registerComponentCSSVars('dropdown')
 // --dropdown-content-offset: #{$dropdown-content-offset}
 // --dropdown-menu-min-width: #{$dropdown-menu-min-width}
 // --dropdown-content-z: #{$dropdown-content-z}

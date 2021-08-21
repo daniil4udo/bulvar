@@ -4,9 +4,8 @@ $css-vars-map: (
     'modal-background-color': ($modal-background-color),
 );
 
-.modal, [class^="modal-"] {
-    @include registerCSSVars($css-vars-map, $at-root)
-}
+@include exportCSSVars($css-vars-map);
+@include registerComponentCSSVars('modal');
 
 .modal {
     &.is-full-screen {
