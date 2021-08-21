@@ -356,7 +356,8 @@
 
   @each $name in $component-class
     $new-list: append($new-list, '.#{$name}', comma)
-    $new-list: append($new-list, '[class^=#{$name}-]', comma)
+    @if $has-starts-from
+      $new-list: append($new-list, '[class^=#{$name}-]', comma)
 
   #{$new-list}
     +registerCSSVars($map, $at-root)
