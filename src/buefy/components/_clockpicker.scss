@@ -23,8 +23,26 @@ $css-vars-map: (
     $padding-outer: 12px;
     $padding-inner: 5px;
 
-    // mixins for supporting all $form-colors defined in Bulma/custom
-    @mixin b-clockpicker-colors($name, $pair) {
+    .card-header {
+        background-color: var(--primary, #{$primary});
+        color: var(--primary-invert, #{$primary-invert});
+    }
+    .b-clockpicker-face {
+        &:after {
+            background-color: var(--primary, #{$primary});
+        }
+        &-hand {
+            background-color: var(--primary, #{$primary});
+            border-color: var(--primary, #{$primary});
+        }
+        &-number.active {
+            background-color: var(--primary, #{$primary});
+            color: var(--primary-invert, #{$primary-invert});
+        }
+    }
+
+    // supporting all $form-colors defined in Bulma/custom
+    @each $name, $pair in $form-colors {
         $color: nth($pair, 1);
         $color-invert: nth($pair, 2);
         &.is-#{$name} {
@@ -53,32 +71,6 @@ $css-vars-map: (
                 }
             }
         }
-    }
-
-    @mixin b-clockpicker-colors-set($color, $inverse) {
-        .card-header {
-            background-color: $color;
-            color: $inverse;
-        }
-        .b-clockpicker-face {
-            &:after {
-                background-color: $color;
-            }
-            &-hand {
-                background-color: $color;
-                border-color: $color;
-            }
-            &-number.active {
-                background-color: $color;
-                color: $inverse;
-            }
-        }
-    }
-
-    @include b-clockpicker-colors-set(var(--primary, #{$primary}), var(--primary-invert, #{$primary-invert}));
-
-    @each $name, $pair in $form-colors {
-        @include b-clockpicker-colors($name, $pair)
     }
 
     .dropdown-menu {
