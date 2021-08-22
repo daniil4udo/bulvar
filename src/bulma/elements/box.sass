@@ -13,7 +13,7 @@ $box-link-active-shadow-color: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($black
 $box-link-active-shadow-color-bis: var(--link, #{$link}) !default
 $box-link-active-shadow: inset 0 1px 2px $box-link-active-shadow-color, 0 0 0 1px $box-link-active-shadow-color-bis !default
 
-$css-vars-map: ('box-color': ($box-color),'box-background-color': ($box-background-color),'box-radius': ($box-radius),'box-shadow': ($box-shadow),'box-padding': ($box-padding),'box-link-hover-shadow': ($box-link-hover-shadow),'box-link-active-shadow': ($box-link-active-shadow))
+$css-vars-map: ('box-color': $box-color, 'box-background-color': $box-background-color, 'box-radius': $box-radius, 'box-shadow': $box-shadow, 'box-padding': $box-padding, 'box-link-hover-shadow': $box-link-hover-shadow, 'box-link-active-shadow': $box-link-active-shadow)
 +exportCSSVars($css-vars-map)
 +registerComponentCSSVars('box')
 // --box-color: #{$box-color}

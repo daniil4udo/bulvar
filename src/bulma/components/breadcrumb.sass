@@ -10,7 +10,7 @@ $breadcrumb-item-padding-horizontal: 0.75em !default
 
 $breadcrumb-item-separator-color: var(--border-hover, #{$border-hover}) !default
 
-$css-vars-map: ('breadcrumb-font-size': ($breadcrumb-font-size), 'breadcrumb-item-color': ($breadcrumb-item-color), 'breadcrumb-item-hover-color': ($breadcrumb-item-hover-color), 'breadcrumb-item-active-color': ($breadcrumb-item-active-color), 'breadcrumb-item-separator-color': ($breadcrumb-item-separator-color), 'breadcrumb-item-padding-vertical': ($breadcrumb-item-padding-vertical), 'breadcrumb-item-padding-horizontal': ($breadcrumb-item-padding-horizontal))
+$css-vars-map: ('breadcrumb-font-size': $breadcrumb-font-size, 'breadcrumb-item-color': $breadcrumb-item-color, 'breadcrumb-item-hover-color': $breadcrumb-item-hover-color, 'breadcrumb-item-active-color': $breadcrumb-item-active-color, 'breadcrumb-item-separator-color': $breadcrumb-item-separator-color, 'breadcrumb-item-padding-vertical': $breadcrumb-item-padding-vertical, 'breadcrumb-item-padding-horizontal': $breadcrumb-item-padding-horizontal)
 +exportCSSVars($css-vars-map)
 +registerComponentCSSVars('breadcrumb')
 // --breadcrumb-font-size: #{$breadcrumb-font-size}

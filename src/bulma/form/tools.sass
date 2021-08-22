@@ -8,7 +8,7 @@ $control-font-size: var(--size-normal, #{$size-normal}) !default
 
 $label-colors: $form-colors !default
 
-$css-vars-map: ('label-font-size': ($label-font-size),'label-color': ($label-color),'label-font-weight': ($label-weight))
+$css-vars-map: ('label-font-size': $label-font-size, 'label-color': $label-color, 'label-font-weight': $label-weight)
 +exportCSSVars($css-vars-map)
 +registerComponentCSSVars('label')
 // --label-font-size: #{$label-font-size}
@@ -30,7 +30,7 @@ $css-vars-map: ('label-font-size': ($label-font-size),'label-color': ($label-col
   &.is-large
     --label-font-size: var(--size-large, #{$size-large})
 
-$css-vars-map: ('help-font-size': ($help-size))
+$css-vars-map: ('help-font-size': $help-size)
 +exportCSSVars($css-vars-map)
 +registerComponentCSSVars('help')
 // --help-font-size: #{$help-size}
@@ -175,7 +175,7 @@ $css-vars-map: ('help-font-size': ($help-size))
       &:not(:last-child)
         +ltr-property("margin", 0.75rem)
 
-$css-vars-map: ('control-font-size': ($control-font-size))
+$css-vars-map: ('control-font-size': $control-font-size)
 +exportCSSVars($css-vars-map)
 +registerComponentCSSVars('control')
 // --control-font-size: #{$control-font-size}
