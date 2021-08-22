@@ -88,7 +88,7 @@ $css-vars-map: (
                     box-shadow: 0 0 0.5em rgba($grey, 0.8);
                 }
                 &:checked + .check {
-                    box-shadow: 0 0 0.5em rgba(var(--scheme-invert-rgb, #{bulmaToRGB($black)}), 0.1);
+                    box-shadow: 0 0 0.5em rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), 0.1);
                     
                     @each $name, $pair in $radio-colors {
                         $color: nth($pair, 1);
