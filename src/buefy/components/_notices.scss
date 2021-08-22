@@ -1,5 +1,5 @@
-$notices-shadow-color: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($black)}), 0.12) !default;
-$notices-shadow-color-bis: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($black)}), 0.04) !default;
+$notices-shadow-color: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), 0.12) !default;
+$notices-shadow-color-bis: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), 0.04) !default;
 $notices-box-shadow: 0 1px 4px $notices-shadow-color, 0 0 6px $notices-shadow-color-bis !default;
 
 $toast-border-radius: 2em !default;

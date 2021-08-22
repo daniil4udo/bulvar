@@ -132,7 +132,7 @@ $css-vars-map: (
         border-radius: var(--radius-large, #{$radius-large});
         font-size: 0.85rem;
         font-weight: var(--weight-normal, #{$weight-normal});
-        box-shadow: 0px 1px 2px 1px rgba(var(--scheme-invert-rgb, #{bulmaToRGB($black)}), 0.2);
+        box-shadow: 0px 1px 2px 1px rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), 0.2);
         z-index: 38;
         white-space: nowrap;
         position: absolute;
