@@ -5,12 +5,12 @@ $carousel-arrow-color: var(--primary, #{$primary}) !default;
 $carousel-arrow-icon-spaced: 1.5rem !default;
 $carousel-arrow-top: 50% !default;
 
-$carousel-indicator-background: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($black)}), 0.50) !default;
+$carousel-indicator-background: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), 0.50) !default;
 $carousel-indicator-border: var(--scheme-main, #{$scheme-main}) !default;
 $carousel-indicator-color: var(--primary, #{$primary}) !default;
 $carousel-indicator-spaced: .5rem !default;
 
-$carousel-overlay-background: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($black)}), 0.86) !default;
+$carousel-overlay-background: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), 0.86) !default;
 $carousel-overlay-z: 40 !default;
 
 $css-vars-map: (
@@ -150,7 +150,7 @@ $css-vars-map: (
     overflow: hidden;
     width: 100%;
     &.has-shadow {
-        box-shadow: 0px 0px 10px rgba(var(--scheme-invert-rgb, #{bulmaToRGB($black)}), 0.25);
+        box-shadow: 0px 0px 10px rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), 0.25);
     }
     &:hover .carousel-arrow.is-hovered {
         @include tablet {
