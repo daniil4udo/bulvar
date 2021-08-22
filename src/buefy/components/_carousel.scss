@@ -79,7 +79,7 @@ $css-vars-map: (
     }
     .carousel-indicator {
         width: 100%;
-        padding: var(--carousel-indicator-spaced, #{$carousel-indicator-spaced});
+        padding: var(--carousel-indicator-spaced);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -110,7 +110,7 @@ $css-vars-map: (
         }
         .indicator-item {
             &:not(:last-child) {
-                margin-right: var(--carousel-indicator-spaced, #{$carousel-indicator-spaced});
+                margin-right: var(--carousel-indicator-spaced);
             }
             &.is-active .indicator-style,
             .indicator-style:hover {
@@ -216,15 +216,15 @@ $css-vars-map: (
         &.has-icons-left,
         &.has-icons-right {
             position: absolute;
-            top: var(--carousel-arrow-top, #{$carousel-arrow-top});
-            transform: translateY(calc(-1 * #{var(--carousel-arrow-top, #{$carousel-arrow-top})}));
+            top: var(--carousel-arrow-top);
+            transform: translateY(calc(-1 * #{var(--carousel-arrow-top)}));
             z-index: 1;
         }
         &.has-icons-left {
-            left: var(--carousel-arrow-icon-spaced, #{$carousel-arrow-icon-spaced});
+            left: var(--carousel-arrow-icon-spaced);
         }
         &.has-icons-right {
-            right: var(--carousel-arrow-icon-spaced, #{$carousel-arrow-icon-spaced});
+            right: var(--carousel-arrow-icon-spaced);
         }
     }
 }

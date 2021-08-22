@@ -105,8 +105,8 @@ $css-vars-map: (
         .b-slider-thumb {
             box-shadow: var(--slider-thumb-shadow);
             border: var(--slider-thumb-border);
-            border-radius: $slider-thumb-radius;
-            background: $slider-thumb-background;
+            border-radius: var(--slider-thumb-radius);
+            background: var(--slider-thumb-background);
             &:focus {
                 transform: scale(1.25);
             }
