@@ -168,7 +168,7 @@ $css-vars-map: (
                     .input {
                         padding-top: var(--field-floating-indent);
                         padding-bottom: 1px;
-                        height: var(--floating-in-height, #{$floating-in-height});
+                        height: var(--floating-in-height);
                     }
                 }
                 &:not(.datepicker):not(.timepicker):not(.taginput) {
@@ -177,10 +177,10 @@ $css-vars-map: (
                     select {
                         padding-top: var(--field-floating-indent);
                         padding-bottom: 1px;
-                        height: var(--floating-in-height, #{$floating-in-height});
+                        height: var(--floating-in-height);
                     }
                     .select:not(multiple) {
-                        height: var(--floating-in-height, #{$floating-in-height});
+                        height: var(--floating-in-height);
                         &.is-loading {
                             &::after {
                                 margin-top: var(--field-floating-indent);
@@ -200,7 +200,7 @@ $css-vars-map: (
                 &:not(.taginput) {
                     .is-left.field,
                     .is-right.icon {
-                        height: var(--floating-in-height, #{$floating-in-height});
+                        height: var(--floating-in-height);
                     }
                     .is-left.icon {
                         padding-top: var(--field-floating-indent);
@@ -225,7 +225,7 @@ $css-vars-map: (
                         .textarea,
                         select,
                         .button {
-                            height: var(--floating-in-height, #{$floating-in-height});
+                            height: var(--floating-in-height);
                         }
                     }
                 }
@@ -237,7 +237,7 @@ $css-vars-map: (
                 .control {
                     .input,
                     .button {
-                        height: var(--floating-in-height, #{$floating-in-height});
+                        height: var(--floating-in-height);
                     }
                 }
             }

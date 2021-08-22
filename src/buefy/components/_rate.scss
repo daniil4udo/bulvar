@@ -71,7 +71,7 @@ $css-vars-map: (
         left: 0;
     }
     .rate-text {
-        font-size: calc(var(--rate-text-font-size) / 1.25);
+        font-size: calc(#{var(--rate-text-font-size)} / 1.25);
         margin-left: var(--rate-text-spaced);
         &.is-small {
             --rate-text-font-size: var(--size-small, #{$size-small});

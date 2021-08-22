@@ -46,8 +46,8 @@ $css-vars-map: (
             outline: none;
             z-index: -1;
             + .check {
-                width: var(--checkbox-size, #{$checkbox-size});
-                height: var(--checkbox-size, #{$checkbox-size});
+                width: var(--checkbox-size);
+                height: var(--checkbox-size);
                 flex-shrink: 0;
                 border-radius: var(--checkbox-border-radius);
                 border: var(--checkbox-border-width) solid var(--checkbox-border-color);
