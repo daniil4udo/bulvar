@@ -8,7 +8,7 @@ $tag-font-size: var(--size-small, #{$size-small}) !default
 
 $tag-colors: $colors !default
 
-$css-vars-map: ('tag-background-color': ($tag-background-color),'tag-color': ($tag-color),'tag-radius': ($tag-radius),'tag-font-size': ($tag-font-size),'tag-delete-margin': ($tag-delete-margin))
+$css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $tag-color, 'tag-radius': $tag-radius, 'tag-font-size': $tag-font-size, 'tag-delete-margin': $tag-delete-margin)
 +exportCSSVars($css-vars-map)
 +registerComponentCSSVars(('tag', 'tags'))
 // --tag-background-color: #{$tag-background-color}
