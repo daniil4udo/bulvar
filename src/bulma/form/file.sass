@@ -43,7 +43,7 @@ $css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-ra
       --focus-box-shadow-color: var(--focus-box-shadow-color-hsla, #{bulmaRgba($color, 0.25)})
       --active-background-color: #{bulmaVarLighteness($name, calc(#{var(--#{$name}-light-l)} - 5%))}
       .file-cta
-        background-color: var(--#{$name} #{$color})
+        background-color: var(--#{$name}, #{$color})
         border-color: transparent
         color: var(--#{$name}-invert, #{$color-invert})
       &:hover,
