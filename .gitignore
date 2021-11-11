@@ -19,3 +19,12 @@ _site
 dev
 node_modules
 test/output/
+
+# yarn
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
