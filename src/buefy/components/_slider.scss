@@ -155,7 +155,7 @@ $css-vars-map: (
         }
     }
 
-    @include slider-size();
+    @include slider-size;
     &.is-small {
         --slider-size: var(--size-small, #{$size-small});
     }

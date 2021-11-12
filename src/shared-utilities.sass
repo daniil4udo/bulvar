@@ -1,0 +1,26 @@
+=control-sizes($variable-name: null)
+    @if $variable-name
+        &.is-small 
+            --#{$variable-name}: var(--size-small, #{$size-small})
+        &.is-medium 
+            --#{$variable-name}: var(--size-medium, #{$size-medium})
+        &.is-large 
+            --#{$variable-name}: var(--size-large, #{$size-large})
+    @else
+        &.is-small
+            +control-small
+        &.is-mediu
+            +control-medium
+        &.is-large
+            +control-large
+
+/// function color helpres
+
+@function schemeInvertRgba($alpha)
+    @return rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), $alpha)
+
+@function borderInvertRgba($alpha)
+    @return rgba(var(--border-rgb, #{bulmaToRGB($border)}), $alpha)
+
+@function linkInvertRgba($alpha)
+    @return rgba(var(--link-rgb, #{bulmaToRGB($link)}), $alpha)
