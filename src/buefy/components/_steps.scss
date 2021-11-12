@@ -365,7 +365,7 @@ $css-vars-map: (
         }
     }
 
-    @include steps-size();
+    @include steps-size;
     &.is-small {
         --steps-size: var(--size-small, #{$size-small}); 
     }
