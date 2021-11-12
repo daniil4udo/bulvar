@@ -116,7 +116,8 @@ $css-vars-map: ('pagination-color': $pagination-color, 'pagination-border-color'
     border-color: var(--pagination-focus-border-color)
   &:active
     box-shadow: var(--pagination-shadow-inset)
-  &[disabled]
+  &[disabled],
+  &.is-disabled
     background-color: var(--pagination-disabled-background-color)
     border-color: var(--pagination-disabled-border-color)
     box-shadow: none
