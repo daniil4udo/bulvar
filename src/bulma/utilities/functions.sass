@@ -86,8 +86,7 @@
     @return calculateInvertColor($fallback)
   @return $color
 
-@function calculateLightColor($color)
-  $l: 96%
+@function calculateLightColor($color, $l: 96%)
   @if lightness($color) > 96%
     $l: lightness($color)
   @return change-color($color, $lightness: $l)
@@ -99,8 +98,7 @@
     @return calculateLightColor($fallback)
   @return $color
 
-@function calculateDarkColor($color)
-  $base-l: 29%
+@function calculateDarkColor($color, $base-l: 29%)
   $luminance: colorLuminance($color)
   $luminance-delta: (0.53 - $luminance)
   $target-l: round($base-l + ($luminance-delta * 53))
