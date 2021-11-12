@@ -51,7 +51,7 @@ $css-vars-map: (
     .progress, .progress-bar {
         margin-bottom: 0;
 
-        @include progress-size();
+        @include progress-size;
 
         &::-webkit-progress-value {
             transition: width 0.5s ease;
