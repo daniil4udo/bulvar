@@ -72,6 +72,10 @@ $css-vars-map: (
                 }
             }
         }
+
+        &.is-squared {
+            border-radius: 0;
+        }
     }
 
     &.is-not-native {
@@ -102,5 +106,9 @@ $css-vars-map: (
                 }
             }
         }
+    }
+
+    &.is-squared {
+        border-radius: 0;
     }
 }
