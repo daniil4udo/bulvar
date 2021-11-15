@@ -1,0 +1,20 @@
+{
+    "extends": ["config:base"],
+    "baseBranches": ["develop"],
+    "bumpVersion": null,
+    "packageRules": [
+        {
+            "depTypeList": ["devDependencies"],
+            "updateTypes": ["minor"],
+            "automerge": true
+        },
+        {
+            "matchDepTypes": ["optionalDependencies"],
+            "addLabels": ["optional"]
+        }
+    ],
+    "commitMessagePrefix": "📦 packages: ",
+    "prHourlyLimit": 5,
+    "prConcurrentLimit": 10,
+    "rangeStrategy": "bump"
+}
