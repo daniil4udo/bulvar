@@ -1,0 +1,21 @@
+{
+    "version": "0.9.2",
+    "packages": ["packages/*"],
+    "npmClient": "yarn",
+    "useWorkspaces": true,
+    "command": {
+        "publish": {
+            "npmClient": "npm"
+        }
+    },
+    "changelog": {
+        "labels": {
+            "feat": "New Feature",
+            "fix": "Bug Fix",
+            "docs": "Documentation",
+            "types": "Types",
+            "perf": "Performance",
+            "refactor": "Refactor"
+        }
+    }
+}
