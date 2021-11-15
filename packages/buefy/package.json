@@ -1,0 +1,63 @@
+{
+    "name": "@dmc/buefy",
+    "version": "0.9.2",
+    "description": "Lightweight UI components for Vue.js based on Bulma",
+    "keywords": [
+        "bulma",
+        "buefy",
+        "css",
+        "sass",
+        "flexbox",
+        "responsive",
+        "framework"
+    ],
+    "bugs": {
+        "url": "https://github.com/dino4udo/bulma-buefy-css-variables/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dino4udo/bulma-buefy-css-variables.git"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Daniil Chumachenko",
+        "email": "daniil4udo@gmail.com",
+        "url": "https://github.com/dino4udo"
+    },
+    "sideEffects": [
+        "*.css",
+        "*.scss"
+    ],
+    "main": "buefy.sass",
+    "unpkg": "css/buefy.css",
+    "style": "buefy/css/buefy.min.css",
+    "files": [
+        "css",
+        "scss",
+        "buefy.sass",
+        "buefy-rtl.sass",
+        "LICENSE",
+        "README.md"
+    ],
+    "scripts": {
+        "clean": "rimraf css && mkdir css",
+        "build": "npm-run-all compile prefix minify",
+        "start": "sass buefy.sass css/buefy.css --watch",
+        "deploy": "npm-run-all clean build",
+        "compile": "npm-run-all --parallel compile:*",
+        "compile:main": "sass buefy.sass | node banner.js > css/buefy.css",
+        "compile:rtl": "sass buefy-rtl.sass | node banner.js > css/buefy-rtl.css",
+        "prefix": "npm-run-all --parallel prefix:*",
+        "prefix:main": "postcss --config ../../postcss.config.js --output css/buefy.css css/buefy.css",
+        "prefix:rtl": "cross-env NODE_ENV=RTL postcss postcss --config ../../postcss.config.js --output css/buefy-rtl.css css/buefy-rtl.css",
+        "minify": "npm-run-all --parallel minify:*",
+        "minify:main": "csso -o css/buefy.min.css -i css/buefy.css",
+        "minify:rtl": "csso -o css/buefy-rtl.min.css -i css/buefy-rtl.css"
+    },
+    "dependencies": {
+        "@dmc/bulma": "^0.9.2"
+    },
+    "maintainers": [
+        "Daniil Chumachenko <daniil4udo@gmail.com>"
+    ]
+}

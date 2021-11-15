@@ -1,85 +1,90 @@
 {
-  "name": "bulma-buefy-css-variables",
-  "version": "0.9.2",
-  "homepage": "https://github.com/dino4udo/bulma-buefy-css-variables",
-  "author": {
-    "name": "Daniil Chumachenko",
-    "email": "daniil4udo@gmail.com"
-  },
-  "description": "Modern CSS framework based on Flexbox and CSS Variables",
-  "main": "buefy.sass",
-  "unpkg": "css/buefy.css",
-  "style": "css/buefy.min.css",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dino4udo/bulma-buefy-css-variables.git"
-  },
-  "license": "MIT",
-  "keywords": [
-    "css",
-    "css vars",
-    "css properties",
-    "sass",
-    "flexbox",
-    "responsive",
-    "framework"
-  ],
-  "bugs": {
-    "url": "https://github.com/dino4udo/bulma-buefy-css-variables/issues"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.0",
-    "clean-css-cli": "^5.4.2",
-    "cross-env": "^7.0.3",
-    "find-unused-sass-variables": "^3.1.0",
-    "lint-staged": "^11.2.6",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.3.11",
-    "postcss-cli": "^9.0.2",
-    "rimraf": "^3.0.2",
-    "rtlcss": "^3.5.0",
-    "sass": "^1.43.4",
-    "stylelint": "^14.1.0",
-    "stylelint-config-css-modules": "^2.3.0",
-    "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-recess-order": "^2.6.0",
-    "stylelint-config-standard": "^24.0.0",
-    "stylelint-no-unsupported-browser-features": "^5.0.2",
-    "stylelint-order": "^5.0.0",
-    "stylelint-scss": "^4.0.0",
-    "stylelint-selector-bem-pattern": "^2.1.1",
-    "stylelint-selector-no-empty": "^1.0.8",
-    "yarn-run-all": "^3.1.1"
-  },
-  "scripts": {
-    "lint": "npm-run-all --continue-on-error --parallel lint-*",
-    "lint-stylelint": "stylelint \"**/*.{sass,scss}\" --cache --cache-location .cache/.stylelintcache --rd",
-    "lint-vars": "fusv src/",
-    "build": "npm-run-all compile prefix minify",
-    "compile": "npm-run-all --parallel compile:**",
-    "compile:bulma": "sass bulma.sass | node banner.js > css/bulma.css",
-    "compile:buefy": "sass buefy.sass | node banner.js >  css/buefy.css",
-    "compile:rtl:bulma": "sass bulma-rtl.sass | node banner.js > css/bulma-rtl.css",
-    "compile:rtl:buefy": "sass buefy-rtl.sass | node banner.js > css/buefy-rtl.css",
-    "prefix": "npm-run-all --parallel prefix:*",
-    "prefix:main": "postcss --config postcss.config.js --replace \"css/*.css\" \"!css/*-rtl.css\" \"!css/*.min.css\"",
-    "prefix:rtl": "cross-env NODE_ENV=RTL postcss --config postcss.config.js --dir \"css\" \"css/*-rtl.css\" \"!css/*.min.css\"",
-    "minify": "npm-run-all --parallel minify-*",
-    "minify-main": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output css/ --batch --batch-suffix \".min\" \"css/*.css\" \"!css/*.min.css\" \"!css/*-rtl.css\"",
-    "minify-rtl": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output css/ --batch --batch-suffix \".min\" \"css/*-rtl.css\" \"!css/*.min.css\"",
-    "watch": "sass buefy.sass:css/buefy.css --watch",
-    "clean": "rimraf css && mkdir css",
-    "deploy": "npm-run-all clean build"
-  },
-  "files": [
-    "css",
-    "src",
-    "bulma.sass",
-    "buefy.sass",
-    "bulma-rtl.sass",
-    "buefy-rtl.sass",
-    "LICENSE",
-    "README.md"
-  ],
-  "packageManager": "yarn@3.1.0"
+    "name": "@dmc/root",
+    "version": "0.9.2",
+    "private": true,
+    "description": "DMC Bulma Monorepo",
+    "keywords": [
+        "css",
+        "css vars",
+        "css properties",
+        "sass",
+        "flexbox",
+        "responsive",
+        "framework"
+    ],
+    "homepage": "https://github.com/dino4udo/bulma-buefy-css-variables",
+    "bugs": {
+        "url": "https://github.com/dino4udo/bulma-buefy-css-variables/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dino4udo/bulma-buefy-css-variables.git"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Daniil Chumachenko",
+        "email": "daniil4udo@gmail.com",
+        "url": "https://github.com/dino4udo"
+    },
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "version": "lerna version --conventional-commits --no-push",
+        "postinstall": "lerna link",
+        "deploy": "lerna run deploy",
+        "build": "lerna run build",
+        "clean": "lerna run clean",
+        "watch": "lerna run --parallel start",
+        "lint": "npm-run-all --continue-on-error --parallel lint:all:*",
+        "lint:vars": "fusv packages/",
+        "lint:prettier": "prettier --write --loglevel warn",
+        "lint:stylelint": "stylelint --fix",
+        "lint:all:stylelint": "lint:stylelint \"**/*.{sass,scss}\" --cache --cache-location .cache/.stylelintcache --rd",
+        "lint:markdownlint": "markdownlint --fix",
+        "lint:all:markdownlint": "yarn lint:markdownlint \"packages/**/*.md\" \"*.md\""
+    },
+    "config": {
+        "commitizen": {
+            "path": "node_modules/cz-customizable"
+        },
+        "cz-customizable": {
+            "config": "cz-config.js"
+        }
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^14.1.0",
+        "@commitlint/config-conventional": "^14.1.0",
+        "autoprefixer": "^10.4.0",
+        "clean-css-cli": "^5.4.2",
+        "commitizen": "^4.2.4",
+        "cross-env": "^7.0.3",
+        "csso-cli": "^3.0.0",
+        "cz-conventional-changelog": "^3.3.0",
+        "cz-customizable": "^6.3.0",
+        "find-unused-sass-variables": "^3.1.0",
+        "husky": "^4",
+        "lerna": "^4.0.0",
+        "lint-staged": "^12.0.1",
+        "markdownlint-cli": "^0.29.0",
+        "npm-run-all": "^4.1.5",
+        "postcss": "^8.3.11",
+        "postcss-cli": "^9.0.2",
+        "prettier": "^2.4.1",
+        "rimraf": "^3.0.2",
+        "rtlcss": "^3.5.0",
+        "sass": "^1.43.4",
+        "stylelint": "^14.0.1",
+        "stylelint-config-css-modules": "^2.3.0",
+        "stylelint-config-prettier": "^9.0.3",
+        "stylelint-config-recess-order": "^3.0.0",
+        "stylelint-config-standard": "^23.0.0",
+        "stylelint-no-unsupported-browser-features": "^5.0.2",
+        "stylelint-order": "^5.0.0",
+        "stylelint-scss": "^4.0.0",
+        "stylelint-selector-bem-pattern": "^2.1.1",
+        "stylelint-selector-no-empty": "^1.0.8",
+        "yarn-run-all": "^3.1.1"
+    },
+    "packageManager": "yarn@3.1.0"
 }
