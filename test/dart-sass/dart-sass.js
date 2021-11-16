@@ -16,11 +16,11 @@ const exportDartCSS = (filepath, options) => {
 // Full import
 
 exportDartCSS('buefy', {
-  file: '/packages/buefy/buefy.sass',
+  file: '../../packages/buefy/buefy.sass',
 });
 
 exportDartCSS('buefy-rtl', {
-  file: '/packages/buefy/buefy-rtl.sass',
+  file: '../../packages/buefy/buefy-rtl.sass',
 });
 
 // Custom import
@@ -30,7 +30,7 @@ fs.mkdir(`${DART_BASE_PATH}custom`, { recursive: true }, (err) => {
 });
 
 utils.exportCSS(sass, fs, DART_BASE_PATH, 'custom/navbar', {
-  data: '@use "/packages/bulma/components/navbar.sass" with ( $scheme-main: red );',
+  data: '@use "../../packages/bulma/components/navbar.sass" with ( $scheme-main: red );',
 });
 
 // Single imports
