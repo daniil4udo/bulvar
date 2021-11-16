@@ -1,5 +1,5 @@
 {
-    "name": "@dmc/root",
+    "name": "@bulvar/root",
     "version": "0.9.2",
     "private": true,
     "description": "DMC Bulma Monorepo",
@@ -12,13 +12,13 @@
         "responsive",
         "framework"
     ],
-    "homepage": "https://github.com/dino4udo/bulma-buefy-css-variables",
+    "homepage": "https://github.com/dino4udo/bulvar",
     "bugs": {
-        "url": "https://github.com/dino4udo/bulma-buefy-css-variables/issues"
+        "url": "https://github.com/dino4udo/bulvar/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/dino4udo/bulma-buefy-css-variables.git"
+        "url": "git+https://github.com/dino4udo/bulvar.git"
     },
     "license": "MIT",
     "author": {

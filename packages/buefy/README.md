@@ -9,19 +9,19 @@ Bulma & Buefy is constantly in development! Try it out now:
 ### NPM
 
 ```sh
-npm install @dmc/buefy
+npm install @bulvar/buefy
 ```
 
 ### Yarn
 
 ```sh
-yarn add @dmc/buefy
+yarn add @bulvar/buefy
 ```
 
 ### Bower
 
 ```sh
-bower install @dmc/buefy
+bower install @bulvar/buefy
 ```
 
 ### Import
@@ -36,7 +36,7 @@ Build includes (for both Bulma & Buefy)
 After installation, you can import any from above CSS file into your project using this snippet:
 
 ```css
-@import "@dmc/buefy/css/bulma.css";
+@import "@bulvar/buefy/css/bulma.css";
 ```
 
 Feel free to raise an issue or submit a pull request.
@@ -45,7 +45,7 @@ Feel free to raise an issue or submit a pull request.
 
 IMPORTANT: This packages is CSS ONLY!
 
-If you need Buefy Vue components, but you wan to use CSS variable in your project, you'll have to install both `buefy` and `@dmc/buefy`
+If you need Buefy Vue components, but you wan to use CSS variable in your project, you'll have to install both `buefy` and `@bulvar/buefy`
 
 NOTE: If you need Buefy styles, do not import Bulma, it already includes it in correct order.
 
@@ -138,10 +138,10 @@ Bulma & Buefy uses [autoprefixer](https://github.com/postcss/autoprefixer) to ma
 
 Internet Explorer (10+) is not supported due to the use of css variables.
 
-## Copyright and license ![Github](https://img.shields.io/github/license/dino4udo/bulma-buefy-css-variables?logo=Github)
+## Copyright and license ![Github](https://img.shields.io/github/license/dino4udo/bulvar?logo=Github)
 
-Code copyright 2021 Daniil Chumachenko. Code released under [the MIT license](https://github.com/dino4udo/bulma-buefy-css-variables/blob/master/LICENSE).
+Code copyright 2021 Daniil Chumachenko. Code released under [the MIT license](https://github.com/dino4udo/bulvar/blob/master/LICENSE).
 
-[npm-link]: https://www.npmjs.com/package/bulma-buefy-css-variables
+[npm-link]: https://www.npmjs.com/package/bulvar
 [awesome-link]: https://github.com/awesome-css-group/awesome-css
 [awesome-badge]: https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg
