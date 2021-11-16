@@ -7,14 +7,14 @@ matrix:
         - test/ruby-sass/ruby-sass.sh
     - language: node_js
       node_js:
-        - node
+        - 14
       before_script:
         - yarn add sass
       script:
         - node test/dart-sass/dart-sass.js
     - language: node_js
       node_js:
-        - node
+        - 14
       before_script:
         - yarn add node-sass
       script:
