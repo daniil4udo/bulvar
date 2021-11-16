@@ -9,13 +9,13 @@ matrix:
       node_js:
         - node
       before_script:
-        - npm install sass
+        - yarn add sass
       script:
         - node test/dart-sass/dart-sass.js
     - language: node_js
       node_js:
         - node
       before_script:
-        - npm install node-sass
+        - yarn add node-sass
       script:
         - node test/node-sass/node-sass.js
