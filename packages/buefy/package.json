@@ -1,5 +1,5 @@
 {
-    "name": "@dmc/buefy",
+    "name": "@bulvar/buefy",
     "version": "0.9.2",
     "description": "Lightweight UI components for Vue.js based on Bulma",
     "keywords": [
@@ -9,14 +9,17 @@
         "sass",
         "flexbox",
         "responsive",
+        "css properties",
+        "css variables",
         "framework"
     ],
+    "homepage": "https://github.com/dino4udo/bulvar/tree/master/packages/buefy",
     "bugs": {
-        "url": "https://github.com/dino4udo/bulma-buefy-css-variables/issues"
+        "url": "https://github.com/dino4udo/bulvar/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/dino4udo/bulma-buefy-css-variables.git"
+        "url": "git+https://github.com/dino4udo/bulvar.git"
     },
     "license": "MIT",
     "author": {
@@ -55,7 +58,7 @@
         "minify:rtl": "csso -o css/buefy-rtl.min.css -i css/buefy-rtl.css"
     },
     "dependencies": {
-        "@dmc/bulma": "^0.9.2"
+        "@bulvar/bulma": "^0.9.2"
     },
     "maintainers": [
         "Daniil Chumachenko <daniil4udo@gmail.com>"
