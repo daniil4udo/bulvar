@@ -8,7 +8,7 @@ default: true
 # Disable line length restrictions, because editor soft-wrapping is being
 # used instead.
 line-length: false
-
+first-line-heading: false
 no-inline-html: false
 
 # ===
