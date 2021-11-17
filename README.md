@@ -13,13 +13,22 @@
 
 # Bulvar 🛣
 
-> Bulvar [Bulma](https://bulma.io) and [Buefy](https://buefy.org) on steroids
+> Bulvar [Bulma](https://bulma.io) and [Buefy](https://buefy.org) on steroids usin CSS variables
 
 -   ⚡️ Runtime variables change
 -   🛠️ Rich Features - includes Bulma, Buefy CSS and Bulma extentions
 -   💡 Root and Local variables scoping
 -   📦 CSS minifier with structural optimizations
 
+<h1 align="center">Special Sponsor</h1>
+<!--special start-->
+
+<p align="center">
+  <a href="https://www.democrance.com" target="_blank">
+    <img width="260px" src="https://www.democrance.com/wp-content/uploads/2021/11/democrance_new_logo_1200dpi.png">
+  </a>
+</p>
+  
 ## INTRO
 
 Bulvar is a monorepo with all Bulma-derived packages rewritten with CSS Variables.
