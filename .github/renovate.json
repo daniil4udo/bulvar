@@ -13,7 +13,7 @@
             "addLabels": ["optional"]
         }
     ],
-    "commitMessagePrefix": "📦 packages: ",
+    "commitMessagePrefix": "dep-up: 📦 ",
     "prHourlyLimit": 5,
     "prConcurrentLimit": 10,
     "rangeStrategy": "bump"
