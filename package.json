@@ -51,7 +51,8 @@
             "path": "cz-emoji"
         },
         "cz-emoji": {
-            "conventional": true
+            "conventional": true,
+            "symbol": true
         }
     },
     "devDependencies": {
