@@ -12,19 +12,19 @@
         "responsive",
         "framework"
     ],
-    "homepage": "https://github.com/dino4udo/bulvar",
+    "homepage": "https://github.com/daniil4udo/bulvar",
     "bugs": {
-        "url": "https://github.com/dino4udo/bulvar/issues"
+        "url": "https://github.com/daniil4udo/bulvar/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/dino4udo/bulvar.git"
+        "url": "git+https://github.com/daniil4udo/bulvar.git"
     },
     "license": "MIT",
     "author": {
         "name": "Daniil Chumachenko",
         "email": "daniil4udo@gmail.com",
-        "url": "https://github.com/dino4udo"
+        "url": "https://github.com/daniil4udo"
     },
     "workspaces": [
         "packages/*"

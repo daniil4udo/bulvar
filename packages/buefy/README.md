@@ -138,9 +138,9 @@ Bulma & Buefy uses [autoprefixer](https://github.com/postcss/autoprefixer) to ma
 
 Internet Explorer (10+) is not supported due to the use of css variables.
 
-## Copyright and license ![Github](https://img.shields.io/github/license/dino4udo/bulvar?logo=Github)
+## Copyright and license ![Github](https://img.shields.io/github/license/daniil4udo/bulvar?logo=Github)
 
-Code copyright 2021 Daniil Chumachenko. Code released under [the MIT license](https://github.com/dino4udo/bulvar/blob/master/LICENSE).
+Code copyright 2021 Daniil Chumachenko. Code released under [the MIT license](https://github.com/daniil4udo/bulvar/blob/master/LICENSE).
 
 [npm-link]: https://www.npmjs.com/package/bulvar
 [awesome-link]: https://github.com/awesome-css-group/awesome-css
