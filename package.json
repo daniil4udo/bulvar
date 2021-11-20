@@ -30,8 +30,9 @@
         "packages/*"
     ],
     "scripts": {
-        "publish": "lerna publish from-git --conventional-commits --no-push --no-commit-hooks",
+        "release": "lerna version --no-push --no-commit-hooks",
         "version": "lerna run deploy",
+        "postversion": "lerna publish from-git",
         "postinstall": "lerna link",
         "deploy": "lerna run deploy",
         "watch": "lerna run --parallel start",
