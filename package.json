@@ -30,10 +30,8 @@
         "packages/*"
     ],
     "scripts": {
-        "bump": "lerna version --conventional-commits --no-push --no-granular-pathspec",
-        "preversion": "echo 'Run BEFORE bumping the package version'",
+        "bump": "lerna version --conventional-commits --no-push --no-granular-pathspec --no-commit-hooks",
         "version": "lerna run deploy",
-        "postversion": "echo'Run AFTER bumping the package version, and AFTER commit'",
         "postinstall": "lerna link",
         "deploy": "lerna run deploy",
         "watch": "lerna run --parallel start",
@@ -43,7 +41,7 @@
         "lint:prettier": "prettier --write --loglevel warn",
         "lint:stylelint": "stylelint --fix",
         "lint:all:stylelint": "lint:stylelint \"**/*.{sass,scss}\" --cache --cache-location .cache/.stylelintcache --rd",
-        "lint:markdownlint": "markdownlint --fix -i CHANGELOG.md packages/**/CHANGELOG.md",
+        "lint:markdownlint": "markdownlint --fix -i CHANGELOG.md -i packages/**/CHANGELOG.md",
         "lint:all:markdownlint": "yarn lint:markdownlint \"packages/**/*.md\" \"*.md\"",
         "cz": "git cz"
     },
