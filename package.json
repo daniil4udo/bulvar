@@ -31,7 +31,7 @@
     ],
     "scripts": {
         "version": "lerna run deploy",
-        "lv": "lerna version --conventional-commits --no-push",
+        "lv": "lerna version --conventional-commits --no-push --no-granular-pathspec",
         "lp": "lerna publish from-package --yes",
         "postinstall": "lerna link",
         "deploy": "lerna run deploy",
