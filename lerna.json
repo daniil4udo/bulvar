@@ -6,6 +6,7 @@
     "granularPathspec": false,
     "command": {
         "version": {
+            "allowBranch": ["master"],
             "message": "release: 🔖 publish %s"
         },
         "publish": {
