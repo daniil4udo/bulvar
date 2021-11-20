@@ -30,7 +30,7 @@
         "packages/*"
     ],
     "scripts": {
-        "bump": "lerna version --conventional-commits --no-push --no-granular-pathspec --no-commit-hooks",
+        "bump": "lerna version --conventional-commits --no-push --no-commit-hooks",
         "version": "lerna run deploy",
         "postinstall": "lerna link",
         "deploy": "lerna run deploy",

@@ -3,6 +3,7 @@
     "packages": ["packages/*"],
     "npmClient": "yarn",
     "useWorkspaces": true,
+    "granularPathspec": false,
     "command": {
         "version": {
             "message": "release: 🔖 publish %s"
