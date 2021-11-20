@@ -30,14 +30,14 @@
         "packages/*"
     ],
     "scripts": {
+        "bump": "lerna version --conventional-commits --no-push --no-granular-pathspec",
+        "preversion": "echo 'Run BEFORE bumping the package version'",
         "version": "lerna run deploy",
-        "lv": "lerna version --conventional-commits --no-push --no-granular-pathspec",
-        "lp": "lerna publish from-package --yes",
+        "postversion": "echo'Run AFTER bumping the package version, and AFTER commit'",
         "postinstall": "lerna link",
         "deploy": "lerna run deploy",
-        "build": "lerna run build",
-        "clean": "lerna run clean",
         "watch": "lerna run --parallel start",
+        "---": "",
         "lint": "npm-run-all --continue-on-error --parallel lint:all:*",
         "lint:vars": "fusv packages/",
         "lint:prettier": "prettier --write --loglevel warn",
