@@ -3,19 +3,26 @@
     "packages": ["packages/*"],
     "npmClient": "yarn",
     "useWorkspaces": true,
+    "granularPathspec": false,
     "command": {
+        "version": {
+            "allowBranch": ["master"],
+            "conventionalCommits": true,
+            "createRelease": "github",
+            "message": "release: 🔖 publish %s"
+        },
         "publish": {
             "npmClient": "npm"
         }
     },
     "changelog": {
         "labels": {
-            "feat": "New Feature",
+            "feature": "New Feature",
             "fix": "Bug Fix",
             "docs": "Documentation",
             "types": "Types",
             "perf": "Performance",
-            "refactor": "Refactor"
+            "refactoring": "Refactor"
         }
     }
 }
