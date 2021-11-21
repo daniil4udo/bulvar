@@ -6,22 +6,21 @@ name: Publish
 on:
   push:
     branches:
-      # - master
-      - github-actions
+      - master
 
 jobs:
-  # build:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v2
-  #       with:
-  #         node-version: 14
-  #     - name: Install Dependencies
-  #       run: yarn install
-  #     - run: yarn add -D node-sass
-  #     - run: node test/dart-sass/dart-sass.js
-  #     - run: node test/node-sass/node-sass.js
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Install Dependencies
+        run: yarn install
+      - run: yarn add -D node-sass
+      - run: node test/dart-sass/dart-sass.js
+      - run: node test/node-sass/node-sass.js
 
   publish-npm:
     # needs: build
