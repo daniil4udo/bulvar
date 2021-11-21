@@ -10,21 +10,21 @@ on:
       - github-actions
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14
-      - name: Install Dependencies
-        run: yarn install
-      - run: yarn add -D node-sass
-      - run: node test/dart-sass/dart-sass.js
-      - run: node test/node-sass/node-sass.js
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 14
+  #     - name: Install Dependencies
+  #       run: yarn install
+  #     - run: yarn add -D node-sass
+  #     - run: node test/dart-sass/dart-sass.js
+  #     - run: node test/node-sass/node-sass.js
 
   publish-npm:
-    needs: build
+    # needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -40,7 +40,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTOMATION_TOKEN}}
 
   publish-gpr:
-    needs: build
+    # needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: read
