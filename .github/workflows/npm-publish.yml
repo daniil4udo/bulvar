@@ -23,7 +23,7 @@ jobs:
       - run: node test/node-sass/node-sass.js
 
   publish-npm:
-    # needs: build
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -33,13 +33,15 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: Install Dependencies
         run: yarn install
+      - name: Fetch Git tags
+        run: git fetch --tags
       - name: Publishing
         run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTOMATION_TOKEN}}
 
   publish-gpr:
-    # needs: build
+    needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -52,6 +54,8 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - name: Install Dependencies
         run: yarn install
+      - name: Fetch Git tags
+        run: git fetch --tags
       - name: Publishing
         run: yarn publish
         env:
