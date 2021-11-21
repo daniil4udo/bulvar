@@ -19,6 +19,7 @@ jobs:
           node-version: 14
       - name: Install Dependencies
         run: yarn install
+      - run: yarn add -D node-sass
       - run: node test/dart-sass/dart-sass.js
       - run: node test/node-sass/node-sass.js
 
