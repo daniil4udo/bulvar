@@ -31,7 +31,6 @@
     ],
     "scripts": {
         "release": "lerna version --no-push --no-commit-hooks",
-        "publish": "lerna publish from-git --yes",
         "watch": "lerna run --parallel start",
         "---": "",
         "postinstall": "lerna link",
@@ -89,6 +88,9 @@
         "stylelint-selector-bem-pattern": "^2.1.1",
         "stylelint-selector-no-empty": "^1.0.8",
         "yarn-run-all": "^3.1.1"
+    },
+    "publishConfig": {
+        "access": "public"
     },
     "packageManager": "yarn@3.1.0"
 }

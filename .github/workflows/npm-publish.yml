@@ -16,29 +16,15 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 14
+
       - name: Install Dependencies
         run: yarn install
       - run: yarn add -D node-sass
-      - run: node test/dart-sass/dart-sass.js
-      - run: node test/node-sass/node-sass.js
 
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14
-          registry-url: https://registry.npmjs.org/
-      - name: Install Dependencies
-        run: yarn install
-      - name: Fetch Git tags
-        run: git fetch --tags
-      - name: Publishing
-        run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTOMATION_TOKEN}}
+      - name: Test Dart Sass
+        run: node test/dart-sass/dart-sass.js
+      - name: Test Node Sass
+        run: node test/node-sass/node-sass.js
 
   publish-gpr:
     needs: build
@@ -52,11 +38,37 @@ jobs:
         with:
           node-version: 14
           registry-url: https://npm.pkg.github.com/
+
       - name: Install Dependencies
         run: yarn install
-      - name: Fetch Git tags
-        run: git fetch --tags
+
+      - run: git config --global user.email "Daniil Chudo"
+      - run: git config --global user.name "daniil4udo@gmail.com"
+      - run: git fetch --tags
+
       - name: Publishing
-        run: yarn publish
+        run: lerna publish from-git --yes --no-verify-access
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - run: git config --global user.email "Daniil Chudo"
+      - run: git config --global user.name "daniil4udo@gmail.com"
+      - run: git fetch --tags
+
+      - name: Publishing
+        run: lerna publish from-git --yes --no-verify-access
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTOMATION_TOKEN}}
