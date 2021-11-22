@@ -1,4 +1,4 @@
-# [bulma](https://bulma.io)-[buefy](https://buefy.org)-css-variables
+# @bulvar/[bulma](https://bulma.io)
 
 Bulma and derive package Buefy is a **modern CSS framework** based on [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes) and [CSS Variables (Custom Properties)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 
