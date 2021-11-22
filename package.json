@@ -30,6 +30,7 @@
     "scripts": {
         "release": "lerna version --no-push --no-commit-hooks",
         "watch": "lerna run --parallel start",
+        "publish": "lerna run --parallel publish",
         "---": "",
         "postinstall": "lerna link",
         "version": "yarn install && yarn deploy",

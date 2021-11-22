@@ -43,6 +43,7 @@
         "README.md"
     ],
     "scripts": {
+        "publish": "npm publish --access public",
         "clean": "rimraf css && mkdir css",
         "build": "npm-run-all compile prefix minify",
         "start": "sass buefy.sass css/buefy.css --watch",

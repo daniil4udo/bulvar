@@ -38,6 +38,7 @@
         "README.md"
     ],
     "scripts": {
+        "publish": "npm publish --access public",
         "build": "npm-run-all compile prefix minify",
         "clean": "rimraf css && mkdir css",
         "compile": "npm-run-all --parallel compile:*",
