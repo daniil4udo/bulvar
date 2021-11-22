@@ -61,13 +61,5 @@
         }
     }
     // Sizes
-    &.is-small {
-        @include control-small;
-    }
-    &.is-medium {
-        @include control-medium;
-    }
-    &.is-large {
-        @include control-large;
-    }
+    @include control-sizes;
 }

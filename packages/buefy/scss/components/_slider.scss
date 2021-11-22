@@ -156,15 +156,7 @@ $css-vars-map: (
     }
 
     @include slider-size;
-    &.is-small {
-        --slider-size: var(--size-small, #{$size-small});
-    }
-    &.is-medium {
-        --slider-size: var(--size-medium, #{$size-medium});
-    }
-    &.is-large {
-        --slider-size: var(--size-large, #{$size-large});
-    }
+    @include control-sizes(slider-size);
 
     @each $name, $pair in $slider-colors {
         $color: nth($pair, 1);

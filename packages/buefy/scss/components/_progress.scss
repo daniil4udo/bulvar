@@ -10,24 +10,6 @@ $css-vars-map: (
 @include exportCSSVars($css-vars-map);
 @include registerComponentCSSVars('progress-wrapper');
 
-@mixin progress-size() {
-    &.is-small {
-        + .progress-value, .progress-value {
-            --progress-value-size: var(--size-small, #{$size-small});
-        }
-    }
-    &.is-medium {
-        + .progress-value, .progress-value {
-            --progress-value-size: var(--size-medium, #{$size-medium});
-        }
-    }
-    &.is-large {
-        + .progress-value, .progress-value {
-            --progress-value-size: var(--size-large, #{$size-large});
-        }
-    }
-}
-
 .progress-wrapper {
     position: relative;
     overflow: hidden;
@@ -51,7 +33,7 @@ $css-vars-map: (
     .progress, .progress-bar {
         margin-bottom: 0;
 
-        @include progress-size;
+        @include control-sizes(progress-value-size);
 
         &::-webkit-progress-value {
             transition: width 0.5s ease;

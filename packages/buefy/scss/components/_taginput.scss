@@ -27,15 +27,7 @@ $css-vars-map: (
             flex-wrap: wrap;
             justify-content: flex-start;
             height: auto;
-            &.is-small {
-                @include control-small;
-            }
-            &.is-medium{
-                @include control-medium;
-            }
-            &.is-large {
-                @include control-large;
-            }
+            @include control-sizes;
         }
 
         > .tag,
