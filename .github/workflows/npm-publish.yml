@@ -44,7 +44,7 @@ jobs:
       - run: git fetch --tags
 
       - name: Publishing
-        run: yarn publish
+        run: lerna publish from-package --yes --no-verify-access
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTOMATION_TOKEN}}
 
@@ -68,6 +68,6 @@ jobs:
         run: git fetch --tags
 
       - name: Publishing
-        run: yarn publish
+        run: lerna publish from-package --yes --no-verify-access
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
