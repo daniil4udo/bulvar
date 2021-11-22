@@ -39,8 +39,9 @@ jobs:
       - name: Install Dependencies
         run: yarn install
 
-      - name: Fetch Git tags
-        run: git fetch --tags
+      - run: git config --global user.email "Daniil Chudo"
+      - run: git config --global user.name "daniil4udo@gmail.com"
+      - run: git fetch --tags
 
       - name: Publishing
         run: yarn publish
