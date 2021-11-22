@@ -23,12 +23,7 @@ $css-vars-map: ('label-font-size': $label-font-size, 'label-color': $label-color
   &:not(:last-child)
     margin-bottom: 0.5em
   // Sizes
-  &.is-small
-    --label-font-size: var(--size-small, #{$size-small})
-  &.is-medium
-    --label-font-size: var(--size-medium, #{$size-medium})
-  &.is-large
-    --label-font-size: var(--size-large, #{$size-large})
+  +control-sizes(label-font-size)
 
 $css-vars-map: ('help-font-size': $help-size)
 +exportCSSVars($css-vars-map)
@@ -146,16 +141,11 @@ $css-vars-map: ('help-font-size': $help-size)
     flex-shrink: 0
     +ltr-property("margin", 1.5rem)
     text-align: right
-    &.is-small
-      font-size: var(--size-small, #{$size-small})
-      padding-top: 0.375em
-    &.is-normal
-      padding-top: 0.375em
-    &.is-medium
-      font-size: var(--size-medium, #{$size-medium})
-      padding-top: 0.375em
+    +control-sizes
+    &.is-small,
+    &.is-normal,
+    &.is-medium,
     &.is-large
-      font-size: var(--size-large, #{$size-large})
       padding-top: 0.375em
 
 .field-body

@@ -69,12 +69,7 @@ $css-vars-map: ('progress-height': $progress-height, 'progress-bar-background-co
       animation-name: none
 
   // Sizes
-  &.is-small
-    --progress-height: var(--size-small, #{$size-small})
-  &.is-medium
-    --progress-height: var(--size-medium, #{$size-medium})
-  &.is-large
-    --progress-height: var(--size-large, #{$size-large})
+  +control-sizes(progress-height)
 
 @keyframes moveIndeterminate
   from

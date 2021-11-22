@@ -99,12 +99,7 @@ $css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $tag
           --tag-background-color: var(--#{$name}-light, #{$color-light})
           --tag-color: var(--#{$name}-dark, #{$color-dark})
   // Sizes
-  &.is-small
-    --tag-font-size: var(--size-small, #{$size-small})
-  &.is-medium
-    --tag-font-size: var(--size-medium, #{$size-medium})
-  &.is-large
-    --tag-font-size: var(--size-large, #{$size-large})
+  +control-sizes(tag-font-size)
   .icon
     &:first-child:not(:last-child)
       +ltr-property("margin", -0.375em, false)

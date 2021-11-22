@@ -198,9 +198,4 @@ $css-vars-map: ('tabs-font-size': $tabs-font-size, 'tabs-border-bottom-color': $
             border-top-left-radius: var(--radius-rounded, #{$radius-rounded})
             padding-left: 1.25em
   // Sizes
-  &.is-small
-    --tabs-font-size: var(--size-small, #{$size-small})
-  &.is-medium
-    --tabs-font-size: var(--size-medium, #{$size-medium})
-  &.is-large
-    --tabs-font-size: var(--size-large, #{$size-large})
+  +control-sizes(tabs-font-size)
