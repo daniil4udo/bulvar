@@ -2,6 +2,7 @@
 @import "functions"
 
 $primary: $turquoise !default
+$secondary: $blue !default
 
 $info: $cyan !default
 $success: $green !default
@@ -25,6 +26,9 @@ $red-invert: findColorInvert($red) !default
 $primary-invert: findColorInvert($primary, $turquoise) !default
 $primary-light: findLightColor($primary, $turquoise) !default
 $primary-dark: findDarkColor($primary, $turquoise) !default
+$secondary-invert: findColorInvert($secondary, $blue) !default
+$secondary-light: findLightColor($secondary, $blue) !default
+$secondary-dark: findDarkColor($secondary, $blue) !default
 $info-invert: findColorInvert($info, $cyan) !default
 $info-light: findLightColor($info, $cyan) !default
 $info-dark: findDarkColor($info, $cyan) !default
@@ -110,7 +114,7 @@ $shadow: 0 0.5em 1em -0.125em rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme
 $custom-colors: null !default
 $custom-shades: null !default
 
-$colors: mergeColorMaps(("white": ($white, $black), "black": ($black, $white), "light": ($light, $light-invert), "dark": ($dark, $dark-invert), "primary": ($primary, $primary-invert, $primary-light, $primary-dark), "link": ($link, $link-invert, $link-light, $link-dark), "info": ($info, $info-invert, $info-light, $info-dark), "success": ($success, $success-invert, $success-light, $success-dark), "warning": ($warning, $warning-invert, $warning-light, $warning-dark), "danger": ($danger, $danger-invert, $danger-light, $danger-dark)), $custom-colors) !default
+$colors: mergeColorMaps(("white": ($white, $black), "black": ($black, $white), "light": ($light, $light-invert), "dark": ($dark, $dark-invert), "primary": ($primary, $primary-invert, $primary-light, $primary-dark), "secondary": ($secondary, $secondary-invert, $secondary-light, $secondary-dark), "link": ($link, $link-invert, $link-light, $link-dark), "info": ($info, $info-invert, $info-light, $info-dark), "success": ($success, $success-invert, $success-light, $success-dark), "warning": ($warning, $warning-invert, $warning-light, $warning-dark), "danger": ($danger, $danger-invert, $danger-light, $danger-dark)), $custom-colors) !default
 
 $shades: mergeColorMaps(("black-bis": $black-bis, "black-ter": $black-ter, "grey-darker": $grey-darker, "grey-dark": $grey-dark, "grey": $grey, "grey-light": $grey-light, "grey-lighter": $grey-lighter, "white-ter": $white-ter, "white-bis": $white-bis), $custom-shades) !default
 
