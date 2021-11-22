@@ -31,7 +31,7 @@
     ],
     "scripts": {
         "release": "lerna version --no-push --no-commit-hooks",
-        "publish": "lerna publish from-git --yes",
+        "publish": "lerna publish from-package --yes",
         "watch": "lerna run --parallel start",
         "---": "",
         "postinstall": "lerna link",
