@@ -23,6 +23,8 @@ $textarea-colors: $form-colors !default
       &.is-active
         box-shadow: var(--input-focus-box-shadow-size, #{$input-focus-box-shadow-size}) var(--focus-box-shadow-color, #{bulmaRgba($color, 0.25)})
   // Sizes
+  &.is-small
+    border-radius: var(--control-radius-small)
   +control-sizes
   // Modifiers
   &.is-fullwidth

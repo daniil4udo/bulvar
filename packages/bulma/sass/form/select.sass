@@ -68,6 +68,8 @@ $css-vars-map: ('select-arrow': $input-arrow, 'select-disabled-border-color': $i
         &.is-active
           box-shadow: var(--select-focus-box-shadow-size) var(--focus-box-shadow-color, #{bulmaRgba($color, 0.25)})
   // Sizes
+  &.is-small
+    border-radius: var(--control-radius-small)
   +control-sizes
   // Modifiers
   &.is-disabled
