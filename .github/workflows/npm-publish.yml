@@ -16,11 +16,15 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 14
+
       - name: Install Dependencies
         run: yarn install
       - run: yarn add -D node-sass
-      - run: node test/dart-sass/dart-sass.js
-      - run: node test/node-sass/node-sass.js
+
+      - name: Test Dart Sass
+        run: node test/dart-sass/dart-sass.js
+      - name: Test Node Sass
+        run: node test/node-sass/node-sass.js
 
   publish-npm:
     needs: build
@@ -31,10 +35,13 @@ jobs:
         with:
           node-version: 14
           registry-url: https://registry.npmjs.org/
+
       - name: Install Dependencies
         run: yarn install
+
       - name: Fetch Git tags
         run: git fetch --tags
+
       - name: Publishing
         run: yarn publish
         env:
@@ -52,10 +59,13 @@ jobs:
         with:
           node-version: 14
           registry-url: https://npm.pkg.github.com/
+
       - name: Install Dependencies
         run: yarn install
+
       - name: Fetch Git tags
         run: git fetch --tags
+
       - name: Publishing
         run: yarn publish
         env:
