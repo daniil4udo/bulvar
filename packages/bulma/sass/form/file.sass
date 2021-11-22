@@ -11,9 +11,11 @@ $file-name-border-style: solid !default
 $file-name-border-width: 1px 1px 1px 0 !default
 $file-name-max-width: 16em !default
 
+$file-icon-font-size: 14px !default
+
 $file-colors: $form-colors !default
 
-$css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-radius, 'file-cta-background-color': $file-cta-background-color, 'file-cta-color': $file-cta-color, 'file-cta-hover-color': $file-cta-hover-color, 'file-cta-active-color': $file-cta-active-color, 'file-name-border-color': $file-name-border-color, 'file-name-border-style': $file-name-border-style, 'file-name-border-width': $file-name-border-width, 'file-name-max-width': $file-name-max-width)
+$css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-radius, 'file-cta-background-color': $file-cta-background-color, 'file-cta-color': $file-cta-color, 'file-cta-hover-color': $file-cta-hover-color, 'file-cta-active-color': $file-cta-active-color, 'file-name-border-color': $file-name-border-color, 'file-name-border-style': $file-name-border-style, 'file-name-border-width': $file-name-border-width, 'file-name-max-width': $file-name-max-width, 'file-icon-font-size': $file-icon-font-size)
 +exportCSSVars($css-vars-map)
 +registerComponentCSSVars('file')
 // --file-border-color: #{$file-border-color}
@@ -199,4 +201,4 @@ $css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-ra
   +ltr-property("margin", 0.5em)
   width: 1em
   .fa
-    font-size: 14px
+    font-size: var(--file-icon-font-size)
