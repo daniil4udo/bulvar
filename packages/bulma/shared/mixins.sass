@@ -2,22 +2,27 @@
 // Additional @mixins for bulvar
 //
 
-=control-sizes($variable-name: null)
-    @if $variable-name
-        &.is-small 
-            --#{$variable-name}: var(--size-small, #{$size-small})
-        &.is-medium 
-            --#{$variable-name}: var(--size-medium, #{$size-medium})
-        &.is-large 
-            --#{$variable-name}: var(--size-large, #{$size-large})
-    @else
-        &.is-small
-            +control-small
-        &.is-mediu
-            +control-medium
-        &.is-large
-            +control-large
-
+=control-sizes($variable-name: null, $has-normal: false)
+  @if $variable-name
+    &.is-small 
+      --#{$variable-name}: var(--size-small, #{$size-small})
+    &.is-medium 
+      --#{$variable-name}: var(--size-medium, #{$size-medium})
+    &.is-large 
+      --#{$variable-name}: var(--size-large, #{$size-large})
+    @if $has-normal
+      &.is-normal 
+        --#{$variable-name}: var(--size-normal, #{$size-normal})
+  @else
+    &.is-small
+      +control-small
+    &.is-medium
+      +control-medium
+    &.is-large
+      +control-large
+    @if $has-normal
+      &.is-normal
+        +control-normal
 
 // 🧩 register :export {}
 
