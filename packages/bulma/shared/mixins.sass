@@ -62,21 +62,37 @@
   --#{$base}-a: 1
   --#{$base}: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-l), var(--#{$base}-a))
 
-  // Invert color
+  // 🔳 Invert color
   $color-invert: nth($components, 2)
   --#{$base}-invert: #{$color-invert}
 
-  // Light color
+  // ⬜️ Light color
   $color-light: if(length($components) >= 3, nth($components, 3), findLightColor($color))
   $light-l: lightness($color-light)
   --#{$base}-light-l: #{$light-l}
   --#{$base}-light: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-light-l), var(--#{$base}-a))
 
-  // Dark color
+  // ⬛️ Dark color
   $color-dark: if(length($components) >= 4, nth($components, 4), findDarkColor($color))
   $dark-l: lightness($color-dark)
   --#{$base}-dark-l: #{$dark-l}
   --#{$base}-dark: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-dark-l), var(--#{$base}-a))
+
+  // Lighten shades
+  // Avoid register for colors without ligh and dark shades
+  @if length($components) >= 3
+    @each $amount in $lighten-shades
+      $number: divide($amount, ($amount * 0 + 1)) // strips unit. leaves only number
+
+      --#{$base}-lighten-#{$number}-l: #{lightness($color) + $amount}
+      --#{$base}-darken-#{$number}-l: #{lightness($color) - $amount}
+
+      --#{$base}-lighten-#{$number}: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-lighten-#{$number}-l), var(--#{$base}-a))
+      --#{$base}-darken-#{$number}: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-darken-#{$number}-l), var(--#{$base}-a))
+
+  // 🔘 Opacity
+  @each $alpha in $opacity-shades
+    --#{$base}-opacity-#{$alpha}: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-l), #{$alpha})
 
 =registerCSSVarColors($colors, $prefix: '')
   @each $name, $components in $colors
