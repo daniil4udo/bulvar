@@ -33,3 +33,9 @@ $flex-operators: grow, shrink
   @for $i from 0 through 5
     .is-flex-#{$operator}-#{$i}
       flex-#{$operator}: $i !important
+
+$flex-gap-values: 0, .25rem, .5rem, .75rem, 1rem, 1.5rem, 3rem !default
+@each $value in $flex-gap-values
+  $i: index($flex-gap-values, $value)
+  .is-flex-gap-#{$i}
+    gap: $value !important
