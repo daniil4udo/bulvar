@@ -205,8 +205,7 @@ $css-vars-map: (
                             // Currently datepicker only uses primary coloring
                             // Ensure indicator is visible when selected
                             &.is-primary {
-                                --datepicker-background-color-selected: #{bulmaVarLighten(primary, 15%)};
-                                background-color: var(--datepicker-background-color-selected, #{bulmaLighten($primary, 15%)});
+                                background-color: var(--primary-lighten-15, #{bulmaLighten($primary, 15%)});
                             }
                         }
                     }
