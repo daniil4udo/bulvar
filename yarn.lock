@@ -288,7 +288,7 @@ __metadata:
     lint-staged: ^12.1.2
     markdownlint-cli: ^0.30.0
     npm-run-all: ^4.1.5
-    postcss: ^8.4.0
+    postcss: ^8.4.1
     postcss-cli: ^9.0.2
     prettier: ^2.4.1
     rimraf: ^3.0.2
@@ -7282,14 +7282,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.0":
-  version: 8.4.0
-  resolution: "postcss@npm:8.4.0"
+"postcss@npm:^8.4.1":
+  version: 8.4.1
+  resolution: "postcss@npm:8.4.1"
   dependencies:
     nanoid: ^3.1.30
     picocolors: ^1.0.0
     source-map-js: ^1.0.1
-  checksum: 5139eb1b8708a98cbc5240d1540b9333de5a6bde2737e946ec3d680968df42937ef43c54ed6eb50f1077b4de0394031bbecec290ebf8b4f5650cd4657e63b5d6
+  checksum: 89ede712ccca478f3d3bc4137eac8efa9cc434ab193ae5348dfba343ab5144faa39a71e3cf53e2b45bc01e705829259706f9610d7c7c46a7a3affccd56b3e74f
   languageName: node
   linkType: hard
 
