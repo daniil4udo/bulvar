@@ -1,13 +1,11 @@
 $rate-color: var(--grey-lighter, #{$grey-lighter}) !default;
-$rate-color-active-hsla: bulmaVarDarken(warning, 5%) !default;
-$rate-color-active: var(--rate-color-active-hsla, #{bulmaDarken($warning, 5%)}) !default;
+$rate-color-active: var(--warning-darken-5, #{bulmaDarken($warning, 5%)}) !default;
 $rate-spaced: 0.25rem !default;
 $rate-text-spaced: 0.35rem !default;
 $rate-text-font-size: var(--size-normal, #{$size-normal}) !default;
 
 $css-vars-map: (
     'rate-color': $rate-color,
-    'rate-color-active-hsla': $rate-color-active-hsla,
     'rate-color-active': $rate-color-active,
     'rate-spaced': $rate-spaced,
     'rate-text-spaced': $rate-text-spaced,

@@ -1,3 +1,4 @@
+@import '../../buefy/scss/utilities/functions'
 //
 // Additional @mixins for bulvar
 //
@@ -64,6 +65,7 @@
 
   // 🔳 Invert color
   $color-invert: nth($components, 2)
+  --#{$base}-invert-l: #{lightness($color-invert)}
   --#{$base}-invert: #{$color-invert}
 
   // ⬜️ Light color
@@ -80,19 +82,16 @@
 
   // Lighten shades
   // Avoid register for colors without ligh and dark shades
-  @if length($components) >= 3
-    @each $amount in $lighten-shades
-      $number: divide($amount, ($amount * 0 + 1)) // strips unit. leaves only number
+  // @if length($components) >= 3
+  @each $amount in $lighten-shades
+    $number: divide($amount, ($amount * 0 + 1)) // strips unit. leaves only number
+    $snake-number: str-replace(#{$number}, '.', '_') // conver 2.5 -> 2_5
 
-      --#{$base}-lighten-#{$number}-l: #{lightness($color) + $amount}
-      --#{$base}-darken-#{$number}-l: #{lightness($color) - $amount}
+    --#{$base}-lighten-#{$snake-number}-l: #{lightness($color) + $amount}
+    --#{$base}-darken-#{$snake-number}-l: #{lightness($color) - $amount}
 
-      --#{$base}-lighten-#{$number}: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-lighten-#{$number}-l), var(--#{$base}-a))
-      --#{$base}-darken-#{$number}: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-darken-#{$number}-l), var(--#{$base}-a))
-
-  // 🔘 Opacity
-  @each $alpha in $opacity-shades
-    --#{$base}-opacity-#{$alpha}: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-l), #{$alpha})
+    --#{$base}-lighten-#{$snake-number}: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-lighten-#{$number}-l), var(--#{$base}-a))
+    --#{$base}-darken-#{$snake-number}: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-darken-#{$number}-l), var(--#{$base}-a))
 
 =registerCSSVarColors($colors, $prefix: '')
   @each $name, $components in $colors

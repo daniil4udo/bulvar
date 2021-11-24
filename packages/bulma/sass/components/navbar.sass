@@ -123,8 +123,7 @@ $css-vars-map: ('navbar-background-color': $navbar-background-color, 'navbar-box
           &:focus,
           &:hover,
           &.is-active
-            --navbar-item-hover-background-color: #{bulmaVarDarken($name, 5%)}
-            background-color: var(--navbar-item-hover-background-color, #{bulmaDarken($color, 5%)})
+            background-color: var(--#{$name}-darken-5, #{bulmaDarken($color, 5%)})
             color: var(--#{$name}-invert, #{$color-invert})
         .navbar-link
           &::after
@@ -143,8 +142,7 @@ $css-vars-map: ('navbar-background-color': $navbar-background-color, 'navbar-box
             &:focus,
             &:hover,
             &.is-active
-              --navbar-item-hover-background-color: #{bulmaVarDarken($name, 5%)}
-              background-color: var(--navbar-item-hover-background-color, #{bulmaDarken($color, 5%)})
+              background-color: var(--#{$name}-darken-5, #{bulmaDarken($color, 5%)})
               color: var(--#{$name}-invert, #{$color-invert})
           .navbar-link
             &::after
@@ -152,8 +150,7 @@ $css-vars-map: ('navbar-background-color': $navbar-background-color, 'navbar-box
         .navbar-item.has-dropdown:focus .navbar-link,
         .navbar-item.has-dropdown:hover .navbar-link,
         .navbar-item.has-dropdown.is-active .navbar-link
-          --navbar-dropdown-item-hover-background-color: #{bulmaVarDarken($name, 5%)}
-          background-color: var(--navbar-dropdown-item-hover-background-color, #{bulmaDarken($color, 5%)})
+          background-color: var(--#{$name}-darken-5, #{bulmaDarken($color, 5%)})
           color: var(--#{$name}-invert, #{$color-invert})
         .navbar-dropdown
           a.navbar-item

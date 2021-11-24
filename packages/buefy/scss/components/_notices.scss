@@ -58,7 +58,6 @@ $css-vars-map: (
         }
     }
     .snackbar {
-        --snackbar-button-background-color: #{bulmaVarDarken(dark, 5%)};
         display: inline-flex;
         align-items: center;
         justify-content: space-around;
@@ -84,11 +83,10 @@ $css-vars-map: (
                 border: transparent;
             }
             .button:hover {
-                // TODO: revisit
-                background: var(--snackbar-button-background-color, #{bulmaDarken($dark, 5%)});
+                background: var(--dark-darken-5, #{bulmaDarken($dark, 5%)});
             }
             .button:active {
-                background: var(--snackbar-button-background-color, #{bulmaDarken($dark, 5%)});
+                background: var(--dark-darken-5, #{bulmaDarken($dark, 5%)});
             }
             @each $name, $pair in $notification-colors {
                 $color: nth($pair, 1);

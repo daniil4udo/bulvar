@@ -1,6 +1,8 @@
 @import "../utilities/mixins"
 
 $tag-background-color: $background !default
+$tag-focus-background-color: $grey-lightest !default
+$tag-active-background-color: $grey-lightest !default
 $tag-color: var(--text, #{$text}) !default
 $tag-radius: var(--radius, #{$radius}) !default
 $tag-delete-margin: 1px !default
@@ -8,7 +10,7 @@ $tag-font-size: var(--size-small, #{$size-small}) !default
 
 $tag-colors: $colors !default
 
-$css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $tag-color, 'tag-radius': $tag-radius, 'tag-font-size': $tag-font-size, 'tag-delete-margin': $tag-delete-margin)
+$css-vars-map: ('tag-background-color': $tag-background-color, 'tag-focus-background-color': $tag-focus-background-color, 'tag-active-background-color': $tag-active-background-color, 'tag-color': $tag-color, 'tag-radius': $tag-radius, 'tag-font-size': $tag-font-size, 'tag-delete-margin': $tag-delete-margin)
 +exportCSSVars($css-vars-map)
 +registerComponentCSSVars(('tag', 'tags'))
 // --tag-background-color: #{$tag-background-color}
@@ -139,10 +141,9 @@ $css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $tag
       width: 1px
     &:hover,
     &:focus
-      // TTODO: make vwork with ar()
-      background-color: bulmaDarken($tag-background-color, 5%)
+      background-color: var(--tag-focus-background-color)
     &:active
-      background-color: bulmaDarken($tag-background-color, 10%)
+      background-color: var(--tag-active-background-color)
   &.is-rounded
     border-radius: var(--radius-rounded, #{$radius-rounded})
 
