@@ -24,6 +24,12 @@
     &.is-large
       +control-large
 
+=sizes($target:'')
+  @each $size in $sizes
+    $i: index($sizes, $size)
+    &.is-#{$i}
+      font-size: $size
+
 // 🧩 register :export {}
 
 =exportCSSVar($name, $value)
