@@ -54,15 +54,7 @@ $css-vars-map: (
     > .b-skeleton-item {
         line-height: var(--skeleton-line-height-size);
     }
-    &.is-small {
-        --skeleton-line-height-size: var(--size-small, #{$size-small});
-    }
-    &.is-medium {
-        --skeleton-line-height-size: var(--size-medium, #{$size-medium});
-    }
-    &.is-large {
-        --skeleton-line-height-size: var(--size-large, #{$size-large});
-    }
+    @include control-sizes(skeleton-line-height-size);
 }
 
 @keyframes skeleton-loading {

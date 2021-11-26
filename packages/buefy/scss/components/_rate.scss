@@ -73,14 +73,6 @@ $css-vars-map: (
     .rate-text {
         font-size: calc(#{var(--rate-text-font-size)} / 1.25);
         margin-left: var(--rate-text-spaced);
-        &.is-small {
-            --rate-text-font-size: var(--size-small, #{$size-small});
-        }
-        &.is-medium {
-            --rate-text-font-size: var(--size-medium, #{$size-medium});
-        }
-        &.is-large {
-            --rate-text-font-size: var(--size-large, #{$size-large});
-        }
+        @include control-sizes(rate-text-font-size);
     }
 }

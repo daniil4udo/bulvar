@@ -68,12 +68,7 @@ $css-vars-map: ('pagination-color': $pagination-color, 'pagination-border-color'
   font-size: var(--pagination-font-size)
   margin: var(--pagination-margin)
   // Sizes
-  &.is-small
-    --pagination-font-size: var(--size-small, #{$size-small})
-  &.is-medium
-    --pagination-font-size: var(--size-medium, #{$size-medium})
-  &.is-large
-    --pagination-font-size: var(--size-large, #{$size-large})
+  +control-sizes(pagination-font-size)
   &.is-rounded
     .pagination-previous,
     .pagination-next

@@ -366,15 +366,7 @@ $css-vars-map: (
     }
 
     @include steps-size;
-    &.is-small {
-        --steps-size: var(--size-small, #{$size-small}); 
-    }
-    &.is-medium {
-        --steps-size: var(--size-medium, #{$size-medium}); 
-    }
-    &.is-large {
-        --steps-size: var(--size-large, #{$size-large}); 
-    }
+    @include control-sizes(steps-size);
 
     &.is-vertical {
         display: flex;

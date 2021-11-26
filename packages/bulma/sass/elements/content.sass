@@ -168,11 +168,4 @@ $css-vars-map: ('content-heading-color': $content-heading-color, 'content-headin
     li + li
       margin-top: 0
   // Sizes
-  &.is-small
-    font-size: var(--size-small, #{$size-small})
-  &.is-normal
-    font-size: var(--size-normal, #{$size-normal})
-  &.is-medium
-    font-size: var(--size-medium, #{$size-medium})
-  &.is-large
-    font-size: var(--size-large, #{$size-large})
+  +control-sizes($has-normal: true)

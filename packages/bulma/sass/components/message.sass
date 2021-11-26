@@ -53,12 +53,7 @@ $css-vars-map: ('message-background-color': $message-background-color, 'message-
     color: currentColor
     text-decoration: underline
   // Sizes
-  &.is-small
-    --message-font-size: var(--size-small, #{$size-small})
-  &.is-medium
-    --message-font-size: var(--size-medium, #{$size-medium})
-  &.is-large
-    --message-font-size: var(--size-large, #{$size-large})
+  +control-sizes(message-font-size)
   // Colors
   @each $name, $components in $message-colors
     $color: nth($components, 1)

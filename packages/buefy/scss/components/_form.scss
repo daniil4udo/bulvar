@@ -96,15 +96,7 @@ $css-vars-map: (
             max-width: calc(100% - 2em);
             overflow: hidden;
 
-            &.is-small {
-                --field-label-font-size: var(--size-small, #{$size-small});
-            }
-            &.is-medium {
-                --field-label-font-size: var(--size-medium, #{$size-medium});
-            }
-            &.is-large {
-                --field-label-font-size: var(--size-large, #{$size-large});
-            }
+            @include control-sizes(field-label-font-size);
         }
         .taginput .counter {
             float: none;

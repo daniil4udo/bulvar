@@ -11,9 +11,11 @@ $file-name-border-style: solid !default
 $file-name-border-width: 1px 1px 1px 0 !default
 $file-name-max-width: 16em !default
 
+$file-icon-font-size: 14px !default
+
 $file-colors: $form-colors !default
 
-$css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-radius, 'file-cta-background-color': $file-cta-background-color, 'file-cta-color': $file-cta-color, 'file-cta-hover-color': $file-cta-hover-color, 'file-cta-active-color': $file-cta-active-color, 'file-name-border-color': $file-name-border-color, 'file-name-border-style': $file-name-border-style, 'file-name-border-width': $file-name-border-width, 'file-name-max-width': $file-name-max-width)
+$css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-radius, 'file-cta-background-color': $file-cta-background-color, 'file-cta-color': $file-cta-color, 'file-cta-hover-color': $file-cta-hover-color, 'file-cta-active-color': $file-cta-active-color, 'file-name-border-color': $file-name-border-color, 'file-name-border-style': $file-name-border-style, 'file-name-border-width': $file-name-border-width, 'file-name-max-width': $file-name-max-width, 'file-icon-font-size': $file-icon-font-size)
 +exportCSSVars($css-vars-map)
 +registerComponentCSSVars('file')
 // --file-border-color: #{$file-border-color}
@@ -65,20 +67,11 @@ $css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-ra
           border-color: transparent
           color: var(--#{$name}-invert, #{$color-invert})
   // Sizes
-  &.is-small
-    font-size: var(--size-small, #{$size-small})
-  &.is-normal
-    font-size: var(--size-normal, #{$size-normal})
+  +control-sizes($has-normal: true)
   &.is-medium
-    font-size: var(--size-medium, #{$size-medium})
-    .file-icon
-      .fa
-        font-size: 21px
+    --file-icon-font-size: 21px
   &.is-large
-    font-size: var(--size-large, #{$size-large})
-    .file-icon
-      .fa
-        font-size: 28px
+    --file-icon-font-size: 28px
   // Modifiers
   &.has-name
     .file-cta
@@ -102,19 +95,15 @@ $css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-ra
     .file-name
       border-width: 0 1px 1px
     .file-icon
+      --file-icon-font-size: 21px
       height: 1.5em
       width: 1.5em
-      .fa
-        font-size: 21px
     &.is-small
-      .file-icon .fa
-        font-size: 14px
+      --file-icon-font-size: 14px
     &.is-medium
-      .file-icon .fa
-        font-size: 28px
+      --file-icon-font-size: 28px
     &.is-large
-      .file-icon .fa
-        font-size: 35px
+      --file-icon-font-size: 35px
     &.has-name
       .file-cta
         border-radius: var(--file-radius) var(--file-radius) 0 0
@@ -199,4 +188,4 @@ $css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-ra
   +ltr-property("margin", 0.5em)
   width: 1em
   .fa
-    font-size: 14px
+    font-size: var(--file-icon-font-size)

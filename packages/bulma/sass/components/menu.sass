@@ -42,12 +42,7 @@ $css-vars-map: ('menu-font-size': $menu-font-size, 'menu-list-line-height': $men
 .menu
   font-size: var(--menu-font-size)
   // Sizes
-  &.is-small
-    --menu-font-size: var(--size-small, #{$size-small})
-  &.is-medium
-    --menu-font-size: var(--size-medium, #{$size-medium})
-  &.is-large
-    --menu-font-size: var(--size-large, #{$size-large})
+  +control-sizes(menu-font-size)
 
 .menu-list
   line-height: var(--menu-list-line-height)

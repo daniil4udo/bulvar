@@ -68,12 +68,7 @@ $css-vars-map: ('breadcrumb-font-size': $breadcrumb-font-size, 'breadcrumb-item-
     ul
       justify-content: flex-end
   // Sizes
-  &.is-small
-    --breadcrumb-font-size: var(--size-small, #{$size-small})
-  &.is-medium
-    --breadcrumb-font-size: var(--size-medium, #{$size-medium})
-  &.is-large
-    --breadcrumb-font-size: var(--size-large, #{$size-large})
+  +control-sizes(breadcrumb-font-size)
   // Styles
   &.has-arrow-separator
     li + li::before

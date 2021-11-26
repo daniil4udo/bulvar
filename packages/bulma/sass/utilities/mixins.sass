@@ -88,6 +88,12 @@
   margin: 0
   padding: 0
 
+=typography-size($target:'')
+  @each $size in $sizes
+    $i: index($sizes, $size)
+    .is-size-#{$i}#{if($target == '', '', '-' + $target)}
+      font-size: $size !important
+
 // Responsiveness
 
 =from($device)

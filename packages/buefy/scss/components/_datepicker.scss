@@ -214,15 +214,7 @@ $css-vars-map: (
             }
         }
     }
-    &.is-small {
-        @include control-small;
-    }
-    &.is-medium {
-        @include control-medium;
-    }
-    &.is-large {
-        @include control-large;
-    }
+    @include control-sizes;
     @media screen and (min-width: $desktop){
         .footer-horizontal-timepicker {
             border: none;
