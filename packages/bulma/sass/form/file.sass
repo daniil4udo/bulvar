@@ -67,7 +67,7 @@ $css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-ra
           border-color: transparent
           color: var(--#{$name}-invert, #{$color-invert})
   // Sizes
-  +control-sizes
+  +control-sizes($has-normal: true)
   &.is-medium
     --file-icon-font-size: 21px
   &.is-large
