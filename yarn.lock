@@ -258,11 +258,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@bulvar/buefy@workspace:packages/buefy"
   dependencies:
-    "@bulvar/bulma": ^0.9.3
+    "@bulvar/bulma": ^0.9.4
   languageName: unknown
   linkType: soft
 
-"@bulvar/bulma@^0.9.3, @bulvar/bulma@workspace:packages/bulma":
+"@bulvar/bulma@^0.9.4, @bulvar/bulma@workspace:packages/bulma":
   version: 0.0.0-use.local
   resolution: "@bulvar/bulma@workspace:packages/bulma"
   languageName: unknown

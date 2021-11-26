@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.4](https://github.com/daniil4udo/bulvar/compare/v0.9.3...v0.9.4) (2021-11-26)
+
+
+### refactoring
+
+* **ALL:** ♻️ use size mixin to define is-size-N ([#32](https://github.com/daniil4udo/bulvar/issues/32)) ([c9e5bd4](https://github.com/daniil4udo/bulvar/commit/c9e5bd483a2d2a24872d815359a4eea793acc480))
+
+
+### BREAKING CHANGES
+
+* **ALL:** typography-size mixin moved from typography.sass to the mixins.sass. If you import it, please change you import statement
+
+* fix(file.sass): 🐛  add norma size to file
+
+* style(mixins.sass): 🎨  sort positions
+
+* refactoring(title.sass): ♻️  move sizes cclasses to mixin
+
+Co-authored-by: Daniil <daniil.chumachenko@democrance.com>
+
+
+
+
+
 ## 0.9.3 (2021-11-22)
 
 

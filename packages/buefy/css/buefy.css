@@ -1,5 +1,5 @@
 /*!
-  * @bulvar/buefy v0.9.3 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
+  * @bulvar/buefy v0.9.4 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
   * Copyright 2021 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
@@ -1341,6 +1341,108 @@ a.box:active {
   border-color: transparent;
   color: var(--primary-dark, #542fbc);
 }
+.button.is-secondary {
+  --hover-background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l) + -2.5%), var(--secondary-a));
+  --focus-box-shadow-color: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), 0.25);
+  --active-background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l) + -5%), var(--secondary-a));
+  background-color: var(--secondary, #2857a4);
+  border-color: transparent;
+  color: var(--secondary-invert, #fff);
+}
+.button.is-secondary:hover, .button.is-secondary.is-hovered {
+  background-color: var(--hover-background-color, #25529a);
+  border-color: transparent;
+  color: var(--secondary-invert, #fff);
+}
+.button.is-secondary:focus, .button.is-secondary.is-focused {
+  border-color: transparent;
+  color: var(--secondary-invert, #fff);
+}
+.button.is-secondary:focus:not(:active), .button.is-secondary.is-focused:not(:active) {
+  box-shadow: var(--button-focus-box-shadow-size) var(--focus-box-shadow-color, rgba(40, 87, 164, 0.25));
+}
+.button.is-secondary:active, .button.is-secondary.is-active {
+  background-color: var(--active-background-color, #234d90);
+  border-color: transparent;
+  color: var(--secondary-invert, #fff);
+}
+.button.is-secondary[disabled], fieldset[disabled] .button.is-secondary {
+  background-color: var(--secondary, #2857a4);
+  border-color: transparent;
+  box-shadow: none;
+}
+.button.is-secondary.is-inverted {
+  background-color: var(--secondary-invert, #fff);
+  color: var(--secondary, #2857a4);
+}
+.button.is-secondary.is-inverted:hover, .button.is-secondary.is-inverted.is-hovered {
+  background-color: #f2f2f2;
+}
+.button.is-secondary.is-inverted[disabled], fieldset[disabled] .button.is-secondary.is-inverted {
+  background-color: var(--secondary-invert, #fff);
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--secondary, #2857a4);
+}
+.button.is-secondary.is-loading::after {
+  border-color: transparent transparent var(--secondary-invert, #fff) var(--secondary-invert, #fff) !important;
+}
+.button.is-secondary.is-outlined {
+  background-color: transparent;
+  border-color: var(--secondary, #2857a4);
+  color: var(--secondary, #2857a4);
+}
+.button.is-secondary.is-outlined:hover, .button.is-secondary.is-outlined.is-hovered, .button.is-secondary.is-outlined:focus, .button.is-secondary.is-outlined.is-focused {
+  background-color: var(--secondary, #2857a4);
+  border-color: var(--secondary, #2857a4);
+  color: var(--secondary-invert, #fff);
+}
+.button.is-secondary.is-outlined.is-loading::after {
+  border-color: transparent transparent var(--secondary, #2857a4) var(--secondary, #2857a4) !important;
+}
+.button.is-secondary.is-outlined.is-loading:hover::after, .button.is-secondary.is-outlined.is-loading.is-hovered::after, .button.is-secondary.is-outlined.is-loading:focus::after, .button.is-secondary.is-outlined.is-loading.is-focused::after {
+  border-color: transparent transparent var(--secondary-invert, #fff) var(--secondary-invert, #fff) !important;
+}
+.button.is-secondary.is-outlined[disabled], fieldset[disabled] .button.is-secondary.is-outlined {
+  background-color: transparent;
+  border-color: var(--secondary, #2857a4);
+  box-shadow: none;
+  color: var(--secondary, #2857a4);
+}
+.button.is-secondary.is-inverted.is-outlined {
+  background-color: transparent;
+  border-color: var(--secondary-invert, #fff);
+  color: var(--secondary-invert, #fff);
+}
+.button.is-secondary.is-inverted.is-outlined:hover, .button.is-secondary.is-inverted.is-outlined.is-hovered, .button.is-secondary.is-inverted.is-outlined:focus, .button.is-secondary.is-inverted.is-outlined.is-focused {
+  background-color: var(--secondary-invert, #fff);
+  color: var(--secondary, #2857a4);
+}
+.button.is-secondary.is-inverted.is-outlined.is-loading:hover::after, .button.is-secondary.is-inverted.is-outlined.is-loading.is-hovered::after, .button.is-secondary.is-inverted.is-outlined.is-loading:focus::after, .button.is-secondary.is-inverted.is-outlined.is-loading.is-focused::after {
+  border-color: transparent transparent var(--secondary, #2857a4) var(--secondary, #2857a4) !important;
+}
+.button.is-secondary.is-inverted.is-outlined[disabled], fieldset[disabled] .button.is-secondary.is-inverted.is-outlined {
+  background-color: transparent;
+  border-color: var(--secondary-invert, #fff);
+  box-shadow: none;
+  color: var(--secondary-invert, #fff);
+}
+.button.is-secondary.is-light {
+  --hover-background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-light-l) - 2.5%), var(--secondary-a));
+  --active-background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-light-l) - 5%), var(--secondary-a));
+  background-color: var(--secondary-light, #eff3fb);
+  color: var(--secondary-dark, #326dcd);
+}
+.button.is-secondary.is-light:hover, .button.is-secondary.is-light.is-hovered {
+  background-color: var(--hover-background-color, #e4ecf9);
+  border-color: transparent;
+  color: var(--secondary-dark, #326dcd);
+}
+.button.is-secondary.is-light:active, .button.is-secondary.is-light.is-active {
+  background-color: var(--active-background-color, #dae5f6);
+  border-color: transparent;
+  color: var(--secondary-dark, #326dcd);
+}
 .button.is-link {
   --hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) + -2.5%), var(--link-a));
   --focus-box-shadow-color: hsla(var(--link-h), var(--link-s), var(--link-l), 0.25);
@@ -1430,18 +1532,18 @@ a.box:active {
 .button.is-link.is-light {
   --hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-light-l) - 2.5%), var(--link-a));
   --active-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-light-l) - 5%), var(--link-a));
-  background-color: var(--link-light, #eff1fa);
-  color: var(--link-dark, #3850b7);
+  background-color: var(--link-light, #eff3fb);
+  color: var(--link-dark, #326dcd);
 }
 .button.is-link.is-light:hover, .button.is-link.is-light.is-hovered {
-  background-color: var(--hover-background-color, #e6e9f7);
+  background-color: var(--hover-background-color, #e4ecf9);
   border-color: transparent;
-  color: var(--link-dark, #3850b7);
+  color: var(--link-dark, #326dcd);
 }
 .button.is-link.is-light:active, .button.is-link.is-light.is-active {
-  background-color: var(--active-background-color, #dce0f4);
+  background-color: var(--active-background-color, #dae5f6);
   border-color: transparent;
-  color: var(--link-dark, #3850b7);
+  color: var(--link-dark, #326dcd);
 }
 .button.is-info {
   --hover-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) + -2.5%), var(--info-a));
@@ -2414,13 +2516,21 @@ div.icon-text {
   --notification-background-color: var(--primary-light, #f2effb);
   --notification-color: var(--primary-dark, #542fbc);
 }
+.notification.is-secondary {
+  --notification-background-color: var(--secondary, #2857a4);
+  --notification-color: var(--secondary-invert, #fff);
+}
+.notification.is-secondary.is-light {
+  --notification-background-color: var(--secondary-light, #eff3fb);
+  --notification-color: var(--secondary-dark, #326dcd);
+}
 .notification.is-link {
   --notification-background-color: var(--link, var(--primary, #7958d5));
   --notification-color: var(--link-invert, var(--primary-invert, #fff));
 }
 .notification.is-link.is-light {
-  --notification-background-color: var(--link-light, #eff1fa);
-  --notification-color: var(--link-dark, #3850b7);
+  --notification-background-color: var(--link-light, #eff3fb);
+  --notification-color: var(--link-dark, #326dcd);
 }
 .notification.is-info {
   --notification-background-color: var(--info, #147bf0);
@@ -2546,6 +2656,18 @@ div.icon-text {
 }
 .progress.is-primary:indeterminate, .is-primary.progress-wrapper.is-not-native:indeterminate {
   background-image: linear-gradient(to right, var(--primary, #7958d5) 30%, var(--progress-bar-background-color) 30%);
+}
+.progress.is-secondary::-webkit-progress-value, .is-secondary.progress-wrapper.is-not-native::-webkit-progress-value {
+  --progress-value-background-color: var(--secondary, #2857a4);
+}
+.progress.is-secondary::-moz-progress-bar, .is-secondary.progress-wrapper.is-not-native::-moz-progress-bar {
+  --progress-value-background-color: var(--secondary, #2857a4);
+}
+.progress.is-secondary::-ms-fill, .is-secondary.progress-wrapper.is-not-native::-ms-fill {
+  --progress-value-background-color: var(--secondary, #2857a4);
+}
+.progress.is-secondary:indeterminate, .is-secondary.progress-wrapper.is-not-native:indeterminate {
+  background-image: linear-gradient(to right, var(--secondary, #2857a4) 30%, var(--progress-bar-background-color) 30%);
 }
 .progress.is-link::-webkit-progress-value, .is-link.progress-wrapper.is-not-native::-webkit-progress-value {
   --progress-value-background-color: var(--link, var(--primary, #7958d5));
@@ -2718,6 +2840,12 @@ div.icon-text {
   background-color: var(--primary, #7958d5);
   border-color: var(--primary, #7958d5);
   color: var(--primary-invert, #fff);
+}
+.table td.is-secondary,
+.table th.is-secondary {
+  background-color: var(--secondary, #2857a4);
+  border-color: var(--secondary, #2857a4);
+  color: var(--secondary-invert, #fff);
 }
 .table td.is-link,
 .table th.is-link {
@@ -2949,13 +3077,21 @@ div.icon-text {
   --tag-background-color: var(--primary-light, #f2effb);
   --tag-color: var(--primary-dark, #542fbc);
 }
+.tag:not(body).is-secondary {
+  --tag-background-color: var(--secondary, #2857a4);
+  --tag-color: var(--secondary-invert, #fff);
+}
+.tag:not(body).is-secondary.is-light {
+  --tag-background-color: var(--secondary-light, #eff3fb);
+  --tag-color: var(--secondary-dark, #326dcd);
+}
 .tag:not(body).is-link {
   --tag-background-color: var(--link, var(--primary, #7958d5));
   --tag-color: var(--link-invert, var(--primary-invert, #fff));
 }
 .tag:not(body).is-link.is-light {
-  --tag-background-color: var(--link-light, #eff1fa);
-  --tag-color: var(--link-dark, #3850b7);
+  --tag-background-color: var(--link-light, #eff3fb);
+  --tag-color: var(--link-dark, #326dcd);
 }
 .tag:not(body).is-info {
   --tag-background-color: var(--info, #147bf0);
@@ -3303,6 +3439,13 @@ a.tag:hover {
 .taginput .is-primary.taginput-container.is-focusable:focus, .is-primary.textarea:focus, .is-primary.input:focus, .taginput .is-primary.is-focused.taginput-container.is-focusable, .is-primary.is-focused.textarea, .is-primary.is-focused.input, .taginput .is-primary.taginput-container.is-focusable:active, .is-primary.textarea:active, .is-primary.input:active, .taginput .is-primary.is-active.taginput-container.is-focusable, .is-primary.is-active.textarea, .is-primary.is-active.input {
   box-shadow: var(--input-focus-box-shadow-size, 0 0 0 0.125em) var(--focus-box-shadow-color, rgba(121, 88, 213, 0.25));
 }
+.taginput .is-secondary.taginput-container.is-focusable, .is-secondary.textarea, .is-secondary.input {
+  --focus-box-shadow-color: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), 0.25);
+  border-color: var(--secondary, #2857a4);
+}
+.taginput .is-secondary.taginput-container.is-focusable:focus, .is-secondary.textarea:focus, .is-secondary.input:focus, .taginput .is-secondary.is-focused.taginput-container.is-focusable, .is-secondary.is-focused.textarea, .is-secondary.is-focused.input, .taginput .is-secondary.taginput-container.is-focusable:active, .is-secondary.textarea:active, .is-secondary.input:active, .taginput .is-secondary.is-active.taginput-container.is-focusable, .is-secondary.is-active.textarea, .is-secondary.is-active.input {
+  box-shadow: var(--input-focus-box-shadow-size, 0 0 0 0.125em) var(--focus-box-shadow-color, rgba(40, 87, 164, 0.25));
+}
 .taginput .is-link.taginput-container.is-focusable, .is-link.textarea, .is-link.input {
   --focus-box-shadow-color: hsla(var(--link-h), var(--link-s), var(--link-l), 0.25);
   border-color: var(--link, var(--primary, #7958d5));
@@ -3340,6 +3483,8 @@ a.tag:hover {
 }
 .taginput .is-small.taginput-container.is-focusable, .is-small.textarea, .is-small.input {
   border-radius: var(--control-radius-small);
+}
+.taginput .is-small.taginput-container.is-focusable, .is-small.textarea, .is-small.input {
   font-size: var(--size-small, 0.75rem);
 }
 .taginput .is-medium.taginput-container.is-focusable, .is-medium.textarea, .is-medium.input {
@@ -3549,6 +3694,22 @@ a.tag:hover {
 .select.is-primary select:focus, .select.is-primary select.is-focused, .select.is-primary select:active, .select.is-primary select.is-active {
   box-shadow: var(--select-focus-box-shadow-size) var(--focus-box-shadow-color, rgba(121, 88, 213, 0.25));
 }
+.select.is-secondary {
+  --hover-border-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l) + -5%), var(--secondary-a));
+  --focus-box-shadow-color: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), 0.25);
+}
+.select.is-secondary:not(:hover)::after {
+  border-color: var(--secondary, #2857a4);
+}
+.select.is-secondary select {
+  border-color: var(--secondary, #2857a4);
+}
+.select.is-secondary select:hover, .select.is-secondary select.is-hovered {
+  border-color: var(--hover-border-color, #234d90);
+}
+.select.is-secondary select:focus, .select.is-secondary select.is-focused, .select.is-secondary select:active, .select.is-secondary select.is-active {
+  box-shadow: var(--select-focus-box-shadow-size) var(--focus-box-shadow-color, rgba(40, 87, 164, 0.25));
+}
 .select.is-link {
   --hover-border-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) + -5%), var(--link-a));
   --focus-box-shadow-color: hsla(var(--link-h), var(--link-s), var(--link-l), 0.25);
@@ -3631,6 +3792,8 @@ a.tag:hover {
 }
 .select.is-small {
   border-radius: var(--control-radius-small);
+}
+.select.is-small {
   font-size: var(--size-small, 0.75rem);
 }
 .select.is-medium {
@@ -3676,6 +3839,7 @@ a.tag:hover {
   --file-name-border-style: solid;
   --file-name-border-width: 1px 1px 1px 0;
   --file-name-max-width: 16em;
+  --file-icon-font-size: 14px;
 }
 
 .file {
@@ -3813,6 +3977,32 @@ a.tag:hover {
   background-color: var(--active-background-color, #6943d0);
   border-color: transparent;
   color: var(--primary-invert, #fff);
+}
+.file.is-secondary {
+  --hover-background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-light-l) - 2.5%), var(--secondary-a));
+  --focus-box-shadow-color-hsla: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), 0.25);
+  --focus-box-shadow-color: var(--focus-box-shadow-color-hsla, rgba(40, 87, 164, 0.25));
+  --active-background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-light-l) - 5%), var(--secondary-a));
+}
+.file.is-secondary .file-cta {
+  background-color: var(--secondary, #2857a4);
+  border-color: transparent;
+  color: var(--secondary-invert, #fff);
+}
+.file.is-secondary:hover .file-cta, .file.is-secondary.is-hovered .file-cta {
+  background-color: var(--hover-background-color, #25529a);
+  border-color: transparent;
+  color: var(--secondary-invert, #fff);
+}
+.file.is-secondary:focus .file-cta, .file.is-secondary.is-focused .file-cta {
+  border-color: transparent;
+  box-shadow: 0 0 0.5em var(--focus-box-shadow-color);
+  color: var(--secondary-invert, #fff);
+}
+.file.is-secondary:active .file-cta, .file.is-secondary.is-active .file-cta {
+  background-color: var(--active-background-color, #234d90);
+  border-color: transparent;
+  color: var(--secondary-invert, #fff);
 }
 .file.is-link {
   --hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-light-l) - 2.5%), var(--link-a));
@@ -3953,14 +4143,14 @@ a.tag:hover {
 .file.is-medium {
   font-size: var(--size-medium, 1.25rem);
 }
-.file.is-medium .file-icon .fa {
-  font-size: 21px;
-}
 .file.is-large {
   font-size: var(--size-large, 1.5rem);
 }
-.file.is-large .file-icon .fa {
-  font-size: 28px;
+.file.is-medium {
+  --file-icon-font-size: 21px;
+}
+.file.is-large {
+  --file-icon-font-size: 28px;
 }
 .file.has-name .file-cta {
   border-bottom-right-radius: 0;
@@ -3988,20 +4178,18 @@ a.tag:hover {
   border-width: 0 1px 1px;
 }
 .file.is-boxed .file-icon {
+  --file-icon-font-size: 21px;
   height: 1.5em;
   width: 1.5em;
 }
-.file.is-boxed .file-icon .fa {
-  font-size: 21px;
+.file.is-boxed.is-small {
+  --file-icon-font-size: 14px;
 }
-.file.is-boxed.is-small .file-icon .fa {
-  font-size: 14px;
+.file.is-boxed.is-medium {
+  --file-icon-font-size: 28px;
 }
-.file.is-boxed.is-medium .file-icon .fa {
-  font-size: 28px;
-}
-.file.is-boxed.is-large .file-icon .fa {
-  font-size: 35px;
+.file.is-boxed.is-large {
+  --file-icon-font-size: 35px;
 }
 .file.is-boxed.has-name .file-cta {
   border-radius: var(--file-radius) var(--file-radius) 0 0;
@@ -4100,7 +4288,7 @@ a.tag:hover {
   width: 1em;
 }
 .file-icon .fa {
-  font-size: 14px;
+  font-size: var(--file-icon-font-size);
 }
 
 :root {
@@ -4151,6 +4339,9 @@ a.tag:hover {
 }
 .help.is-primary {
   color: var(--primary, #7958d5);
+}
+.help.is-secondary {
+  color: var(--secondary, #2857a4);
 }
 .help.is-link {
   color: var(--link, var(--primary, #7958d5));
@@ -4295,17 +4486,14 @@ a.tag:hover {
   }
   .field-label.is-small {
     font-size: var(--size-small, 0.75rem);
-    padding-top: 0.375em;
-  }
-  .field-label.is-normal {
-    padding-top: 0.375em;
   }
   .field-label.is-medium {
     font-size: var(--size-medium, 1.25rem);
-    padding-top: 0.375em;
   }
   .field-label.is-large {
     font-size: var(--size-large, 1.5rem);
+  }
+  .field-label.is-small, .field-label.is-normal, .field-label.is-medium, .field-label.is-large {
     padding-top: 0.375em;
   }
 }
@@ -5004,12 +5192,19 @@ button.dropdown-item.is-active {
   --message-body-border-color: var(--primary, #7958d5);
   --message-body-color: var(--primary-dark, #542fbc);
 }
+.message.is-secondary {
+  --message-background-color: var(--secondary-light, #eff3fb);
+  --message-header-background-color: var(--secondary, #2857a4);
+  --message-header-color: var(--secondary-invert, #fff);
+  --message-body-border-color: var(--secondary, #2857a4);
+  --message-body-color: var(--secondary-dark, #326dcd);
+}
 .message.is-link {
-  --message-background-color: var(--link-light, #eff1fa);
+  --message-background-color: var(--link-light, #eff3fb);
   --message-header-background-color: var(--link, var(--primary, #7958d5));
   --message-header-color: var(--link-invert, var(--primary-invert, #fff));
   --message-body-border-color: var(--link, var(--primary, #7958d5));
-  --message-body-color: var(--link-dark, #3850b7);
+  --message-body-color: var(--link-dark, #326dcd);
 }
 .message.is-info {
   --message-background-color: var(--info-light, #ecf4fe);
@@ -5593,6 +5788,76 @@ button.dropdown-item.is-active {
   .navbar.is-primary .navbar-dropdown a.navbar-item.is-active {
     background-color: #7958d5;
     color: var(--primary-invert, #fff);
+  }
+}
+.navbar.is-secondary {
+  --navbar-burger-color: var(--secondary-invert, #fff);
+  background-color: var(--secondary, #2857a4);
+  color: var(--secondary-invert, #fff);
+}
+.navbar.is-secondary .navbar-brand > .navbar-item,
+.navbar.is-secondary .navbar-brand .navbar-link {
+  color: var(--secondary-invert, #fff);
+}
+.navbar.is-secondary .navbar-brand > a.navbar-item:focus, .navbar.is-secondary .navbar-brand > a.navbar-item:hover, .navbar.is-secondary .navbar-brand > a.navbar-item.is-active,
+.navbar.is-secondary .navbar-brand .navbar-link:focus,
+.navbar.is-secondary .navbar-brand .navbar-link:hover,
+.navbar.is-secondary .navbar-brand .navbar-link.is-active {
+  --navbar-item-hover-background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l) + -5%), var(--secondary-a));
+  background-color: var(--navbar-item-hover-background-color, #234d90);
+  color: var(--secondary-invert, #fff);
+}
+.navbar.is-secondary .navbar-brand .navbar-link::after {
+  border-color: var(--secondary-invert, #fff);
+}
+@media screen and (min-width: 1024px) {
+  .navbar.is-secondary {
+    --navbar-dropdown-item-active-background-color: var(--secondary, #2857a4);
+    --navbar-dropdown-item-active-color: var(--secondary-invert, #fff);
+  }
+  .navbar.is-secondary .navbar-brand > .navbar-item,
+.navbar.is-secondary .navbar-brand .navbar-link,
+.navbar.is-secondary .navbar-start > .navbar-item,
+.navbar.is-secondary .navbar-start .navbar-link,
+.navbar.is-secondary .navbar-end > .navbar-item,
+.navbar.is-secondary .navbar-end .navbar-link {
+    color: var(--secondary-invert, #fff);
+  }
+  .navbar.is-secondary .navbar-brand > a.navbar-item:focus, .navbar.is-secondary .navbar-brand > a.navbar-item:hover, .navbar.is-secondary .navbar-brand > a.navbar-item.is-active,
+.navbar.is-secondary .navbar-brand .navbar-link:focus,
+.navbar.is-secondary .navbar-brand .navbar-link:hover,
+.navbar.is-secondary .navbar-brand .navbar-link.is-active,
+.navbar.is-secondary .navbar-start > a.navbar-item:focus,
+.navbar.is-secondary .navbar-start > a.navbar-item:hover,
+.navbar.is-secondary .navbar-start > a.navbar-item.is-active,
+.navbar.is-secondary .navbar-start .navbar-link:focus,
+.navbar.is-secondary .navbar-start .navbar-link:hover,
+.navbar.is-secondary .navbar-start .navbar-link.is-active,
+.navbar.is-secondary .navbar-end > a.navbar-item:focus,
+.navbar.is-secondary .navbar-end > a.navbar-item:hover,
+.navbar.is-secondary .navbar-end > a.navbar-item.is-active,
+.navbar.is-secondary .navbar-end .navbar-link:focus,
+.navbar.is-secondary .navbar-end .navbar-link:hover,
+.navbar.is-secondary .navbar-end .navbar-link.is-active {
+    --navbar-item-hover-background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l) + -5%), var(--secondary-a));
+    background-color: var(--navbar-item-hover-background-color, #234d90);
+    color: var(--secondary-invert, #fff);
+  }
+  .navbar.is-secondary .navbar-brand .navbar-link::after,
+.navbar.is-secondary .navbar-start .navbar-link::after,
+.navbar.is-secondary .navbar-end .navbar-link::after {
+    border-color: var(--secondary-invert, #fff);
+  }
+  .navbar.is-secondary .navbar-item.has-dropdown:focus .navbar-link,
+.navbar.is-secondary .navbar-item.has-dropdown:hover .navbar-link,
+.navbar.is-secondary .navbar-item.has-dropdown.is-active .navbar-link {
+    --navbar-dropdown-item-hover-background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l) + -5%), var(--secondary-a));
+    background-color: var(--navbar-dropdown-item-hover-background-color, #234d90);
+    color: var(--secondary-invert, #fff);
+  }
+  .navbar.is-secondary .navbar-dropdown a.navbar-item.is-active {
+    background-color: #2857a4;
+    color: var(--secondary-invert, #fff);
   }
 }
 .navbar.is-link {
@@ -6672,6 +6937,16 @@ body.has-spaced-navbar-fixed-bottom {
 }
 .panel.is-primary .panel-block.is-active .panel-icon {
   color: var(--primary, #7958d5);
+}
+.panel.is-secondary .panel-heading {
+  background-color: var(--secondary, #2857a4);
+  color: var(--secondary-invert, #fff);
+}
+.panel.is-secondary .panel-tabs a.is-active {
+  border-bottom-color: var(--secondary, #2857a4);
+}
+.panel.is-secondary .panel-block.is-active .panel-icon {
+  color: var(--secondary, #2857a4);
 }
 .panel.is-link .panel-heading {
   background-color: var(--link, var(--primary, #7958d5));
@@ -8813,6 +9088,45 @@ a.has-text-primary-dark:hover, a.has-text-primary-dark:focus {
   background-color: var(--primary-dark, #542fbc) !important;
 }
 
+.has-text-secondary {
+  --has-text-hover-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l) + -10%), var(--secondary-a));
+  color: var(--secondary, #2857a4) !important;
+}
+
+a.has-text-secondary:hover, a.has-text-secondary:focus {
+  color: var(--has-text-hover-color, #1e427b) !important;
+}
+
+.has-background-secondary {
+  background-color: var(--secondary, #2857a4) !important;
+}
+
+.has-text-secondary-light {
+  --has-text-light-hover-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-light-l) - 10%), var(--secondary-a));
+  color: var(--secondary-light, #eff3fb) !important;
+}
+
+a.has-text-secondary-light:hover, a.has-text-secondary-light:focus {
+  color: var(--has-text-light-hover-color, #c6d6f1) !important;
+}
+
+.has-background-secondary-light {
+  background-color: var(--secondary-light, #eff3fb) !important;
+}
+
+.has-text-secondary-dark {
+  --has-text-dark-hover-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-light-l) + 10%), var(--secondary-a));
+  color: var(--secondary-dark, #326dcd) !important;
+}
+
+a.has-text-secondary-dark:hover, a.has-text-secondary-dark:focus {
+  color: var(--has-text-dark-hover-color, #5b8ad7) !important;
+}
+
+.has-background-secondary-dark {
+  background-color: var(--secondary-dark, #326dcd) !important;
+}
+
 .has-text-link {
   --has-text-hover-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) + -10%), var(--link-a));
   color: var(--link, var(--primary, #7958d5)) !important;
@@ -8828,28 +9142,28 @@ a.has-text-link:hover, a.has-text-link:focus {
 
 .has-text-link-light {
   --has-text-light-hover-color: hsla(var(--link-h), var(--link-s), calc(var(--link-light-l) - 10%), var(--link-a));
-  color: var(--link-light, #eff1fa) !important;
+  color: var(--link-light, #eff3fb) !important;
 }
 
 a.has-text-link-light:hover, a.has-text-link-light:focus {
-  color: var(--has-text-light-hover-color, #c8cfee) !important;
+  color: var(--has-text-light-hover-color, #c6d6f1) !important;
 }
 
 .has-background-link-light {
-  background-color: var(--link-light, #eff1fa) !important;
+  background-color: var(--link-light, #eff3fb) !important;
 }
 
 .has-text-link-dark {
   --has-text-dark-hover-color: hsla(var(--link-h), var(--link-s), calc(var(--link-light-l) + 10%), var(--link-a));
-  color: var(--link-dark, #3850b7) !important;
+  color: var(--link-dark, #326dcd) !important;
 }
 
 a.has-text-link-dark:hover, a.has-text-link-dark:focus {
-  color: var(--has-text-dark-hover-color, #576dcb) !important;
+  color: var(--has-text-dark-hover-color, #5b8ad7) !important;
 }
 
 .has-background-link-dark {
-  background-color: var(--link-dark, #3850b7) !important;
+  background-color: var(--link-dark, #326dcd) !important;
 }
 
 .has-text-info {
@@ -10972,6 +11286,70 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
     background-image: linear-gradient(141deg, hsla(calc(var(--primary-h) - 10deg), calc(var(--primary-s) + 10%), calc(var(--primary-l) - 10%), var(--primary-a)) 0%, #7958d5 71%, hsla(calc(var(--primary-h) + 10deg), calc(var(--primary-s) + 5% ), calc(var(--primary-l) + 5%), var(--primary-a)) 100%);
   }
 }
+.hero.is-secondary {
+  --hover-background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l) + -5%), var(--secondary-a));
+  background-color: var(--secondary, #2857a4);
+  color: var(--secondary-invert, #fff);
+}
+.hero.is-secondary a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
+.hero.is-secondary strong {
+  color: inherit;
+}
+.hero.is-secondary .title {
+  color: var(--secondary-invert, #fff);
+}
+.hero.is-secondary .subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}
+.hero.is-secondary .subtitle a:not(.button),
+.hero.is-secondary .subtitle strong {
+  color: var(--secondary-invert, #fff);
+}
+@media screen and (max-width: 1023px) {
+  .hero.is-secondary .navbar-menu {
+    background-color: var(--secondary, #2857a4);
+  }
+}
+.hero.is-secondary .navbar-item,
+.hero.is-secondary .navbar-link {
+  color: rgba(255, 255, 255, 0.7);
+}
+.hero.is-secondary a.navbar-item:hover, .hero.is-secondary a.navbar-item.is-active,
+.hero.is-secondary .navbar-link:hover,
+.hero.is-secondary .navbar-link.is-active {
+  background-color: var(--hover-background-color, #234d90);
+  color: var(--secondary-invert, #fff);
+}
+.hero.is-secondary .tabs a {
+  color: var(--secondary-invert, #fff);
+  opacity: 0.9;
+}
+.hero.is-secondary .tabs a:hover {
+  opacity: 1;
+}
+.hero.is-secondary .tabs li.is-active a {
+  color: var(--secondary, #2857a4) !important;
+  opacity: 1;
+}
+.hero.is-secondary .tabs.is-boxed a, .hero.is-secondary .tabs.is-toggle a {
+  color: var(--secondary-invert, #fff);
+}
+.hero.is-secondary .tabs.is-boxed a:hover, .hero.is-secondary .tabs.is-toggle a:hover {
+  background-color: rgba(var(--scheme-invert-rgb, 10, 10, 10), 0.1);
+}
+.hero.is-secondary .tabs.is-boxed li.is-active a, .hero.is-secondary .tabs.is-boxed li.is-active a:hover, .hero.is-secondary .tabs.is-toggle li.is-active a, .hero.is-secondary .tabs.is-toggle li.is-active a:hover {
+  background-color: var(--secondary-invert, #fff);
+  border-color: var(--secondary-invert, #fff);
+  color: var(--secondary, #2857a4);
+}
+.hero.is-secondary.is-bold {
+  background-image: linear-gradient(141deg, hsla(calc(var(--secondary-h) - 10deg), calc(var(--secondary-s) + 10%), calc(var(--secondary-l) - 10%), var(--secondary-a)) 0%, #2857a4 71%, hsla(calc(var(--secondary-h) + 10deg), calc(var(--secondary-s) + 5% ), calc(var(--secondary-l) + 5%), var(--secondary-a)) 100%);
+}
+@media screen and (max-width: 768px) {
+  .hero.is-secondary.is-bold .navbar-menu {
+    background-image: linear-gradient(141deg, hsla(calc(var(--secondary-h) - 10deg), calc(var(--secondary-s) + 10%), calc(var(--secondary-l) - 10%), var(--secondary-a)) 0%, #2857a4 71%, hsla(calc(var(--secondary-h) + 10deg), calc(var(--secondary-s) + 5% ), calc(var(--secondary-l) + 5%), var(--secondary-a)) 100%);
+  }
+}
 .hero.is-link {
   --hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) + -5%), var(--link-a));
   background-color: var(--link, var(--primary, #7958d5));
@@ -11284,16 +11662,16 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
     background-image: linear-gradient(141deg, hsla(calc(var(--danger-h) - 10deg), calc(var(--danger-s) + 10%), calc(var(--danger-l) - 10%), var(--danger-a)) 0%, #f14668 71%, hsla(calc(var(--danger-h) + 10deg), calc(var(--danger-s) + 5% ), calc(var(--danger-l) + 5%), var(--danger-a)) 100%);
   }
 }
-.hero.is-small .hero-body {
+.hero.is-small {
   --hero-body-padding: var(--hero-body-padding-small);
 }
 @media screen and (min-width: 769px), print {
-  .hero.is-medium .hero-body {
+  .hero.is-medium {
     --hero-body-padding: var(--hero-body-padding-medium);
   }
 }
 @media screen and (min-width: 769px), print {
-  .hero.is-large .hero-body {
+  .hero.is-large {
     --hero-body-padding: var(--hero-body-padding-large);
   }
 }
@@ -11436,7 +11814,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   cursor: not-allowed;
 }
 .autocomplete.is-small {
-  border-radius: var(--control-radius-small);
   font-size: var(--size-small, 0.75rem);
 }
 .autocomplete.is-medium {
@@ -11709,6 +12086,10 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background: var(--primary, #7958d5) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Cpath style='fill:%23fff' d='M 0.04038059,0.6267767 0.14644661,0.52071068 0.42928932,0.80355339 0.3232233,0.90961941 z M 0.21715729,0.80355339 0.85355339,0.16715729 0.95961941,0.2732233 0.3232233,0.90961941 z'%3E%3C/path%3E%3C/svg%3E") no-repeat center center;
   border-color: var(--primary, #7958d5);
 }
+.b-checkbox.checkbox input[type=checkbox]:checked + .check.is-secondary {
+  background: var(--secondary, #2857a4) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Cpath style='fill:%23fff' d='M 0.04038059,0.6267767 0.14644661,0.52071068 0.42928932,0.80355339 0.3232233,0.90961941 z M 0.21715729,0.80355339 0.85355339,0.16715729 0.95961941,0.2732233 0.3232233,0.90961941 z'%3E%3C/path%3E%3C/svg%3E") no-repeat center center;
+  border-color: var(--secondary, #2857a4);
+}
 .b-checkbox.checkbox input[type=checkbox]:checked + .check.is-link {
   background: var(--link, var(--primary, #7958d5)) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Cpath style='fill:var(--primary-invert, %23fff)' d='M 0.04038059,0.6267767 0.14644661,0.52071068 0.42928932,0.80355339 0.3232233,0.90961941 z M 0.21715729,0.80355339 0.85355339,0.16715729 0.95961941,0.2732233 0.3232233,0.90961941 z'%3E%3C/path%3E%3C/svg%3E") no-repeat center center;
   border-color: var(--link, var(--primary, #7958d5));
@@ -11752,6 +12133,10 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .b-checkbox.checkbox input[type=checkbox]:indeterminate + .check.is-primary {
   background: var(--primary, #7958d5) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Crect style='fill:%23fff' width='0.7' height='0.2' x='.15' y='.4'%3E%3C/rect%3E%3C/svg%3E") no-repeat center center;
   border-color: var(--primary, #7958d5);
+}
+.b-checkbox.checkbox input[type=checkbox]:indeterminate + .check.is-secondary {
+  background: var(--secondary, #2857a4) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Crect style='fill:%23fff' width='0.7' height='0.2' x='.15' y='.4'%3E%3C/rect%3E%3C/svg%3E") no-repeat center center;
+  border-color: var(--secondary, #2857a4);
 }
 .b-checkbox.checkbox input[type=checkbox]:indeterminate + .check.is-link {
   background: var(--link, var(--primary, #7958d5)) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Crect style='fill:var(--primary-invert, %23fff)' width='0.7' height='0.2' x='.15' y='.4'%3E%3C/rect%3E%3C/svg%3E") no-repeat center center;
@@ -11798,6 +12183,10 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .b-checkbox.checkbox input[type=checkbox]:focus:checked + .check.is-primary {
   --focus-box-shadow-color: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.8);
   box-shadow: 0 0 0.5em var(--focus-box-shadow-color, rgba(121, 88, 213, 0.8));
+}
+.b-checkbox.checkbox input[type=checkbox]:focus:checked + .check.is-secondary {
+  --focus-box-shadow-color: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), 0.8);
+  box-shadow: 0 0 0.5em var(--focus-box-shadow-color, rgba(40, 87, 164, 0.8));
 }
 .b-checkbox.checkbox input[type=checkbox]:focus:checked + .check.is-link {
   --focus-box-shadow-color: hsla(var(--link-h), var(--link-s), var(--link-l), 0.8);
@@ -11846,6 +12235,9 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .b-checkbox.checkbox:hover input[type=checkbox]:not(:disabled) + .check.is-primary {
   border-color: var(--primary, #7958d5);
 }
+.b-checkbox.checkbox:hover input[type=checkbox]:not(:disabled) + .check.is-secondary {
+  border-color: var(--secondary, #2857a4);
+}
 .b-checkbox.checkbox:hover input[type=checkbox]:not(:disabled) + .check.is-link {
   border-color: var(--link, var(--primary, #7958d5));
 }
@@ -11862,7 +12254,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   border-color: var(--danger, #f14668);
 }
 .b-checkbox.checkbox.is-small {
-  border-radius: var(--control-radius-small);
   font-size: var(--size-small, 0.75rem);
 }
 .b-checkbox.checkbox.is-medium {
@@ -11965,6 +12356,21 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .b-clockpicker.is-primary .b-clockpicker-face-number.active {
   background-color: var(--primary #7958d5);
   color: var(--primary-invert, #fff);
+}
+.b-clockpicker.is-secondary .card-header {
+  background-color: var(--secondary #2857a4);
+  color: var(--secondary-invert, #fff);
+}
+.b-clockpicker.is-secondary .b-clockpicker-face:after {
+  background-color: var(--secondary #2857a4);
+}
+.b-clockpicker.is-secondary .b-clockpicker-face-hand {
+  background-color: var(--secondary #2857a4);
+  border-color: var(--secondary #2857a4);
+}
+.b-clockpicker.is-secondary .b-clockpicker-face-number.active {
+  background-color: var(--secondary #2857a4);
+  color: var(--secondary-invert, #fff);
 }
 .b-clockpicker.is-link .card-header {
   background-color: var(--link var(--primary, #7958d5));
@@ -12234,7 +12640,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   padding: 12px;
 }
 .b-clockpicker.is-small {
-  border-radius: var(--control-radius-small);
   font-size: var(--size-small, 0.75rem);
 }
 .b-clockpicker.is-medium {
@@ -12432,6 +12837,9 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .datepicker .datepicker-table .datepicker-body.has-events .datepicker-cell.has-event .events .event.is-primary {
   background-color: var(--primary #7958d5);
 }
+.datepicker .datepicker-table .datepicker-body.has-events .datepicker-cell.has-event .events .event.is-secondary {
+  background-color: var(--secondary #2857a4);
+}
 .datepicker .datepicker-table .datepicker-body.has-events .datepicker-cell.has-event .events .event.is-link {
   background-color: var(--link var(--primary, #7958d5));
 }
@@ -12465,7 +12873,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--datepicker-background-color-selected, #aa95e4);
 }
 .datepicker.is-small {
-  border-radius: var(--control-radius-small);
   font-size: var(--size-small, 0.75rem);
 }
 .datepicker.is-medium {
@@ -12520,7 +12927,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .dialog.is-small .modal-card,
 .dialog.is-small .input,
 .dialog.is-small .button {
-  border-radius: var(--control-radius-small);
   font-size: var(--size-small, 0.75rem);
 }
 .dialog.is-medium .modal-card,
@@ -13075,6 +13481,10 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   color: var(--primary-invert, #fff);
   background: var(--primary, #7958d5);
 }
+.notices .toast.is-secondary {
+  color: var(--secondary-invert, #fff);
+  background: var(--secondary, #2857a4);
+}
 .notices .toast.is-link {
   color: var(--link-invert, var(--primary-invert, #fff));
   background: var(--link, var(--primary, #7958d5));
@@ -13144,6 +13554,9 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 .notices .snackbar .action.is-primary .button {
   color: var(--primary, #7958d5);
+}
+.notices .snackbar .action.is-secondary .button {
+  color: var(--secondary, #2857a4);
 }
 .notices .snackbar .action.is-link .button {
   color: var(--link, var(--primary, #7958d5));
@@ -13313,13 +13726,13 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .progress-wrapper .progress, .progress-wrapper .progress-wrapper.is-not-native, .progress-wrapper .progress-bar {
   margin-bottom: 0;
 }
-.progress-wrapper .progress.is-small + .progress-value, .progress-wrapper .is-small.progress-wrapper.is-not-native + .progress-value, .progress-wrapper .progress.is-small .progress-value, .progress-wrapper .is-small.progress-wrapper.is-not-native .progress-value, .progress-wrapper .progress-bar.is-small + .progress-value, .progress-wrapper .progress-bar.is-small .progress-value {
+.progress-wrapper .progress.is-small, .progress-wrapper .is-small.progress-wrapper.is-not-native, .progress-wrapper .progress-bar.is-small {
   --progress-value-size: var(--size-small, 0.75rem);
 }
-.progress-wrapper .progress.is-medium + .progress-value, .progress-wrapper .is-medium.progress-wrapper.is-not-native + .progress-value, .progress-wrapper .progress.is-medium .progress-value, .progress-wrapper .is-medium.progress-wrapper.is-not-native .progress-value, .progress-wrapper .progress-bar.is-medium + .progress-value, .progress-wrapper .progress-bar.is-medium .progress-value {
+.progress-wrapper .progress.is-medium, .progress-wrapper .is-medium.progress-wrapper.is-not-native, .progress-wrapper .progress-bar.is-medium {
   --progress-value-size: var(--size-medium, 1.25rem);
 }
-.progress-wrapper .progress.is-large + .progress-value, .progress-wrapper .is-large.progress-wrapper.is-not-native + .progress-value, .progress-wrapper .progress.is-large .progress-value, .progress-wrapper .is-large.progress-wrapper.is-not-native .progress-value, .progress-wrapper .progress-bar.is-large + .progress-value, .progress-wrapper .progress-bar.is-large .progress-value {
+.progress-wrapper .progress.is-large, .progress-wrapper .is-large.progress-wrapper.is-not-native, .progress-wrapper .progress-bar.is-large {
   --progress-value-size: var(--size-large, 1.5rem);
 }
 .progress-wrapper .progress::-webkit-progress-value, .progress-wrapper .progress-wrapper.is-not-native::-webkit-progress-value, .progress-wrapper .progress-bar::-webkit-progress-value {
@@ -13343,6 +13756,9 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 .progress-wrapper .progress.is-more-than-half.is-primary + .progress-value, .progress-wrapper .is-more-than-half.is-primary.progress-wrapper.is-not-native + .progress-value, .progress-wrapper .progress-bar.is-more-than-half.is-primary + .progress-value {
   color: var(--primary-invert, #fff);
+}
+.progress-wrapper .progress.is-more-than-half.is-secondary + .progress-value, .progress-wrapper .is-more-than-half.is-secondary.progress-wrapper.is-not-native + .progress-value, .progress-wrapper .progress-bar.is-more-than-half.is-secondary + .progress-value {
+  color: var(--secondary-invert, #fff);
 }
 .progress-wrapper .progress.is-more-than-half.is-link + .progress-value, .progress-wrapper .is-more-than-half.is-link.progress-wrapper.is-not-native + .progress-value, .progress-wrapper .progress-bar.is-more-than-half.is-link + .progress-value {
   color: var(--link-invert, var(--primary-invert, #fff));
@@ -13406,6 +13822,12 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 .progress-wrapper.is-not-native .progress-bar.is-primary .progress-value {
   color: var(--primary-invert, #fff);
+}
+.progress-wrapper.is-not-native .progress-bar.is-secondary {
+  background-color: var(--secondary, #2857a4);
+}
+.progress-wrapper.is-not-native .progress-bar.is-secondary .progress-value {
+  color: var(--secondary-invert, #fff);
 }
 .progress-wrapper.is-not-native .progress-bar.is-link {
   background-color: var(--link, var(--primary, #7958d5));
@@ -13512,6 +13934,9 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .b-radio.radio input[type=radio] + .check.is-primary:before {
   background: var(--primary #7958d5);
 }
+.b-radio.radio input[type=radio] + .check.is-secondary:before {
+  background: var(--secondary #2857a4);
+}
 .b-radio.radio input[type=radio] + .check.is-link:before {
   background: var(--link var(--primary, #7958d5));
 }
@@ -13544,6 +13969,9 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 .b-radio.radio input[type=radio]:checked + .check.is-primary {
   border-color: var(--primary #7958d5);
+}
+.b-radio.radio input[type=radio]:checked + .check.is-secondary {
+  border-color: var(--secondary #2857a4);
 }
 .b-radio.radio input[type=radio]:checked + .check.is-link {
   border-color: var(--link var(--primary, #7958d5));
@@ -13588,6 +14016,10 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .b-radio.radio input[type=radio]:focus:checked + .check.is-primary {
   --focus-box-shadow-color: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.8);
   box-shadow: 0 0 0.5em var(--focus-box-shadow-color, rgba(121, 88, 213, 0.8));
+}
+.b-radio.radio input[type=radio]:focus:checked + .check.is-secondary {
+  --focus-box-shadow-color: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), 0.8);
+  box-shadow: 0 0 0.5em var(--focus-box-shadow-color, rgba(40, 87, 164, 0.8));
 }
 .b-radio.radio input[type=radio]:focus:checked + .check.is-link {
   --focus-box-shadow-color: hsla(var(--link-h), var(--link-s), var(--link-l), 0.8);
@@ -13639,6 +14071,9 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .b-radio.radio:hover input[type=radio]:not(:disabled) + .check.is-primary {
   border-color: var(--primary, #7958d5);
 }
+.b-radio.radio:hover input[type=radio]:not(:disabled) + .check.is-secondary {
+  border-color: var(--secondary, #2857a4);
+}
 .b-radio.radio:hover input[type=radio]:not(:disabled) + .check.is-link {
   border-color: var(--link, var(--primary, #7958d5));
 }
@@ -13655,7 +14090,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   border-color: var(--danger, #f14668);
 }
 .b-radio.radio.is-small {
-  border-radius: var(--control-radius-small);
   font-size: var(--size-small, 0.75rem);
 }
 .b-radio.radio.is-medium {
@@ -13797,6 +14231,9 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 .b-sidebar .sidebar-content.is-primary {
   background-color: var(--primary, #7958d5);
+}
+.b-sidebar .sidebar-content.is-secondary {
+  background-color: var(--secondary, #2857a4);
 }
 .b-sidebar .sidebar-content.is-link {
   background-color: var(--link, var(--primary, #7958d5));
@@ -14105,6 +14542,9 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .b-slider.is-primary .b-slider-fill {
   background: var(--primary, #7958d5) !important;
 }
+.b-slider.is-secondary .b-slider-fill {
+  background: var(--secondary, #2857a4) !important;
+}
 .b-slider.is-link .b-slider-fill {
   background: var(--link, var(--primary, #7958d5)) !important;
 }
@@ -14285,6 +14725,26 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   background-color: var(--primary, #7958d5);
 }
 .b-steps .steps .step-items .step-item.is-primary.is-previous::before, .b-steps .steps .step-items .step-item.is-primary.is-previous::after {
+  background-position: left bottom;
+}
+.b-steps .steps .step-items .step-item.is-secondary::before, .b-steps .steps .step-items .step-item.is-secondary::after {
+  background: linear-gradient(to left, var(--steps-default-color) 50%, var(--secondary, #2857a4) 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+.b-steps .steps .step-items .step-item.is-secondary.is-active .step-marker {
+  background-color: var(--steps-maker-color);
+  border-color: var(--secondary, #2857a4);
+  color: var(--secondary, #2857a4);
+}
+.b-steps .steps .step-items .step-item.is-secondary.is-active::before, .b-steps .steps .step-items .step-item.is-secondary.is-active::after {
+  background-position: left bottom;
+}
+.b-steps .steps .step-items .step-item.is-secondary.is-previous .step-marker {
+  color: var(--secondary-invert, #fff);
+  background-color: var(--secondary, #2857a4);
+}
+.b-steps .steps .step-items .step-item.is-secondary.is-previous::before, .b-steps .steps .step-items .step-item.is-secondary.is-previous::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-link::before, .b-steps .steps .step-items .step-item.is-link::after {
@@ -14587,6 +15047,11 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   background-size: 100% 200%;
   background-position: left bottom;
 }
+.b-steps.is-vertical > .steps .step-items .step-item.is-secondary::before, .b-steps.is-vertical > .steps .step-items .step-item.is-secondary::after {
+  background: linear-gradient(to top, var(--steps-default-color) 50%, var(--secondary, #2857a4) 50%);
+  background-size: 100% 200%;
+  background-position: left bottom;
+}
 .b-steps.is-vertical > .steps .step-items .step-item.is-link::before, .b-steps.is-vertical > .steps .step-items .step-item.is-link::after {
   background: linear-gradient(to top, var(--steps-default-color) 50%, var(--link, var(--primary, #7958d5)) 50%);
   background-size: 100% 200%;
@@ -14738,6 +15203,12 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .switch input[type=checkbox] + .check.input[type=checkbox] + .switch input[type=checkbox] + .check.check {
   background: "pink";
 }
+.switch input[type=checkbox] + .check.is-secondary-passive, .switch input[type=checkbox] + .check:hover {
+  background: var(--secondary, #2857a4);
+}
+.switch input[type=checkbox] + .check.input[type=checkbox] + .switch input[type=checkbox] + .check.check {
+  background: "pink";
+}
 .switch input[type=checkbox] + .check.is-link-passive, .switch input[type=checkbox] + .check:hover {
   background: var(--link, var(--primary, #7958d5));
 }
@@ -14804,6 +15275,9 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .switch input[type=checkbox]:checked + .check.is-primary {
   background: var(--primary, #7958d5);
 }
+.switch input[type=checkbox]:checked + .check.is-secondary {
+  background: var(--secondary, #2857a4);
+}
 .switch input[type=checkbox]:checked + .check.is-link {
   background: var(--link, var(--primary, #7958d5));
 }
@@ -14846,6 +15320,9 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .switch input[type=checkbox]:focus + .check.is-primary-passive, .switch input[type=checkbox]:active + .check.is-primary-passive {
   box-shadow: 0 0 0.5em hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.8);
 }
+.switch input[type=checkbox]:focus + .check.is-secondary-passive, .switch input[type=checkbox]:active + .check.is-secondary-passive {
+  box-shadow: 0 0 0.5em hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), 0.8);
+}
 .switch input[type=checkbox]:focus + .check.is-link-passive, .switch input[type=checkbox]:active + .check.is-link-passive {
   box-shadow: 0 0 0.5em hsla(var(--link-h), var(--link-s), var(--link-l), 0.8);
 }
@@ -14878,6 +15355,9 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 }
 .switch input[type=checkbox]:focus:checked + .check.is-primary, .switch input[type=checkbox]:active:checked + .check.is-primary {
   box-shadow: 0 0 0.5em hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.8);
+}
+.switch input[type=checkbox]:focus:checked + .check.is-secondary, .switch input[type=checkbox]:active:checked + .check.is-secondary {
+  box-shadow: 0 0 0.5em hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), 0.8);
 }
 .switch input[type=checkbox]:focus:checked + .check.is-link, .switch input[type=checkbox]:active:checked + .check.is-link {
   box-shadow: 0 0 0.5em hsla(var(--link-h), var(--link-s), var(--link-l), 0.8);
@@ -14921,6 +15401,9 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .switch:hover input[type=checkbox] + .check.is-primary-passive {
   background: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.9);
 }
+.switch:hover input[type=checkbox] + .check.is-secondary-passive {
+  background: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), 0.9);
+}
 .switch:hover input[type=checkbox] + .check.is-link-passive {
   background: hsla(var(--link-h), var(--link-s), var(--link-l), 0.9);
 }
@@ -14953,6 +15436,9 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 }
 .switch:hover input[type=checkbox]:checked + .check.is-primary {
   background: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.9);
+}
+.switch:hover input[type=checkbox]:checked + .check.is-secondary {
+  background: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), 0.9);
 }
 .switch:hover input[type=checkbox]:checked + .check.is-link {
   background: hsla(var(--link-h), var(--link-s), var(--link-l), 0.9);
@@ -15027,6 +15513,15 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 }
 .switch.is-outlined input[type=checkbox] + .check.is-primary-passive:hover {
   border-color: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.9);
+}
+.switch.is-outlined input[type=checkbox] + .check.is-secondary-passive {
+  border: 0.1rem solid hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), 0.9);
+}
+.switch.is-outlined input[type=checkbox] + .check.is-secondary-passive:before {
+  background: var(--secondary, #2857a4);
+}
+.switch.is-outlined input[type=checkbox] + .check.is-secondary-passive:hover {
+  border-color: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), 0.9);
 }
 .switch.is-outlined input[type=checkbox] + .check.is-link-passive {
   border: 0.1rem solid hsla(var(--link-h), var(--link-s), var(--link-l), 0.9);
@@ -15114,6 +15609,13 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .switch.is-outlined input[type=checkbox]:checked + .check.is-primary:before {
   background: var(--primary, #7958d5);
 }
+.switch.is-outlined input[type=checkbox]:checked + .check.is-secondary {
+  background: transparent;
+  border-color: var(--secondary, #2857a4);
+}
+.switch.is-outlined input[type=checkbox]:checked + .check.is-secondary:before {
+  background: var(--secondary, #2857a4);
+}
 .switch.is-outlined input[type=checkbox]:checked + .check.is-link {
   background: transparent;
   border-color: var(--link, var(--primary, #7958d5));
@@ -15175,6 +15677,9 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .switch.is-outlined:hover input[type=checkbox]:checked + .check.is-primary {
   border-color: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.9);
 }
+.switch.is-outlined:hover input[type=checkbox]:checked + .check.is-secondary {
+  border-color: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), 0.9);
+}
 .switch.is-outlined:hover input[type=checkbox]:checked + .check.is-link {
   border-color: hsla(var(--link-h), var(--link-s), var(--link-l), 0.9);
 }
@@ -15191,7 +15696,6 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   border-color: hsla(var(--danger-h), var(--danger-s), var(--danger-l), 0.9);
 }
 .switch.is-small {
-  border-radius: var(--control-radius-small);
   font-size: var(--size-small, 0.75rem);
 }
 .switch.is-medium {
@@ -15679,6 +16183,14 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   background-color: var(--tag-delete-background-color, #5a32c8);
   text-decoration: none;
 }
+.tag .delete.is-secondary, .tag.is-delete.is-secondary, .tag.has-delete-icon.is-secondary {
+  --tag-delete-background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l) + -10%), var(--secondary-a));
+  background: var(--secondary, #2857a4);
+}
+.tag .delete.is-secondary:hover, .tag.is-delete.is-secondary:hover, .tag.has-delete-icon.is-secondary:hover {
+  background-color: var(--tag-delete-background-color, #1e427b);
+  text-decoration: none;
+}
 .tag .delete.is-link, .tag.is-delete.is-link, .tag.has-delete-icon.is-link {
   --tag-delete-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) + -10%), var(--link-a));
   background: var(--link, var(--primary, #7958d5));
@@ -15752,7 +16264,6 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   height: auto;
 }
 .taginput .taginput-container:not(.is-focusable).is-small {
-  border-radius: var(--control-radius-small);
   font-size: var(--size-small, 0.75rem);
 }
 .taginput .taginput-container:not(.is-focusable).is-medium {
@@ -15856,7 +16367,6 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   padding-right: var(--control-padding-horizontal, calc(0.75em - 1px));
 }
 .timepicker.is-small {
-  border-radius: var(--control-radius-small);
   font-size: var(--size-small, 0.75rem);
 }
 .timepicker.is-medium {
@@ -15911,11 +16421,17 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-tooltip.is-top.is-primary.is-light .tooltip-content::before {
   border-top-color: var(--primary-light, #f2effb);
 }
+.b-tooltip.is-top.is-secondary .tooltip-content::before {
+  border-top-color: var(--secondary, #2857a4);
+}
+.b-tooltip.is-top.is-secondary.is-light .tooltip-content::before {
+  border-top-color: var(--secondary-light, #eff3fb);
+}
 .b-tooltip.is-top.is-link .tooltip-content::before {
   border-top-color: var(--link, var(--primary, #7958d5));
 }
 .b-tooltip.is-top.is-link.is-light .tooltip-content::before {
-  border-top-color: var(--link-light, #eff1fa);
+  border-top-color: var(--link-light, #eff3fb);
 }
 .b-tooltip.is-top.is-info .tooltip-content::before {
   border-top-color: var(--info, #147bf0);
@@ -15977,11 +16493,17 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-tooltip.is-right.is-primary.is-light .tooltip-content::before {
   border-right-color: var(--primary-light, #f2effb);
 }
+.b-tooltip.is-right.is-secondary .tooltip-content::before {
+  border-right-color: var(--secondary, #2857a4);
+}
+.b-tooltip.is-right.is-secondary.is-light .tooltip-content::before {
+  border-right-color: var(--secondary-light, #eff3fb);
+}
 .b-tooltip.is-right.is-link .tooltip-content::before {
   border-right-color: var(--link, var(--primary, #7958d5));
 }
 .b-tooltip.is-right.is-link.is-light .tooltip-content::before {
-  border-right-color: var(--link-light, #eff1fa);
+  border-right-color: var(--link-light, #eff3fb);
 }
 .b-tooltip.is-right.is-info .tooltip-content::before {
   border-right-color: var(--info, #147bf0);
@@ -16043,11 +16565,17 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-tooltip.is-bottom.is-primary.is-light .tooltip-content::before {
   border-bottom-color: var(--primary-light, #f2effb);
 }
+.b-tooltip.is-bottom.is-secondary .tooltip-content::before {
+  border-bottom-color: var(--secondary, #2857a4);
+}
+.b-tooltip.is-bottom.is-secondary.is-light .tooltip-content::before {
+  border-bottom-color: var(--secondary-light, #eff3fb);
+}
 .b-tooltip.is-bottom.is-link .tooltip-content::before {
   border-bottom-color: var(--link, var(--primary, #7958d5));
 }
 .b-tooltip.is-bottom.is-link.is-light .tooltip-content::before {
-  border-bottom-color: var(--link-light, #eff1fa);
+  border-bottom-color: var(--link-light, #eff3fb);
 }
 .b-tooltip.is-bottom.is-info .tooltip-content::before {
   border-bottom-color: var(--info, #147bf0);
@@ -16109,11 +16637,17 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-tooltip.is-left.is-primary.is-light .tooltip-content::before {
   border-left-color: var(--primary-light, #f2effb);
 }
+.b-tooltip.is-left.is-secondary .tooltip-content::before {
+  border-left-color: var(--secondary, #2857a4);
+}
+.b-tooltip.is-left.is-secondary.is-light .tooltip-content::before {
+  border-left-color: var(--secondary-light, #eff3fb);
+}
 .b-tooltip.is-left.is-link .tooltip-content::before {
   border-left-color: var(--link, var(--primary, #7958d5));
 }
 .b-tooltip.is-left.is-link.is-light .tooltip-content::before {
-  border-left-color: var(--link-light, #eff1fa);
+  border-left-color: var(--link-light, #eff3fb);
 }
 .b-tooltip.is-left.is-info .tooltip-content::before {
   border-left-color: var(--info, #147bf0);
@@ -16183,13 +16717,21 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   background: var(--primary-light, #f2effb);
   color: var(--primary-dark, #542fbc);
 }
+.b-tooltip.is-secondary .tooltip-content {
+  background: var(--secondary, #2857a4);
+  color: var(--secondary-invert, #fff);
+}
+.b-tooltip.is-secondary.is-light .tooltip-content {
+  background: var(--secondary-light, #eff3fb);
+  color: var(--secondary-dark, #326dcd);
+}
 .b-tooltip.is-link .tooltip-content {
   background: var(--link, var(--primary, #7958d5));
   color: var(--link-invert, var(--primary-invert, #fff));
 }
 .b-tooltip.is-link.is-light .tooltip-content {
-  background: var(--link-light, #eff1fa);
-  color: var(--link-dark, #3850b7);
+  background: var(--link-light, #eff3fb);
+  color: var(--link-dark, #326dcd);
 }
 .b-tooltip.is-info .tooltip-content {
   background: var(--info, #147bf0);
@@ -16323,6 +16865,11 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   --hover-background-color: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.05);
   border-color: var(--primary, #7958d5);
   background: var(--hover-box-shadow-color, rgba(121, 88, 213, 0.05));
+}
+.upload .upload-draggable:hover.is-secondary, .upload .upload-draggable.is-hovered.is-secondary {
+  --hover-background-color: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), 0.05);
+  border-color: var(--secondary, #2857a4);
+  background: var(--hover-box-shadow-color, rgba(40, 87, 164, 0.05));
 }
 .upload .upload-draggable:hover.is-link, .upload .upload-draggable.is-hovered.is-link {
   --hover-background-color: hsla(var(--link-h), var(--link-s), var(--link-l), 0.05);
