@@ -17,6 +17,7 @@ test.css.map
 _gh_pages
 _site
 dev
+docs
 node_modules
 test/output/
 
