@@ -1,12 +1,13 @@
 <p align="center">
-  <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
+  <a href="https://github.com/daniil4udo/bulvar/" target="_blank" rel="noopener noreferrer">
     <img width="180" src="./bulvar.svg" alt="Vite logo">
   </a>
 </p>
 <br/>
 <p align="center">
-  <a href="https://npmjs.com/package/vite"><img src="https://img.shields.io/npm/v/vite.svg" alt="npm package"></a>
-  <a href="https://nodejs.org/en/about/releases/"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatibility"></a>
+  <a href="https://www.npmjs.com/package/@bulvar/bulma"><img src="https://img.shields.io/npm/v/@bulvar/bulma.svg?logo=npm" alt="npm package"></a>
+  <a href="https://github.com/jgthms/bulma/"><img src="https://img.shields.io/github/v/release/jgthms/bulma?logo=Bulma" alt="npm package"></a>
+  <a href="https://github.com/buefy/buefy/releases"><img src="https://img.shields.io/github/v/release/buefy/buefy?logo=buefy&color=7957d5&labelColor=lightgrey" /></a>
   <a href="https://github.com/daniil4udo/bulvar/actions/workflows/npm-publish.yml"><img src="https://github.com/daniil4udo/bulvar/actions/workflows/npm-publish.yml/badge.svg?branch=master" alt="build status"></a>
 </p>
 <br/>
