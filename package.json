@@ -75,7 +75,7 @@
         "prettier": "^2.4.1",
         "rimraf": "^3.0.2",
         "rtlcss": "^3.5.0",
-        "sass": "^1.43.4",
+        "sass": "^1.43.5",
         "stylelint": "^14.1.0",
         "stylelint-config-css-modules": "^2.3.0",
         "stylelint-config-prettier": "^9.0.3",

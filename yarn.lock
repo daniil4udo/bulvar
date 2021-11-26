@@ -293,7 +293,7 @@ __metadata:
     prettier: ^2.4.1
     rimraf: ^3.0.2
     rtlcss: ^3.5.0
-    sass: ^1.43.4
+    sass: ^1.43.5
     stylelint: ^14.1.0
     stylelint-config-css-modules: ^2.3.0
     stylelint-config-prettier: ^9.0.3
@@ -7978,14 +7978,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.43.4":
-  version: 1.43.4
-  resolution: "sass@npm:1.43.4"
+"sass@npm:^1.43.5":
+  version: 1.43.5
+  resolution: "sass@npm:1.43.5"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
   bin:
     sass: sass.js
-  checksum: 9af80105dabd32752c60b4557115832982cf1019c02c952db6a26c61a3e18dc95044c896685e6e9a6d6dd6643fc411ecf2ea4a8a431a8a08a7510a45d5a492ae
+  checksum: 4dc71400a6e21e0aa841ba69f536ba242b956229fea88acc3faafa44114ca59496a4b153704175c36ac835e33934059dc8d843638c8952f4f1220adbef54c988
   languageName: node
   linkType: hard
 
