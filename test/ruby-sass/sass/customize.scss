@@ -26,12 +26,12 @@ $input-border-color: transparent;
 $input-shadow: none;
 
 // Import only what you need from Bulma
-@import "../../../src/bulma/utilities/all";
-@import "../../../src/bulma/base/all";
+@import "../../../src/bulma/utilities";
+@import "../../../src/bulma/base";
 @import "../../../src/bulma/elements/button";
 @import "../../../src/bulma/elements/container";
 @import "../../../src/bulma/elements/title";
-@import "../../../src/bulma/form/all";
+@import "../../../src/bulma/form";
 @import "../../../src/bulma/components/navbar";
 @import "../../../src/bulma/layout/hero";
 @import "../../../src/bulma/layout/section";
