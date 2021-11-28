@@ -49,9 +49,9 @@
         "build": "npm-run-all compile prefix minify",
         "clean": "rimraf css && mkdir css",
         "compile": "npm-run-all -p compile:*",
-        "compile:core": "sass --load-path=node_modules/@bulvar/ buefy-core.sass | node banner.js > css/buefy-core.css",
-        "compile:main": "sass --load-path=node_modules/@bulvar/ buefy.sass | node banner.js > css/buefy.css",
-        "compile:rtl": "sass --load-path=node_modules/@bulvar/ buefy-rtl.sass | node banner.js > css/buefy-rtl.css",
+        "compile:core": "sass --error-css --load-path=node_modules/@bulvar/ --load-path=node_modules/@bulvar/bulma/sass/ buefy-core.sass | node banner.js > css/buefy-core.css",
+        "compile:main": "sass --error-css --load-path=node_modules/@bulvar/ --load-path=node_modules/@bulvar/bulma/sass/ buefy.sass | node banner.js > css/buefy.css",
+        "compile:rtl": "sass --error-css --load-path=node_modules/@bulvar/ --load-path=node_modules/@bulvar/bulma/sass/ buefy-rtl.sass | node banner.js > css/buefy-rtl.css",
         "deploy": "npm-run-all clean build",
         "minify": "npm-run-all -p minify:*",
         "minify:core": "csso -o css/buefy-core.min.css -i css/buefy-core.css",
@@ -62,7 +62,7 @@
         "prefix:main": "postcss --config ../../postcss.config.js --output css/buefy.css css/buefy.css",
         "prefix:rtl": "cross-env NODE_ENV=RTL postcss postcss --config ../../postcss.config.js --output css/buefy-rtl.css css/buefy-rtl.css",
         "publish": "npm publish --access public",
-        "start": "sass --load-path=node_modules/@bulvar/ buefy.sass css/buefy.css --watch"
+        "start": "sass --error-css --load-path=node_modules/@bulvar/ --load-path=node_modules/@bulvar/bulma/sass/ buefy.sass css/buefy.css --watch"
     },
     "dependencies": {
         "@bulvar/bulma": "^0.9.6"

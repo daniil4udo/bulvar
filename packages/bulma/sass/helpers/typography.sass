@@ -1,4 +1,5 @@
-@use "../utilities"
+@use "utilities/derived-variables" as vars
+@use "utilities"
 
 +utilities.typography-size
 
@@ -71,31 +72,31 @@ $alignments: ('centered': 'center', 'justified': 'justify', 'left': 'left', 'rig
   text-decoration: underline !important
 
 .has-text-weight-light
-  font-weight: var(--weight-light, #{utilities.$weight-light}) !important
+  font-weight: var(--weight-light, #{vars.$weight-light}) !important
 
 .has-text-weight-normal
-  font-weight: var(--weight-normal, #{utilities.$weight-normal}) !important
+  font-weight: var(--weight-normal, #{vars.$weight-normal}) !important
 
 .has-text-weight-medium
-  font-weight: var(--weight-medium, #{utilities.$weight-medium}) !important
+  font-weight: var(--weight-medium, #{vars.$weight-medium}) !important
 
 .has-text-weight-semibold
-  font-weight: var(--weight-semibold, #{utilities.$weight-semibold}) !important
+  font-weight: var(--weight-semibold, #{vars.$weight-semibold}) !important
 
 .has-text-weight-bold
-  font-weight: var(--weight-bold, #{utilities.$weight-bold}) !important
+  font-weight: var(--weight-bold, #{vars.$weight-bold}) !important
 
 .is-family-primary
-  font-family: var(--family-primary, #{utilities.$family-primary}) !important
+  font-family: var(--family-primary, #{vars.$family-primary}) !important
 
 .is-family-secondary
-  font-family: var(--family-secondary, #{utilities.$family-secondary}) !important
+  font-family: var(--family-secondary, #{vars.$family-secondary}) !important
 
 .is-family-sans-serif
-  font-family: var(--family-sans-serif, #{utilities.$family-sans-serif}) !important
+  font-family: var(--family-sans-serif, #{vars.$family-sans-serif}) !important
 
 .is-family-monospace
-  font-family: var(--family-monospace, #{utilities.$family-monospace}) !important
+  font-family: var(--family-monospace, #{vars.$family-monospace}) !important
 
 .is-family-code
-  font-family: var(--family-code, #{utilities.$family-code}) !important
+  font-family: var(--family-code, #{vars.$family-code}) !important

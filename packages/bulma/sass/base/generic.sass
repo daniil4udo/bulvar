@@ -1,31 +1,32 @@
-@use "../utilities"
+@use "utilities/derived-variables" as vars
+@use "utilities"
 
-$body-background-color: var(--scheme-main, #{utilities.$scheme-main}) !default
+$body-background-color: var(--scheme-main, #{vars.$scheme-main}) !default
 $body-size: 16px !default
 $body-min-width: 300px !default
 $body-rendering: optimizeLegibility !default
-$body-family: var(--family-primary, #{utilities.$family-primary}) !default
+$body-family: var(--family-primary, #{vars.$family-primary}) !default
 $body-overflow-x: hidden !default
 $body-overflow-y: scroll !default
 
-$body-color: var(--text, #{utilities.$text}) !default
+$body-color: var(--text, #{vars.$text}) !default
 $body-font-size: 1em !default
-$body-weight: var(--weight-normal, #{utilities.$weight-normal}) !default
+$body-weight: var(--weight-normal, #{vars.$weight-normal}) !default
 $body-line-height: 1.5 !default
 
-$code-family: var(--family-code, #{utilities.$family-code}) !default
+$code-family: var(--family-code, #{vars.$family-code}) !default
 $code-padding: 0.25em 0.5em 0.25em !default
 $code-weight: normal !default
 $code-size: 0.875em !default
 
 $small-font-size: 0.875em !default
 
-$hr-background-color: var(--background, #{utilities.$background}) !default
+$hr-background-color: var(--background, #{vars.$background}) !default
 $hr-height: 2px !default
 $hr-margin: 1.5rem 0 !default
 
-$strong-color: var(--text-strong, #{utilities.$text-strong}) !default
-$strong-weight: var(--weight-bold, #{utilities.$weight-bold}) !default
+$strong-color: var(--text-strong, #{vars.$text-strong}) !default
+$strong-weight: var(--weight-bold, #{vars.$weight-bold}) !default
 
 $pre-font-size: 0.875em !default
 $pre-padding: 1.25rem 1.5rem !default
@@ -66,7 +67,7 @@ $_css-vars-map: ('body-background-color': $body-background-color, 'body-size': $
 // --text-strong: #{$text-strong}
 
 html
-  +utilities.registerCSSVars($_css-vars-map, utilities.$at-root) // html and :root are basically the same
+  +utilities.registerCSSVars($_css-vars-map, vars.$at-root) // html and :root are basically the same
   background-color: var(--body-background-color)
   font-size: var(--body-size)
   -moz-osx-font-smoothing: grayscale

@@ -1,15 +1,16 @@
 @use "sass:list"
 
 @use "shared" as form-shared
-@use "../utilities"
+@use "utilities/derived-variables" as vars
+@use "utilities"
 
-$label-font-size: var(--size-normal, #{utilities.$size-normal}) !default
-$label-color: var(--text-strong, #{utilities.$text-strong}) !default
-$label-weight: var(--weight-bold, #{utilities.$weight-bold}) !default
+$label-font-size: var(--size-normal, #{vars.$size-normal}) !default
+$label-color: var(--text-strong, #{vars.$text-strong}) !default
+$label-weight: var(--weight-bold, #{vars.$weight-bold}) !default
 
-$help-size: var(--size-small, #{utilities.$size-small}) !default
+$help-size: var(--size-small, #{vars.$size-small}) !default
 
-$control-font-size: var(--size-normal, #{utilities.$size-normal}) !default
+$control-font-size: var(--size-normal, #{vars.$size-normal}) !default
 
 $label-colors: form-shared.$form-colors !default
 
@@ -190,11 +191,11 @@ $_css-vars-map: ('control-font-size': $control-font-size)
         & ~ .icon
           color: var(--input-icon-active-color, #{form-shared.$input-icon-active-color})
       &.is-small ~ .icon
-        font-size: var(--size-small, #{utilities.$size-small})
+        font-size: var(--size-small, #{vars.$size-small})
       &.is-medium ~ .icon
-        font-size: var(--size-medium, #{utilities.$size-medium})
+        font-size: var(--size-medium, #{vars.$size-medium})
       &.is-large ~ .icon
-        font-size: var(--size-large, #{utilities.$size-large})
+        font-size: var(--size-large, #{vars.$size-large})
     .icon
       color: var(--input-icon-color, #{form-shared.$input-icon-color})
       height: var(--input-height, #{form-shared.$input-height})
@@ -223,8 +224,8 @@ $_css-vars-map: ('control-font-size': $control-font-size)
       top: calc(50% - (1em / 2))
       z-index: 4
     &.is-small:after
-      font-size: var(--size-small, #{utilities.$size-small})
+      font-size: var(--size-small, #{vars.$size-small})
     &.is-medium:after
-      font-size: var(--size-medium, #{utilities.$size-medium})
+      font-size: var(--size-medium, #{vars.$size-medium})
     &.is-large:after
-      font-size: var(--size-large, #{utilities.$size-large})
+      font-size: var(--size-large, #{vars.$size-large})

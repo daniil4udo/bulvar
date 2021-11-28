@@ -1,7 +1,8 @@
 @use "sass:list"
 
 @use "shared" as form-shared
-@use "../utilities"
+@use "utilities/derived-variables" as vars
+@use "utilities"
 
 $select-colors: form-shared.$form-colors !default
 
@@ -29,7 +30,7 @@ $_css-vars-map: ('select-arrow': form-shared.$input-arrow, 'select-disabled-bord
       z-index: 4
   &.is-rounded
     select
-      border-radius: var(--radius-rounded, #{utilities.$radius-rounded})
+      border-radius: var(--radius-rounded, #{vars.$radius-rounded})
       +utilities.ltr-property("padding", 1em, false)
   select
     @extend %input
@@ -93,8 +94,8 @@ $_css-vars-map: ('select-arrow': form-shared.$input-arrow, 'select-disabled-bord
       top: 0.625em
       transform: none
     &.is-small:after
-      font-size: var(--size-small, #{utilities.$size-small})
+      font-size: var(--size-small, #{vars.$size-small})
     &.is-medium:after
-      font-size: var(--size-medium, #{utilities.$size-medium})
+      font-size: var(--size-medium, #{vars.$size-medium})
     &.is-large:after
-      font-size: var(--size-large, #{utilities.$size-large})
+      font-size: var(--size-large, #{vars.$size-large})

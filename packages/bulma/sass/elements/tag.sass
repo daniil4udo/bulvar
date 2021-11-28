@@ -1,14 +1,15 @@
 @use "sass:list"
 
-@use "../utilities"
+@use "utilities/derived-variables" as vars
+@use "utilities"
 
-$tag-background-color: utilities.$background !default
-$tag-color: var(--text, #{utilities.$text}) !default
-$tag-radius: var(--radius, #{utilities.$radius}) !default
+$tag-background-color: vars.$background !default
+$tag-color: var(--text, #{vars.$text}) !default
+$tag-radius: var(--radius, #{vars.$radius}) !default
 $tag-delete-margin: 1px !default
-$tag-font-size: var(--size-small, #{utilities.$size-small}) !default
+$tag-font-size: var(--size-small, #{vars.$size-small}) !default
 
-$tag-colors: utilities.$colors !default
+$tag-colors: vars.$colors !default
 
 $_css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $tag-color, 'tag-radius': $tag-radius, 'tag-font-size': $tag-font-size, 'tag-delete-margin': $tag-delete-margin)
 +utilities.exportCSSVars($_css-vars-map)
@@ -35,10 +36,10 @@ $_css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
   // Sizes
   &.are-medium
     .tag:not(.is-normal):not(.is-large)
-      --tag-font-size: var(--size-normal, #{utilities.$size-normal})
+      --tag-font-size: var(--size-normal, #{vars.$size-normal})
   &.are-large
     .tag:not(.is-normal):not(.is-medium)
-      --tag-font-size: var(--size-medium, #{utilities.$size-medium})
+      --tag-font-size: var(--size-medium, #{vars.$size-medium})
   &.is-centered
     justify-content: center
     .tag
@@ -141,7 +142,7 @@ $_css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
     &:active
       background-color: utilities.bulmaDarken($tag-background-color, 10%)
   &.is-rounded
-    border-radius: var(--radius-rounded, #{utilities.$radius-rounded})
+    border-radius: var(--radius-rounded, #{vars.$radius-rounded})
 
 a.tag
   &:hover

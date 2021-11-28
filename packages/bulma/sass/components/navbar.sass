@@ -1,60 +1,61 @@
 @use "sass:list"
 
-@use "../utilities"
+@use "utilities/derived-variables" as vars
+@use "utilities"
 
-$navbar-background-color: var(--scheme-main, #{utilities.$scheme-main}) !default
+$navbar-background-color: var(--scheme-main, #{vars.$scheme-main}) !default
 $navbar-box-shadow-size: 0 2px 0 0 !default
-$navbar-box-shadow-color: var(--background, #{utilities.$background}) !default
+$navbar-box-shadow-color: var(--background, #{vars.$background}) !default
 $navbar-height: 3.25rem !default
 $navbar-padding-vertical: 1rem !default
 $navbar-padding-horizontal: 2rem !default
 $navbar-z: 30 !default
 $navbar-fixed-z: 30 !default
-$navbar-shadow-color: rgba(var(--scheme-invert-rgb, #{utilities.bulmaToRGB(utilities.$scheme-invert)}), 0.1) !default
+$navbar-shadow-color: rgba(var(--scheme-invert-rgb, #{utilities.bulmaToRGB(vars.$scheme-invert)}), 0.1) !default
 
-$navbar-item-color: var(--text, #{utilities.$text}) !default
-$navbar-item-padding: var(--item-padding, #{utilities.$item-padding}) !default
-$navbar-item-hover-color: var(--link, #{utilities.$link}) !default
-$navbar-item-hover-background-color: var(--scheme-main-bis, #{utilities.$scheme-main-bis}) !default
-$navbar-item-active-color: var(--scheme-invert, #{utilities.$scheme-invert}) !default
+$navbar-item-color: var(--text, #{vars.$text}) !default
+$navbar-item-padding: var(--item-padding, #{vars.$item-padding}) !default
+$navbar-item-hover-color: var(--link, #{vars.$link}) !default
+$navbar-item-hover-background-color: var(--scheme-main-bis, #{vars.$scheme-main-bis}) !default
+$navbar-item-active-color: var(--scheme-invert, #{vars.$scheme-invert}) !default
 $navbar-item-active-background-color: transparent !default
 $navbar-item-img-max-height: 1.75rem !default
 
 $navbar-burger-color: var(--navbar-item-color, #{$navbar-item-color}) !default
 
 $navbar-tab-hover-background-color: transparent !default
-$navbar-tab-hover-border-bottom-color: var(--link, #{utilities.$link}) !default
-$navbar-tab-active-color: var(--link, #{utilities.$link}) !default
+$navbar-tab-hover-border-bottom-color: var(--link, #{vars.$link}) !default
+$navbar-tab-active-color: var(--link, #{vars.$link}) !default
 $navbar-tab-active-background-color: transparent !default
-$navbar-tab-active-border-bottom-color: var(--link, #{utilities.$link}) !default
+$navbar-tab-active-border-bottom-color: var(--link, #{vars.$link}) !default
 $navbar-tab-active-border-bottom-style: solid !default
 $navbar-tab-active-border-bottom-width: 3px !default
 
-$navbar-dropdown-background-color: var(--scheme-main, #{utilities.$scheme-main}) !default
-$navbar-dropdown-border-top: 2px solid var(--border, #{utilities.$border}) !default
+$navbar-dropdown-background-color: var(--scheme-main, #{vars.$scheme-main}) !default
+$navbar-dropdown-border-top: 2px solid var(--border, #{vars.$border}) !default
 $navbar-dropdown-offset: -4px !default
-$navbar-dropdown-arrow: var(--link, #{utilities.$link}) !default
-$navbar-dropdown-radius: var(--radius-large, #{utilities.$radius-large}) !default
+$navbar-dropdown-arrow: var(--link, #{vars.$link}) !default
+$navbar-dropdown-radius: var(--radius-large, #{vars.$radius-large}) !default
 $navbar-dropdown-z: 20 !default
 
-$navbar-dropdown-boxed-radius: var(--radius-large, #{utilities.$radius-large}) !default
-$navbar-dropdown-boxed-shadow-color: rgba(var(--scheme-invert-rgb, #{utilities.bulmaToRGB(utilities.$scheme-invert)}), 0.1) !default
-$navbar-dropdown-boxed-shadow-color-bis: rgba(var(--scheme-invert-rgb, #{utilities.bulmaToRGB(utilities.$scheme-invert)}), 0.1) !default
+$navbar-dropdown-boxed-radius: var(--radius-large, #{vars.$radius-large}) !default
+$navbar-dropdown-boxed-shadow-color: rgba(var(--scheme-invert-rgb, #{utilities.bulmaToRGB(vars.$scheme-invert)}), 0.1) !default
+$navbar-dropdown-boxed-shadow-color-bis: rgba(var(--scheme-invert-rgb, #{utilities.bulmaToRGB(vars.$scheme-invert)}), 0.1) !default
 $navbar-dropdown-boxed-shadow: 0 8px 8px $navbar-dropdown-boxed-shadow-color, 0 0 0 1px $navbar-dropdown-boxed-shadow-color-bis !default
 
-$navbar-dropdown-item-hover-color: var(--scheme-invert, #{utilities.$scheme-invert}) !default
-$navbar-dropdown-item-hover-background-color: var(--background, #{utilities.$background}) !default
-$navbar-dropdown-item-active-color: var(--link, #{utilities.$link}) !default
-$navbar-dropdown-item-active-background-color: var(--background, #{utilities.$background}) !default
+$navbar-dropdown-item-hover-color: var(--scheme-invert, #{vars.$scheme-invert}) !default
+$navbar-dropdown-item-hover-background-color: var(--background, #{vars.$background}) !default
+$navbar-dropdown-item-active-color: var(--link, #{vars.$link}) !default
+$navbar-dropdown-item-active-background-color: var(--background, #{vars.$background}) !default
 
-$navbar-divider-background-color: var(--background, #{utilities.$background}) !default
+$navbar-divider-background-color: var(--background, #{vars.$background}) !default
 $navbar-divider-height: 2px !default
 
 $navbar-bottom-box-shadow-size: 0 -2px 0 0 !default
 
-$navbar-breakpoint: utilities.$desktop !default
+$navbar-breakpoint: vars.$desktop !default
 
-$navbar-colors: utilities.$colors !default
+$navbar-colors: vars.$colors !default
 
 =navbar-fixed
   left: 0
@@ -346,7 +347,7 @@ a.navbar-item,
         align-items: center
       a.navbar-item,
       .navbar-link
-        border-radius: var(--radius, #{utilities.$radius})
+        border-radius: var(--radius, #{vars.$radius})
     &.is-transparent
       a.navbar-item,
       .navbar-link
@@ -444,7 +445,7 @@ a.navbar-item,
       pointer-events: none
       top: calc(100% + #{var(--navbar-dropdown-offset)})
       transform: translateY(-5px)
-      transition-duration: var(--speed, #{utilities.$speed})
+      transition-duration: var(--speed, #{vars.$speed})
       transition-property: opacity, transform
     &.is-right
       left: auto

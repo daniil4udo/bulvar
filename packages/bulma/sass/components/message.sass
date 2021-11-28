@@ -3,29 +3,30 @@
 @use "sass:math"
 @use "sass:meta"
 
-@use "../utilities"
+@use "utilities/derived-variables" as vars
+@use "utilities"
 
-$message-background-color: var(--background, #{utilities.$background}) !default
-$message-radius: var(--radius, #{utilities.$radius}) !default
-$message-font-size: var(--size-normal, #{utilities.$size-normal}) !default
+$message-background-color: var(--background, #{vars.$background}) !default
+$message-radius: var(--radius, #{vars.$radius}) !default
+$message-font-size: var(--size-normal, #{vars.$size-normal}) !default
 
-$message-header-background-color: var(--text, #{utilities.$text}) !default
-$message-header-color: var(--text-invert, #{utilities.$text-invert}) !default
-$message-header-weight: var(--weight-bold, #{utilities.$weight-bold}) !default
+$message-header-background-color: var(--text, #{vars.$text}) !default
+$message-header-color: var(--text-invert, #{vars.$text-invert}) !default
+$message-header-weight: var(--weight-bold, #{vars.$weight-bold}) !default
 $message-header-padding: 0.75em 1em !default
-$message-header-radius: var(--radius, #{utilities.$radius}) !default
+$message-header-radius: var(--radius, #{vars.$radius}) !default
 
-$message-body-border-color: var(--border, #{utilities.$border}) !default
+$message-body-border-color: var(--border, #{vars.$border}) !default
 $message-body-border-width: 0 0 0 4px !default
-$message-body-color: var(--text, #{utilities.$text}) !default
+$message-body-color: var(--text, #{vars.$text}) !default
 $message-body-padding: 1.25em 1.5em !default
-$message-body-radius: var(--radius, #{utilities.$radius}) !default
+$message-body-radius: var(--radius, #{vars.$radius}) !default
 
-$message-body-pre-background-color: var(--scheme-main, #{utilities.$scheme-main}) !default
+$message-body-pre-background-color: var(--scheme-main, #{vars.$scheme-main}) !default
 $message-body-pre-code-background-color: transparent !default
 
 $message-header-body-border-width: 0 !default
-$message-colors: utilities.$colors !default
+$message-colors: vars.$colors !default
 
 $_css-vars-map: ('message-background-color': $message-background-color, 'message-font-size': $message-font-size, 'message-radius': $message-radius, 'message-header-background-color': $message-header-background-color, 'message-header-color': $message-header-color, 'message-header-weight': $message-header-weight, 'message-header-padding': $message-header-padding, 'message-header-radius': $message-header-radius, 'message-body-border-color': $message-body-border-color, 'message-body-radius': $message-body-radius, 'message-body-border-width': $message-body-border-width, 'message-body-color': $message-body-color, 'message-body-padding': $message-body-padding, 'message-body-pre-background-color': $message-body-pre-background-color, 'message-header-body-border-width': $message-header-body-border-width, 'message-body-pre-code-background-color': $message-body-pre-code-background-color)
 +utilities.exportCSSVars($_css-vars-map)

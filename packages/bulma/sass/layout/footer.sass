@@ -1,6 +1,7 @@
-@use "../utilities"
+@use "utilities/derived-variables" as vars
+@use "utilities"
 
-$footer-background-color: var(--scheme-main-bis, #{utilities.$scheme-main-bis}) !default
+$footer-background-color: var(--scheme-main-bis, #{vars.$scheme-main-bis}) !default
 $footer-color: false !default
 $footer-padding: 3rem 1.5rem 6rem !default
 

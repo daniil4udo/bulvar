@@ -1,8 +1,9 @@
 @use "sass:list"
 
-@use "../utilities"
+@use "utilities/derived-variables" as vars
+@use "utilities"
 
-@each $name, $pair in utilities.$colors
+@each $name, $pair in vars.$colors
   $color: list.nth($pair, 1)
   .has-text-#{$name}
     --has-text-hover-color: #{utilities.bulmaVarDarken($name, 10%)}
@@ -37,7 +38,7 @@
     .has-background-#{$name}-dark
       background-color: var(--#{$name}-dark, #{$color-dark}) !important
 
-@each $name, $shade in utilities.$shades
+@each $name, $shade in vars.$shades
   .has-text-#{$name}
     color: var(--#{$name}, #{$shade}) !important
   .has-background-#{$name}
