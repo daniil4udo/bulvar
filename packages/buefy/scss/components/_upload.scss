@@ -1,6 +1,7 @@
 @use "sass:list";
-@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
-@use "../../node_modules/@bulvar/bulma/sass/form/file" as bulma-file;
+
+@use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/form/file" as bulma-file;
 
 $file-colors: bulma-file.$file-colors !default;
 

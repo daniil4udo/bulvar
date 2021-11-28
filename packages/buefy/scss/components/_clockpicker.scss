@@ -1,7 +1,8 @@
 @use "sass:list";
-@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
-@use "../../node_modules/@bulvar/bulma/sass/components/card" as bulma-card;
-@use "../../node_modules/@bulvar/bulma/sass/form/shared" as bulma-form;
+
+@use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/components/card" as bulma-card;
+@use "bulma/sass/form/shared" as bulma-form;
 @use "../utilities/variables";
 
 $clockpicker-card-radius: var(--card-radius, #{bulma-card.$card-radius});

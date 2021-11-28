@@ -1,6 +1,7 @@
 @use "sass:list";
-@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
-@use "../../node_modules/@bulvar/bulma/sass/elements/tag" as bulma-tag;
+
+@use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/elements/tag" as bulma-tag;
 
 $tag-colors: bulma-tag.$tag-colors !default;
 

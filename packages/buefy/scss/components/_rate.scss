@@ -1,4 +1,4 @@
-@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/utilities" as bulma-utilities;
 
 $rate-color: var(--grey-lighter, #{bulma-utilities.$grey-lighter}) !default;
 $rate-color-active-hsla: bulma-utilities.bulmaVarDarken(warning, 5%) !default;

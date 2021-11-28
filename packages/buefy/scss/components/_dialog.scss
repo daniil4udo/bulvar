@@ -1,5 +1,5 @@
-@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
-@use "../../node_modules/@bulvar/bulma/sass/components/card" as bulma-card;
+@use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/components/card" as bulma-card;
 
 .dialog {
     .modal-card {

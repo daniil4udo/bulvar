@@ -1,6 +1,7 @@
 @use "sass:list";
-@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
-@use "../../node_modules/@bulvar/bulma/sass/form/shared" as bulma-form;
+
+@use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/form/shared" as bulma-form;
 
 $slider-radius: var(--radius, #{bulma-utilities.$radius}) !default;
 $slider-size: var(--size-normal, #{bulma-utilities.$size-normal}) !default;

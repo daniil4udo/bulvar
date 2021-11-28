@@ -1,4 +1,4 @@
-@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/utilities" as bulma-utilities;
 
 $dropdown-mobile-breakpoint: bulma-utilities.$desktop !default;
 $dropdown-background-color: rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-utilities.$scheme-invert)}), 0.86) !default;

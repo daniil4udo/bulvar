@@ -1,6 +1,7 @@
 @use "sass:list";
-@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
-@use "../../node_modules/@bulvar/bulma/sass/elements/progress" as bulma-progress;
+
+@use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/elements/progress" as bulma-progress;
 
 $progress-value-color: var(--scheme-main, #{bulma-utilities.$scheme-main}) !default;
 $progress-value-size: var(--size-normal, #{bulma-utilities.$size-normal}) !default;

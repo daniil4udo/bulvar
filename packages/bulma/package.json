@@ -43,8 +43,8 @@
         "build": "npm-run-all compile prefix minify",
         "clean": "rimraf css && mkdir css",
         "compile": "npm-run-all --parallel compile:*",
-        "compile:main": "sass bulma.sass | node banner.js > css/bulma.css",
-        "compile:rtl": "sass bulma-rtl.sass | node banner.js > css/bulma-rtl.css",
+        "compile:main": "sass --load-path=node_modules/@bulvar/ bulma.sass | node banner.js > css/bulma.css",
+        "compile:rtl": "sass --load-path=node_modules/@bulvar/ bulma-rtl.sass | node banner.js > css/bulma-rtl.css",
         "deploy": "npm-run-all clean build",
         "minify": "npm-run-all --parallel minify:*",
         "minify:main": "csso -o css/bulma.min.css -i css/bulma.css",
@@ -52,7 +52,7 @@
         "prefix": "npm-run-all --parallel prefix:*",
         "prefix:main": "postcss --config ../../postcss.config.js --output css/bulma.css css/bulma.css",
         "prefix:rtl": "cross-env NODE_ENV=RTL postcss postcss --config ../../postcss.config.js --output css/bulma-rtl.css css/bulma-rtl.css",
-        "start": "sass bulma.sass css/bulma.css --watch"
+        "start": "sass --load-path=node_modules/@bulvar/ bulma.sass css/bulma.css --watch"
     },
     "maintainers": [
         "Daniil Chumachenko <daniil4udo@gmail.com>"

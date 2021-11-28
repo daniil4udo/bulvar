@@ -1,5 +1,5 @@
-@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
-@use "../../node_modules/@bulvar/bulma/sass/form/shared" as bulma-form;
+@use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/form/shared" as bulma-form;
 
 $floating-in-height: 3.25em !default;
 $field-label-font-size: var(--size-normal, #{bulma-utilities.$size-normal}) !default;

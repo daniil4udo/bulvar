@@ -1,5 +1,4 @@
-@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
-
+@use "bulma/sass/utilities" as bulma-utilities;
 
 $skeleton-color: bulma-utilities.$grey-lighter !default;
 $skeleton-background: linear-gradient(90deg, $skeleton-color 25%, rgba($skeleton-color, 0.5) 50%, $skeleton-color 75%) !default; // RBGA?!?!

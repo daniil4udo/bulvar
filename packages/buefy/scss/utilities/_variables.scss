@@ -1,5 +1,5 @@
-@use "../../node_modules/@bulvar/bulma/sass/utilities/functions" as fn;
-@use "../../node_modules/@bulvar/bulma/sass/utilities/initial-variables" as *;
+@use "bulma/sass/utilities/functions" as fn;
+@use "bulma/sass/utilities/initial-variables" as *;
 
 $primary       : hsl(256, 60%, 59%) !default;
 $primary-invert: fn.findColorInvert($primary) !default;

@@ -1,5 +1,5 @@
-@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
-@use "../../node_modules/@bulvar/bulma/sass/form/input-textarea" as bulma-input-textarea;
+@use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/form/input-textarea" as bulma-input-textarea;
 
 $taginput-height: calc(2em - 1px) !default;
 

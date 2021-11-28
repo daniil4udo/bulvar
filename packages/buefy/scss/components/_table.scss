@@ -1,6 +1,6 @@
-@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
-@use "../../node_modules/@bulvar/bulma/sass/elements/table" as bulma-table;
-@use "../../node_modules/@bulvar/bulma/sass/form/shared" as bulma-form;
+@use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/elements/table" as bulma-table;
+@use "bulma/sass/form/shared" as bulma-form;
 @use "../utilities/functions";
 @use "../utilities/variables";
 
