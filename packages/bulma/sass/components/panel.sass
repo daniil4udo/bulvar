@@ -1,39 +1,41 @@
-@import "../utilities/mixins"
+@use "sass:list"
 
-$panel-font-size: var(--size-normal, #{$size-normal}) !default
-$panel-margin: var(--block-spacing, #{$block-spacing}) !default
-$panel-item-border: 1px solid var(--border-light, #{$border-light}) !default
-$panel-radius: var(--radius-large, #{$radius-large}) !default
-$panel-shadow: var(--shadow, #{$shadow}) !default
+@use "../utilities"
 
-$panel-heading-background-color: var(--border-light, #{$border-light}) !default
-$panel-heading-color: var(--text-strong, #{$text-strong}) !default
+$panel-font-size: var(--size-normal, #{utilities.$size-normal}) !default
+$panel-margin: var(--block-spacing, #{utilities.$block-spacing}) !default
+$panel-item-border: 1px solid var(--border-light, #{utilities.$border-light}) !default
+$panel-radius: var(--radius-large, #{utilities.$radius-large}) !default
+$panel-shadow: var(--shadow, #{utilities.$shadow}) !default
+
+$panel-heading-background-color: var(--border-light, #{utilities.$border-light}) !default
+$panel-heading-color: var(--text-strong, #{utilities.$text-strong}) !default
 $panel-heading-line-height: 1.25 !default
 $panel-heading-padding: 0.75em 1em !default
-$panel-heading-radius: var(--radius, #{$radius}) !default
+$panel-heading-radius: var(--radius, #{utilities.$radius}) !default
 $panel-heading-size: 1.25em !default
-$panel-heading-weight: var(--weight-bold, #{$weight-bold}) !default
+$panel-heading-weight: var(--weight-bold, #{utilities.$weight-bold}) !default
 
 $panel-tabs-font-size: 0.875em !default
-$panel-tab-border-bottom: 1px solid var(--border, #{$border}) !default
-$panel-tab-active-border-bottom-color: var(--link-active-border, #{$link-active-border}) !default
-$panel-tab-active-color: var(--link-active, #{$link-active}) !default
+$panel-tab-border-bottom: 1px solid var(--border, #{utilities.$border}) !default
+$panel-tab-active-border-bottom-color: var(--link-active-border, #{utilities.$link-active-border}) !default
+$panel-tab-active-color: var(--link-active, #{utilities.$link-active}) !default
 
-$panel-list-item-color: var(--text, #{$text}) !default
-$panel-list-item-hover-color: var(--link, #{$link}) !default
+$panel-list-item-color: var(--text, #{utilities.$text}) !default
+$panel-list-item-hover-color: var(--link, #{utilities.$link}) !default
 
-$panel-block-color: var(--text-strong, #{$text-strong}) !default
-$panel-block-hover-background-color: var(--background, #{$background}) !default
-$panel-block-active-border-left-color: var(--link, #{$link}) !default
-$panel-block-active-color: var(--link-active, #{$link-active}) !default
-$panel-block-active-icon-color: var(--link, #{$link}) !default
+$panel-block-color: var(--text-strong, #{utilities.$text-strong}) !default
+$panel-block-hover-background-color: var(--background, #{utilities.$background}) !default
+$panel-block-active-border-left-color: var(--link, #{utilities.$link}) !default
+$panel-block-active-color: var(--link-active, #{utilities.$link-active}) !default
+$panel-block-active-icon-color: var(--link, #{utilities.$link}) !default
 
-$panel-icon-color: var(--text-light, #{$text-light}) !default
-$panel-colors: $colors !default
+$panel-icon-color: var(--text-light, #{utilities.$text-light}) !default
+$panel-colors: utilities.$colors !default
 
-$css-vars-map: ('panel-font-size': $panel-font-size, 'panel-margin': $panel-margin, 'panel-item-border': $panel-item-border, 'panel-radius': $panel-radius, 'panel-shadow': $panel-shadow, 'panel-heading-background-color': $panel-heading-background-color, 'panel-heading-color': $panel-heading-color, 'panel-heading-line-height': $panel-heading-line-height, 'panel-heading-padding': $panel-heading-padding, 'panel-heading-size': $panel-heading-size, 'panel-heading-weight': $panel-heading-weight, 'panel-tabs-font-size': $panel-tabs-font-size, 'panel-tab-border-bottom': $panel-tab-border-bottom, 'panel-tab-active-border-bottom-color': $panel-tab-active-border-bottom-color, 'panel-tab-active-color': $panel-tab-active-color, 'panel-list-item-color': $panel-list-item-color, 'panel-list-item-hover-color': $panel-list-item-hover-color, 'panel-block-color': $panel-block-color, 'panel-block-hover-background-color': $panel-block-hover-background-color, 'panel-block-active-border-left-color': $panel-block-active-border-left-color, 'panel-block-active-color': $panel-block-active-color, 'panel-block-active-icon-color': $panel-block-active-icon-color, 'panel-icon-color': $panel-icon-color)
-+exportCSSVars($css-vars-map)
-+registerComponentCSSVars('panel')
+$_css-vars-map: ('panel-font-size': $panel-font-size, 'panel-margin': $panel-margin, 'panel-item-border': $panel-item-border, 'panel-radius': $panel-radius, 'panel-shadow': $panel-shadow, 'panel-heading-background-color': $panel-heading-background-color, 'panel-heading-color': $panel-heading-color, 'panel-heading-line-height': $panel-heading-line-height, 'panel-heading-padding': $panel-heading-padding, 'panel-heading-size': $panel-heading-size, 'panel-heading-weight': $panel-heading-weight, 'panel-tabs-font-size': $panel-tabs-font-size, 'panel-tab-border-bottom': $panel-tab-border-bottom, 'panel-tab-active-border-bottom-color': $panel-tab-active-border-bottom-color, 'panel-tab-active-color': $panel-tab-active-color, 'panel-list-item-color': $panel-list-item-color, 'panel-list-item-hover-color': $panel-list-item-hover-color, 'panel-block-color': $panel-block-color, 'panel-block-hover-background-color': $panel-block-hover-background-color, 'panel-block-active-border-left-color': $panel-block-active-border-left-color, 'panel-block-active-color': $panel-block-active-color, 'panel-block-active-icon-color': $panel-block-active-icon-color, 'panel-icon-color': $panel-icon-color)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars('panel', $_css-vars-map)
 // --panel-font-size: #{$panel-font-size}
 // --panel-margin: #{$panel-margin}
 // --panel-item-border: #{$panel-item-border}
@@ -66,8 +68,8 @@ $css-vars-map: ('panel-font-size': $panel-font-size, 'panel-margin': $panel-marg
     margin-bottom: var(--panel-margin)
   // Colors
   @each $name, $components in $panel-colors
-    $color: nth($components, 1)
-    $color-invert: nth($components, 2)
+    $color: list.nth($components, 1)
+    $color-invert: list.nth($components, 2)
     &.is-#{$name}
       .panel-heading
         background-color: var(--#{$name}, #{$color})
@@ -118,7 +120,7 @@ $css-vars-map: ('panel-font-size': $panel-font-size, 'panel-margin': $panel-marg
   justify-content: flex-start
   padding: 0.5em 0.75em
   input[type="checkbox"]
-    +ltr-property("margin", 0.75em)
+    +utilities.ltr-property("margin", 0.75em)
   & > .control
     flex-grow: 1
     flex-shrink: 1
@@ -141,9 +143,9 @@ label.panel-block
     background-color: var(--panel-block-hover-background-color)
 
 .panel-icon
-  +fa(14px, 1em)
+  +utilities.fa(14px, 1em)
   color: var(--panel-icon-color)
-  +ltr-property("margin", 0.75em)
+  +utilities.ltr-property("margin", 0.75em)
   .fa
     font-size: inherit
     line-height: inherit

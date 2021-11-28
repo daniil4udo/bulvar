@@ -1,11 +1,13 @@
-@import "../utilities/mixins"
+@use "sass:math"
+
+@use "../utilities"
 
 $tile-denominator: 12 !default
 $tile-spacing: 0.75rem !default
 
-$css-vars-map: ('tile-spacing': $tile-spacing)
-+exportCSSVars($css-vars-map)
-+registerComponentCSSVars('tile')
+$_css-vars-map: ('tile-spacing': $tile-spacing)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars('tile', $_css-vars-map)
 // --tile-spacing: #{$tile-spacing}
 
 .tile
@@ -33,10 +35,10 @@ $css-vars-map: ('tile-spacing': $tile-spacing)
     & > .tile.is-child:not(:last-child)
       margin-bottom: 1.5rem !important
   // Responsiveness
-  +tablet
+  +utilities.tablet
     &:not(.is-child)
       display: flex
     @for $i from 1 through $tile-denominator
       &.is-#{$i}
         flex: none
-        width: (divide($i, $tile-denominator)) * 100%
+        width: (math.div($i, $tile-denominator)) * 100%

@@ -1,16 +1,21 @@
-$label-font-size: var(--size-normal, #{$size-normal}) !default
-$label-color: var(--text-strong, #{$text-strong}) !default
-$label-weight: var(--weight-bold, #{$weight-bold}) !default
+@use "sass:list"
 
-$help-size: var(--size-small, #{$size-small}) !default
+@use "shared" as form-shared
+@use "../utilities"
 
-$control-font-size: var(--size-normal, #{$size-normal}) !default
+$label-font-size: var(--size-normal, #{utilities.$size-normal}) !default
+$label-color: var(--text-strong, #{utilities.$text-strong}) !default
+$label-weight: var(--weight-bold, #{utilities.$weight-bold}) !default
 
-$label-colors: $form-colors !default
+$help-size: var(--size-small, #{utilities.$size-small}) !default
 
-$css-vars-map: ('label-font-size': $label-font-size, 'label-color': $label-color, 'label-font-weight': $label-weight)
-+exportCSSVars($css-vars-map)
-+registerComponentCSSVars('label')
+$control-font-size: var(--size-normal, #{utilities.$size-normal}) !default
+
+$label-colors: form-shared.$form-colors !default
+
+$_css-vars-map: ('label-font-size': $label-font-size, 'label-color': $label-color, 'label-font-weight': $label-weight)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars('label', $_css-vars-map)
 // --label-font-size: #{$label-font-size}
 // --label-color: #{$label-color}
 // --label-font-weight: #{$label-weight}
@@ -23,11 +28,11 @@ $css-vars-map: ('label-font-size': $label-font-size, 'label-color': $label-color
   &:not(:last-child)
     margin-bottom: 0.5em
   // Sizes
-  +control-sizes(label-font-size)
+  +utilities.control-sizes(label-font-size)
 
-$css-vars-map: ('help-font-size': $help-size)
-+exportCSSVars($css-vars-map)
-+registerComponentCSSVars('help')
+$_css-vars-map: ('help-font-size': $help-size)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars('help', $_css-vars-map)
 // --help-font-size: #{$help-size}
 
 .help
@@ -35,7 +40,7 @@ $css-vars-map: ('help-font-size': $help-size)
   font-size: var(--help-font-size)
   margin-top: 0.25rem
   @each $name, $pair in $label-colors
-    $color: nth($pair, 1)
+    $color: list.nth($pair, 1)
     &.is-#{$name}
       color: var(--#{$name}, #{$color})
 
@@ -50,7 +55,7 @@ $css-vars-map: ('help-font-size': $help-size)
     justify-content: flex-start
     .control
       &:not(:last-child)
-        +ltr-property("margin", -1px)
+        +utilities.ltr-property("margin", -1px)
       &:not(:first-child):not(:last-child)
         .button,
         .input,
@@ -60,20 +65,20 @@ $css-vars-map: ('help-font-size': $help-size)
         .button,
         .input,
         .select select
-          +ltr
+          +utilities.ltr
             border-bottom-right-radius: 0
             border-top-right-radius: 0
-          +rtl
+          +utilities.rtl
             border-bottom-left-radius: 0
             border-top-left-radius: 0
       &:last-child:not(:only-child)
         .button,
         .input,
         .select select
-          +ltr
+          +utilities.ltr
             border-bottom-left-radius: 0
             border-top-left-radius: 0
-          +rtl
+          +utilities.rtl
             border-bottom-right-radius: 0
             border-top-right-radius: 0
       .button,
@@ -108,7 +113,7 @@ $css-vars-map: ('help-font-size': $help-size)
       flex-shrink: 0
       &:not(:last-child)
         margin-bottom: 0
-        +ltr-property("margin", 0.75rem)
+        +utilities.ltr-property("margin", 0.75rem)
       &.is-expanded
         flex-grow: 1
         flex-shrink: 1
@@ -127,21 +132,21 @@ $css-vars-map: ('help-font-size': $help-size)
       &:not(:last-child)
         margin-bottom: 0
   &.is-horizontal
-    +tablet
+    +utilities.tablet
       display: flex
 
 .field-label
   .label
     font-size: inherit
-  +mobile
+  +utilities.mobile
     margin-bottom: 0.5rem
-  +tablet
+  +utilities.tablet
     flex-basis: 0
     flex-grow: 1
     flex-shrink: 0
-    +ltr-property("margin", 1.5rem)
+    +utilities.ltr-property("margin", 1.5rem)
     text-align: right
-    +control-sizes
+    +utilities.control-sizes
     &.is-small,
     &.is-normal,
     &.is-medium,
@@ -151,7 +156,7 @@ $css-vars-map: ('help-font-size': $help-size)
 .field-body
   .field .field
     margin-bottom: 0
-  +tablet
+  +utilities.tablet
     display: flex
     flex-basis: 0
     flex-grow: 5
@@ -163,11 +168,11 @@ $css-vars-map: ('help-font-size': $help-size)
       &:not(.is-narrow)
         flex-grow: 1
       &:not(:last-child)
-        +ltr-property("margin", 0.75rem)
+        +utilities.ltr-property("margin", 0.75rem)
 
-$css-vars-map: ('control-font-size': $control-font-size)
-+exportCSSVars($css-vars-map)
-+registerComponentCSSVars('control')
+$_css-vars-map: ('control-font-size': $control-font-size)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars('control', $_css-vars-map)
 // --control-font-size: #{$control-font-size}
 
 .control
@@ -183,43 +188,43 @@ $css-vars-map: ('control-font-size': $control-font-size)
     .select
       &:focus
         & ~ .icon
-          color: var(--input-icon-active-color, #{$input-icon-active-color})
+          color: var(--input-icon-active-color, #{form-shared.$input-icon-active-color})
       &.is-small ~ .icon
-        font-size: var(--size-small, #{$size-small})
+        font-size: var(--size-small, #{utilities.$size-small})
       &.is-medium ~ .icon
-        font-size: var(--size-medium, #{$size-medium})
+        font-size: var(--size-medium, #{utilities.$size-medium})
       &.is-large ~ .icon
-        font-size: var(--size-large, #{$size-large})
+        font-size: var(--size-large, #{utilities.$size-large})
     .icon
-      color: var(--input-icon-color, #{$input-icon-color})
-      height: var(--input-height, #{$input-height})
+      color: var(--input-icon-color, #{form-shared.$input-icon-color})
+      height: var(--input-height, #{form-shared.$input-height})
       pointer-events: none
       position: absolute
       top: 0
-      width: var(--input-height, #{$input-height})
+      width: var(--input-height, #{form-shared.$input-height})
       z-index: 4
   &.has-icons-left
     .input,
     .select select
-      padding-left: var(--input-height, #{$input-height})
+      padding-left: var(--input-height, #{form-shared.$input-height})
     .icon.is-left
       left: 0
   &.has-icons-right
     .input,
     .select select
-      padding-right: var(--input-height, #{$input-height})
+      padding-right: var(--input-height, #{form-shared.$input-height})
     .icon.is-right
       right: 0
   &.is-loading
     &::after
       @extend %loader
       position: absolute !important
-      +ltr-position($control-padding-horizontal)
+      +utilities.ltr-position($control-padding-horizontal)
       top: calc(50% - (1em / 2))
       z-index: 4
     &.is-small:after
-      font-size: var(--size-small, #{$size-small})
+      font-size: var(--size-small, #{utilities.$size-small})
     &.is-medium:after
-      font-size: var(--size-medium, #{$size-medium})
+      font-size: var(--size-medium, #{utilities.$size-medium})
     &.is-large:after
-      font-size: var(--size-large, #{$size-large})
+      font-size: var(--size-large, #{utilities.$size-large})

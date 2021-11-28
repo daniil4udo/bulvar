@@ -1,27 +1,27 @@
-@import "../utilities/mixins"
+@use "../utilities"
 
-$title-color: var(--text-strong, #{$text-strong}) !default
+$title-color: var(--text-strong, #{utilities.$text-strong}) !default
 $title-family: false !default
-$title-size: var(--size-3, #{$size-3}) !default
-$title-weight: var(--weight-semibold, #{$weight-semibold}) !default
+$title-size: var(--size-3, #{utilities.$size-3}) !default
+$title-weight: var(--weight-semibold, #{utilities.$weight-semibold}) !default
 $title-line-height: 1.125 !default
 $title-strong-color: inherit !default
 $title-strong-weight: inherit !default
 $title-sub-size: 0.75em !default
 $title-sup-size: 0.75em !default
 
-$subtitle-color: var(--text, #{$text}) !default
+$subtitle-color: var(--text, #{utilities.$text}) !default
 $subtitle-family: false !default
-$subtitle-size: var(--size-5, #{$size-5}) !default
-$subtitle-weight: var(--weight-normal, #{$weight-normal}) !default
+$subtitle-size: var(--size-5, #{utilities.$size-5}) !default
+$subtitle-weight: var(--weight-normal, #{utilities.$weight-normal}) !default
 $subtitle-line-height: 1.25 !default
-$subtitle-strong-color: var(--text-strong, #{$text-strong}) !default
-$subtitle-strong-weight: var(--weight-semibold, #{$weight-semibold}) !default
+$subtitle-strong-color: var(--text-strong, #{utilities.$text-strong}) !default
+$subtitle-strong-weight: var(--weight-semibold, #{utilities.$weight-semibold}) !default
 $subtitle-negative-margin: -1.25rem !default
 
-$css-vars-map: ('title-sub-size': $title-sub-size, 'title-family': $title-family, 'title-sup-size': $title-sup-size, 'title-color': $title-color, 'title-font-size': $title-size, 'title-weight': $title-weight, 'title-line-height': $title-line-height, 'title-strong-color': $title-strong-color, 'title-strong-weight': $title-strong-weight, 'subtitle-color': $subtitle-color, 'subtitle-family': $subtitle-family, 'subtitle-font-size': $subtitle-size, 'subtitle-weight': $subtitle-weight, 'subtitle-line-height': $subtitle-line-height, 'subtitle-strong-color': $subtitle-strong-color, 'subtitle-strong-weight': $subtitle-strong-weight, 'subtitle-negative-margin': $subtitle-negative-margin)
-+exportCSSVars($css-vars-map)
-+registerComponentCSSVars(('title', 'subtitle'))
+$_css-vars-map: ('title-sub-size': $title-sub-size, 'title-family': $title-family, 'title-sup-size': $title-sup-size, 'title-color': $title-color, 'title-font-size': $title-size, 'title-weight': $title-weight, 'title-line-height': $title-line-height, 'title-strong-color': $title-strong-color, 'title-strong-weight': $title-strong-weight, 'subtitle-color': $subtitle-color, 'subtitle-family': $subtitle-family, 'subtitle-font-size': $subtitle-size, 'subtitle-weight': $subtitle-weight, 'subtitle-line-height': $subtitle-line-height, 'subtitle-strong-color': $subtitle-strong-color, 'subtitle-strong-weight': $subtitle-strong-weight, 'subtitle-negative-margin': $subtitle-negative-margin)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars(('title', 'subtitle'), $_css-vars-map)
 // --title-sub-size: #{$title-sub-size}
 // --title-sup-size: #{$title-sup-size}
 // --title-color: #{$title-color}
@@ -67,7 +67,7 @@ $css-vars-map: ('title-sub-size': $title-sub-size, 'title-family': $title-family
   &:not(.is-spaced) + .subtitle
     margin-top: var(--subtitle-negative-margin)
   // Sizes
-  +sizes
+  +utilities.sizes
 
 .subtitle
   color: var(--subtitle-color)
@@ -82,4 +82,4 @@ $css-vars-map: ('title-sub-size': $title-sub-size, 'title-family': $title-family
   &:not(.is-spaced) + .title
     margin-top: var(--subtitle-negative-margin)
   // Sizes
-  +sizes
+  +utilities.sizes

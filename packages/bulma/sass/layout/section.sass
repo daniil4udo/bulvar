@@ -1,13 +1,13 @@
-@import "../utilities/mixins"
+@use "../utilities"
 
 $section-padding: 3rem 1.5rem !default
 $section-padding-desktop: 3rem 3rem !default
 $section-padding-medium: 9rem 4.5rem !default
 $section-padding-large: 18rem 6rem !default
 
-$css-vars-map: ('section-padding': $section-padding, 'section-padding-medium': $section-padding-medium, 'section-padding-large': $section-padding-large)
-+exportCSSVars($css-vars-map)
-+registerComponentCSSVars('section')
+$_css-vars-map: ('section-padding': $section-padding, 'section-padding-medium': $section-padding-medium, 'section-padding-large': $section-padding-large)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars('section', $_css-vars-map)
 // --section-padding: #{$section-padding}
 // --section-padding-medium: #{$section-padding-medium}
 // --section-padding-large: #{$section-padding-large}
@@ -15,7 +15,7 @@ $css-vars-map: ('section-padding': $section-padding, 'section-padding-medium': $
 .section
   padding: var(--section-padding)
   // Responsiveness
-  +desktop
+  +utilities.desktop
     padding: var(--section-padding-desktop, #{$section-padding-desktop})
     // Sizes
     &.is-medium

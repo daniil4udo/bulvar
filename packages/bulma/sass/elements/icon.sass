@@ -1,12 +1,14 @@
+@use "../utilities"
+
 $icon-dimensions: 1.5rem !default
 $icon-dimensions-small: 1rem !default
 $icon-dimensions-medium: 2rem !default
 $icon-dimensions-large: 3rem !default
 $icon-text-spacing: 0.25em !default
 
-$css-vars-map: ('icon-dimensions': $icon-dimensions, 'icon-dimensions-small': $icon-dimensions-small, 'icon-dimensions-medium': $icon-dimensions-medium, 'icon-dimensions-large': $icon-dimensions-large, 'icon-text-spacing': $icon-text-spacing)
-+exportCSSVars($css-vars-map)
-+registerComponentCSSVars('icon')
+$_css-vars-map: ('icon-dimensions': $icon-dimensions, 'icon-dimensions-small': $icon-dimensions-small, 'icon-dimensions-medium': $icon-dimensions-medium, 'icon-dimensions-large': $icon-dimensions-large, 'icon-text-spacing': $icon-text-spacing)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars('icon', $_css-vars-map)
 // --icon-dimensions: #{$icon-dimensions}
 // --icon-dimensions-small: #{$icon-dimensions-small}
 // --icon-dimensions-medium: #{$icon-dimensions-medium}
@@ -38,14 +40,14 @@ $css-vars-map: ('icon-dimensions': $icon-dimensions, 'icon-dimensions-small': $i
     flex-grow: 0
     flex-shrink: 0
     &:not(:last-child)
-      +ltr
+      +utilities.ltr
         margin-right: var(--icon-text-spacing)
-      +rtl
+      +utilities.rtl
         margin-left: var(--icon-text-spacing)
     &:not(:first-child)
-      +ltr
+      +utilities.ltr
         margin-left: var(--icon-text-spacing)
-      +rtl
+      +utilities.rtl
         margin-right: var(--icon-text-spacing)
 
 div.icon-text

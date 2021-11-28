@@ -1,11 +1,10 @@
-@import "../utilities/controls"
-@import "../utilities/mixins"
+@use "../utilities"
 
-$pagination-color: var(--text-strong, #{$text-strong}) !default
-$pagination-border-color: var(--border, #{$border}) !default
+$pagination-color: var(--text-strong, #{utilities.$text-strong}) !default
+$pagination-border-color: var(--border, #{utilities.$border}) !default
 $pagination-margin: -0.25rem !default
-$pagination-min-width: var(--control-height, #{$control-height}) !default
-$pagination-font-size: var(--size-normal, #{$size-normal}) !default
+$pagination-min-width: var(--control-height, #{utilities.$control-height}) !default
+$pagination-font-size: var(--size-normal, #{utilities.$size-normal}) !default
 
 $pagination-item-font-size: 1em !default
 $pagination-item-margin: 0.25rem !default
@@ -15,30 +14,30 @@ $pagination-item-padding-right: 0.5em !default
 $pagination-nav-padding-left: 0.75em !default
 $pagination-nav-padding-right: 0.75em !default
 
-$pagination-hover-color: var(--link-hover, #{$link-hover}) !default
-$pagination-hover-border-color: var(--link-hover-border, #{$link-hover-border}) !default
+$pagination-hover-color: var(--link-hover, #{utilities.$link-hover}) !default
+$pagination-hover-border-color: var(--link-hover-border, #{utilities.$link-hover-border}) !default
 
-$pagination-focus-color: var(--link-focus, #{$link-focus}) !default
-$pagination-focus-border-color: var(--link-focus-border, #{$link-focus-border}) !default
+$pagination-focus-color: var(--link-focus, #{utilities.$link-focus}) !default
+$pagination-focus-border-color: var(--link-focus-border, #{utilities.$link-focus-border}) !default
 
-$pagination-active-color: var(--link-active, #{$link-active}) !default
-$pagination-active-border-color: var(--link-active-border, #{$link-active-border}) !default
+$pagination-active-color: var(--link-active, #{utilities.$link-active}) !default
+$pagination-active-border-color: var(--link-active-border, #{utilities.$link-active-border}) !default
 
-$pagination-disabled-color: var(--text-light, #{$text-light}) !default
-$pagination-disabled-background-color: var(--border, #{$border}) !default
-$pagination-disabled-border-color: var(--border, #{$border}) !default
+$pagination-disabled-color: var(--text-light, #{utilities.$text-light}) !default
+$pagination-disabled-background-color: var(--border, #{utilities.$border}) !default
+$pagination-disabled-border-color: var(--border, #{utilities.$border}) !default
 
-$pagination-current-color: var(--link-invert, #{$link-invert}) !default
-$pagination-current-background-color: var(--link, #{$link}) !default
-$pagination-current-border-color: var(--link, #{$link}) !default
+$pagination-current-color: var(--link-invert, #{utilities.$link-invert}) !default
+$pagination-current-background-color: var(--link, #{utilities.$link}) !default
+$pagination-current-border-color: var(--link, #{utilities.$link}) !default
 
-$pagination-ellipsis-color: var(--grey-light, #{$grey-light}) !default
+$pagination-ellipsis-color: var(--grey-light, #{utilities.$grey-light}) !default
 
-$pagination-shadow-inset: inset 0 1px 2px rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), 0.2) !default
+$pagination-shadow-inset: inset 0 1px 2px rgba(var(--scheme-invert-rgb, #{utilities.bulmaToRGB(utilities.$scheme-invert)}), 0.2) !default
 
-$css-vars-map: ('pagination-color': $pagination-color, 'pagination-border-color': $pagination-border-color, 'pagination-font-size': $pagination-font-size, 'pagination-margin': $pagination-margin, 'pagination-min-width': $pagination-min-width, 'pagination-item-font-size': $pagination-item-font-size, 'pagination-item-margin': $pagination-item-margin, 'pagination-item-padding-left': $pagination-item-padding-left, 'pagination-item-padding-right': $pagination-item-padding-right, 'pagination-nav-padding-left': $pagination-nav-padding-left, 'pagination-nav-padding-right': $pagination-nav-padding-right, 'pagination-hover-color': $pagination-hover-color, 'pagination-hover-border-color': $pagination-hover-border-color, 'pagination-focus-color': $pagination-focus-color, 'pagination-focus-border-color': $pagination-focus-border-color, 'pagination-disabled-color': $pagination-disabled-color, 'pagination-disabled-background-color': $pagination-disabled-background-color, 'pagination-disabled-border-color': $pagination-disabled-border-color, 'pagination-current-color': $pagination-current-color, 'pagination-current-background-color': $pagination-current-background-color, 'pagination-current-border-color': $pagination-current-border-color, 'pagination-ellipsis-color': $pagination-ellipsis-color, 'pagination-shadow-inset': $pagination-shadow-inset)
-+exportCSSVars($css-vars-map)
-+registerComponentCSSVars('pagination')
+$_css-vars-map: ('pagination-color': $pagination-color, 'pagination-border-color': $pagination-border-color, 'pagination-font-size': $pagination-font-size, 'pagination-margin': $pagination-margin, 'pagination-min-width': $pagination-min-width, 'pagination-item-font-size': $pagination-item-font-size, 'pagination-item-margin': $pagination-item-margin, 'pagination-item-padding-left': $pagination-item-padding-left, 'pagination-item-padding-right': $pagination-item-padding-right, 'pagination-nav-padding-left': $pagination-nav-padding-left, 'pagination-nav-padding-right': $pagination-nav-padding-right, 'pagination-hover-color': $pagination-hover-color, 'pagination-hover-border-color': $pagination-hover-border-color, 'pagination-focus-color': $pagination-focus-color, 'pagination-focus-border-color': $pagination-focus-border-color, 'pagination-disabled-color': $pagination-disabled-color, 'pagination-disabled-background-color': $pagination-disabled-background-color, 'pagination-disabled-border-color': $pagination-disabled-border-color, 'pagination-current-color': $pagination-current-color, 'pagination-current-background-color': $pagination-current-background-color, 'pagination-current-border-color': $pagination-current-border-color, 'pagination-ellipsis-color': $pagination-ellipsis-color, 'pagination-shadow-inset': $pagination-shadow-inset)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars('pagination', $_css-vars-map)
 // --pagination-color: #{$pagination-color}
 // --pagination-border-color: #{$pagination-border-color}
 // --pagination-font-size: #{$pagination-font-size}
@@ -68,15 +67,15 @@ $css-vars-map: ('pagination-color': $pagination-color, 'pagination-border-color'
   font-size: var(--pagination-font-size)
   margin: var(--pagination-margin)
   // Sizes
-  +control-sizes(pagination-font-size)
+  +utilities.control-sizes(pagination-font-size)
   &.is-rounded
     .pagination-previous,
     .pagination-next
       padding-left: 1em
       padding-right: 1em
-      border-radius: var(--radius-rounded, #{$radius-rounded})
+      border-radius: var(--radius-rounded, #{utilities.$radius-rounded})
     .pagination-link
-      border-radius: var(--radius-rounded, #{$radius-rounded})
+      border-radius: var(--radius-rounded, #{utilities.$radius-rounded})
 
 .pagination,
 .pagination-list
@@ -140,7 +139,7 @@ $css-vars-map: ('pagination-color': $pagination-color, 'pagination-border-color'
   li
     list-style: none
 
-+mobile
++utilities.mobile
   .pagination
     flex-wrap: wrap
   .pagination-previous,
@@ -152,7 +151,7 @@ $css-vars-map: ('pagination-color': $pagination-color, 'pagination-border-color'
       flex-grow: 1
       flex-shrink: 1
 
-+tablet
++utilities.tablet
   .pagination-list
     flex-grow: 1
     flex-shrink: 1

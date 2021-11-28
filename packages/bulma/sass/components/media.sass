@@ -1,6 +1,6 @@
-@import "../utilities/mixins"
+@use "../utilities"
 
-$media-border-color: rgba(var(--border-rgb, #{bulmaToRGB($grey-lighter)}), 0.5) !default
+$media-border-color: rgba(var(--border-rgb, #{utilities.bulmaToRGB(utilities.$grey-lighter)}), 0.5) !default
 $media-border-size: 1px !default
 $media-spacing: 1rem !default
 $media-spacing-large: 1.5rem !default
@@ -9,9 +9,9 @@ $media-level-1-spacing: 0.75rem !default
 $media-level-1-content-spacing: 0.5rem !default
 $media-level-2-spacing: 0.5rem !default
 
-$css-vars-map: ('media-border-color': $media-border-color, 'media-border-size': $media-border-size, 'media-spacing': $media-spacing, 'media-spacing-large': $media-spacing-large)
-+exportCSSVars($css-vars-map)
-+registerComponentCSSVars('media')
+$_css-vars-map: ('media-border-color': $media-border-color, 'media-border-size': $media-border-size, 'media-spacing': $media-spacing, 'media-spacing-large': $media-spacing-large)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars('media', $_css-vars-map)
 // --media-border-color: #{$media-border-color}
 // --media-border-size: #{$media-border-size}
 // --media-spacing: #{$media-spacing}
@@ -51,10 +51,10 @@ $css-vars-map: ('media-border-color': $media-border-color, 'media-border-size': 
   flex-shrink: 0
 
 .media-left
-  +ltr-property("margin", var(--media-spacing))
+  +utilities.ltr-property("margin", var(--media-spacing))
 
 .media-right
-  +ltr-property("margin", var(--media-spacing), false)
+  +utilities.ltr-property("margin", var(--media-spacing), false)
 
 .media-content
   flex-basis: auto
@@ -62,6 +62,6 @@ $css-vars-map: ('media-border-color': $media-border-color, 'media-border-size': 
   flex-shrink: 1
   text-align: inherit
 
-+mobile
++utilities.mobile
   .media-content
     overflow-x: auto
