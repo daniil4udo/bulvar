@@ -1,13 +1,18 @@
-$sidebar-background: $modal-background-background-color !default;
-$sidebar-shadow-color: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), 0.1) !default;
+@use "sass:list";
+@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
+@use "../../node_modules/@bulvar/bulma/sass/components/navbar" as bulma-navbar;
+@use "../../node_modules/@bulvar/bulma/sass/components/modal" as bulma-modal;
+
+$sidebar-background: bulma-modal.$modal-background-background-color !default;
+$sidebar-shadow-color: rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-utilities.$scheme-invert)}), 0.1) !default;
 $sidebar-box-shadow: 5px 0px 13px 3px $sidebar-shadow-color !default;
 $sidebar-width: 260px !default;
 $sidebar-mobile-width: 80px !default;
-$sidebar-mobile-breakpoint: $tablet !default;
+$sidebar-mobile-breakpoint: bulma-utilities.$tablet !default;
 
-$sidebar-colors: $navbar-colors !default;
+$sidebar-colors: bulma-navbar.$navbar-colors !default;
 
-$css-vars-map: (
+$_css-vars-map: (
     'sidebar-background': $sidebar-background,
     'sidebar-shadow-color': $sidebar-shadow-color,
     'sidebar-box-shadow': $sidebar-box-shadow,
@@ -16,17 +21,17 @@ $css-vars-map: (
     'sidebar-mobile-breakpoint': $sidebar-mobile-breakpoint,
 );
 
-@include exportCSSVars($css-vars-map);
-@include registerComponentCSSVars('b-sidebar');
+@include bulma-utilities.exportCSSVars($_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars('b-sidebar', $_css-vars-map);
 
 .b-sidebar {
     .sidebar-content {
-        background-color: var(--background, #{$background});
+        background-color: var(--background, #{bulma-utilities.$background});
         box-shadow: var(--sidebar-box-shadow);
         width: var(--sidebar-width);
         z-index: 39;
         @each $name, $pair in $sidebar-colors {
-            $color: nth($pair, 1);
+            $color: list.nth($pair, 1);
             &.is-#{$name} {
                 background-color: var(--#{$name}, #{$color});
             }
@@ -54,8 +59,8 @@ $css-vars-map: (
             &.is-mini-expand:hover:not(.is-mini-delayed) {
                 // transition: width $speed-slow $easing;
                 transition-property: width;
-                transition-duration: calc(var(--speed, #{$speed}) * 2);
-                transition-timing-function: var(--easing, #{$easing});
+                transition-duration: calc(var(--speed, #{bulma-utilities.$speed}) * 2);
+                transition-timing-function: var(--easing, #{bulma-utilities.$easing});
                 &:not(.is-fullwidth) {
                     width: var(--sidebar-width);
                     &.is-mini-expand-fixed {
@@ -70,8 +75,8 @@ $css-vars-map: (
         &.is-absolute, &.is-static {
             // transition: width $speed-slow $easing;
             transition-property: width;
-            transition-duration: calc(var(--speed, #{$speed}) * 2);
-            transition-timing-function: var(--easing, #{$easing});
+            transition-duration: calc(var(--speed, #{bulma-utilities.$speed}) * 2);
+            transition-timing-function: var(--easing, #{bulma-utilities.$easing});
         }
         &.is-fullwidth {
             width: 100%;
@@ -110,7 +115,7 @@ $css-vars-map: (
         }
     }
     .sidebar-background {
-        @include overlay;
+        @include bulma-utilities.overlay;
         background: var(--sidebar-background);
         position: fixed;
         z-index: 38;

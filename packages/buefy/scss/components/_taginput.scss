@@ -1,11 +1,14 @@
+@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
+@use "../../node_modules/@bulvar/bulma/sass/form/input-textarea" as bulma-input-textarea;
+
 $taginput-height: calc(2em - 1px) !default;
 
-$css-vars-map: (
+$_css-vars-map: (
     'taginput-height': $taginput-height,
 );
 
-@include exportCSSVars($css-vars-map);
-@include registerComponentCSSVars('taginput');
+@include bulma-utilities.exportCSSVars($_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars('taginput', $_css-vars-map);
 
 .taginput {
     .taginput-container {
@@ -27,7 +30,7 @@ $css-vars-map: (
             flex-wrap: wrap;
             justify-content: flex-start;
             height: auto;
-            @include control-sizes;
+            @include bulma-utilities.control-sizes;
         }
 
         > .tag,

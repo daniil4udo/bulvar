@@ -1,12 +1,14 @@
+@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
+
 $image-placeholder-blur-enabled: true !default;
 $image-placeholder-blur: 10px !default;
 
-$css-vars-map: (
+$_css-vars-map: (
     'image-placeholder-blur': $image-placeholder-blur,
 );
 
-@include exportCSSVars($css-vars-map);
-@include registerComponentCSSVars('b-image-wrapper');
+@include bulma-utilities.exportCSSVars($_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars('b-image-wrapper', $_css-vars-map);
 
 .b-image-wrapper {
     > img {

@@ -1,11 +1,13 @@
-$rate-color: var(--grey-lighter, #{$grey-lighter}) !default;
-$rate-color-active-hsla: bulmaVarDarken(warning, 5%) !default;
-$rate-color-active: var(--rate-color-active-hsla, #{bulmaDarken($warning, 5%)}) !default;
+@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
+
+$rate-color: var(--grey-lighter, #{bulma-utilities.$grey-lighter}) !default;
+$rate-color-active-hsla: bulma-utilities.bulmaVarDarken(warning, 5%) !default;
+$rate-color-active: var(--rate-color-active-hsla, #{bulma-utilities.bulmaDarken(bulma-utilities.$warning, 5%)}) !default;
 $rate-spaced: 0.25rem !default;
 $rate-text-spaced: 0.35rem !default;
-$rate-text-font-size: var(--size-normal, #{$size-normal}) !default;
+$rate-text-font-size: var(--size-normal, #{bulma-utilities.$size-normal}) !default;
 
-$css-vars-map: (
+$_css-vars-map: (
     'rate-color': $rate-color,
     'rate-color-active-hsla': $rate-color-active-hsla,
     'rate-color-active': $rate-color-active,
@@ -14,14 +16,14 @@ $css-vars-map: (
     'rate-text-font-size': $rate-text-font-size,
 );
 
-@include exportCSSVars($css-vars-map);
-@include registerComponentCSSVars('rate');
+@include bulma-utilities.exportCSSVars($_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars('rate', $_css-vars-map);
 
 .rate {
     align-items: center;
     display: flex;
     &:not(:last-child) {
-        margin-bottom: calc(#{var(--block-spacing, #{$block-spacing})} * 0.5);
+        margin-bottom: calc(#{var(--block-spacing, #{bulma-utilities.$block-spacing})} * 0.5);
     }
     &.is-spaced .rate-item:not(:last-child) {
         margin-right: var(--rate-spaced);
@@ -73,6 +75,6 @@ $css-vars-map: (
     .rate-text {
         font-size: calc(#{var(--rate-text-font-size)} / 1.25);
         margin-left: var(--rate-text-spaced);
-        @include control-sizes(rate-text-font-size);
+        @include bulma-utilities.control-sizes(rate-text-font-size);
     }
 }

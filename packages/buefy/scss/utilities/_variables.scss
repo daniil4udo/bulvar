@@ -1,13 +1,16 @@
+@use "../../node_modules/@bulvar/bulma/sass/utilities/functions" as fn;
+@use "../../node_modules/@bulvar/bulma/sass/utilities/initial-variables" as *;
+
 $primary       : hsl(256, 60%, 59%) !default;
-$primary-invert: findColorInvert($primary) !default;
-$primary-light : findLightColor($primary) !default;
-$primary-dark  : findDarkColor($primary) !default;
+$primary-invert: fn.findColorInvert($primary) !default;
+$primary-light : fn.findLightColor($primary) !default;
+$primary-dark  : fn.findDarkColor($primary) !default;
 
 $info       : hsl(212, 88%, 51%) !default;
-$info-invert: findColorInvert($info) !default;
+$info-invert: fn.findColorInvert($info) !default;
 
 $link             : var(--primary, #{$primary}) !default;
-$link-rgb         : bulmaToRGB($blue) !default;
+$link-rgb         : fn.bulmaToRGB($blue) !default;
 $link-invert      : var(--primary-invert, #{$primary-invert}) !default;
 $link-visited     : $grey !default;
 $link-focus-border: var(--primary, #{$primary}) !default;

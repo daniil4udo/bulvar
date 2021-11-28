@@ -1,3 +1,5 @@
+@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
+
 .select {
     select {
         // TODO Remove below when the following problem will be fixed from Bulma or Safari:
@@ -7,16 +9,16 @@
 
         padding-right: 2.5em;
         option {
-            color: var(--grey-dark, #{$grey-dark});
-            padding: var(--control-padding-vertical, #{$control-padding-vertical}) var(--control-padding-horizontal, #{$control-padding-horizontal});
+            color: var(--grey-dark, #{bulma-utilities.$grey-dark});
+            padding: var(--control-padding-vertical, #{bulma-utilities.$control-padding-vertical}) var(--control-padding-horizontal, #{bulma-utilities.$control-padding-horizontal});
         }
         option:disabled {
             cursor: not-allowed;
             opacity: 0.5;
         }
         optgroup {
-            color: var(--grey-lighter, #{$grey-lighter});
-            font-weight: var(--weight-normal, #{$weight-normal});
+            color: var(--grey-lighter, #{bulma-utilities.$grey-lighter});
+            font-weight: var(--weight-normal, #{bulma-utilities.$weight-normal});
             font-style: normal;
             padding: 0.25em 0;
         }
@@ -28,7 +30,7 @@
         }
     }
     &.is-empty select {
-        color: rgba($grey, 0.7);
+        color: rgba(bulma-utilities.$grey, 0.7);
     }
     // fix Bulma 0.8.2
     &.is-loading::after {

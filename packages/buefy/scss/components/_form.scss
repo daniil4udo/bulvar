@@ -1,13 +1,16 @@
-$floating-in-height: 3.25em !default;
-$field-label-font-size: var(--size-normal, #{$size-normal}) !default;
+@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
+@use "../../node_modules/@bulvar/bulma/sass/form/shared" as bulma-form;
 
-$css-vars-map: (
+$floating-in-height: 3.25em !default;
+$field-label-font-size: var(--size-normal, #{bulma-utilities.$size-normal}) !default;
+
+$_css-vars-map: (
     'floating-in-height': $floating-in-height,
     'field-label-font-size': $field-label-font-size,
 );
 
-@include exportCSSVars($css-vars-map);
-@include registerComponentCSSVars('field');
+@include bulma-utilities.exportCSSVars($_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars('field', $_css-vars-map);
 
 .field {
     &.is-grouped {
@@ -28,16 +31,16 @@ $css-vars-map: (
             .button,
             .input,
             .select select {
-                border-bottom-left-radius: var(--input-radius, #{$input-radius});
-                border-top-left-radius: var(--input-radius, #{$input-radius});
+                border-bottom-left-radius: var(--input-radius, #{bulma-form.$input-radius});
+                border-top-left-radius: var(--input-radius, #{bulma-form.$input-radius});
             }
         }
         &:last-child .control {
             .button,
             .input,
             .select select {
-                border-bottom-right-radius: var(--input-radius, #{$input-radius});
-                border-top-right-radius: var(--input-radius, #{$input-radius});
+                border-bottom-right-radius: var(--input-radius, #{bulma-form.$input-radius});
+                border-top-right-radius: var(--input-radius, #{bulma-form.$input-radius});
             }
         }
         .control {
@@ -96,7 +99,7 @@ $css-vars-map: (
             max-width: calc(100% - 2em);
             overflow: hidden;
 
-            @include control-sizes(field-label-font-size);
+            @include bulma-utilities.control-sizes(field-label-font-size);
         }
         .taginput .counter {
             float: none;
@@ -109,8 +112,8 @@ $css-vars-map: (
                     .button,
                     .input,
                     .select select {
-                        border-bottom-left-radius: var(--input-radius, #{$input-radius});
-                        border-top-left-radius: var(--input-radius, #{$input-radius});
+                        border-bottom-left-radius: var(--input-radius, #{bulma-form.$input-radius});
+                        border-top-left-radius: var(--input-radius, #{bulma-form.$input-radius});
                     }
                 }
             }
@@ -130,7 +133,7 @@ $css-vars-map: (
                 left: 0;
                 right: 0;
                 height: 0.375em;
-                background-color: var(--input-background-color, #{$input-background-color});
+                background-color: var(--input-background-color, #{bulma-form.$input-background-color});
                 z-index: -1;
             }
         }
@@ -150,7 +153,7 @@ $css-vars-map: (
         }
     }
     &.is-floating-in-label {
-        --field-floating-indent: #{calc(#{var(--floating-in-height)} * 0.5 - (#{var(--size-large, #{$size-large})} * 0.75) * 0.5)};
+        --field-floating-indent: #{calc(#{var(--floating-in-height)} * 0.5 - (#{var(--size-large, #{bulma-utilities.$size-large})} * 0.75) * 0.5)};
         
         > .label {
             top: 0.25em;
@@ -238,41 +241,41 @@ $css-vars-map: (
     &.is-floating-label, &.is-floating-in-label {
         &.has-numberinput {
             .label {
-                margin-left: calc(#{var(--size-normal, #{$size-normal})} * 3);
+                margin-left: calc(#{var(--size-normal, #{bulma-utilities.$size-normal})} * 3);
             }
             &.has-numberinput-is-small {
                 .label {
-                    margin-left: calc(#{var(--size-small, #{$size-small})} * 3);
+                    margin-left: calc(#{var(--size-small, #{bulma-utilities.$size-small})} * 3);
                 }
             }
             &.has-numberinput-is-medium {
                 .label {
-                    margin-left: calc(#{var(--size-medium, #{$size-medium})} * 3);
+                    margin-left: calc(#{var(--size-medium, #{bulma-utilities.$size-medium})} * 3);
                 }
             }
             &.has-numberinput-is-large {
                 .label {
-                    margin-left: calc(#{var(--size-large, #{$size-large})} * 3);
+                    margin-left: calc(#{var(--size-large, #{bulma-utilities.$size-large})} * 3);
                 }
             }
         }
         &.has-numberinput-compact {
             .label {
-                margin-left: calc(#{var(--size-normal, #{$size-normal})} * 2.25);
+                margin-left: calc(#{var(--size-normal, #{bulma-utilities.$size-normal})} * 2.25);
             }
             &.has-numberinput-is-small {
                 .label {
-                    margin-left: calc(#{var(--size-small, #{$size-small})} * 2.25);
+                    margin-left: calc(#{var(--size-small, #{bulma-utilities.$size-small})} * 2.25);
                 }
             }
             &.has-numberinput-is-medium {
                 .label {
-                    margin-left: calc(#{var(--size-medium, #{$size-medium})} * 2.25);
+                    margin-left: calc(#{var(--size-medium, #{bulma-utilities.$size-medium})} * 2.25);
                 }
             }
             &.has-numberinput-is-large {
                 .label {
-                    margin-left: calc(#{var(--size-large, #{$size-large})} * 2.25);
+                    margin-left: calc(#{var(--size-large, #{bulma-utilities.$size-large})} * 2.25);
                 }
             }
         }

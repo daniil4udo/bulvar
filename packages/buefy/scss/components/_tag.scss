@@ -1,3 +1,9 @@
+@use "sass:list";
+@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
+@use "../../node_modules/@bulvar/bulma/sass/elements/tag" as bulma-tag;
+
+$tag-colors: bulma-tag.$tag-colors !default;
+
 .tag {
     .has-ellipsis {
         max-width: 10em;
@@ -7,12 +13,10 @@
     }
     .delete, &.is-delete, &.has-delete-icon {
         @each $name, $pair in $tag-colors {
-            $color: nth($pair, 1);
+            $color: list.nth($pair, 1);
             &.is-#{$name} {
-                --tag-delete-background-color: #{bulmaVarDarken($name, 10%)};
                 background: var(--#{$name}, #{$color});
                 &:hover {
-                    background-color: var(--tag-delete-background-color, #{bulmaDarken($color, 10%)});
                     text-decoration: none;
                 }
             }

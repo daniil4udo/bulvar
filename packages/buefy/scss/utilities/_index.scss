@@ -1,7 +1,7 @@
 /* Buefy Utilities */
 @charset "utf-8";
 
-@import "functions";
-@import "variables";
-@import "helpers";
-@import "animations";
+@forward "functions";
+@forward "variables";
+@forward "helpers";
+@forward "animations";

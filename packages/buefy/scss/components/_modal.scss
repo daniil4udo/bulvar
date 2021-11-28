@@ -1,11 +1,13 @@
-$modal-background-color: var(--background, #{$background}) !default;
+@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
 
-$css-vars-map: (
+$modal-background-color: var(--background, #{bulma-utilities.$background}) !default;
+
+$_css-vars-map: (
     'modal-background-color': $modal-background-color,
 );
 
-@include exportCSSVars($css-vars-map);
-@include registerComponentCSSVars('modal');
+@include bulma-utilities.exportCSSVars($_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars('modal', $_css-vars-map);
 
 .modal {
     &.is-full-screen {
@@ -23,7 +25,7 @@ $css-vars-map: (
         .modal-card {
             margin: 0;
         }
-        @include mobile {
+        @include bulma-utilities.mobile {
             width: 100%;
         }
     }

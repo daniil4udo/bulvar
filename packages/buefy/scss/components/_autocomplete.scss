@@ -1,11 +1,14 @@
+@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
+@use "../../node_modules/@bulvar/bulma/sass/components/dropdown" as bulma-dropdown;
+
 $dropdown-content-max-height: 200px !default;
 
-$css-vars-map: (
+$_css-vars-map: (
     'dropdown-content-max-height': $dropdown-content-max-height
 );
 
-@include exportCSSVars($css-vars-map);
-@include registerComponentCSSVars('autocomplete');
+@include bulma-utilities.exportCSSVars($_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars('autocomplete', $_css-vars-map);
 
 .autocomplete {
     position: relative;
@@ -26,13 +29,13 @@ $css-vars-map: (
         overflow: hidden;
         text-overflow: ellipsis;
         &.is-hovered {
-            background: var(--dropdown-item-hover-background-color, #{$dropdown-item-hover-background-color});
-            color: var(--dropdown-item-hover-color, #{$dropdown-item-hover-color});
+            background: var(--dropdown-item-hover-background-color, #{bulma-dropdown.$dropdown-item-hover-background-color});
+            color: var(--dropdown-item-hover-color, #{bulma-dropdown.$dropdown-item-hover-color});
         }
         &.is-disabled {
             opacity: 0.5;
             cursor: not-allowed;
         }
     }
-    @include control-sizes;
+    @include bulma-utilities.control-sizes;
 }

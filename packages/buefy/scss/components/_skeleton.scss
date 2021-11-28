@@ -1,13 +1,15 @@
+@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
 
-$skeleton-color: $grey-lighter !default;
+
+$skeleton-color: bulma-utilities.$grey-lighter !default;
 $skeleton-background: linear-gradient(90deg, $skeleton-color 25%, rgba($skeleton-color, 0.5) 50%, $skeleton-color 75%) !default; // RBGA?!?!
-$skeleton-border-radius: var(--radius, #{$radius}) !default;
+$skeleton-border-radius: var(--radius, #{bulma-utilities.$radius}) !default;
 $skeleton-duration: 1.5s !default;
 $skeleton-margin-top: .5rem !default;
 
-$skeleton-line-height-size: var(--size-normal, #{$size-normal}) !default;
+$skeleton-line-height-size: var(--size-normal, #{bulma-utilities.$size-normal}) !default;
 
-$css-vars-map: (
+$_css-vars-map: (
     'skeleton-background': $skeleton-background,
     'skeleton-border-radius': $skeleton-border-radius,
     'skeleton-duration': $skeleton-duration,
@@ -15,8 +17,8 @@ $css-vars-map: (
     'skeleton-line-height-size': $skeleton-line-height-size,
 );
 
-@include exportCSSVars($css-vars-map);
-@include registerComponentCSSVars('b-skeleton');
+@include bulma-utilities.exportCSSVars($_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars('b-skeleton', $_css-vars-map);
 
 .b-skeleton {
     display: inline-flex;
@@ -54,7 +56,7 @@ $css-vars-map: (
     > .b-skeleton-item {
         line-height: var(--skeleton-line-height-size);
     }
-    @include control-sizes(skeleton-line-height-size);
+    @include bulma-utilities.control-sizes(skeleton-line-height-size);
 }
 
 @keyframes skeleton-loading {
