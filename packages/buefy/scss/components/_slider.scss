@@ -1,24 +1,25 @@
 @use "sass:list";
 
 @use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/utilities/derived-variables" as bulma-vars;
 @use "bulma/sass/form/shared" as bulma-form;
 
-$slider-radius: var(--radius, #{bulma-utilities.$radius}) !default;
-$slider-size: var(--size-normal, #{bulma-utilities.$size-normal}) !default;
-$slider-track-background: var(--grey-lighter, #{bulma-utilities.$grey-lighter}) !default;
-$slider-track-radius: var(--radius, #{bulma-utilities.$radius}) !default;
-$slider-track-color: var(--grey, #{bulma-utilities.$grey}) !default;
+$slider-radius: var(--radius, #{bulma-vars.$radius}) !default;
+$slider-size: var(--size-normal, #{bulma-vars.$size-normal}) !default;
+$slider-track-background: var(--grey-lighter, #{bulma-vars.$grey-lighter}) !default;
+$slider-track-radius: var(--radius, #{bulma-vars.$radius}) !default;
+$slider-track-color: var(--grey, #{bulma-vars.$grey}) !default;
 $slider-track-border: 0px solid $slider-track-color !default;
 $slider-track-shadow: 0px 0px 0px $slider-track-color !default;
-$slider-thumb-background: var(--scheme-main, #{bulma-utilities.$scheme-main}) !default;
-$slider-thumb-radius: var(--radius, #{bulma-utilities.$radius}) !default;
-$slider-thumb-color: var(--grey-light, #{bulma-utilities.$grey-light}) !default;
+$slider-thumb-background: var(--scheme-main, #{bulma-vars.$scheme-main}) !default;
+$slider-thumb-radius: var(--radius, #{bulma-vars.$radius}) !default;
+$slider-thumb-color: var(--grey-light, #{bulma-vars.$grey-light}) !default;
 $slider-thumb-border: 1px solid $slider-thumb-color !default;
 $slider-thumb-shadow: none !default;
 $slider-thumb-to-track-ratio: 2 !default;
 $slider-tick-to-track-ratio: 0.5 !default;
 $slider-tick-width: 3px !default;
-$slider-tick-radius: var(--radius, #{bulma-utilities.$radius}) !default;
+$slider-tick-radius: var(--radius, #{bulma-vars.$radius}) !default;
 $slider-tick-background: $slider-thumb-color !default;
 $slider-mark-size: 0.75rem !default;
 
@@ -144,7 +145,7 @@ $_css-vars-map: (
 
     &.is-rounded {
         .b-slider-thumb {
-            border-radius: var(--radius-rounded, #{bulma-utilities.$radius-rounded});
+            border-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
         }
     }
     &.is-disabled {

@@ -1,12 +1,13 @@
 @use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/utilities/derived-variables" as bulma-vars;
 
-$skeleton-color: bulma-utilities.$grey-lighter !default;
+$skeleton-color: bulma-vars.$grey-lighter !default;
 $skeleton-background: linear-gradient(90deg, $skeleton-color 25%, rgba($skeleton-color, 0.5) 50%, $skeleton-color 75%) !default; // RBGA?!?!
-$skeleton-border-radius: var(--radius, #{bulma-utilities.$radius}) !default;
+$skeleton-border-radius: var(--radius, #{bulma-vars.$radius}) !default;
 $skeleton-duration: 1.5s !default;
 $skeleton-margin-top: .5rem !default;
 
-$skeleton-line-height-size: var(--size-normal, #{bulma-utilities.$size-normal}) !default;
+$skeleton-line-height-size: var(--size-normal, #{bulma-vars.$size-normal}) !default;
 
 $_css-vars-map: (
     'skeleton-background': $skeleton-background,

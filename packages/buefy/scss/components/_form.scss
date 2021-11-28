@@ -1,8 +1,9 @@
 @use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/utilities/derived-variables" as bulma-vars;
 @use "bulma/sass/form/shared" as bulma-form;
 
 $floating-in-height: 3.25em !default;
-$field-label-font-size: var(--size-normal, #{bulma-utilities.$size-normal}) !default;
+$field-label-font-size: var(--size-normal, #{bulma-vars.$size-normal}) !default;
 
 $_css-vars-map: (
     'floating-in-height': $floating-in-height,
@@ -153,7 +154,7 @@ $_css-vars-map: (
         }
     }
     &.is-floating-in-label {
-        --field-floating-indent: #{calc(#{var(--floating-in-height)} * 0.5 - (#{var(--size-large, #{bulma-utilities.$size-large})} * 0.75) * 0.5)};
+        --field-floating-indent: #{calc(#{var(--floating-in-height)} * 0.5 - (#{var(--size-large, #{bulma-vars.$size-large})} * 0.75) * 0.5)};
         
         > .label {
             top: 0.25em;
@@ -241,41 +242,41 @@ $_css-vars-map: (
     &.is-floating-label, &.is-floating-in-label {
         &.has-numberinput {
             .label {
-                margin-left: calc(#{var(--size-normal, #{bulma-utilities.$size-normal})} * 3);
+                margin-left: calc(#{var(--size-normal, #{bulma-vars.$size-normal})} * 3);
             }
             &.has-numberinput-is-small {
                 .label {
-                    margin-left: calc(#{var(--size-small, #{bulma-utilities.$size-small})} * 3);
+                    margin-left: calc(#{var(--size-small, #{bulma-vars.$size-small})} * 3);
                 }
             }
             &.has-numberinput-is-medium {
                 .label {
-                    margin-left: calc(#{var(--size-medium, #{bulma-utilities.$size-medium})} * 3);
+                    margin-left: calc(#{var(--size-medium, #{bulma-vars.$size-medium})} * 3);
                 }
             }
             &.has-numberinput-is-large {
                 .label {
-                    margin-left: calc(#{var(--size-large, #{bulma-utilities.$size-large})} * 3);
+                    margin-left: calc(#{var(--size-large, #{bulma-vars.$size-large})} * 3);
                 }
             }
         }
         &.has-numberinput-compact {
             .label {
-                margin-left: calc(#{var(--size-normal, #{bulma-utilities.$size-normal})} * 2.25);
+                margin-left: calc(#{var(--size-normal, #{bulma-vars.$size-normal})} * 2.25);
             }
             &.has-numberinput-is-small {
                 .label {
-                    margin-left: calc(#{var(--size-small, #{bulma-utilities.$size-small})} * 2.25);
+                    margin-left: calc(#{var(--size-small, #{bulma-vars.$size-small})} * 2.25);
                 }
             }
             &.has-numberinput-is-medium {
                 .label {
-                    margin-left: calc(#{var(--size-medium, #{bulma-utilities.$size-medium})} * 2.25);
+                    margin-left: calc(#{var(--size-medium, #{bulma-vars.$size-medium})} * 2.25);
                 }
             }
             &.has-numberinput-is-large {
                 .label {
-                    margin-left: calc(#{var(--size-large, #{bulma-utilities.$size-large})} * 2.25);
+                    margin-left: calc(#{var(--size-large, #{bulma-vars.$size-large})} * 2.25);
                 }
             }
         }

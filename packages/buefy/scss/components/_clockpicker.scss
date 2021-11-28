@@ -1,9 +1,9 @@
 @use "sass:list";
 
 @use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/utilities/derived-variables" as bulma-vars;
 @use "bulma/sass/components/card" as bulma-card;
 @use "bulma/sass/form/shared" as bulma-form;
-@use "../utilities/variables";
 
 $clockpicker-card-radius: var(--card-radius, #{bulma-card.$card-radius});
 $clockpicker-colors: bulma-form.$form-colors !default;
@@ -32,20 +32,20 @@ $_css-vars-map: (
     $padding-inner: 5px;
 
     .card-header {
-        background-color: var(--primary, #{variables.$primary});
-        color: var(--primary-invert, #{variables.$primary-invert});
+        background-color: var(--primary, #{bulma-vars.$primary});
+        color: var(--primary-invert, #{bulma-vars.$primary-invert});
     }
     .b-clockpicker-face {
         &:after {
-            background-color: var(--primary, #{variables.$primary});
+            background-color: var(--primary, #{bulma-vars.$primary});
         }
         &-hand {
-            background-color: var(--primary, #{variables.$primary});
-            border-color: var(--primary, #{variables.$primary});
+            background-color: var(--primary, #{bulma-vars.$primary});
+            border-color: var(--primary, #{bulma-vars.$primary});
         }
         &-number.active {
-            background-color: var(--primary, #{variables.$primary});
-            color: var(--primary-invert, #{variables.$primary-invert});
+            background-color: var(--primary, #{bulma-vars.$primary});
+            color: var(--primary-invert, #{bulma-vars.$primary-invert});
         }
     }
 
@@ -167,11 +167,11 @@ $_css-vars-map: (
 
         .b-clockpicker-btn {
             padding: 0 8px;
-            border-radius: var(--radius-rounded, #{bulma-utilities.$radius-rounded});
+            border-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
             margin-bottom: 2px;
             &:hover,
             &.active {
-                background-color: var(--primary, #{variables.$primary});
+                background-color: var(--primary, #{bulma-vars.$primary});
                 color: white;
             }
         }
@@ -194,7 +194,7 @@ $_css-vars-map: (
             // Outer border circle of clock
             border-radius: 50%;
             position: relative;
-            background-color: var(--grey-lighter, #{bulma-utilities.$grey-lighter});
+            background-color: var(--grey-lighter, #{bulma-vars.$grey-lighter});
             width: 100%;
             height: 100%;
             align-items: center;

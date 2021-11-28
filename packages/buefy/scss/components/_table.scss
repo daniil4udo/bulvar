@@ -1,8 +1,8 @@
 @use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/utilities/derived-variables" as bulma-vars;
 @use "bulma/sass/elements/table" as bulma-table;
 @use "bulma/sass/form/shared" as bulma-form;
 @use "../utilities/functions";
-@use "../utilities/variables";
 
 $table-sticky-header-height: 300px !default;
 
@@ -41,7 +41,7 @@ $_css-vars-map: (
     }
     tr {
         // Card style — Cannot extend inside media query
-        box-shadow: 0 2px 3px rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-utilities.$scheme-invert)}), 0.1), 0 0 0 1px rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-utilities.$scheme-invert)}), 0.1);
+        box-shadow: 0 2px 3px rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.1), 0 0 0 1px rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.1);
         max-width: 100%;
         position: relative;
         display: block;
@@ -72,10 +72,10 @@ $_css-vars-map: (
             width: auto;
             justify-content: space-between;
             text-align: right;
-            border-bottom: 1px solid var(--background, #{bulma-utilities.$background});
+            border-bottom: 1px solid var(--background, #{bulma-vars.$background});
             &:before {
                 content: attr(data-label);
-                font-weight: var(--weight-semibold, #{bulma-utilities.$weight-semibold});
+                font-weight: var(--weight-semibold, #{bulma-vars.$weight-semibold});
                 padding-right: 0.5em;
                 text-align: left;
             }
@@ -98,8 +98,8 @@ $_css-vars-map: (
 .b-table {
     // transition: opacity $speed $easing;
     transition-property: transform, opacity;
-    transition-duration: calc(var(--speed, #{bulma-utilities.$speed}) * 2), var(--speed, #{bulma-utilities.$speed});
-    transition-timing-function: var(--easing, #{bulma-utilities.$easing}), var(--easing, #{bulma-utilities.$easing});
+    transition-duration: calc(var(--speed, #{bulma-vars.$speed}) * 2), var(--speed, #{bulma-vars.$speed});
+    transition-timing-function: var(--easing, #{bulma-vars.$easing}), var(--easing, #{bulma-vars.$easing});
 
     .table-mobile-sort {
         @include bulma-utilities.tablet {
@@ -110,8 +110,8 @@ $_css-vars-map: (
     .icon {
         // transition: transform $speed-slow $easing, opacity $speed $easing;
         transition-property: transform, opacity;
-        transition-duration: calc(var(--speed, #{bulma-utilities.$speed}) * 2), var(--speed, #{bulma-utilities.$speed});
-        transition-timing-function: var(--easing, #{bulma-utilities.$easing}), var(--easing, #{bulma-utilities.$easing});
+        transition-duration: calc(var(--speed, #{bulma-vars.$speed}) * 2), var(--speed, #{bulma-vars.$speed});
+        transition-timing-function: var(--easing, #{bulma-vars.$easing}), var(--easing, #{bulma-vars.$easing});
         &.is-desc {
             transform: rotate(180deg);
         }
@@ -127,10 +127,10 @@ $_css-vars-map: (
     .table {
         width: 100%;
         border: 1px solid transparent;
-        border-radius: var(--radius, #{bulma-utilities.$radius});
+        border-radius: var(--radius, #{bulma-vars.$radius});
         border-collapse: separate;
         th {
-            font-weight: var(--weight-semibold, #{bulma-utilities.$weight-semibold});
+            font-weight: var(--weight-semibold, #{bulma-vars.$weight-semibold});
             .th-wrap {
                 display: flex;
                 align-items: center;
@@ -153,11 +153,11 @@ $_css-vars-map: (
                 }
             }
             &.is-current-sort {
-                border-color: var(--grey, #{bulma-utilities.$grey});
-                font-weight: var(--weight-bold, #{bulma-utilities.$weight-bold});
+                border-color: var(--grey, #{bulma-vars.$grey});
+                font-weight: var(--weight-bold, #{bulma-vars.$weight-bold});
             }
             &.is-sortable:hover {
-                border-color: var(--grey, #{bulma-utilities.$grey});
+                border-color: var(--grey, #{bulma-vars.$grey});
             }
             &.is-sortable,
             &.is-sortable .th-wrap {
@@ -215,24 +215,24 @@ $_css-vars-map: (
             }
         }
         tr.detail {
-            box-shadow: inset 0 1px 3px var(--grey-lighter, #{bulma-utilities.$grey-lighter});
-            background: var(--scheme-main-bis, #{bulma-utilities.$scheme-main-bis});
+            box-shadow: inset 0 1px 3px var(--grey-lighter, #{bulma-vars.$grey-lighter});
+            background: var(--scheme-main-bis, #{bulma-vars.$scheme-main-bis});
             .detail-container {
                 padding: 1rem;
             }
         }
         &:focus {
             --focus-box-shadow-color: #{bulma-utilities.bulmaVarOpacity(link, 0.25)};
-            border-color: var(--link, #{variables.$link});
-            box-shadow: 0 0 0 0.125em var(--focus-box-shadow-color, #{bulma-utilities.bulmaRgba(variables.$link, 0.25)});
+            border-color: var(--link, #{bulma-vars.$link});
+            box-shadow: 0 0 0 0.125em var(--focus-box-shadow-color, #{bulma-utilities.bulmaRgba(bulma-vars.$link, 0.25)});
         }
 
         // Modifiers
         &.is-bordered {
             th.is-current-sort,
             th.is-sortable:hover {
-                border-color: var(--grey-lighter, #{bulma-utilities.$grey-lighter});
-                background: var(--background, #{bulma-utilities.$background});
+                border-color: var(--grey-lighter, #{bulma-vars.$grey-lighter});
+                background: var(--background, #{bulma-vars.$background});
             }
         }
 

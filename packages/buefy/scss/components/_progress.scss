@@ -1,10 +1,11 @@
 @use "sass:list";
 
 @use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/utilities/derived-variables" as bulma-vars;
 @use "bulma/sass/elements/progress" as bulma-progress;
 
-$progress-value-color: var(--scheme-main, #{bulma-utilities.$scheme-main}) !default;
-$progress-value-size: var(--size-normal, #{bulma-utilities.$size-normal}) !default;
+$progress-value-color: var(--scheme-main, #{bulma-vars.$scheme-main}) !default;
+$progress-value-size: var(--size-normal, #{bulma-vars.$size-normal}) !default;
 
 $progress-colors: bulma-progress.$progress-colors !default;
 
@@ -31,7 +32,7 @@ $_css-vars-map: (
         transform: translateX(-50%);
         font-size: calc(var(--progress-value-size) / 1.5);
         line-height: var(--progress-value-size);
-        font-weight: var(--weight-bold, #{bulma-utilities.$weight-bold});
+        font-weight: var(--weight-bold, #{bulma-vars.$weight-bold});
         color: var(--progress-value-color);
         white-space: nowrap;
     }

@@ -1,9 +1,9 @@
 @use "sass:list";
 
 @use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/utilities/derived-variables" as bulma-vars;
 @use "bulma/sass/form/shared" as bulma-form;
 @use "bulma/sass/base/generic" as bulma-generic;
-@use "../utilities/variables";
 
 /*
 This project is based on
@@ -12,20 +12,20 @@ Wikiki (https://github.com/Wikiki) licensed under
 MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 */
 
-$steps-size: var(--size-normal, #{bulma-utilities.$size-normal}) !default;
+$steps-size: var(--size-normal, #{bulma-vars.$size-normal}) !default;
 $steps-height: auto !default;
 $steps-background-color: var(--body-background-color, #{bulma-generic.$body-background-color}) !default;
 $steps-items-focused-outline: none !default;
 $steps-details-background-color: var(--body-background-color, #{bulma-generic.$body-background-color}) !default;
-$steps-maker-default-color: var(--grey-light, #{bulma-utilities.$grey-light}) !default;
-$steps-maker-color: var(--scheme-main, #{bulma-utilities.$scheme-main}) !default;
+$steps-maker-default-color: var(--grey-light, #{bulma-vars.$grey-light}) !default;
+$steps-maker-color: var(--scheme-main, #{bulma-vars.$scheme-main}) !default;
 $steps-marker-default-border: .2em solid #fff !default;
-$steps-default-color: var(--grey-lighter, #{bulma-utilities.$grey-lighter}) !default;
-$steps-previous-color: var(--primary, #{variables.$primary}) !default;
-$steps-active-color: var(--primary, #{variables.$primary}) !default;
+$steps-default-color: var(--grey-lighter, #{bulma-vars.$grey-lighter}) !default;
+$steps-previous-color: var(--primary, #{bulma-vars.$primary}) !default;
+$steps-active-color: var(--primary, #{bulma-vars.$primary}) !default;
 $steps-divider-height: .2em !default;
 $steps-vertical-padding: 1em 0 !default;
-$steps-mobile-max-width: bulma-utilities.$tablet !default;
+$steps-mobile-max-width: bulma-vars.$tablet !default;
 
 $steps-colors: bulma-form.$form-colors !default;
 
@@ -76,7 +76,7 @@ $_css-vars-map: (
 
                     .step-title {
                         font-size: calc(#{var(--steps-size)} * 1.2);
-                        font-weight: var(--weight-semibold, #{bulma-utilities.$weight-semibold});
+                        font-weight: var(--weight-semibold, #{bulma-vars.$weight-semibold});
                         line-height: var(--steps-size);
                     }
                 }
@@ -187,8 +187,8 @@ $_css-vars-map: (
                 .step-marker {
                     align-items: center;
                     display: flex;
-                    border-radius: var(--radius, #{bulma-utilities.$radius});
-                    font-weight: var(--weight-bold, #{bulma-utilities.$weight-bold});
+                    border-radius: var(--radius, #{bulma-vars.$radius});
+                    font-weight: var(--weight-bold, #{bulma-vars.$weight-bold});
                     justify-content: center;
                     background: var(--steps-maker-default-color);
                     color: var(--steps-maker-color);
@@ -329,7 +329,7 @@ $_css-vars-map: (
         &.is-rounded {
             .step-item {
                 .step-marker {
-                    border-radius: var(--radius-rounded, #{bulma-utilities.$radius-rounded});
+                    border-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
                 }
             }
         }
@@ -340,8 +340,8 @@ $_css-vars-map: (
                     &::before {
                         // transition: background $speed-slow $easing;
                         transition-property: background;
-                        transition-duration: calc(#{var(--speed, #{bulma-utilities.$speed})} * 2);
-                        transition-timing-function: var(--easing, #{bulma-utilities.$easing});
+                        transition-duration: calc(#{var(--speed, #{bulma-vars.$speed})} * 2);
+                        transition-timing-function: var(--easing, #{bulma-vars.$easing});
                     }
                 }
             }

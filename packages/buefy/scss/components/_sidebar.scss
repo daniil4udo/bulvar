@@ -1,15 +1,16 @@
 @use "sass:list";
 
 @use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/utilities/derived-variables" as bulma-vars;
 @use "bulma/sass/components/navbar" as bulma-navbar;
 @use "bulma/sass/components/modal" as bulma-modal;
 
 $sidebar-background: bulma-modal.$modal-background-background-color !default;
-$sidebar-shadow-color: rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-utilities.$scheme-invert)}), 0.1) !default;
+$sidebar-shadow-color: rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.1) !default;
 $sidebar-box-shadow: 5px 0px 13px 3px $sidebar-shadow-color !default;
 $sidebar-width: 260px !default;
 $sidebar-mobile-width: 80px !default;
-$sidebar-mobile-breakpoint: bulma-utilities.$tablet !default;
+$sidebar-mobile-breakpoint: bulma-vars.$tablet !default;
 
 $sidebar-colors: bulma-navbar.$navbar-colors !default;
 
@@ -27,7 +28,7 @@ $_css-vars-map: (
 
 .b-sidebar {
     .sidebar-content {
-        background-color: var(--background, #{bulma-utilities.$background});
+        background-color: var(--background, #{bulma-vars.$background});
         box-shadow: var(--sidebar-box-shadow);
         width: var(--sidebar-width);
         z-index: 39;
@@ -60,8 +61,8 @@ $_css-vars-map: (
             &.is-mini-expand:hover:not(.is-mini-delayed) {
                 // transition: width $speed-slow $easing;
                 transition-property: width;
-                transition-duration: calc(var(--speed, #{bulma-utilities.$speed}) * 2);
-                transition-timing-function: var(--easing, #{bulma-utilities.$easing});
+                transition-duration: calc(var(--speed, #{bulma-vars.$speed}) * 2);
+                transition-timing-function: var(--easing, #{bulma-vars.$easing});
                 &:not(.is-fullwidth) {
                     width: var(--sidebar-width);
                     &.is-mini-expand-fixed {
@@ -76,8 +77,8 @@ $_css-vars-map: (
         &.is-absolute, &.is-static {
             // transition: width $speed-slow $easing;
             transition-property: width;
-            transition-duration: calc(var(--speed, #{bulma-utilities.$speed}) * 2);
-            transition-timing-function: var(--easing, #{bulma-utilities.$easing});
+            transition-duration: calc(var(--speed, #{bulma-vars.$speed}) * 2);
+            transition-timing-function: var(--easing, #{bulma-vars.$easing});
         }
         &.is-fullwidth {
             width: 100%;

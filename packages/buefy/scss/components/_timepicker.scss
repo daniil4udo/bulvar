@@ -1,4 +1,6 @@
 @use "bulma/sass/utilities" as bulma-utilities;
+@use "bulma/sass/utilities/derived-variables" as bulma-vars;
+@use "bulma/sass/utilities/controls" as bulma-controls;
 @use "bulma/sass/form/shared" as bulma-form;
 
 .timepicker {
@@ -40,12 +42,12 @@
                 margin: 0 0.125em;
 
                 select {
-                    font-weight: var(--weight-semibold, #{bulma-utilities.$weight-semibold});
-                    padding-right: var(--control-padding-horizontal, #{bulma-utilities.$control-padding-horizontal});
+                    font-weight: var(--weight-semibold, #{bulma-vars.$weight-semibold});
+                    padding-right: var(--control-padding-horizontal, #{bulma-controls.$control-padding-horizontal});
                     border: 0;
                     option {
                         &:disabled {
-                            color: bulma-utilities.bulmaRgba(bulma-utilities.$grey, 0.7);
+                            color: bulma-utilities.bulmaRgba(bulma-vars.$grey, 0.7);
                         }
                     }
                 }
@@ -58,7 +60,7 @@
                 line-height: 1.7em;
 
                 &:last-child {
-                    padding-right: var(--control-padding-horizontal, #{bulma-utilities.$control-padding-horizontal});
+                    padding-right: var(--control-padding-horizontal, #{bulma-controls.$control-padding-horizontal});
                 }
             }
         }
