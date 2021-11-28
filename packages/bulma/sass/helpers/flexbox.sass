@@ -37,5 +37,5 @@ $flex-operators: grow, shrink !default
 $flex-gap-values: 0, .25rem, .5rem, .75rem, 1rem, 1.5rem, 3rem !default
 @each $value in $flex-gap-values
   $i: index($flex-gap-values, $value)
-  .is-flex-gap-#{$i}
+  .is-gap-#{$i}
     gap: $value !important
