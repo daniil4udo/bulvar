@@ -3,6 +3,7 @@
 @use "../utilities"
 
 $column-gap: 0.75rem !default
+$column-map: ('full': 100%, 'three-quarters': math.div(100% * 3, 4), 'two-thirds': math.div(100% * 2, 3), 'half': math.div(100%, 2), 'one-third': math.div(100%, 3), 'one-quarter': math.div(100%, 4), 'one-fifth': math.div(100%, 5), 'two-fifths': math.div(100% * 2, 5), 'three-fifths': math.div(100% * 3, 5), 'four-fifths': math.div(100% * 4, 5))
 
 .column
   display: block
@@ -12,55 +13,14 @@ $column-gap: 0.75rem !default
   padding: $column-gap
   .columns.is-mobile > &.is-narrow
     flex: none
-    width: unset
-  .columns.is-mobile > &.is-full
-    flex: none
-    width: 100%
-  .columns.is-mobile > &.is-three-quarters
-    flex: none
-    width: 75%
-  .columns.is-mobile > &.is-two-thirds
-    flex: none
-    width: 66.6666%
-  .columns.is-mobile > &.is-half
-    flex: none
-    width: 50%
-  .columns.is-mobile > &.is-one-third
-    flex: none
-    width: 33.3333%
-  .columns.is-mobile > &.is-one-quarter
-    flex: none
-    width: 25%
-  .columns.is-mobile > &.is-one-fifth
-    flex: none
-    width: 20%
-  .columns.is-mobile > &.is-two-fifths
-    flex: none
-    width: 40%
-  .columns.is-mobile > &.is-three-fifths
-    flex: none
-    width: 60%
-  .columns.is-mobile > &.is-four-fifths
-    flex: none
-    width: 80%
-  .columns.is-mobile > &.is-offset-three-quarters
-    +utilities.ltr-property("margin", 75%, false)
-  .columns.is-mobile > &.is-offset-two-thirds
-    +utilities.ltr-property("margin", 66.6666%, false)
-  .columns.is-mobile > &.is-offset-half
-    +utilities.ltr-property("margin", 50%, false)
-  .columns.is-mobile > &.is-offset-one-third
-    +utilities.ltr-property("margin", 33.3333%, false)
-  .columns.is-mobile > &.is-offset-one-quarter
-    +utilities.ltr-property("margin", 25%, false)
-  .columns.is-mobile > &.is-offset-one-fifth
-    +utilities.ltr-property("margin", 20%, false)
-  .columns.is-mobile > &.is-offset-two-fifths
-    +utilities.ltr-property("margin", 40%, false)
-  .columns.is-mobile > &.is-offset-three-fifths
-    +utilities.ltr-property("margin", 60%, false)
-  .columns.is-mobile > &.is-offset-four-fifths
-    +utilities.ltr-property("margin", 80%, false)
+    width: unset    
+  @each $name, $value in $column-map
+    .columns.is-mobile > &.is-#{$name}
+      flex: none
+      width: $value
+  @each $name, $value in $column-map
+    .columns.is-mobile > &.is-offset-#{$name}
+      +utilities.ltr-property("margin", #{$value}, false)
   @for $i from 0 through 12
     .columns.is-mobile > &.is-#{$i}
       flex: none
@@ -71,54 +31,13 @@ $column-gap: 0.75rem !default
     &.is-narrow-mobile
       flex: none
       width: unset
-    &.is-full-mobile
-      flex: none
-      width: 100%
-    &.is-three-quarters-mobile
-      flex: none
-      width: 75%
-    &.is-two-thirds-mobile
-      flex: none
-      width: 66.6666%
-    &.is-half-mobile
-      flex: none
-      width: 50%
-    &.is-one-third-mobile
-      flex: none
-      width: 33.3333%
-    &.is-one-quarter-mobile
-      flex: none
-      width: 25%
-    &.is-one-fifth-mobile
-      flex: none
-      width: 20%
-    &.is-two-fifths-mobile
-      flex: none
-      width: 40%
-    &.is-three-fifths-mobile
-      flex: none
-      width: 60%
-    &.is-four-fifths-mobile
-      flex: none
-      width: 80%
-    &.is-offset-three-quarters-mobile
-      +utilities.ltr-property("margin", 75%, false)
-    &.is-offset-two-thirds-mobile
-      +utilities.ltr-property("margin", 66.6666%, false)
-    &.is-offset-half-mobile
-      +utilities.ltr-property("margin", 50%, false)
-    &.is-offset-one-third-mobile
-      +utilities.ltr-property("margin", 33.3333%, false)
-    &.is-offset-one-quarter-mobile
-      +utilities.ltr-property("margin", 25%, false)
-    &.is-offset-one-fifth-mobile
-      +utilities.ltr-property("margin", 20%, false)
-    &.is-offset-two-fifths-mobile
-      +utilities.ltr-property("margin", 40%, false)
-    &.is-offset-three-fifths-mobile
-      +utilities.ltr-property("margin", 60%, false)
-    &.is-offset-four-fifths-mobile
-      +utilities.ltr-property("margin", 80%, false)
+    @each $name, $value in $column-map
+      &.is-#{$name}-mobile
+        flex: none
+        width: $value
+    @each $name, $value in $column-map
+      &.is-offset-#{$name}-mobile
+        +utilities.ltr-property("margin", #{$value}, false)
     @for $i from 0 through 12
       &.is-#{$i}-mobile
         flex: none
@@ -130,73 +49,16 @@ $column-gap: 0.75rem !default
     &.is-narrow-tablet
       flex: none
       width: unset
-    &.is-full,
-    &.is-full-tablet
-      flex: none
-      width: 100%
-    &.is-three-quarters,
-    &.is-three-quarters-tablet
-      flex: none
-      width: 75%
-    &.is-two-thirds,
-    &.is-two-thirds-tablet
-      flex: none
-      width: 66.6666%
-    &.is-half,
-    &.is-half-tablet
-      flex: none
-      width: 50%
-    &.is-one-third,
-    &.is-one-third-tablet
-      flex: none
-      width: 33.3333%
-    &.is-one-quarter,
-    &.is-one-quarter-tablet
-      flex: none
-      width: 25%
-    &.is-one-fifth,
-    &.is-one-fifth-tablet
-      flex: none
-      width: 20%
-    &.is-two-fifths,
-    &.is-two-fifths-tablet
-      flex: none
-      width: 40%
-    &.is-three-fifths,
-    &.is-three-fifths-tablet
-      flex: none
-      width: 60%
-    &.is-four-fifths,
-    &.is-four-fifths-tablet
-      flex: none
-      width: 80%
-    &.is-offset-three-quarters,
-    &.is-offset-three-quarters-tablet
-      +utilities.ltr-property("margin", 75%, false)
-    &.is-offset-two-thirds,
-    &.is-offset-two-thirds-tablet
-      +utilities.ltr-property("margin", 66.6666%, false)
-    &.is-offset-half,
-    &.is-offset-half-tablet
-      +utilities.ltr-property("margin", 50%, false)
-    &.is-offset-one-third,
-    &.is-offset-one-third-tablet
-      +utilities.ltr-property("margin", 33.3333%, false)
-    &.is-offset-one-quarter,
-    &.is-offset-one-quarter-tablet
-      +utilities.ltr-property("margin", 25%, false)
-    &.is-offset-one-fifth,
-    &.is-offset-one-fifth-tablet
-      +utilities.ltr-property("margin", 20%, false)
-    &.is-offset-two-fifths,
-    &.is-offset-two-fifths-tablet
-      +utilities.ltr-property("margin", 40%, false)
-    &.is-offset-three-fifths,
-    &.is-offset-three-fifths-tablet
-      +utilities.ltr-property("margin", 60%, false)
-    &.is-offset-four-fifths,
-    &.is-offset-four-fifths-tablet
-      +utilities.ltr-property("margin", 80%, false)
+    @each $name, $value in $column-map
+      &.is-#{$name},
+      &.is-#{$name}-tablet
+        flex: none
+        width: $value
+
+    @each $name, $value in $column-map
+      &.is-offset-#{$name},
+      &.is-offset-#{$name}-tablet
+        +utilities.ltr-property("margin", #{$value}, false)
     @for $i from 0 through 12
       &.is-#{$i},
       &.is-#{$i}-tablet
@@ -209,54 +71,14 @@ $column-gap: 0.75rem !default
     &.is-narrow-touch
       flex: none
       width: unset
-    &.is-full-touch
-      flex: none
-      width: 100%
-    &.is-three-quarters-touch
-      flex: none
-      width: 75%
-    &.is-two-thirds-touch
-      flex: none
-      width: 66.6666%
-    &.is-half-touch
-      flex: none
-      width: 50%
-    &.is-one-third-touch
-      flex: none
-      width: 33.3333%
-    &.is-one-quarter-touch
-      flex: none
-      width: 25%
-    &.is-one-fifth-touch
-      flex: none
-      width: 20%
-    &.is-two-fifths-touch
-      flex: none
-      width: 40%
-    &.is-three-fifths-touch
-      flex: none
-      width: 60%
-    &.is-four-fifths-touch
-      flex: none
-      width: 80%
-    &.is-offset-three-quarters-touch
-      +utilities.ltr-property("margin", 75%, false)
-    &.is-offset-two-thirds-touch
-      +utilities.ltr-property("margin", 66.6666%, false)
-    &.is-offset-half-touch
-      +utilities.ltr-property("margin", 50%, false)
-    &.is-offset-one-third-touch
-      +utilities.ltr-property("margin", 33.3333%, false)
-    &.is-offset-one-quarter-touch
-      +utilities.ltr-property("margin", 25%, false)
-    &.is-offset-one-fifth-touch
-      +utilities.ltr-property("margin", 20%, false)
-    &.is-offset-two-fifths-touch
-      +utilities.ltr-property("margin", 40%, false)
-    &.is-offset-three-fifths-touch
-      +utilities.ltr-property("margin", 60%, false)
-    &.is-offset-four-fifths-touch
-      +utilities.ltr-property("margin", 80%, false)
+    @each $name, $value in $column-map
+      &.is-#{$name}-touch
+        flex: none
+        width: $value
+
+    @each $name, $value in $column-map
+      &.is-offset-#{$name}-touch
+        +utilities.ltr-property("margin", #{$value}, false)
     @for $i from 0 through 12
       &.is-#{$i}-touch
         flex: none
@@ -267,54 +89,14 @@ $column-gap: 0.75rem !default
     &.is-narrow-desktop
       flex: none
       width: unset
-    &.is-full-desktop
-      flex: none
-      width: 100%
-    &.is-three-quarters-desktop
-      flex: none
-      width: 75%
-    &.is-two-thirds-desktop
-      flex: none
-      width: 66.6666%
-    &.is-half-desktop
-      flex: none
-      width: 50%
-    &.is-one-third-desktop
-      flex: none
-      width: 33.3333%
-    &.is-one-quarter-desktop
-      flex: none
-      width: 25%
-    &.is-one-fifth-desktop
-      flex: none
-      width: 20%
-    &.is-two-fifths-desktop
-      flex: none
-      width: 40%
-    &.is-three-fifths-desktop
-      flex: none
-      width: 60%
-    &.is-four-fifths-desktop
-      flex: none
-      width: 80%
-    &.is-offset-three-quarters-desktop
-      +utilities.ltr-property("margin", 75%, false)
-    &.is-offset-two-thirds-desktop
-      +utilities.ltr-property("margin", 66.6666%, false)
-    &.is-offset-half-desktop
-      +utilities.ltr-property("margin", 50%, false)
-    &.is-offset-one-third-desktop
-      +utilities.ltr-property("margin", 33.3333%, false)
-    &.is-offset-one-quarter-desktop
-      +utilities.ltr-property("margin", 25%, false)
-    &.is-offset-one-fifth-desktop
-      +utilities.ltr-property("margin", 20%, false)
-    &.is-offset-two-fifths-desktop
-      +utilities.ltr-property("margin", 40%, false)
-    &.is-offset-three-fifths-desktop
-      +utilities.ltr-property("margin", 60%, false)
-    &.is-offset-four-fifths-desktop
-      +utilities.ltr-property("margin", 80%, false)
+    @each $name, $value in $column-map
+      &.is-#{$name}-desktop
+        flex: none
+        width: $value
+
+    @each $name, $value in $column-map
+      &.is-offset-#{$name}-desktop
+        +utilities.ltr-property("margin", #{$value}, false)
     @for $i from 0 through 12
       &.is-#{$i}-desktop
         flex: none
@@ -325,54 +107,14 @@ $column-gap: 0.75rem !default
     &.is-narrow-widescreen
       flex: none
       width: unset
-    &.is-full-widescreen
-      flex: none
-      width: 100%
-    &.is-three-quarters-widescreen
-      flex: none
-      width: 75%
-    &.is-two-thirds-widescreen
-      flex: none
-      width: 66.6666%
-    &.is-half-widescreen
-      flex: none
-      width: 50%
-    &.is-one-third-widescreen
-      flex: none
-      width: 33.3333%
-    &.is-one-quarter-widescreen
-      flex: none
-      width: 25%
-    &.is-one-fifth-widescreen
-      flex: none
-      width: 20%
-    &.is-two-fifths-widescreen
-      flex: none
-      width: 40%
-    &.is-three-fifths-widescreen
-      flex: none
-      width: 60%
-    &.is-four-fifths-widescreen
-      flex: none
-      width: 80%
-    &.is-offset-three-quarters-widescreen
-      +utilities.ltr-property("margin", 75%, false)
-    &.is-offset-two-thirds-widescreen
-      +utilities.ltr-property("margin", 66.6666%, false)
-    &.is-offset-half-widescreen
-      +utilities.ltr-property("margin", 50%, false)
-    &.is-offset-one-third-widescreen
-      +utilities.ltr-property("margin", 33.3333%, false)
-    &.is-offset-one-quarter-widescreen
-      +utilities.ltr-property("margin", 25%, false)
-    &.is-offset-one-fifth-widescreen
-      +utilities.ltr-property("margin", 20%, false)
-    &.is-offset-two-fifths-widescreen
-      +utilities.ltr-property("margin", 40%, false)
-    &.is-offset-three-fifths-widescreen
-      +utilities.ltr-property("margin", 60%, false)
-    &.is-offset-four-fifths-widescreen
-      +utilities.ltr-property("margin", 80%, false)
+    @each $name, $value in $column-map
+      &.is-#{$name}-widescreen
+        flex: none
+        width: $value
+
+    @each $name, $value in $column-map
+      &.is-offset-#{$name}-widescreen
+        +utilities.ltr-property("margin", #{$value}, false)
     @for $i from 0 through 12
       &.is-#{$i}-widescreen
         flex: none
@@ -383,54 +125,14 @@ $column-gap: 0.75rem !default
     &.is-narrow-fullhd
       flex: none
       width: unset
-    &.is-full-fullhd
-      flex: none
-      width: 100%
-    &.is-three-quarters-fullhd
-      flex: none
-      width: 75%
-    &.is-two-thirds-fullhd
-      flex: none
-      width: 66.6666%
-    &.is-half-fullhd
-      flex: none
-      width: 50%
-    &.is-one-third-fullhd
-      flex: none
-      width: 33.3333%
-    &.is-one-quarter-fullhd
-      flex: none
-      width: 25%
-    &.is-one-fifth-fullhd
-      flex: none
-      width: 20%
-    &.is-two-fifths-fullhd
-      flex: none
-      width: 40%
-    &.is-three-fifths-fullhd
-      flex: none
-      width: 60%
-    &.is-four-fifths-fullhd
-      flex: none
-      width: 80%
-    &.is-offset-three-quarters-fullhd
-      +utilities.ltr-property("margin", 75%, false)
-    &.is-offset-two-thirds-fullhd
-      +utilities.ltr-property("margin", 66.6666%, false)
-    &.is-offset-half-fullhd
-      +utilities.ltr-property("margin", 50%, false)
-    &.is-offset-one-third-fullhd
-      +utilities.ltr-property("margin", 33.3333%, false)
-    &.is-offset-one-quarter-fullhd
-      +utilities.ltr-property("margin", 25%, false)
-    &.is-offset-one-fifth-fullhd
-      +utilities.ltr-property("margin", 20%, false)
-    &.is-offset-two-fifths-fullhd
-      +utilities.ltr-property("margin", 40%, false)
-    &.is-offset-three-fifths-fullhd
-      +utilities.ltr-property("margin", 60%, false)
-    &.is-offset-four-fifths-fullhd
-      +utilities.ltr-property("margin", 80%, false)
+    @each $name, $value in $column-map
+      &.is-#{$name}-fullhd
+        flex: none
+        width: $value
+
+    @each $name, $value in $column-map
+      &.is-offset-#{$name}-fullhd
+        +utilities.ltr-property("margin", $value, false)
     @for $i from 0 through 12
       &.is-#{$i}-fullhd
         flex: none
