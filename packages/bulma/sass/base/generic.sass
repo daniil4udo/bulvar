@@ -109,13 +109,19 @@ body
 // Inline
 
 a
-  color: var(--link)
+  color: var(--link, #{$link})
   cursor: pointer
   text-decoration: none
   strong
     color: currentColor
   &:hover
-    color: var(--link-hover)
+    color: var(--link-hover, #{$link-hover})
+  &:visited
+    color: var(--link-visited, #{$link-visited})
+  &:active
+    color: var(--link-active, #{$link-active})
+  &:focus
+    color: var(--link-focus, #{$link-focus})
 
 code
   background-color: var(--code-background)
