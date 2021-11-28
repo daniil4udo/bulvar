@@ -5,9 +5,6 @@
 @use "sass:meta"
 @use "sass:string"
 
-// @use "initial-variables" as *
-// @use "derived-variables" as *
-
 @function mergeColorMaps($bulma-colors, $custom-colors)
   // We return at least Bulma's hard-coded colors
   $merged-colors: $bulma-colors
@@ -61,16 +58,11 @@
 
   @return $merged-colors
 
-@function powerNumber($number, $exp)
-  $value: 1
-  @if $exp > 0
-    @for $i from 1 through $exp
-      $value: $value * $number
-  @else if $exp < 0
-    @for $i from 1 through -$exp
-      $value: math.div($value, $number)
-  @return $value
-
+/// Returns the luminance of `$color` as a float (between 0 and 1)
+/// 1 is pure white, 0 is pure black
+/// @param {Color} $color - Color
+/// @return {Number}
+/// @link http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef Reference
 @function colorLuminance($color)
   @if meta.type-of($color) != 'color'
     @return 0.55
@@ -81,10 +73,11 @@
       $value: math.div($value, 12.92)
     @else
       $value: math.div(($value + .055), 1.055)
-      $value: powerNumber($value, 2)
+      $value: math.pow($value, 2)
     $color-rgb: map.merge($color-rgb, ($name: $value))
   @return (map.get($color-rgb, 'red') * .2126) + (map.get($color-rgb, 'green') * .7152) + (map.get($color-rgb, 'blue') * .0722)
 
+/// Invert color calculation
 @function calculateInvertColor($color)
   @return if(colorLuminance($color) > 0.55, rgba(#000, 0.7), #fff)
 
@@ -95,6 +88,7 @@
     @return calculateInvertColor($fallback)
   @return $color
 
+/// Light color calculation
 @function calculateLightColor($color, $l: 96%)
   @if color.lightness($color) > 96%
     $l: color.lightness($color)
@@ -107,6 +101,7 @@
     @return calculateLightColor($fallback)
   @return $color
 
+/// Dark color calculation
 @function calculateDarkColor($color, $base-l: 29%)
   $luminance: colorLuminance($color)
   $luminance-delta: (0.53 - $luminance)
@@ -139,7 +134,9 @@
 // Additional @funtion for bulvar
 //
 
-/// Convert string to came case
+/// Camelize string
+/// @param [string] $string
+/// @return [string]
 @function camel-case($str)
   $camelCase: ''
   $prevCharWasDash: false
