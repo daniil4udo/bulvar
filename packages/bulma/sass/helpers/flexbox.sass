@@ -1,35 +1,41 @@
-$flex-direction-values: row, row-reverse, column, column-reverse
+$flex-direction-values: row, row-reverse, column, column-reverse !default
 @each $value in $flex-direction-values
   .is-flex-direction-#{$value}
     flex-direction: $value !important
 
-$flex-wrap-values: nowrap, wrap, wrap-reverse
+$flex-wrap-values: nowrap, wrap, wrap-reverse !default
 @each $value in $flex-wrap-values
   .is-flex-wrap-#{$value}
     flex-wrap: $value !important
 
-$justify-content-values: flex-start, flex-end, center, space-between, space-around, space-evenly, start, end, left, right
+$justify-content-values: flex-start, flex-end, center, space-between, space-around, space-evenly, start, end, left, right !default
 @each $value in $justify-content-values
   .is-justify-content-#{$value}
     justify-content: $value !important
 
-$align-content-values: flex-start, flex-end, center, space-between, space-around, space-evenly, stretch, start, end, baseline
+$align-content-values: flex-start, flex-end, center, space-between, space-around, space-evenly, stretch, start, end, baseline !default
 @each $value in $align-content-values
   .is-align-content-#{$value}
     align-content: $value !important
 
-$align-items-values: stretch, flex-start, flex-end, center, baseline, start, end, self-start, self-end
+$align-items-values: stretch, flex-start, flex-end, center, baseline, start, end, self-start, self-end !default
 @each $value in $align-items-values
   .is-align-items-#{$value}
     align-items: $value !important
 
-$align-self-values: auto, flex-start, flex-end, center, baseline, stretch
+$align-self-values: auto, flex-start, flex-end, center, baseline, stretch !default
 @each $value in $align-self-values
   .is-align-self-#{$value}
     align-self: $value !important
 
-$flex-operators: grow, shrink
+$flex-operators: grow, shrink !default
 @each $operator in $flex-operators
   @for $i from 0 through 5
     .is-flex-#{$operator}-#{$i}
       flex-#{$operator}: $i !important
+
+$flex-gap-values: 0, .25rem, .5rem, .75rem, 1rem, 1.5rem, 3rem !default
+@each $value in $flex-gap-values
+  $i: index($flex-gap-values, $value)
+  .is-gap-#{$i}
+    gap: $value !important
