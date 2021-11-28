@@ -214,8 +214,8 @@ $css-vars-map: ('control-font-size': $control-font-size)
     &::after
       @extend %loader
       position: absolute !important
-      +ltr-position(0.625em)
-      top: 0.625em
+      +ltr-position($control-padding-horizontal)
+      top: calc(50% - (1em / 2))
       z-index: 4
     &.is-small:after
       font-size: var(--size-small, #{$size-small})
