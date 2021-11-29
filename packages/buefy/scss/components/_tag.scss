@@ -3,8 +3,6 @@
 @use "bulma/sass/utilities" as bulma-utilities;
 @use "bulma/sass/elements/tag" as bulma-tag;
 
-$tag-colors: bulma-tag.$tag-colors !default;
-
 .tag {
     .has-ellipsis {
         max-width: 10em;
@@ -13,7 +11,7 @@ $tag-colors: bulma-tag.$tag-colors !default;
         text-overflow: ellipsis;
     }
     .delete, &.is-delete, &.has-delete-icon {
-        @each $name, $pair in $tag-colors {
+        @each $name, $pair in bulma-tag.$tag-colors {
             $color: list.nth($pair, 1);
             &.is-#{$name} {
                 background: var(--#{$name}, #{$color});

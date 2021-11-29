@@ -7,8 +7,6 @@
 $progress-value-color: var(--scheme-main, #{bulma-vars.$scheme-main}) !default;
 $progress-value-size: var(--size-normal, #{bulma-vars.$size-normal}) !default;
 
-$progress-colors: bulma-progress.$progress-colors !default;
-
 $_css-vars-map: (
     'progress-value-color': $progress-value-color,
     'progress-value-size': $progress-value-size,
@@ -51,7 +49,7 @@ $_css-vars-map: (
                 color: var(--progress-value-color);
             }
 
-            @each $name, $pair in $progress-colors {
+            @each $name, $pair in bulma-progress.$progress-colors {
                 $color: list.nth($pair, 1);
                 $color-invert: list.nth($pair, 2);
                 &.is-#{$name} {
@@ -84,7 +82,7 @@ $_css-vars-map: (
                 color: var(--progress-value-color);
             }
 
-            @each $name, $pair in $progress-colors {
+            @each $name, $pair in bulma-progress.$progress-colors {
                 $color: list.nth($pair, 1);
                 $color-invert: list.nth($pair, 2);
                 &.is-#{$name} {

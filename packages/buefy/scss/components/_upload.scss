@@ -4,8 +4,6 @@
 @use "bulma/sass/utilities/derived-variables" as bulma-vars;
 @use "bulma/sass/form/file" as bulma-file;
 
-$file-colors: bulma-file.$file-colors !default;
-
 .upload {
     position: relative;
     display: inline-flex;
@@ -44,7 +42,7 @@ $file-colors: bulma-file.$file-colors !default;
         }
         &:hover,
         &.is-hovered {
-            @each $name, $pair in $file-colors {
+            @each $name, $pair in bulma-file.$file-colors {
                 $color: list.nth($pair, 1);
                 &.is-#{$name} {
                     --hover-background-color: #{bulma-utilities.bulmaVarOpacity($name, 0.05)};
