@@ -40,6 +40,23 @@ Currently Includes :
 -   [Buefy](https://buefy.org) (SCSS only) as `@bulvar/buefy`
 -   [Bulma Extentions](https://bulma.io/extensions/) (find list of extentions in the @bulvar/bulma-extentions README) as `@bulvar/bulma-extentions`
 
+## OPTIMIZATION TIPS
+
+If you wan to save some space you could overwrite helper lists with empty lists during the import like:
+
+```sass
+@use "path/to/bulma" with (
+  $flex-direction-values: (),
+  $flex-wrap-values: (),
+  $justify-content-values: (),
+  $align-content-values: (),
+  $align-items-values: (),
+  $align-self-values: (),
+  $flex-operators:  (),
+  $flex-gap-values: (),
+)
+```
+
 ## VERSIONING
 
 Version will follow **v0.Y.Z**, where:
