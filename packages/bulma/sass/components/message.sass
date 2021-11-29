@@ -64,24 +64,8 @@ $_css-vars-map: ('message-background-color': $message-background-color, 'message
   @each $name, $components in $message-colors
     $color: list.nth($components, 1)
     $color-invert: list.nth($components, 2)
-    $color-light: null
-    $color-dark: null
-
-    @if list.length($components) >= 3
-      $color-light: list.nth($components, 3)
-      @if list.length($components) >= 4
-        $color-dark: list.nth($components, 4)
-      @else
-        $color-luminance: utilities.colorLuminance($color)
-        $darken-percentage: $color-luminance * 70%
-        $desaturate-percentage: $color-luminance * 30%
-        $color-dark: color.adjust(color.adjust($color, $lightness: -$darken-percentage), $saturation: -$desaturate-percentage)
-    @else
-      @if meta.type-of($color) == 'color'
-        $color-lightning: math.max((100% - color.lightness($color)) - 2%, 0%)
-        $color-light: color.adjust($color, $lightness: $color-lightning)
-      @else
-        $color-light: $color
+    $color-light: if(list.length($components) >= 3, list.nth($components, 3), utilities.findLightColor($color))
+    $color-dark: if(list.length($components) >= 4, list.nth($components, 4), utilities.findDarkColor($color))
 
     &.is-#{$name}
       --message-background-color: var(--#{$name}-light, #{$color-light})
