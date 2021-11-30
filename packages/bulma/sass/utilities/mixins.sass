@@ -3,9 +3,7 @@
 @use "sass:meta"
 
 @use "derived-variables" as vars
-
 @use "functions" as fn
-@use "controls" as ctrl
 
 =clearfix
   &::after
@@ -296,28 +294,6 @@
 //
 // Additional @mixins for bulvar
 //
-
-=control-sizes($variable-name: null, $has-normal: false)
-  @if $variable-name
-    &.is-small 
-      --#{$variable-name}: var(--size-small, #{vars.$size-small})
-    @if $has-normal
-      &.is-normal 
-        --#{$variable-name}: var(--size-normal, #{vars.$size-normal})
-    &.is-medium 
-      --#{$variable-name}: var(--size-medium, #{vars.$size-medium})
-    &.is-large 
-      --#{$variable-name}: var(--size-large, #{vars.$size-large})
-  @else
-    &.is-small
-      +ctrl.control-small
-    @if $has-normal
-      &.is-normal
-        +ctrl.control-normal
-    &.is-medium
-      +ctrl.control-medium
-    &.is-large
-      +ctrl.control-large
 
 =sizes($target:'')
   @each $size in vars.$sizes

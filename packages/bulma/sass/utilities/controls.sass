@@ -51,3 +51,25 @@ $control-padding-horizontal: calc(0.75em - #{$control-border-width}) !default
 
 =control-large
   font-size: var(--size-large, #{vars.$size-large})
+
+=control-sizes($variable-name: null, $has-normal: false)
+  @if $variable-name
+    &.is-small 
+      --#{$variable-name}: var(--size-small, #{vars.$size-small})
+    @if $has-normal
+      &.is-normal 
+        --#{$variable-name}: var(--size-normal, #{vars.$size-normal})
+    &.is-medium 
+      --#{$variable-name}: var(--size-medium, #{vars.$size-medium})
+    &.is-large 
+      --#{$variable-name}: var(--size-large, #{vars.$size-large})
+  @else
+    &.is-small
+      +control-small
+    @if $has-normal
+      &.is-normal
+        +control-normal
+    &.is-medium
+      +control-medium
+    &.is-large
+      +control-large
