@@ -2,7 +2,6 @@
 @use "utilities"
 
 $body-background-color: var(--scheme-main, #{vars.$scheme-main}) !default
-$body-size: 16px !default
 $body-min-width: 300px !default
 $body-rendering: optimizeLegibility !default
 $body-family: var(--family-primary, #{vars.$family-primary}) !default
@@ -32,10 +31,9 @@ $pre-font-size: 0.875em !default
 $pre-padding: 1.25rem 1.5rem !default
 $pre-code-font-size: 1em !default
 
-$_css-vars-map: ('body-background-color': $body-background-color, 'body-size': $body-size, 'body-min-width': $body-min-width, 'body-rendering': $body-rendering, 'body-family': $body-family, 'body-overflow-x': $body-overflow-x, 'body-overflow-y': $body-overflow-y, 'body-color': $body-color, 'body-font-size': $body-font-size, 'body-weight': $body-weight, 'body-line-height': $body-line-height, 'code-family': $code-family, 'code-padding': $code-padding, 'code-weight': $code-weight, 'code-size': $code-size, 'small-font-size': $small-font-size, 'hr-background-color': $hr-background-color, 'hr-height': $hr-height, 'hr-margin': $hr-margin, 'strong-color': $strong-color, 'strong-weight': $strong-weight, 'pre-font-size': $pre-font-size, 'pre-padding': $pre-padding, 'pre-code-font-size': $pre-code-font-size)
+$_css-vars-map: ('body-background-color': $body-background-color, 'body-min-width': $body-min-width, 'body-rendering': $body-rendering, 'body-family': $body-family, 'body-overflow-x': $body-overflow-x, 'body-overflow-y': $body-overflow-y, 'body-color': $body-color, 'body-font-size': $body-font-size, 'body-weight': $body-weight, 'body-line-height': $body-line-height, 'code-family': $code-family, 'code-padding': $code-padding, 'code-weight': $code-weight, 'code-size': $code-size, 'small-font-size': $small-font-size, 'hr-background-color': $hr-background-color, 'hr-height': $hr-height, 'hr-margin': $hr-margin, 'strong-color': $strong-color, 'strong-weight': $strong-weight, 'pre-font-size': $pre-font-size, 'pre-padding': $pre-padding, 'pre-code-font-size': $pre-code-font-size)
 +utilities.exportCSSVars($_css-vars-map)
 // --body-background-color: #{$body-background-color}
-// --body-size: #{$body-size}
 // --body-min-width: #{$body-min-width}
 // --body-overflow-x: #{$body-overflow-x}
 // --body-overflow-y: #{$body-overflow-y}
