@@ -2,6 +2,7 @@
 
 @use "shared" as form-shared
 @use "utilities/derived-variables" as vars
+@use "utilities/controls"
 @use "utilities"
 
 $label-font-size: var(--size-normal, #{vars.$size-normal}) !default
@@ -9,8 +10,6 @@ $label-color: var(--text-strong, #{vars.$text-strong}) !default
 $label-weight: var(--weight-bold, #{vars.$weight-bold}) !default
 
 $help-size: var(--size-small, #{vars.$size-small}) !default
-
-$control-font-size: var(--size-normal, #{vars.$size-normal}) !default
 
 $label-colors: form-shared.$form-colors !default
 
@@ -171,15 +170,10 @@ $_css-vars-map: ('help-font-size': $help-size)
       &:not(:last-child)
         +utilities.ltr-property("margin", 0.75rem)
 
-$_css-vars-map: ('control-font-size': $control-font-size)
-+utilities.exportCSSVars($_css-vars-map)
-+utilities.registerComponentCSSVars('control', $_css-vars-map)
-// --control-font-size: #{$control-font-size}
-
 .control
   box-sizing: border-box
   clear: both
-  font-size: var(--control-font-size, #{$control-font-size})
+  font-size: var(--control-font-size, #{controls.$control-font-size})
   position: relative
   text-align: inherit
   // Modifiers
