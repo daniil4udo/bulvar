@@ -373,13 +373,16 @@
 // into ('.tag', 'class^=tag', '.tags', 'class^=tags')
 // to use as dynamic selector
 =registerComponentCSSVars($component-class, $map, $has-starts-from: true)
-  $list: if(meta.type-of($component-class) == 'list', $component-class, ($component-class))
-  $new-list: ()
+  @if $component-class == null or $component-class == ''
+    +registerCSSVars($map, true)
+  @else
+    $list: if(meta.type-of($component-class) == 'list', $component-class, ($component-class))
+    $new-list: ()
 
-  @each $name in $component-class
-    $new-list: list.append($new-list, '.#{$name}', comma)
-    @if $has-starts-from
-      $new-list: list.append($new-list, '[class^=#{$name}-]', comma)
+    @each $name in $component-class
+      $new-list: list.append($new-list, '.#{$name}', comma)
+      @if $has-starts-from
+        $new-list: list.append($new-list, '[class^=#{$name}-]', comma)
 
-  #{$new-list}
-    +registerCSSVars($map, vars.$at-root)
+    #{$new-list}
+      +registerCSSVars($map, vars.$at-root)
