@@ -59,7 +59,7 @@
         "prefix:main": "postcss --config ../../postcss.config.js --output css/bulma.css css/bulma.css",
         "prefix:rtl": "cross-env NODE_ENV=RTL postcss postcss --config ../../postcss.config.js --output css/bulma-rtl.css css/bulma-rtl.css",
         "publish": "npm publish --access public",
-        "start": "sass --error-css --load-path=sass/ bulma.sass css/bulma.css --watch"
+        "start": "sass --error-css --no-source-map --color --load-path=sass/ bulma.sass css/bulma.css --watch"
     },
     "maintainers": [
         "Daniil Chumachenko <daniil4udo@gmail.com>"
