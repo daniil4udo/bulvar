@@ -59,7 +59,7 @@ $_css-vars-map: (
     @include bulma-utilities.control-sizes(skeleton-line-height-size);
 }
 
-@keyframes skeleton-loading {
+@include bulma-utilities.keyframes(skeleton-loading) {
     0% {
         background-position: 100% 50%;
     }

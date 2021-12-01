@@ -295,6 +295,18 @@
 // Additional @mixins for bulvar
 //
 
+// Add additional browser support for the keyframes
+=keyframes ($name)
+  @if vars.$has-prefix
+    @-webkit-keyframes #{$name}
+        @content
+
+    @-moz-keyframes #{$name}
+        @content
+
+  @keyframes #{$name}
+        @content
+
 =sizes($target:'')
   @each $size in vars.$sizes
     $i: list.index(vars.$sizes, $size)
