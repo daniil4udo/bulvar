@@ -1,7 +1,7 @@
 @use "sass:list"
 
-@use "utilities/derived-variables" as vars
-@use "utilities"
+@use "../utilities/derived-variables" as vars
+@use "../utilities"
 
 @each $name, $pair in vars.$colors
   $color: list.nth($pair, 1)
