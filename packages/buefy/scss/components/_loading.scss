@@ -1,4 +1,4 @@
-@use "bulma/sass/utilities" as bulma-utilities;
+@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
 
 $loading-background-legacy: #7f7f7f !default;
 $loading-background: rgba(255,255,255,0.5) !default;

@@ -1,8 +1,8 @@
 @use "sass:list";
 
-@use "bulma/sass/utilities" as bulma-utilities;
-@use "bulma/sass/utilities/derived-variables" as bulma-vars;
-@use "bulma/sass/form/file" as bulma-file;
+@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
+@use "../../node_modules/@bulvar/bulma/sass/utilities/derived-variables" as bulma-vars;
+@use "../../node_modules/@bulvar/bulma/sass/form/file" as bulma-file;
 
 .upload {
     position: relative;

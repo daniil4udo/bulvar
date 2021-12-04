@@ -1,9 +1,9 @@
 @use "sass:list";
 
-@use "bulma/sass/utilities" as bulma-utilities;
-@use "bulma/sass/utilities/derived-variables" as bulma-vars;
-@use "bulma/sass/form/shared" as bulma-form;
-@use "bulma/sass/components/dropdown" as bulma-dropdown;
+@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
+@use "../../node_modules/@bulvar/bulma/sass/utilities/derived-variables" as bulma-vars;
+@use "../../node_modules/@bulvar/bulma/sass/form/shared" as bulma-form;
+@use "../../node_modules/@bulvar/bulma/sass/components/dropdown" as bulma-dropdown;
 
 $datepicker-background-color: var(--dropdown-content-background-color, #{bulma-dropdown.$dropdown-content-background-color}) !default;
 $datepicker-radius: var(--dropdown-content-radius, #{bulma-dropdown.$dropdown-content-radius}) !default;

@@ -1,7 +1,7 @@
-@use "bulma/sass/utilities" as bulma-utilities;
-@use "bulma/sass/utilities/derived-variables" as bulma-vars;
-@use "bulma/sass/elements/table" as bulma-table;
-@use "bulma/sass/form/shared" as bulma-form;
+@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
+@use "../../node_modules/@bulvar/bulma/sass/utilities/derived-variables" as bulma-vars;
+@use "../../node_modules/@bulvar/bulma/sass/elements/table" as bulma-table;
+@use "../../node_modules/@bulvar/bulma/sass/form/shared" as bulma-form;
 @use "../utilities/functions";
 
 $table-sticky-header-height: 300px !default;

@@ -1,5 +1,5 @@
-@use "bulma/sass/utilities" as bulma-utilities;
-@use "bulma/sass/components/dropdown" as bulma-dropdown;
+@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
+@use "../../node_modules/@bulvar/bulma/sass/components/dropdown" as bulma-dropdown;
 
 $dropdown-content-max-height: 200px !default;
 
