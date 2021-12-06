@@ -1,9 +1,9 @@
 @use "sass:list";
 
-@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
-@use "../../node_modules/@bulvar/bulma/sass/utilities/derived-variables" as bulma-vars;
-@use "../../node_modules/@bulvar/bulma/sass/components/navbar" as bulma-navbar;
-@use "../../node_modules/@bulvar/bulma/sass/components/modal" as bulma-modal;
+@use "../../../bulma/sass/utilities" as bulma-utilities;
+@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
+@use "../../../bulma/sass/components/navbar" as bulma-navbar;
+@use "../../../bulma/sass/components/modal" as bulma-modal;
 
 $sidebar-background: bulma-modal.$modal-background-background-color !default;
 $sidebar-shadow-color: rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.1) !default;

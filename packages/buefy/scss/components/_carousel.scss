@@ -1,5 +1,5 @@
-@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
-@use "../../node_modules/@bulvar/bulma/sass/utilities/derived-variables" as bulma-vars;
+@use "../../../bulma/sass/utilities" as bulma-utilities;
+@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
 
 $carousel-min-height: 120px !default;
 

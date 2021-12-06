@@ -1,9 +1,9 @@
 @use "sass:list";
 
-@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
-@use "../../node_modules/@bulvar/bulma/sass/utilities/derived-variables" as bulma-vars;
-@use "../../node_modules/@bulvar/bulma/sass/utilities/controls" as bulma-controls;
-@use "../../node_modules/@bulvar/bulma/sass/form/shared" as bulma-form;
+@use "../../../bulma/sass/utilities" as bulma-utilities;
+@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
+@use "../../../bulma/sass/utilities/controls" as bulma-controls;
+@use "../../../bulma/sass/form/shared" as bulma-form;
 @use "../utilities/functions";
 
 $checkbox-active-background-color: var(--primary, #{bulma-vars.$primary}) !default;

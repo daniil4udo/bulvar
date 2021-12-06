@@ -1,9 +1,9 @@
 @use "sass:list";
 
-@use "../../node_modules/@bulvar/bulma/sass/utilities" as bulma-utilities;
-@use "../../node_modules/@bulvar/bulma/sass/utilities/derived-variables" as bulma-vars;
-@use "../../node_modules/@bulvar/bulma/sass/form/shared" as bulma-form;
-@use "../../node_modules/@bulvar/bulma/sass/base/generic" as bulma-generic;
+@use "../../../bulma/sass/utilities" as bulma-utilities;
+@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
+@use "../../../bulma/sass/form/shared" as bulma-form;
+@use "../../../bulma/sass/base/generic" as bulma-generic;
 
 /*
 This project is based on
