@@ -289,7 +289,7 @@ __metadata:
     markdownlint-cli: ^0.30.0
     npm-run-all: ^4.1.5
     postcss: ^8.4.5
-    postcss-cli: ^9.0.2
+    postcss-cli: ^9.1.0
     prettier: ^2.5.1
     rimraf: ^3.0.2
     rtlcss: ^3.5.0
@@ -7144,9 +7144,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-cli@npm:^9.0.2":
-  version: 9.0.2
-  resolution: "postcss-cli@npm:9.0.2"
+"postcss-cli@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "postcss-cli@npm:9.1.0"
   dependencies:
     chokidar: ^3.3.0
     dependency-graph: ^0.11.0
@@ -7164,7 +7164,7 @@ __metadata:
     postcss: ^8.0.0
   bin:
     postcss: index.js
-  checksum: bfb82b9d7bdccf364771e841602931787e1236419542a83849e6a4dedb460221784fb2edc42429866ded04763991727aed640470a073fe760c620f3a92a80096
+  checksum: 6f172cbdba2966f9b789e2ac6d2d87eb737e5a6c0bc025a729fb23631cfffb62df72472b14c91a8adacabd263c64f4b38fd70923da3727ee994def0b3c930003
   languageName: node
   linkType: hard
 
