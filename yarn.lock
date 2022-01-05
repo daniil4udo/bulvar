@@ -301,7 +301,7 @@ __metadata:
     stylelint-config-standard: ^24.0.0
     stylelint-no-unsupported-browser-features: ^5.0.2
     stylelint-order: ^5.0.0
-    stylelint-scss: ^4.0.0
+    stylelint-scss: ^4.1.0
     stylelint-selector-bem-pattern: ^2.1.1
     stylelint-selector-no-empty: ^1.0.8
     yarn-run-all: ^3.1.1
@@ -8711,18 +8711,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-scss@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "stylelint-scss@npm:4.0.0"
+"stylelint-scss@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "stylelint-scss@npm:4.1.0"
   dependencies:
-    lodash: ^4.17.15
+    lodash: ^4.17.21
     postcss-media-query-parser: ^0.2.3
     postcss-resolve-nested-selector: ^0.1.1
     postcss-selector-parser: ^6.0.6
     postcss-value-parser: ^4.1.0
   peerDependencies:
     stylelint: ^14.0.0
-  checksum: 98f835547b7f60dcd1f3725d4d67dafaae89fd38e7fb62fb59afba5e8511b8552ca658908ced7421a83b2a6ef4174f575625e4e56113ec9a54aa42435ceae5cc
+  checksum: 9dde9ecc6b1306530307a389f22b098df368bc6453eb09095b1f06a31d5395545d4171d842bc2c3996bb006c8977f5629076ff985c140548db4cbb794c15a780
   languageName: node
   linkType: hard
 
