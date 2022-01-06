@@ -54,8 +54,8 @@
         }
     },
     "devDependencies": {
-        "@commitlint/cli": "^15.0.0",
-        "@commitlint/config-conventional": "^15.0.0",
+        "@commitlint/cli": "^16.0.1",
+        "@commitlint/config-conventional": "^16.0.0",
         "autoprefixer": "^10.4.1",
         "clean-css-cli": "^5.4.2",
         "commitizen": "^4.2.4",
