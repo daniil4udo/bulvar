@@ -4,6 +4,8 @@ $content-heading-color: var(--text-strong, #{$text-strong}) !default
 $content-heading-weight: var(--weight-semibold, #{$weight-semibold}) !default
 $content-heading-line-height: 1.125 !default
 
+$content-block-margin-bottom: 1em !default
+
 $content-blockquote-background-color: var(--background, #{$background}) !default
 $content-blockquote-border-left: 5px solid var(--border, #{$border}) !default
 $content-blockquote-padding: 1.25em 1.5em !default
@@ -16,10 +18,11 @@ $content-table-cell-padding: 0.5em 0.75em !default
 $content-table-cell-heading-color: var(--text-strong, #{$text-strong}) !default
 $content-table-head-cell-border-width: 0 0 2px !default
 $content-table-head-cell-color: var(--text-strong, #{$text-strong}) !default
+$content-table-body-last-row-cell-border-bottom-width: 0 !default
 $content-table-foot-cell-border-width: 2px 0 0 !default
 $content-table-foot-cell-color: var(--text-strong, #{$text-strong}) !default
 
-$css-vars-map: ('content-heading-color': $content-heading-color, 'content-heading-weight': $content-heading-weight, 'content-heading-line-height': $content-heading-line-height, 'content-blockquote-background-color': $content-blockquote-background-color, 'content-blockquote-border-left': $content-blockquote-border-left, 'content-blockquote-padding': $content-blockquote-padding, 'content-pre-padding': $content-pre-padding, 'content-table-cell-border': $content-table-cell-border, 'content-table-cell-border-width': $content-table-cell-border-width, 'content-table-cell-padding': $content-table-cell-padding, 'content-table-cell-heading-color': $content-table-cell-heading-color, 'content-table-head-cell-border-width': $content-table-head-cell-border-width, 'content-table-head-cell-color': $content-table-head-cell-color, 'content-table-foot-cell-border-width': $content-table-foot-cell-border-width, 'content-table-foot-cell-color': $content-table-foot-cell-color)
+$css-vars-map: ('content-heading-color': $content-heading-color, 'content-heading-weight': $content-heading-weight, 'content-heading-line-height': $content-heading-line-height, 'content-block-margin-bottom': $content-block-margin-bottom, 'content-blockquote-background-color': $content-blockquote-background-color, 'content-blockquote-border-left': $content-blockquote-border-left, 'content-blockquote-padding': $content-blockquote-padding, 'content-pre-padding': $content-pre-padding, 'content-table-cell-border': $content-table-cell-border, 'content-table-cell-border-width': $content-table-cell-border-width, 'content-table-cell-padding': $content-table-cell-padding, 'content-table-cell-heading-color': $content-table-cell-heading-color, 'content-table-head-cell-border-width': $content-table-head-cell-border-width, 'content-table-head-cell-color': $content-table-head-cell-color, 'content-table-body-last-row-cell-border-bottom-width': $content-table-body-last-row-cell-border-bottom-width, 'content-table-foot-cell-border-width': $content-table-foot-cell-border-width, 'content-table-foot-cell-color': $content-table-foot-cell-color)
 +exportCSSVars($css-vars-map)
 +registerComponentCSSVars('content')
 // --content-heading-color: #{$content-heading-color}
@@ -52,7 +55,7 @@ $css-vars-map: ('content-heading-color': $content-heading-color, 'content-headin
   pre,
   table
     &:not(:last-child)
-      margin-bottom: 1em
+      margin-bottom: var(--content-block-margin-bottom)
   h1,
   h2,
   h3,
@@ -163,7 +166,7 @@ $css-vars-map: ('content-heading-color': $content-heading-color, 'content-headin
         &:last-child
           td,
           th
-            border-bottom-width: 0
+            border-bottom-width: var(--content-table-body-last-row-cell-border-bottom-width)
   .tabs
     li + li
       margin-top: 0
