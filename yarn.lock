@@ -275,7 +275,7 @@ __metadata:
     "@commitlint/cli": ^16.0.1
     "@commitlint/config-conventional": ^16.0.0
     autoprefixer: ^10.4.1
-    clean-css-cli: ^5.4.2
+    clean-css-cli: ^5.5.0
     commitizen: ^4.2.4
     commitlint-config-gitmoji: ^2.2.5
     cross-env: ^7.0.3
@@ -2387,7 +2387,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.0.0, chokidar@npm:^3.3.0":
+"chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.0.0, chokidar@npm:^3.3.0, chokidar@npm:^3.5.2":
   version: 3.5.2
   resolution: "chokidar@npm:3.5.2"
   dependencies:
@@ -2436,16 +2436,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clean-css-cli@npm:^5.4.2":
-  version: 5.4.2
-  resolution: "clean-css-cli@npm:5.4.2"
+"clean-css-cli@npm:^5.5.0":
+  version: 5.5.0
+  resolution: "clean-css-cli@npm:5.5.0"
   dependencies:
+    chokidar: ^3.5.2
     clean-css: ^5.2.2
     commander: 7.x
     glob: ^7.1.6
   bin:
     cleancss: bin/cleancss
-  checksum: 255cedb30ffaed5c3c1f48060ddbaeb21720ad13351157b0b0ab376e770f7c962db0e5dffbe4b3a8a3fccc1addccdcc7e4f38781ade69bd04578664d8d7c3680
+  checksum: 7d8fcef1071292df784559b3d8cff2873064550f34ebdb2a2659bfa112d5ec6bb7661e5291a6310a222158c3aa1bd25d699a42ab5b5e027e57feba0eea88a0f9
   languageName: node
   linkType: hard
 
