@@ -10,7 +10,9 @@ $breadcrumb-item-padding-horizontal: 0.75em !default
 
 $breadcrumb-item-separator-color: var(--border-hover, #{$border-hover}) !default
 
-$css-vars-map: ('breadcrumb-font-size': $breadcrumb-font-size, 'breadcrumb-item-color': $breadcrumb-item-color, 'breadcrumb-item-hover-color': $breadcrumb-item-hover-color, 'breadcrumb-item-active-color': $breadcrumb-item-active-color, 'breadcrumb-item-separator-color': $breadcrumb-item-separator-color, 'breadcrumb-item-padding-vertical': $breadcrumb-item-padding-vertical, 'breadcrumb-item-padding-horizontal': $breadcrumb-item-padding-horizontal)
+$breadcrumb-li-content: "\0002f" !default
+
+$css-vars-map: ('breadcrumb-font-size': $breadcrumb-font-size, 'breadcrumb-item-color': $breadcrumb-item-color, 'breadcrumb-item-hover-color': $breadcrumb-item-hover-color, 'breadcrumb-item-active-color': $breadcrumb-item-active-color, 'breadcrumb-item-separator-color': $breadcrumb-item-separator-color, 'breadcrumb-item-padding-vertical': $breadcrumb-item-padding-vertical, 'breadcrumb-item-padding-horizontal': $breadcrumb-item-padding-horizontal, 'breadcrumb-li-content': $breadcrumb-li-content)
 +exportCSSVars($css-vars-map)
 +registerComponentCSSVars('breadcrumb')
 // --breadcrumb-font-size: #{$breadcrumb-font-size}
@@ -46,7 +48,7 @@ $css-vars-map: ('breadcrumb-font-size': $breadcrumb-font-size, 'breadcrumb-item-
         pointer-events: none
     & + li::before
       color: var(--breadcrumb-item-separator-color)
-      content: "\0002f"
+      content: var(--breadcrumb-li-content)
   ul,
   ol
     align-items: flex-start
@@ -71,14 +73,10 @@ $css-vars-map: ('breadcrumb-font-size': $breadcrumb-font-size, 'breadcrumb-item-
   +control-sizes(breadcrumb-font-size)
   // Styles
   &.has-arrow-separator
-    li + li::before
-      content: "\02192"
+    --breadcrumb-li-content: "\02192"
   &.has-bullet-separator
-    li + li::before
-      content: "\02022"
+    --breadcrumb-li-content: "\02022"
   &.has-dot-separator
-    li + li::before
-      content: "\000b7"
+    --breadcrumb-li-content: "\000b7"
   &.has-succeeds-separator
-    li + li::before
-      content: "\0227B"
+    --breadcrumb-li-content: "\0227B"
