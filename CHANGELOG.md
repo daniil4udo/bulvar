@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.5](https://github.com/daniil4udo/bulvar/compare/v0.9.4...v0.9.5) (2022-01-06)
+
+
+### Bug Fixes
+
+* **checkbox-radio.sass:** 🐛  add is-disabled to to label element ([32f4ac3](https://github.com/daniil4udo/bulvar/commit/32f4ac3291b5248a22b9aa29ed338ec11621e3d8))
+* **tools.sass:** 🐛  Input loading animation vertically centered ([4a6d4f1](https://github.com/daniil4udo/bulvar/commit/4a6d4f1b7fd994f83bd65c0005cbfcfb6835b969))
+
+
+
+
+
 ## [0.9.4](https://github.com/daniil4udo/bulvar/compare/v0.9.3...v0.9.4) (2021-11-26)
 
 

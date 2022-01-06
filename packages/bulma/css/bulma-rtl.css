@@ -1,6 +1,6 @@
 /*!
-  * @bulvar/bulma v0.9.4 (https://github.com/daniil4udo/bulvar/tree/master/packages/bulma)
-  * Copyright 2021 Daniil Chumachenko daniil4udo@gmail.com
+  * @bulvar/bulma v0.9.5 (https://github.com/daniil4udo/bulvar/tree/master/packages/bulma)
+  * Copyright 2022 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
 @charset "UTF-8";
@@ -370,7 +370,7 @@ body {
 }
 
 a {
-  color: var(--link);
+  color: var(--link, #2857a4);
   cursor: pointer;
   text-decoration: none;
 }
@@ -378,7 +378,16 @@ a strong {
   color: currentColor;
 }
 a:hover {
-  color: var(--link-hover);
+  color: var(--link-hover, #363636);
+}
+a:visited {
+  color: var(--link-visited, #b86bff);
+}
+a:active {
+  color: var(--link-active, #363636);
+}
+a:focus {
+  color: var(--link-focus, #363636);
 }
 
 code {
@@ -3273,7 +3282,7 @@ a.tag:hover {
 }
 [disabled].radio, [disabled].checkbox, fieldset[disabled] .radio, fieldset[disabled] .checkbox,
 .radio input[disabled],
-.checkbox input[disabled] {
+.checkbox input[disabled], .is-disabled.radio, .is-disabled.checkbox {
   color: var(--input-disabled-color, var(--text-light, #7a7a7a));
   cursor: not-allowed;
 }
@@ -4298,8 +4307,8 @@ a.tag:hover {
 }
 .control.is-loading::after {
   position: absolute !important;
-  left: 0.625em;
-  top: 0.625em;
+  left: calc(0.75em - 1px);
+  top: calc(50% - 0.5em);
   z-index: 4;
 }
 .control.is-loading.is-small:after {
@@ -9328,6 +9337,34 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 
 .is-flex-shrink-5 {
   flex-shrink: 5 !important;
+}
+
+.is-gap-1 {
+  gap: 0 !important;
+}
+
+.is-gap-2 {
+  gap: 0.25rem !important;
+}
+
+.is-gap-3 {
+  gap: 0.5rem !important;
+}
+
+.is-gap-4 {
+  gap: 0.75rem !important;
+}
+
+.is-gap-5 {
+  gap: 1rem !important;
+}
+
+.is-gap-6 {
+  gap: 1.5rem !important;
+}
+
+.is-gap-7 {
+  gap: 3rem !important;
 }
 
 .is-clearfix::after {
