@@ -29,7 +29,6 @@ $_css-vars-map: (
     'carousel-overlay-background': $carousel-overlay-background,
     'carousel-overlay-z': $carousel-overlay-z,
 );
-
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('carousel', $_css-vars-map);
 

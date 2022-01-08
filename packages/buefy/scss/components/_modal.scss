@@ -6,7 +6,6 @@ $modal-background-color: var(--background, #{bulma-vars.$background}) !default;
 $_css-vars-map: (
     'modal-background-color': $modal-background-color,
 );
-
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('modal', $_css-vars-map);
 

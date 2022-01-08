@@ -9,7 +9,6 @@ $_css-vars-map: (
     'floating-in-height': $floating-in-height,
     'field-label-font-size': $field-label-font-size,
 );
-
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('field', $_css-vars-map);
 

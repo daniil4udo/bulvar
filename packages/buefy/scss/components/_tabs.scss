@@ -26,7 +26,6 @@ $_css-vars-map: (
     'tabs-toggle-link-focus-active-border-color': $tabs-toggle-link-focus-active-border-color,
     'tabs-toggle-link-focus-border-color': $tabs-toggle-link-focus-border-color,
 );
-
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('b-tabs', $_css-vars-map);
 

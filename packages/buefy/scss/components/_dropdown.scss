@@ -9,7 +9,6 @@ $_css-vars-map: (
     'dropdown-background-color': $dropdown-background-color,
     'dropdown-disabled-opacity': $dropdown-disabled-opacity,
 );
-
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('dropdown', $_css-vars-map);
 

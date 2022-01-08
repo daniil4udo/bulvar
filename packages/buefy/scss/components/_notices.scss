@@ -31,7 +31,6 @@ $_css-vars-map: (
     'snackbar-button-text-transform': $snackbar-button-text-transform,
     'snackbar-box-shadow': $snackbar-box-shadow,
 );
-
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('notices', $_css-vars-map);
 

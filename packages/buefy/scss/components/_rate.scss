@@ -16,7 +16,6 @@ $_css-vars-map: (
     'rate-text-spaced': $rate-text-spaced,
     'rate-text-font-size': $rate-text-font-size,
 );
-
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('rate', $_css-vars-map);
 

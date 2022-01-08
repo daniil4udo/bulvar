@@ -32,7 +32,6 @@ $_css-vars-map: (
     'datepicker-item-selected-color': $datepicker-item-selected-color,
     'datepicker-item-selected-background-color': $datepicker-item-selected-background-color,
 );
-
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('datepicker', $_css-vars-map);
 

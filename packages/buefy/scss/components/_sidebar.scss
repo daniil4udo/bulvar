@@ -22,7 +22,6 @@ $_css-vars-map: (
     'sidebar-mobile-width': $sidebar-mobile-width,
     'sidebar-mobile-breakpoint': $sidebar-mobile-breakpoint,
 );
-
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('b-sidebar', $_css-vars-map);
 

@@ -16,7 +16,6 @@ $_css-vars-map: (
     'skeleton-margin-top': $skeleton-margin-top,
     'skeleton-line-height-size': $skeleton-line-height-size,
 );
-
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('b-skeleton', $_css-vars-map);
 

@@ -18,7 +18,6 @@ $_css-vars-map: (
     'tooltip-arrow-size': $tooltip-arrow-size,
     'tooltip-arrow-margin': $tooltip-arrow-margin,
 );
-
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('b-tooltip', $_css-vars-map);
 

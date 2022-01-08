@@ -45,7 +45,6 @@ $_css-vars-map: (
     'slider-tick-background': $slider-tick-background,
     'slider-mark-size': $slider-mark-size,
 );
-
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('b-slider', $_css-vars-map);
 

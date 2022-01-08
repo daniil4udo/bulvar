@@ -31,7 +31,6 @@ $_css-vars-map: (
     'checkbox-size': $checkbox-size,
     'checkbox-padding': $checkbox-padding,
 );
-
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('checkbox', $_css-vars-map);
 

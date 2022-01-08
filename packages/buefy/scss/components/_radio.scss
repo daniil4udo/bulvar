@@ -14,7 +14,6 @@ $_css-vars-map: (
     'radio-active-background-color': $radio-active-background-color,
     'radio-size': $radio-size,
 );
-
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('b-radio', $_css-vars-map);
 

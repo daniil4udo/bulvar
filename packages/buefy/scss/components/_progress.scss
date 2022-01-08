@@ -11,7 +11,6 @@ $_css-vars-map: (
     'progress-value-color': $progress-value-color,
     'progress-value-size': $progress-value-size,
 );
-
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('progress-wrapper', $_css-vars-map);
 

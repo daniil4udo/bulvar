@@ -6,7 +6,6 @@ $taginput-height: calc(2em - 1px) !default;
 $_css-vars-map: (
     'taginput-height': $taginput-height,
 );
-
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('taginput', $_css-vars-map);
 

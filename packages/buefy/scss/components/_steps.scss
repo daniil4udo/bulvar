@@ -45,7 +45,6 @@ $_css-vars-map: (
     'steps-vertical-padding': $steps-vertical-padding,
     'steps-mobile-max-width': $steps-mobile-max-width,
 );
-
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('b-steps', $_css-vars-map);
 
