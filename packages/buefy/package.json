@@ -1,6 +1,6 @@
 {
     "name": "@bulvar/buefy",
-    "version": "0.9.5",
+    "version": "0.9.6",
     "description": "Lightweight UI components for Vue.js based on Bulma",
     "keywords": [
         "bulma",
@@ -59,7 +59,7 @@
         "minify:rtl": "csso -o css/buefy-rtl.min.css -i css/buefy-rtl.css"
     },
     "dependencies": {
-        "@bulvar/bulma": "^0.9.5"
+        "@bulvar/bulma": "^0.9.6"
     },
     "maintainers": [
         "Daniil Chumachenko <daniil4udo@gmail.com>"
