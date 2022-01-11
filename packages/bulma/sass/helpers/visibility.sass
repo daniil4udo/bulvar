@@ -1,7 +1,7 @@
 @use "../utilities/derived-variables" as vars
 @use "../utilities"
 
-$displays: 'block' 'flex' 'inline' 'inline-block' 'inline-flex'
+$displays: 'block' 'flex' 'inline' 'inline-block' 'inline-flex' !default
 
 @each $display in $displays
   .is-#{$display}

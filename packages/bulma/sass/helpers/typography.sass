@@ -21,7 +21,7 @@
 +utilities.fullhd
   +utilities.typography-size('fullhd')
 
-$alignments: ('centered': 'center', 'justified': 'justify', 'left': 'left', 'right': 'right')
+$alignments: ('centered': 'center', 'justified': 'justify', 'left': 'left', 'right': 'right') !default
 
 @each $alignment, $text-align in $alignments
   .has-text-#{$alignment}
