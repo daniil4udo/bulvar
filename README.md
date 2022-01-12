@@ -12,7 +12,7 @@
 </p>
 <br/>
 
-# Bulvar 🛣
+# 🛣 Bulvar
 
 > Bulvar [Bulma](https://bulma.io) and [Buefy](https://buefy.org) on steroids usin CSS variables
 
@@ -21,7 +21,7 @@
 -   💡 Root and Local variables scoping
 -   📦 CSS minifier with structural optimizations
 
-<h1 align="center">Special Sponsor</h1>
+## 💙 SPECIAL SPONSOR
 <!--special start-->
 
 <p align="center">
@@ -29,20 +29,93 @@
     <img width="260px" src="https://www.democrance.com/wp-content/uploads/2021/11/democrance_new_logo_1200dpi.png">
   </a>
 </p>
-  
-## INTRO
 
-Bulvar is a monorepo with all Bulma-derived packages rewritten with CSS Variables.
+## 🚀 QUICK INSTALL
+
+Bulma & Buefy is constantly in development! Try it out now:
+
+### Bulma
+
+Install using NPM
+
+```sh
+npm install @bulvar/bulma
+```
+
+or Yarn
+
+```sh
+yarn add @bulvar/bulma
+```
+
+
+### Buefy
+
+Install using NPM.
+
+NOTE: If you install Buefy, bulma get installed as well as dependency.
+
+```sh
+npm install @bulvar/buefy
+```
+
+or Yarn
+
+```sh
+yarn add @bulvar/buefy
+```
+
+## 🔩 IMPORT
+
+Build includes (for both Bulma & Buefy)
+
+-   Standart CSS file `bulma.css` or `buefy.css`
+-   Standart minified CSS file `bulma.min.css` and `buefy.min.css`
+-   RTL CSS file `bulma-rtl.css` and `buefy-rtl.css`
+-   Minified RTL CSS file `bulma-rtl.min.css` and `buefy-rtl.min.css`
+
+After installation, you can import any from above CSS file into your project using this snippet:
+
+```css
+@import "@bulvar/bulma/css/bulma.css";
+```
+
+or
+
+```css
+@import "@bulvar/bulma/css/buefy.css";
+```
+
+## 🤔 WHY Bulvar?
+
+Bulvar is a monorepo with all Bulma-derived packages rewritten with CSS Variables and new `@use` and `@forward` features.
 
 Currently Includes :
 
 -   [Bulma](https://bulma.io) itself (duh) as `@bulvar/bulma`
 -   [Buefy](https://buefy.org) (SCSS only) as `@bulvar/buefy`
--   [Bulma Extentions](https://bulma.io/extensions/) (find list of extentions in the @bulvar/bulma-extentions README) as `@bulvar/bulma-extentions`
+-   [Bulma Extentions](https://bulma.io/extensions/) (still WIP) as `@bulvar/bulma-extentions`
 
-## OPTIMIZATION TIPS
+## 🧪 WHAT HAS BEEN CHANGED
 
-If you wan to save some space you could overwrite helper lists with empty lists during the import like:
+-   CSS Vars compatible! Woohoo!
+-   Real modularity! Drop deprecated `@import`. Use `@foward` and `@use` (read more [HERE](https://css-tricks.com/introducing-sass-modules))
+-   Always using latest Dart(⚠️ make sure you are using Dart version of SASS in your project too) Sass instead of deprecated node-sass
+-   Added namespacing. No need to worry about variables overwrite
+-   Added flag to be able to exports SASS variables using `export` for JS
+-   Added secondary color
+-   Added flexbox gap helper classes
+-   Added color-scheme support
+-   Added cross-browser support for placeholder opacity
+-   Custom `divide()` function replaced with SASS `math.div()`
+-   Custom `power()` function replaced with SASS `math.pow()`
+-   Added link pseudo selectors
+
+## 🚀 CUSTOMIZATION TIPS
+
+Using `@use` instead of `@import` itself makes compiling faster.
+
+If you want to save some space you could overwrite helper lists with empty lists during the import like:
 
 ```sass
 @use "path/to/bulma" with (
@@ -57,14 +130,142 @@ If you wan to save some space you could overwrite helper lists with empty lists 
 )
 ```
 
-## VERSIONING
+bulma.sass holds all `!default` variables, hence if you need all Bulma elements, pass all your variables directly there
+
+```sass
+@use 'bulma.sass' with (
+  $radius-rounded: 99px,
+  $button-color: red,
+  $button-family: 'Helvetica',
+)
+@use 'themes/light.sass'
+```
+
+NOTE: You'll have to import `light.sass` or `dark.sass` from themes for the CSS Variables Bulma functioning properly.
+
+## 🧩 MODULARITY
+
+Now to import only needed elements instead of entire Bulma became much easy due to "real" modularity.
+
+Thanks to `@use` and `@forward`, no need to import top level (global) variables in order to import just few needed elements, just import whatever you need.
+
+For example if you need only `buttons.sass` in your project, and need to overwrite few variables:
+
+```sass
+// In order to customize global variables
+// Not required, unless you want to modify global variables from utils
+@use 'themes/light.sass' with ($radius-rounded: 99px)
+
+// Customize local variables in the module with !default
+@use 'buttons.sass' with (
+  $button-color: red,
+  $button-family: 'Helvetica',
+)
+```
+
+Note that in the example above, when using `theme/light` you can modify all global variables.
+
+## ⚙️ HELPERS
+
+There were bunch of improvements in helpers utility classes
+
+-   `is-radiusless` is extended
+-   Added `is-radiusless-top`
+-   Added `is-radiusless-bottom`
+-   Added `is-radiusless-{top-left, top-right, bottom-right, bottom-left}`
+-   Added `is-borderless` is extended
+-   Added `is-borderless-top`
+-   Added `is-borderless-bottom`
+-   Added `is-{top-left, top-right, bottom-right, bottom-left}`
+
+## ⚠️ CSS ONLY
+
+IMPORTANT: This packages is CSS ONLY!
+
+If you need Buefy Vue components, but you wan to use CSS variable in your project, you'll have to install both `buefy` and `@bulvar/buefy`
+
+NOTE: If you need Buefy styles, do not import Bulma, it already includes it in correct order.
+
+## ⚠️ CSS VARIABLES DRAWBACKS
+
+CSS Variables named after SASS [Bulma variables](https://bulma.io/documentation/overview/variables/)
+
+Each main color in `$colors` and shade in `$shades` has coresponding
+
+`--#{$name}-h` - stands for color <i>hue</i>
+`--#{$name}-s` - stands for color <i>saturation</i>
+`--#{$name}-l` - stands for color <i>lightness</i>
+`--#{$name}-a` - stands for color <i>alpha</i>
+
+### Modify Opacity
+
+I.e. to add opacity to the primary color, you'll have to
+
+```css
+--primary-a: 0.5;
+```
+
+or
+
+```css
+--primary-a: calc(var(--primary-a) - var(--some-other-value));
+```
+
+### Modify Lightnes and Darkness
+
+Same applies for lightness. Instead of using sass lightness function (which you cannot with css variables), just modify `--primary-l` value.
+
+Tome make color lighter increase (add) value to the `--primary-l`, to make it darker, decrease (substract) accordingly.
+
+### Proper color change in runtime
+
+Best way to change main colors (primary, info etc.) is to change their coresponding `--#{$name}-h` (hue), `--#{$name}-s` (saturation),
+`--#{$name}-l` (lightness) and `--#{$name}-a` (alpha aka opacity)
+
+### Scoping
+
+One of the SASS variable `$at-root` indicates where CSS variable going to be registered.
+
+By default it sets to `true`, and results into
+
+```css
+:root {
+    --footer-background-color: SOME_COLOR;
+    --footer-padding: SOME_PADDING;
+}
+```
+
+In case you need more strict scoping, you can set it to `false`, wich, in case of footer component, will trnasform into:
+
+```css
+.footer {
+    --footer-background-color: SOME_COLOR;
+    --footer-padding: SOME_PADDING;
+}
+```
+
+## 🛳 EXPORTS
+
+If you are using style modules SASS variable in you JS files, you can set `$exports` to true, which will generate
+
+```sass
+:export {
+  variableName: VALUE
+}
+```
+
+Note that all SASS variable will be camelcased.
+
+## 📢 VERSIONING
 
 Version will follow **v0.Y.Z**, where:
 
 -   **Y**: Major (breaking changes)
 -   **Z**: Minor or patch
 
-## BROWSER SUPPORT
+Starting from version 1.Y.Z we going to deprecate `@import` in favour of `@use` and `@forward`
+
+## 💻 BROWSER SUPPORT
 
 Bulma & Buefy uses [autoprefixer](https://github.com/postcss/autoprefixer) to make (most) Flexbox features compatible with earlier browser versions.
 
@@ -76,9 +277,11 @@ According to [Can I use](https://caniuse.com/css-variables), Bulma is compatible
 -   Opera
 -   Safari
 
-Internet Explorer (10+) is not supported due to the use of css variables.
+Internet Explorer  is not supported due to the use of css variables.
 
-## Copyright and license ![Github](https://img.shields.io/github/license/daniil4udo/bulvar?logo=Github)
+Although  you can use polyfill.
+
+## 📖 COPYRIGHT AND LICENSE ![Github](https://img.shields.io/github/license/daniil4udo/bulvar?logo=Github)
 
 Code copyright 2022 Daniil Chumachenko. Code released under [the MIT license](https://github.com/daniil4udo/bulvar/blob/master/LICENSE).
 
