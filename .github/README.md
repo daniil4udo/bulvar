@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/daniil4udo/bulvar/" target="_blank" rel="noopener noreferrer">
-    <img width="180" src="../bulvar.svg" alt="Bulvar logo">
+    <img width="180" src="./bulvar.svg" alt="Bulvar logo">
   </a>
 </p>
 <br/>
