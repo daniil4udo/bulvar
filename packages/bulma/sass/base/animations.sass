@@ -5,9 +5,13 @@
     transform: rotate(0deg)
   to
     transform: rotate(359deg)
+.spinAround
+    animation-name: spinAround
 
 +mixins.keyframes(moveIndeterminate)
   from
     background-position: 200% 0
   to
     background-position: -200% 0
+.moveIndeterminate
+    animation-name: moveIndeterminate
