@@ -13,6 +13,15 @@ $dimensions: 16 24 32 48 64 96 128 !default
     width: 100%
     &.is-rounded
       border-radius: var(--radius-rounded)
+    &.is-contained
+      object-fit: contain
+      object-position: center center
+    &.is-covered
+      object-fit: cover
+      object-position: center center
+    &.is-filled
+      object-fit: fill
+      object-position: center center
   &.is-fullwidth
     width: 100%
   // Ratio
