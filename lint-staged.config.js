@@ -1,14 +1,14 @@
 module.exports = {
     '{!(package)*.json,*.code-snippets,.!(browserslist)*rc}': [
-        'yarn lint:prettier --parser=json',
+        'pnpm lint:prettier --parser=json',
     ],
 
-    'package.json': [ 'yarn lint:prettier' ],
+    'package.json': [ 'pnpm lint:prettier' ],
 
-    '{*.scss,*.sass}': [ 'yarn lint:stylelint' ],
+    '{*.scss,*.sass}': [ 'pnpm lint:stylelint' ],
 
     '*.md': [
-        'yarn lint:markdownlint',
-        'yarn lint:prettier',
+        'pnpm lint:markdownlint',
+        'pnpm lint:prettier',
     ],
 };

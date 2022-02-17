@@ -20,7 +20,7 @@ module.exports = {
 
         // 'pre-push': tasks([
         //     'echo "🔍  Start utin testing before push..."',
-        //     'cross-env PRE_PUSH=true yarn test',
+        //     'cross-env PRE_PUSH=true pnpm test',
         // ]),
     },
 };
