@@ -33,7 +33,7 @@
         "publish": "lerna run --parallel publish",
         "---": "",
         "postinstall": "lerna link",
-        "version": "yarn install && yarn deploy",
+        "version": "pnpm install && pnpm deploy",
         "deploy": "lerna run deploy",
         "lint": "npm-run-all --continue-on-error --parallel lint:all:*",
         "lint:vars": "fusv packages/",
@@ -41,7 +41,7 @@
         "lint:stylelint": "stylelint --fix",
         "lint:all:stylelint": "lint:stylelint \"**/*.{sass,scss}\" --cache --cache-location .cache/.stylelintcache --rd",
         "lint:markdownlint": "markdownlint --fix -i CHANGELOG.md -i packages/**/CHANGELOG.md",
-        "lint:all:markdownlint": "yarn lint:markdownlint \"packages/**/*.md\" \"*.md\"",
+        "lint:all:markdownlint": "pnpm lint:markdownlint \"packages/**/*.md\" \"*.md\"",
         "cz": "git cz"
     },
     "config": {
@@ -85,11 +85,9 @@
         "stylelint-order": "^5.0.0",
         "stylelint-scss": "^4.1.0",
         "stylelint-selector-bem-pattern": "^2.1.1",
-        "stylelint-selector-no-empty": "^1.0.8",
-        "yarn-run-all": "^3.1.1"
+        "stylelint-selector-no-empty": "^1.0.8"
     },
     "publishConfig": {
         "access": "public"
-    },
-    "packageManager": "yarn@3.1.1"
+    }
 }
