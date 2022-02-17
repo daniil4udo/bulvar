@@ -259,6 +259,8 @@ __metadata:
   resolution: "@bulvar/buefy@workspace:packages/buefy"
   dependencies:
     "@bulvar/bulma": ^0.9.6
+  peerDependencies:
+    "@bulvar/bulma": ^0.9.6
   languageName: unknown
   linkType: soft
 
