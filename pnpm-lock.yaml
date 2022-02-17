@@ -3,7 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@commitlint/cli': ^16.0.1
   '@commitlint/config-conventional': ^16.0.0
-  autoprefixer: ^10.4.1
+  autoprefixer: ^10.4.2
   commitizen: ^4.2.4
   commitlint-config-gitmoji: ^2.2.5
   cross-env: ^7.0.3
