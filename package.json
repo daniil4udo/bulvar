@@ -39,7 +39,7 @@
         "lint:vars": "fusv packages/",
         "lint:prettier": "prettier --write --loglevel warn",
         "lint:stylelint": "stylelint --fix",
-        "lint:all:stylelint": "lint:stylelint \"**/*.{sass,scss}\" --cache --cache-location .cache/.stylelintcache --rd",
+        "lint:all:stylelint": "pnpm lint:stylelint \"**/*.{sass,scss}\" --cache --cache-location .cache/.stylelintcache --rd",
         "lint:markdownlint": "markdownlint --fix -i CHANGELOG.md -i packages/**/CHANGELOG.md",
         "lint:all:markdownlint": "pnpm lint:markdownlint \"packages/**/*.md\" \"*.md\"",
         "cz": "git cz"
@@ -85,6 +85,12 @@
         "stylelint-scss": "^4.1.0",
         "stylelint-selector-bem-pattern": "^2.1.1",
         "stylelint-selector-no-empty": "^1.0.8"
+    },
+    "resolutions": {
+        "uuid": "^8",
+        "node-gyp": "^8.4.1",
+        "postcss": "^8.4.6",
+        "stylelint": "^14.5.1"
     },
     "publishConfig": {
         "access": "public"
