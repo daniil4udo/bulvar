@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.7](https://github.com/daniil4udo/bulvar/compare/v0.9.6...v0.9.7) (2022-02-17)
+
+**Note:** Version bump only for package @bulvar/buefy
+
+
+
+
+
 ## [0.9.6](https://github.com/daniil4udo/bulvar/compare/v0.9.5...v0.9.6) (2022-01-10)
 
 **Note:** Version bump only for package @bulvar/buefy

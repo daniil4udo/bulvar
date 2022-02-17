@@ -1,5 +1,5 @@
 /*!
-  * @bulvar/bulma v0.9.6 (https://github.com/daniil4udo/bulvar/tree/master/packages/bulma)
+  * @bulvar/bulma v0.9.7 (https://github.com/daniil4udo/bulvar/tree/master/packages/bulma)
   * Copyright 2022 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
@@ -3111,6 +3111,8 @@ a.tag:hover {
   border-color: var(--input-disabled-border-color);
   box-shadow: none;
   color: var(--input-disabled-color);
+  -webkit-text-fill-color: var(--input-disabled-color);
+  opacity: 1;
 }
 .select select[disabled]::-moz-placeholder, [disabled].textarea::-moz-placeholder, [disabled].input::-moz-placeholder, fieldset[disabled] .select select::-moz-placeholder, .select fieldset[disabled] select::-moz-placeholder, fieldset[disabled] .textarea::-moz-placeholder, fieldset[disabled] .input::-moz-placeholder {
   color: var(--input-disabled-placeholder-color);

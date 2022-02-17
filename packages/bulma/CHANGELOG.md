@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.7](https://github.com/daniil4udo/bulvar/compare/v0.9.6...v0.9.7) (2022-02-17)
+
+
+### Bug Fixes
+
+* **Bulma:** 🐛  inconsistent input[disabled] color in Safari ([8749a44](https://github.com/daniil4udo/bulvar/commit/8749a44e77a320292580d2b0792644036220f51a))
+
+
+
+
+
 ## [0.9.6](https://github.com/daniil4udo/bulvar/compare/v0.9.5...v0.9.6) (2022-01-10)
 
 **Note:** Version bump only for package @bulvar/bulma
