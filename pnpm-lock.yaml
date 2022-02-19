@@ -27,7 +27,7 @@ specifiers:
   stylelint-config-prettier: ^9.0.3
   stylelint-config-recess-order: ^3.0.0
   stylelint-config-standard: ^24.0.0
-  stylelint-no-unsupported-browser-features: ^5.0.2
+  stylelint-no-unsupported-browser-features: ^5.0.3
   stylelint-order: ^5.0.0
   stylelint-scss: ^4.1.0
   stylelint-selector-bem-pattern: ^2.1.1
@@ -60,7 +60,7 @@ devDependencies:
   stylelint-config-prettier: 9.0.3_stylelint@14.5.1
   stylelint-config-recess-order: 3.0.0_stylelint@14.5.1
   stylelint-config-standard: 24.0.0_stylelint@14.5.1
-  stylelint-no-unsupported-browser-features: 5.0.2_stylelint@14.5.1
+  stylelint-no-unsupported-browser-features: 5.0.3_stylelint@14.5.1
   stylelint-order: 5.0.0_stylelint@14.5.1
   stylelint-scss: 4.1.0_stylelint@14.5.1
   stylelint-selector-bem-pattern: 2.1.1
@@ -6444,8 +6444,8 @@ packages:
       stylelint-config-recommended: 6.0.0_stylelint@14.5.1
     dev: true
 
-  /stylelint-no-unsupported-browser-features/5.0.2_stylelint@14.5.1:
-    resolution: {integrity: sha512-cuttYP69r0cxRMDEEq1MVVK7rGqF2N+z1fDFx+ynX1feiuXLp0NvZDKZOGmmN/HWMEjIjv5SxXKITGTSkkNc8A==}
+  /stylelint-no-unsupported-browser-features/5.0.3_stylelint@14.5.1:
+    resolution: {integrity: sha512-FqfbOTk5UEkHsAKOkPH6SvajsfO9YuoWvKxd34tCRBZug9ZNeaPn141nyWkd+ncc8S1gVmO2+O6qVAMj9bvWww==}
     engines: {node: '>=12'}
     peerDependencies:
       stylelint: '>=13.0.0'
