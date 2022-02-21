@@ -27,7 +27,7 @@ specifiers:
   prettier: ^2.5.1
   rimraf: ^3.0.2
   rtlcss: ^3.5.0
-  sass: ^1.47.0
+  sass: ^1.49.8
   stylelint: ^14.5.1
   stylelint-config-css-modules: ^2.3.0
   stylelint-config-prettier: ^9.0.3
@@ -60,7 +60,7 @@ devDependencies:
   prettier: 2.5.1
   rimraf: 3.0.2
   rtlcss: 3.5.0
-  sass: 1.49.7
+  sass: 1.49.8
   stylelint: 14.5.1
   stylelint-config-css-modules: 2.3.0_stylelint@14.5.1
   stylelint-config-prettier: 9.0.3_stylelint@14.5.1
@@ -5215,8 +5215,8 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
-  /sass/1.49.7:
-    resolution: {integrity: sha512-13dml55EMIR2rS4d/RDHHP0sXMY3+30e1TKsyXaSz3iLWVoDWEoboY8WzJd5JMnxrRHffKO3wq2mpJ0jxRJiEQ==}
+  /sass/1.49.8:
+    resolution: {integrity: sha512-NoGOjvDDOU9og9oAxhRnap71QaTjjlzrvLnKecUJ3GxhaQBrV6e7gPuSPF28u1OcVAArVojPAe4ZhOXwwC4tGw==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
