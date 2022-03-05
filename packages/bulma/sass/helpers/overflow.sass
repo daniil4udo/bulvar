@@ -1,2 +1,8 @@
+@use "../utilities"
+
 .is-clipped
   overflow: hidden !important
+
+.is-clipped-touch
+  +utilities.touch
+    overflow: hidden !important
