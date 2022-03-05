@@ -31,7 +31,7 @@ specifiers:
   prettier: ^2.5.1
   rimraf: ^3.0.2
   rtlcss: ^3.5.0
-  sass: ^1.47.0
+  sass: ^1.49.9
   stylelint: ^14.5.1
   stylelint-config-css-modules: ^2.3.0
   stylelint-config-prettier: ^9.0.3
@@ -7370,7 +7370,7 @@ packages:
   /wide-align/1.1.5:
     resolution: {integrity: sha512-eDMORYaPNZ4sQIuuYPDHdQvf4gyCF9rEEV/yPxGfwPkRodwEgiMUUXTx/dex+Me0wxx53S+NgUHaP7y3MGlDmg==}
     dependencies:
-      string-width: 1.0.2
+      string-width: 4.2.3
     dev: true
 
   /word-wrap/1.2.3:
