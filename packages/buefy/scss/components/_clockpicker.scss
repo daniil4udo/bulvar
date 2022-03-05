@@ -1,17 +1,24 @@
-$clockpicker-card-radius: var(--card-radius, #{$card-radius});
+@use "sass:list";
 
-$css-vars-map: (
+@use "../../../bulma/sass/utilities" as bulma-utilities;
+@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
+@use "../../../bulma/sass/components/card" as bulma-card;
+@use "../../../bulma/sass/form/shared" as bulma-form;
+
+$clockpicker-card-radius: var(--card-radius, #{bulma-card.$card-radius});
+$clockpicker-colors: bulma-form.$form-colors !default;
+
+$_css-vars-map: (
     'clockpicker-card-radius': $clockpicker-card-radius
 );
-
-@include exportCSSVars($css-vars-map);
-@include registerComponentCSSVars('b-clockpicker');
+@include bulma-utilities.exportCSSVars($_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars('b-clockpicker', $_css-vars-map);
 
 .b-clockpicker {
     // Clockpicker variables defined here as exact numbers
     // must be known for use in the Vue component for calculations
     // to determine  number and hand positioning/size.
-    $transition-swing: cubic-bezier(.25,.8,.50,1);
+    $transition-swing: cubic-bezier(.25, .8, .50, 1);
 
     $time-font-size: 60px;
     $period-font-size: 16px;
@@ -24,49 +31,43 @@ $css-vars-map: (
     $padding-inner: 5px;
 
     .card-header {
-        background-color: var(--primary, #{$primary});
-        color: var(--primary-invert, #{$primary-invert});
+        background-color: var(--primary, #{bulma-vars.$primary});
+        color: var(--primary-invert, #{bulma-vars.$primary-invert});
     }
     .b-clockpicker-face {
         &:after {
-            background-color: var(--primary, #{$primary});
+            background-color: var(--primary, #{bulma-vars.$primary});
         }
         &-hand {
-            background-color: var(--primary, #{$primary});
-            border-color: var(--primary, #{$primary});
+            background-color: var(--primary, #{bulma-vars.$primary});
+            border-color: var(--primary, #{bulma-vars.$primary});
         }
         &-number.active {
-            background-color: var(--primary, #{$primary});
-            color: var(--primary-invert, #{$primary-invert});
+            background-color: var(--primary, #{bulma-vars.$primary});
+            color: var(--primary-invert, #{bulma-vars.$primary-invert});
         }
     }
 
     // supporting all $form-colors defined in Bulma/custom
-    @each $name, $pair in $form-colors {
-        $color: nth($pair, 1);
-        $color-invert: nth($pair, 2);
+    @each $name, $pair in $clockpicker-colors {
+        $color: list.nth($pair, 1);
+        $color-invert: list.nth($pair, 2);
         &.is-#{$name} {
             .card-header {
-                // background-color: $color;
                 background-color: var(--#{$name} #{$color});
                 // color: $inverse;
                 color: var(--#{$name}-invert, #{$color-invert});
             }
             .b-clockpicker-face {
                 &:after {
-                    // background-color: $color;
                     background-color: var(--#{$name} #{$color});
                 }
                 &-hand {
-                    // background-color: $color;
                     background-color: var(--#{$name} #{$color});
-                    // border-color: $color;
                     border-color: var(--#{$name} #{$color});
                 }
                 &-number.active {
-                    // background-color: $color;
                     background-color: var(--#{$name} #{$color});
-                    // color: $inverse;
                     color: var(--#{$name}-invert, #{$color-invert});
                 }
             }
@@ -81,13 +82,13 @@ $css-vars-map: (
         width: 100%;
         .input[readonly] {
             cursor: pointer;
-            box-shadow: var(--input-shadow, #{$input-shadow});
+            box-shadow: var(--input-shadow, #{bulma-form.$input-shadow});
             &:focus,
             &.is-focused,
             &:active,
             &.is-active {
                 // box-shadow: $input-focus-box-shadow-size $input-focus-box-shadow-color;
-                box-shadow: var(--input-focus-box-shadow-size, #{$input-focus-box-shadow-size}) var(--input-focus-box-shadow-color, #{$input-focus-box-shadow-color});
+                box-shadow: var(--input-focus-box-shadow-size, #{bulma-form.$input-focus-box-shadow-size}) var(--input-focus-box-shadow-color, #{bulma-form.$input-focus-box-shadow-color});
             }
         }
     }
@@ -165,11 +166,11 @@ $css-vars-map: (
 
         .b-clockpicker-btn {
             padding: 0 8px;
-            border-radius: var(--radius-rounded, #{$radius-rounded});
+            border-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
             margin-bottom: 2px;
             &:hover,
             &.active {
-                background-color: var(--primary, #{$primary});
+                background-color: var(--primary, #{bulma-vars.$primary});
                 color: white;
             }
         }
@@ -192,7 +193,7 @@ $css-vars-map: (
             // Outer border circle of clock
             border-radius: 50%;
             position: relative;
-            background-color: var(--grey-lighter, #{$grey-lighter});
+            background-color: var(--grey-lighter, #{bulma-vars.$grey-lighter});
             width: 100%;
             height: 100%;
             align-items: center;
@@ -297,5 +298,5 @@ $css-vars-map: (
         padding: $padding-outer;
     }
     // Sizes
-    @include control-sizes;
+    @include bulma-utilities.control-sizes;
 }

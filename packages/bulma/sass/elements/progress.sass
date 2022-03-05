@@ -1,17 +1,20 @@
-@import "../utilities/mixins"
+@use "sass:list"
 
-$progress-bar-background-color: var(--border-light, #{$border-light}) !default
-$progress-value-background-color: var(--text, #{$text}) !default
-$progress-border-radius: var(--radius-rounded, #{$radius-rounded}) !default
-$progress-height: var(--size-normal, #{$size-normal}) !default
+@use "../utilities/derived-variables" as vars
+@use "../utilities"
+
+$progress-bar-background-color: var(--border-light, #{vars.$border-light}) !default
+$progress-value-background-color: var(--text, #{vars.$text}) !default
+$progress-border-radius: var(--radius-rounded, #{vars.$radius-rounded}) !default
+$progress-height: var(--size-normal, #{vars.$size-normal}) !default
 
 $progress-indeterminate-duration: 1.5s !default
 
-$progress-colors: $colors !default
+$progress-colors: vars.$colors !default
 
-$css-vars-map: ('progress-height': $progress-height, 'progress-bar-background-color': $progress-bar-background-color, 'progress-value-background-color': $progress-value-background-color, 'progress-border-radius': $progress-border-radius, 'progress-indeterminate-duration': $progress-indeterminate-duration)
-+exportCSSVars($css-vars-map)
-+registerComponentCSSVars('progress')
+$_css-vars-map: ('progress-height': $progress-height, 'progress-bar-background-color': $progress-bar-background-color, 'progress-value-background-color': $progress-value-background-color, 'progress-border-radius': $progress-border-radius, 'progress-indeterminate-duration': $progress-indeterminate-duration)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars('progress', $_css-vars-map)
 // --progress-height: #{$progress-height}
 // --progress-bar-background-color: #{$progress-bar-background-color}
 // --progress-value-background-color: #{$progress-value-background-color}
@@ -31,16 +34,15 @@ $css-vars-map: ('progress-height': $progress-height, 'progress-bar-background-co
   width: 100%
   &::-webkit-progress-bar
     background-color: var(--progress-bar-background-color)
-  &::-webkit-progress-value
-    background-color: var(--progress-value-background-color)
-  &::-moz-progress-bar
-    background-color: var(--progress-value-background-color)
+  &::-webkit-progress-value,
+  &::-moz-progress-bar,
   &::-ms-fill
     background-color: var(--progress-value-background-color)
+  &::-ms-fill
     border: none
   // Colors
   @each $name, $pair in $progress-colors
-    $color: nth($pair, 1)
+    $color: list.nth($pair, 1)
     &.is-#{$name}
       &::-webkit-progress-value
         --progress-value-background-color: var(--#{$name}, #{$color})
@@ -57,7 +59,7 @@ $css-vars-map: ('progress-height': $progress-height, 'progress-bar-background-co
     animation-name: moveIndeterminate
     animation-timing-function: linear
     background-color: var(--progress-bar-background-color)
-    background-image: linear-gradient(to right, var(--text, #{$text}) 30%, var(--progress-bar-background-color) 30%)
+    background-image: linear-gradient(to right, var(--text, #{vars.$text}) 30%, var(--progress-bar-background-color) 30%)
     background-position: top left
     background-repeat: no-repeat
     background-size: 150% 150%
@@ -69,10 +71,4 @@ $css-vars-map: ('progress-height': $progress-height, 'progress-bar-background-co
       animation-name: none
 
   // Sizes
-  +control-sizes(progress-height)
-
-@keyframes moveIndeterminate
-  from
-    background-position: 200% 0
-  to
-    background-position: -200% 0
+  +utilities.control-sizes(progress-height)

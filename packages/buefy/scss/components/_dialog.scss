@@ -1,18 +1,22 @@
+@use "../../../bulma/sass/utilities" as bulma-utilities;
+@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
+@use "../../../bulma/sass/components/card" as bulma-card;
+
 .dialog {
     .modal-card {
         max-width: 460px;
         width: auto;
         .modal-card-head {
-            font-size: $size-5;
-            font-weight: var(--weight-semibold, #{$weight-semibold});
+            font-size: bulma-vars.$size-5;
+            font-weight: var(--weight-semibold, #{bulma-vars.$weight-semibold});
         }
         .modal-card-body {
             .field {
                 margin-top: 16px;
             }
             &.is-titleless {
-                border-top-left-radius: var(--card-radius, #{$card-radius});
-                border-top-right-radius: var(--card-radius, #{$card-radius});
+                border-top-left-radius: var(--card-radius, #{bulma-card.$card-radius});
+                border-top-right-radius: var(--card-radius, #{bulma-card.$card-radius});
             }
         }
         .modal-card-foot {
@@ -20,10 +24,10 @@
             .button {
                 display: inline; // Fix Safari centering
                 min-width: 5em;
-                font-weight: var(--weight-semibold, #{$weight-semibold});
+                font-weight: var(--weight-semibold, #{bulma-vars.$weight-semibold});
             }
         }
-        @include tablet {
+        @include bulma-utilities.tablet {
             min-width: 320px;
         }
     }
@@ -31,21 +35,21 @@
         .modal-card,
         .input,
         .button {
-            @include control-small;
+            @include bulma-utilities.control-small;
         }
     }
     &.is-medium {
         .modal-card,
         .input,
         .button {
-            @include control-medium;
+            @include bulma-utilities.control-medium;
         }
     }
     &.is-large {
         .modal-card,
         .input,
         .button {
-            @include control-large;
+            @include bulma-utilities.control-large;
         }
     }
     &.has-custom-container {

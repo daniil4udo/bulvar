@@ -1,10 +1,11 @@
-@import "../utilities/mixins"
+@use "../utilities/derived-variables" as vars
+@use "../utilities"
 
-$level-item-spacing: calc(#{var(--block-spacing, #{$block-spacing})} * 0.5) !default
+$level-item-spacing: calc(#{var(--block-spacing, #{vars.$block-spacing})} * 0.5) !default
 
-$css-vars-map: ('level-item-spacing': $level-item-spacing)
-+exportCSSVars($css-vars-map)
-+registerComponentCSSVars('level')
+$_css-vars-map: ('level-item-spacing': $level-item-spacing)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars('level', $_css-vars-map)
 // --level-item-spacing: #{$level-item-spacing}
 
 .level
@@ -12,7 +13,7 @@ $css-vars-map: ('level-item-spacing': $level-item-spacing)
   align-items: center
   justify-content: space-between
   code
-    border-radius: var(--radius, #{$radius})
+    border-radius: var(--radius, #{vars.$radius})
   img
     display: inline-block
     vertical-align: top
@@ -27,11 +28,11 @@ $css-vars-map: ('level-item-spacing': $level-item-spacing)
     .level-item
       &:not(:last-child)
         margin-bottom: 0
-        +ltr-property("margin", var(--level-item-spacing))
+        +utilities.ltr-property("margin", var(--level-item-spacing))
       &:not(.is-narrow)
         flex-grow: 1
   // Responsiveness
-  +tablet
+  +utilities.tablet
     display: flex
     & > .level-item
       &:not(.is-narrow)
@@ -48,7 +49,7 @@ $css-vars-map: ('level-item-spacing': $level-item-spacing)
   .subtitle
     margin-bottom: 0
   // Responsiveness
-  +mobile
+  +utilities.mobile
     &:not(:last-child)
       margin-bottom: var(--level-item-spacing)
 
@@ -62,23 +63,23 @@ $css-vars-map: ('level-item-spacing': $level-item-spacing)
     &.is-flexible
       flex-grow: 1
     // Responsiveness
-    +tablet
+    +utilities.tablet
       &:not(:last-child)
-        +ltr-property("margin", var(--level-item-spacing))
+        +utilities.ltr-property("margin", var(--level-item-spacing))
 
 .level-left
   align-items: center
   justify-content: flex-start
   // Responsiveness
-  +mobile
+  +utilities.mobile
     & + .level-right
       margin-top: 1.5rem
-  +tablet
+  +utilities.tablet
     display: flex
 
 .level-right
   align-items: center
   justify-content: flex-end
   // Responsiveness
-  +tablet
+  +utilities.tablet
     display: flex

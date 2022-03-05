@@ -1,66 +1,69 @@
-@import "../utilities/controls"
-@import "../utilities/mixins"
+@use "sass:list"
 
-$button-color: var(--text-strong, #{$text-strong}) !default
-$button-background-color: var(--scheme-main, #{$scheme-main}) !default
+@use "../utilities/derived-variables" as vars
+@use "../utilities/controls"
+@use "../utilities"
+
+$button-color: var(--text-strong, #{vars.$text-strong}) !default
+$button-background-color: var(--scheme-main, #{vars.$scheme-main}) !default
 $button-family: false !default
 
-$button-border-color: var(--border, #{$border}) !default
-$button-border-width: var(--control-border-width, #{$control-border-width}) !default
+$button-border-color: var(--border, #{vars.$border}) !default
+$button-border-width: var(--control-border-width, #{controls.$control-border-width}) !default
 
 $button-padding-vertical: calc(0.5em - #{$button-border-width}) !default
 $button-padding-horizontal: 1em !default
 
-$button-hover-color: var(--link-hover, #{$link-hover}) !default
-$button-hover-border-color: var(--link-hover-border, #{$link-hover-border}) !default
+$button-hover-color: var(--link-hover, #{vars.$link-hover}) !default
+$button-hover-border-color: var(--link-hover-border, #{vars.$link-hover-border}) !default
 
-$button-focus-color: var(--link-focus, #{$link-focus}) !default
-$button-focus-border-color: var(--link-focus-border, #{$link-focus-border}) !default
+$button-focus-color: var(--link-focus, #{vars.$link-focus}) !default
+$button-focus-border-color: var(--link-focus-border, #{vars.$link-focus-border}) !default
 $button-focus-box-shadow-size: 0 0 0 0.125em !default
-$button-focus-box-shadow-color-hsla: bulmaVarOpacity(link, 0.25) !default // has to be declared in css vars
-$button-focus-box-shadow-color: var(--button-focus-box-shadow-color-hsla, #{bulmaRgba($link, 0.25)}) !default
+$button-focus-box-shadow-color-hsla: utilities.bulmaVarOpacity(link, 0.25) !default // has to be declared in css vars
+$button-focus-box-shadow-color: var(--button-focus-box-shadow-color-hsla, #{utilities.bulmaRgba(vars.$link, 0.25)}) !default
 
-$button-active-color: var(--link-active, #{$link-active}) !default
-$button-active-border-color: var(--link-active-border, #{$link-active-border}) !default
+$button-active-color: var(--link-active, #{vars.$link-active}) !default
+$button-active-border-color: var(--link-active-border, #{vars.$link-active-border}) !default
 
-$button-text-color: var(--text, #{$text}) !default
+$button-text-color: var(--text, #{vars.$text}) !default
 $button-text-decoration: underline !default
-$button-text-hover-background-color: var(--background, #{$background}) !default
-$button-text-hover-color: var(--text-strong, #{$text-strong}) !default
+$button-text-hover-background-color: var(--background, #{vars.$background}) !default
+$button-text-hover-color: var(--text-strong, #{vars.$text-strong}) !default
 
 $button-ghost-background: none !default
 $button-ghost-border-color: transparent !default
-$button-ghost-color: var(--link, #{$link}) !default
+$button-ghost-color: var(--link, #{vars.$link}) !default
 $button-ghost-decoration: none !default
-$button-ghost-hover-color: var(--link, #{$link}) !default
+$button-ghost-hover-color: var(--link, #{vars.$link}) !default
 $button-ghost-hover-decoration: underline !default
 
-$button-disabled-background-color: var(--scheme-main, #{$scheme-main}) !default
-$button-disabled-border-color: var(--border, #{$border}) !default
+$button-disabled-background-color: var(--scheme-main, #{vars.$scheme-main}) !default
+$button-disabled-border-color: var(--border, #{vars.$border}) !default
 $button-disabled-shadow: none !default
 $button-disabled-opacity: 0.5 !default
 
-$button-static-color: var(--text-light, #{$text-light}) !default
-$button-static-background-color: var(--scheme-main-ter, #{$scheme-main-ter}) !default
-$button-static-border-color: var(--border, #{$border}) !default
+$button-static-color: var(--text-light, #{vars.$text-light}) !default
+$button-static-background-color: var(--scheme-main-ter, #{vars.$scheme-main-ter}) !default
+$button-static-border-color: var(--border, #{vars.$border}) !default
 
-$button-colors: $colors !default
+$button-colors: vars.$colors !default
 
 // The button sizes use mixins so they can be used at different breakpoints
 =button-small
-  --button-font-size: var(--size-small, #{$size-small})
+  --button-font-size: var(--size-small, #{vars.$size-small})
   &:not(.is-rounded)
-    border-radius: var(--radius-small, #{$radius-small})
+    border-radius: var(--radius-small, #{vars.$radius-small})
 =button-normal
-  --button-font-size: var(--size-normal, #{$size-normal})
+  --button-font-size: var(--size-normal, #{vars.$size-normal})
 =button-medium
-  --button-font-size: var(--size-medium, #{$size-medium})
+  --button-font-size: var(--size-medium, #{vars.$size-medium})
 =button-large
-  --button-font-size: var(--size-large, #{$size-large})
+  --button-font-size: var(--size-large, #{vars.$size-large})
 
-$css-vars-map: ('button-color': $button-color, 'button-background-color': $button-background-color, 'button-family': $button-family, 'button-border-color': $button-border-color, 'button-border-width': $button-border-width, 'button-padding-vertical': $button-padding-vertical, 'button-padding-horizontal': $button-padding-horizontal, 'button-hover-color': $button-hover-color, 'button-hover-border-color': $button-hover-border-color, 'button-focus-color': $button-focus-color, 'button-focus-border-color': $button-focus-border-color, 'button-focus-box-shadow-size': $button-focus-box-shadow-size, 'button-focus-box-shadow-color-hsla': $button-focus-box-shadow-color-hsla, 'button-focus-box-shadow-color': $button-focus-box-shadow-color, 'button-active-color': $button-active-color, 'button-active-border-color': $button-active-border-color, 'button-text-color': $button-text-color, 'button-text-decoration': $button-text-decoration, 'button-text-hover-background-color': $button-text-hover-background-color, 'button-text-hover-color': $button-text-hover-color, 'button-ghost-background': $button-ghost-background, 'button-ghost-border-color': $button-ghost-border-color, 'button-ghost-color': $button-ghost-color, 'button-ghost-decoration': $button-ghost-decoration, 'button-ghost-hover-color': $button-ghost-hover-color, 'button-ghost-hover-decoration': $button-ghost-hover-decoration, 'button-disabled-background-color': $button-disabled-background-color, 'button-disabled-border-color': $button-disabled-border-color, 'button-disabled-shadow': $button-disabled-shadow, 'button-disabled-opacity': $button-disabled-opacity, 'button-static-color': $button-static-color, 'button-static-background-color': $button-static-background-color, 'button-static-border-color': $button-static-border-color)
-+exportCSSVars($css-vars-map)
-+registerComponentCSSVars('button')
+$_css-vars-map: ('button-color': $button-color, 'button-background-color': $button-background-color, 'button-family': $button-family, 'button-border-color': $button-border-color, 'button-border-width': $button-border-width, 'button-padding-vertical': $button-padding-vertical, 'button-padding-horizontal': $button-padding-horizontal, 'button-hover-color': $button-hover-color, 'button-hover-border-color': $button-hover-border-color, 'button-focus-color': $button-focus-color, 'button-focus-border-color': $button-focus-border-color, 'button-focus-box-shadow-size': $button-focus-box-shadow-size, 'button-focus-box-shadow-color-hsla': $button-focus-box-shadow-color-hsla, 'button-focus-box-shadow-color': $button-focus-box-shadow-color, 'button-active-color': $button-active-color, 'button-active-border-color': $button-active-border-color, 'button-text-color': $button-text-color, 'button-text-decoration': $button-text-decoration, 'button-text-hover-background-color': $button-text-hover-background-color, 'button-text-hover-color': $button-text-hover-color, 'button-ghost-background': $button-ghost-background, 'button-ghost-border-color': $button-ghost-border-color, 'button-ghost-color': $button-ghost-color, 'button-ghost-decoration': $button-ghost-decoration, 'button-ghost-hover-color': $button-ghost-hover-color, 'button-ghost-hover-decoration': $button-ghost-hover-decoration, 'button-disabled-background-color': $button-disabled-background-color, 'button-disabled-border-color': $button-disabled-border-color, 'button-disabled-shadow': $button-disabled-shadow, 'button-disabled-opacity': $button-disabled-opacity, 'button-static-color': $button-static-color, 'button-static-background-color': $button-static-background-color, 'button-static-border-color': $button-static-border-color)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars('button', $_css-vars-map)
 // --button-color: #{$button-color}
 // --button-background-color: #{$button-background-color}
 // --button-family: #{$button-family}
@@ -123,11 +126,11 @@ $css-vars-map: ('button-color': $button-color, 'button-background-color': $butto
       height: 1.5em
       width: 1.5em
     &:first-child:not(:last-child)
-      +ltr-property("margin", calc(-0.5 * #{var(--button-padding-horizontal, #{$button-padding-horizontal})} - #{var(--button-border-width, #{$button-border-width})}), false)
-      +ltr-property("margin", calc(#{var(--button-padding-horizontal, #{$button-padding-horizontal})} * 0.25))
+      +utilities.ltr-property("margin", calc(-0.5 * #{var(--button-padding-horizontal, #{$button-padding-horizontal})} - #{var(--button-border-width, #{$button-border-width})}), false)
+      +utilities.ltr-property("margin", calc(#{var(--button-padding-horizontal, #{$button-padding-horizontal})} * 0.25))
     &:last-child:not(:first-child)
-      +ltr-property("margin", calc(#{var(--button-padding-horizontal, #{$button-padding-horizontal})} * 0.25), false)
-      +ltr-property("margin", calc(-0.5 * #{var(--button-padding-horizontal, #{$button-padding-horizontal})} - #{var(--button-border-width, #{$button-border-width})}))
+      +utilities.ltr-property("margin", calc(#{var(--button-padding-horizontal, #{$button-padding-horizontal})} * 0.25), false)
+      +utilities.ltr-property("margin", calc(-0.5 * #{var(--button-padding-horizontal, #{$button-padding-horizontal})} - #{var(--button-border-width, #{$button-border-width})}))
     &:first-child:last-child
       margin-left: calc(-0.5 * #{var(--button-padding-horizontal, #{$button-padding-horizontal})} - #{var(--button-border-width, #{$button-border-width})})
       margin-right: calc(-0.5 * #{var(--button-padding-horizontal, #{$button-padding-horizontal})} - #{var(--button-border-width, #{$button-border-width})})
@@ -160,7 +163,7 @@ $css-vars-map: ('button-color': $button-color, 'button-background-color': $butto
       color: var(--button-text-hover-color)
     &:active,
     &.is-active
-      background-color: bulmaDarken($button-text-hover-background-color, 5%)
+      background-color: utilities.bulmaDarken($button-text-hover-background-color, 5%)
       color: var(--button-text-hover-color)
     &[disabled],
     fieldset[disabled] &
@@ -177,18 +180,18 @@ $css-vars-map: ('button-color': $button-color, 'button-background-color': $butto
       color: var(--button-ghost-hover-color)
       text-decoration: var(--button-ghost-hover-decoration)
   @each $name, $pair in $button-colors
-    $color: nth($pair, 1)
-    $color-invert: nth($pair, 2)
+    $color: list.nth($pair, 1)
+    $color-invert: list.nth($pair, 2)
     &.is-#{$name}
-      --hover-background-color: #{bulmaVarDarken($name, 2.5%)}
-      --focus-box-shadow-color: #{bulmaVarOpacity($name, 0.25)}
-      --active-background-color: #{bulmaVarDarken($name, 5%)}
+      --hover-background-color: #{utilities.bulmaVarDarken($name, 2.5%)}
+      --focus-box-shadow-color: #{utilities.bulmaVarOpacity($name, 0.25)}
+      --active-background-color: #{utilities.bulmaVarDarken($name, 5%)}
       background-color: var(--#{$name}, #{$color})
       border-color: transparent
       color: var(--#{$name}-invert, #{$color-invert})
       &:hover,
       &.is-hovered
-        background-color: var(--hover-background-color, #{bulmaDarken($color, 2.5%)})
+        background-color: var(--hover-background-color, #{utilities.bulmaDarken($color, 2.5%)})
         border-color: transparent
         color: var(--#{$name}-invert, #{$color-invert})
       &:focus,
@@ -196,10 +199,10 @@ $css-vars-map: ('button-color': $button-color, 'button-background-color': $butto
         border-color: transparent
         color: var(--#{$name}-invert, #{$color-invert})
         &:not(:active)
-          box-shadow: var(--button-focus-box-shadow-size) var(--focus-box-shadow-color, #{bulmaRgba($color, 0.25)})
+          box-shadow: var(--button-focus-box-shadow-size) var(--focus-box-shadow-color, #{utilities.bulmaRgba($color, 0.25)})
       &:active,
       &.is-active
-        background-color: var(--active-background-color, #{bulmaDarken($color, 5%)})
+        background-color: var(--active-background-color, #{utilities.bulmaDarken($color, 5%)})
         border-color: transparent
         color: var(--#{$name}-invert, #{$color-invert})
       &[disabled],
@@ -212,7 +215,7 @@ $css-vars-map: ('button-color': $button-color, 'button-background-color': $butto
         color: var(--#{$name}, #{$color})
         &:hover,
         &.is-hovered
-          background-color: bulmaDarken($color-invert, 5%)
+          background-color: utilities.bulmaDarken($color-invert, 5%)
         &[disabled],
         fieldset[disabled] &
           background-color: var(--#{$name}-invert, #{$color-invert})
@@ -272,22 +275,22 @@ $css-vars-map: ('button-color': $button-color, 'button-background-color': $butto
           box-shadow: none
           color: var(--#{$name}-invert, #{$color-invert})
       // If light and dark colors are provided
-      @if length($pair) >= 4
-        $color-light: nth($pair, 3)
-        $color-dark: nth($pair, 4)
+      @if list.length($pair) >= 4
+        $color-light: list.nth($pair, 3)
+        $color-dark: list.nth($pair, 4)
         &.is-light
-          --hover-background-color: #{bulmaVarLighteness($name, calc(#{var(--#{$name}-light-l)} - 2.5%))}
-          --active-background-color: #{bulmaVarLighteness($name, calc(#{var(--#{$name}-light-l)} - 5%))}
+          --hover-background-color: #{utilities.bulmaVarLighteness($name, calc(#{var(--#{$name}-light-l)} - 2.5%))}
+          --active-background-color: #{utilities.bulmaVarLighteness($name, calc(#{var(--#{$name}-light-l)} - 5%))}
           background-color: var(--#{$name}-light, #{$color-light})
           color: var(--#{$name}-dark, #{$color-dark})
           &:hover,
           &.is-hovered
-            background-color: var(--hover-background-color, #{bulmaDarken($color-light, 2.5%)})
+            background-color: var(--hover-background-color, #{utilities.bulmaDarken($color-light, 2.5%)})
             border-color: transparent
             color: var(--#{$name}-dark, #{$color-dark})
           &:active,
           &.is-active
-            background-color: var(--active-background-color, #{bulmaDarken($color-light, 5%)})
+            background-color: var(--active-background-color, #{utilities.bulmaDarken($color-light, 5%)})
             border-color: transparent
             color: var(--#{$name}-dark, #{$color-dark})
   // Sizes
@@ -314,7 +317,7 @@ $css-vars-map: ('button-color': $button-color, 'button-background-color': $butto
     pointer-events: none
     &::after
       @extend %loader
-      +center(1em)
+      +utilities.center(1em)
       position: absolute !important
   &.is-static
     background-color: var(--button-static-background-color)
@@ -323,7 +326,7 @@ $css-vars-map: ('button-color': $button-color, 'button-background-color': $butto
     box-shadow: none
     pointer-events: none
   &.is-rounded
-    border-radius: var(--radius-rounded, #{$radius-rounded})
+    border-radius: var(--radius-rounded, #{vars.$radius-rounded})
     padding-left: calc(#{var(--button-padding-horizontal, #{$button-padding-horizontal})} + 0.25em)
     padding-right: calc(#{var(--button-padding-horizontal, #{$button-padding-horizontal})} + 0.25em)
 
@@ -335,7 +338,7 @@ $css-vars-map: ('button-color': $button-color, 'button-background-color': $butto
   .button
     margin-bottom: 0.5rem
     &:not(:last-child):not(.is-fullwidth)
-      +ltr-property("margin", 0.5rem)
+      +utilities.ltr-property("margin", 0.5rem)
   &:last-child
     margin-bottom: -0.5rem
   &:not(:last-child)
@@ -358,9 +361,9 @@ $css-vars-map: ('button-color': $button-color, 'button-background-color': $butto
       &:not(:last-child)
         border-bottom-right-radius: 0
         border-top-right-radius: 0
-        +ltr-property("margin", -1px)
+        +utilities.ltr-property("margin", -1px)
       &:last-child
-        +ltr-property("margin", 0)
+        +utilities.ltr-property("margin", 0)
       &:hover,
       &.is-hovered
         z-index: 2

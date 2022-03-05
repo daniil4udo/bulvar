@@ -1,35 +1,36 @@
-@import "../utilities/mixins"
+@use "../utilities/derived-variables" as vars
+@use "../utilities"
 
-$displays: 'block' 'flex' 'inline' 'inline-block' 'inline-flex'
+$displays: 'block' 'flex' 'inline' 'inline-block' 'inline-flex' !default
 
 @each $display in $displays
   .is-#{$display}
     display: #{$display} !important
-  +mobile
+  +utilities.mobile
     .is-#{$display}-mobile
       display: #{$display} !important
-  +tablet
+  +utilities.tablet
     .is-#{$display}-tablet
       display: #{$display} !important
-  +tablet-only
+  +utilities.tablet-only
     .is-#{$display}-tablet-only
       display: #{$display} !important
-  +touch
+  +utilities.touch
     .is-#{$display}-touch
       display: #{$display} !important
-  +desktop
+  +utilities.desktop
     .is-#{$display}-desktop
       display: #{$display} !important
-  +desktop-only
+  +utilities.desktop-only
     .is-#{$display}-desktop-only
       display: #{$display} !important
-  +widescreen
+  +utilities.widescreen
     .is-#{$display}-widescreen
       display: #{$display} !important
-  +widescreen-only
+  +utilities.widescreen-only
     .is-#{$display}-widescreen-only
       display: #{$display} !important
-  +fullhd
+  +utilities.fullhd
     .is-#{$display}-fullhd
       display: #{$display} !important
 
@@ -46,77 +47,77 @@ $displays: 'block' 'flex' 'inline' 'inline-block' 'inline-flex'
   white-space: nowrap !important
   width: 0.01em !important
 
-+mobile
++utilities.mobile
   .is-hidden-mobile
     display: none !important
 
-+tablet
++utilities.tablet
   .is-hidden-tablet
     display: none !important
 
-+tablet-only
++utilities.tablet-only
   .is-hidden-tablet-only
     display: none !important
 
-+touch
++utilities.touch
   .is-hidden-touch
     display: none !important
 
-+desktop
++utilities.desktop
   .is-hidden-desktop
     display: none !important
 
-+desktop-only
++utilities.desktop-only
   .is-hidden-desktop-only
     display: none !important
 
-+widescreen
++utilities.widescreen
   .is-hidden-widescreen
     display: none !important
 
-+widescreen-only
++utilities.widescreen-only
   .is-hidden-widescreen-only
     display: none !important
 
-+fullhd
++utilities.fullhd
   .is-hidden-fullhd
     display: none !important
 
 .is-invisible
   visibility: hidden !important
 
-+mobile
++utilities.mobile
   .is-invisible-mobile
     visibility: hidden !important
 
-+tablet
++utilities.tablet
   .is-invisible-tablet
     visibility: hidden !important
 
-+tablet-only
++utilities.tablet-only
   .is-invisible-tablet-only
     visibility: hidden !important
 
-+touch
++utilities.touch
   .is-invisible-touch
     visibility: hidden !important
 
-+desktop
++utilities.desktop
   .is-invisible-desktop
     visibility: hidden !important
 
-+desktop-only
++utilities.desktop-only
   .is-invisible-desktop-only
     visibility: hidden !important
 
-+widescreen
++utilities.widescreen
   .is-invisible-widescreen
     visibility: hidden !important
 
-+widescreen-only
++utilities.widescreen-only
   .is-invisible-widescreen-only
     visibility: hidden !important
 
-+fullhd
++utilities.fullhd
   .is-invisible-fullhd
     visibility: hidden !important

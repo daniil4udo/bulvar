@@ -1,3 +1,10 @@
+@use "sass:list";
+
+@use "../../../bulma/sass/utilities" as bulma-utilities;
+@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
+@use "../../../bulma/sass/form/shared" as bulma-form;
+@use "../../../bulma/sass/base/generic" as bulma-generic;
+
 /*
 This project is based on
 "bulma-steps" (https://github.com/Wikiki/bulma-steps) by
@@ -5,24 +12,24 @@ Wikiki (https://github.com/Wikiki) licensed under
 MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 */
 
-$steps-size: var(--size-normal, #{$size-normal}) !default;
+$steps-size: var(--size-normal, #{bulma-vars.$size-normal}) !default;
 $steps-height: auto !default;
-$steps-background-color: var(--body-background-color, #{$body-background-color}) !default;
+$steps-background-color: var(--body-background-color, #{bulma-generic.$body-background-color}) !default;
 $steps-items-focused-outline: none !default;
-$steps-details-background-color: var(--body-background-color, #{$body-background-color}) !default;
-$steps-maker-default-color: var(--grey-light, #{$grey-light}) !default;
-$steps-maker-color: var(--scheme-main, #{$scheme-main}) !default;
+$steps-details-background-color: var(--body-background-color, #{bulma-generic.$body-background-color}) !default;
+$steps-maker-default-color: var(--grey-light, #{bulma-vars.$grey-light}) !default;
+$steps-maker-color: var(--scheme-main, #{bulma-vars.$scheme-main}) !default;
 $steps-marker-default-border: .2em solid #fff !default;
-$steps-default-color: var(--grey-lighter, #{$grey-lighter}) !default;
-$steps-previous-color: var(--primary, #{$primary}) !default;
-$steps-active-color: var(--primary, #{$primary}) !default;
+$steps-default-color: var(--grey-lighter, #{bulma-vars.$grey-lighter}) !default;
+$steps-previous-color: var(--primary, #{bulma-vars.$primary}) !default;
+$steps-active-color: var(--primary, #{bulma-vars.$primary}) !default;
 $steps-divider-height: .2em !default;
 $steps-vertical-padding: 1em 0 !default;
-$steps-mobile-max-width: $tablet !default;
+$steps-mobile-max-width: bulma-vars.$tablet !default;
 
-$steps-colors: $colors !default;
+$steps-colors: bulma-form.$form-colors !default;
 
-$css-vars-map: (
+$_css-vars-map: (
     'steps-size': $steps-size,
     'steps-height': $steps-height,
     'steps-background-color': $steps-background-color,
@@ -38,9 +45,8 @@ $css-vars-map: (
     'steps-vertical-padding': $steps-vertical-padding,
     'steps-mobile-max-width': $steps-mobile-max-width,
 );
-
-@include exportCSSVars($css-vars-map);
-@include registerComponentCSSVars('b-steps');
+@include bulma-utilities.exportCSSVars($_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars('b-steps', $_css-vars-map);
 
 @mixin steps-size {
     .steps {
@@ -69,7 +75,7 @@ $css-vars-map: (
 
                     .step-title {
                         font-size: calc(#{var(--steps-size)} * 1.2);
-                        font-weight: var(--weight-semibold, #{$weight-semibold});
+                        font-weight: var(--weight-semibold, #{bulma-vars.$weight-semibold});
                         line-height: var(--steps-size);
                     }
                 }
@@ -86,7 +92,7 @@ $css-vars-map: (
                     }
                 }
 
-                @include until($steps-mobile-max-width) {
+                @include bulma-utilities.until($steps-mobile-max-width) {
                     &::before, &::after, &:not(:first-child)::before {
                         top: #{var(--steps-size)};
                     }
@@ -170,7 +176,7 @@ $css-vars-map: (
                     align-items: center;
                     justify-content: center;
                     flex-direction: column;
-                    color: $body-color;
+                    color: bulma-generic.$body-color;
 
                     &:not(.is-clickable) {
                         cursor: not-allowed;
@@ -180,8 +186,8 @@ $css-vars-map: (
                 .step-marker {
                     align-items: center;
                     display: flex;
-                    border-radius: var(--radius, #{$radius});
-                    font-weight: var(--weight-bold, #{$weight-bold});
+                    border-radius: var(--radius, #{bulma-vars.$radius});
+                    font-weight: var(--weight-bold, #{bulma-vars.$weight-bold});
                     justify-content: center;
                     background: var(--steps-maker-default-color);
                     color: var(--steps-maker-color);
@@ -192,8 +198,8 @@ $css-vars-map: (
 
                 // Override marker color per step
                 @each $name, $pair in $steps-colors {
-                    $color: nth($pair, 1);
-                    $color-invert: nth($pair, 2);
+                    $color: list.nth($pair, 1);
+                    $color-invert: list.nth($pair, 2);
 
                     &.is-#{$name} {
                         &::before, &::after {
@@ -322,7 +328,7 @@ $css-vars-map: (
         &.is-rounded {
             .step-item {
                 .step-marker {
-                    border-radius: var(--radius-rounded, #{$radius-rounded});
+                    border-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
                 }
             }
         }
@@ -333,8 +339,8 @@ $css-vars-map: (
                     &::before {
                         // transition: background $speed-slow $easing;
                         transition-property: background;
-                        transition-duration: calc(#{var(--speed, #{$speed})} * 2);
-                        transition-timing-function: var(--easing, #{$easing});
+                        transition-duration: calc(#{var(--speed, #{bulma-vars.$speed})} * 2);
+                        transition-timing-function: var(--easing, #{bulma-vars.$easing});
                     }
                 }
             }
@@ -366,7 +372,7 @@ $css-vars-map: (
     }
 
     @include steps-size;
-    @include control-sizes(steps-size);
+    @include bulma-utilities.control-sizes(steps-size);
 
     &.is-vertical {
         display: flex;
@@ -394,7 +400,7 @@ $css-vars-map: (
 
                     // Override marker connector color per step
                     @each $name, $pair in $steps-colors {
-                        $color: nth($pair, 1);
+                        $color: list.nth($pair, 1);
 
                         &.is-#{$name} {
                             &::before, &::after {
@@ -477,7 +483,7 @@ $css-vars-map: (
     }
     &:not(.is-vertical) {
         .steps {
-            @include until($steps-mobile-max-width) {
+            @include bulma-utilities.until($steps-mobile-max-width) {
                 &.mobile-minimalist {
                     .step-items {
                         .step-item {

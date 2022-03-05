@@ -1,19 +1,22 @@
+@use "../../../bulma/sass/utilities" as bulma-utilities;
+@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
+
 $carousel-min-height: 120px !default;
 
-$carousel-arrow-background: var(--scheme-main, #{$scheme-main}) !default;
-$carousel-arrow-color: var(--primary, #{$primary}) !default;
+$carousel-arrow-background: var(--scheme-main, #{bulma-vars.$scheme-main}) !default;
+$carousel-arrow-color: var(--primary, #{bulma-vars.$primary}) !default;
 $carousel-arrow-icon-spaced: 1.5rem !default;
 $carousel-arrow-top: 50% !default;
 
-$carousel-indicator-background: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), 0.50) !default;
-$carousel-indicator-border: var(--scheme-main, #{$scheme-main}) !default;
-$carousel-indicator-color: var(--primary, #{$primary}) !default;
+$carousel-indicator-background: rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.50) !default;
+$carousel-indicator-border: var(--scheme-main, #{bulma-vars.$scheme-main}) !default;
+$carousel-indicator-color: var(--primary, #{bulma-vars.$primary}) !default;
 $carousel-indicator-spaced: .5rem !default;
 
-$carousel-overlay-background: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), 0.86) !default;
+$carousel-overlay-background: rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.86) !default;
 $carousel-overlay-z: 40 !default;
 
-$css-vars-map: (
+$_css-vars-map: (
     'carousel-min-height': $carousel-min-height,
     'carousel-arrow-background': $carousel-arrow-background,
     'carousel-arrow-color': $carousel-arrow-color,
@@ -26,9 +29,8 @@ $css-vars-map: (
     'carousel-overlay-background': $carousel-overlay-background,
     'carousel-overlay-z': $carousel-overlay-z,
 );
-
-@include exportCSSVars($css-vars-map);
-@include registerComponentCSSVars('carousel');
+@include bulma-utilities.exportCSSVars($_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars('carousel', $_css-vars-map);
 
 .carousel {
     @extend %unselectable;
@@ -51,7 +53,7 @@ $css-vars-map: (
         }
     }
     .progress {
-        border-radius: var(--radius-small, #{$radius-small});
+        border-radius: var(--radius-small, #{bulma-vars.$radius-small});
         height: 0.25rem;
         margin-bottom: 0;
     }
@@ -61,7 +63,7 @@ $css-vars-map: (
         overflow: hidden;
         width: 100%;
         &:hover .carousel-arrow.is-hovered {
-            @include tablet {
+            @include bulma-utilities.tablet {
                 opacity: 1;
             }
         }
@@ -89,7 +91,7 @@ $css-vars-map: (
         &.has-custom {
             flex-wrap: nowrap;
             justify-content: flex-start;
-            @include overflow-touch;
+            @include bulma-utilities.overflow-touch;
             overflow: hidden;
             overflow-x: auto;
             &.is-small .indicator-item {
@@ -124,14 +126,14 @@ $css-vars-map: (
                 outline: none;
                 // transition: $speed-slow $easing;
                 transition-property: all;
-                transition-duration: calc(var(--speed, #{$speed}) * 2);
-                transition-timing-function: var(--easing, #{$easing});
+                transition-duration: calc(var(--speed, #{bulma-vars.$speed}) * 2);
+                transition-timing-function: var(--easing, #{bulma-vars.$easing});
                 &.is-boxes {
                     height: 10px;
                     width: 10px;
                 }
                 &.is-dots {
-                    border-radius: var(--radius-rounded, #{$radius-rounded});
+                    border-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
                     height: 10px;
                     width: 10px;
                 }
@@ -150,10 +152,10 @@ $css-vars-map: (
     overflow: hidden;
     width: 100%;
     &.has-shadow {
-        box-shadow: 0px 0px 10px rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), 0.25);
+        box-shadow: 0px 0px 10px rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.25);
     }
     &:hover .carousel-arrow.is-hovered {
-        @include tablet {
+        @include bulma-utilities.tablet {
             opacity: 1;
         }
     }
@@ -164,7 +166,7 @@ $css-vars-map: (
         &:not(.is-dragging) {
             // transition: all $speed-slower ease-out 0s;
             transition-property: all;
-            transition-duration: calc(var(--speed, #{$speed}) * 3);
+            transition-duration: calc(var(--speed, #{bulma-vars.$speed}) * 3);
             transition-timing-function: ease-out
         }
         &.has-grayscale {
@@ -197,8 +199,8 @@ $css-vars-map: (
 .carousel-arrow {
     // transition: $speed-slow $easing;
     transition-property: all;
-    transition-duration: calc(var(--speed, #{$speed}) * 2);
-    transition-timing-function: var(--easing, #{$easing});
+    transition-duration: calc(var(--speed, #{bulma-vars.$speed}) * 2);
+    transition-timing-function: var(--easing, #{bulma-vars.$easing});
     &.is-hovered {
         opacity: 0;
     }
@@ -207,7 +209,7 @@ $css-vars-map: (
         color: var(--carousel-arrow-color);
         cursor: pointer;
         border: 1px solid var(--carousel-arrow-background);
-        border-radius: var(--radius-rounded, #{$radius-rounded});
+        border-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
         outline: 0;
         &:hover {
             border: 1px solid var(--carousel-arrow-color);

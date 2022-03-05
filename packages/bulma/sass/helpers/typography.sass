@@ -1,57 +1,58 @@
-@import "../utilities/mixins"
+@use "../utilities/derived-variables" as vars
+@use "../utilities"
 
-+typography-size
++utilities.typography-size
 
-+mobile
-  +typography-size('mobile')
++utilities.mobile
+  +utilities.typography-size('mobile')
 
-+tablet
-  +typography-size('tablet')
++utilities.tablet
+  +utilities.typography-size('tablet')
 
-+touch
-  +typography-size('touch')
++utilities.touch
+  +utilities.typography-size('touch')
 
-+desktop
-  +typography-size('desktop')
++utilities.desktop
+  +utilities.typography-size('desktop')
 
-+widescreen
-  +typography-size('widescreen')
++utilities.widescreen
+  +utilities.typography-size('widescreen')
 
-+fullhd
-  +typography-size('fullhd')
++utilities.fullhd
+  +utilities.typography-size('fullhd')
 
-$alignments: ('centered': 'center', 'justified': 'justify', 'left': 'left', 'right': 'right')
+$alignments: ('centered': 'center', 'justified': 'justify', 'left': 'left', 'right': 'right') !default
 
 @each $alignment, $text-align in $alignments
   .has-text-#{$alignment}
     text-align: #{$text-align} !important
 
 @each $alignment, $text-align in $alignments
-  +mobile
+  +utilities.mobile
     .has-text-#{$alignment}-mobile
       text-align: #{$text-align} !important
-  +tablet
+  +utilities.tablet
     .has-text-#{$alignment}-tablet
       text-align: #{$text-align} !important
-  +tablet-only
+  +utilities.tablet-only
     .has-text-#{$alignment}-tablet-only
       text-align: #{$text-align} !important
-  +touch
+  +utilities.touch
     .has-text-#{$alignment}-touch
       text-align: #{$text-align} !important
-  +desktop
+  +utilities.desktop
     .has-text-#{$alignment}-desktop
       text-align: #{$text-align} !important
-  +desktop-only
+  +utilities.desktop-only
     .has-text-#{$alignment}-desktop-only
       text-align: #{$text-align} !important
-  +widescreen
+  +utilities.widescreen
     .has-text-#{$alignment}-widescreen
       text-align: #{$text-align} !important
-  +widescreen-only
+  +utilities.widescreen-only
     .has-text-#{$alignment}-widescreen-only
       text-align: #{$text-align} !important
-  +fullhd
+  +utilities.fullhd
     .has-text-#{$alignment}-fullhd
       text-align: #{$text-align} !important
 
@@ -71,31 +72,31 @@ $alignments: ('centered': 'center', 'justified': 'justify', 'left': 'left', 'rig
   text-decoration: underline !important
 
 .has-text-weight-light
-  font-weight: var(--weight-light, #{$weight-light}) !important
+  font-weight: var(--weight-light, #{vars.$weight-light}) !important
 
 .has-text-weight-normal
-  font-weight: var(--weight-normal, #{$weight-normal}) !important
+  font-weight: var(--weight-normal, #{vars.$weight-normal}) !important
 
 .has-text-weight-medium
-  font-weight: var(--weight-medium, #{$weight-medium}) !important
+  font-weight: var(--weight-medium, #{vars.$weight-medium}) !important
 
 .has-text-weight-semibold
-  font-weight: var(--weight-semibold, #{$weight-semibold}) !important
+  font-weight: var(--weight-semibold, #{vars.$weight-semibold}) !important
 
 .has-text-weight-bold
-  font-weight: var(--weight-bold, #{$weight-bold}) !important
+  font-weight: var(--weight-bold, #{vars.$weight-bold}) !important
 
 .is-family-primary
-  font-family: var(--family-primary, #{$family-primary}) !important
+  font-family: var(--family-primary, #{vars.$family-primary}) !important
 
 .is-family-secondary
-  font-family: var(--family-secondary, #{$family-secondary}) !important
+  font-family: var(--family-secondary, #{vars.$family-secondary}) !important
 
 .is-family-sans-serif
-  font-family: var(--family-sans-serif, #{$family-sans-serif}) !important
+  font-family: var(--family-sans-serif, #{vars.$family-sans-serif}) !important
 
 .is-family-monospace
-  font-family: var(--family-monospace, #{$family-monospace}) !important
+  font-family: var(--family-monospace, #{vars.$family-monospace}) !important
 
 .is-family-code
-  font-family: var(--family-code, #{$family-code}) !important
+  font-family: var(--family-code, #{vars.$family-code}) !important

@@ -1,18 +1,21 @@
-@import "../utilities/mixins"
+@use "../utilities/derived-variables" as vars
+@use "../utilities"
 
-$breadcrumb-item-color: var(--link, #{$link}) !default
-$breadcrumb-item-hover-color: var(--link-hover, #{$link-hover}) !default
-$breadcrumb-item-active-color: var(--text-strong, #{$text-strong}) !default
-$breadcrumb-font-size: var(--size-normal, #{$size-normal}) !default
+$breadcrumb-item-color: var(--link, #{vars.$link}) !default
+$breadcrumb-item-hover-color: var(--link-hover, #{vars.$link-hover}) !default
+$breadcrumb-item-active-color: var(--text-strong, #{vars.$text-strong}) !default
+$breadcrumb-font-size: var(--size-normal, #{vars.$size-normal}) !default
 
 $breadcrumb-item-padding-vertical: 0 !default
 $breadcrumb-item-padding-horizontal: 0.75em !default
 
-$breadcrumb-item-separator-color: var(--border-hover, #{$border-hover}) !default
+$breadcrumb-item-separator-color: var(--border-hover, #{vars.$border-hover}) !default
 
-$css-vars-map: ('breadcrumb-font-size': $breadcrumb-font-size, 'breadcrumb-item-color': $breadcrumb-item-color, 'breadcrumb-item-hover-color': $breadcrumb-item-hover-color, 'breadcrumb-item-active-color': $breadcrumb-item-active-color, 'breadcrumb-item-separator-color': $breadcrumb-item-separator-color, 'breadcrumb-item-padding-vertical': $breadcrumb-item-padding-vertical, 'breadcrumb-item-padding-horizontal': $breadcrumb-item-padding-horizontal)
-+exportCSSVars($css-vars-map)
-+registerComponentCSSVars('breadcrumb')
+$breadcrumb-li-content: "\0002f" !default
+
+$_css-vars-map: ('breadcrumb-font-size': $breadcrumb-font-size, 'breadcrumb-item-color': $breadcrumb-item-color, 'breadcrumb-item-hover-color': $breadcrumb-item-hover-color, 'breadcrumb-item-active-color': $breadcrumb-item-active-color, 'breadcrumb-item-separator-color': $breadcrumb-item-separator-color, 'breadcrumb-item-padding-vertical': $breadcrumb-item-padding-vertical, 'breadcrumb-item-padding-horizontal': $breadcrumb-item-padding-horizontal, 'breadcrumb-li-content': $breadcrumb-li-content)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars('breadcrumb', $_css-vars-map)
 // --breadcrumb-font-size: #{$breadcrumb-font-size}
 // --breadcrumb-item-color: #{$breadcrumb-item-color}
 // --breadcrumb-item-hover-color: #{$breadcrumb-item-hover-color}
@@ -38,7 +41,7 @@ $css-vars-map: ('breadcrumb-font-size': $breadcrumb-font-size, 'breadcrumb-item-
     align-items: center
     display: flex
     &:first-child a
-      +ltr-property("padding", 0, false)
+      +utilities.ltr-property("padding", 0, false)
     &.is-active
       a
         --breadcrumb-item-color: var(--breadcrumb-item-active-color)
@@ -46,7 +49,7 @@ $css-vars-map: ('breadcrumb-font-size': $breadcrumb-font-size, 'breadcrumb-item-
         pointer-events: none
     & + li::before
       color: var(--breadcrumb-item-separator-color)
-      content: "\0002f"
+      content: var(--breadcrumb-li-content)
   ul,
   ol
     align-items: flex-start
@@ -55,9 +58,9 @@ $css-vars-map: ('breadcrumb-font-size': $breadcrumb-font-size, 'breadcrumb-item-
     justify-content: flex-start
   .icon
     &:first-child
-      +ltr-property("margin", 0.5em)
+      +utilities.ltr-property("margin", 0.5em)
     &:last-child
-      +ltr-property("margin", 0.5em, false)
+      +utilities.ltr-property("margin", 0.5em, false)
   // Alignment
   &.is-centered
     ol,
@@ -68,17 +71,13 @@ $css-vars-map: ('breadcrumb-font-size': $breadcrumb-font-size, 'breadcrumb-item-
     ul
       justify-content: flex-end
   // Sizes
-  +control-sizes(breadcrumb-font-size)
+  +utilities.control-sizes(breadcrumb-font-size)
   // Styles
   &.has-arrow-separator
-    li + li::before
-      content: "\02192"
+    --breadcrumb-li-content: "\02192"
   &.has-bullet-separator
-    li + li::before
-      content: "\02022"
+    --breadcrumb-li-content: "\02022"
   &.has-dot-separator
-    li + li::before
-      content: "\000b7"
+    --breadcrumb-li-content: "\000b7"
   &.has-succeeds-separator
-    li + li::before
-      content: "\0227B"
+    --breadcrumb-li-content: "\0227B"

@@ -1,3 +1,7 @@
+@use "shared" as form-shared
+@use "../utilities/derived-variables" as vars
+@use "../utilities"
+
 %checkbox-radio
   cursor: pointer
   display: inline-block
@@ -6,12 +10,12 @@
   input
     cursor: pointer
   &:hover
-    color: var(--input-hover-color, #{$input-hover-color})
+    color: var(--input-hover-color, #{form-shared.$input-hover-color})
   &[disabled],
   fieldset[disabled] &,
   input[disabled],
   &.is-disabled
-    color: var(--input-disabled-color, #{$input-disabled-color})
+    color: var(--input-disabled-color, #{form-shared.$input-disabled-color})
     cursor: not-allowed
 
 .checkbox
@@ -20,4 +24,4 @@
 .radio
   @extend %checkbox-radio
   & + .radio
-    +ltr-property("margin", 0.5em, false)
+    +utilities.ltr-property("margin", 0.5em, false)

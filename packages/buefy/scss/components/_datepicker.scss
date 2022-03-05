@@ -1,16 +1,25 @@
-$datepicker-background-color: var(--dropdown-content-background-color, #{$dropdown-content-background-color}) !default;
-$datepicker-radius: var(--dropdown-content-radius, #{$dropdown-content-radius}) !default;
-$datepicker-shadow: var(--dropdown-content-shadow, #{$dropdown-content-shadow}) !default;
-$datepicker-header-color: $grey !default;
-$datepicker-today-border: solid 1px !default;
-$datepicker-item-color: $grey-dark !default;
-$datepicker-item-disabled-color: $grey-light !default;
-$datepicker-item-hover-color: var(--scheme-invert, #{$scheme-invert}) !default;
-$datepicker-item-hover-background-color: var(--background, #{$background}) !default;
-$datepicker-item-selected-color: var(--primary-invert, #{$primary-invert}) !default;
-$datepicker-item-selected-background-color: var(--primary, #{$primary}) !default;
+@use "sass:list";
 
-$css-vars-map: (
+@use "../../../bulma/sass/utilities" as bulma-utilities;
+@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
+@use "../../../bulma/sass/form/shared" as bulma-form;
+@use "../../../bulma/sass/components/dropdown" as bulma-dropdown;
+
+$datepicker-background-color: var(--dropdown-content-background-color, #{bulma-dropdown.$dropdown-content-background-color}) !default;
+$datepicker-radius: var(--dropdown-content-radius, #{bulma-dropdown.$dropdown-content-radius}) !default;
+$datepicker-shadow: var(--dropdown-content-shadow, #{bulma-dropdown.$dropdown-content-shadow}) !default;
+$datepicker-header-color: bulma-vars.$grey !default;
+$datepicker-today-border: solid 1px !default;
+$datepicker-item-color: bulma-vars.$grey-dark !default;
+$datepicker-item-disabled-color: bulma-vars.$grey-light !default;
+$datepicker-item-hover-color: var(--scheme-invert, #{bulma-vars.$scheme-invert}) !default;
+$datepicker-item-hover-background-color: var(--background, #{bulma-vars.$background}) !default;
+$datepicker-item-selected-color: var(--primary-invert, #{bulma-vars.$primary-invert}) !default;
+$datepicker-item-selected-background-color: var(--primary, #{bulma-vars.$primary}) !default;
+
+$datepicker-colors: bulma-form.$form-colors !default;
+
+$_css-vars-map: (
     'datepicker-background-color': $datepicker-background-color,
     'datepicker-radius': $datepicker-radius,
     'datepicker-shadow': $datepicker-shadow,
@@ -23,9 +32,8 @@ $css-vars-map: (
     'datepicker-item-selected-color': $datepicker-item-selected-color,
     'datepicker-item-selected-background-color': $datepicker-item-selected-background-color,
 );
-
-@include exportCSSVars($css-vars-map);
-@include registerComponentCSSVars('datepicker');
+@include bulma-utilities.exportCSSVars($_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars('datepicker', $_css-vars-map);
 
 .datepicker {
     font-size: 0.875rem;
@@ -34,12 +42,12 @@ $css-vars-map: (
         width: 100%;
         .input[readonly] {
             cursor: pointer;
-            box-shadow: var(--input-shadow, #{$input-shadow});
+            box-shadow: var(--input-shadow, #{bulma-form.$input-shadow});
             &:focus,
             &.is-focused,
             &:active,
             &.is-active {
-                box-shadow: var(--input-focus-box-shadow-size, #{$input-focus-box-shadow-size}) var(--input-focus-box-shadow-color, #{$input-focus-box-shadow-color})
+                box-shadow: var(--input-focus-box-shadow-size, #{bulma-form.$input-focus-box-shadow-size}) var(--input-focus-box-shadow-color, #{bulma-form.$input-focus-box-shadow-color})
             }
         }
     }
@@ -60,12 +68,12 @@ $css-vars-map: (
     .datepicker-header {
         padding-bottom: 0.875rem;
         margin-bottom: 0.875rem;
-        border-bottom: 1px solid var(--grey-lighter, #{$grey-lighter});
+        border-bottom: 1px solid var(--grey-lighter, #{bulma-vars.$grey-lighter});
     }
     .datepicker-footer {
         margin-top: 0.875rem;
         padding-top: 0.875rem;
-        border-top: 1px solid var(--grey-lighter, #{$grey-lighter});
+        border-top: 1px solid var(--grey-lighter, #{bulma-vars.$grey-lighter});
     }
     .datepicker-table {
         display: table;
@@ -74,14 +82,14 @@ $css-vars-map: (
             text-align: center;
             vertical-align: middle;
             display: table-cell;
-            border-radius: var(--radius, #{$radius});
+            border-radius: var(--radius, #{bulma-vars.$radius});
             padding: 0.5rem 0.75rem;
         }
         .datepicker-header {
             display: table-header-group;
             .datepicker-cell {
                 color: var(--datepicker-header-color);
-                font-weight: var(--weight-semibold, #{$weight-semibold});
+                font-weight: var(--weight-semibold, #{bulma-vars.$weight-semibold});
             }
         }
         .datepicker-body {
@@ -107,8 +115,8 @@ $css-vars-map: (
                     color: var(--datepicker-item-disabled-color);
                 }
                 &.is-today {
-                    --datepicker-today-border-color: #{bulmaVarOpacity(primary, 0.5)};
-                    border: var(--datepicker-today-border) var(--datepicker-today-border-color, #{bulmaRgba($primary, 0.5)});
+                    --datepicker-today-border-color: #{bulma-utilities.bulmaVarOpacity(primary, 0.5)};
+                    border: var(--datepicker-today-border) var(--datepicker-today-border-color, #{bulma-utilities.bulmaRgba(bulma-vars.$primary, 0.5)});
                 }
                 &.is-selectable {
                     color: var(--datepicker-item-color);
@@ -120,8 +128,8 @@ $css-vars-map: (
                     }
                     &.is-within-hovered-range {
                         &.is-first-hovered {
-                            background-color: var(--grey, #{$grey});
-                            color: var(--grey-lighter, #{$grey-lighter});
+                            background-color: var(--grey, #{bulma-vars.$grey});
+                            color: var(--grey-lighter, #{bulma-vars.$grey-lighter});
                             border-bottom-right-radius: 0;
                             border-top-right-radius: 0;
                         }
@@ -131,8 +139,8 @@ $css-vars-map: (
                             border-radius: 0;
                         }
                         &.is-last-hovered {
-                            background-color: var(--grey, #{$grey});
-                            color: var(--grey-lighter, #{$grey-lighter});
+                            background-color: var(--grey, #{bulma-vars.$grey});
+                            color: var(--grey-lighter, #{bulma-vars.$grey-lighter});
                             border-bottom-left-radius: 0;
                             border-top-left-radius: 0;
                         }
@@ -148,8 +156,8 @@ $css-vars-map: (
                         border-top-right-radius: 0;
                     }
                     &.is-within-selected {
-                        --datepicker-item-selected-background-color: #{bulmaVarOpacity(primary, 0.5)};
-                        background-color: var(--datepicker-item-selected-background-color, #{bulmaRgba($primary, 0.5)});
+                        --datepicker-item-selected-background-color: #{bulma-utilities.bulmaVarOpacity(primary, 0.5)};
+                        background-color: var(--datepicker-item-selected-background-color, #{bulma-utilities.bulmaRgba(bulma-vars.$primary, 0.5)});
                         border-radius: 0;
                     }
                     &.is-last-selected {
@@ -160,7 +168,7 @@ $css-vars-map: (
                     }
                 }
                 &.is-nearby:not(.is-selected) {
-                    color: var(--grey-light, #{$grey-light});
+                    color: var(--grey-light, #{bulma-vars.$grey-light});
                 }
                 &.is-week-number {
                     cursor: default;
@@ -180,8 +188,8 @@ $css-vars-map: (
                             position: absolute;
                             width: 100%;
                             .event {
-                                @each $name, $pair in $form-colors {
-                                    $color: nth($pair, 1);
+                                @each $name, $pair in $datepicker-colors {
+                                    $color: list.nth($pair, 1);
                                     &.is-#{$name} {
                                         background-color: var(--#{$name} #{$color});
                                     }
@@ -205,8 +213,8 @@ $css-vars-map: (
                             // Currently datepicker only uses primary coloring
                             // Ensure indicator is visible when selected
                             &.is-primary {
-                                --datepicker-background-color-selected: #{bulmaVarLighten(primary, 15%)};
-                                background-color: var(--datepicker-background-color-selected, #{bulmaLighten($primary, 15%)});
+                                --datepicker-background-color-selected: #{bulma-utilities.bulmaVarLighten(primary, 15%)};
+                                background-color: var(--datepicker-background-color-selected, #{bulma-utilities.bulmaLighten(bulma-vars.$primary, 15%)});
                             }
                         }
                     }
@@ -214,8 +222,8 @@ $css-vars-map: (
             }
         }
     }
-    @include control-sizes;
-    @media screen and (min-width: $desktop){
+    @include bulma-utilities.control-sizes;
+    @media screen and (min-width: bulma-vars.$desktop){
         .footer-horizontal-timepicker {
             border: none;
             padding-left: 10px;

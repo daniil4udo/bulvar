@@ -1,18 +1,26 @@
-$notices-shadow-color: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), 0.12) !default;
-$notices-shadow-color-bis: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), 0.04) !default;
+@use "sass:list";
+
+@use "../../../bulma/sass/utilities" as bulma-utilities;
+@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
+@use "../../../bulma/sass/elements/notification" as bulma-notification;
+
+$notices-shadow-color: rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.12) !default;
+$notices-shadow-color-bis: rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.04) !default;
 $notices-box-shadow: 0 1px 4px $notices-shadow-color, 0 0 6px $notices-shadow-color-bis !default;
 
 $toast-border-radius: 2em !default;
 $toast-opacity: 0.92 !default;
 $toast-box-shadow: $notices-box-shadow !default;
 
-$snackbar-background-color: var(--dark, #{$dark}) !default; // dark is registered as var hence has hsl map
-$snackbar-color: var(--dark-invert, #{$dark-invert}) !default;
-$snackbar-border-radius: var(--radius, #{$radius}) !default;
+$snackbar-background-color: var(--dark, #{bulma-vars.$dark}) !default; // dark is registered as var hence has hsl map
+$snackbar-color: var(--dark-invert, #{bulma-vars.$dark-invert}) !default;
+$snackbar-border-radius: var(--radius, #{bulma-vars.$radius}) !default;
 $snackbar-button-text-transform: uppercase !default;
 $snackbar-box-shadow: $notices-box-shadow !default;
 
-$css-vars-map: (
+$snackbar-colors: bulma-notification.$notification-colors !default;
+
+$_css-vars-map: (
     'notices-box-shadow': $notices-box-shadow,
     'toast-border-radius': $toast-border-radius,
     'toast-opacity': $toast-opacity,
@@ -23,9 +31,8 @@ $css-vars-map: (
     'snackbar-button-text-transform': $snackbar-button-text-transform,
     'snackbar-box-shadow': $snackbar-box-shadow,
 );
-
-@include exportCSSVars($css-vars-map);
-@include registerComponentCSSVars('notices');
+@include bulma-utilities.exportCSSVars($_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars('notices', $_css-vars-map);
 
 .notices {
     position: fixed;
@@ -40,7 +47,7 @@ $css-vars-map: (
     pointer-events: none;
     .toast {
         display: inline-flex;
-        animation-duration: calc(var(--speed, #{$speed}) * 2);
+        animation-duration: calc(var(--speed, #{bulma-vars.$speed}) * 2);
         margin: 0.5em 0;
         text-align: center;
         box-shadow: var(--toast-box-shadow);
@@ -48,9 +55,9 @@ $css-vars-map: (
         padding: 0.75em 1.5em;
         pointer-events: auto;
         opacity: var(--toast-opacity);
-        @each $name, $pair in $notification-colors {
-            $color: nth($pair, 1);
-            $color-invert: nth($pair, 2);
+        @each $name, $pair in $snackbar-colors {
+            $color: list.nth($pair, 1);
+            $color-invert: list.nth($pair, 2);
             &.is-#{$name} {
                 color: var(--#{$name}-invert, #{$color-invert});
                 background: var(--#{$name}, #{$color});
@@ -58,11 +65,11 @@ $css-vars-map: (
         }
     }
     .snackbar {
-        --snackbar-button-background-color: #{bulmaVarDarken(dark, 5%)};
+        --snackbar-button-background-color: #{bulma-utilities.bulmaVarDarken(dark, 5%)};
         display: inline-flex;
         align-items: center;
         justify-content: space-around;
-        animation-duration: calc(var(--speed, #{$speed}) * 2);
+        animation-duration: calc(var(--speed, #{bulma-vars.$speed}) * 2);
         margin: 0.5em 0;
         box-shadow: var(--snackbar-box-shadow);
         border-radius: var(--snackbar-border-radius);
@@ -78,20 +85,20 @@ $css-vars-map: (
             padding: 0.5em;
             padding-left: 0;
             .button {
-                font-weight: var(--weight-semibold, #{$weight-semibold});
+                font-weight: var(--weight-semibold, #{bulma-vars.$weight-semibold});
                 text-transform: var(--snackbar-button-text-transform);
                 background: var(--snackbar-background-color);
                 border: transparent;
             }
             .button:hover {
                 // TODO: revisit
-                background: var(--snackbar-button-background-color, #{bulmaDarken($dark, 5%)});
+                background: var(--snackbar-button-background-color, #{bulma-utilities.bulmaDarken(bulma-vars.$dark, 5%)});
             }
             .button:active {
-                background: var(--snackbar-button-background-color, #{bulmaDarken($dark, 5%)});
+                background: var(--snackbar-button-background-color, #{bulma-utilities.bulmaDarken(bulma-vars.$dark, 5%)});
             }
-            @each $name, $pair in $notification-colors {
-                $color: nth($pair, 1);
+            @each $name, $pair in $snackbar-colors {
+                $color: list.nth($pair, 1);
                 &.is-#{$name} {
                     .button {
                         color: var(--#{$name}, #{$color});
@@ -102,12 +109,12 @@ $css-vars-map: (
         .action.is-cancel {
             padding-right: 0;
         }
-        @include mobile {
+        @include bulma-utilities.mobile {
             width: 100%;
             margin: 0;
             border-radius: 0;
         }
-        @include tablet {
+        @include bulma-utilities.tablet {
             min-width: 350px;
             max-width: 600px;
             overflow: hidden;
@@ -156,7 +163,7 @@ $css-vars-map: (
         position: absolute;
     }
 
-    @include mobile {
+    @include bulma-utilities.mobile {
         padding: 0;
         position: fixed !important;
     }

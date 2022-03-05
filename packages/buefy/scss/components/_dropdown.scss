@@ -1,21 +1,23 @@
-$dropdown-mobile-breakpoint: $desktop !default;
-$dropdown-background-color: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), 0.86) !default;
+@use "../../../bulma/sass/utilities" as bulma-utilities;
+@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
+
+$dropdown-mobile-breakpoint: bulma-vars.$desktop !default;
+$dropdown-background-color: rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.86) !default;
 $dropdown-disabled-opacity: 0.5 !default;
 
-$css-vars-map: (
+$_css-vars-map: (
     'dropdown-background-color': $dropdown-background-color,
     'dropdown-disabled-opacity': $dropdown-disabled-opacity,
 );
-
-@include exportCSSVars($css-vars-map);
-@include registerComponentCSSVars('dropdown');
+@include bulma-utilities.exportCSSVars($_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars('dropdown', $_css-vars-map);
 
 .dropdown {
     & + .dropdown {
         margin-left: 0.5em;
     }
     .background {
-        @include overlay;
+        @include bulma-utilities.overlay;
         position: fixed;
         background-color: var(--dropdown-background-color);
         z-index: 40;

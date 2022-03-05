@@ -1,8 +1,10 @@
+@use "../../../bulma/sass/components/pagination" as bulma-pagination;
+
 .pagination {
     .pagination-next,
     .pagination-previous {
-        padding-left: var(--pagination-nav-padding-left, #{$pagination-nav-padding-left});
-        padding-right: var(--pagination-nav-padding-right, #{$pagination-nav-padding-right});
+        padding-left: var(--pagination-nav-padding-left, #{bulma-pagination.$pagination-nav-padding-left});
+        padding-right: var(--pagination-nav-padding-right, #{bulma-pagination.$pagination-nav-padding-right});
         &.is-disabled {
             pointer-events: none;
             cursor: not-allowed;

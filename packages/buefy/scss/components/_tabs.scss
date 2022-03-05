@@ -1,17 +1,20 @@
+@use "../../../bulma/sass/utilities" as bulma-utilities;
+@use "../../../bulma/sass/components/tabs" as bulma-tabs;
+
 $tabs-focused-outline: none !default;
 $tabs-items-focused-outline: none !default;
-$tabs-link-focus-active-border-bottom-color: $tabs-link-active-border-bottom-color !default;
-$tabs-link-focus-border-bottom-color: $tabs-link-hover-border-bottom-color !default;
-$tabs-boxed-link-focus-active-background-color: $tabs-boxed-link-active-background-color !default;
-$tabs-boxed-link-focus-background-color: $tabs-boxed-link-hover-background-color !default;
-$tabs-boxed-link-focus-active-border-bottom-color: $tabs-boxed-link-active-border-bottom-color !default;
-$tabs-boxed-link-focus-border-bottom-color: $tabs-boxed-link-hover-border-bottom-color !default;
-$tabs-toggle-link-focus-active-background-color: $tabs-toggle-link-active-background-color !default;
-$tabs-toggle-link-focus-background-color: $tabs-toggle-link-hover-background-color !default;
-$tabs-toggle-link-focus-active-border-color: $tabs-toggle-link-active-border-color !default;
-$tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !default;
+$tabs-link-focus-active-border-bottom-color: bulma-tabs.$tabs-link-active-border-bottom-color !default;
+$tabs-link-focus-border-bottom-color: bulma-tabs.$tabs-link-hover-border-bottom-color !default;
+$tabs-boxed-link-focus-active-background-color: bulma-tabs.$tabs-boxed-link-active-background-color !default;
+$tabs-boxed-link-focus-background-color: bulma-tabs.$tabs-boxed-link-hover-background-color !default;
+$tabs-boxed-link-focus-active-border-bottom-color: bulma-tabs.$tabs-boxed-link-active-border-bottom-color !default;
+$tabs-boxed-link-focus-border-bottom-color: bulma-tabs.$tabs-boxed-link-hover-border-bottom-color !default;
+$tabs-toggle-link-focus-active-background-color: bulma-tabs.$tabs-toggle-link-active-background-color !default;
+$tabs-toggle-link-focus-background-color: bulma-tabs.$tabs-toggle-link-hover-background-color !default;
+$tabs-toggle-link-focus-active-border-color: bulma-tabs.$tabs-toggle-link-active-border-color !default;
+$tabs-toggle-link-focus-border-color: bulma-tabs.$tabs-toggle-link-hover-border-color !default;
 
-$css-vars-map: (
+$_css-vars-map: (
     'tabs-link-focus-active-border-bottom-color': $tabs-link-focus-active-border-bottom-color,
     'tabs-link-focus-border-bottom-color': $tabs-link-focus-border-bottom-color,
     'tabs-boxed-link-focus-active-background-color': $tabs-boxed-link-focus-active-background-color,
@@ -23,9 +26,8 @@ $css-vars-map: (
     'tabs-toggle-link-focus-active-border-color': $tabs-toggle-link-focus-active-border-color,
     'tabs-toggle-link-focus-border-color': $tabs-toggle-link-focus-border-color,
 );
-
-@include exportCSSVars($css-vars-map);
-@include registerComponentCSSVars('b-tabs');
+@include bulma-utilities.exportCSSVars($_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars('b-tabs', $_css-vars-map);
 
 .b-tabs {
     .tabs {
@@ -125,13 +127,13 @@ $css-vars-map: (
                 li {
                     a {
                         border-bottom-color: transparent !important;
-                        border-right-color: var(--tabs-border-bottom-color, #{$tabs-border-bottom-color}) !important;
-                        border-radius: var(--tabs-boxed-link-radius, #{$tabs-boxed-link-radius}) 0 0 var(--tabs-boxed-link-radius, #{$tabs-boxed-link-radius});
+                        border-right-color: var(--tabs-border-bottom-color, #{bulma-tabs.$tabs-border-bottom-color}) !important;
+                        border-radius: var(--tabs-boxed-link-radius, #{bulma-tabs.$tabs-boxed-link-radius}) 0 0 var(--tabs-boxed-link-radius, #{bulma-tabs.$tabs-boxed-link-radius});
                     }
 
                     &.is-active {
                         a {
-                            border-bottom-color: var(--tabs-border-bottom-color, #{$tabs-border-bottom-color}) !important;
+                            border-bottom-color: var(--tabs-border-bottom-color, #{bulma-tabs.$tabs-border-bottom-color}) !important;
                             border-right-color: transparent !important;
                         }
                     }
@@ -144,12 +146,12 @@ $css-vars-map: (
                     }
                     &:first-child {
                         a {
-                            border-radius: var(--tabs-toggle-link-radius, #{$tabs-toggle-link-radius}) var(--tabs-toggle-link-radius, #{$tabs-toggle-link-radius}) 0 0;
+                            border-radius: var(--tabs-toggle-link-radius, #{bulma-tabs.$tabs-toggle-link-radius}) var(--tabs-toggle-link-radius, #{bulma-tabs.$tabs-toggle-link-radius}) 0 0;
                         }
                     }
                     &:last-child {
                         a {
-                            border-radius: 0 0 var(--tabs-toggle-link-radius, #{$tabs-toggle-link-radius}) var(--tabs-toggle-link-radius, #{$tabs-toggle-link-radius});
+                            border-radius: 0 0 var(--tabs-toggle-link-radius, #{bulma-tabs.$tabs-toggle-link-radius}) var(--tabs-toggle-link-radius, #{bulma-tabs.$tabs-toggle-link-radius});
                         }
                     }
                 }
@@ -186,14 +188,14 @@ $css-vars-map: (
                         a {
                             border-bottom-color: transparent !important;
                             border-right-color: transparent !important;
-                            border-left-color: var(--tabs-border-bottom-color, #{$tabs-border-bottom-color}) !important;
-                            border-radius: 0 var(--tabs-boxed-link-radius, #{$tabs-boxed-link-radius}) var(--tabs-boxed-link-radius, #{$tabs-boxed-link-radius}) 0;
+                            border-left-color: var(--tabs-border-bottom-color, #{bulma-tabs.$tabs-border-bottom-color}) !important;
+                            border-radius: 0 var(--tabs-boxed-link-radius, #{bulma-tabs.$tabs-boxed-link-radius}) var(--tabs-boxed-link-radius, #{bulma-tabs.$tabs-boxed-link-radius}) 0;
                         }
 
                         &.is-active {
                             a {
-                                border-bottom-color: var(--tabs-border-bottom-color, #{$tabs-border-bottom-color}) !important;
-                                border-right-color: var(--tabs-border-bottom-color, #{$tabs-border-bottom-color}) !important;
+                                border-bottom-color: var(--tabs-border-bottom-color, #{bulma-tabs.$tabs-border-bottom-color}) !important;
+                                border-right-color: var(--tabs-border-bottom-color, #{bulma-tabs.$tabs-border-bottom-color}) !important;
                                 border-left-color: transparent !important;
                             }
                         }

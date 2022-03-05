@@ -1,7 +1,8 @@
-@import "../utilities/mixins"
+@use "../utilities/derived-variables" as vars
+@use "../utilities"
 
 .is-clearfix
-  +clearfix
+  +utilities.clearfix
 
 .is-pulled-left
   float: left !important

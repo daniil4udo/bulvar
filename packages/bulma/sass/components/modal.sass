@@ -1,8 +1,9 @@
-@import "../utilities/mixins"
+@use "../utilities/derived-variables" as vars
+@use "../utilities"
 
 $modal-z: 40 !default
 
-$modal-background-background-color: rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), 0.86) !default
+$modal-background-background-color: rgba(var(--scheme-invert-rgb, #{utilities.bulmaToRGB(vars.$scheme-invert)}), 0.86) !default
 
 $modal-content-width: 640px !default
 $modal-content-margin-mobile: 20px !default
@@ -15,26 +16,26 @@ $modal-close-top: 20px !default
 
 $modal-card-spacing: 40px !default
 
-$modal-card-head-background-color: var(--background, #{$background}) !default
-$modal-card-head-border-bottom: 1px solid var(--border, #{$border}) !default
+$modal-card-head-background-color: var(--background, #{vars.$background}) !default
+$modal-card-head-border-bottom: 1px solid var(--border, #{vars.$border}) !default
 $modal-card-head-padding: 20px !default
-$modal-card-head-radius: var(--radius-large, #{$radius-large}) !default
+$modal-card-head-radius: var(--radius-large, #{vars.$radius-large}) !default
 
-$modal-card-title-color: var(--text-strong, #{$text-strong}) !default
+$modal-card-title-color: var(--text-strong, #{vars.$text-strong}) !default
 $modal-card-title-line-height: 1 !default
-$modal-card-title-size: $size-4 !default
+$modal-card-title-size: vars.$size-4 !default
 
-$modal-card-foot-radius: var(--radius-large, #{$radius-large}) !default
-$modal-card-foot-border-top: 1px solid var(--border, #{$border}) !default
+$modal-card-foot-radius: var(--radius-large, #{vars.$radius-large}) !default
+$modal-card-foot-border-top: 1px solid var(--border, #{vars.$border}) !default
 
-$modal-card-body-background-color: var(--scheme-main, #{$scheme-main}) !default
+$modal-card-body-background-color: var(--scheme-main, #{vars.$scheme-main}) !default
 $modal-card-body-padding: 20px !default
 
-$modal-breakpoint: $tablet !default
+$modal-breakpoint: vars.$tablet !default
 
-$css-vars-map: ('modal-z': $modal-z, 'modal-background-background-color': $modal-background-background-color, 'modal-content-width': $modal-content-width, 'modal-content-margin-mobile': $modal-content-margin-mobile, 'modal-content-spacing-mobile': $modal-content-spacing-mobile, 'modal-content-spacing-tablet': $modal-content-spacing-tablet, 'modal-close-dimensions': $modal-close-dimensions, 'modal-close-right': $modal-close-right, 'modal-close-top': $modal-close-top, 'modal-card-spacing': $modal-card-spacing, 'modal-card-head-background-color': $modal-card-head-background-color, 'modal-card-head-padding': $modal-card-head-padding, 'modal-card-head-border-bottom': $modal-card-head-border-bottom, 'modal-card-head-radius': $modal-card-head-radius, 'modal-card-title-color': $modal-card-title-color, 'modal-card-title-size': $modal-card-title-size, 'modal-card-title-line-height': $modal-card-title-line-height, 'modal-card-foot-radius': $modal-card-foot-radius, 'modal-card-foot-border-top': $modal-card-foot-border-top, 'modal-card-body-background-color': $modal-card-body-background-color, 'modal-card-body-padding': $modal-card-body-padding)
-+exportCSSVars($css-vars-map)
-+registerComponentCSSVars('modal')
+$_css-vars-map: ('modal-z': $modal-z, 'modal-background-background-color': $modal-background-background-color, 'modal-content-width': $modal-content-width, 'modal-content-margin-mobile': $modal-content-margin-mobile, 'modal-content-spacing-mobile': $modal-content-spacing-mobile, 'modal-content-spacing-tablet': $modal-content-spacing-tablet, 'modal-close-dimensions': $modal-close-dimensions, 'modal-close-right': $modal-close-right, 'modal-close-top': $modal-close-top, 'modal-card-spacing': $modal-card-spacing, 'modal-card-head-background-color': $modal-card-head-background-color, 'modal-card-head-padding': $modal-card-head-padding, 'modal-card-head-border-bottom': $modal-card-head-border-bottom, 'modal-card-head-radius': $modal-card-head-radius, 'modal-card-title-color': $modal-card-title-color, 'modal-card-title-size': $modal-card-title-size, 'modal-card-title-line-height': $modal-card-title-line-height, 'modal-card-foot-radius': $modal-card-foot-radius, 'modal-card-foot-border-top': $modal-card-foot-border-top, 'modal-card-body-background-color': $modal-card-body-background-color, 'modal-card-body-padding': $modal-card-body-padding)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars('modal', $_css-vars-map)
 // --modal-z: #{$modal-z}
 // --modal-background-background-color: #{$modal-background-background-color}
 // --modal-content-width: #{$modal-content-width}
@@ -82,7 +83,7 @@ $css-vars-map: ('modal-z': $modal-z, 'modal-background-background-color': $modal
   position: relative
   width: 100%
   // Responsiveness
-  +from($modal-breakpoint)
+  +utilities.from($modal-breakpoint)
     margin: 0 auto
     max-height: calc(100vh - #{var(--modal-content-spacing-tablet)})
     width: var(--modal-content-width)
@@ -92,7 +93,7 @@ $css-vars-map: ('modal-z': $modal-z, 'modal-background-background-color': $modal
   background: none
   height: var(--modal-close-dimensions)
   position: fixed
-  +ltr-position(var(--modal-close-right))
+  +utilities.ltr-position(var(--modal-close-right))
   top: var(--modal-close-top)
   width: var(--modal-close-dimensions)
 
@@ -131,10 +132,10 @@ $css-vars-map: ('modal-z': $modal-z, 'modal-background-background-color': $modal
   border-top: var(--modal-card-foot-border-top)
   .button
     &:not(:last-child)
-      +ltr-property("margin", 0.5em)
+      +utilities.ltr-property("margin", 0.5em)
 
 .modal-card-body
-  +overflow-touch
+  +utilities.overflow-touch
   background-color: var(--modal-card-body-background-color)
   flex-grow: 1
   flex-shrink: 1

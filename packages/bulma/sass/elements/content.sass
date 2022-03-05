@@ -1,27 +1,31 @@
-@import "../utilities/mixins"
+@use "../utilities/derived-variables" as vars
+@use "../utilities"
 
-$content-heading-color: var(--text-strong, #{$text-strong}) !default
-$content-heading-weight: var(--weight-semibold, #{$weight-semibold}) !default
+$content-heading-color: var(--text-strong, #{vars.$text-strong}) !default
+$content-heading-weight: var(--weight-semibold, #{vars.$weight-semibold}) !default
 $content-heading-line-height: 1.125 !default
 
-$content-blockquote-background-color: var(--background, #{$background}) !default
-$content-blockquote-border-left: 5px solid var(--border, #{$border}) !default
+$content-block-margin-bottom: 1em !default
+
+$content-blockquote-background-color: var(--background, #{vars.$background}) !default
+$content-blockquote-border-left: 5px solid var(--border, #{vars.$border}) !default
 $content-blockquote-padding: 1.25em 1.5em !default
 
 $content-pre-padding: 1.25em 1.5em !default
 
-$content-table-cell-border: 1px solid var(--border, #{$border}) !default
+$content-table-cell-border: 1px solid var(--border, #{vars.$border}) !default
 $content-table-cell-border-width: 0 0 1px !default
 $content-table-cell-padding: 0.5em 0.75em !default
-$content-table-cell-heading-color: var(--text-strong, #{$text-strong}) !default
+$content-table-cell-heading-color: var(--text-strong, #{vars.$text-strong}) !default
 $content-table-head-cell-border-width: 0 0 2px !default
-$content-table-head-cell-color: var(--text-strong, #{$text-strong}) !default
+$content-table-head-cell-color: var(--text-strong, #{vars.$text-strong}) !default
+$content-table-body-last-row-cell-border-bottom-width: 0 !default
 $content-table-foot-cell-border-width: 2px 0 0 !default
-$content-table-foot-cell-color: var(--text-strong, #{$text-strong}) !default
+$content-table-foot-cell-color: var(--text-strong, #{vars.$text-strong}) !default
 
-$css-vars-map: ('content-heading-color': $content-heading-color, 'content-heading-weight': $content-heading-weight, 'content-heading-line-height': $content-heading-line-height, 'content-blockquote-background-color': $content-blockquote-background-color, 'content-blockquote-border-left': $content-blockquote-border-left, 'content-blockquote-padding': $content-blockquote-padding, 'content-pre-padding': $content-pre-padding, 'content-table-cell-border': $content-table-cell-border, 'content-table-cell-border-width': $content-table-cell-border-width, 'content-table-cell-padding': $content-table-cell-padding, 'content-table-cell-heading-color': $content-table-cell-heading-color, 'content-table-head-cell-border-width': $content-table-head-cell-border-width, 'content-table-head-cell-color': $content-table-head-cell-color, 'content-table-foot-cell-border-width': $content-table-foot-cell-border-width, 'content-table-foot-cell-color': $content-table-foot-cell-color)
-+exportCSSVars($css-vars-map)
-+registerComponentCSSVars('content')
+$_css-vars-map: ('content-heading-color': $content-heading-color, 'content-heading-weight': $content-heading-weight, 'content-heading-line-height': $content-heading-line-height, 'content-block-margin-bottom': $content-block-margin-bottom, 'content-blockquote-background-color': $content-blockquote-background-color, 'content-blockquote-border-left': $content-blockquote-border-left, 'content-blockquote-padding': $content-blockquote-padding, 'content-pre-padding': $content-pre-padding, 'content-table-cell-border': $content-table-cell-border, 'content-table-cell-border-width': $content-table-cell-border-width, 'content-table-cell-padding': $content-table-cell-padding, 'content-table-cell-heading-color': $content-table-cell-heading-color, 'content-table-head-cell-border-width': $content-table-head-cell-border-width, 'content-table-head-cell-color': $content-table-head-cell-color, 'content-table-body-last-row-cell-border-bottom-width': $content-table-body-last-row-cell-border-bottom-width, 'content-table-foot-cell-border-width': $content-table-foot-cell-border-width, 'content-table-foot-cell-color': $content-table-foot-cell-color)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars('content', $_css-vars-map)
 // --content-heading-color: #{$content-heading-color}
 // --content-heading-weight: #{$content-heading-weight}
 // --content-heading-line-height: #{$content-heading-line-height}
@@ -52,7 +56,7 @@ $css-vars-map: ('content-heading-color': $content-heading-color, 'content-headin
   pre,
   table
     &:not(:last-child)
-      margin-bottom: 1em
+      margin-bottom: var(--content-block-margin-bottom)
   h1,
   h2,
   h3,
@@ -88,11 +92,11 @@ $css-vars-map: ('content-heading-color': $content-heading-color, 'content-headin
     margin-bottom: 1em
   blockquote
     background-color: var(--content-blockquote-background-color)
-    +ltr-property("border", var(--content-blockquote-border-left), false)
+    +utilities.ltr-property("border", var(--content-blockquote-border-left), false)
     padding: var(--content-blockquote-padding)
   ol
     list-style-position: outside
-    +ltr-property("margin", 2em, false)
+    +utilities.ltr-property("margin", 2em, false)
     margin-top: 1em
     &:not([type])
       list-style-type: decimal
@@ -106,7 +110,7 @@ $css-vars-map: ('content-heading-color': $content-heading-color, 'content-headin
         list-style-type: upper-roman
   ul
     list-style: disc outside
-    +ltr-property("margin", 2em, false)
+    +utilities.ltr-property("margin", 2em, false)
     margin-top: 1em
     ul
       list-style-type: circle
@@ -114,7 +118,7 @@ $css-vars-map: ('content-heading-color': $content-heading-color, 'content-headin
       ul
         list-style-type: square
   dd
-    +ltr-property("margin", 2em, false)
+    +utilities.ltr-property("margin", 2em, false)
   figure
     margin-left: 2em
     margin-right: 2em
@@ -128,7 +132,7 @@ $css-vars-map: ('content-heading-color': $content-heading-color, 'content-headin
     figcaption
       font-style: italic
   pre
-    +overflow-touch
+    +utilities.overflow-touch
     overflow-x: auto
     padding: var(--content-pre-padding)
     white-space: pre
@@ -163,9 +167,9 @@ $css-vars-map: ('content-heading-color': $content-heading-color, 'content-headin
         &:last-child
           td,
           th
-            border-bottom-width: 0
+            border-bottom-width: var(--content-table-body-last-row-cell-border-bottom-width)
   .tabs
     li + li
       margin-top: 0
   // Sizes
-  +control-sizes($has-normal: true)
+  +utilities.control-sizes($has-normal: true)

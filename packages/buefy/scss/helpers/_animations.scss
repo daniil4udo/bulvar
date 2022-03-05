@@ -1,7 +1,10 @@
+@use "../../../bulma/sass/utilities/mixins" as bulma-mixins;
+@use "../../../bulma/sass/utilities/initial-variables" as *;
+
 // Some of the animations are from animate.css (https://daneden.github.io/animate.css)
 
 // Fade out
-@keyframes fadeOut {
+@include bulma-mixins.keyframes (fadeOut) {
     from {
         opacity: 1;
     }
@@ -13,7 +16,7 @@
     animation-name: fadeOut;
 }
 
-@keyframes fadeOutDown {
+@include bulma-mixins.keyframes (fadeOutDown) {
     from {
         opacity: 1;
     }
@@ -26,7 +29,7 @@
     animation-name: fadeOutDown;
 }
 
-@keyframes fadeOutUp {
+@include bulma-mixins.keyframes (fadeOutUp) {
     from {
         opacity: 1;
     }
@@ -40,7 +43,7 @@
 }
 
 // Fade In
-@keyframes fadeIn {
+@include bulma-mixins.keyframes (fadeIn) {
     from {
         opacity: 0;
     }
@@ -52,7 +55,7 @@
     animation-name: fadeIn;
 }
 
-@keyframes fadeInDown {
+@include bulma-mixins.keyframes (fadeInDown) {
     from {
         opacity: 0;
         transform: translate3d(0, -100%, 0);
@@ -66,7 +69,7 @@
     animation-name: fadeInDown;
 }
 
-@keyframes fadeInUp {
+@include bulma-mixins.keyframes (fadeInUp) {
     from {
         opacity: 0;
         transform: translate3d(0, 100%, 0);

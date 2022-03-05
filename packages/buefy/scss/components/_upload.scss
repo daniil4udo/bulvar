@@ -1,3 +1,9 @@
+@use "sass:list";
+
+@use "../../../bulma/sass/utilities" as bulma-utilities;
+@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
+@use "../../../bulma/sass/form/file" as bulma-file;
+
 .upload {
     position: relative;
     display: inline-flex;
@@ -15,8 +21,8 @@
     .upload-draggable {
         cursor: pointer;
         padding: 0.25em;
-        border: 1px dashed var(--grey-light, #{$grey-light});
-        border-radius: var(--radius-large, #{$radius-large});
+        border: 1px dashed var(--grey-light, #{bulma-vars.$grey-light});
+        border-radius: var(--radius-large, #{bulma-vars.$radius-large});
         &.is-disabled {
             opacity: 0.5;
             cursor: not-allowed;
@@ -26,7 +32,7 @@
             pointer-events: none;
             opacity: 0.5;
             &:after {
-                @include loader;
+                @include bulma-utilities.loader;
                 top: 0;
                 left: calc(50% - 1.5em);
                 width: 3em;
@@ -36,12 +42,12 @@
         }
         &:hover,
         &.is-hovered {
-            @each $name, $pair in $file-colors {
-                $color: nth($pair, 1);
+            @each $name, $pair in bulma-file.$file-colors {
+                $color: list.nth($pair, 1);
                 &.is-#{$name} {
-                    --hover-background-color: #{bulmaVarOpacity($name, 0.05)};
+                    --hover-background-color: #{bulma-utilities.bulmaVarOpacity($name, 0.05)};
                     border-color: var(--#{$name}, #{$color});
-                    background: var(--hover-box-shadow-color, #{bulmaRgba($color, 0.05)});
+                    background: var(--hover-box-shadow-color, #{bulma-utilities.bulmaRgba($color, 0.05)});
                 }
             }
         }
@@ -53,11 +59,11 @@
         width: 100%;
     }
     &.is-rounded {
-        border-radius: var(--radius-rounded, #{$radius-rounded});
+        border-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
 
         .file-name {
-            border-top-right-radius: var(--radius-rounded, #{$radius-rounded});
-            border-bottom-right-radius: var(--radius-rounded, #{$radius-rounded});
+            border-top-right-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
+            border-bottom-right-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
         }
     }
 }

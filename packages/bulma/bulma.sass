@@ -1,15 +1,16 @@
 @charset "utf-8"
 
-@import "sass/utilities/all"
-@import "shared/functions"
-@import "shared/mixins"
+/// In order to customize all global variables
+/// directly on bulma.sass
+/// like @use 'bulma.sass' with ()
+@forward "sass/utilities/derived-variables"
 
-@import "sass/base/all"
-@import "sass/elements/all"
-@import "sass/form/all"
-@import "sass/components/all"
-@import "sass/grid/all"
-@import "sass/helpers/all"
-@import "sass/layout/all"
+@forward "sass/base"
+@forward "sass/elements"
+@forward "sass/form"
+@forward "sass/components"
+@forward "sass/grid"
+@forward "sass/helpers"
+@forward "sass/layout"
 
-// @import "themes/basic"
+// @forward "themes/light"

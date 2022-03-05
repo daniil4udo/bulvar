@@ -34,7 +34,7 @@
         "---": "",
         "postinstall": "lerna link",
         "version": "yarn install && yarn deploy",
-        "deploy": "lerna run deploy",
+        "deploy": "lerna run deploy --stream",
         "lint": "npm-run-all --continue-on-error --parallel lint:all:*",
         "lint:vars": "fusv packages/",
         "lint:prettier": "prettier --write --loglevel warn",

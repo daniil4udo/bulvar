@@ -4,6 +4,7 @@
     "description": "Lightweight UI components for Vue.js based on Bulma",
     "keywords": [
         "bulma",
+        "bulma extentions",
         "buefy",
         "css",
         "sass",
@@ -29,6 +30,7 @@
     },
     "sideEffects": [
         "*.css",
+        "*.sass",
         "*.scss"
     ],
     "main": "buefy.sass",
@@ -43,20 +45,20 @@
         "README.md"
     ],
     "scripts": {
-        "publish": "npm publish --access public",
-        "clean": "rimraf css && mkdir css",
         "build": "npm-run-all compile prefix minify",
-        "start": "sass buefy.sass css/buefy.css --watch",
+        "clean": "rimraf css && mkdir css",
+        "compile": "npm-run-all -p compile:*",
+        "compile:main": "sass --verbose --error-css buefy.sass | node banner.js > css/buefy.css",
+        "compile:rtl": "sass --verbose --error-css buefy-rtl.sass | node banner.js > css/buefy-rtl.css",
         "deploy": "npm-run-all clean build",
-        "compile": "npm-run-all --parallel compile:*",
-        "compile:main": "sass buefy.sass | node banner.js > css/buefy.css",
-        "compile:rtl": "sass buefy-rtl.sass | node banner.js > css/buefy-rtl.css",
-        "prefix": "npm-run-all --parallel prefix:*",
+        "minify": "npm-run-all -p minify:*",
+        "minify:main": "csso -o css/buefy.min.css -i css/buefy.css",
+        "minify:rtl": "csso -o css/buefy-rtl.min.css -i css/buefy-rtl.css",
+        "prefix": "npm-run-all -p prefix:*",
         "prefix:main": "postcss --config ../../postcss.config.js --output css/buefy.css css/buefy.css",
         "prefix:rtl": "cross-env NODE_ENV=RTL postcss postcss --config ../../postcss.config.js --output css/buefy-rtl.css css/buefy-rtl.css",
-        "minify": "npm-run-all --parallel minify:*",
-        "minify:main": "csso -o css/buefy.min.css -i css/buefy.css",
-        "minify:rtl": "csso -o css/buefy-rtl.min.css -i css/buefy-rtl.css"
+        "publish": "npm publish --access public",
+        "start": "sass --verbose --error-css --no-source-map --color buefy.sass css/buefy.css --watch"
     },
     "dependencies": {
         "@bulvar/bulma": "^0.9.7"

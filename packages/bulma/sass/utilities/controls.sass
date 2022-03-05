@@ -1,7 +1,8 @@
-@import "derived-variables"
+@use "derived-variables" as vars
+@use "mixins" as utilities
 
-$control-radius: var(--radius, #{$radius}) !default
-$control-radius-small: var(--radius-small, #{$radius-small}) !default
+$control-radius: var(--radius, #{vars.$radius}) !default
+$control-radius-small: var(--radius-small, #{vars.$radius-small}) !default
 
 $control-border-width: 1px !default
 
@@ -11,6 +12,12 @@ $control-line-height: 1.5 !default
 $control-padding-vertical: calc(0.5em - #{$control-border-width}) !default
 $control-padding-horizontal: calc(0.75em - #{$control-border-width}) !default
 
+$control-font-size: var(--size-normal, #{vars.$size-normal}) !default
+
+$_css-vars-map: ('control-radius': $control-radius, 'control-radius-small': $control-radius-small, 'control-border-width': $control-border-width, 'control-height': $control-height, 'control-line-height': $control-line-height, 'control-padding-vertical': $control-padding-vertical, 'control-padding-horizontal': $control-padding-horizontal, 'control-font-size': $control-font-size)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars(null, $_css-vars-map)
+
 =control
   -moz-appearance: none
   -webkit-appearance: none
@@ -19,7 +26,7 @@ $control-padding-horizontal: calc(0.75em - #{$control-border-width}) !default
   border-radius: $control-radius
   box-shadow: none
   display: inline-flex
-  font-size: $size-normal
+  font-size: vars.$size-normal
   height: $control-height
   justify-content: flex-start
   line-height: $control-line-height
@@ -39,12 +46,37 @@ $control-padding-horizontal: calc(0.75em - #{$control-border-width}) !default
   fieldset[disabled] &
     cursor: not-allowed
 
-// The controls sizes use mixins so they can be used at different breakpoints
+/// The controls sizes use mixins so they can be used at different breakpoints
 =control-small
-  font-size: var(--size-small, #{$size-small})
+  font-size: var(--size-small, #{vars.$size-small})
+
 =control-normal
-  font-size: var(--size-normal, #{$size-normal})
+  font-size: var(--size-normal, #{vars.$size-normal})
+
 =control-medium
-  font-size: var(--size-medium, #{$size-medium})
+  font-size: var(--size-medium, #{vars.$size-medium})
+
 =control-large
-  font-size: var(--size-large, #{$size-large})
+  font-size: var(--size-large, #{vars.$size-large})
+
+=control-sizes($variable-name: null, $has-normal: false)
+  @if $variable-name
+    &.is-small 
+      --#{$variable-name}: var(--size-small, #{vars.$size-small})
+    @if $has-normal
+      &.is-normal 
+        --#{$variable-name}: var(--size-normal, #{vars.$size-normal})
+    &.is-medium 
+      --#{$variable-name}: var(--size-medium, #{vars.$size-medium})
+    &.is-large 
+      --#{$variable-name}: var(--size-large, #{vars.$size-large})
+  @else
+    &.is-small
+      +control-small
+    @if $has-normal
+      &.is-normal
+        +control-normal
+    &.is-medium
+      +control-medium
+    &.is-large
+      +control-large
