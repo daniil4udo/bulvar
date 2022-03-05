@@ -86,11 +86,17 @@
         "stylelint-selector-bem-pattern": "^2.1.1",
         "stylelint-selector-no-empty": "^1.0.8"
     },
-    "resolutions": {
-        "uuid": "^8",
-        "node-gyp": "^8.4.1",
-        "postcss": "^8.4.6",
-        "stylelint": "^14.5.1"
+    "pnpm": {
+        "neverBuiltDependencies": [
+            "fsevents",
+            "level",
+            "node-gyp"
+        ],
+        "overrides": {
+            "@stylelint/postcss-markdown": "npm:postcss-markdown@latest",
+            "read-package-tree": "npm:@npmcli/arborist",
+            "uuid": "^8.0.0"
+        }
     },
     "publishConfig": {
         "access": "public"
