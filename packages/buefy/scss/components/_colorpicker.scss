@@ -1,0 +1,295 @@
+@use "../../../bulma/sass/utilities" as bulma-utilities;
+@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
+@use "../../../bulma/sass/components/dropdown" as bulma-dropdown;
+
+$colorpicker-radius: var(--dropdown-content-radius, #{bulma-dropdown.$dropdown-content-radius}) !default;
+$colorpicker-hue-selected-stroke: var(--primary, #{bulma-vars.$primary}) !default;
+
+$_css-vars-map: (
+    'colorpicker-radius': $colorpicker-radius,
+    'colorpicker-hue-selected-stroke': $colorpicker-hue-selected-stroke,
+);
+@include bulma-utilities.exportCSSVars($_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars('colorpicker', $_css-vars-map);
+
+// TODO: submit PR to rename to b-colorpicker
+.b-colorpicker, .colorpicker {
+    .color-name {
+        font-family: var(--family-monospace, #{bulma-vars.$family-monospace});
+        text-transform: uppercase;
+    }
+    .colorpicker-footer {
+        margin-top: .875rem;
+        padding-top: .875rem;
+        border: 1px solid var(--grey-lighter, #{bulma-vars.$grey-lighter});
+        border-width: 1px 0 0 0;
+
+        .colorpicker-fields {
+            margin-bottom: .875rem;
+
+            .field {
+                flex-grow: 1;
+
+                .field-label {
+                    margin-right: .5rem;
+                }
+                .control {
+                    display: flex;
+                    .input {
+                        -webkit-appearance: none;
+                        -moz-appearance: textfield;
+                        appearance: textfield;
+                        flex-grow: 1;
+                        width: 0;
+                        min-width: 42px;
+                        text-align: right;
+
+                        &::-webkit-outer-spin-button,
+                        &::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .dropdown.is-expanded .dropdown-menu,
+    .dropdown.is-expanded.is-mobile-modal .dropdown-menu {
+        width: unset;
+    }
+    .dropdown-horizonal-colorpicker {
+        display: flex;
+        flex-direction: row;
+
+        .colorpicker-footer {
+            border-width: 0 0 0 1px;
+            margin-top: 0;
+            padding-top: 0;
+            margin-left: .875rem;
+            padding-left: .875rem;
+        }
+    }
+}
+
+svg.b-colorpicker-triangle {
+    width: 200px;
+    height: 200px;
+    user-select: none;
+
+    @media (max-width: bulma-vars.$tablet) {
+        width: 100%;
+        height: auto;
+    }
+
+    .colorpicker-triangle-hue {
+        width: 100%;
+        height: 100%;
+        background:
+            conic-gradient(
+                #f00,
+                #ff0,
+                #0f0,
+                #0ff,
+                #00f,
+                #f0f,
+                #f00
+            );
+    }
+
+    .colorpicker-triangle-slider {
+        &-hue,
+        &-sl {
+            &,
+            & foreignObject,
+            & g {
+                transform-origin: 50% 50%;
+            }
+        }
+    }
+
+    .hue-range-thumb,
+    .sl-range-thumb {
+        background: transparent;
+        border-radius: var(--colorpicker-radius);
+        box-shadow:
+            inset 0 0 0 1px bulma-vars.$white,
+            0 0 0 1px var(--grey-lighter, #{bulma-vars.$grey-lighter});
+        cursor: grab;
+        height: calc(100%/1 - .25em/1);
+        width: calc(100%/1 - .25em/1);
+        margin: .125em;
+
+        &:hover {
+            box-shadow:
+                inset 0 0 0 1px bulma-vars.$white,
+                0 0 0 1px var(--grey-light, #{bulma-vars.$grey-light});
+        }
+        &:focus {
+            box-shadow:
+                inset 0 0 0 1px bulma-vars.$white,
+                0 0 0 1px var(--colorpicker-hue-selected-stroke);
+                // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
+        }
+        &:active {
+            cursor: grabbing;
+        }
+    }
+}
+
+div.b-colorpicker-square {
+    position: relative;
+    aspect-ratio: 1/1;
+    user-select: none;
+
+    .colorpicker-square-slider-hue {
+        background:
+            conic-gradient(
+                #f00,
+                #ff0,
+                #0f0,
+                #0ff,
+                #00f,
+                #f0f,
+                #f00
+            );
+        border-radius: var(--colorpicker-radius);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        .hue-range-thumb {
+            border-radius: calc(var(--colorpicker-radius) / 1.75);
+            position: absolute;
+            aspect-ratio: 1 / 1;
+            transform: translate(-50%, -50%);
+            box-shadow:
+                inset 0 0 0 1px bulma-vars.$white,
+                0 0 0 1px var(--grey-lighter, #{bulma-vars.$grey-lighter});
+            cursor: grab;
+
+            &:hover {
+                box-shadow:
+                    inset 0 0 0 1px bulma-vars.$white,
+                    inset 0 0 0 2px var(--grey-light, #{bulma-vars.$grey-light}),
+                    0 0 0 1px var(--grey-light, #{bulma-vars.$grey-light});
+            }
+            &:focus {
+                box-shadow:
+                    inset 0 0 0 1px bulma-vars.$white,
+                    0 0 0 1px var(--colorpicker-hue-selected-stroke);
+                    // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
+            }
+            &:active {
+                cursor: grabbing;
+            }
+        }
+    }
+    .colorpicker-square-slider-sl {
+        background: bulma-vars.$white;
+        border-radius: calc(var(--colorpicker-radius) / 2);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        &::before {
+            content: '';
+            background: linear-gradient(0deg, bulma-vars.$black, bulma-vars.$white);
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            mix-blend-mode: hard-light;
+        }
+
+        .sl-range-thumb {
+            display: block;
+            border-radius: var(--colorpicker-radius);
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            transform: translate(-50%, -50%);
+            box-shadow:
+                inset 0 0 0 1px bulma-vars.$white,
+                0 0 0 1px var(--grey-lighter, #{bulma-vars.$grey-lighter});
+            cursor: grab;
+
+            &:hover {
+                box-shadow:
+                    inset 0 0 0 1px bulma-vars.$white,
+                    inset 0 0 0 2px var(--grey-light, #{bulma-vars.$grey-light}),
+                    0 0 0 1px var(--grey-light, #{bulma-vars.$grey-light});
+            }
+            &:focus {
+                box-shadow:
+                    inset 0 0 0 1px bulma-vars.$white,
+                    0 0 0 1px var(--colorpicker-hue-selected-stroke);
+                    // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
+            }
+            &:active {
+                cursor: grabbing;
+            }
+        }
+    }
+}
+
+.b-colorpicker-alpha-slider {
+    height: 1em;
+    background-image:
+        linear-gradient(45deg, #c7c7c7 25%, transparent 25%, transparent 75%, #c7c7c7 75%, #c7c7c7),
+        linear-gradient(45deg, #c7c7c7 25%, transparent 25%, transparent 75%, #c7c7c7 75%, #c7c7c7);
+    background-size: 1em 1em;
+    background-position: .5em .5em, 0 0;
+    border-radius: var(--colorpicker-radius);
+    margin-top: .125em;
+    margin-bottom: .875rem;
+    position: relative;
+
+    .alpha-range-thumb {
+        width: .4em;
+        height: 1.25em;
+        border-radius: var(--colorpicker-radius);
+        box-shadow:
+            inset 0 0 0 1px bulma-vars.$white,
+            inset 0 0 0 2px var(--grey-lighter, #{bulma-vars.$grey-lighter}),
+            0 0 0 1px var(--grey-lighter, #{bulma-vars.$grey-lighter});
+        cursor: grab;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-50%, -50%);
+
+        &:hover {
+            box-shadow:
+                inset 0 0 0 1px bulma-vars.$white,
+                inset 0 0 0 2px var(--grey-light, #{bulma-vars.$grey-light}),
+                0 0 0 1px var(--grey-light, #{bulma-vars.$grey-light});
+        }
+        &:focus {
+            box-shadow:
+                inset 0 0 0 1px bulma-vars.$white,
+                0 0 0 1px var(--colorpicker-hue-selected-stroke);
+                // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
+        }
+        &:active {
+            cursor: grabbing;
+        }
+
+        & > .b-tooltip {
+            &,
+            &> .tooltip-trigger {
+                position: absolute;
+                display: block;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+        }
+    }
+}
