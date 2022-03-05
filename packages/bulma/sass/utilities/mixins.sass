@@ -109,6 +109,10 @@
   @media screen and (max-width: $device - 1px)
     @content
 
+=between($from, $until)
+  @media screen and (min-width: $from) and (max-width: $until - 1px)
+    @content
+
 =mobile
   @media screen and (max-width: vars.$tablet - 1px)
     @content
@@ -158,6 +162,21 @@
   @if vars.$fullhd-enabled
     @media screen and (min-width: vars.$fullhd)
       @content
+
+=breakpoint($name)
+  $breakpoint: map-get(vars.$breakpoints, $name)
+  @if $breakpoint
+    $from: map-get($breakpoint, "from")
+    $until: map-get($breakpoint, "until")
+    @if $from and $until
+      +between($from, $until)
+        @content
+    @else if $from
+      +from($from)
+        @content
+    @else if $until
+      +until($until)
+        @content
 
 =ltr
   @if not vars.$rtl

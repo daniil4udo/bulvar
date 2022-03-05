@@ -48,6 +48,7 @@ $button-static-background-color: var(--scheme-main-ter, #{vars.$scheme-main-ter}
 $button-static-border-color: var(--border, #{vars.$border}) !default
 
 $button-colors: vars.$colors !default
+$button-responsive-sizes: ("mobile": ("small": (vars.$size-small * 0.75), "normal": (vars.$size-small * 0.875), "medium": vars.$size-small, "large": vars.$size-normal), "tablet-only": ("small": (vars.$size-small * 0.875), "normal": (vars.$size-small), "medium": vars.$size-normal, "large": vars.$size-medium)) !default
 
 // The button sizes use mixins so they can be used at different breakpoints
 =button-small
@@ -390,3 +391,14 @@ $_css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
       .button:not(.is-fullwidth)
         margin-left: 0.25rem
         margin-right: 0.25rem
+
+@each $name, $sizes in $button-responsive-sizes
+  +utilities.breakpoint($name)
+    @each $size, $value in $sizes
+      @if $size != "normal"
+        .button.is-responsive.is-#{$size}
+          font-size: $value
+      @else
+        .button.is-responsive,
+        .button.is-responsive.is-normal
+          font-size: $value
