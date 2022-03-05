@@ -1,3 +1,4 @@
+@use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/components/pagination" as bulma-pagination;
 
 .pagination {
@@ -23,5 +24,43 @@
     .is-current {
         pointer-events: none;
         cursor: not-allowed;
+    }
+}
+
+@mixin paginationPositions($classes...) {
+    @for $i from 0 to length($classes) {
+       .pagination-#{nth($classes, $i + 1)} {
+            order: $i + 1;
+        }
+    }
+}
+
+@include bulma-utilities.tablet {
+    .pagination.has-input {
+        @include paginationPositions("list", "input", "previous", "next");
+        &.is-centered {
+            @include paginationPositions("previous", "list", "input", "next");
+            &.is-input-right {
+                @include paginationPositions("previous", "list", "next", "input");
+            }
+            &.is-input-left {
+                @include paginationPositions("input", "previous", "list", "next");
+            }
+        }
+        &.is-right {
+            @include paginationPositions("previous", "next", "input", "list");
+            &.is-input-right {
+                @include paginationPositions("previous", "next", "list", "input");
+            }
+            &.is-input-left {
+                @include paginationPositions("input", "previous", "next", "list");
+            }
+        }
+        &.is-input-right {
+            @include paginationPositions("list", "previous", "next", "input");
+        }
+        &.is-input-left {
+            @include paginationPositions("input", "list", "previous", "next");
+        }
     }
 }
