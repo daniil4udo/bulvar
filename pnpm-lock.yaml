@@ -31,7 +31,7 @@ specifiers:
   prettier: ^2.5.1
   rimraf: ^3.0.2
   rtlcss: ^3.5.0
-  sass: ^1.47.0
+  sass: ^1.49.9
   stylelint: ^14.5.1
   stylelint-config-css-modules: ^2.3.0
   stylelint-config-prettier: ^9.0.3
