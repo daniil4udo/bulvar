@@ -33,7 +33,7 @@
         "publish": "lerna run --parallel publish",
         "---": "",
         "postinstall": "lerna link",
-        "version": "pnpm install && pnpm deploy",
+        "version": "yarn install && yarn deploy",
         "deploy": "lerna run deploy",
         "lint": "npm-run-all --continue-on-error --parallel lint:all:*",
         "lint:vars": "fusv packages/",
