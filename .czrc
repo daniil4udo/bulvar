@@ -1,6 +1,10 @@
 {
     "path": "cz-emoji",
 
-    "conventional": true,
-    "symbol": true
+    "config": {
+        "cz-emoji": {
+            "conventional": true,
+            "symbol": true
+        }
+    }
 }
