@@ -10,12 +10,12 @@ $clockpicker-colors: bulma-form.$form-colors !default;
 
 // Map Local variables
 $_css-vars-map: (
-    'clockpicker-card-radius': $clockpicker-card-radius
+    "clockpicker-card-radius": $clockpicker-card-radius
 );
 
 // Register & Export CSS Variabless
 @include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars('b-clockpicker', $_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("b-clockpicker", $_css-vars-map);
 
 .b-clockpicker {
     // Clockpicker variables defined here as exact numbers
@@ -38,7 +38,7 @@ $_css-vars-map: (
         color: var(--primary-invert, #{bulma-vars.$primary-invert});
     }
     .b-clockpicker-face {
-        &:after {
+        &::after {
             background-color: var(--primary, #{bulma-vars.$primary});
         }
         &-hand {
@@ -62,7 +62,7 @@ $_css-vars-map: (
                 color: var(--#{$name}-invert, #{$color-invert});
             }
             .b-clockpicker-face {
-                &:after {
+                &::after {
                     background-color: var(--#{$name} #{$color});
                 }
                 &-hand {
@@ -203,7 +203,7 @@ $_css-vars-map: (
             display: flex;
             justify-content: center;
 
-            &:after {
+            &::after {
                 // Dot in center
                 border-radius: 50%;
                 content: "";
@@ -244,8 +244,8 @@ $_css-vars-map: (
                     z-index: 1;
                 }
 
-                &:before,
-                &:after {
+                &::before,
+                &::after {
                     content: "";
                     height: $indicator-size;
                     width: $indicator-size;
@@ -279,7 +279,7 @@ $_css-vars-map: (
                 z-index: 1;
                 // transition: .3s $transition-swing;
 
-                &:before {
+                &::before {
                     background: transparent;
                     border-width: 2px;
                     border-style: solid;

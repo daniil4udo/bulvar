@@ -7,7 +7,7 @@
 
 $sidebar-background: bulma-modal.$modal-background-background-color !default;
 $sidebar-shadow-color: rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.1) !default;
-$sidebar-box-shadow: 5px 0px 13px 3px $sidebar-shadow-color !default;
+$sidebar-box-shadow: 5px 0 13px 3px $sidebar-shadow-color !default;
 $sidebar-width: 260px !default;
 $sidebar-mobile-width: 80px !default;
 $sidebar-mobile-breakpoint: bulma-vars.$tablet !default;
@@ -16,17 +16,17 @@ $sidebar-colors: bulma-navbar.$navbar-colors !default;
 
 // Map Local variables
 $_css-vars-map: (
-    'sidebar-background': $sidebar-background,
-    'sidebar-shadow-color': $sidebar-shadow-color,
-    'sidebar-box-shadow': $sidebar-box-shadow,
-    'sidebar-width': $sidebar-width,
-    'sidebar-mobile-width': $sidebar-mobile-width,
-    'sidebar-mobile-breakpoint': $sidebar-mobile-breakpoint,
+    "sidebar-background": $sidebar-background,
+    "sidebar-shadow-color": $sidebar-shadow-color,
+    "sidebar-box-shadow": $sidebar-box-shadow,
+    "sidebar-width": $sidebar-width,
+    "sidebar-mobile-width": $sidebar-mobile-width,
+    "sidebar-mobile-breakpoint": $sidebar-mobile-breakpoint,
 );
 
 // Register & Export CSS Variabless
 @include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars('b-sidebar', $_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("b-sidebar", $_css-vars-map);
 
 .b-sidebar {
     .sidebar-content {

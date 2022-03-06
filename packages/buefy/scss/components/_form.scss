@@ -7,13 +7,13 @@ $field-label-font-size: var(--size-normal, #{bulma-vars.$size-normal}) !default;
 
 // Map Local variables
 $_css-vars-map: (
-    'floating-in-height': $floating-in-height,
-    'field-label-font-size': $field-label-font-size,
+    "floating-in-height": $floating-in-height,
+    "field-label-font-size": $field-label-font-size,
 );
 
 // Register & Export CSS Variabless
 @include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars('field', $_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("field", $_css-vars-map);
 
 .field {
     &.is-grouped {
@@ -128,8 +128,8 @@ $_css-vars-map: (
             top: -0.775em;
             padding-left: 0.125em;
             padding-right: 0.125em;
-            &:before {
-                content: '';
+            &::before {
+                content: "";
                 display: block;
                 position: absolute;
                 top: 0.775em;

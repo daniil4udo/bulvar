@@ -12,14 +12,14 @@ $switch-colors: bulma-form.$form-colors !default;
 
 // Map Local variables
 $_css-vars-map: (
-    'switch-width': $switch-width,
-    'switch-padding': $switch-padding,
-    'switch-active-background-color': $switch-active-background-color,
+    "switch-width": $switch-width,
+    "switch-padding": $switch-padding,
+    "switch-active-background-color": $switch-active-background-color,
 );
 
 // Register & Export CSS Variabless
 @include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars('switch', $_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("switch", $_css-vars-map);
 
 .switch {
     @extend %unselectable;
@@ -56,10 +56,10 @@ $_css-vars-map: (
                     background: var(--#{$name}, #{$color});
                 }
                 &.input[type=checkbox] + &.check {
-                    background: 'pink';
+                    background: pink;
                 }
             }
-            &:before {
+            &::before {
                 content: "";
                 display: block;
                 border-radius: var(--radius, #{bulma-vars.$radius});
@@ -74,7 +74,7 @@ $_css-vars-map: (
                 will-change: transform;
                 transform-origin: left;
             }
-            &.is-elastic:before {
+            &.is-elastic::before {
                 transform: scaleX(1.5);
                 border-radius: var(--radius, #{bulma-vars.$radius});
             }
@@ -87,10 +87,10 @@ $_css-vars-map: (
                     background: var(--#{$name}, #{$color});
                 }
             }
-            &:before {
+            &::before {
                 transform: translate3d(100%, 0, 0);
             }
-            &.is-elastic:before {
+            &.is-elastic::before {
                 // Might be a little offset if base font is not 16px
                 transform: translate3d(50%, 0, 0) scaleX(1.5);
             }
@@ -155,11 +155,11 @@ $_css-vars-map: (
         input[type=checkbox] {
             + .check {
                 border-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
-                &:before {
+                &::before {
                     border-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
                 }
             }
-            &.is-elastic:before {
+            &.is-elastic::before {
                 transform: scaleX(1.5);
                 border-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
             }
@@ -174,7 +174,7 @@ $_css-vars-map: (
                     $color: list.nth($pair, 1);
                     &.is-#{$name}-passive {
                         border: .1rem solid bulma-utilities.bulmaVarOpacity($name, 0.9);
-                        &:before {
+                        &::before {
                             background: var(--#{$name}, #{$color});
                         }
                         &:hover {
@@ -182,7 +182,7 @@ $_css-vars-map: (
                         }
                     }
                 }
-                &:before {
+                &::before {
                     background: bulma-vars.$grey-light;
                 }
             }
@@ -193,12 +193,12 @@ $_css-vars-map: (
                     &.is-#{$name} {
                         background: transparent;
                         border-color: var(--#{$name}, #{$color});
-                        &:before {
+                        &::before {
                             background: var(--#{$name}, #{$color});
                         }
                     }
                 }
-                &:before {
+                &::before {
                     background: var(--switch-active-background-color);
                 }
             }

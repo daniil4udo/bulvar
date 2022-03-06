@@ -1,7 +1,7 @@
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 
 $loading-background-legacy: #7f7f7f !default;
-$loading-background: rgba(255,255,255,0.5) !default;
+$loading-background: rgba(255,255,255,50%) !default;
 $loading-icon-size: 3em !default;
 $loading-full-page-icon-size: 5em !default;
 
@@ -19,7 +19,7 @@ $loading-full-page-icon-size: 5em !default;
         position: fixed;
         z-index: 999;
         .loading-icon {
-            &:after {
+            &::after {
                 top: calc(50% - #{$loading-full-page-icon-size * 0.5});
                 left: calc(50% - #{$loading-full-page-icon-size * 0.5});
                 width: $loading-full-page-icon-size;
@@ -34,7 +34,7 @@ $loading-full-page-icon-size: 5em !default;
     }
     .loading-icon {
         position: relative;
-        &:after {
+        &::after {
             @include bulma-utilities.loader;
             position: absolute;
             top: calc(50% - #{$loading-icon-size * 0.5});

@@ -5,12 +5,12 @@ $image-placeholder-blur: 10px !default;
 
 // Map Local variables
 $_css-vars-map: (
-    'image-placeholder-blur': $image-placeholder-blur,
+    "image-placeholder-blur": $image-placeholder-blur,
 );
 
 // Register & Export CSS Variabless
 @include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars('b-image-wrapper', $_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("b-image-wrapper", $_css-vars-map);
 
 .b-image-wrapper {
     > img {

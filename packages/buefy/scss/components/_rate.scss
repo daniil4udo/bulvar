@@ -10,17 +10,17 @@ $rate-text-font-size: var(--size-normal, #{bulma-vars.$size-normal}) !default;
 
 // Map Local variables
 $_css-vars-map: (
-    'rate-color': $rate-color,
-    'rate-color-active-hsla': $rate-color-active-hsla,
-    'rate-color-active': $rate-color-active,
-    'rate-spaced': $rate-spaced,
-    'rate-text-spaced': $rate-text-spaced,
-    'rate-text-font-size': $rate-text-font-size,
+    "rate-color": $rate-color,
+    "rate-color-active-hsla": $rate-color-active-hsla,
+    "rate-color-active": $rate-color-active,
+    "rate-spaced": $rate-spaced,
+    "rate-text-spaced": $rate-text-spaced,
+    "rate-text-font-size": $rate-text-font-size,
 );
 
 // Register & Export CSS Variabless
 @include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars('rate', $_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("rate", $_css-vars-map);
 
 .rate {
     align-items: center;

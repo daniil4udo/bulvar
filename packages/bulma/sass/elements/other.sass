@@ -22,9 +22,9 @@ $number-font-size: var(--size-medium, #{vars.$size-medium}) !default
   @extend %loader
 
 // Map Local variables
-$_css-vars-map: ('number-background': $number-background, 'number-radius-rounded': $number-radius-rounded, 'number-font-size': $number-font-size)
+$_css-vars-map: ("number-background": $number-background, "number-radius-rounded": $number-radius-rounded, "number-font-size": $number-font-size)
 +utilities.exportCSSVars($_css-vars-map)
-+utilities.registerComponentCSSVars('number', $_css-vars-map)
++utilities.registerComponentCSSVars("number", $_css-vars-map)
 // --number-background: var(--background, #{$background})
 // --number-radius-rounded: var(--radius-rounded, #{$radius-rounded})
 // --number-font-size: var(--size-medium, #{$size-medium})
