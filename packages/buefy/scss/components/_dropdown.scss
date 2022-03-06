@@ -1,7 +1,7 @@
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
 
-$dropdown-mobile-breakpoint: bulma-vars.$desktop !default;
+$dropdown-mobile-breakpoint: bulma-vars.$desktop - 1px !default;
 $dropdown-background-color: rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.86) !default;
 $dropdown-disabled-opacity: 0.5 !default;
 
@@ -122,7 +122,7 @@ $_css-vars-map: (
             left: auto;
         }
     }
-    @media screen and (max-width: $dropdown-mobile-breakpoint - 1px) {
+    @media screen and (max-width: $dropdown-mobile-breakpoint) {
         &.is-mobile-modal {
             > .dropdown-menu {
                 position: fixed !important;
