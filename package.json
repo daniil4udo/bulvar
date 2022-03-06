@@ -36,10 +36,10 @@
 		"deploy": "lerna run deploy --stream",
 		"lint": "run-p --continue-on-error lint:all:*",
 		"lint:prettier": "prettier --write --loglevel warn",
-		"lint:stylelint": "stylelint ",
+		"lint:stylelint": "stylelint --color --fix",
 		"lint:markdownlint": "markdownlint --fix -i CHANGELOG.md -i packages/**/CHANGELOG.md",
 		"lint:all:vars": "fusv packages/",
-		"lint:all:stylelint": "pnpm lint:stylelint \"packages/**/*.{sass,scss}\" --cache --cache-location .cache/.stylelintcache --rd",
+		"lint:all:stylelint": "pnpm lint:stylelint \"packages/**/*.{sass,scss}\" --cache --cache-location .cache/.stylelintcache --rd --color",
 		"lint:all:markdownlint": "pnpm lint:markdownlint \"packages/**/*.md\" \"*.md\"",
 		"cz": "git cz"
 	},
@@ -64,6 +64,7 @@
 		"rtlcss": "^3.5.0",
 		"sass": "^1.47.0",
 		"stylelint": "^14.5.1",
+		"stylelint-config-idiomatic-order": "^8.1.0",
 		"stylelint-config-prettier": "^9.0.3",
 		"stylelint-config-standard-scss": "^3.0.0",
 		"stylelint-selector-no-empty": "^1.0.8",
@@ -80,10 +81,14 @@
 			"read-package-tree": "npm:@npmcli/arborist",
 			"postcss": "^8.0.0",
 			"stylelint": "^14.0.0",
+			"stylelint-order": "^5.0.0",
 			"uuid": "^8.0.0"
 		}
 	},
 	"publishConfig": {
 		"access": "public"
+	},
+	"dependencies": {
+		"stylelint-order": "^5.0.0"
 	}
 }
