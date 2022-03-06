@@ -30,7 +30,7 @@ specifiers:
   rtlcss: ^3.5.0
   sass: ^1.49.9
   stylelint: ^14.5.1
-  stylelint-config-css-modules: ^2.3.0
+  stylelint-config-css-modules: ^3.0.0
   stylelint-config-prettier: ^9.0.3
   stylelint-config-recess-order: ^3.0.0
   stylelint-config-standard: ^24.0.0
@@ -60,7 +60,7 @@ devDependencies:
   rtlcss: 3.5.0
   sass: 1.49.9
   stylelint: 14.5.3
-  stylelint-config-css-modules: 2.3.0_stylelint@14.5.3
+  stylelint-config-css-modules: 3.0.0_stylelint@14.5.3
   stylelint-config-prettier: 9.0.3_stylelint@14.5.3
   stylelint-config-recess-order: 3.0.0_stylelint@14.5.3
   stylelint-config-standard: 24.0.0_stylelint@14.5.3
@@ -6560,10 +6560,10 @@ packages:
     resolution: {integrity: sha1-eVjHk+R+MuB9K1yv5cC/jhLneQI=}
     dev: true
 
-  /stylelint-config-css-modules/2.3.0_stylelint@14.5.3:
-    resolution: {integrity: sha512-nSxwaJMv9wBrTAi+O4qXubyi1AR9eB36tJpY0uaFhKgEc3fwWGUzUK1Edl8AQHAoU7wmUeKtsuYjblyRP/V7rw==}
+  /stylelint-config-css-modules/3.0.0_stylelint@14.5.3:
+    resolution: {integrity: sha512-NDvOK4M98r6XGZyYLEwd+1LSqVm8ReXERbdppnhRy25QzuGcjgYvBNA1v/BxeMXq8DCljg0h4uEbQy+av/37JQ==}
     peerDependencies:
-      stylelint: 11.x - 14.x
+      stylelint: 14.x
     dependencies:
       stylelint: 14.5.3
     dev: true
