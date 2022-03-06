@@ -33,7 +33,7 @@ specifiers:
   stylelint-config-css-modules: ^2.3.0
   stylelint-config-prettier: ^9.0.3
   stylelint-config-recess-order: ^3.0.0
-  stylelint-config-standard: ^24.0.0
+  stylelint-config-standard: ^25.0.0
   stylelint-no-unsupported-browser-features: ^5.0.2
   stylelint-order: ^5.0.0
   stylelint-scss: ^4.1.0
@@ -63,7 +63,7 @@ devDependencies:
   stylelint-config-css-modules: 2.3.0_stylelint@14.5.3
   stylelint-config-prettier: 9.0.3_stylelint@14.5.3
   stylelint-config-recess-order: 3.0.0_stylelint@14.5.3
-  stylelint-config-standard: 24.0.0_stylelint@14.5.3
+  stylelint-config-standard: 25.0.0_stylelint@14.5.3
   stylelint-no-unsupported-browser-features: 5.0.3_stylelint@14.5.3
   stylelint-order: 5.0.0_stylelint@14.5.3
   stylelint-scss: 4.1.0_stylelint@14.5.3
@@ -6587,21 +6587,21 @@ packages:
       stylelint-order: 5.0.0_stylelint@14.5.3
     dev: true
 
-  /stylelint-config-recommended/6.0.0_stylelint@14.5.3:
-    resolution: {integrity: sha512-ZorSSdyMcxWpROYUvLEMm0vSZud2uB7tX1hzBZwvVY9SV/uly4AvvJPPhCcymZL3fcQhEQG5AELmrxWqtmzacw==}
+  /stylelint-config-recommended/7.0.0_stylelint@14.5.3:
+    resolution: {integrity: sha512-yGn84Bf/q41J4luis1AZ95gj0EQwRX8lWmGmBwkwBNSkpGSpl66XcPTulxGa/Z91aPoNGuIGBmFkcM1MejMo9Q==}
     peerDependencies:
-      stylelint: ^14.0.0
+      stylelint: ^14.4.0
     dependencies:
       stylelint: 14.5.3
     dev: true
 
-  /stylelint-config-standard/24.0.0_stylelint@14.5.3:
-    resolution: {integrity: sha512-+RtU7fbNT+VlNbdXJvnjc3USNPZRiRVp/d2DxOF/vBDDTi0kH5RX2Ny6errdtZJH3boO+bmqIYEllEmok4jiuw==}
+  /stylelint-config-standard/25.0.0_stylelint@14.5.3:
+    resolution: {integrity: sha512-21HnP3VSpaT1wFjFvv9VjvOGDtAviv47uTp3uFmzcN+3Lt+RYRv6oAplLaV51Kf792JSxJ6svCJh/G18E9VnCA==}
     peerDependencies:
-      stylelint: ^14.0.0
+      stylelint: ^14.4.0
     dependencies:
       stylelint: 14.5.3
-      stylelint-config-recommended: 6.0.0_stylelint@14.5.3
+      stylelint-config-recommended: 7.0.0_stylelint@14.5.3
     dev: true
 
   /stylelint-no-unsupported-browser-features/5.0.3_stylelint@14.5.3:
