@@ -1,72 +1,72 @@
 {
-    "name": "@bulvar/buefy",
-    "version": "0.9.7",
-    "description": "Lightweight UI components for Vue.js based on Bulma",
-    "keywords": [
-        "bulma",
-        "bulma extentions",
-        "buefy",
-        "css",
-        "sass",
-        "flexbox",
-        "responsive",
-        "css properties",
-        "css variables",
-        "framework"
-    ],
-    "homepage": "https://github.com/daniil4udo/bulvar/tree/master/packages/buefy",
-    "bugs": {
-        "url": "https://github.com/daniil4udo/bulvar/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/daniil4udo/bulvar.git"
-    },
-    "license": "MIT",
-    "author": {
-        "name": "Daniil Chumachenko",
-        "email": "daniil4udo@gmail.com",
-        "url": "https://github.com/daniil4udo"
-    },
-    "sideEffects": [
-        "*.css",
-        "*.sass",
-        "*.scss"
-    ],
-    "main": "buefy.sass",
-    "unpkg": "css/buefy.css",
-    "style": "buefy/css/buefy.min.css",
-    "files": [
-        "css",
-        "scss",
-        "buefy.sass",
-        "buefy-rtl.sass",
-        "LICENSE",
-        "README.md"
-    ],
-    "scripts": {
-        "build": "npm-run-all compile prefix minify",
-        "clean": "rimraf css && mkdir css",
-        "compile": "npm-run-all -p compile:*",
-        "compile:main": "sass --verbose --error-css buefy.sass | node banner.js > css/buefy.css",
-        "compile:rtl": "sass --verbose --error-css buefy-rtl.sass | node banner.js > css/buefy-rtl.css",
-        "deploy": "npm-run-all clean build",
-        "minify": "npm-run-all -p minify:*",
-        "minify:main": "csso -o css/buefy.min.css -i css/buefy.css",
-        "minify:rtl": "csso -o css/buefy-rtl.min.css -i css/buefy-rtl.css",
-        "prefix": "npm-run-all -p prefix:*",
-        "prefix:main": "postcss --config ../../postcss.config.js --output css/buefy.css css/buefy.css",
-        "prefix:rtl": "cross-env NODE_ENV=RTL postcss postcss --config ../../postcss.config.js --output css/buefy-rtl.css css/buefy-rtl.css",
-        "publish": "npm publish --access public",
-        "start": "sass --verbose --error-css --no-source-map --color buefy.sass css/buefy.css --watch"
-    },
-    "dependencies": {
-        "@bulvar/bulma": "^0.9.7"
-    },
-    "peerDependencies": {
-        "@bulvar/bulma": "^0.9.7"
-    },
-    "maintainers": [
-        "Daniil Chumachenko <daniil4udo@gmail.com>"
-    ]
+	"name": "@bulvar/buefy",
+	"version": "0.9.7",
+	"description": "Lightweight UI components for Vue.js based on Bulma",
+	"keywords": [
+		"bulma",
+		"bulma extentions",
+		"buefy",
+		"css",
+		"sass",
+		"flexbox",
+		"responsive",
+		"css properties",
+		"css variables",
+		"framework"
+	],
+	"homepage": "https://github.com/daniil4udo/bulvar/tree/master/packages/buefy",
+	"bugs": {
+		"url": "https://github.com/daniil4udo/bulvar/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/daniil4udo/bulvar.git"
+	},
+	"license": "MIT",
+	"author": {
+		"name": "Daniil Chumachenko",
+		"email": "daniil4udo@gmail.com",
+		"url": "https://github.com/daniil4udo"
+	},
+	"sideEffects": [
+		"*.css",
+		"*.sass",
+		"*.scss"
+	],
+	"main": "buefy.sass",
+	"unpkg": "css/buefy.css",
+	"style": "buefy/css/buefy.min.css",
+	"files": [
+		"css",
+		"scss",
+		"buefy.sass",
+		"buefy-rtl.sass",
+		"LICENSE",
+		"README.md"
+	],
+	"scripts": {
+		"build": "run-s -l compile prefix minify",
+		"clean": "rimraf css && mkdir css",
+		"compile": "run-p -l compile:*",
+		"compile:main": "sass --verbose --error-css buefy.sass | node banner.js > css/buefy.css",
+		"compile:rtl": "sass --verbose --error-css buefy-rtl.sass | node banner.js > css/buefy-rtl.css",
+		"deploy": "run-s -l clean build",
+		"minify": "run-p -l minify:*",
+		"minify:main": "csso -o css/buefy.min.css -i css/buefy.css",
+		"minify:rtl": "csso -o css/buefy-rtl.min.css -i css/buefy-rtl.css",
+		"prefix": "run-p -l prefix:*",
+		"prefix:main": "postcss --config ../../postcss.config.js --output css/buefy.css css/buefy.css",
+		"prefix:rtl": "cross-env NODE_ENV=RTL postcss postcss --config ../../postcss.config.js --output css/buefy-rtl.css css/buefy-rtl.css",
+		"publish": "npm publish --access public",
+		"start": "sass --verbose --error-css --no-source-map --color buefy.sass css/buefy.css --watch"
+	},
+	"dependencies": {
+		"@bulvar/bulma": "^0.9.7"
+	},
+	"peerDependencies": {
+		"@bulvar/bulma": "^0.9.7"
+	},
+	"maintainers": [
+		"Daniil Chumachenko <daniil4udo@gmail.com>"
+	]
 }
