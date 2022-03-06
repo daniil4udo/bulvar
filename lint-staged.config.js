@@ -5,7 +5,7 @@ module.exports = {
 
     'package.json': [ 'pnpm lint:prettier' ],
 
-    '{*.scss,*.sass}': [ 'pnpm lint:stylelint' ],
+    // '{*.scss,*.sass}': [ 'pnpm lint:stylelint' ],
 
     '*.md': [
         'pnpm lint:markdownlint',

@@ -32,12 +32,38 @@ module.exports = {
     ],
 
     rules: {
-        'indentation': 'tab',
-        'string-quotes': 'double',
+        // Off rules
+        'block-no-empty': null,
+        'function-name-case': null,
+        'custom-property-pattern': null,
+        'value-keyword-case': null,
+        'block-no-empty': null,
+        'selector-type-no-unknown': null,
+        'selector-class-pattern': null,
+        // 'order/properties-order': null,
+        'no-descending-specificity': null,
+        'declaration-empty-line-before': null,
+        'declaration-block-no-redundant-longhand-properties': null,
         'rule-empty-line-before': null,
         'custom-property-empty-line-before': null,
+        
+        // 'color-function-notation': null,
+        // 'hue-degree-notation': null,
+        'property-no-vendor-prefix': null,
 
-        // Sometime Stylelint remove comments
+        'no-duplicate-selectors': null,
+
+        'scss/dollar-variable-pattern': null,
+        'scss/at-if-closing-brace-space-after': null,
+        'scss/at-if-closing-brace-newline-after': null,
+        'scss/double-slash-comment-empty-line-before': null,
+        'scss/dollar-variable-empty-line-before': null,
+        'scss/dollar-variable-colon-space-after': null,
+
+        'indentation': 'tab',
+        'string-quotes': 'double',
+
+        /// Sometime Stylelint remove comments
         'block-no-empty': [
             true,
             {
