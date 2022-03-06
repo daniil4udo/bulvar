@@ -13,9 +13,10 @@ $help-size: var(--size-small, #{vars.$size-small}) !default
 
 $label-colors: form-shared.$form-colors !default
 
-$_css-vars-map: ('label-font-size': $label-font-size, 'label-color': $label-color, 'label-font-weight': $label-weight)
+// Map Local variables
+$_css-vars-map: ("label-font-size": $label-font-size, "label-color": $label-color, "label-font-weight": $label-weight)
 +utilities.exportCSSVars($_css-vars-map)
-+utilities.registerComponentCSSVars('label', $_css-vars-map)
++utilities.registerComponentCSSVars("label", $_css-vars-map)
 // --label-font-size: #{$label-font-size}
 // --label-color: #{$label-color}
 // --label-font-weight: #{$label-weight}
@@ -30,9 +31,10 @@ $_css-vars-map: ('label-font-size': $label-font-size, 'label-color': $label-colo
   // Sizes
   +utilities.control-sizes(label-font-size)
 
-$_css-vars-map: ('help-font-size': $help-size)
+// Map Local variables
+$_css-vars-map: ("help-font-size": $help-size)
 +utilities.exportCSSVars($_css-vars-map)
-+utilities.registerComponentCSSVars('help', $_css-vars-map)
++utilities.registerComponentCSSVars("help", $_css-vars-map)
 // --help-font-size: #{$help-size}
 
 .help

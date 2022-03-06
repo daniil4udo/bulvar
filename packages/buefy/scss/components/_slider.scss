@@ -9,8 +9,8 @@ $slider-size: var(--size-normal, #{bulma-vars.$size-normal}) !default;
 $slider-track-background: var(--grey-lighter, #{bulma-vars.$grey-lighter}) !default;
 $slider-track-radius: var(--radius, #{bulma-vars.$radius}) !default;
 $slider-track-color: var(--grey, #{bulma-vars.$grey}) !default;
-$slider-track-border: 0px solid $slider-track-color !default;
-$slider-track-shadow: 0px 0px 0px $slider-track-color !default;
+$slider-track-border: 0 solid $slider-track-color !default;
+$slider-track-shadow: 0 0 0 $slider-track-color !default;
 $slider-thumb-background: var(--scheme-main, #{bulma-vars.$scheme-main}) !default;
 $slider-thumb-radius: var(--radius, #{bulma-vars.$radius}) !default;
 $slider-thumb-color: var(--grey-light, #{bulma-vars.$grey-light}) !default;
@@ -25,28 +25,31 @@ $slider-mark-size: 0.75rem !default;
 
 $slider-colors: bulma-form.$form-colors !default;
 
+// Map Local variables
 $_css-vars-map: (
-    'slider-radius': $slider-radius,
-    'slider-size': $slider-size,
-    'slider-track-background': $slider-track-background,
-    'slider-track-radius': $slider-track-radius,
-    'slider-track-color': $slider-track-color,
-    'slider-track-border': $slider-track-border,
-    'slider-track-shadow': $slider-track-shadow,
-    'slider-thumb-background': $slider-thumb-background,
-    'slider-thumb-radius': $slider-thumb-radius,
-    'slider-thumb-color': $slider-thumb-color,
-    'slider-thumb-border': $slider-thumb-border,
-    'slider-thumb-shadow': $slider-thumb-shadow,
-    'slider-thumb-to-track-ratio': $slider-thumb-to-track-ratio,
-    'slider-tick-to-track-ratio': $slider-tick-to-track-ratio,
-    'slider-tick-width': $slider-tick-width,
-    'slider-tick-radius': $slider-tick-radius,
-    'slider-tick-background': $slider-tick-background,
-    'slider-mark-size': $slider-mark-size,
+    "slider-radius": $slider-radius,
+    "slider-size": $slider-size,
+    "slider-track-background": $slider-track-background,
+    "slider-track-radius": $slider-track-radius,
+    "slider-track-color": $slider-track-color,
+    "slider-track-border": $slider-track-border,
+    "slider-track-shadow": $slider-track-shadow,
+    "slider-thumb-background": $slider-thumb-background,
+    "slider-thumb-radius": $slider-thumb-radius,
+    "slider-thumb-color": $slider-thumb-color,
+    "slider-thumb-border": $slider-thumb-border,
+    "slider-thumb-shadow": $slider-thumb-shadow,
+    "slider-thumb-to-track-ratio": $slider-thumb-to-track-ratio,
+    "slider-tick-to-track-ratio": $slider-tick-to-track-ratio,
+    "slider-tick-width": $slider-tick-width,
+    "slider-tick-radius": $slider-tick-radius,
+    "slider-tick-background": $slider-tick-background,
+    "slider-mark-size": $slider-mark-size,
 );
+
+// Register & Export CSS Variabless
 @include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars('b-slider', $_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("b-slider", $_css-vars-map);
 
 @mixin slider-size {
 	$track-height: calc(#{var(--slider-size)} / #{var(--slider-thumb-to-track-ratio)});

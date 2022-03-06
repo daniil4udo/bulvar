@@ -5,12 +5,15 @@ $dropdown-mobile-breakpoint: bulma-vars.$desktop !default;
 $dropdown-background-color: rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.86) !default;
 $dropdown-disabled-opacity: 0.5 !default;
 
+// Map Local variables
 $_css-vars-map: (
-    'dropdown-background-color': $dropdown-background-color,
-    'dropdown-disabled-opacity': $dropdown-disabled-opacity,
+    "dropdown-background-color": $dropdown-background-color,
+    "dropdown-disabled-opacity": $dropdown-disabled-opacity,
 );
+
+// Register & Export CSS Variabless
 @include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars('dropdown', $_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("dropdown", $_css-vars-map);
 
 .dropdown {
     & + .dropdown {

@@ -1,3 +1,5 @@
+@use "sass:math"
+
 @use "../utilities/derived-variables" as vars
 @use "../utilities"
 
@@ -23,9 +25,10 @@ $content-table-body-last-row-cell-border-bottom-width: 0 !default
 $content-table-foot-cell-border-width: 2px 0 0 !default
 $content-table-foot-cell-color: var(--text-strong, #{vars.$text-strong}) !default
 
-$_css-vars-map: ('content-heading-color': $content-heading-color, 'content-heading-weight': $content-heading-weight, 'content-heading-line-height': $content-heading-line-height, 'content-block-margin-bottom': $content-block-margin-bottom, 'content-blockquote-background-color': $content-blockquote-background-color, 'content-blockquote-border-left': $content-blockquote-border-left, 'content-blockquote-padding': $content-blockquote-padding, 'content-pre-padding': $content-pre-padding, 'content-table-cell-border': $content-table-cell-border, 'content-table-cell-border-width': $content-table-cell-border-width, 'content-table-cell-padding': $content-table-cell-padding, 'content-table-cell-heading-color': $content-table-cell-heading-color, 'content-table-head-cell-border-width': $content-table-head-cell-border-width, 'content-table-head-cell-color': $content-table-head-cell-color, 'content-table-body-last-row-cell-border-bottom-width': $content-table-body-last-row-cell-border-bottom-width, 'content-table-foot-cell-border-width': $content-table-foot-cell-border-width, 'content-table-foot-cell-color': $content-table-foot-cell-color)
+// Map Local variables
+$_css-vars-map: ("content-heading-color": $content-heading-color, "content-heading-weight": $content-heading-weight, "content-heading-line-height": $content-heading-line-height, "content-block-margin-bottom": $content-block-margin-bottom, "content-blockquote-background-color": $content-blockquote-background-color, "content-blockquote-border-left": $content-blockquote-border-left, "content-blockquote-padding": $content-blockquote-padding, "content-pre-padding": $content-pre-padding, "content-table-cell-border": $content-table-cell-border, "content-table-cell-border-width": $content-table-cell-border-width, "content-table-cell-padding": $content-table-cell-padding, "content-table-cell-heading-color": $content-table-cell-heading-color, "content-table-head-cell-border-width": $content-table-head-cell-border-width, "content-table-head-cell-color": $content-table-head-cell-color, "content-table-body-last-row-cell-border-bottom-width": $content-table-body-last-row-cell-border-bottom-width, "content-table-foot-cell-border-width": $content-table-foot-cell-border-width, "content-table-foot-cell-color": $content-table-foot-cell-color)
 +utilities.exportCSSVars($_css-vars-map)
-+utilities.registerComponentCSSVars('content', $_css-vars-map)
++utilities.registerComponentCSSVars("content", $_css-vars-map)
 // --content-heading-color: #{$content-heading-color}
 // --content-heading-weight: #{$content-heading-weight}
 // --content-heading-line-height: #{$content-heading-line-height}
@@ -68,25 +71,25 @@ $_css-vars-map: ('content-heading-color': $content-heading-color, 'content-headi
     line-height: var(--content-heading-line-height)
   h1
     font-size: 2em
-    margin-bottom: 0.5em
+    margin-bottom: math.div(1, 2) * 1em
     &:not(:first-child)
       margin-top: 1em
   h2
     font-size: 1.75em
-    margin-bottom: 0.5714em
+    margin-bottom: math.div(1, 1.75) * 1em
     &:not(:first-child)
-      margin-top: 1.1428em
+      margin-top: 2 - math.div(1, 1.75) * 1em
   h3
     font-size: 1.5em
-    margin-bottom: 0.6666em
+    margin-bottom: math.div(1, 1.5) * 1em
     &:not(:first-child)
-      margin-top: 1.3333em
+      margin-top: 2 - math.div(1, 1.5) * 1em
   h4
     font-size: 1.25em
-    margin-bottom: 0.8em
+    margin-bottom: math.div(1, 1.25) * 1em
   h5
     font-size: 1.125em
-    margin-bottom: 0.8888em
+    margin-bottom: math.div(1, 1.125) * 1em
   h6
     font-size: 1em
     margin-bottom: 1em

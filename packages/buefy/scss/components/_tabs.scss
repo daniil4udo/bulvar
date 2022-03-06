@@ -14,22 +14,25 @@ $tabs-toggle-link-focus-background-color: bulma-tabs.$tabs-toggle-link-hover-bac
 $tabs-toggle-link-focus-active-border-color: bulma-tabs.$tabs-toggle-link-active-border-color !default;
 $tabs-toggle-link-focus-border-color: bulma-tabs.$tabs-toggle-link-hover-border-color !default;
 
+// Map Local variables
 $_css-vars-map: (
-    'tabs-focused-outline': $tabs-focused-outline,
-    'tabs-items-focused-outline': $tabs-items-focused-outline,
-    'tabs-link-focus-active-border-bottom-color': $tabs-link-focus-active-border-bottom-color,
-    'tabs-link-focus-border-bottom-color': $tabs-link-focus-border-bottom-color,
-    'tabs-boxed-link-focus-active-background-color': $tabs-boxed-link-focus-active-background-color,
-    'tabs-boxed-link-focus-background-color': $tabs-boxed-link-focus-background-color,
-    'tabs-boxed-link-focus-active-border-bottom-color': $tabs-boxed-link-focus-active-border-bottom-color,
-    'tabs-boxed-link-focus-border-bottom-color': $tabs-boxed-link-focus-border-bottom-color,
-    'tabs-toggle-link-focus-active-background-color': $tabs-toggle-link-focus-active-background-color,
-    'tabs-toggle-link-focus-background-color': $tabs-toggle-link-focus-background-color,
-    'tabs-toggle-link-focus-active-border-color': $tabs-toggle-link-focus-active-border-color,
-    'tabs-toggle-link-focus-border-color': $tabs-toggle-link-focus-border-color,
+    "tabs-focused-outline": $tabs-focused-outline,
+    "tabs-items-focused-outline": $tabs-items-focused-outline,
+    "tabs-link-focus-active-border-bottom-color": $tabs-link-focus-active-border-bottom-color,
+    "tabs-link-focus-border-bottom-color": $tabs-link-focus-border-bottom-color,
+    "tabs-boxed-link-focus-active-background-color": $tabs-boxed-link-focus-active-background-color,
+    "tabs-boxed-link-focus-background-color": $tabs-boxed-link-focus-background-color,
+    "tabs-boxed-link-focus-active-border-bottom-color": $tabs-boxed-link-focus-active-border-bottom-color,
+    "tabs-boxed-link-focus-border-bottom-color": $tabs-boxed-link-focus-border-bottom-color,
+    "tabs-toggle-link-focus-active-background-color": $tabs-toggle-link-focus-active-background-color,
+    "tabs-toggle-link-focus-background-color": $tabs-toggle-link-focus-background-color,
+    "tabs-toggle-link-focus-active-border-color": $tabs-toggle-link-focus-active-border-color,
+    "tabs-toggle-link-focus-border-color": $tabs-toggle-link-focus-border-color,
 );
+
+// Register & Export CSS Variabless
 @include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars('b-tabs', $_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("b-tabs", $_css-vars-map);
 
 .b-tabs {
     .tabs {

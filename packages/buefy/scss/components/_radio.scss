@@ -10,12 +10,15 @@ $radio-size: 1.25em !default;
 
 $radio-colors: bulma-form.$form-colors !default;
 
+// Map Local variables
 $_css-vars-map: (
-    'radio-active-background-color': $radio-active-background-color,
-    'radio-size': $radio-size,
+    "radio-active-background-color": $radio-active-background-color,
+    "radio-size": $radio-size,
 );
+
+// Register & Export CSS Variabless
 @include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars('b-radio', $_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("b-radio", $_css-vars-map);
 
 .b-radio {
     &.radio {
@@ -52,7 +55,7 @@ $_css-vars-map: (
                 transition-timing-function: var(--easing, #{bulma-vars.$easing});
                 border-radius: 50%;
                 border: 2px solid bulma-vars.$grey;
-                &:before {
+                &::before {
                     content: "";
                     display: flex;
                     position: absolute;
@@ -85,7 +88,7 @@ $_css-vars-map: (
                         border-color: var(--#{$name} #{$color});
                     }
                 }
-                &:before {
+                &::before {
                     transform: scale(.5);
                 }
             }

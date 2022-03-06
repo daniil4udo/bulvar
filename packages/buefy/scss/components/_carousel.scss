@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
 
@@ -16,21 +18,24 @@ $carousel-indicator-spaced: .5rem !default;
 $carousel-overlay-background: rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.86) !default;
 $carousel-overlay-z: 40 !default;
 
+// Map Local variables
 $_css-vars-map: (
-    'carousel-min-height': $carousel-min-height,
-    'carousel-arrow-background': $carousel-arrow-background,
-    'carousel-arrow-color': $carousel-arrow-color,
-    'carousel-arrow-icon-spaced': $carousel-arrow-icon-spaced,
-    'carousel-arrow-top': $carousel-arrow-top,
-    'carousel-indicator-background': $carousel-indicator-background,
-    'carousel-indicator-border': $carousel-indicator-border,
-    'carousel-indicator-color': $carousel-indicator-color,
-    'carousel-indicator-spaced': $carousel-indicator-spaced,
-    'carousel-overlay-background': $carousel-overlay-background,
-    'carousel-overlay-z': $carousel-overlay-z,
+    "carousel-min-height": $carousel-min-height,
+    "carousel-arrow-background": $carousel-arrow-background,
+    "carousel-arrow-color": $carousel-arrow-color,
+    "carousel-arrow-icon-spaced": $carousel-arrow-icon-spaced,
+    "carousel-arrow-top": $carousel-arrow-top,
+    "carousel-indicator-background": $carousel-indicator-background,
+    "carousel-indicator-border": $carousel-indicator-border,
+    "carousel-indicator-color": $carousel-indicator-color,
+    "carousel-indicator-spaced": $carousel-indicator-spaced,
+    "carousel-overlay-background": $carousel-overlay-background,
+    "carousel-overlay-z": $carousel-overlay-z,
 );
+
+// Register CSS Variables
 @include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars('carousel', $_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("carousel", $_css-vars-map);
 
 .carousel {
     @extend %unselectable;
@@ -98,7 +103,7 @@ $_css-vars-map: (
                 flex: 1 0 10%;
             }
             &.is-medium .indicator-item {
-                flex: 1 0 16.66667%;
+                flex: 1 0 math.div(100, 6) * 1%;
             }
         }
         &.is-inside {
@@ -152,7 +157,7 @@ $_css-vars-map: (
     overflow: hidden;
     width: 100%;
     &.has-shadow {
-        box-shadow: 0px 0px 10px rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.25);
+        box-shadow: 0 0 10px rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.25);
     }
     &:hover .carousel-arrow.is-hovered {
         @include bulma-utilities.tablet {

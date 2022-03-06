@@ -11,6 +11,7 @@ $tag-font-size: var(--size-small, #{vars.$size-small}) !default
 
 $tag-colors: vars.$colors !default
 
+// Map Local variables
 $_css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $tag-color, 'tag-radius': $tag-radius, 'tag-font-size': $tag-font-size, 'tag-delete-margin': $tag-delete-margin)
 +utilities.exportCSSVars($_css-vars-map)
 +utilities.registerComponentCSSVars(('tag', 'tags'), $_css-vars-map)

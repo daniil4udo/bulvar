@@ -5,12 +5,15 @@
 $colorpicker-radius: var(--dropdown-content-radius, #{bulma-dropdown.$dropdown-content-radius}) !default;
 $colorpicker-hue-selected-stroke: var(--primary, #{bulma-vars.$primary}) !default;
 
+// Map Local variables
 $_css-vars-map: (
-    'colorpicker-radius': $colorpicker-radius,
-    'colorpicker-hue-selected-stroke': $colorpicker-hue-selected-stroke,
+    "colorpicker-radius": $colorpicker-radius,
+    "colorpicker-hue-selected-stroke": $colorpicker-hue-selected-stroke,
 );
+
+// Register CSS Variables
 @include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars('colorpicker', $_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("colorpicker", $_css-vars-map);
 
 // TODO: submit PR to rename to b-colorpicker
 .b-colorpicker, .colorpicker {
@@ -22,7 +25,7 @@ $_css-vars-map: (
         margin-top: .875rem;
         padding-top: .875rem;
         border: 1px solid var(--grey-lighter, #{bulma-vars.$grey-lighter});
-        border-width: 1px 0 0 0;
+        border-width: 1px 0 0;
 
         .colorpicker-fields {
             margin-bottom: .875rem;
@@ -116,8 +119,8 @@ svg.b-colorpicker-triangle {
             inset 0 0 0 1px bulma-vars.$white,
             0 0 0 1px var(--grey-lighter, #{bulma-vars.$grey-lighter});
         cursor: grab;
-        height: calc(100%/1 - .25em/1);
-        width: calc(100%/1 - .25em/1);
+        height: calc(100% / 1 - .25em / 1);
+        width: calc(100% / 1 - .25em / 1);
         margin: .125em;
 
         &:hover {
@@ -197,7 +200,7 @@ div.b-colorpicker-square {
         left: 0;
 
         &::before {
-            content: '';
+            content: "";
             background: linear-gradient(0deg, bulma-vars.$black, bulma-vars.$white);
             position: absolute;
             top: 0;

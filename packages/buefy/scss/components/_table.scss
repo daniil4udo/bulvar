@@ -6,11 +6,14 @@
 
 $table-sticky-header-height: 300px !default;
 
+// Map Local variables
 $_css-vars-map: (
-    'table-sticky-header-height': $table-sticky-header-height,
+    "table-sticky-header-height": $table-sticky-header-height,
 );
+
+// Register & Export CSS Variabless
 @include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars('b-table', $_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("b-table", $_css-vars-map);
 
 @mixin table-cards {
     .table {
@@ -72,7 +75,7 @@ $_css-vars-map: (
             justify-content: space-between;
             text-align: right;
             border-bottom: 1px solid var(--background, #{bulma-vars.$background});
-            &:before {
+            &::before {
                 content: attr(data-label);
                 font-weight: var(--weight-semibold, #{bulma-vars.$weight-semibold});
                 padding-right: 0.5em;
@@ -176,7 +179,6 @@ $_css-vars-map: (
                 margin-left: 10px;
             }
             &.is-sticky {
-                position: -webkit-sticky;
                 position: sticky;
                 left: 0;
                 z-index: 3 !important;
@@ -237,7 +239,6 @@ $_css-vars-map: (
 
         td {
             &.is-sticky {
-                position: -webkit-sticky;
                 position: sticky;
                 left: 0;
                 z-index: 1;
@@ -277,7 +278,6 @@ $_css-vars-map: (
             }
             tr:first-child {
                 th {
-                    position: -webkit-sticky;
                     position: sticky;
                     top: 0;
                     z-index: 2;

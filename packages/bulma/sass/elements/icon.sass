@@ -7,9 +7,10 @@ $icon-dimensions-medium: 2rem !default
 $icon-dimensions-large: 3rem !default
 $icon-text-spacing: 0.25em !default
 
-$_css-vars-map: ('icon-dimensions': $icon-dimensions, 'icon-dimensions-small': $icon-dimensions-small, 'icon-dimensions-medium': $icon-dimensions-medium, 'icon-dimensions-large': $icon-dimensions-large, 'icon-text-spacing': $icon-text-spacing)
+// Map Local variables
+$_css-vars-map: ("icon-dimensions": $icon-dimensions, "icon-dimensions-small": $icon-dimensions-small, "icon-dimensions-medium": $icon-dimensions-medium, "icon-dimensions-large": $icon-dimensions-large, "icon-text-spacing": $icon-text-spacing)
 +utilities.exportCSSVars($_css-vars-map)
-+utilities.registerComponentCSSVars('icon', $_css-vars-map)
++utilities.registerComponentCSSVars("icon", $_css-vars-map)
 // --icon-dimensions: #{$icon-dimensions}
 // --icon-dimensions-small: #{$icon-dimensions-small}
 // --icon-dimensions-medium: #{$icon-dimensions-medium}

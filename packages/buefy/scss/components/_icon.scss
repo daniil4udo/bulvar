@@ -3,12 +3,15 @@
 $icon-svg-width: auto !default;
 $icon-svg-height: auto !default;
 
+// Map Local variables
 $_css-vars-map: (
-    'icon-svg-width': $icon-svg-width,
-    'icon-svg-height': $icon-svg-height,
+    "icon-svg-width": $icon-svg-width,
+    "icon-svg-height": $icon-svg-height,
 );
+
+// Register & Export CSS Variabless
 @include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars('icon', $_css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("icon", $_css-vars-map);
 
 .icon {
     @include bulma-utilities.unselectable;
