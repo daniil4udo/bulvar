@@ -39,7 +39,7 @@
 		"lint:stylelint": "stylelint ",
 		"lint:markdownlint": "markdownlint --fix -i CHANGELOG.md -i packages/**/CHANGELOG.md",
 		"lint:all:vars": "fusv packages/",
-		"lint:all:stylelint": "pnpm lint:stylelint \"**/*.{sass,scss}\" --cache --cache-location .cache/.stylelintcache --rd",
+		"lint:all:stylelint": "pnpm lint:stylelint \"packages/**/*.{sass,scss}\" --cache --cache-location .cache/.stylelintcache --rd",
 		"lint:all:markdownlint": "pnpm lint:markdownlint \"packages/**/*.md\" \"*.md\"",
 		"cz": "git cz"
 	},
