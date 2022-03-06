@@ -25,6 +25,7 @@ $slider-mark-size: 0.75rem !default;
 
 $slider-colors: bulma-form.$form-colors !default;
 
+// Map Local variables
 $_css-vars-map: (
     'slider-radius': $slider-radius,
     'slider-size': $slider-size,
@@ -45,6 +46,8 @@ $_css-vars-map: (
     'slider-tick-background': $slider-tick-background,
     'slider-mark-size': $slider-mark-size,
 );
+
+// Register & Export CSS Variabless
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('b-slider', $_css-vars-map);
 

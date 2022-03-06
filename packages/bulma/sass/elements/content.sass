@@ -23,6 +23,7 @@ $content-table-body-last-row-cell-border-bottom-width: 0 !default
 $content-table-foot-cell-border-width: 2px 0 0 !default
 $content-table-foot-cell-color: var(--text-strong, #{vars.$text-strong}) !default
 
+// Map Local variables
 $_css-vars-map: ('content-heading-color': $content-heading-color, 'content-heading-weight': $content-heading-weight, 'content-heading-line-height': $content-heading-line-height, 'content-block-margin-bottom': $content-block-margin-bottom, 'content-blockquote-background-color': $content-blockquote-background-color, 'content-blockquote-border-left': $content-blockquote-border-left, 'content-blockquote-padding': $content-blockquote-padding, 'content-pre-padding': $content-pre-padding, 'content-table-cell-border': $content-table-cell-border, 'content-table-cell-border-width': $content-table-cell-border-width, 'content-table-cell-padding': $content-table-cell-padding, 'content-table-cell-heading-color': $content-table-cell-heading-color, 'content-table-head-cell-border-width': $content-table-head-cell-border-width, 'content-table-head-cell-color': $content-table-head-cell-color, 'content-table-body-last-row-cell-border-bottom-width': $content-table-body-last-row-cell-border-bottom-width, 'content-table-foot-cell-border-width': $content-table-foot-cell-border-width, 'content-table-foot-cell-color': $content-table-foot-cell-color)
 +utilities.exportCSSVars($_css-vars-map)
 +utilities.registerComponentCSSVars('content', $_css-vars-map)

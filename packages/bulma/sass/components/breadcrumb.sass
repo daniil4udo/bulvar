@@ -13,6 +13,7 @@ $breadcrumb-item-separator-color: var(--border-hover, #{vars.$border-hover}) !de
 
 $breadcrumb-li-content: "\0002f" !default
 
+// Map Local variables
 $_css-vars-map: ('breadcrumb-font-size': $breadcrumb-font-size, 'breadcrumb-item-color': $breadcrumb-item-color, 'breadcrumb-item-hover-color': $breadcrumb-item-hover-color, 'breadcrumb-item-active-color': $breadcrumb-item-active-color, 'breadcrumb-item-separator-color': $breadcrumb-item-separator-color, 'breadcrumb-item-padding-vertical': $breadcrumb-item-padding-vertical, 'breadcrumb-item-padding-horizontal': $breadcrumb-item-padding-horizontal, 'breadcrumb-li-content': $breadcrumb-li-content)
 +utilities.exportCSSVars($_css-vars-map)
 +utilities.registerComponentCSSVars('breadcrumb', $_css-vars-map)

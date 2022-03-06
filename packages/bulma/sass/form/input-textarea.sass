@@ -54,6 +54,7 @@ $textarea-colors: form-shared.$form-colors !default
     padding-left: 0
     padding-right: 0
 
+// Map Local variables
 $_css-vars-map: ('textarea-padding': $textarea-padding, 'textarea-max-height': $textarea-max-height, 'textarea-min-height': $textarea-min-height)
 +utilities.exportCSSVars($_css-vars-map)
 +utilities.registerComponentCSSVars('textarea', $_css-vars-map)

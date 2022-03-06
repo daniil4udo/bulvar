@@ -3,9 +3,12 @@
 
 $dropdown-content-max-height: 200px !default;
 
+// Map Local variables
 $_css-vars-map: (
     'dropdown-content-max-height': $dropdown-content-max-height
 );
+
+// Register CSS Variables
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('autocomplete', $_css-vars-map);
 

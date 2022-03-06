@@ -7,10 +7,13 @@
 $progress-value-color: var(--scheme-main, #{bulma-vars.$scheme-main}) !default;
 $progress-value-size: var(--size-normal, #{bulma-vars.$size-normal}) !default;
 
+// Map Local variables
 $_css-vars-map: (
     'progress-value-color': $progress-value-color,
     'progress-value-size': $progress-value-size,
 );
+
+// Register & Export CSS Variabless
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('progress-wrapper', $_css-vars-map);
 

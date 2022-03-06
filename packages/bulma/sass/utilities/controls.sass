@@ -14,6 +14,7 @@ $control-padding-horizontal: calc(0.75em - #{$control-border-width}) !default
 
 $control-font-size: var(--size-normal, #{vars.$size-normal}) !default
 
+// Map Local variables
 $_css-vars-map: ('control-radius': $control-radius, 'control-radius-small': $control-radius-small, 'control-border-width': $control-border-width, 'control-height': $control-height, 'control-line-height': $control-line-height, 'control-padding-vertical': $control-padding-vertical, 'control-padding-horizontal': $control-padding-horizontal, 'control-font-size': $control-font-size)
 +utilities.exportCSSVars($_css-vars-map)
 +utilities.registerComponentCSSVars(null, $_css-vars-map)

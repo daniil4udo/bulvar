@@ -20,6 +20,7 @@ $snackbar-box-shadow: $notices-box-shadow !default;
 
 $snackbar-colors: bulma-notification.$notification-colors !default;
 
+// Map Local variables
 $_css-vars-map: (
     'notices-box-shadow': $notices-box-shadow,
     'toast-border-radius': $toast-border-radius,
@@ -31,6 +32,8 @@ $_css-vars-map: (
     'snackbar-button-text-transform': $snackbar-button-text-transform,
     'snackbar-box-shadow': $snackbar-box-shadow,
 );
+
+// Register & Export CSS Variabless
 @include bulma-utilities.exportCSSVars($_css-vars-map);
 @include bulma-utilities.registerComponentCSSVars('notices', $_css-vars-map);
 

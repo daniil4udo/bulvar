@@ -21,6 +21,7 @@ $number-font-size: var(--size-medium, #{vars.$size-medium}) !default
 .loader
   @extend %loader
 
+// Map Local variables
 $_css-vars-map: ('number-background': $number-background, 'number-radius-rounded': $number-radius-rounded, 'number-font-size': $number-font-size)
 +utilities.exportCSSVars($_css-vars-map)
 +utilities.registerComponentCSSVars('number', $_css-vars-map)
