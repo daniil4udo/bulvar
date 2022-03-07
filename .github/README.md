@@ -217,6 +217,11 @@ Same applies for lightness. Instead of using sass lightness function (which you 
 
 Tome make color lighter increase (add) value to the `--primary-l`, to make it darker, decrease (substract) accordingly.
 
+### Modify Invert Colors
+By default, if color's luminance less then 0.55, then invert color will be `rgba(#000, 0.7)` otherwise `white`.
+
+You can change those colors now by overwriting `$invert-dark-colors` & `$invert-light-colors`
+
 ### Proper color change in runtime
 
 Best way to change main colors (primary, info etc.) is to change their coresponding `--#{$name}-h` (hue), `--#{$name}-s` (saturation),
