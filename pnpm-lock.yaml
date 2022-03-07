@@ -22,7 +22,7 @@ specifiers:
   husky: ^4
   lerna: ^4.0.0
   lint-staged: ^12.3.5
-  markdownlint-cli: ^0.30.0
+  markdownlint-cli: ^0.31.1
   npm-run-all: ^4.1.5
   postcss: ^8.4.8
   postcss-cli: ^9.1.0
@@ -49,7 +49,7 @@ devDependencies:
   husky: 4.3.8
   lerna: 4.0.0
   lint-staged: 12.3.5
-  markdownlint-cli: 0.30.0
+  markdownlint-cli: 0.31.1
   npm-run-all: 4.1.5
   postcss: 8.4.8
   postcss-cli: 9.1.0_postcss@8.4.8
@@ -3151,11 +3151,6 @@ packages:
       minimatch: 3.1.2
     dev: true
 
-  /ignore/5.1.9:
-    resolution: {integrity: sha512-2zeMQpbKz5dhZ9IwL0gbxSW5w0NK/MSAMtNuhgIHEPmaU3vPdKPL0UdvUCXs5SS4JAwsBxysK5sFMW8ocFiVjQ==}
-    engines: {node: '>= 4'}
-    dev: true
-
   /ignore/5.2.0:
     resolution: {integrity: sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==}
     engines: {node: '>= 4'}
@@ -3809,14 +3804,6 @@ packages:
     resolution: {integrity: sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=}
     dev: true
 
-  /lodash.differencewith/4.5.0:
-    resolution: {integrity: sha1-uvr7yRi1UVTheRdqALsK76rIVLc=}
-    dev: true
-
-  /lodash.flatten/4.4.0:
-    resolution: {integrity: sha1-8xwiIlqWMtK7+OSt2+8kCqdlph8=}
-    dev: true
-
   /lodash.invoke/4.5.2:
     resolution: {integrity: sha1-AcoH5HCQOv+j/+x60u0icj0vaXw=}
     dev: true
@@ -3986,8 +3973,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /markdown-it/12.2.0:
-    resolution: {integrity: sha512-Wjws+uCrVQRqOoJvze4HCqkKl1AsSh95iFAeQDwnyfxM09divCBSXlDR1uTvyUP3Grzpn4Ru8GeCxYPM8vkCQg==}
+  /markdown-it/12.3.2:
+    resolution: {integrity: sha512-TchMembfxfNVpHkbtriWltGWc+m3xszaRD0CZup7GFFhzIgQqxIfn3eGj1yZpfuflzPvfkt611B2Q/Bsk1YnGg==}
     hasBin: true
     dependencies:
       argparse: 2.0.1
@@ -3997,36 +3984,32 @@ packages:
       uc.micro: 1.0.6
     dev: true
 
-  /markdownlint-cli/0.30.0:
-    resolution: {integrity: sha512-NiG8iERjwsRZtJAIyLMDdYL2O3bJVn3fUxzDl+6Iv61/YYz9H9Nzgke/v0/cW9HfGvgZHhbfI19LFMp6gbKdyw==}
+  /markdownlint-cli/0.31.1:
+    resolution: {integrity: sha512-keIOMwQn+Ch7MoBwA+TdkyVMuxAeZFEGmIIlvwgV0Z1TGS5MxPnRr29XCLhkNzCHU+uNKGjU+VEjLX+Z9kli6g==}
     engines: {node: '>=12'}
     hasBin: true
     dependencies:
-      commander: 8.3.0
-      deep-extend: 0.6.0
-      get-stdin: 8.0.0
+      commander: 9.0.0
+      get-stdin: 9.0.0
       glob: 7.2.0
-      ignore: 5.1.9
+      ignore: 5.2.0
       js-yaml: 4.1.0
       jsonc-parser: 3.0.0
-      lodash.differencewith: 4.5.0
-      lodash.flatten: 4.4.0
-      markdownlint: 0.24.0
-      markdownlint-rule-helpers: 0.15.0
+      markdownlint: 0.25.1
+      markdownlint-rule-helpers: 0.16.0
       minimatch: 3.0.8
-      minimist: 1.2.5
       run-con: 1.2.10
     dev: true
 
-  /markdownlint-rule-helpers/0.15.0:
-    resolution: {integrity: sha512-A+9mswc3m/kkqpJCqntmte/1VKhDJ+tjZsERLz5L4h/Qr7ht2/BkGkgY5E7/wsxIhcpl+ctIfz+oS3PQrMOB2w==}
+  /markdownlint-rule-helpers/0.16.0:
+    resolution: {integrity: sha512-oEacRUVeTJ5D5hW1UYd2qExYI0oELdYK72k1TKGvIeYJIbqQWAz476NAc7LNixSySUhcNl++d02DvX0ccDk9/w==}
     dev: true
 
-  /markdownlint/0.24.0:
-    resolution: {integrity: sha512-OJIGsGFV/rC9irI5E1FMy6v9hdACSwaa+EN3224Y5KG8zj2EYzdHOw0pOJovIYmjNfEZ9BtxUY4P7uYHTSNnbQ==}
-    engines: {node: '>=10'}
+  /markdownlint/0.25.1:
+    resolution: {integrity: sha512-AG7UkLzNa1fxiOv5B+owPsPhtM4D6DoODhsJgiaNg1xowXovrYgOnLqAgOOFQpWOlHFVQUzjMY5ypNNTeov92g==}
+    engines: {node: '>=12'}
     dependencies:
-      markdown-it: 12.2.0
+      markdown-it: 12.3.2
     dev: true
 
   /mathml-tag-names/2.1.3:
