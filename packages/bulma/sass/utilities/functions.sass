@@ -5,6 +5,8 @@
 @use "sass:meta"
 @use "sass:string"
 
+@use 'initial-variables' as vars
+
 @function mergeColorMaps($bulma-colors, $custom-colors)
   // We return at least Bulma's hard-coded colors
   $merged-colors: $bulma-colors
@@ -79,7 +81,7 @@
 
 /// Invert color calculation
 @function calculateInvertColor($color)
-  @return if(colorLuminance($color) > 0.55, rgba(#000, 0.7), #fff)
+  @return if(colorLuminance($color) > 0.55, vars.$invert-light-colors, vars.$invert-dark-colors)
 
 @function findColorInvert($color, $fallback: null)
   @if meta.type-of($color) == 'color'
