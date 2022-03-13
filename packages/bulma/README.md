@@ -16,12 +16,13 @@
 
 > Bulvar [Bulma](https://bulma.io) and [Buefy](https://buefy.org) on steroids usin CSS variables
 
--   ⚡️ Runtime variables change
--   🛠️ Rich Features - includes Bulma, Buefy CSS and Bulma extentions
--   💡 Root and Local variables scoping
--   📦 CSS minifier with structural optimizations
+- ⚡️ Runtime variables change
+- 🛠️ Rich Features - includes Bulma, Buefy CSS and Bulma extentions
+- 💡 Root and Local variables scoping
+- 📦 CSS minifier with structural optimizations
 
 ## 💙 SPECIAL SPONSOR
+
 <!--special start-->
 
 <p align="center">
@@ -48,7 +49,6 @@ or Yarn
 yarn add @bulvar/bulma
 ```
 
-
 ### Buefy
 
 Install using NPM.
@@ -69,21 +69,21 @@ yarn add @bulvar/buefy
 
 Build includes (for both Bulma & Buefy)
 
--   Standart CSS file `bulma.css` or `buefy.css`
--   Standart minified CSS file `bulma.min.css` and `buefy.min.css`
--   RTL CSS file `bulma-rtl.css` and `buefy-rtl.css`
--   Minified RTL CSS file `bulma-rtl.min.css` and `buefy-rtl.min.css`
+- Standart CSS file `bulma.css` or `buefy.css`
+- Standart minified CSS file `bulma.min.css` and `buefy.min.css`
+- RTL CSS file `bulma-rtl.css` and `buefy-rtl.css`
+- Minified RTL CSS file `bulma-rtl.min.css` and `buefy-rtl.min.css`
 
 After installation, you can import any from above CSS file into your project using this snippet:
 
 ```css
-@import "@bulvar/bulma/css/bulma.css";
+@import '@bulvar/bulma/css/bulma.css';
 ```
 
 or
 
 ```css
-@import "@bulvar/bulma/css/buefy.css";
+@import '@bulvar/bulma/css/buefy.css';
 ```
 
 ## 🤔 WHY Bulvar?
@@ -92,24 +92,24 @@ Bulvar is a monorepo with all Bulma-derived packages rewritten with CSS Variable
 
 Currently Includes :
 
--   [Bulma](https://bulma.io) itself (duh) as `@bulvar/bulma`
--   [Buefy](https://buefy.org) (SCSS only) as `@bulvar/buefy`
--   [Bulma Extentions](https://bulma.io/extensions/) (still WIP) as `@bulvar/bulma-extentions`
+- [Bulma](https://bulma.io) itself (duh) as `@bulvar/bulma`
+- [Buefy](https://buefy.org) (SCSS only) as `@bulvar/buefy`
+- [Bulma Extentions](https://bulma.io/extensions/) (still WIP) as `@bulvar/bulma-extentions`
 
 ## 🧪 WHAT HAS BEEN CHANGED
 
--   CSS Vars compatible! Woohoo!
--   Real modularity! Drop deprecated `@import`. Use `@foward` and `@use` (read more [HERE](https://css-tricks.com/introducing-sass-modules))
--   Always using latest Dart(⚠️ make sure you are using Dart version of SASS in your project too) Sass instead of deprecated node-sass
--   Added namespacing. No need to worry about variables overwrite
--   Added flag to be able to exports SASS variables using `export` for JS
--   Added secondary color
--   Added flexbox gap helper classes
--   Added color-scheme support
--   Added cross-browser support for placeholder opacity
--   Custom `divide()` function replaced with SASS `math.div()`
--   Custom `power()` function replaced with SASS `math.pow()`
--   Added link pseudo selectors
+- CSS Vars compatible! Woohoo!
+- Real modularity! Drop deprecated `@import`. Use `@foward` and `@use` (read more [HERE](https://css-tricks.com/introducing-sass-modules))
+- Always using latest Dart(⚠️ make sure you are using Dart version of SASS in your project too) Sass instead of deprecated node-sass
+- Added namespacing. No need to worry about variables overwrite
+- Added flag to be able to exports SASS variables using `export` for JS
+- Added secondary color
+- Added flexbox gap helper classes
+- Added color-scheme support
+- Added cross-browser support for placeholder opacity
+- Custom `divide()` function replaced with SASS `math.div()`
+- Custom `power()` function replaced with SASS `math.pow()`
+- Added link pseudo selectors
 
 ## 🚀 CUSTOMIZATION TIPS
 
@@ -169,14 +169,14 @@ Note that in the example above, when using `theme/light` you can modify all glob
 
 There were bunch of improvements in helpers utility classes
 
--   `is-radiusless` is extended
--   Added `is-radiusless-top`
--   Added `is-radiusless-bottom`
--   Added `is-radiusless-{top-left, top-right, bottom-right, bottom-left}`
--   Added `is-borderless` is extended
--   Added `is-borderless-top`
--   Added `is-borderless-bottom`
--   Added `is-{top-left, top-right, bottom-right, bottom-left}`
+- `is-radiusless` is extended
+- Added `is-radiusless-top`
+- Added `is-radiusless-bottom`
+- Added `is-radiusless-{top-left, top-right, bottom-right, bottom-left}`
+- Added `is-borderless` is extended
+- Added `is-borderless-top`
+- Added `is-borderless-bottom`
+- Added `is-{top-left, top-right, bottom-right, bottom-left}`
 
 ## ⚠️ CSS ONLY
 
@@ -218,6 +218,7 @@ Same applies for lightness. Instead of using sass lightness function (which you 
 Tome make color lighter increase (add) value to the `--primary-l`, to make it darker, decrease (substract) accordingly.
 
 ### Modify Invert Colors
+
 By default, if color's luminance less then 0.55, then invert color will be `rgba(#000, 0.7)` otherwise `white`.
 
 You can change those colors now by overwriting `$invert-dark-colors` & `$invert-light-colors`
@@ -235,8 +236,8 @@ By default it sets to `true`, and results into
 
 ```css
 :root {
-    --footer-background-color: SOME_COLOR;
-    --footer-padding: SOME_PADDING;
+	--footer-background-color: SOME_COLOR;
+	--footer-padding: SOME_PADDING;
 }
 ```
 
@@ -244,8 +245,8 @@ In case you need more strict scoping, you can set it to `false`, wich, in case o
 
 ```css
 .footer {
-    --footer-background-color: SOME_COLOR;
-    --footer-padding: SOME_PADDING;
+	--footer-background-color: SOME_COLOR;
+	--footer-padding: SOME_PADDING;
 }
 ```
 
@@ -265,8 +266,8 @@ Note that all SASS variable will be camelcased.
 
 Version will follow **v0.Y.Z**, where:
 
--   **Y**: Major (breaking changes)
--   **Z**: Minor or patch
+- **Y**: Major (breaking changes)
+- **Z**: Minor or patch
 
 Starting from version 1.Y.Z we going to deprecate `@import` in favour of `@use` and `@forward`
 
@@ -276,15 +277,15 @@ Bulma & Buefy uses [autoprefixer](https://github.com/postcss/autoprefixer) to ma
 
 According to [Can I use](https://caniuse.com/css-variables), Bulma is compatible with **recent** versions of:
 
--   Chrome
--   Edge
--   Firefox
--   Opera
--   Safari
+- Chrome
+- Edge
+- Firefox
+- Opera
+- Safari
 
-Internet Explorer  is not supported due to the use of css variables.
+Internet Explorer is not supported due to the use of css variables.
 
-Although  you can use polyfill.
+Although you can use polyfill.
 
 ## 📖 COPYRIGHT AND LICENSE ![Github](https://img.shields.io/github/license/daniil4udo/bulvar?logo=Github)
 
