@@ -80,6 +80,7 @@
 		"overrides": {
 			"@stylelint/postcss-markdown": "npm:postcss-markdown@latest",
 			"read-package-tree": "npm:@npmcli/arborist@latest",
+			"string-width": "^4.0.0",
 			"stylelint": "^14.0.0",
 			"uuid": "^8.0.0"
 		}
