@@ -1,6 +1,6 @@
 @use "../utilities/mixins"
 
-+mixins.keyframes(spinAround)
+@keyframes spinAround
   from
     transform: rotate(0deg)
   to
@@ -8,7 +8,7 @@
 .spinAround
     animation-name: spinAround
 
-+mixins.keyframes(moveIndeterminate)
+@keyframes moveIndeterminate
   from
     background-position: 200% 0
   to
