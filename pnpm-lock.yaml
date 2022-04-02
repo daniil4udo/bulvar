@@ -30,7 +30,7 @@ specifiers:
   postcss-cli: ^9.1.0
   postcss-sass: ^0.5.0
   postcss-scss: ^4.0.3
-  prettier: ^2.6.0
+  prettier: ^2.6.2
   rimraf: ^3.0.2
   rtlcss: ^3.5.0
   sass: ^1.49.9
@@ -57,7 +57,7 @@ devDependencies:
   postcss-cli: 9.1.0_postcss@8.4.12
   postcss-sass: 0.5.0
   postcss-scss: 4.0.3_postcss@8.4.12
-  prettier: 2.6.0
+  prettier: 2.6.2
   rimraf: 3.0.2
   rtlcss: 3.5.0
   sass: 1.49.9
@@ -217,7 +217,7 @@ packages:
       p-map: 4.0.0
       p-map-series: 2.1.0
       p-waterfall: 2.1.1
-      read-package-tree: /@npmcli/arborist/5.0.3
+      read-package-tree: /@npmcli/arborist/5.0.4
       semver: 7.3.5
     transitivePeerDependencies:
       - supports-color
@@ -886,9 +886,9 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@npmcli/arborist/5.0.3:
-    resolution: {integrity: sha512-dlLhJypoPftnvlu0l21yb1PXiD7kofZ6NFIAatuAI31xHPnfo0QQjV59ocwbm+gyqgE+m25/erutzTj5LdJ+kQ==}
-    engines: {node: ^12.13.0 || ^14.15.0 || >=16}
+  /@npmcli/arborist/5.0.4:
+    resolution: {integrity: sha512-w3N7gvCLBS1uwOmGEYAlE81bGzLc+mSbfMkWVT++y4G7w4fhjLMmVCJlerOLIf8u5Xsf5Js1tT6UClhGz5p19Q==}
+    engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
     hasBin: true
     dependencies:
       '@isaacs/string-locale-compare': 1.1.0
@@ -5092,8 +5092,8 @@ packages:
     hasBin: true
     dev: true
 
-  /prettier/2.6.0:
-    resolution: {integrity: sha512-m2FgJibYrBGGgQXNzfd0PuDGShJgRavjUoRCw1mZERIWVSXF0iLzLm+aOqTAbLnC3n6JzUhAA8uZnFVghHJ86A==}
+  /prettier/2.6.2:
+    resolution: {integrity: sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
