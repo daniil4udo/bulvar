@@ -33,7 +33,7 @@ specifiers:
   prettier: ^2.6.0
   rimraf: ^3.0.2
   rtlcss: ^3.5.0
-  sass: ^1.49.9
+  sass: ^1.50.0
   stylelint: ^14.0.0
   stylelint-config-idiomatic-order: ^8.1.0
   stylelint-config-prettier: ^9.0.3
@@ -60,7 +60,7 @@ devDependencies:
   prettier: 2.6.0
   rimraf: 3.0.2
   rtlcss: 3.5.0
-  sass: 1.49.9
+  sass: 1.50.0
   stylelint: 14.6.0
   stylelint-config-idiomatic-order: 8.1.0_stylelint@14.6.0
   stylelint-config-prettier: 9.0.3_stylelint@14.6.0
@@ -217,7 +217,7 @@ packages:
       p-map: 4.0.0
       p-map-series: 2.1.0
       p-waterfall: 2.1.1
-      read-package-tree: /@npmcli/arborist/5.0.3
+      read-package-tree: /@npmcli/arborist/5.0.4
       semver: 7.3.5
     transitivePeerDependencies:
       - supports-color
@@ -886,9 +886,9 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@npmcli/arborist/5.0.3:
-    resolution: {integrity: sha512-dlLhJypoPftnvlu0l21yb1PXiD7kofZ6NFIAatuAI31xHPnfo0QQjV59ocwbm+gyqgE+m25/erutzTj5LdJ+kQ==}
-    engines: {node: ^12.13.0 || ^14.15.0 || >=16}
+  /@npmcli/arborist/5.0.4:
+    resolution: {integrity: sha512-w3N7gvCLBS1uwOmGEYAlE81bGzLc+mSbfMkWVT++y4G7w4fhjLMmVCJlerOLIf8u5Xsf5Js1tT6UClhGz5p19Q==}
+    engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
     hasBin: true
     dependencies:
       '@isaacs/string-locale-compare': 1.1.0
@@ -5523,8 +5523,8 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
-  /sass/1.49.9:
-    resolution: {integrity: sha512-YlYWkkHP9fbwaFRZQRXgDi3mXZShslVmmo+FVK3kHLUELHHEYrCmL1x6IUjC7wLS6VuJSAFXRQS/DxdsC4xL1A==}
+  /sass/1.50.0:
+    resolution: {integrity: sha512-cLsD6MEZ5URXHStxApajEh7gW189kkjn4Rc8DQweMyF+o5HF5nfEz8QYLMlPsTOD88DknatTmBWkOcw5/LnJLQ==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
