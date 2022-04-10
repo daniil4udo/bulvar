@@ -39,7 +39,7 @@ $_css-vars-map: (
     &.#{$direction} {
         .tooltip-content {
             // TODO: move calculaions calc(100... to CSS Var
-            --tooltip-content-spacing: calc(100% + #{var(--tooltip-arrow-size)} + #{var(--tooltip-arrow-margin)});
+            --tooltip-content-spacing: calc(100% + var(--tooltip-arrow-size) + var(--tooltip-arrow-margin));
             @if  $direction == "is-top" {
                 top: auto;
                 right: auto;

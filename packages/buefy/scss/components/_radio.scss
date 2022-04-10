@@ -58,9 +58,9 @@ $_css-vars-map: (
                     display: flex;
                     position: absolute;
                     left: 50%;
-                    margin-left: calc(-0.5 * #{var(--radio-size)});
+                    margin-left: calc(-0.5 * var(--radio-size));
                     bottom: 50%;
-                    margin-bottom: calc(-0.5 * #{var(--radio-size)});
+                    margin-bottom: calc(-0.5 * var(--radio-size));
                     width: var(--radio-size);
                     height: var(--radio-size);
                     // transition: transform $speed-slow $easing;

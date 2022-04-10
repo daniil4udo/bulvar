@@ -127,14 +127,14 @@ $_css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
       height: 1.5em
       width: 1.5em
     &:first-child:not(:last-child)
-      +utilities.ltr-property("margin", calc(-0.5 * #{var(--button-padding-horizontal)} - #{var(--button-border-width)}), false)
-      +utilities.ltr-property("margin", calc(#{var(--button-padding-horizontal)} * 0.25))
+      +utilities.ltr-property("margin", calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width)), false)
+      +utilities.ltr-property("margin", calc(var(--button-padding-horizontal) * 0.25))
     &:last-child:not(:first-child)
-      +utilities.ltr-property("margin", calc(#{var(--button-padding-horizontal)} * 0.25), false)
-      +utilities.ltr-property("margin", calc(-0.5 * #{var(--button-padding-horizontal)} - #{var(--button-border-width)}))
+      +utilities.ltr-property("margin", calc(var(--button-padding-horizontal) * 0.25), false)
+      +utilities.ltr-property("margin", calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width)))
     &:first-child:last-child
-      margin-left: calc(-0.5 * #{var(--button-padding-horizontal)} - #{var(--button-border-width)})
-      margin-right: calc(-0.5 * #{var(--button-padding-horizontal)} - #{var(--button-border-width)})
+      margin-left: calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width))
+      margin-right: calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width))
   // States
   &:hover,
   &.is-hovered
@@ -280,8 +280,8 @@ $_css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
         $color-light: list.nth($pair, 3)
         $color-dark: list.nth($pair, 4)
         &.is-light
-          --hover-background-color: #{utilities.bulmaVarLighteness($name, calc(#{var(--#{$name}-light-l)} - 2.5%))}
-          --active-background-color: #{utilities.bulmaVarLighteness($name, calc(#{var(--#{$name}-light-l)} - 5%))}
+          --hover-background-color: #{utilities.bulmaVarLighteness($name, calc(var(--#{$name}-light-l) - 2.5%))}
+          --active-background-color: #{utilities.bulmaVarLighteness($name, calc(var(--#{$name}-light-l) - 5%))}
           background-color: var(--#{$name}-light)
           color: var(--#{$name}-dark)
           &:hover,
@@ -328,8 +328,8 @@ $_css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
     pointer-events: none
   &.is-rounded
     border-radius: var(--radius-rounded)
-    padding-left: calc(#{var(--button-padding-horizontal)} + 0.25em)
-    padding-right: calc(#{var(--button-padding-horizontal)} + 0.25em)
+    padding-left: calc(var(--button-padding-horizontal) + 0.25em)
+    padding-right: calc(var(--button-padding-horizontal) + 0.25em)
 
 .buttons
   align-items: center

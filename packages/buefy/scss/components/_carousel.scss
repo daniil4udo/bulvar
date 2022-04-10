@@ -223,7 +223,7 @@ $_css-vars-map: (
         &.has-icons-right {
             position: absolute;
             top: var(--carousel-arrow-top);
-            transform: translateY(calc(-1 * #{var(--carousel-arrow-top)}));
+            transform: translateY(calc(-1 * var(--carousel-arrow-top)));
             z-index: 1;
         }
         &.has-icons-left {

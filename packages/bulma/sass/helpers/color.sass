@@ -23,7 +23,7 @@ $shades-helpers: vars.$shades !default
     $color-dark: list.nth($pair, 4)
     // Light
     .has-text-#{$name}-light
-      --has-text-light-hover-color: #{utilities.bulmaVarLighteness($name, calc(#{var(--#{$name}-light-l)} - 10%))}
+      --has-text-light-hover-color: #{utilities.bulmaVarLighteness($name, calc(var(--#{$name}-light-l) - 10%))}
       color: var(--#{$name}-light) !important
     a.has-text-#{$name}-light
       &:hover,
@@ -33,7 +33,7 @@ $shades-helpers: vars.$shades !default
       background-color: var(--#{$name}-light) !important
     // Dark
     .has-text-#{$name}-dark
-      --has-text-dark-hover-color: #{utilities.bulmaVarLighteness($name, calc(#{var(--#{$name}-light-l)} + 10%))}
+      --has-text-dark-hover-color: #{utilities.bulmaVarLighteness($name, calc(var(--#{$name}-light-l) + 10%))}
       color: var(--#{$name}-dark) !important
     a.has-text-#{$name}-dark
       &:hover,

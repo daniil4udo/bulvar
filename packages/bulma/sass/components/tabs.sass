@@ -78,7 +78,7 @@ $_css-vars-map: ('tabs-font-size': $tabs-font-size, 'tabs-border-bottom-color': 
     color: var(--tabs-link-color)
     display: flex
     justify-content: center
-    margin-bottom: calc(-1 * #{var(--tabs-border-bottom-width)})
+    margin-bottom: calc(-1 * var(--tabs-border-bottom-width))
     padding: var(--tabs-link-padding)
     vertical-align: top
     &:hover
@@ -155,7 +155,7 @@ $_css-vars-map: ('tabs-font-size': $tabs-font-size, 'tabs-border-bottom-color': 
         z-index: 2
     li
       & + li
-        +utilities.ltr-property("margin", calc(-1 * #{var(--tabs-toggle-link-border-width)}), false)
+        +utilities.ltr-property("margin", calc(-1 * var(--tabs-toggle-link-border-width)), false)
       &:first-child a
         +utilities.ltr
           border-top-left-radius: var(--tabs-toggle-link-radius)

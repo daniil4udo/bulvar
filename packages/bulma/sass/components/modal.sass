@@ -79,14 +79,14 @@ $_css-vars-map: ("modal-z": $modal-z, "modal-background-background-color": $moda
 .modal-content,
 .modal-card
   margin: 0 var(--modal-content-margin-mobile)
-  max-height: calc(100vh - #{var(--modal-content-spacing-mobile)})
+  max-height: calc(100vh - var(--modal-content-spacing-mobile))
   overflow: auto
   position: relative
   width: 100%
   // Responsiveness
   +utilities.from($modal-breakpoint)
     margin: 0 auto
-    max-height: calc(100vh - #{var(--modal-content-spacing-tablet)})
+    max-height: calc(100vh - var(--modal-content-spacing-tablet))
     width: var(--modal-content-width)
 
 .modal-close
@@ -101,7 +101,7 @@ $_css-vars-map: ("modal-z": $modal-z, "modal-background-background-color": $moda
 .modal-card
   display: flex
   flex-direction: column
-  max-height: calc(100vh - #{var(--modal-card-spacing)})
+  max-height: calc(100vh - var(--modal-card-spacing))
   overflow: hidden
   -ms-overflow-y: visible
 

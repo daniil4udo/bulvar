@@ -51,8 +51,8 @@ $_css-vars-map: (
 @include bulma-utilities.registerComponentCSSVars("b-slider", $_css-vars-map);
 
 @mixin slider-size {
-	$track-height: calc(#{var(--slider-size)} / #{var(--slider-thumb-to-track-ratio)});
-	$tick-height: calc(#{$track-height} * #{var(--slider-tick-to-track-ratio)});
+	$track-height: calc(var(--slider-size) / var(--slider-thumb-to-track-ratio));
+	$tick-height: calc(#{$track-height} * var(--slider-tick-to-track-ratio));
 
     .b-slider-track {
         height: $track-height;

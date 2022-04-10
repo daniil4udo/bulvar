@@ -92,7 +92,7 @@ $_css-vars-map: (
         .label {
             position: absolute;
             left: 1em;
-            font-size: calc(#{var(--field-label-font-size)} * 0.75);
+            font-size: calc(var(--field-label-font-size) * 0.75);
             background-color: transparent;
             z-index: 5;
             white-space: nowrap;
@@ -154,7 +154,7 @@ $_css-vars-map: (
         }
     }
     &.is-floating-in-label {
-        --field-floating-indent: #{calc(#{var(--floating-in-height)} * 0.5 - (#{var(--size-large)} * 0.75) * 0.5)};
+        --field-floating-indent: calc(var(--floating-in-height) * 0.5 - (var(--size-large) * 0.75) * 0.5);
 
         > .label {
             top: 0.25em;
@@ -190,7 +190,7 @@ $_css-vars-map: (
                 &.taginput {
                     .taginput-container {
                         // 0.275em - 1px _taginput.scss
-                        padding-top: calc(#{var(--field-floating-indent)} + (0.275em - 1px));
+                        padding-top: calc(var(--field-floating-indent) + (0.275em - 1px));
                     }
                 }
                 &:not(.taginput) {
@@ -242,41 +242,41 @@ $_css-vars-map: (
     &.is-floating-label, &.is-floating-in-label {
         &.has-numberinput {
             .label {
-                margin-left: calc(#{var(--size-normal)} * 3);
+                margin-left: calc(var(--size-normal) * 3);
             }
             &.has-numberinput-is-small {
                 .label {
-                    margin-left: calc(#{var(--size-small)} * 3);
+                    margin-left: calc(var(--size-small) * 3);
                 }
             }
             &.has-numberinput-is-medium {
                 .label {
-                    margin-left: calc(#{var(--size-medium)} * 3);
+                    margin-left: calc(var(--size-medium) * 3);
                 }
             }
             &.has-numberinput-is-large {
                 .label {
-                    margin-left: calc(#{var(--size-large)} * 3);
+                    margin-left: calc(var(--size-large) * 3);
                 }
             }
         }
         &.has-numberinput-compact {
             .label {
-                margin-left: calc(#{var(--size-normal)} * 2.25);
+                margin-left: calc(var(--size-normal) * 2.25);
             }
             &.has-numberinput-is-small {
                 .label {
-                    margin-left: calc(#{var(--size-small)} * 2.25);
+                    margin-left: calc(var(--size-small) * 2.25);
                 }
             }
             &.has-numberinput-is-medium {
                 .label {
-                    margin-left: calc(#{var(--size-medium)} * 2.25);
+                    margin-left: calc(var(--size-medium) * 2.25);
                 }
             }
             &.has-numberinput-is-large {
                 .label {
-                    margin-left: calc(#{var(--size-large)} * 2.25);
+                    margin-left: calc(var(--size-large) * 2.25);
                 }
             }
         }

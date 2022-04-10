@@ -262,7 +262,7 @@ a.navbar-item,
       border-bottom-style: var(--navbar-tab-active-border-bottom-style)
       border-bottom-width: var(--navbar-tab-active-border-bottom-width)
       color: var(--navbar-tab-active-color)
-      padding-bottom: calc(0.5rem - #{var(--navbar-tab-active-border-bottom-width)})
+      padding-bottom: calc(0.5rem - var(--navbar-tab-active-border-bottom-width))
 
 .navbar-content
   flex-grow: 1
@@ -323,7 +323,7 @@ a.navbar-item,
     &.is-fixed-top-touch
       .navbar-menu
         +utilities.overflow-touch
-        max-height: calc(100vh - #{var(--navbar-height)})
+        max-height: calc(100vh - var(--navbar-height))
         overflow: auto
   html,
   body
@@ -444,7 +444,7 @@ a.navbar-item,
       display: block
       opacity: 0
       pointer-events: none
-      top: calc(100% + #{var(--navbar-dropdown-offset)})
+      top: calc(100% + var(--navbar-dropdown-offset))
       transform: translateY(-5px)
       transition-duration: var(--speed)
       transition-property: opacity, transform
@@ -477,9 +477,9 @@ a.navbar-item,
     &.has-navbar-fixed-bottom-desktop
       padding-bottom: var(--navbar-height)
     &.has-spaced-navbar-fixed-top
-      padding-top: calc(#{var(--navbar-height)} + calc(#{var(--navbar-padding-vertical)} * 2))
+      padding-top: calc(var(--navbar-height) + calc(var(--navbar-padding-vertical) * 2))
     &.has-spaced-navbar-fixed-bottom
-      padding-bottom: calc(#{var(--navbar-height)} + calc(#{var(--navbar-padding-vertical)} * 2))
+      padding-bottom: calc(var(--navbar-height) + calc(var(--navbar-padding-vertical) * 2))
   // Hover/Active states
   a.navbar-item,
   .navbar-link
@@ -498,4 +498,4 @@ a.navbar-item,
 
 .hero
   &.is-fullheight-with-navbar
-    min-height: calc(100vh - #{var(--navbar-height)})
+    min-height: calc(100vh - var(--navbar-height))
