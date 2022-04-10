@@ -1,11 +1,10 @@
 @use "sass:list";
 
 @use "../../../bulma/sass/utilities" as bulma-utilities;
-@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
 @use "../../../bulma/sass/elements/progress" as bulma-progress;
 
-$progress-value-color: var(--scheme-main, #{bulma-vars.$scheme-main}) !default;
-$progress-value-size: var(--size-normal, #{bulma-vars.$size-normal}) !default;
+$progress-value-color: var(--scheme-main) !default;
+$progress-value-size: var(--size-normal) !default;
 
 // Map Local variables
 $_css-vars-map: (
@@ -32,7 +31,7 @@ $_css-vars-map: (
         transform: translateX(-50%);
         font-size: calc(var(--progress-value-size) / 1.5);
         line-height: var(--progress-value-size);
-        font-weight: var(--weight-bold, #{bulma-vars.$weight-bold});
+        font-weight: var(--weight-bold);
         color: var(--progress-value-color);
         white-space: nowrap;
     }
@@ -56,7 +55,7 @@ $_css-vars-map: (
                 $color-invert: list.nth($pair, 2);
                 &.is-#{$name} {
                     + .progress-value {
-                        color: var(--#{$name}-invert, #{$color-invert});
+                        color: var(--#{$name}-invert);
                     }
                 }
             }
@@ -88,9 +87,9 @@ $_css-vars-map: (
                 $color: list.nth($pair, 1);
                 $color-invert: list.nth($pair, 2);
                 &.is-#{$name} {
-                    background-color: var(--#{$name}, #{$color});
+                    background-color: var(--#{$name});
                     .progress-value {
-                        color: var(--#{$name}-invert, #{$color-invert});
+                        color: var(--#{$name}-invert);
                     }
                 }
             }

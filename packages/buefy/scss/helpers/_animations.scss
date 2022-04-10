@@ -92,8 +92,8 @@
 .fade-leave-active {
     // transition: opacity $speed-slow $easing;
     transition-property: opacity;
-    transition-duration: calc(var(--speed, #{$speed}) * 2);
-    transition-timing-function: var(--easing, #{$easing});
+    transition-duration: calc(var(--speed) * 2);
+    transition-timing-function: var(--easing);
 }
 .fade-enter,
 .fade-leave-to {
@@ -105,14 +105,14 @@
 .zoom-in-leave-active {
     // transition: opacity $speed-slow $easing;
     transition-property: opacity;
-    transition-duration: calc(var(--speed, #{$speed}) * 2);
-    transition-timing-function: var(--easing, #{$easing});
+    transition-duration: calc(var(--speed) * 2);
+    transition-timing-function: var(--easing);
     .animation-content,
     .animation-content {
         // transition: transform $speed-slow $easing;
         transition-property: transform;
-        transition-duration: calc(var(--speed, #{$speed}) * 2);
-        transition-timing-function: var(--easing, #{$easing});
+        transition-duration: calc(var(--speed) * 2);
+        transition-timing-function: var(--easing);
     }
 }
 .zoom-in-enter,
@@ -130,14 +130,14 @@
 .zoom-out-leave-active {
     // transition: opacity $speed-slow $easing;
     transition-property: opacity;
-    transition-duration: calc(var(--speed, #{$speed}) * 2);
-    transition-timing-function: var(--easing, #{$easing});
+    transition-duration: calc(var(--speed) * 2);
+    transition-timing-function: var(--easing);
     .animation-content,
     .animation-content {
         // transition: transform $speed-slow $easing;
         transition-property: transform;
-        transition-duration: calc(var(--speed, #{$speed}) * 2);
-        transition-timing-function: var(--easing, #{$easing});
+        transition-duration: calc(var(--speed) * 2);
+        transition-timing-function: var(--easing);
     }
 }
 .zoom-out-enter,
@@ -156,7 +156,7 @@
 .slide-prev-leave-active {
     // transition: transform $speed-slower cubic-bezier(0.785, 0.135, 0.150, 0.860);
     transition-property: transform;
-    transition-duration: calc(var(--speed, #{$speed}) * 3);
+    transition-duration: calc(var(--speed) * 3);
     transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 .slide-prev-leave-to, .slide-next-enter {
@@ -176,7 +176,7 @@
 .slide-up-leave-active {
     // transition: transform $speed-slower cubic-bezier(0.785, 0.135, 0.150, 0.860);
     transition-property: transform;
-    transition-duration: calc(var(--speed, #{$speed}) * 3);
+    transition-duration: calc(var(--speed) * 3);
     transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 .slide-up-leave-to, .slide-down-enter {
@@ -191,10 +191,10 @@
 }
 
 .slide-enter-active {
-    transition: calc(var(--speed, #{$speed}) * 3) var(--easing, #{$easing});
+    transition: calc(var(--speed) * 3) var(--easing);
 }
 .slide-leave-active {
-    transition: calc(var(--speed, #{$speed}) * 3) var(--easing, #{$easing});
+    transition: calc(var(--speed) * 3) var(--easing);
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
 .slide-enter-to, .slide-leave {

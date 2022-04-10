@@ -1,11 +1,9 @@
 @use "sass:list";
 
 @use "../../../bulma/sass/utilities" as bulma-utilities;
-@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
-@use "../../../bulma/sass/utilities/controls" as bulma-controls;
 @use "../../../bulma/sass/form/shared" as bulma-form;
 
-$radio-active-background-color: var(--primary, #{bulma-vars.$primary}) !default;
+$radio-active-background-color: var(--primary) !default;
 $radio-size: 1.25em !default;
 
 $radio-colors: bulma-form.$form-colors !default;
@@ -51,10 +49,10 @@ $_css-vars-map: (
                 height: var(--radio-size);
                 // transition: background $speed-slow $easing;
                 transition-property: background;
-                transition-duration: calc(var(--speed, #{bulma-vars.$speed}) * 2);
-                transition-timing-function: var(--easing, #{bulma-vars.$easing});
+                transition-duration: calc(var(--speed) * 2);
+                transition-timing-function: var(--easing);
                 border-radius: 50%;
-                border: 2px solid bulma-vars.$grey;
+                border: 2px solid var(--grey);
                 &::before {
                     content: "";
                     display: flex;
@@ -67,8 +65,8 @@ $_css-vars-map: (
                     height: var(--radio-size);
                     // transition: transform $speed-slow $easing;
                     transition-property: transform;
-                    transition-duration: calc(var(--speed, #{bulma-vars.$speed}) * 2);
-                    transition-timing-function: var(--easing, #{bulma-vars.$easing});
+                    transition-duration: calc(var(--speed) * 2);
+                    transition-timing-function: var(--easing);
                     border-radius: 50%;
                     transform: scale(0);
                     background-color: var(--radio-active-background-color);
@@ -76,7 +74,7 @@ $_css-vars-map: (
                 @each $name, $pair in $radio-colors {
                     $color: list.nth($pair, 1);
                     &.is-#{$name}:before {
-                        background: var(--#{$name} #{$color});
+                        background: var(--#{$name});
                     }
                 }
             }
@@ -85,7 +83,7 @@ $_css-vars-map: (
                 @each $name, $pair in $radio-colors {
                     $color: list.nth($pair, 1);
                     &.is-#{$name} {
-                        border-color: var(--#{$name} #{$color});
+                        border-color: var(--#{$name});
                     }
                 }
                 &::before {
@@ -94,23 +92,23 @@ $_css-vars-map: (
             }
             &:focus {
                 + .check {
-                    box-shadow: 0 0 0.5em rgba(bulma-vars.$grey, 0.8);
+                    box-shadow: 0 0 0.5em var(--grey-light);
                 }
                 &:checked + .check {
-                    box-shadow: 0 0 0.5em rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.1);
-                    
+                    box-shadow: 0 0 0.5em rgba(var(--scheme-invert-rgb), 0.1);
+
                     @each $name, $pair in $radio-colors {
                         $color: list.nth($pair, 1);
                         &.is-#{$name} {
                             --focus-box-shadow-color: #{bulma-utilities.bulmaVarOpacity($name, 0.8)};
-                            box-shadow: 0 0 0.5em var(--focus-box-shadow-color, #{bulma-utilities.bulmaRgba($color, 0.8)});
+                            box-shadow: 0 0 0.5em var(--focus-box-shadow-color);
                         }
                     }
                 }
             }
         }
         .control-label {
-            padding-left: var(--control-padding-horizontal, #{bulma-controls.$control-padding-horizontal});
+            padding-left: var(--control-padding-horizontal);
         }
         &.button {
             display: flex;
@@ -128,7 +126,7 @@ $_css-vars-map: (
                 @each $name, $pair in $radio-colors {
                     $color: list.nth($pair, 1);
                     &.is-#{$name} {
-                        border-color: var(--#{$name}, #{$color});
+                        border-color: var(--#{$name});
                     }
                 }
             }

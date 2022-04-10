@@ -1,9 +1,8 @@
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
-@use "../../../bulma/sass/components/dropdown" as bulma-dropdown;
 
-$colorpicker-radius: var(--dropdown-content-radius, #{bulma-dropdown.$dropdown-content-radius}) !default;
-$colorpicker-hue-selected-stroke: var(--primary, #{bulma-vars.$primary}) !default;
+$colorpicker-radius: var(--dropdown-content-radius) !default;
+$colorpicker-hue-selected-stroke: var(--primary) !default;
 
 // Map Local variables
 $_css-vars-map: (
@@ -18,13 +17,13 @@ $_css-vars-map: (
 // TODO: submit PR to rename to b-colorpicker
 .b-colorpicker, .colorpicker {
     .color-name {
-        font-family: var(--family-monospace, #{bulma-vars.$family-monospace});
+        font-family: var(--family-monospace);
         text-transform: uppercase;
     }
     .colorpicker-footer {
         margin-top: .875rem;
         padding-top: .875rem;
-        border: 1px solid var(--grey-lighter, #{bulma-vars.$grey-lighter});
+        border: 1px solid var(--grey-lighter);
         border-width: 1px 0 0;
 
         .colorpicker-fields {
@@ -116,8 +115,8 @@ svg.b-colorpicker-triangle {
         background: transparent;
         border-radius: var(--colorpicker-radius);
         box-shadow:
-            inset 0 0 0 1px bulma-vars.$white,
-            0 0 0 1px var(--grey-lighter, #{bulma-vars.$grey-lighter});
+            inset 0 0 0 1px #fff,
+            0 0 0 1px var(--grey-lighter);
         cursor: grab;
         height: calc(100% / 1 - .25em / 1);
         width: calc(100% / 1 - .25em / 1);
@@ -125,12 +124,12 @@ svg.b-colorpicker-triangle {
 
         &:hover {
             box-shadow:
-                inset 0 0 0 1px bulma-vars.$white,
-                0 0 0 1px var(--grey-light, #{bulma-vars.$grey-light});
+                inset 0 0 0 1px #fff,
+                0 0 0 1px var(--grey-light);
         }
         &:focus {
             box-shadow:
-                inset 0 0 0 1px bulma-vars.$white,
+                inset 0 0 0 1px #fff,
                 0 0 0 1px var(--colorpicker-hue-selected-stroke);
                 // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
         }
@@ -169,19 +168,19 @@ div.b-colorpicker-square {
             aspect-ratio: 1 / 1;
             transform: translate(-50%, -50%);
             box-shadow:
-                inset 0 0 0 1px bulma-vars.$white,
-                0 0 0 1px var(--grey-lighter, #{bulma-vars.$grey-lighter});
+                inset 0 0 0 1px #fff,
+                0 0 0 1px var(--grey-lighter);
             cursor: grab;
 
             &:hover {
                 box-shadow:
-                    inset 0 0 0 1px bulma-vars.$white,
-                    inset 0 0 0 2px var(--grey-light, #{bulma-vars.$grey-light}),
-                    0 0 0 1px var(--grey-light, #{bulma-vars.$grey-light});
+                    inset 0 0 0 1px #fff,
+                    inset 0 0 0 2px var(--grey-light),
+                    0 0 0 1px var(--grey-light);
             }
             &:focus {
                 box-shadow:
-                    inset 0 0 0 1px bulma-vars.$white,
+                    inset 0 0 0 1px #fff,
                     0 0 0 1px var(--colorpicker-hue-selected-stroke);
                     // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
             }
@@ -191,7 +190,7 @@ div.b-colorpicker-square {
         }
     }
     .colorpicker-square-slider-sl {
-        background: bulma-vars.$white;
+        background: #fff;
         border-radius: calc(var(--colorpicker-radius) / 2);
         position: absolute;
         top: 0;
@@ -201,7 +200,7 @@ div.b-colorpicker-square {
 
         &::before {
             content: "";
-            background: linear-gradient(0deg, bulma-vars.$black, bulma-vars.$white);
+            background: linear-gradient(0deg, #000, #fff);
             position: absolute;
             top: 0;
             right: 0;
@@ -218,19 +217,19 @@ div.b-colorpicker-square {
             height: 8px;
             transform: translate(-50%, -50%);
             box-shadow:
-                inset 0 0 0 1px bulma-vars.$white,
-                0 0 0 1px var(--grey-lighter, #{bulma-vars.$grey-lighter});
+                inset 0 0 0 1px #fff,
+                0 0 0 1px var(--grey-lighter);
             cursor: grab;
 
             &:hover {
                 box-shadow:
-                    inset 0 0 0 1px bulma-vars.$white,
-                    inset 0 0 0 2px var(--grey-light, #{bulma-vars.$grey-light}),
-                    0 0 0 1px var(--grey-light, #{bulma-vars.$grey-light});
+                    inset 0 0 0 1px #fff,
+                    inset 0 0 0 2px var(--grey-light),
+                    0 0 0 1px var(--grey-light);
             }
             &:focus {
                 box-shadow:
-                    inset 0 0 0 1px bulma-vars.$white,
+                    inset 0 0 0 1px #fff,
                     0 0 0 1px var(--colorpicker-hue-selected-stroke);
                     // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
             }
@@ -258,9 +257,9 @@ div.b-colorpicker-square {
         height: 1.25em;
         border-radius: var(--colorpicker-radius);
         box-shadow:
-            inset 0 0 0 1px bulma-vars.$white,
-            inset 0 0 0 2px var(--grey-lighter, #{bulma-vars.$grey-lighter}),
-            0 0 0 1px var(--grey-lighter, #{bulma-vars.$grey-lighter});
+            inset 0 0 0 1px #fff,
+            inset 0 0 0 2px var(--grey-lighter),
+            0 0 0 1px var(--grey-lighter);
         cursor: grab;
         position: absolute;
         top: 50%;
@@ -269,13 +268,13 @@ div.b-colorpicker-square {
 
         &:hover {
             box-shadow:
-                inset 0 0 0 1px bulma-vars.$white,
-                inset 0 0 0 2px var(--grey-light, #{bulma-vars.$grey-light}),
-                0 0 0 1px var(--grey-light, #{bulma-vars.$grey-light});
+                inset 0 0 0 1px #fff,
+                inset 0 0 0 2px var(--grey-light),
+                0 0 0 1px var(--grey-light);
         }
         &:focus {
             box-shadow:
-                inset 0 0 0 1px bulma-vars.$white,
+                inset 0 0 0 1px #fff,
                 0 0 0 1px var(--colorpicker-hue-selected-stroke);
                 // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
         }

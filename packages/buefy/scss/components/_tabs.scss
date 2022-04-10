@@ -132,13 +132,13 @@ $_css-vars-map: (
                 li {
                     a {
                         border-bottom-color: transparent !important;
-                        border-right-color: var(--tabs-border-bottom-color, #{bulma-tabs.$tabs-border-bottom-color}) !important;
-                        border-radius: var(--tabs-boxed-link-radius, #{bulma-tabs.$tabs-boxed-link-radius}) 0 0 var(--tabs-boxed-link-radius, #{bulma-tabs.$tabs-boxed-link-radius});
+                        border-right-color: var(--tabs-border-bottom-color) !important;
+                        border-radius: var(--tabs-boxed-link-radius) 0 0 var(--tabs-boxed-link-radius);
                     }
 
                     &.is-active {
                         a {
-                            border-bottom-color: var(--tabs-border-bottom-color, #{bulma-tabs.$tabs-border-bottom-color}) !important;
+                            border-bottom-color: var(--tabs-border-bottom-color) !important;
                             border-right-color: transparent !important;
                         }
                     }
@@ -151,12 +151,12 @@ $_css-vars-map: (
                     }
                     &:first-child {
                         a {
-                            border-radius: var(--tabs-toggle-link-radius, #{bulma-tabs.$tabs-toggle-link-radius}) var(--tabs-toggle-link-radius, #{bulma-tabs.$tabs-toggle-link-radius}) 0 0;
+                            border-radius: var(--tabs-toggle-link-radius) var(--tabs-toggle-link-radius) 0 0;
                         }
                     }
                     &:last-child {
                         a {
-                            border-radius: 0 0 var(--tabs-toggle-link-radius, #{bulma-tabs.$tabs-toggle-link-radius}) var(--tabs-toggle-link-radius, #{bulma-tabs.$tabs-toggle-link-radius});
+                            border-radius: 0 0 var(--tabs-toggle-link-radius) var(--tabs-toggle-link-radius);
                         }
                     }
                 }
@@ -193,14 +193,14 @@ $_css-vars-map: (
                         a {
                             border-bottom-color: transparent !important;
                             border-right-color: transparent !important;
-                            border-left-color: var(--tabs-border-bottom-color, #{bulma-tabs.$tabs-border-bottom-color}) !important;
-                            border-radius: 0 var(--tabs-boxed-link-radius, #{bulma-tabs.$tabs-boxed-link-radius}) var(--tabs-boxed-link-radius, #{bulma-tabs.$tabs-boxed-link-radius}) 0;
+                            border-left-color: var(--tabs-border-bottom-color) !important;
+                            border-radius: 0 var(--tabs-boxed-link-radius) var(--tabs-boxed-link-radius) 0;
                         }
 
                         &.is-active {
                             a {
-                                border-bottom-color: var(--tabs-border-bottom-color, #{bulma-tabs.$tabs-border-bottom-color}) !important;
-                                border-right-color: var(--tabs-border-bottom-color, #{bulma-tabs.$tabs-border-bottom-color}) !important;
+                                border-bottom-color: var(--tabs-border-bottom-color) !important;
+                                border-right-color: var(--tabs-border-bottom-color) !important;
                                 border-left-color: transparent !important;
                             }
                         }

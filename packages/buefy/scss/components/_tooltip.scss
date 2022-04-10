@@ -1,7 +1,6 @@
 @use "sass:list";
 
 @use "../../../bulma/sass/utilities" as bulma-utilities;
-@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
 @use "../../../bulma/sass/form/shared" as bulma-form;
 
 $tooltip-arrow-size: 5px !default;
@@ -75,7 +74,7 @@ $_css-vars-map: (
                 left: 50%;
                 transform: translateX(-50%);
                 border-right: var(--tooltip-arrow-size) solid transparent;
-                border-bottom: var(--tooltip-arrow-size) solid var(--primary, #{bulma-vars.$primary});
+                border-bottom: var(--tooltip-arrow-size) solid var(--primary);
                 border-left: var(--tooltip-arrow-size) solid transparent;
             } @else if $direction == "is-top" {
                 top: 100%;
@@ -83,7 +82,7 @@ $_css-vars-map: (
                 bottom: auto;
                 left: 50%;
                 transform: translateX(-50%);
-                border-top: var(--tooltip-arrow-size) solid var(--primary, #{bulma-vars.$primary});
+                border-top: var(--tooltip-arrow-size) solid var(--primary);
                 border-right: var(--tooltip-arrow-size) solid transparent;
                 border-left: var(--tooltip-arrow-size) solid transparent;
             } @else if $direction == "is-left" {
@@ -94,7 +93,7 @@ $_css-vars-map: (
                 transform: translateY(-50%);
                 border-top: var(--tooltip-arrow-size) solid transparent;
                 border-bottom: var(--tooltip-arrow-size) solid transparent;
-                border-left: var(--tooltip-arrow-size) solid var(--primary, #{bulma-vars.$primary});
+                border-left: var(--tooltip-arrow-size) solid var(--primary);
             } @else if $direction == "is-right" {
                 top: 50%;
                 right: 100%;
@@ -102,7 +101,7 @@ $_css-vars-map: (
                 left: auto;
                 transform: translateY(-50%);
                 border-top: var(--tooltip-arrow-size) solid transparent;
-                border-right: var(--tooltip-arrow-size) solid var(--primary, #{bulma-vars.$primary});
+                border-right: var(--tooltip-arrow-size) solid var(--primary);
                 border-bottom: var(--tooltip-arrow-size) solid transparent;
             }
         }
@@ -110,14 +109,14 @@ $_css-vars-map: (
             $color: list.nth($pair, 1);
             &.is-#{$name} {
                 .tooltip-content::before {
-                    @include tooltip-arrow-color($direction, var(--#{$name}, #{$color}))
+                    @include tooltip-arrow-color($direction, var(--#{$name}))
                 }
                 // If light and dark colors are provided
                 @if list.length($pair) >= 4 {
                     $color-light: list.nth($pair, 3);
                     &.is-light {
                         .tooltip-content::before {
-                            @include tooltip-arrow-color($direction, var(--#{$name}-light, #{$color-light}))
+                            @include tooltip-arrow-color($direction, var(--#{$name}-light))
                         }
                     }
                 }
@@ -137,10 +136,10 @@ $_css-vars-map: (
     .tooltip-content {
         width: auto;
         padding: 0.35rem 0.75rem;
-        border-radius: var(--radius-large, #{bulma-vars.$radius-large});
+        border-radius: var(--radius-large);
         font-size: 0.85rem;
-        font-weight: var(--weight-normal, #{bulma-vars.$weight-normal});
-        box-shadow: 0 1px 2px 1px rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.2);
+        font-weight: var(--weight-normal);
+        box-shadow: 0 1px 2px 1px rgba(var(--scheme-invert-rgb), 0.2);
         z-index: 38;
         white-space: nowrap;
         position: absolute;
@@ -160,8 +159,8 @@ $_css-vars-map: (
         $color-invert: list.nth($pair, 2);
         &.is-#{$name} {
             .tooltip-content {
-                background: var(--#{$name}, #{$color});
-                color: var(--#{$name}-invert, #{$color-invert})
+                background: var(--#{$name});
+                color: var(--#{$name}-invert)
             }
             // If light and dark colors are provided
             @if list.length($pair) >= 4 {
@@ -169,8 +168,8 @@ $_css-vars-map: (
                 $color-dark: list.nth($pair, 4);
                 &.is-light {
                     .tooltip-content {
-                        background: var(--#{$name}-light, #{$color-light});
-                        color: var(--#{$name}-dark, #{$color-dark});
+                        background: var(--#{$name}-light);
+                        color: var(--#{$name}-dark);
                     }
                 }
             }
@@ -199,7 +198,7 @@ $_css-vars-map: (
     }
     &.is-dashed {
         .tooltip-trigger {
-            border-bottom: 1px dashed var(--grey-light, #{bulma-vars.$grey-light});
+            border-bottom: 1px dashed var(--grey-light);
             cursor: default;
         }
     }

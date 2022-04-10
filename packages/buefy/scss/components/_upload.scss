@@ -1,7 +1,6 @@
 @use "sass:list";
 
 @use "../../../bulma/sass/utilities" as bulma-utilities;
-@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
 @use "../../../bulma/sass/form/file" as bulma-file;
 
 .upload {
@@ -21,8 +20,8 @@
     .upload-draggable {
         cursor: pointer;
         padding: 0.25em;
-        border: 1px dashed var(--grey-light, #{bulma-vars.$grey-light});
-        border-radius: var(--radius-large, #{bulma-vars.$radius-large});
+        border: 1px dashed var(--grey-light);
+        border-radius: var(--radius-large);
         &.is-disabled {
             opacity: 0.5;
             cursor: not-allowed;
@@ -46,8 +45,8 @@
                 $color: list.nth($pair, 1);
                 &.is-#{$name} {
                     --hover-background-color: #{bulma-utilities.bulmaVarOpacity($name, 0.05)};
-                    border-color: var(--#{$name}, #{$color});
-                    background: var(--hover-box-shadow-color, #{bulma-utilities.bulmaRgba($color, 0.05)});
+                    border-color: var(--#{$name});
+                    background: var(--hover-box-shadow-color);
                 }
             }
         }
@@ -59,11 +58,11 @@
         width: 100%;
     }
     &.is-rounded {
-        border-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
+        border-radius: var(--radius-rounded);
 
         .file-name {
-            border-top-right-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
-            border-bottom-right-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
+            border-top-right-radius: var(--radius-rounded);
+            border-bottom-right-radius: var(--radius-rounded);
         }
     }
 }

@@ -14,7 +14,7 @@
         @each $name, $pair in bulma-tag.$tag-colors {
             $color: list.nth($pair, 1);
             &.is-#{$name} {
-                background: var(--#{$name}, #{$color});
+                background: var(--#{$name});
                 &:hover {
                     text-decoration: none;
                 }
