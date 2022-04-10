@@ -1,18 +1,17 @@
 @use "sass:list"
 
 @use "shared" as form-shared
-@use "../utilities/derived-variables" as vars
 @use "../utilities"
 
-$file-border-color: var(--border, #{vars.$border}) !default
-$file-radius: var(--radius, #{vars.$radius}) !default
+$file-border-color: var(--border) !default
+$file-radius: var(--radius) !default
 
-$file-cta-background-color: vars.$scheme-main-ter !default
-$file-cta-color: var(--text, #{vars.$text}) !default
-$file-cta-hover-color: var(--text-strong, #{vars.$text-strong}) !default
-$file-cta-active-color: var(--text-strong, #{vars.$text-strong}) !default
+$file-cta-background-color: var(--scheme-main-ter) !default
+$file-cta-color: var(--text) !default
+$file-cta-hover-color: var(--text-strong) !default
+$file-cta-active-color: var(--text-strong) !default
 
-$file-name-border-color: vars.$border !default
+$file-name-border-color: var(--border) !default
 $file-name-border-style: solid !default
 $file-name-border-width: 1px 1px 1px 0 !default
 $file-name-max-width: 16em !default
@@ -47,32 +46,32 @@ $_css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
     $color: list.nth($pair, 1)
     $color-invert: list.nth($pair, 2)
     &.is-#{$name}
-      --hover-background-color: #{utilities.bulmaVarLighteness($name, calc(#{var(--#{$name}-light-l)} - 2.5%))}
+      --hover-background-color: #{utilities.bulmaVarLighteness($name, calc(var(--#{$name}-light-l) - 2.5%))}
       --focus-box-shadow-color-hsla: hsla(var(--#{$name}-h), var(--#{$name}-s), var(--#{$name}-l), 0.25)
-      --focus-box-shadow-color: var(--focus-box-shadow-color-hsla, #{utilities.bulmaRgba($color, 0.25)})
-      --active-background-color: #{utilities.bulmaVarLighteness($name, calc(#{var(--#{$name}-light-l)} - 5%))}
+      --focus-box-shadow-color: var(--focus-box-shadow-color-hsla)
+      --active-background-color: #{utilities.bulmaVarLighteness($name, calc(var(--#{$name}-light-l) - 5%))}
       .file-cta
-        background-color: var(--#{$name}, #{$color})
+        background-color: var(--#{$name})
         border-color: transparent
-        color: var(--#{$name}-invert, #{$color-invert})
+        color: var(--#{$name}-invert)
       &:hover,
       &.is-hovered
         .file-cta
-          background-color: var(--hover-background-color, #{utilities.bulmaDarken($color, 2.5%)})
+          background-color: var(--hover-background-color)
           border-color: transparent
-          color: var(--#{$name}-invert, #{$color-invert})
+          color: var(--#{$name}-invert)
       &:focus,
       &.is-focused
         .file-cta
           border-color: transparent
           box-shadow: 0 0 0.5em var(--focus-box-shadow-color)
-          color: var(--#{$name}-invert, #{$color-invert})
+          color: var(--#{$name}-invert)
       &:active,
       &.is-active
         .file-cta
-          background-color: var(--active-background-color, #{utilities.bulmaDarken($color, 5%)})
+          background-color: var(--active-background-color)
           border-color: transparent
-          color: var(--#{$name}-invert, #{$color-invert})
+          color: var(--#{$name}-invert)
   // Sizes
   +utilities.control-sizes($has-normal: true)
   &.is-medium

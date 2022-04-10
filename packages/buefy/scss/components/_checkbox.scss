@@ -2,20 +2,19 @@
 
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
-@use "../../../bulma/sass/utilities/controls" as bulma-controls;
 @use "../../../bulma/sass/form/shared" as bulma-form;
 @use "../utilities/functions";
 
-$checkbox-active-background-color: var(--primary, #{bulma-vars.$primary}) !default;
+$checkbox-active-background-color: var(--primary) !default;
 $checkbox-focus-box-shadow-color-hsla: bulma-utilities.bulmaVarOpacity(primary, 0.8) !default;
-$checkbox-focus-box-shadow-color: var(--checkbox-focus-box-shadow-color-hsla, #{bulma-utilities.bulmaRgba(bulma-vars.$primary, 0.8)}) !default;
+$checkbox-focus-box-shadow-color: var(--checkbox-focus-box-shadow-color-hsla) !default;
 $checkbox-background-color: transparent !default;
-$checkbox-border-color: bulma-vars.$grey !default;
-$checkbox-border-radius: var(--radius, #{bulma-vars.$radius}) !default;
+$checkbox-border-color: var(--grey) !default;
+$checkbox-border-radius: var(--radius) !default;
 $checkbox-border-width: 2px !default;
-$checkbox-checkmark-color: var(--primary-invert, #{bulma-vars.$primary-invert}) !default;
+$checkbox-checkmark-color: var(--primary-invert) !default;
 $checkbox-size: 1.25em !default;
-$checkbox-padding: var(--control-padding-horizontal, #{bulma-controls.$control-padding-horizontal}) !default;
+$checkbox-padding: var(--control-padding-horizontal) !default;
 
 $checkbox-colors: bulma-form.$form-colors !default;
 
@@ -63,8 +62,8 @@ $_css-vars-map: (
                 border: var(--checkbox-border-width) solid var(--checkbox-border-color);
                 // transition: background $speed-slow $easing;
                 transition-property: background;
-                transition-duration: calc(var(--speed, #{bulma-vars.$speed}) * 2);
-                transition-timing-function: var(--easing, #{bulma-vars.$easing});
+                transition-duration: calc(var(--speed) * 2);
+                transition-timing-function: var(--easing);
                 background: var(--checkbox-background-color)
             }
             &:checked + .check {
@@ -74,8 +73,8 @@ $_css-vars-map: (
                     $color: list.nth($pair, 1);
                     $color-invert: list.nth($pair, 2);
                     &.is-#{$name} {
-                        background: var(--#{$name}, #{$color}) url(functions.checkmark($color-invert)) no-repeat center center;
-                        border-color: var(--#{$name}, #{$color});
+                        background: var(--#{$name}) url(functions.checkmark($color-invert)) no-repeat center center;
+                        border-color: var(--#{$name});
                     }
                 }
             }
@@ -86,14 +85,14 @@ $_css-vars-map: (
                     $color: list.nth($pair, 1);
                     $color-invert: list.nth($pair, 2);
                     &.is-#{$name} {
-                        background: var(--#{$name}, #{$color}) url(functions.indeterminate($color-invert)) no-repeat center center;
-                        border-color: var(--#{$name}, #{$color});
+                        background: var(--#{$name}) url(functions.indeterminate($color-invert)) no-repeat center center;
+                        border-color: var(--#{$name});
                     }
                 }
             }
             &:focus {
                 + .check {
-                    box-shadow: 0 0 0.5em bulma-utilities.bulmaRgba(bulma-vars.$grey, 0.8);
+										box-shadow: 0 0 0.5em var(--grey-light);
                 }
                 &:checked + .check {
                     box-shadow: 0 0 0.5em var(--checkbox-focus-box-shadow-color);
@@ -101,7 +100,7 @@ $_css-vars-map: (
                         $color: list.nth($pair, 1);
                         &.is-#{$name} {
                             --focus-box-shadow-color: #{bulma-utilities.bulmaVarOpacity($name, 0.8)};
-                            box-shadow: 0 0 0.5em var(--focus-box-shadow-color, #{bulma-utilities.bulmaRgba($color, 0.8)});
+                            box-shadow: 0 0 0.5em var(--focus-box-shadow-color);
                         }
                     }
                 }
@@ -122,7 +121,7 @@ $_css-vars-map: (
                 @each $name, $pair in $checkbox-colors {
                     $color: list.nth($pair, 1);
                     &.is-#{$name} {
-                        border-color: var(--#{$name}, #{$color});
+                        border-color: var(--#{$name});
                     }
                 }
             }

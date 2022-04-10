@@ -1,31 +1,31 @@
 @use "../utilities/derived-variables" as vars
 @use "../utilities"
 
-$body-background-color: var(--scheme-main, #{vars.$scheme-main}) !default
+$body-background-color: var(--scheme-main) !default
 $body-min-width: 300px !default
 $body-rendering: optimizeLegibility !default
-$body-family: var(--family-primary, #{vars.$family-primary}) !default
+$body-family: var(--family-primary) !default
 $body-overflow-x: hidden !default
 $body-overflow-y: scroll !default
 
-$body-color: var(--text, #{vars.$text}) !default
+$body-color: var(--text) !default
 $body-font-size: 1em !default
-$body-weight: var(--weight-normal, #{vars.$weight-normal}) !default
+$body-weight: var(--weight-normal) !default
 $body-line-height: 1.5 !default
 
-$code-family: var(--family-code, #{vars.$family-code}) !default
+$code-family: var(--family-code) !default
 $code-padding: 0.25em 0.5em 0.25em !default
 $code-weight: normal !default
 $code-size: 0.875em !default
 
 $small-font-size: 0.875em !default
 
-$hr-background-color: var(--background, #{vars.$background}) !default
+$hr-background-color: var(--background) !default
 $hr-height: 2px !default
 $hr-margin: 1.5rem 0 !default
 
-$strong-color: var(--text-strong, #{vars.$text-strong}) !default
-$strong-weight: var(--weight-bold, #{vars.$weight-bold}) !default
+$strong-color: var(--text-strong) !default
+$strong-weight: var(--weight-bold) !default
 
 $pre-font-size: 0.875em !default
 $pre-padding: 1.25rem 1.5rem !default
@@ -107,19 +107,19 @@ body
 // Inline
 
 a
-  color: var(--link, #{vars.$link})
+  color: var(--link)
   cursor: pointer
   text-decoration: none
   strong
     color: currentColor
   &:hover
-    color: var(--link-hover, #{vars.$link-hover})
+    color: var(--link-hover)
   &:visited
-    color: var(--link-visited, #{vars.$link-visited})
+    color: var(--link-visited)
   &:active
-    color: var(--link-active, #{vars.$link-active})
+    color: var(--link-active)
   &:focus
-    color: var(--link-focus, #{vars.$link-focus})
+    color: var(--link-focus)
 
 code
   background-color: var(--code-background)

@@ -81,7 +81,7 @@
 
 /// Invert color calculation
 @function calculateInvertColor($color)
-  @return if(colorLuminance($color) > 0.55, vars.$invert-light-colors, vars.$invert-dark-colors)
+  @return if(colorLuminance($color) > 0.55, #{var(--invert-light-colors)}, #{var(--invert-dark-colors)})
 
 @function findColorInvert($color, $fallback: null)
   @if meta.type-of($color) == 'color'
@@ -174,7 +174,7 @@
       @return var(--#{$name-or-value}, #{$fallback})
     @else
       @return var(--#{$name-or-value})
-  @else 
+  @else
     @return $fallback
 
 // extracts var(--var-name) -> var-name
@@ -195,20 +195,20 @@
 @function bulmaVarOpacity($color, $alpha)
   $name: unwrap($color)
   @if meta.type-of($name) == 'string'
-    @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{var(--#{$name}-l)}, #{$alpha})
+    @return hsla(var(--#{$name}-h), var(--#{$name}-s), var(--#{$name}-l), #{$alpha})
   @return $color
 
 @function bulmaVarLighteness($color, $amount)
   $name: unwrap($color)
   @if meta.type-of($name) == 'string' // and map-has-key($colors, $name)
-    @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{$amount}, #{var(--#{$name}-a)})
+    @return hsla(var(--#{$name}-h), var(--#{$name}-s), #{$amount}, var(--#{$name}-a))
   @return $color
 
 @function bulmaVarLighten($color, $amount)
   $name: unwrap($color)
   @if meta.type-of($name) == 'string' // and map-has-key($colors, $name)
-    $name-l: calc(#{var(--#{$name}-l)} + #{if(math.is-unitless($amount), ($amount * 1%), $amount)})
-    @return hsla(#{var(--#{$name}-h)}, #{var(--#{$name}-s)}, #{$name-l}, #{var(--#{$name}-a)})
+    $name-l: calc(var(--#{$name}-l) + #{if(math.is-unitless($amount), ($amount * 1%), $amount)})
+    @return hsla(var(--#{$name}-h), var(--#{$name}-s), #{$name-l}, var(--#{$name}-a))
   @return $color
 
 @function bulmaVarDarken($color, $amount)

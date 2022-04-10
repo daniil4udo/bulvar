@@ -3,11 +3,11 @@
 @use "../utilities/derived-variables" as vars
 @use "../utilities"
 
-$tag-background-color: vars.$background !default
-$tag-color: var(--text, #{vars.$text}) !default
-$tag-radius: var(--radius, #{vars.$radius}) !default
+$tag-background-color: var(--background) !default
+$tag-color: var(--text) !default
+$tag-radius: var(--radius) !default
 $tag-delete-margin: 1px !default
-$tag-font-size: var(--size-small, #{vars.$size-small}) !default
+$tag-font-size: var(--size-small) !default
 
 $tag-colors: vars.$colors !default
 
@@ -37,10 +37,10 @@ $_css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
   // Sizes
   &.are-medium
     .tag:not(.is-normal):not(.is-large)
-      --tag-font-size: var(--size-normal, #{vars.$size-normal})
+      --tag-font-size: var(--size-normal)
   &.are-large
     .tag:not(.is-normal):not(.is-medium)
-      --tag-font-size: var(--size-medium, #{vars.$size-medium})
+      --tag-font-size: var(--size-medium)
   &.is-centered
     justify-content: center
     .tag
@@ -93,15 +93,15 @@ $_css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
     $color: list.nth($pair, 1)
     $color-invert: list.nth($pair, 2)
     &.is-#{$name}
-      --tag-background-color: var(--#{$name}, #{$color})
-      --tag-color: var(--#{$name}-invert, #{$color-invert})
+      --tag-background-color: var(--#{$name})
+      --tag-color: var(--#{$name}-invert)
       // If a light and dark colors are provided
       @if list.length($pair) > 3
         $color-light: list.nth($pair, 3)
         $color-dark: list.nth($pair, 4)
         &.is-light
-          --tag-background-color: var(--#{$name}-light, #{$color-light})
-          --tag-color: var(--#{$name}-dark, #{$color-dark})
+          --tag-background-color: var(--#{$name}-light)
+          --tag-color: var(--#{$name}-dark)
   // Sizes
   +utilities.control-sizes(tag-font-size)
   .icon
@@ -143,7 +143,7 @@ $_css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
     &:active
       background-color: utilities.bulmaDarken($tag-background-color, 10%)
   &.is-rounded
-    border-radius: var(--radius-rounded, #{vars.$radius-rounded})
+    border-radius: var(--radius-rounded)
 
 a.tag
   &:hover

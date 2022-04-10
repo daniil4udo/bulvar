@@ -1,7 +1,6 @@
 @use "../../../bulma/sass/utilities" as bulma-utilities;
-@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
 
-$modal-background-color: var(--background, #{bulma-vars.$background}) !default;
+$modal-background-color: var(--background) !default;
 
 // Map Local variables
 $_css-vars-map: (

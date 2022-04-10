@@ -7,7 +7,7 @@
 
 $switch-width: 2.75em !default;
 $switch-padding: 0.2em !default;
-$switch-active-background-color: bulma-vars.$primary !default;
+$switch-active-background-color: var(--primary) !default;
 $switch-colors: bulma-form.$form-colors !default;
 
 // Map Local variables
@@ -23,60 +23,67 @@ $_css-vars-map: (
 
 .switch {
     @extend %unselectable;
-    cursor: pointer;
+		position: relative;
     display: inline-flex;
     align-items: center;
-    position: relative;
     margin-right: 0.5em;
+    cursor: pointer;
     & + .switch:last-child {
         margin-right: 0;
     }
-    input[type=checkbox] {
+    input[type="checkbox"] {
         position: absolute;
+        z-index: -1;
         left: 0;
         opacity: 0;
         outline: none;
-        z-index: -1;
+
         + .check {
             display: flex;
-            align-items: center;
-            flex-shrink: 0;
             width: var(--switch-width);
-            height: calc(#{var(--switch-width)} * .5 + #{var(--switch-padding)});
+            height: calc(var(--switch-width) * 0.5 + var(--switch-padding));
+            flex-shrink: 0;
+            align-items: center;
             padding: var(--switch-padding);
-            background: bulma-vars.$grey-light;
-            border-radius: var(--radius, #{bulma-vars.$radius});
+            background: var(--grey-light);
+            border-radius: var(--radius);
+            transition-duration: calc(var(--speed) * 2), calc(var(--speed) * 2);
             // transition: background $speed-slow $easing, box-shadow $speed-slow $easing;
             transition-property: background, box-shadow;
-            transition-duration: calc(var(--speed, #{bulma-vars.$speed}) * 2), calc(var(--speed, #{bulma-vars.$speed}) * 2);
-            transition-timing-function: var(--easing, #{bulma-vars.$easing}), var(--easing, #{bulma-vars.$easing});
+            transition-timing-function: var(--easing), var(--easing);
+
             @each $name, $pair in $switch-colors {
                 $color: list.nth($pair, 1);
-                &.is-#{$name}-passive, &:hover {
-                    background: var(--#{$name}, #{$color});
+
+                &.is-#{$name}-passive,
+                &:hover {
+                    background: var(--#{$name});
                 }
-                &.input[type=checkbox] + &.check {
+
+                &.input[type="checkbox"] + &.check {
                     background: pink;
                 }
             }
             &::before {
-                content: "";
                 display: block;
-                border-radius: var(--radius, #{bulma-vars.$radius});
-                width: calc((#{var(--switch-width)} - #{var(--switch-padding)} * 2) * .5);
-                height: calc((#{var(--switch-width)} - #{var(--switch-padding)} * 2) * .5);
-                background: var(--background, #{bulma-vars.$background});
-                box-shadow: 0 3px 1px 0 rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.05), 0 2px 2px 0 rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.1), 0 3px 3px 0 rgba(var(--scheme-invert-rgb, #{bulma-utilities.bulmaToRGB(bulma-vars.$scheme-invert)}), 0.05);
+                width: calc((var(--switch-width) - var(--switch-padding) * 2) * 0.5);
+                height: calc((var(--switch-width) - var(--switch-padding) * 2) * 0.5);
+                background: var(--background);
+                border-radius: var(--radius);
+                box-shadow: 0 3px 1px 0 rgba(var(--scheme-invert-rgb), 0.05),
+                    0 2px 2px 0 rgba(var(--scheme-invert-rgb), 0.1),
+                    0 3px 3px 0 rgba(var(--scheme-invert-rgb), 0.05);
+                content: "";
+                transform-origin: left;
+                transition-duration: calc(var(--speed) * 2);
                 // transition: transform $speed-slow $easing;
                 transition-property: transform;
-                transition-duration: calc(var(--speed, #{bulma-vars.$speed}) * 2);
-                transition-timing-function: var(--easing, #{bulma-vars.$easing});
+                transition-timing-function: var(--easing);
                 will-change: transform;
-                transform-origin: left;
             }
             &.is-elastic::before {
-                transform: scaleX(1.5);
-                border-radius: var(--radius, #{bulma-vars.$radius});
+								transform: scaleX(1.5);
+								border-radius: var(--radius);
             }
         }
         &:checked + .check {
@@ -84,7 +91,7 @@ $_css-vars-map: (
             @each $name, $pair in $switch-colors {
                 $color: list.nth($pair, 1);
                 &.is-#{$name} {
-                    background: var(--#{$name}, #{$color});
+                    background: var(--#{$name});
                 }
             }
             &::before {
@@ -95,10 +102,11 @@ $_css-vars-map: (
                 transform: translate3d(50%, 0, 0) scaleX(1.5);
             }
         }
-        &:focus, &:active {
+        &:focus,
+        &:active {
             outline: none;
             + .check {
-                box-shadow: 0 0 0.5em rgba(bulma-vars.$grey, 0.6);
+                box-shadow: 0 0 0.5em var(--grey-lightest);
                 @each $name, $pair in $switch-colors {
                     $color: list.nth($pair, 1);
                     &.is-#{$name}-passive {
@@ -107,7 +115,8 @@ $_css-vars-map: (
                 }
             }
             &:checked + .check {
-                box-shadow: 0 0 0.5em rgba(bulma-vars.$grey-light, 0.8);
+                box-shadow: 0 0 0.5em var(--grey-lighter);
+
                 @each $name, $pair in $switch-colors {
                     $color: list.nth($pair, 1);
                     &.is-#{$name} {
@@ -121,19 +130,19 @@ $_css-vars-map: (
     &.has-left-label {
         flex-direction: row-reverse;
         .control-label {
-            padding-right: var(--control-padding-horizontal, #{bulma-controls.$control-padding-horizontal});
+            padding-right: var(--control-padding-horizontal);
         }
     }
 
     &:not(.has-left-label) {
         .control-label {
-            padding-left: var(--control-padding-horizontal, #{bulma-controls.$control-padding-horizontal});
+            padding-left: var(--control-padding-horizontal);
         }
     }
 
     &:hover {
-        input[type=checkbox] + .check {
-            background: rgba(bulma-vars.$grey-light, 0.9);
+        input[type="checkbox"] + .check {
+            background: var(--grey-lighter);
             @each $name, $pair in $switch-colors {
                 $color: list.nth($pair, 1);
                 &.is-#{$name}-passive {
@@ -141,8 +150,9 @@ $_css-vars-map: (
                 }
             }
         }
-        input[type=checkbox]:checked + .check {
-            background: rgba(bulma-vars.$grey-light, 0.9);
+        input[type="checkbox"]:checked + .check {
+            background: var(--grey-lighter);
+
             @each $name, $pair in $switch-colors {
                 $color: list.nth($pair, 1);
                 &.is-#{$name} {
@@ -154,28 +164,30 @@ $_css-vars-map: (
     &.is-rounded {
         input[type=checkbox] {
             + .check {
-                border-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
+                border-radius: var(--radius-rounded);
                 &::before {
-                    border-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
+                    border-radius: var(--radius-rounded);
                 }
             }
             &.is-elastic::before {
-                transform: scaleX(1.5);
-                border-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
+								transform: scaleX(1.5);
+								border-radius: var(--radius-rounded);
             }
         }
     }
     &.is-outlined {
-        input[type=checkbox] {
+        input[type="checkbox"] {
             + .check {
+                border: 0.1rem solid var(--grey-light);
                 background: transparent;
-                border: .1rem solid bulma-vars.$grey-light;
+
                 @each $name, $pair in $switch-colors {
                     $color: list.nth($pair, 1);
                     &.is-#{$name}-passive {
-                        border: .1rem solid bulma-utilities.bulmaVarOpacity($name, 0.9);
+                        border: 0.1rem solid bulma-utilities.bulmaVarOpacity($name, 0.9);
+
                         &::before {
-                            background: var(--#{$name}, #{$color});
+                            background: var(--#{$name});
                         }
                         &:hover {
                             border-color: bulma-utilities.bulmaVarOpacity($name, 0.9);
@@ -183,7 +195,7 @@ $_css-vars-map: (
                     }
                 }
                 &::before {
-                    background: bulma-vars.$grey-light;
+                    background: var(--grey-light);
                 }
             }
             &:checked + .check {
@@ -191,30 +203,33 @@ $_css-vars-map: (
                 @each $name, $pair in $switch-colors {
                     $color: list.nth($pair, 1);
                     &.is-#{$name} {
+                        border-color: var(--#{$name});
                         background: transparent;
-                        border-color: var(--#{$name}, #{$color});
                         &::before {
-                            background: var(--#{$name}, #{$color});
+                            background: var(--#{$name});
                         }
                     }
                 }
+
                 &::before {
                     background: var(--switch-active-background-color);
                 }
             }
         }
         &:hover {
-            input[type=checkbox] + .check {
+            input[type="checkbox"] + .check {
+                border-color: var(--grey-lighter);
                 background: transparent;
-                border-color: rgba(bulma-vars.$grey-light, 0.9);
             }
-            input[type=checkbox]:checked + .check {
+            input[type="checkbox"]:checked + .check {
+                // border-color: rgba($switch-active-background-color, 0.9);
                 background: transparent;
-                border-color: rgba($switch-active-background-color, 0.9);
+                border-color: var(--switch-active-background-color);
                 @each $name, $pair in $switch-colors {
                     $color: list.nth($pair, 1);
                     &.is-#{$name} {
-                        border-color: bulma-utilities.bulmaVarOpacity($name, 0.9);
+												--#{$name}-a: 0.9;
+                        border-color: var(--#{$name});
                     }
                 }
             }
@@ -222,8 +237,8 @@ $_css-vars-map: (
     }
     @include bulma-utilities.control-sizes;
     &[disabled] {
-        opacity: 0.5;
-        cursor: not-allowed;
-        color: bulma-vars.$grey;
+			opacity: 0.5;
+			cursor: not-allowed;
+			color: var(--grey);
     }
 }

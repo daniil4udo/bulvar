@@ -3,7 +3,6 @@
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
 @use "../../../bulma/sass/form/shared" as bulma-form;
-@use "../../../bulma/sass/base/generic" as bulma-generic;
 
 /*
 This project is based on
@@ -12,17 +11,17 @@ Wikiki (https://github.com/Wikiki) licensed under
 MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 */
 
-$steps-size: var(--size-normal, #{bulma-vars.$size-normal}) !default;
+$steps-size: var(--size-normal) !default;
 $steps-height: auto !default;
-$steps-background-color: var(--body-background-color, #{bulma-generic.$body-background-color}) !default;
+$steps-background-color: var(--body-background-color) !default;
 $steps-items-focused-outline: none !default;
-$steps-details-background-color: var(--body-background-color, #{bulma-generic.$body-background-color}) !default;
-$steps-maker-default-color: var(--grey-light, #{bulma-vars.$grey-light}) !default;
-$steps-maker-color: var(--scheme-main, #{bulma-vars.$scheme-main}) !default;
+$steps-details-background-color: var(--body-background-color) !default;
+$steps-maker-default-color: var(--grey-light) !default;
+$steps-maker-color: var(--scheme-main) !default;
 $steps-marker-default-border: .2em solid #fff !default;
-$steps-default-color: var(--grey-lighter, #{bulma-vars.$grey-lighter}) !default;
-$steps-previous-color: var(--primary, #{bulma-vars.$primary}) !default;
-$steps-active-color: var(--primary, #{bulma-vars.$primary}) !default;
+$steps-default-color: var(--grey-lighter) !default;
+$steps-previous-color: var(--primary) !default;
+$steps-active-color: var(--primary) !default;
 $steps-divider-height: .2em !default;
 $steps-vertical-padding: 1em 0 !default;
 $steps-mobile-max-width: bulma-vars.$tablet !default;
@@ -55,16 +54,16 @@ $_css-vars-map: (
     .steps {
         background-color: var(--steps-background-color);
         font-size: var(--steps-size);
-        min-height: calc(#{var(--steps-size)} * 2);
-        
+        min-height: calc(var(--steps-size) * 2);
+
         .step-items {
             height: var(--steps-height);
             align-items: center;
 
             .step-item {
                 .step-marker {
-                    height: calc(#{var(--steps-size)} * 2);
-                    width: calc(#{var(--steps-size)} * 2);
+                    height: calc(var(--steps-size) * 2);
+                    width: calc(var(--steps-size) * 2);
 
                     .icon {
                 *, *::before {
@@ -77,8 +76,8 @@ $_css-vars-map: (
                     background-color: var(--steps-background-color);
 
                     .step-title {
-                        font-size: calc(#{var(--steps-size)} * 1.2);
-                        font-weight: var(--weight-semibold, #{bulma-vars.$weight-semibold});
+                        font-size: calc(var(--steps-size) * 1.2);
+                        font-weight: var(--weight-semibold);
                         line-height: var(--steps-size);
                     }
                 }
@@ -86,18 +85,18 @@ $_css-vars-map: (
                 &:not(:first-child), &:only-child {
                     &::before {
                         height: var(--steps-divider-height);
-                        top: #{var(--steps-size)};
+                        top: var(--steps-size);
                     }
                 }
                 &:only-child {
                     &::after {
-                        top: #{var(--steps-size)};
+                        top: var(--steps-size);
                     }
                 }
 
                 @include bulma-utilities.until($steps-mobile-max-width) {
                     &::before, &::after, &:not(:first-child)::before {
-                        top: #{var(--steps-size)};
+                        top: var(--steps-size);
                     }
                 }
             }
@@ -105,7 +104,7 @@ $_css-vars-map: (
     }
 
     &.is-vertical {
-        --steps-divider-indent-height: #{calc(#{var(--steps-size)} - (#{var(--steps-divider-height)} * 0.5))};
+        --steps-divider-indent-height: calc(var(--steps-size) - (var(--steps-divider-height) * 0.5));
         > .steps {
             &.has-label-right {
                 .step-items {
@@ -179,7 +178,7 @@ $_css-vars-map: (
                     align-items: center;
                     justify-content: center;
                     flex-direction: column;
-                    color: bulma-generic.$body-color;
+                    color: var(--body-color);
 
                     &:not(.is-clickable) {
                         cursor: not-allowed;
@@ -189,8 +188,8 @@ $_css-vars-map: (
                 .step-marker {
                     align-items: center;
                     display: flex;
-                    border-radius: var(--radius, #{bulma-vars.$radius});
-                    font-weight: var(--weight-bold, #{bulma-vars.$weight-bold});
+                    border-radius: var(--radius);
+                    font-weight: var(--weight-bold);
                     justify-content: center;
                     background: var(--steps-maker-default-color);
                     color: var(--steps-maker-color);
@@ -206,15 +205,15 @@ $_css-vars-map: (
 
                     &.is-#{$name} {
                         &::before, &::after {
-                            background: linear-gradient(to left, var(--steps-default-color) 50%, var(--#{$name}, #{$color}) 50%);
+                            background: linear-gradient(to left, var(--steps-default-color) 50%, var(--#{$name}) 50%);
                             background-size: 200% 100%;
                             background-position: right bottom;
                         }
                         &.is-active {
                             .step-marker {
                                 background-color: var(--steps-maker-color);
-                                border-color: var(--#{$name}, #{$color});
-                                color: var(--#{$name}, #{$color});
+                                border-color: var(--#{$name});
+                                color: var(--#{$name});
                             }
 
                             &::before, &::after {
@@ -223,8 +222,8 @@ $_css-vars-map: (
                         }
                         &.is-previous {
                             .step-marker {
-                                color: var(--#{$name}-invert, #{$color-invert});
-                                background-color: var(--#{$name}, #{$color});
+                                color: var(--#{$name}-invert);
+                                background-color: var(--#{$name});
                             }
 
                             &::before, &::after {
@@ -331,7 +330,7 @@ $_css-vars-map: (
         &.is-rounded {
             .step-item {
                 .step-marker {
-                    border-radius: var(--radius-rounded, #{bulma-vars.$radius-rounded});
+                    border-radius: var(--radius-rounded);
                 }
             }
         }
@@ -342,8 +341,8 @@ $_css-vars-map: (
                     &::before {
                         // transition: background $speed-slow $easing;
                         transition-property: background;
-                        transition-duration: calc(#{var(--speed, #{bulma-vars.$speed})} * 2);
-                        transition-timing-function: var(--easing, #{bulma-vars.$easing});
+                        transition-duration: calc(var(--speed) * 2);
+                        transition-timing-function: var(--easing);
                     }
                 }
             }
@@ -407,7 +406,7 @@ $_css-vars-map: (
 
                         &.is-#{$name} {
                             &::before, &::after {
-                                background: linear-gradient(to top, var(--steps-default-color) 50%, var(--#{$name}, #{$color}) 50%);
+                                background: linear-gradient(to top, var(--steps-default-color) 50%, var(--#{$name}) 50%);
                                 background-size: 100% 200%;
                                 background-position: left bottom;
                             }
@@ -419,7 +418,7 @@ $_css-vars-map: (
                             height: 100%;
                             width: var(--steps-divider-height);
                             top: -50%;
-                            left: calc(50% - #{var(--steps-divider-height)} * 0.5);
+                            left: calc(50% - var(--steps-divider-height) * 0.5);
                         }
                     }
 

@@ -3,9 +3,9 @@
 @use "../utilities/derived-variables" as vars
 @use "../utilities"
 
-$notification-background-color: var(--background, #{vars.$background}) !default
-$notification-code-background-color: var(--scheme-main, #{vars.$scheme-main}) !default
-$notification-radius: var(--radius, #{vars.$radius}) !default
+$notification-background-color: var(--background) !default
+$notification-code-background-color: var(--scheme-main) !default
+$notification-radius: var(--radius) !default
 $notification-padding: 1.25rem 2.5rem 1.25rem 1.5rem !default
 $notification-padding-ltr: 1.25rem 2.5rem 1.25rem 1.5rem !default
 $notification-padding-rtl: 1.25rem 1.5rem 1.25rem 2.5rem !default
@@ -55,12 +55,12 @@ $_css-vars-map: ('notification-background-color': $notification-background-color
     $color: list.nth($pair, 1)
     $color-invert: list.nth($pair, 2)
     &.is-#{$name}
-      --notification-background-color: var(--#{$name}, #{$color})
-      --notification-color: var(--#{$name}-invert, #{$color-invert})
+      --notification-background-color: var(--#{$name})
+      --notification-color: var(--#{$name}-invert)
       // If light and dark colors are provided
       @if list.length($pair) >= 4
         $color-light: list.nth($pair, 3)
         $color-dark: list.nth($pair, 4)
         &.is-light
-          --notification-background-color: var(--#{$name}-light, #{$color-light})
-          --notification-color: var(--#{$name}-dark, #{$color-dark})
+          --notification-background-color: var(--#{$name}-light)
+          --notification-color: var(--#{$name}-dark)

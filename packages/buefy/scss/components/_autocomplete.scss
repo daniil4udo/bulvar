@@ -1,5 +1,4 @@
 @use "../../../bulma/sass/utilities" as bulma-utilities;
-@use "../../../bulma/sass/components/dropdown" as bulma-dropdown;
 
 $dropdown-content-max-height: 200px !default;
 
@@ -31,8 +30,8 @@ $_css-vars-map: (
         overflow: hidden;
         text-overflow: ellipsis;
         &.is-hovered {
-            background: var(--dropdown-item-hover-background-color, #{bulma-dropdown.$dropdown-item-hover-background-color});
-            color: var(--dropdown-item-hover-color, #{bulma-dropdown.$dropdown-item-hover-color});
+            background: var(--dropdown-item-hover-background-color);
+            color: var(--dropdown-item-hover-color);
         }
         &.is-disabled {
             opacity: 0.5;

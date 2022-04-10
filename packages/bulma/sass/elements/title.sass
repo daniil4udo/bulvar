@@ -1,23 +1,22 @@
-@use "../utilities/derived-variables" as vars
 @use "../utilities"
 
-$title-color: var(--text-strong, #{vars.$text-strong}) !default
+$title-color: var(--text-strong) !default
 $title-family: false !default
-$title-size: var(--size-3, #{vars.$size-3}) !default
-$title-weight: var(--weight-semibold, #{vars.$weight-semibold}) !default
+$title-size: var(--size-3) !default
+$title-weight: var(--weight-semibold) !default
 $title-line-height: 1.125 !default
 $title-strong-color: inherit !default
 $title-strong-weight: inherit !default
 $title-sub-size: 0.75em !default
 $title-sup-size: 0.75em !default
 
-$subtitle-color: var(--text, #{vars.$text}) !default
+$subtitle-color: var(--text) !default
 $subtitle-family: false !default
-$subtitle-size: var(--size-5, #{vars.$size-5}) !default
-$subtitle-weight: var(--weight-normal, #{vars.$weight-normal}) !default
+$subtitle-size: var(--size-5) !default
+$subtitle-weight: var(--weight-normal) !default
 $subtitle-line-height: 1.25 !default
-$subtitle-strong-color: var(--text-strong, #{vars.$text-strong}) !default
-$subtitle-strong-weight: var(--weight-semibold, #{vars.$weight-semibold}) !default
+$subtitle-strong-color: var(--text-strong) !default
+$subtitle-strong-weight: var(--weight-semibold) !default
 $subtitle-negative-margin: -1.25rem !default
 
 // Map Local variables
@@ -68,8 +67,6 @@ $_css-vars-map: ("title-sub-size": $title-sub-size, "title-family": $title-famil
     font-weight: var(--title-strong-weight)
   &:not(.is-spaced) + .subtitle
     margin-top: var(--subtitle-negative-margin)
-  // Sizes
-  +utilities.sizes
 
 .subtitle
   color: var(--subtitle-color)
@@ -83,5 +80,8 @@ $_css-vars-map: ("title-sub-size": $title-sub-size, "title-family": $title-famil
     font-weight: var(--subtitle-strong-weight)
   &:not(.is-spaced) + .title
     margin-top: var(--subtitle-negative-margin)
-  // Sizes
+
+// Sizes
+.title,
+.subtitle
   +utilities.sizes

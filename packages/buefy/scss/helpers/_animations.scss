@@ -4,7 +4,7 @@
 // Some of the animations are from animate.css (https://daneden.github.io/animate.css)
 
 // Fade out
-@include bulma-mixins.keyframes (fadeOut) {
+@keyframes fadeOut {
     from {
         opacity: 1;
     }
@@ -16,7 +16,7 @@
     animation-name: fadeOut;
 }
 
-@include bulma-mixins.keyframes (fadeOutDown) {
+@keyframes fadeOutDown {
     from {
         opacity: 1;
     }
@@ -29,7 +29,7 @@
     animation-name: fadeOutDown;
 }
 
-@include bulma-mixins.keyframes (fadeOutUp) {
+@keyframes fadeOutUp {
     from {
         opacity: 1;
     }
@@ -43,7 +43,7 @@
 }
 
 // Fade In
-@include bulma-mixins.keyframes (fadeIn) {
+@keyframes fadeIn {
     from {
         opacity: 0;
     }
@@ -55,7 +55,7 @@
     animation-name: fadeIn;
 }
 
-@include bulma-mixins.keyframes (fadeInDown) {
+@keyframes fadeInDown {
     from {
         opacity: 0;
         transform: translate3d(0, -100%, 0);
@@ -69,7 +69,7 @@
     animation-name: fadeInDown;
 }
 
-@include bulma-mixins.keyframes (fadeInUp) {
+@keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translate3d(0, 100%, 0);
@@ -92,8 +92,8 @@
 .fade-leave-active {
     // transition: opacity $speed-slow $easing;
     transition-property: opacity;
-    transition-duration: calc(var(--speed, #{$speed}) * 2);
-    transition-timing-function: var(--easing, #{$easing});
+    transition-duration: calc(var(--speed) * 2);
+    transition-timing-function: var(--easing);
 }
 .fade-enter,
 .fade-leave-to {
@@ -105,14 +105,14 @@
 .zoom-in-leave-active {
     // transition: opacity $speed-slow $easing;
     transition-property: opacity;
-    transition-duration: calc(var(--speed, #{$speed}) * 2);
-    transition-timing-function: var(--easing, #{$easing});
+    transition-duration: calc(var(--speed) * 2);
+    transition-timing-function: var(--easing);
     .animation-content,
     .animation-content {
         // transition: transform $speed-slow $easing;
         transition-property: transform;
-        transition-duration: calc(var(--speed, #{$speed}) * 2);
-        transition-timing-function: var(--easing, #{$easing});
+        transition-duration: calc(var(--speed) * 2);
+        transition-timing-function: var(--easing);
     }
 }
 .zoom-in-enter,
@@ -130,14 +130,14 @@
 .zoom-out-leave-active {
     // transition: opacity $speed-slow $easing;
     transition-property: opacity;
-    transition-duration: calc(var(--speed, #{$speed}) * 2);
-    transition-timing-function: var(--easing, #{$easing});
+    transition-duration: calc(var(--speed) * 2);
+    transition-timing-function: var(--easing);
     .animation-content,
     .animation-content {
         // transition: transform $speed-slow $easing;
         transition-property: transform;
-        transition-duration: calc(var(--speed, #{$speed}) * 2);
-        transition-timing-function: var(--easing, #{$easing});
+        transition-duration: calc(var(--speed) * 2);
+        transition-timing-function: var(--easing);
     }
 }
 .zoom-out-enter,
@@ -156,7 +156,7 @@
 .slide-prev-leave-active {
     // transition: transform $speed-slower cubic-bezier(0.785, 0.135, 0.150, 0.860);
     transition-property: transform;
-    transition-duration: calc(var(--speed, #{$speed}) * 3);
+    transition-duration: calc(var(--speed) * 3);
     transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 .slide-prev-leave-to, .slide-next-enter {
@@ -176,7 +176,7 @@
 .slide-up-leave-active {
     // transition: transform $speed-slower cubic-bezier(0.785, 0.135, 0.150, 0.860);
     transition-property: transform;
-    transition-duration: calc(var(--speed, #{$speed}) * 3);
+    transition-duration: calc(var(--speed) * 3);
     transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 .slide-up-leave-to, .slide-down-enter {
@@ -191,10 +191,10 @@
 }
 
 .slide-enter-active {
-    transition: calc(var(--speed, #{$speed}) * 3) var(--easing, #{$easing});
+    transition: calc(var(--speed) * 3) var(--easing);
 }
 .slide-leave-active {
-    transition: calc(var(--speed, #{$speed}) * 3) var(--easing, #{$easing});
+    transition: calc(var(--speed) * 3) var(--easing);
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
 .slide-enter-to, .slide-leave {

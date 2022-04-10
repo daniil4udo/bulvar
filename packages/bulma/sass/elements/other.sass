@@ -1,9 +1,8 @@
-@use "../utilities/derived-variables" as vars
 @use "../utilities"
 
-$number-background: var(--background, #{vars.$background}) !default
-$number-radius-rounded: var(--radius-rounded, #{vars.$radius-rounded}) !default
-$number-font-size: var(--size-medium, #{vars.$size-medium}) !default
+$number-background: var(--background) !default
+$number-radius-rounded: var(--radius-rounded) !default
+$number-font-size: var(--size-medium) !default
 
 .block
   @extend %block
@@ -25,9 +24,9 @@ $number-font-size: var(--size-medium, #{vars.$size-medium}) !default
 $_css-vars-map: ("number-background": $number-background, "number-radius-rounded": $number-radius-rounded, "number-font-size": $number-font-size)
 +utilities.exportCSSVars($_css-vars-map)
 +utilities.registerComponentCSSVars("number", $_css-vars-map)
-// --number-background: var(--background, #{$background})
-// --number-radius-rounded: var(--radius-rounded, #{$radius-rounded})
-// --number-font-size: var(--size-medium, #{$size-medium})
+// --number-background: var(--background)
+// --number-radius-rounded: var(--radius-rounded)
+// --number-font-size: var(--size-medium)
 
 .number
   align-items: center

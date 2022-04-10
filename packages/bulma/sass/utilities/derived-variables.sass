@@ -78,10 +78,10 @@ $text-strong: $grey-darker !default
 // Code colors
 
 $code: color.adjust($red, $lightness: -15%) !default
-$code-background: var(--background, #{$background}) !default
+$code-background: var(--background) !default
 
-$pre: var(--text, #{$text}) !default
-$pre-background: var(--background, #{$background}) !default
+$pre: var(--text) !default
+$pre-background: var(--background) !default
 
 // Link colors
 
@@ -96,7 +96,7 @@ $link-hover: $grey-darker !default
 $link-hover-border: $grey-light !default
 
 $link-focus: $grey-darker !default
-$link-focus-border: var(--link, #{$blue}) !default
+$link-focus-border: var(--link) !default
 
 $link-active: $grey-darker !default
 $link-active-border: $grey-dark !default
@@ -114,7 +114,7 @@ $size-large: $size-4 !default
 
 // Effects
 
-$shadow: 0 0.5em 1em -0.125em rgba(var(--scheme-invert-rgb, #{fn.bulmaToRGB($scheme-invert)}), 0.1), 0 0 0 1px rgba(var(--scheme-invert-rgb, #{fn.bulmaToRGB($scheme-invert)}), 0.02) !default
+$shadow: 0 0.5em 1em -0.125em rgba(var(--scheme-invert-rgb), 0.1), 0 0 0 1px rgba(var(--scheme-invert-rgb), 0.02) !default
 
 // Lists and maps
 

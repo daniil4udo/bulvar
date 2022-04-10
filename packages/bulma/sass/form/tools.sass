@@ -1,15 +1,13 @@
 @use "sass:list"
 
 @use "shared" as form-shared
-@use "../utilities/derived-variables" as vars
-@use "../utilities/controls"
 @use "../utilities"
 
-$label-font-size: var(--size-normal, #{vars.$size-normal}) !default
-$label-color: var(--text-strong, #{vars.$text-strong}) !default
-$label-weight: var(--weight-bold, #{vars.$weight-bold}) !default
+$label-font-size: var(--size-normal) !default
+$label-color: var(--text-strong) !default
+$label-weight: var(--weight-bold) !default
 
-$help-size: var(--size-small, #{vars.$size-small}) !default
+$help-size: var(--size-small) !default
 
 $label-colors: form-shared.$form-colors !default
 
@@ -44,7 +42,7 @@ $_css-vars-map: ("help-font-size": $help-size)
   @each $name, $pair in $label-colors
     $color: list.nth($pair, 1)
     &.is-#{$name}
-      color: var(--#{$name}, #{$color})
+      color: var(--#{$name})
 
 // Containers
 
@@ -175,7 +173,7 @@ $_css-vars-map: ("help-font-size": $help-size)
 .control
   box-sizing: border-box
   clear: both
-  font-size: var(--control-font-size, #{controls.$control-font-size})
+  font-size: var(--control-font-size)
   position: relative
   text-align: inherit
   // Modifiers
@@ -185,31 +183,31 @@ $_css-vars-map: ("help-font-size": $help-size)
     .select
       &:focus
         & ~ .icon
-          color: var(--input-icon-active-color, #{form-shared.$input-icon-active-color})
+          color: var(--input-icon-active-color)
       &.is-small ~ .icon
-        font-size: var(--size-small, #{vars.$size-small})
+        font-size: var(--size-small)
       &.is-medium ~ .icon
-        font-size: var(--size-medium, #{vars.$size-medium})
+        font-size: var(--size-medium)
       &.is-large ~ .icon
-        font-size: var(--size-large, #{vars.$size-large})
+        font-size: var(--size-large)
     .icon
-      color: var(--input-icon-color, #{form-shared.$input-icon-color})
-      height: var(--input-height, #{form-shared.$input-height})
+      color: var(--input-icon-color)
+      height: var(--input-height)
       pointer-events: none
       position: absolute
       top: 0
-      width: var(--input-height, #{form-shared.$input-height})
+      width: var(--input-height)
       z-index: 4
   &.has-icons-left
     .input,
     .select select
-      padding-left: var(--input-height, #{form-shared.$input-height})
+      padding-left: var(--input-height)
     .icon.is-left
       left: 0
   &.has-icons-right
     .input,
     .select select
-      padding-right: var(--input-height, #{form-shared.$input-height})
+      padding-right: var(--input-height)
     .icon.is-right
       right: 0
   &.is-loading
@@ -220,8 +218,8 @@ $_css-vars-map: ("help-font-size": $help-size)
       top: calc(50% - (1em / 2))
       z-index: 4
     &.is-small:after
-      font-size: var(--size-small, #{vars.$size-small})
+      font-size: var(--size-small)
     &.is-medium:after
-      font-size: var(--size-medium, #{vars.$size-medium})
+      font-size: var(--size-medium)
     &.is-large:after
-      font-size: var(--size-large, #{vars.$size-large})
+      font-size: var(--size-large)
