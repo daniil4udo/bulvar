@@ -50,9 +50,9 @@
     left: calc(50% - 8px)
     position: absolute
     transform-origin: center
-    transition-duration: var(--speed, #{vars.$speed})
+    transition-duration: var(--speed)
     transition-property: background-color, opacity, transform
-    transition-timing-function: var(--easing, #{vars.$easing})
+    transition-timing-function: var(--easing)
     width: 16px
     &:nth-child(1)
       top: calc(50% - 6px)
@@ -239,9 +239,9 @@
   +unselectable
   -moz-appearance: none
   -webkit-appearance: none
-  background-color: rgba(var(--scheme-invert-rgb, #{fn.bulmaToRGB(vars.$scheme-invert)}), 0.2)
+  background-color: rgba(var(--scheme-invert-rgb), 0.2)
   border: none
-  border-radius: var(--radius-rounded, #{vars.$radius-rounded})
+  border-radius: var(--radius-rounded)
   cursor: pointer
   pointer-events: auto
   display: inline-block
@@ -259,7 +259,7 @@
   width: var(--delete-width)
   &::before,
   &::after
-    background-color: var(--scheme-main, #{vars.$scheme-main})
+    background-color: var(--scheme-main)
     content: ""
     display: block
     left: 50%
@@ -275,9 +275,9 @@
     width: 2px
   &:hover,
   &:focus
-    background-color: rgba(var(--scheme-invert-rgb, #{fn.bulmaToRGB(vars.$scheme-invert)}), 0.3)
+    background-color: rgba(var(--scheme-invert-rgb), 0.3)
   &:active
-    background-color: rgba(var(--scheme-invert-rgb, #{fn.bulmaToRGB(vars.$scheme-invert)}), 0.4)
+    background-color: rgba(var(--scheme-invert-rgb), 0.4)
   // Sizes
   &.is-small
     --delete-height: 16px
@@ -290,10 +290,10 @@
     --delete-width: 32px
 
 =loader
-  --loader-border-color: var(--grey-lighter, #{vars.$grey-lighter})
+  --loader-border-color: var(--grey-lighter)
   animation: spinAround 500ms infinite linear
   border: 2px solid var(--loader-border-color)
-  border-radius: var(--radius-rounded, #{vars.$radius-rounded})
+  border-radius: var(--radius-rounded)
   border-right-color: transparent
   border-top-color: transparent
   content: ""

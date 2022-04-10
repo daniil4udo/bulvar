@@ -1,4 +1,3 @@
-@use "../utilities/derived-variables" as vars
 @use "../utilities"
 
 $section-padding: 3rem 1.5rem !default
@@ -18,9 +17,9 @@ $_css-vars-map: ("section-padding": $section-padding, "section-padding-medium": 
   padding: var(--section-padding)
   // Responsiveness
   +utilities.desktop
-    padding: var(--section-padding-desktop, #{$section-padding-desktop})
+    padding: var(--section-padding-desktop)
     // Sizes
     &.is-medium
-      --section-padding: var(--section-padding-medium, #{$section-padding-medium})
+      --section-padding: var(--section-padding-medium)
     &.is-large
-      --section-padding: var(--section-padding-large, #{$section-padding-large})
+      --section-padding: var(--section-padding-large)

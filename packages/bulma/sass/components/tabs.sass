@@ -1,34 +1,33 @@
-@use "../utilities/derived-variables" as vars
 @use "../utilities"
 
-$tabs-border-bottom-color: var(--border, #{vars.$border}) !default
+$tabs-border-bottom-color: var(--border) !default
 $tabs-border-bottom-style: solid !default
 $tabs-border-bottom-width: 1px !default
-$tabs-link-color: var(--text, #{vars.$text}) !default
-$tabs-link-hover-border-bottom-color: var(--text-strong, #{vars.$text-strong}) !default
-$tabs-link-hover-color: var(--text-strong, #{vars.$text-strong}) !default
-$tabs-link-active-border-bottom-color: var(--link, #{vars.$link}) !default
-$tabs-link-active-color: var(--link, #{vars.$link}) !default
+$tabs-link-color: var(--text) !default
+$tabs-link-hover-border-bottom-color: var(--text-strong) !default
+$tabs-link-hover-color: var(--text-strong) !default
+$tabs-link-active-border-bottom-color: var(--link) !default
+$tabs-link-active-color: var(--link) !default
 $tabs-link-padding: 0.5em 1em !default
-$tabs-font-size: var(--size-normal, #{vars.$size-normal}) !default
+$tabs-font-size: var(--size-normal) !default
 
-$tabs-boxed-link-radius: var(--radius, #{vars.$radius}) !default
-$tabs-boxed-link-hover-background-color: var(--background, #{vars.$background}) !default
-$tabs-boxed-link-hover-border-bottom-color: var(--border, #{vars.$border}) !default
+$tabs-boxed-link-radius: var(--radius) !default
+$tabs-boxed-link-hover-background-color: var(--background) !default
+$tabs-boxed-link-hover-border-bottom-color: var(--border) !default
 
-$tabs-boxed-link-active-background-color: var(--scheme-main, #{vars.$scheme-main}) !default
-$tabs-boxed-link-active-border-color: var(--border, #{vars.$border}) !default
+$tabs-boxed-link-active-background-color: var(--scheme-main) !default
+$tabs-boxed-link-active-border-color: var(--border) !default
 $tabs-boxed-link-active-border-bottom-color: transparent !default
 
-$tabs-toggle-link-border-color: var(--border, #{vars.$border}) !default
+$tabs-toggle-link-border-color: var(--border) !default
 $tabs-toggle-link-border-style: solid !default
 $tabs-toggle-link-border-width: 1px !default
-$tabs-toggle-link-hover-background-color: var(--background, #{vars.$background}) !default
-$tabs-toggle-link-hover-border-color: var(--border-hover, #{vars.$border-hover}) !default
-$tabs-toggle-link-radius: var(--radius, #{vars.$radius}) !default
-$tabs-toggle-link-active-background-color: var(--link, #{vars.$link}) !default
-$tabs-toggle-link-active-border-color: var(--link, #{vars.$link}) !default
-$tabs-toggle-link-active-color: var(--link-invert, #{vars.$link-invert}) !default
+$tabs-toggle-link-hover-background-color: var(--background) !default
+$tabs-toggle-link-hover-border-color: var(--border-hover) !default
+$tabs-toggle-link-radius: var(--radius) !default
+$tabs-toggle-link-active-background-color: var(--link) !default
+$tabs-toggle-link-active-border-color: var(--link) !default
+$tabs-toggle-link-active-color: var(--link-invert) !default
 
 // Map Local variables
 $_css-vars-map: ('tabs-font-size': $tabs-font-size, 'tabs-border-bottom-color': $tabs-border-bottom-color, 'tabs-border-bottom-style': $tabs-border-bottom-style, 'tabs-border-bottom-width': $tabs-border-bottom-width, 'tabs-link-color': $tabs-link-color, 'tabs-link-hover-border-bottom-color': $tabs-link-hover-border-bottom-color, 'tabs-link-hover-color': $tabs-link-hover-color, 'tabs-link-active-border-bottom-color': $tabs-link-active-border-bottom-color, 'tabs-link-active-color': $tabs-link-active-color, 'tabs-link-padding': $tabs-link-padding, 'tabs-boxed-link-radius': $tabs-boxed-link-radius, 'tabs-boxed-link-hover-background-color': $tabs-boxed-link-hover-background-color, 'tabs-boxed-link-hover-border-bottom-color': $tabs-boxed-link-hover-border-bottom-color, 'tabs-boxed-link-active-background-color': $tabs-boxed-link-active-background-color, 'tabs-boxed-link-active-border-color': $tabs-boxed-link-active-border-color, 'tabs-boxed-link-active-border-bottom-color': $tabs-boxed-link-active-border-bottom-color, 'tabs-toggle-link-border-color': $tabs-toggle-link-border-color, 'tabs-toggle-link-border-style': $tabs-toggle-link-border-style, 'tabs-toggle-link-border-width': $tabs-toggle-link-border-width, 'tabs-toggle-link-hover-background-color': $tabs-toggle-link-hover-background-color, 'tabs-toggle-link-hover-border-color': $tabs-toggle-link-hover-border-color, 'tabs-toggle-link-radius': $tabs-toggle-link-radius, 'tabs-toggle-link-active-background-color': $tabs-toggle-link-active-background-color, 'tabs-toggle-link-active-border-color': $tabs-toggle-link-active-border-color, 'tabs-toggle-link-active-color': $tabs-toggle-link-active-color)
@@ -183,21 +182,21 @@ $_css-vars-map: ('tabs-font-size': $tabs-font-size, 'tabs-border-bottom-color': 
       li
         &:first-child a
           +utilities.ltr
-            border-bottom-left-radius: var(--radius-rounded, #{vars.$radius-rounded})
-            border-top-left-radius: var(--radius-rounded, #{vars.$radius-rounded})
+            border-bottom-left-radius: var(--radius-rounded)
+            border-top-left-radius: var(--radius-rounded)
             padding-left: 1.25em
           +utilities.rtl
-            border-bottom-right-radius: var(--radius-rounded, #{vars.$radius-rounded})
-            border-top-right-radius: var(--radius-rounded, #{vars.$radius-rounded})
+            border-bottom-right-radius: var(--radius-rounded)
+            border-top-right-radius: var(--radius-rounded)
             padding-right: 1.25em
         &:last-child a
           +utilities.ltr
-            border-bottom-right-radius: var(--radius-rounded, #{vars.$radius-rounded})
-            border-top-right-radius: var(--radius-rounded, #{vars.$radius-rounded})
+            border-bottom-right-radius: var(--radius-rounded)
+            border-top-right-radius: var(--radius-rounded)
             padding-right: 1.25em
           +utilities.rtl
-            border-bottom-left-radius: var(--radius-rounded, #{vars.$radius-rounded})
-            border-top-left-radius: var(--radius-rounded, #{vars.$radius-rounded})
+            border-bottom-left-radius: var(--radius-rounded)
+            border-top-left-radius: var(--radius-rounded)
             padding-left: 1.25em
   // Sizes
   +utilities.control-sizes(tabs-font-size)

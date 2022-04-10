@@ -1,7 +1,6 @@
-@use "../utilities/derived-variables" as vars
 @use "../utilities"
 
-$level-item-spacing: calc(#{var(--block-spacing, #{vars.$block-spacing})} * 0.5) !default
+$level-item-spacing: calc(#{var(--block-spacing)} * 0.5) !default
 
 // Map Local variables
 $_css-vars-map: ("level-item-spacing": $level-item-spacing)
@@ -14,7 +13,7 @@ $_css-vars-map: ("level-item-spacing": $level-item-spacing)
   align-items: center
   justify-content: space-between
   code
-    border-radius: var(--radius, #{vars.$radius})
+    border-radius: var(--radius)
   img
     display: inline-block
     vertical-align: top

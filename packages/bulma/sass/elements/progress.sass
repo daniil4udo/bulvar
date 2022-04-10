@@ -3,10 +3,10 @@
 @use "../utilities/derived-variables" as vars
 @use "../utilities"
 
-$progress-bar-background-color: var(--border-light, #{vars.$border-light}) !default
-$progress-value-background-color: var(--text, #{vars.$text}) !default
-$progress-border-radius: var(--radius-rounded, #{vars.$radius-rounded}) !default
-$progress-height: var(--size-normal, #{vars.$size-normal}) !default
+$progress-bar-background-color: var(--border-light) !default
+$progress-value-background-color: var(--text) !default
+$progress-border-radius: var(--radius-rounded) !default
+$progress-height: var(--size-normal) !default
 
 $progress-indeterminate-duration: 1.5s !default
 
@@ -46,13 +46,13 @@ $_css-vars-map: ('progress-height': $progress-height, 'progress-bar-background-c
     $color: list.nth($pair, 1)
     &.is-#{$name}
       &::-webkit-progress-value
-        --progress-value-background-color: var(--#{$name}, #{$color})
+        --progress-value-background-color: var(--#{$name})
       &::-moz-progress-bar
-        --progress-value-background-color: var(--#{$name}, #{$color})
+        --progress-value-background-color: var(--#{$name})
       &::-ms-fill
-        --progress-value-background-color: var(--#{$name}, #{$color})
+        --progress-value-background-color: var(--#{$name})
       &:indeterminate
-        background-image: linear-gradient(to right, var(--#{$name}, #{$color}) 30%, var(--progress-bar-background-color) 30%)
+        background-image: linear-gradient(to right, var(--#{$name}) 30%, var(--progress-bar-background-color) 30%)
 
   &:indeterminate
     animation-duration: var(--progress-indeterminate-duration)
@@ -60,7 +60,7 @@ $_css-vars-map: ('progress-height': $progress-height, 'progress-bar-background-c
     animation-name: moveIndeterminate
     animation-timing-function: linear
     background-color: var(--progress-bar-background-color)
-    background-image: linear-gradient(to right, var(--text, #{vars.$text}) 30%, var(--progress-bar-background-color) 30%)
+    background-image: linear-gradient(to right, var(--text) 30%, var(--progress-bar-background-color) 30%)
     background-position: top left
     background-repeat: no-repeat
     background-size: 150% 150%

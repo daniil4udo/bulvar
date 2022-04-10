@@ -6,23 +6,23 @@
 @use "../utilities/derived-variables" as vars
 @use "../utilities"
 
-$message-background-color: var(--background, #{vars.$background}) !default
-$message-radius: var(--radius, #{vars.$radius}) !default
-$message-font-size: var(--size-normal, #{vars.$size-normal}) !default
+$message-background-color: var(--background) !default
+$message-radius: var(--radius) !default
+$message-font-size: var(--size-normal) !default
 
-$message-header-background-color: var(--text, #{vars.$text}) !default
-$message-header-color: var(--text-invert, #{vars.$text-invert}) !default
-$message-header-weight: var(--weight-bold, #{vars.$weight-bold}) !default
+$message-header-background-color: var(--text) !default
+$message-header-color: var(--text-invert) !default
+$message-header-weight: var(--weight-bold) !default
 $message-header-padding: 0.75em 1em !default
-$message-header-radius: var(--radius, #{vars.$radius}) !default
+$message-header-radius: var(--radius) !default
 
-$message-body-border-color: var(--border, #{vars.$border}) !default
+$message-body-border-color: var(--border) !default
 $message-body-border-width: 0 0 0 4px !default
-$message-body-color: var(--text, #{vars.$text}) !default
+$message-body-color: var(--text) !default
 $message-body-padding: 1.25em 1.5em !default
-$message-body-radius: var(--radius, #{vars.$radius}) !default
+$message-body-radius: var(--radius) !default
 
-$message-body-pre-background-color: var(--scheme-main, #{vars.$scheme-main}) !default
+$message-body-pre-background-color: var(--scheme-main) !default
 $message-body-pre-code-background-color: transparent !default
 
 $message-header-body-border-width: 0 !default
@@ -69,11 +69,11 @@ $_css-vars-map: ("message-background-color": $message-background-color, "message
     $color-dark: if(list.length($components) >= 4, list.nth($components, 4), utilities.findDarkColor($color))
 
     &.is-#{$name}
-      --message-background-color: var(--#{$name}-light, #{$color-light})
-      --message-header-background-color: var(--#{$name}, #{$color})
-      --message-header-color: var(--#{$name}-invert, #{$color-invert})
-      --message-body-border-color: var(--#{$name}, #{$color})
-      --message-body-color: var(--#{$name}-dark, #{$color-dark})
+      --message-background-color: var(--#{$name}-light)
+      --message-header-background-color: var(--#{$name})
+      --message-header-color: var(--#{$name}-invert)
+      --message-body-border-color: var(--#{$name})
+      --message-body-color: var(--#{$name}-dark)
 
 .message-header
   align-items: center

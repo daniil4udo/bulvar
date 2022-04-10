@@ -81,7 +81,7 @@
 
 /// Invert color calculation
 @function calculateInvertColor($color)
-  @return if(colorLuminance($color) > 0.55, vars.$invert-light-colors, vars.$invert-dark-colors)
+  @return if(colorLuminance($color) > 0.55, #{var(--invert-light-colors)}, #{var(--invert-dark-colors)})
 
 @function findColorInvert($color, $fallback: null)
   @if meta.type-of($color) == 'color'
@@ -174,7 +174,7 @@
       @return var(--#{$name-or-value}, #{$fallback})
     @else
       @return var(--#{$name-or-value})
-  @else 
+  @else
     @return $fallback
 
 // extracts var(--var-name) -> var-name

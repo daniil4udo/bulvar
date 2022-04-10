@@ -1,11 +1,9 @@
 @use "sass:list"
 
 @use "shared" as form-shared
-@use "../utilities/derived-variables" as vars
-@use "../utilities/controls"
 @use "../utilities"
 
-$textarea-padding: var(--control-padding-horizontal, #{controls.$control-padding-horizontal}) !default
+$textarea-padding: var(--control-padding-horizontal) !default
 $textarea-max-height: 40em !default
 $textarea-min-height: 8em !default
 
@@ -13,7 +11,7 @@ $textarea-colors: form-shared.$form-colors !default
 
 %input-textarea
   @extend %input
-  box-shadow: var(--input-shadow, #{form-shared.$input-shadow})
+  box-shadow: var(--input-shadow)
   max-width: 100%
   width: 100%
   &[readonly]
@@ -23,12 +21,12 @@ $textarea-colors: form-shared.$form-colors !default
     $color: list.nth($pair, 1)
     &.is-#{$name}
       --focus-box-shadow-color: #{utilities.bulmaVarOpacity($name, 0.25)}
-      border-color: var(--#{$name}, #{$color})
+      border-color: var(--#{$name})
       &:focus,
       &.is-focused,
       &:active,
       &.is-active
-        box-shadow: var(--input-focus-box-shadow-size, #{form-shared.$input-focus-box-shadow-size}) var(--focus-box-shadow-color, #{utilities.bulmaRgba($color, 0.25)})
+        box-shadow: var(--input-focus-box-shadow-size) var(--focus-box-shadow-color)
   // Sizes
   &.is-small
     border-radius: var(--control-radius-small)
@@ -44,9 +42,9 @@ $textarea-colors: form-shared.$form-colors !default
 .input
   @extend %input-textarea
   &.is-rounded
-    border-radius: var(--radius-rounded, #{vars.$radius-rounded})
-    padding-left: calc(#{controls.$control-padding-horizontal} + 0.375em)
-    padding-right: calc(#{controls.$control-padding-horizontal} + 0.375em)
+    border-radius: var(--radius-rounded)
+    padding-left: calc(var(--control-padding-horizontal) + 0.375em)
+    padding-right: calc(var(--control-padding-horizontal) + 0.375em)
   &.is-static
     background-color: transparent
     border-color: transparent

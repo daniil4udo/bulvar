@@ -3,35 +3,35 @@
 @use "../utilities/derived-variables" as vars
 @use "../utilities"
 
-$panel-font-size: var(--size-normal, #{vars.$size-normal}) !default
-$panel-margin: var(--block-spacing, #{vars.$block-spacing}) !default
-$panel-item-border: 1px solid var(--border-light, #{vars.$border-light}) !default
-$panel-radius: var(--radius-large, #{vars.$radius-large}) !default
-$panel-shadow: var(--shadow, #{vars.$shadow}) !default
+$panel-font-size: var(--size-normal) !default
+$panel-margin: var(--block-spacing) !default
+$panel-item-border: 1px solid var(--border-light) !default
+$panel-radius: var(--radius-large) !default
+$panel-shadow: var(--shadow) !default
 
-$panel-heading-background-color: var(--border-light, #{vars.$border-light}) !default
-$panel-heading-color: var(--text-strong, #{vars.$text-strong}) !default
+$panel-heading-background-color: var(--border-light) !default
+$panel-heading-color: var(--text-strong) !default
 $panel-heading-line-height: 1.25 !default
 $panel-heading-padding: 0.75em 1em !default
-$panel-heading-radius: var(--radius, #{vars.$radius}) !default
+$panel-heading-radius: var(--radius) !default
 $panel-heading-size: 1.25em !default
-$panel-heading-weight: var(--weight-bold, #{vars.$weight-bold}) !default
+$panel-heading-weight: var(--weight-bold) !default
 
 $panel-tabs-font-size: 0.875em !default
-$panel-tab-border-bottom: 1px solid var(--border, #{vars.$border}) !default
-$panel-tab-active-border-bottom-color: var(--link-active-border, #{vars.$link-active-border}) !default
-$panel-tab-active-color: var(--link-active, #{vars.$link-active}) !default
+$panel-tab-border-bottom: 1px solid var(--border) !default
+$panel-tab-active-border-bottom-color: var(--link-active-border) !default
+$panel-tab-active-color: var(--link-active) !default
 
-$panel-list-item-color: var(--text, #{vars.$text}) !default
-$panel-list-item-hover-color: var(--link, #{vars.$link}) !default
+$panel-list-item-color: var(--text) !default
+$panel-list-item-hover-color: var(--link) !default
 
-$panel-block-color: var(--text-strong, #{vars.$text-strong}) !default
-$panel-block-hover-background-color: var(--background, #{vars.$background}) !default
-$panel-block-active-border-left-color: var(--link, #{vars.$link}) !default
-$panel-block-active-color: var(--link-active, #{vars.$link-active}) !default
-$panel-block-active-icon-color: var(--link, #{vars.$link}) !default
+$panel-block-color: var(--text-strong) !default
+$panel-block-hover-background-color: var(--background) !default
+$panel-block-active-border-left-color: var(--link) !default
+$panel-block-active-color: var(--link-active) !default
+$panel-block-active-icon-color: var(--link) !default
 
-$panel-icon-color: var(--text-light, #{vars.$text-light}) !default
+$panel-icon-color: var(--text-light) !default
 $panel-colors: vars.$colors !default
 
 // Map Local variables
@@ -74,12 +74,12 @@ $_css-vars-map: ("panel-font-size": $panel-font-size, "panel-margin": $panel-mar
     $color-invert: list.nth($components, 2)
     &.is-#{$name}
       .panel-heading
-        background-color: var(--#{$name}, #{$color})
-        color: var(--#{$name}-invert, #{$color-invert})
+        background-color: var(--#{$name})
+        color: var(--#{$name}-invert)
       .panel-tabs a.is-active
-        border-bottom-color: var(--#{$name}, #{$color})
+        border-bottom-color: var(--#{$name})
       .panel-block.is-active .panel-icon
-        color: var(--#{$name}, #{$color})
+        color: var(--#{$name})
 
 .panel-tabs,
 .panel-block

@@ -39,21 +39,21 @@ $_css-vars-map: ('hero-body-padding': $hero-body-padding, 'hero-body-padding-tab
     $color-invert: list.nth($pair, 2)
     &.is-#{$name}
       --hover-background-color: #{utilities.bulmaVarDarken($name, 5%)}
-      background-color: var(--#{$name}, #{$color})
-      color: var(--#{$name}-invert, #{$color-invert})
+      background-color: var(--#{$name})
+      color: var(--#{$name}-invert)
       a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
       strong
         color: inherit
       .title
-        color: var(--#{$name}-invert, #{$color-invert})
+        color: var(--#{$name}-invert)
       .subtitle
         color: utilities.bulmaRgba($color-invert, 0.9)
         a:not(.button),
         strong
-          color: var(--#{$name}-invert, #{$color-invert})
+          color: var(--#{$name}-invert)
       .navbar-menu
         +utilities.touch
-          background-color: var(--#{$name}, #{$color})
+          background-color: var(--#{$name})
       .navbar-item,
       .navbar-link
         color: utilities.bulmaRgba($color-invert, 0.7)
@@ -61,30 +61,30 @@ $_css-vars-map: ('hero-body-padding': $hero-body-padding, 'hero-body-padding-tab
       .navbar-link
         &:hover,
         &.is-active
-          background-color: var(--hover-background-color, #{utilities.bulmaDarken($color, 5%)})
-          color: var(--#{$name}-invert, #{$color-invert})
+          background-color: var(--hover-background-color)
+          color: var(--#{$name}-invert)
       .tabs
         a
-          color: var(--#{$name}-invert, #{$color-invert})
+          color: var(--#{$name}-invert)
           opacity: 0.9
           &:hover
             opacity: 1
         li
           &.is-active a
-            color: var(--#{$name}, #{$color}) !important
+            color: var(--#{$name}) !important
             opacity: 1
         &.is-boxed,
         &.is-toggle
           a
-            color: var(--#{$name}-invert, #{$color-invert})
+            color: var(--#{$name}-invert)
             &:hover
-              background-color: rgba(var(--scheme-invert-rgb, #{utilities.bulmaToRGB(vars.$scheme-invert)}), 0.1)
+              background-color: rgba(var(--scheme-invert-rgb), 0.1)
           li.is-active a
             &,
             &:hover
-              background-color: var(--#{$name}-invert, #{$color-invert})
-              border-color: var(--#{$name}-invert, #{$color-invert})
-              color: var(--#{$name}, #{$color})
+              background-color: var(--#{$name}-invert)
+              border-color: var(--#{$name}-invert)
+              color: var(--#{$name})
       // Modifiers
       // TODO:
       @if meta.type-of($color) == 'color'

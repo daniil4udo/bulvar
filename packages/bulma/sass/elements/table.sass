@@ -3,30 +3,30 @@
 @use "../utilities/derived-variables" as vars
 @use "../utilities"
 
-$table-color: var(--text-strong, #{vars.$text-strong}) !default
-$table-background-color: var(--scheme-main, #{vars.$scheme-main}) !default
+$table-color: var(--text-strong) !default
+$table-background-color: var(--scheme-main) !default
 
-$table-cell-border: 1px solid var(--border, #{vars.$border}) !default
+$table-cell-border: 1px solid var(--border) !default
 $table-cell-border-width: 0 0 1px !default
 $table-cell-padding: 0.5em 0.75em !default
-$table-cell-heading-color: var(--text-strong, #{vars.$text-strong}) !default
+$table-cell-heading-color: var(--text-strong) !default
 
 $table-head-cell-border-width: 0 0 2px !default
-$table-head-cell-color: var(--text-strong, #{vars.$text-strong}) !default
+$table-head-cell-color: var(--text-strong) !default
 $table-foot-cell-border-width: 2px 0 0 !default
-$table-foot-cell-color: var(--text-strong, #{vars.$text-strong}) !default
+$table-foot-cell-color: var(--text-strong) !default
 
 $table-head-background-color: transparent !default
 $table-body-background-color: transparent !default
 $table-foot-background-color: transparent !default
 
-$table-row-hover-background-color: var(--scheme-main-bis, #{vars.$scheme-main-bis}) !default
+$table-row-hover-background-color: var(--scheme-main-bis) !default
 
-$table-row-active-background-color: var(--primary, #{vars.$primary}) !default
-$table-row-active-color: var(--primary-invert, #{vars.$primary-invert}) !default
+$table-row-active-background-color: var(--primary) !default
+$table-row-active-color: var(--primary-invert) !default
 
-$table-striped-row-even-background-color: var(--scheme-main-bis, #{vars.$scheme-main-bis}) !default
-$table-striped-row-even-hover-background-color: var(--scheme-main-ter, #{vars.$scheme-main-ter}) !default
+$table-striped-row-even-background-color: var(--scheme-main-bis) !default
+$table-striped-row-even-hover-background-color: var(--scheme-main-ter) !default
 
 $table-colors: vars.$colors !default
 
@@ -67,9 +67,9 @@ $_css-vars-map: ('table-color': $table-color, 'table-cell-border-width': $table-
       $color: list.nth($pair, 1)
       $color-invert: list.nth($pair, 2)
       &.is-#{$name}
-        background-color: var(--#{$name}, #{$color})
-        border-color: var(--#{$name}, #{$color})
-        color: var(--#{$name}-invert, #{$color-invert})
+        background-color: var(--#{$name})
+        border-color: var(--#{$name})
+        color: var(--#{$name}-invert)
     // Modifiers
     &.is-narrow
       white-space: nowrap

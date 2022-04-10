@@ -2,36 +2,36 @@
 @use "../utilities/controls"
 @use "../utilities"
 
-$input-color: var(--text-strong, #{vars.$text-strong}) !default
-$input-background-color: var(--scheme-main, #{vars.$scheme-main}) !default
-$input-border-color: var(--border, #{vars.$border}) !default
-$input-height: var(--control-height, #{controls.$control-height}) !default
-$input-shadow-color: rgba(var(--scheme-invert-rgb, #{utilities.bulmaToRGB(vars.$scheme-invert)}), 0.05) !default
+$input-color: var(--text-strong) !default
+$input-background-color: var(--scheme-main) !default
+$input-border-color: var(--border) !default
+$input-height: var(--control-height) !default
+$input-shadow-color: rgba(var(--scheme-invert-rgb), 0.05) !default
 $input-shadow: inset 0 0.0625em 0.125em $input-shadow-color !default
-$input-placeholder-color: vars.$text-strong !default
+$input-placeholder-color: var(--text-strong) !default
 $input-placeholder-opacity: 0.3 !default
 
-$input-hover-color: var(--text-strong, #{vars.$text-strong}) !default
-$input-hover-border-color: var(--border-hover, #{vars.$border-hover}) !default
+$input-hover-color: var(--text-strong) !default
+$input-hover-border-color: var(--border-hover) !default
 
-$input-focus-color: var(--text-strong, #{vars.$text-strong}) !default
-$input-focus-border-color: var(--link, #{vars.$link}) !default
+$input-focus-color: var(--text-strong) !default
+$input-focus-border-color: var(--link) !default
 $input-focus-box-shadow-size: 0 0 0 0.125em !default
 $input-focus-box-shadow-color-hsla: utilities.bulmaVarOpacity(link, 0.25) !default // has to be declared in css vars
-$input-focus-box-shadow-color: var(--input-focus-box-shadow-color-hsla, #{utilities.bulmaRgba(vars.$link, 0.25)}) !default
+$input-focus-box-shadow-color: var(--input-focus-box-shadow-color-hsla) !default
 
-$input-disabled-color: var(--text-light, #{vars.$text-light}) !default
-$input-disabled-background-color: var(--background, #{vars.$background}) !default
-$input-disabled-border-color: var(--background, #{vars.$background}) !default
+$input-disabled-color: var(--text-light) !default
+$input-disabled-background-color: var(--background) !default
+$input-disabled-border-color: var(--background) !default
 $input-disabled-placeholder-color: vars.$text-light !default
 $input-disabled-placeholder-opacity: 0.3 !default
 
-$input-arrow: var(--link, #{vars.$link}) !default
+$input-arrow: var(--link) !default
 
-$input-icon-color: var(--border, #{vars.$border}) !default
-$input-icon-active-color: var(--text, #{vars.$text}) !default
+$input-icon-color: var(--border) !default
+$input-icon-active-color: var(--text) !default
 
-$input-radius: var(--radius, #{vars.$radius}) !default
+$input-radius: var(--radius) !default
 
 $form-colors: vars.$colors !default
 
