@@ -25,9 +25,10 @@ $_css-vars-map: (
         background-color: var(--dropdown-background-color);
         z-index: 40;
         cursor: pointer;
-        @media screen and (min-width: $dropdown-mobile-breakpoint) {
-            display: none;
-        }
+
+				@include bulma-utilities.from($dropdown-mobile-breakpoint) {
+						display: none;
+				}
     }
     &.dropdown-menu-animation {
         .dropdown-menu {
@@ -122,7 +123,8 @@ $_css-vars-map: (
             left: auto;
         }
     }
-    @media screen and (max-width: $dropdown-mobile-breakpoint) {
+
+		@include bulma-utilities.until($dropdown-mobile-breakpoint) {
         &.is-mobile-modal {
             > .dropdown-menu {
                 position: fixed !important;

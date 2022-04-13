@@ -225,7 +225,7 @@ $_css-vars-map: (
         }
     }
     @include bulma-utilities.control-sizes;
-    @media screen and (min-width: bulma-vars.$desktop){
+    @include bulma-utilities.desktop {
         .footer-horizontal-timepicker {
             border: none;
             padding-left: 10px;

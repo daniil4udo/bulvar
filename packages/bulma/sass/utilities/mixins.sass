@@ -163,6 +163,10 @@
     @media screen and (min-width: vars.$fullhd)
       @content
 
+=ie11
+  @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none)
+    @content
+
 =breakpoint($name)
   $breakpoint: map-get(vars.$breakpoints, $name)
   @if $breakpoint

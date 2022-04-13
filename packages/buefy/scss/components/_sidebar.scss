@@ -94,7 +94,8 @@ $_css-vars-map: (
             flex-direction: column;
             align-content: stretch;
         }
-        @media screen and (max-width: $sidebar-mobile-breakpoint - 1px) {
+
+				@include bulma-utilities.until($sidebar-mobile-breakpoint) {
             &.is-mini-mobile {
                 width: var(--sidebar-mobile-width);
                 &.is-mini-expand:hover {

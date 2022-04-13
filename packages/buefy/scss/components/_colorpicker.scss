@@ -1,5 +1,4 @@
 @use "../../../bulma/sass/utilities" as bulma-utilities;
-@use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
 
 $colorpicker-radius: var(--dropdown-content-radius) !default;
 $colorpicker-hue-selected-stroke: var(--primary) !default;
@@ -79,7 +78,7 @@ svg.b-colorpicker-triangle {
     height: 200px;
     user-select: none;
 
-    @media (max-width: bulma-vars.$tablet) {
+    @include bulma-utilities.mobile {
         width: 100%;
         height: auto;
     }
