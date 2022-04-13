@@ -119,7 +119,7 @@ $_css-vars-map: (
         }
     }
     .sidebar-background {
-        @include bulma-utilities.overlay;
+        @extend %overlay;
         background: var(--sidebar-background);
         position: fixed;
         z-index: 38;

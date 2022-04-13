@@ -20,7 +20,7 @@ $_css-vars-map: (
         margin-left: 0.5em;
     }
     .background {
-        @include bulma-utilities.overlay;
+        @extend %overlay;
         position: fixed;
         background-color: var(--dropdown-background-color);
         z-index: 40;
