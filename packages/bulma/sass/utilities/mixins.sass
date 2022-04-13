@@ -81,6 +81,36 @@
     &:#{$placeholder}-placeholder
       @content
 
+=input
+  @extend %control
+  background-color: var(--input-background-color)
+  border-color: var(--input-border-color)
+  border-radius: var(--input-radius)
+  color: var(--input-color)
+  +placeholder
+    color: var(--input-placeholder-color)
+    opacity: var(--input-placeholder-opacity)
+  &:hover,
+  &.is-hovered
+    border-color: var(--input-hover-border-color)
+  &:focus,
+  &.is-focused,
+  &:active,
+  &.is-active
+    border-color: var(--input-focus-border-color)
+    box-shadow: var(--input-focus-box-shadow-size) var(--input-focus-box-shadow-color)
+  &[disabled],
+  fieldset[disabled] &
+    background-color: var(--input-disabled-background-color)
+    border-color: var(--input-disabled-border-color)
+    box-shadow: none
+    color: var(--input-disabled-color)
+    -webkit-text-fill-color: var(--input-disabled-color)
+    opacity: 1
+    +placeholder
+      color: var(--input-disabled-placeholder-color)
+      opacity: var(--input-disabled-placeholder-opacity)
+
 =reset
   -moz-appearance: none
   -webkit-appearance: none

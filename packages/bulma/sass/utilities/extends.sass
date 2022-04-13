@@ -1,8 +1,16 @@
 @use "mixins"
 @use "controls"
 
+// Tl;dr: @extend is perfectly ok for as long as you never use it with any browser spesific selectors. Try to rely on mixins instead!
+// https://stackoverflow.com/a/34414503/8815024
+
+// Note that SASS unfortunately does not allow using extends inside media queries (and corresponding example from the above link is wrong).
+
 %control
   +controls.control
+
+%input
+  +mixins.input
 
 %unselectable
   +mixins.unselectable

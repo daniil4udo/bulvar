@@ -170,6 +170,24 @@ $_css-vars-map: ("help-font-size": $help-size)
       &:not(:last-child)
         +utilities.ltr-property("margin", 0.75rem)
 
+$control-radius: var(--radius) !default
+$control-radius-small: var(--radius-small) !default
+
+$control-border-width: 1px !default
+
+$control-height: 2.5em !default
+$control-line-height: 1.5 !default
+
+$control-padding-vertical: calc(0.5em - var(--control-border-width)) !default
+$control-padding-horizontal: calc(0.75em - var(--control-border-width)) !default
+
+$control-font-size: var(--size-normal) !default
+
+// Map Local variables
+$_css-vars-map: ("control-radius": $control-radius, "control-radius-small": $control-radius-small, "control-border-width": $control-border-width, "control-height": $control-height, "control-line-height": $control-line-height, "control-padding-vertical": $control-padding-vertical, "control-padding-horizontal": $control-padding-horizontal, "control-font-size": $control-font-size)
++utilities.exportCSSVars($_css-vars-map)
++utilities.registerComponentCSSVars(null, $_css-vars-map)
+
 .control
   box-sizing: border-box
   clear: both
@@ -214,7 +232,7 @@ $_css-vars-map: ("help-font-size": $help-size)
     &::after
       @extend %loader
       position: absolute !important
-      +utilities.ltr-position(utilities.$control-padding-horizontal)
+      +utilities.ltr-position(var(--control-padding-horizontal))
       top: calc(50% - (1em / 2))
       z-index: 4
     &.is-small:after
