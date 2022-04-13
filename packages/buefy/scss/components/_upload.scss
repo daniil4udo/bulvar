@@ -31,7 +31,7 @@
             pointer-events: none;
             opacity: 0.5;
             &::after {
-                @include bulma-utilities.loader;
+								@extend %loader;
                 top: 0;
                 left: calc(50% - 1.5em);
                 width: 3em;

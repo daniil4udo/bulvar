@@ -35,7 +35,7 @@ $loading-full-page-icon-size: 5em !default;
     .loading-icon {
         position: relative;
         &::after {
-            @include bulma-utilities.loader;
+						@extend %loader;
             position: absolute;
             top: calc(50% - #{$loading-icon-size * 0.5});
             left: calc(50% - #{$loading-icon-size * 0.5});
