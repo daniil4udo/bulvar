@@ -76,7 +76,7 @@ $_css-vars-map: (
 svg.b-colorpicker-triangle {
     width: 200px;
     height: 200px;
-    user-select: none;
+    @extend %unselectable;
 
     @include bulma-utilities.mobile {
         width: 100%;
@@ -141,7 +141,7 @@ svg.b-colorpicker-triangle {
 div.b-colorpicker-square {
     position: relative;
     aspect-ratio: 1/1;
-    user-select: none;
+    @extend %unselectable;
 
     .colorpicker-square-slider-hue {
         background:

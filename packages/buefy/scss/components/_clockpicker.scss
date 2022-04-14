@@ -215,7 +215,7 @@ $_css-vars-map: (
             }
 
             &-outer-ring {
-                user-select: none;
+                @extend %unselectable;
                 height: calc(100% - #{$indicator-size + ($padding-inner * 2)});
                 width: calc(100% - #{$indicator-size + ($padding-inner * 2)});
                 position: relative;
@@ -236,7 +236,7 @@ $_css-vars-map: (
                 height: $indicator-size;
                 left: calc(50% - #{$indicator-size} * 0.5);
                 top: calc(50% - #{$indicator-size} * 0.5);
-                user-select: none;
+                @extend %unselectable;
 
                 > span {
                     z-index: 1;

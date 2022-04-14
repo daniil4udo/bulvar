@@ -14,7 +14,7 @@ $_css-vars-map: (
 @include bulma-utilities.registerComponentCSSVars("icon", $_css-vars-map);
 
 .icon {
-    @include bulma-utilities.unselectable;
+    @extend %unselectable;
     cursor: inherit;
     svg {
         background-color: transparent;

@@ -33,8 +33,6 @@
 
 =hamburger($dimensions)
   --hamburger-dimensions: #{$dimensions}
-  -moz-appearance: none
-  -webkit-appearance: none
   appearance: none
   background: none
   border: none
@@ -112,8 +110,6 @@
       opacity: var(--input-disabled-placeholder-opacity)
 
 =reset
-  -moz-appearance: none
-  -webkit-appearance: none
   appearance: none
   background: none
   border: none
@@ -239,10 +235,6 @@
 // Placeholders
 
 =unselectable
-  -webkit-touch-callout: none
-  -webkit-user-select: none
-  -moz-user-select: none
-  -ms-user-select: none
   user-select: none
 
 =arrow($color: transparent)
@@ -270,9 +262,8 @@
 =delete
   --delete-height: 20px
   --delete-width: 20px
-  +unselectable
-  -moz-appearance: none
-  -webkit-appearance: none
+  @extend %unselectable
+  appearance: none
   background-color: rgba(var(--scheme-invert-rgb), 0.2)
   border: none
   border-radius: var(--radius-rounded)
