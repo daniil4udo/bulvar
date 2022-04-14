@@ -3,13 +3,19 @@
 @use "shared" as form-shared
 @use "../utilities"
 
+$select-arrow-color: var(--input-arrow-color)
+$select-disabled-border-color: var(--input-disabled-border-color)
+$select-hover-color: var(--input-hover-color)
+$select-disabled-color: var(--input-disabled-color)
+$select-focus-box-shadow-size: var(--input-focus-box-shadow-size)
+
 $select-colors: form-shared.$form-colors !default
 
 // Map Local variables
-$_css-vars-map: ('select-arrow': form-shared.$input-arrow, 'select-disabled-border-color': form-shared.$input-disabled-border-color, 'select-hover-color': form-shared.$input-hover-color, 'select-disabled-color': form-shared.$input-disabled-color, 'select-focus-box-shadow-size': form-shared.$input-focus-box-shadow-size)
+$_css-vars-map: ('select-arrow-color': $select-arrow-color, 'select-disabled-border-color': $select-disabled-border-color, 'select-hover-color': $select-hover-color, 'select-disabled-color': $select-disabled-color, 'select-focus-box-shadow-size': $select-focus-box-shadow-size)
 +utilities.exportCSSVars($_css-vars-map)
 +utilities.registerComponentCSSVars("select", $_css-vars-map)
-// --select-arrow: #{$input-arrow}
+// --select-arrow-color: #{$input-arrow-color}
 // --select-disabled-border-color: #{$input-disabled-border-color}
 // --select-hover-color: #{$input-hover-color}
 // --select-disabled-color: #{$input-disabled-color}
@@ -25,7 +31,7 @@ $_css-vars-map: ('select-arrow': form-shared.$input-arrow, 'select-disabled-bord
   &:not(.is-multiple):not(.is-loading)
     &::after
       @extend %arrow
-      border-color: var(--select-arrow)
+      border-color: var(--select-arrow-color)
       +utilities.ltr-position(1.125em)
       z-index: 4
   &.is-rounded

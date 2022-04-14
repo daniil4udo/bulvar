@@ -201,7 +201,7 @@ $_css-vars-map: (
         .chevron-cell {
             vertical-align: middle;
             > a {
-                color: var(--input-arrow) !important;
+                color: var(--input-arrow-color) !important;
             }
         }
         .checkbox-cell {
