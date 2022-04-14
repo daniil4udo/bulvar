@@ -3,16 +3,19 @@
 @use "../utilities/derived-variables" as vars
 @use "../utilities"
 
-$tag-background-color: var(--background) !default
+$tag-background-color: var(--scheme-main-bis) !default
 $tag-color: var(--text) !default
 $tag-radius: var(--radius) !default
 $tag-delete-margin: 1px !default
 $tag-font-size: var(--size-small) !default
 
+$tag-focus-background-color: var(--scheme-main-ter) !default
+$tag-active-background-color: var(--scheme-main-ter) !default
+
 $tag-colors: vars.$colors !default
 
 // Map Local variables
-$_css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $tag-color, 'tag-radius': $tag-radius, 'tag-font-size': $tag-font-size, 'tag-delete-margin': $tag-delete-margin)
+$_css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $tag-color, 'tag-radius': $tag-radius, 'tag-font-size': $tag-font-size, 'tag-delete-margin': $tag-delete-margin, 'tag-focus-background-color': $tag-focus-background-color, 'tag-active-background-color': $tag-active-background-color)
 +utilities.exportCSSVars($_css-vars-map)
 +utilities.registerComponentCSSVars(('tag', 'tags'), $_css-vars-map)
 // --tag-background-color: #{$tag-background-color}
@@ -138,10 +141,9 @@ $_css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
       width: 1px
     &:hover,
     &:focus
-      // TTODO: make vwork with ar()
-      background-color: utilities.bulmaDarken($tag-background-color, 5%)
+      background-color: var(--tag-focus-background-color)
     &:active
-      background-color: utilities.bulmaDarken($tag-background-color, 10%)
+      background-color: var(--tag-active-background-color)
   &.is-rounded
     border-radius: var(--radius-rounded)
 

@@ -10,7 +10,7 @@ $button-family: false !default
 $button-border-color: var(--border) !default
 $button-border-width: var(--control-border-width) !default
 
-$button-padding-vertical: calc(0.5em - #{$button-border-width}) !default
+$button-padding-vertical: calc(0.5em - var(--button-border-width)) !default
 $button-padding-horizontal: 1em !default
 
 $button-hover-color: var(--link-hover) !default
@@ -19,8 +19,7 @@ $button-hover-border-color: var(--link-hover-border) !default
 $button-focus-color: var(--link-focus) !default
 $button-focus-border-color: var(--link-focus-border) !default
 $button-focus-box-shadow-size: 0 0 0 0.125em !default
-$button-focus-box-shadow-color-hsla: utilities.bulmaVarOpacity(link, 0.25) !default // has to be declared in css vars
-$button-focus-box-shadow-color: var(--button-focus-box-shadow-color-hsla) !default
+$button-focus-box-shadow-color: rgba(var(--scheme-invert-rgb), 0.25) !default
 
 $button-active-color: var(--link-active) !default
 $button-active-border-color: var(--link-active-border) !default
@@ -62,7 +61,7 @@ $button-responsive-sizes: ("mobile": ("small": (vars.$size-small * 0.75), "norma
   --button-font-size: var(--size-large)
 
 // Map Local variables
-$_css-vars-map: ('button-color': $button-color, 'button-background-color': $button-background-color, 'button-family': $button-family, 'button-border-color': $button-border-color, 'button-border-width': $button-border-width, 'button-padding-vertical': $button-padding-vertical, 'button-padding-horizontal': $button-padding-horizontal, 'button-hover-color': $button-hover-color, 'button-hover-border-color': $button-hover-border-color, 'button-focus-color': $button-focus-color, 'button-focus-border-color': $button-focus-border-color, 'button-focus-box-shadow-size': $button-focus-box-shadow-size, 'button-focus-box-shadow-color-hsla': $button-focus-box-shadow-color-hsla, 'button-focus-box-shadow-color': $button-focus-box-shadow-color, 'button-active-color': $button-active-color, 'button-active-border-color': $button-active-border-color, 'button-text-color': $button-text-color, 'button-text-decoration': $button-text-decoration, 'button-text-hover-background-color': $button-text-hover-background-color, 'button-text-hover-color': $button-text-hover-color, 'button-ghost-background': $button-ghost-background, 'button-ghost-border-color': $button-ghost-border-color, 'button-ghost-color': $button-ghost-color, 'button-ghost-decoration': $button-ghost-decoration, 'button-ghost-hover-color': $button-ghost-hover-color, 'button-ghost-hover-decoration': $button-ghost-hover-decoration, 'button-disabled-background-color': $button-disabled-background-color, 'button-disabled-border-color': $button-disabled-border-color, 'button-disabled-shadow': $button-disabled-shadow, 'button-disabled-opacity': $button-disabled-opacity, 'button-static-color': $button-static-color, 'button-static-background-color': $button-static-background-color, 'button-static-border-color': $button-static-border-color)
+$_css-vars-map: ('button-color': $button-color, 'button-background-color': $button-background-color, 'button-family': $button-family, 'button-border-color': $button-border-color, 'button-border-width': $button-border-width, 'button-padding-vertical': $button-padding-vertical, 'button-padding-horizontal': $button-padding-horizontal, 'button-hover-color': $button-hover-color, 'button-hover-border-color': $button-hover-border-color, 'button-focus-color': $button-focus-color, 'button-focus-border-color': $button-focus-border-color, 'button-focus-box-shadow-size': $button-focus-box-shadow-size, 'button-focus-box-shadow-color': $button-focus-box-shadow-color, 'button-active-color': $button-active-color, 'button-active-border-color': $button-active-border-color, 'button-text-color': $button-text-color, 'button-text-decoration': $button-text-decoration, 'button-text-hover-background-color': $button-text-hover-background-color, 'button-text-hover-color': $button-text-hover-color, 'button-ghost-background': $button-ghost-background, 'button-ghost-border-color': $button-ghost-border-color, 'button-ghost-color': $button-ghost-color, 'button-ghost-decoration': $button-ghost-decoration, 'button-ghost-hover-color': $button-ghost-hover-color, 'button-ghost-hover-decoration': $button-ghost-hover-decoration, 'button-disabled-background-color': $button-disabled-background-color, 'button-disabled-border-color': $button-disabled-border-color, 'button-disabled-shadow': $button-disabled-shadow, 'button-disabled-opacity': $button-disabled-opacity, 'button-static-color': $button-static-color, 'button-static-background-color': $button-static-background-color, 'button-static-border-color': $button-static-border-color)
 +utilities.exportCSSVars($_css-vars-map)
 +utilities.registerComponentCSSVars("button", $_css-vars-map)
 // --button-color: #{$button-color}
@@ -77,7 +76,6 @@ $_css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
 // --button-focus-color: #{$button-focus-color}
 // --button-focus-border-color: #{$button-focus-border-color}
 // --button-focus-box-shadow-size: #{$button-focus-box-shadow-size}
-// --button-focus-box-shadow-color-hsla: #{$button-focus-box-shadow-color-hsla}
 // --button-focus-box-shadow-color: #{$button-focus-box-shadow-color}
 // --button-active-color: #{$button-active-color}
 // --button-active-border-color: #{$button-active-border-color}

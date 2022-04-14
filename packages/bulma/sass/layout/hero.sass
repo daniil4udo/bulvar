@@ -86,7 +86,6 @@ $_css-vars-map: ('hero-body-padding': $hero-body-padding, 'hero-body-padding-tab
               border-color: var(--#{$name}-invert)
               color: var(--#{$name})
       // Modifiers
-      // TODO:
       @if meta.type-of($color) == 'color'
         &.is-bold
           $adjusted-h: calc(var(--#{$name}-h) - 10deg)
