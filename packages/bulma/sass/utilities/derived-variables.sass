@@ -56,14 +56,15 @@ $scheme-main: $white !default
 $scheme-main-bis: $white-bis !default
 $scheme-main-ter: $white-ter !default
 $scheme-invert: $black !default
-$scheme-invert-rgb: fn.bulmaToRGB($black) !default
+$scheme-invert-rgb: fn.bulmaToRGB($scheme-invert) !default
 $scheme-invert-bis: $black-bis !default
 $scheme-invert-ter: $black-ter !default
 
 $background: $white-ter !default
+$background-rgb: fn.bulmaToRGB($background) !default
 
 $border: $grey-lighter !default
-$border-rgb: fn.bulmaToRGB($grey-lighter) !default
+$border-rgb: fn.bulmaToRGB($border) !default
 $border-hover: $grey-light !default
 $border-light: $grey-lightest !default
 $border-light-hover: $grey-light !default
@@ -86,7 +87,7 @@ $pre-background: var(--background) !default
 // Link colors
 
 $link: $blue !default
-$link-rgb: fn.bulmaToRGB($blue) !default
+$link-rgb: fn.bulmaToRGB($link) !default
 $link-invert: fn.findColorInvert($link, $blue) !default
 $link-light: fn.findLightColor($link, $blue) !default
 $link-dark: fn.findDarkColor($link, $blue) !default
