@@ -46,7 +46,7 @@ $button-static-background-color: var(--scheme-main-ter) !default
 $button-static-border-color: var(--border) !default
 
 $button-colors: vars.$colors !default
-$button-responsive-sizes: ("mobile": ("small": (vars.$size-small * 0.75), "normal": (vars.$size-small * 0.875), "medium": vars.$size-small, "large": vars.$size-normal), "tablet-only": ("small": (vars.$size-small * 0.875), "normal": (vars.$size-small), "medium": vars.$size-normal, "large": vars.$size-medium)) !default
+$button-responsive-sizes: ("mobile": ("small": calc(var(--size-small) * 0.75), "normal": calc(var(--size-small) * 0.875), "medium": var(--size-small), "large": var(--size-normal)), "tablet-only": ("small": calc(var(--size-small) * 0.875), "normal": (var(--size-small)), "medium": var(--size-normal), "large": var(--size-medium))) !default
 
 // The button sizes use mixins so they can be used at different breakpoints
 =button-small

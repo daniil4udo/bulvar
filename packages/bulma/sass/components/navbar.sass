@@ -162,7 +162,7 @@ $-css-vars-map: ("navbar-background-color": $navbar-background-color, "navbar-bo
         .navbar-dropdown
           a.navbar-item
             &.is-active
-              background-color: $color
+              background-color: var(--#{$name})
               color: var(--#{$name}-invert)
   & > .container
     align-items: stretch
