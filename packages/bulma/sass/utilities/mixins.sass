@@ -219,17 +219,17 @@
 =ltr-property($property, $spacing, $right: true)
   $normal: if($right, "right", "left")
   $opposite: if($right, "left", "right")
-  @if vars.$rtl
+  +rtl
     #{$property}-#{$opposite}: $spacing
-  @else
+  +ltr
     #{$property}-#{$normal}: $spacing
 
 =ltr-position($spacing, $right: true)
   $normal: if($right, "right", "left")
   $opposite: if($right, "left", "right")
-  @if vars.$rtl
+  +rtl
     #{$opposite}: $spacing
-  @else
+  +ltr
     #{$normal}: $spacing
 
 // Placeholders
