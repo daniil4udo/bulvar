@@ -379,9 +379,10 @@
 // 🧩 register var() JUST(⚠️) for colors in $colors map
 
 =registerCSSVarColor($name, $components, $prefix: '')
-  $color: list.nth($components, 1)
   $base: $prefix + $name
 
+  // Base color
+  $color: list.nth($components, 1)
   --#{$base}-h: #{color.hue($color)}
   --#{$base}-s: #{color.saturation($color)}
   --#{$base}-l: #{color.lightness($color)}

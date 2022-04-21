@@ -19,7 +19,7 @@ $datepicker-item-selected-background-color: var(--primary) !default;
 $datepicker-colors: bulma-form.$form-colors !default;
 
 // Map Local variables
-$_css-vars-map: (
+$-css-vars-map: (
     "datepicker-background-color": $datepicker-background-color,
     "datepicker-radius": $datepicker-radius,
     "datepicker-shadow": $datepicker-shadow,
@@ -34,8 +34,8 @@ $_css-vars-map: (
 );
 
 // Register & Export CSS Variabless
-@include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars("datepicker", $_css-vars-map);
+@include bulma-utilities.exportCSSVars($-css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("datepicker", $-css-vars-map);
 
 .datepicker {
     font-size: 0.875rem;

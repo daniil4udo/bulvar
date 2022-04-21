@@ -46,7 +46,7 @@ module.exports = {
         'declaration-block-no-redundant-longhand-properties': null,
         'rule-empty-line-before': null,
         'custom-property-empty-line-before': null,
-        
+
         // 'color-function-notation': null,
         // 'hue-degree-notation': null,
         'property-no-vendor-prefix': null,
@@ -70,9 +70,9 @@ module.exports = {
                 ignore: ['comments'],
             },
         ],
-        
+
         'selector-type-no-unknown':[
-            true, 
+            true,
             { ignoreTypes: [':root'] }
         ],
     }

@@ -12,9 +12,9 @@ $select-focus-box-shadow-size: var(--input-focus-box-shadow-size)
 $select-colors: form-shared.$form-colors !default
 
 // Map Local variables
-$_css-vars-map: ('select-arrow-color': $select-arrow-color, 'select-disabled-border-color': $select-disabled-border-color, 'select-hover-color': $select-hover-color, 'select-disabled-color': $select-disabled-color, 'select-focus-box-shadow-size': $select-focus-box-shadow-size)
-+utilities.exportCSSVars($_css-vars-map)
-+utilities.registerComponentCSSVars("select", $_css-vars-map)
+$-css-vars-map: ('select-arrow-color': $select-arrow-color, 'select-disabled-border-color': $select-disabled-border-color, 'select-hover-color': $select-hover-color, 'select-disabled-color': $select-disabled-color, 'select-focus-box-shadow-size': $select-focus-box-shadow-size)
++utilities.exportCSSVars($-css-vars-map)
++utilities.registerComponentCSSVars("select", $-css-vars-map)
 // --select-arrow-color: #{$input-arrow-color}
 // --select-disabled-border-color: #{$input-disabled-border-color}
 // --select-hover-color: #{$input-hover-color}

@@ -23,9 +23,9 @@ $file-icon-font-size: 14px !default
 $file-colors: form-shared.$form-colors !default
 
 // Map Local variables
-$_css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-radius, 'file-cta-background-color': $file-cta-background-color, 'file-cta-color': $file-cta-color, 'file-cta-hover-color': $file-cta-hover-color, 'file-cta-hover-background-color': $file-cta-hover-background-color, 'file-cta-active-color': $file-cta-active-color, 'file-cta-active-background-color': $file-cta-active-background-color, 'file-name-border-color': $file-name-border-color, 'file-name-border-style': $file-name-border-style, 'file-name-border-width': $file-name-border-width, 'file-name-max-width': $file-name-max-width, 'file-icon-font-size': $file-icon-font-size)
-+utilities.exportCSSVars($_css-vars-map)
-+utilities.registerComponentCSSVars("file", $_css-vars-map)
+$-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-radius, 'file-cta-background-color': $file-cta-background-color, 'file-cta-color': $file-cta-color, 'file-cta-hover-color': $file-cta-hover-color, 'file-cta-hover-background-color': $file-cta-hover-background-color, 'file-cta-active-color': $file-cta-active-color, 'file-cta-active-background-color': $file-cta-active-background-color, 'file-name-border-color': $file-name-border-color, 'file-name-border-style': $file-name-border-style, 'file-name-border-width': $file-name-border-width, 'file-name-max-width': $file-name-max-width, 'file-icon-font-size': $file-icon-font-size)
++utilities.exportCSSVars($-css-vars-map)
++utilities.registerComponentCSSVars("file", $-css-vars-map)
 // --file-border-color: #{$file-border-color}
 // --file-radius: #{$file-radius}
 // --file-cta-background-color: #{$file-cta-background-color}

@@ -4,14 +4,14 @@ $colorpicker-radius: var(--dropdown-content-radius) !default;
 $colorpicker-hue-selected-stroke: var(--primary) !default;
 
 // Map Local variables
-$_css-vars-map: (
+$-css-vars-map: (
     "colorpicker-radius": $colorpicker-radius,
     "colorpicker-hue-selected-stroke": $colorpicker-hue-selected-stroke,
 );
 
 // Register CSS Variables
-@include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars("colorpicker", $_css-vars-map);
+@include bulma-utilities.exportCSSVars($-css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("colorpicker", $-css-vars-map);
 
 // TODO: submit PR to rename to b-colorpicker
 .b-colorpicker, .colorpicker {

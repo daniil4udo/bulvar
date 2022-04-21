@@ -15,9 +15,9 @@ $tag-active-background-color: var(--scheme-main-ter) !default
 $tag-colors: vars.$colors !default
 
 // Map Local variables
-$_css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $tag-color, 'tag-radius': $tag-radius, 'tag-font-size': $tag-font-size, 'tag-delete-margin': $tag-delete-margin, 'tag-focus-background-color': $tag-focus-background-color, 'tag-active-background-color': $tag-active-background-color)
-+utilities.exportCSSVars($_css-vars-map)
-+utilities.registerComponentCSSVars(('tag', 'tags'), $_css-vars-map)
+$-css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $tag-color, 'tag-radius': $tag-radius, 'tag-font-size': $tag-font-size, 'tag-delete-margin': $tag-delete-margin, 'tag-focus-background-color': $tag-focus-background-color, 'tag-active-background-color': $tag-active-background-color)
++utilities.exportCSSVars($-css-vars-map)
++utilities.registerComponentCSSVars(('tag', 'tags'), $-css-vars-map)
 // --tag-background-color: #{$tag-background-color}
 // --tag-color: #{$tag-color}
 // --tag-radius: #{$tag-radius}

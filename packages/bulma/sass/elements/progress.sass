@@ -13,9 +13,9 @@ $progress-indeterminate-duration: 1.5s !default
 $progress-colors: vars.$colors !default
 
 // Map Local variables
-$_css-vars-map: ('progress-height': $progress-height, 'progress-bar-background-color': $progress-bar-background-color, 'progress-value-background-color': $progress-value-background-color, 'progress-border-radius': $progress-border-radius, 'progress-indeterminate-duration': $progress-indeterminate-duration)
-+utilities.exportCSSVars($_css-vars-map)
-+utilities.registerComponentCSSVars("progress", $_css-vars-map)
+$-css-vars-map: ('progress-height': $progress-height, 'progress-bar-background-color': $progress-bar-background-color, 'progress-value-background-color': $progress-value-background-color, 'progress-border-radius': $progress-border-radius, 'progress-indeterminate-duration': $progress-indeterminate-duration)
++utilities.exportCSSVars($-css-vars-map)
++utilities.registerComponentCSSVars("progress", $-css-vars-map)
 // --progress-height: #{$progress-height}
 // --progress-bar-background-color: #{$progress-bar-background-color}
 // --progress-value-background-color: #{$progress-value-background-color}

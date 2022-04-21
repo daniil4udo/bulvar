@@ -18,7 +18,7 @@ $checkbox-padding: var(--control-padding-horizontal) !default;
 $checkbox-colors: bulma-form.$form-colors !default;
 
 // Map Local variables
-$_css-vars-map: (
+$-css-vars-map: (
     "checkbox-active-background-color": $checkbox-active-background-color,
     "checkbox-focus-box-shadow-color-hsla": $checkbox-focus-box-shadow-color-hsla,
     "checkbox-focus-box-shadow-color": $checkbox-focus-box-shadow-color,
@@ -32,8 +32,8 @@ $_css-vars-map: (
 );
 
 // Register & Export CSS Variabless
-@include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars("checkbox", $_css-vars-map);
+@include bulma-utilities.exportCSSVars($-css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("checkbox", $-css-vars-map);
 
 .b-checkbox {
     &.checkbox {

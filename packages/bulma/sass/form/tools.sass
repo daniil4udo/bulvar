@@ -12,9 +12,9 @@ $help-font-size: var(--size-small) !default
 $label-colors: form-shared.$form-colors !default
 
 // Map Local variables
-$_css-vars-map: ("label-font-size": $label-font-size, "label-color": $label-color, "label-weight": $label-weight)
-+utilities.exportCSSVars($_css-vars-map)
-+utilities.registerComponentCSSVars("label", $_css-vars-map)
+$-css-vars-map: ("label-font-size": $label-font-size, "label-color": $label-color, "label-weight": $label-weight)
++utilities.exportCSSVars($-css-vars-map)
++utilities.registerComponentCSSVars("label", $-css-vars-map)
 // --label-font-size: #{$label-font-size}
 // --label-color: #{$label-color}
 // --label-weight: #{$label-weight}
@@ -30,9 +30,9 @@ $_css-vars-map: ("label-font-size": $label-font-size, "label-color": $label-colo
   +utilities.control-sizes(label-font-size)
 
 // Map Local variables
-$_css-vars-map: ("help-font-size": $help-font-size)
-+utilities.exportCSSVars($_css-vars-map)
-+utilities.registerComponentCSSVars("help", $_css-vars-map)
+$-css-vars-map: ("help-font-size": $help-font-size)
++utilities.exportCSSVars($-css-vars-map)
++utilities.registerComponentCSSVars("help", $-css-vars-map)
 // --help-font-size: #{$help-font-size}
 
 .help
@@ -184,9 +184,9 @@ $control-padding-horizontal: calc(0.75em - var(--control-border-width)) !default
 $control-font-size: var(--size-normal) !default
 
 // Map Local variables
-$_css-vars-map: ("control-radius": $control-radius, "control-radius-small": $control-radius-small, "control-border-width": $control-border-width, "control-height": $control-height, "control-line-height": $control-line-height, "control-padding-vertical": $control-padding-vertical, "control-padding-horizontal": $control-padding-horizontal, "control-font-size": $control-font-size)
-+utilities.exportCSSVars($_css-vars-map)
-+utilities.registerComponentCSSVars(null, $_css-vars-map)
+$-css-vars-map: ("control-radius": $control-radius, "control-radius-small": $control-radius-small, "control-border-width": $control-border-width, "control-height": $control-height, "control-line-height": $control-line-height, "control-padding-vertical": $control-padding-vertical, "control-padding-horizontal": $control-padding-horizontal, "control-font-size": $control-font-size)
++utilities.exportCSSVars($-css-vars-map)
++utilities.registerComponentCSSVars(null, $-css-vars-map)
 
 .control
   box-sizing: border-box

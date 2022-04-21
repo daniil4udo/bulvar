@@ -9,15 +9,15 @@ $switch-active-background-color: var(--primary) !default;
 $switch-colors: bulma-form.$form-colors !default;
 
 // Map Local variables
-$_css-vars-map: (
+$-css-vars-map: (
     "switch-width": $switch-width,
     "switch-padding": $switch-padding,
     "switch-active-background-color": $switch-active-background-color,
 );
 
 // Register & Export CSS Variabless
-@include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars("switch", $_css-vars-map);
+@include bulma-utilities.exportCSSVars($-css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("switch", $-css-vars-map);
 
 .switch {
     @extend %unselectable;

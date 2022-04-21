@@ -15,7 +15,7 @@ $tabs-toggle-link-focus-active-border-color: bulma-tabs.$tabs-toggle-link-active
 $tabs-toggle-link-focus-border-color: bulma-tabs.$tabs-toggle-link-hover-border-color !default;
 
 // Map Local variables
-$_css-vars-map: (
+$-css-vars-map: (
     "tabs-focused-outline": $tabs-focused-outline,
     "tabs-items-focused-outline": $tabs-items-focused-outline,
     "tabs-link-focus-active-border-bottom-color": $tabs-link-focus-active-border-bottom-color,
@@ -30,9 +30,9 @@ $_css-vars-map: (
     "tabs-toggle-link-focus-border-color": $tabs-toggle-link-focus-border-color,
 );
 
-// Register & Export CSS Variabless
-@include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars("b-tabs", $_css-vars-map);
+// Register & Export CSS Variables
+@include bulma-utilities.exportCSSVars($-css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("b-tabs", $-css-vars-map);
 
 .b-tabs {
     .tabs {

@@ -9,7 +9,7 @@ $skeleton-margin-top: .5rem !default;
 $skeleton-line-height-size: var(--size-normal) !default;
 
 // Map Local variables
-$_css-vars-map: (
+$-css-vars-map: (
     "skeleton-background": $skeleton-background,
     "skeleton-border-radius": $skeleton-border-radius,
     "skeleton-duration": $skeleton-duration,
@@ -18,8 +18,8 @@ $_css-vars-map: (
 );
 
 // Register & Export CSS Variabless
-@include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars("b-skeleton", $_css-vars-map);
+@include bulma-utilities.exportCSSVars($-css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("b-skeleton", $-css-vars-map);
 
 .b-skeleton {
     display: inline-flex;

@@ -3,13 +3,13 @@
 $modal-background-color: var(--background) !default;
 
 // Map Local variables
-$_css-vars-map: (
+$-css-vars-map: (
     "modal-background-color": $modal-background-color,
 );
 
 // Register & Export CSS Variabless
-@include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars("modal", $_css-vars-map);
+@include bulma-utilities.exportCSSVars($-css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("modal", $-css-vars-map);
 
 .modal {
     &.is-full-screen {

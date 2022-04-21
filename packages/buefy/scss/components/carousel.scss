@@ -18,7 +18,7 @@ $carousel-overlay-background: rgba(var(--scheme-invert-rgb), 0.86) !default;
 $carousel-overlay-z: 40 !default;
 
 // Map Local variables
-$_css-vars-map: (
+$-css-vars-map: (
     "carousel-min-height": $carousel-min-height,
     "carousel-arrow-background": $carousel-arrow-background,
     "carousel-arrow-color": $carousel-arrow-color,
@@ -33,8 +33,8 @@ $_css-vars-map: (
 );
 
 // Register CSS Variables
-@include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars("carousel", $_css-vars-map);
+@include bulma-utilities.exportCSSVars($-css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("carousel", $-css-vars-map);
 
 .carousel {
     @extend %unselectable;

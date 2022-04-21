@@ -5,13 +5,13 @@
 $table-sticky-header-height: 300px !default;
 
 // Map Local variables
-$_css-vars-map: (
+$-css-vars-map: (
     "table-sticky-header-height": $table-sticky-header-height,
 );
 
 // Register & Export CSS Variabless
-@include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars("b-table", $_css-vars-map);
+@include bulma-utilities.exportCSSVars($-css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("b-table", $-css-vars-map);
 
 @mixin table-cards {
     .table {

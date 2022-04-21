@@ -14,14 +14,14 @@ $tooltip-multiline-sizes: (
 $tooltip-colors: bulma-form.$form-colors !default;
 
 // Map Local variables
-$_css-vars-map: (
+$-css-vars-map: (
     "tooltip-arrow-size": $tooltip-arrow-size,
     "tooltip-arrow-margin": $tooltip-arrow-margin,
 );
 
 // Register & Export CSS Variabless
-@include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars("b-tooltip", $_css-vars-map);
+@include bulma-utilities.exportCSSVars($-css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("b-tooltip", $-css-vars-map);
 
 @mixin tooltip-arrow-color($direction, $color) {
     @if  $direction == "is-top" {

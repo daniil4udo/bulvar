@@ -14,7 +14,7 @@ $sidebar-mobile-breakpoint: bulma-vars.$tablet !default;
 $sidebar-colors: bulma-navbar.$navbar-colors !default;
 
 // Map Local variables
-$_css-vars-map: (
+$-css-vars-map: (
     "sidebar-background": $sidebar-background,
     "sidebar-shadow-color": $sidebar-shadow-color,
     "sidebar-box-shadow": $sidebar-box-shadow,
@@ -24,8 +24,8 @@ $_css-vars-map: (
 );
 
 // Register & Export CSS Variabless
-@include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars("b-sidebar", $_css-vars-map);
+@include bulma-utilities.exportCSSVars($-css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("b-sidebar", $-css-vars-map);
 
 .b-sidebar {
     .sidebar-content {

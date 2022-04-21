@@ -13,9 +13,9 @@ $hero-body-padding-large: 18rem 6rem !default
 $hero-colors: vars.$colors !default
 
 // Map Local variables
-$_css-vars-map: ('hero-body-padding': $hero-body-padding, 'hero-body-padding-tablet': $hero-body-padding-tablet, 'hero-body-padding-small': $hero-body-padding-small, 'hero-body-padding-medium': $hero-body-padding-medium, 'hero-body-padding-large': $hero-body-padding-large)
-+utilities.exportCSSVars($_css-vars-map)
-+utilities.registerComponentCSSVars("hero", $_css-vars-map)
+$-css-vars-map: ('hero-body-padding': $hero-body-padding, 'hero-body-padding-tablet': $hero-body-padding-tablet, 'hero-body-padding-small': $hero-body-padding-small, 'hero-body-padding-medium': $hero-body-padding-medium, 'hero-body-padding-large': $hero-body-padding-large)
++utilities.exportCSSVars($-css-vars-map)
++utilities.registerComponentCSSVars("hero", $-css-vars-map)
 // --hero-body-padding: #{$hero-body-padding}
 // --hero-body-padding-tablet: #{$hero-body-padding-tablet}
 // --hero-body-padding-small: #{$hero-body-padding-small}
@@ -88,15 +88,15 @@ $_css-vars-map: ('hero-body-padding': $hero-body-padding, 'hero-body-padding-tab
       // Modifiers
       @if meta.type-of($color) == 'color'
         &.is-bold
-          $adjusted-h: calc(var(--#{$name}-h) - 10deg)
-          $adjusted-s: calc(var(--#{$name}-s) + 10%)
-          $adjusted-l: calc(var(--#{$name}-l) - 10%)
-          $gradient-top-left: hsla($adjusted-h, $adjusted-s, $adjusted-l, var(--#{$name}-a))
+          $-adjusted-h: calc(var(--#{$name}-h) - 10deg)
+          $-adjusted-s: calc(var(--#{$name}-s) + 10%)
+          $-adjusted-l: calc(var(--#{$name}-l) - 10%)
+          $gradient-top-left: hsla($-adjusted-h, $-adjusted-s, $-adjusted-l, var(--#{$name}-a))
 
-          $adjusted-h: calc(var(--#{$name}-h) + 10deg)
-          $adjusted-s: calc(var(--#{$name}-s) + 5% )
-          $adjusted-l: calc(var(--#{$name}-l) + 5%)
-          $gradient-bottom-right: hsla($adjusted-h, $adjusted-s, $adjusted-l, var(--#{$name}-a))
+          $-adjusted-h: calc(var(--#{$name}-h) + 10deg)
+          $-adjusted-s: calc(var(--#{$name}-s) + 5% )
+          $-adjusted-l: calc(var(--#{$name}-l) + 5%)
+          $gradient-bottom-right: hsla($-adjusted-h, $-adjusted-s, $-adjusted-l, var(--#{$name}-a))
 
           // $gradient-top-left: darken(saturate(adjust-hue($color, -10deg), 10%), 10%)
           // $gradient-bottom-right: lighten(saturate(adjust-hue($color, 10deg), 5%), 5%)

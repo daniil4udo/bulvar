@@ -7,13 +7,13 @@ $clockpicker-card-radius: var(--card-radius);
 $clockpicker-colors: bulma-form.$form-colors !default;
 
 // Map Local variables
-$_css-vars-map: (
+$-css-vars-map: (
     "clockpicker-card-radius": $clockpicker-card-radius
 );
 
 // Register & Export CSS Variabless
-@include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars("b-clockpicker", $_css-vars-map);
+@include bulma-utilities.exportCSSVars($-css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("b-clockpicker", $-css-vars-map);
 
 .b-clockpicker {
     // Clockpicker variables defined here as exact numbers

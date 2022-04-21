@@ -80,31 +80,31 @@
   @return (map.get($color-rgb, 'red') * .2126) + (map.get($color-rgb, 'green') * .7152) + (map.get($color-rgb, 'blue') * .0722)
 
 /// Invert color calculation
-@function calculateInvertColor($color)
+@function _calculateInvertColor($color)
   @return if(colorLuminance($color) > 0.55, #{var(--invert-dark-colors)}, #{var(--invert-light-colors)})
 
 @function findColorInvert($color, $fallback: null)
   @if meta.type-of($color) == 'color'
-    @return calculateInvertColor($color)
+    @return _calculateInvertColor($color)
   @else if meta.type-of($fallback) == 'color'
-    @return calculateInvertColor($fallback)
+    @return _calculateInvertColor($fallback)
   @return $color
 
 /// Light color calculation
-@function calculateLightColor($color, $l: 96%)
+@function _calculateLightColor($color, $l: 96%)
   @if color.lightness($color) > 96%
     $l: color.lightness($color)
   @return color.change($color, $lightness: $l)
 
 @function findLightColor($color, $fallback: null)
   @if meta.type-of($color) == 'color'
-    @return calculateLightColor($color)
+    @return _calculateLightColor($color)
   @else if meta.type-of($fallback) == 'color'
-    @return calculateLightColor($fallback)
+    @return _calculateLightColor($fallback)
   @return $color
 
 /// Dark color calculation
-@function calculateDarkColor($color, $base-l: 29%)
+@function _calculateDarkColor($color, $base-l: 29%)
   $luminance: colorLuminance($color)
   $luminance-delta: (0.53 - $luminance)
   $target-l: math.round($base-l + ($luminance-delta * 53))
@@ -112,9 +112,9 @@
 
 @function findDarkColor($color, $fallback: null)
   @if meta.type-of($color) == 'color'
-    @return calculateDarkColor($color)
+    @return _calculateDarkColor($color)
   @else if meta.type-of($fallback) == 'color'
-    @return calculateDarkColor($fallback)
+    @return _calculateDarkColor($fallback)
   @return $color
 
 @function bulmaRgba($color, $alpha)

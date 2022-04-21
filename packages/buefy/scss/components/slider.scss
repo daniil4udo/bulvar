@@ -25,7 +25,7 @@ $slider-mark-size: 0.75rem !default;
 $slider-colors: bulma-form.$form-colors !default;
 
 // Map Local variables
-$_css-vars-map: (
+$-css-vars-map: (
     "slider-radius": $slider-radius,
     "slider-size": $slider-size,
     "slider-track-background": $slider-track-background,
@@ -47,8 +47,8 @@ $_css-vars-map: (
 );
 
 // Register & Export CSS Variabless
-@include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars("b-slider", $_css-vars-map);
+@include bulma-utilities.exportCSSVars($-css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("b-slider", $-css-vars-map);
 
 @mixin slider-size {
 	$track-height: calc(var(--slider-size) / var(--slider-thumb-to-track-ratio));

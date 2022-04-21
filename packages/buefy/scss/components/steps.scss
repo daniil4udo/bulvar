@@ -29,7 +29,7 @@ $steps-mobile-max-width: bulma-vars.$tablet !default;
 $steps-colors: bulma-form.$form-colors !default;
 
 // Map Local variables
-$_css-vars-map: (
+$-css-vars-map: (
     "steps-size": $steps-size,
     "steps-height": $steps-height,
     "steps-background-color": $steps-background-color,
@@ -47,8 +47,8 @@ $_css-vars-map: (
 );
 
 // Register & Export CSS Variabless
-@include bulma-utilities.exportCSSVars($_css-vars-map);
-@include bulma-utilities.registerComponentCSSVars("b-steps", $_css-vars-map);
+@include bulma-utilities.exportCSSVars($-css-vars-map);
+@include bulma-utilities.registerComponentCSSVars("b-steps", $-css-vars-map);
 
 @mixin steps-size {
     .steps {
