@@ -101,6 +101,8 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
   @extend %control
   @extend %unselectable
   background-color: var(--button-background-color)
+  transition: color calc(2 * var(--speed)) var(--easing)
+  transition: background-color calc(2 * var(--speed)) var(--easing)
   border-color: var(--button-border-color)
   border-width: var(--button-border-width)
   color: var(--button-color)
