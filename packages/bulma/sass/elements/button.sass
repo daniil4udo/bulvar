@@ -158,12 +158,12 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
     &.is-hovered,
     &:focus,
     &.is-focused
-      background-color: var(--button-text-hover-background-color)
-      color: var(--button-text-hover-color)
+      background-color: var(--white-ter)
+      color: var(--text-strong)
     &:active,
     &.is-active
-      background-color: utilities.bulmaDarken($button-text-hover-background-color, 5%)
-      color: var(--button-text-hover-color)
+      background-color: var(--grey-lightest)
+      color: var(--text-strong)
     &[disabled],
     fieldset[disabled] &
       background-color: transparent
@@ -182,15 +182,12 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
     $color: list.nth($pair, 1)
     $color-invert: list.nth($pair, 2)
     &.is-#{$name}
-      --hover-background-color: #{utilities.bulmaVarDarken($name, 2.5%)}
-      --focus-box-shadow-color: #{utilities.bulmaVarOpacity($name, 0.25)}
-      --active-background-color: #{utilities.bulmaVarDarken($name, 5%)}
       background-color: var(--#{$name})
       border-color: transparent
       color: var(--#{$name}-invert)
       &:hover,
       &.is-hovered
-        background-color: var(--hover-background-color)
+        background-color: #{utilities.bulmaVarDarken($name, 2.5%)}
         border-color: transparent
         color: var(--#{$name}-invert)
       &:focus,
@@ -198,10 +195,10 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
         border-color: transparent
         color: var(--#{$name}-invert)
         &:not(:active)
-          box-shadow: var(--button-focus-box-shadow-size) var(--focus-box-shadow-color)
+          box-shadow: var(--button-focus-box-shadow-size) #{utilities.bulmaVarOpacity($name, 0.25)}
       &:active,
       &.is-active
-        background-color: var(--active-background-color)
+        background-color: #{utilities.bulmaVarDarken($name, 5%)}
         border-color: transparent
         color: var(--#{$name}-invert)
       &[disabled],
@@ -278,18 +275,16 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
         $color-light: list.nth($pair, 3)
         $color-dark: list.nth($pair, 4)
         &.is-light
-          --hover-background-color: #{utilities.bulmaVarLighteness($name, calc(var(--#{$name}-light-l) - 2.5%))}
-          --active-background-color: #{utilities.bulmaVarLighteness($name, calc(var(--#{$name}-light-l) - 5%))}
           background-color: var(--#{$name}-light)
           color: var(--#{$name}-dark)
           &:hover,
           &.is-hovered
-            background-color: var(--hover-background-color)
+            background-color: #{utilities.bulmaVarLighteness($name, calc(var(--#{$name}-light-l) - 2.5%))}
             border-color: transparent
             color: var(--#{$name}-dark)
           &:active,
           &.is-active
-            background-color: var(--active-background-color)
+            background-color: #{utilities.bulmaVarLighteness($name, calc(var(--#{$name}-light-l) - 5%))}
             border-color: transparent
             color: var(--#{$name}-dark)
   // Sizes

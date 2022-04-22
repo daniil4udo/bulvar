@@ -65,20 +65,18 @@ $-css-vars-map: ('select-arrow-color': $select-arrow-color, 'select-disabled-bor
   @each $name, $pair in $select-colors
     $color: list.nth($pair, 1)
     &.is-#{$name}
-      --hover-border-color: #{utilities.bulmaVarDarken($name, 5%)}
-      --focus-box-shadow-color: #{utilities.bulmaVarOpacity($name, 0.25)}
       &:not(:hover)::after
         border-color: var(--#{$name})
       select
         border-color: var(--#{$name})
         &:hover,
         &.is-hovered
-          border-color: var(--hover-border-color)
+          border-color: #{utilities.bulmaVarDarken($name, 5%)}
         &:focus,
         &.is-focused,
         &:active,
         &.is-active
-          box-shadow: var(--select-focus-box-shadow-size) var(--focus-box-shadow-color)
+          box-shadow: var(--select-focus-box-shadow-size) #{utilities.bulmaVarOpacity($name, 0.25)}
   // Sizes
   &.is-small
     border-radius: var(--control-radius-small)

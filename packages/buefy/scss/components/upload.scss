@@ -44,9 +44,8 @@
             @each $name, $pair in bulma-file.$file-colors {
                 $color: list.nth($pair, 1);
                 &.is-#{$name} {
-                    --hover-background-color: #{bulma-utilities.bulmaVarOpacity($name, 0.05)};
                     border-color: var(--#{$name});
-                    background: var(--hover-box-shadow-color);
+                    background: var(--#{$name}-light);
                 }
             }
         }

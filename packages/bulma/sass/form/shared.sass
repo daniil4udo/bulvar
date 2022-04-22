@@ -16,8 +16,7 @@ $input-hover-border-color: var(--border-hover) !default
 $input-focus-color: var(--text-strong) !default
 $input-focus-border-color: var(--link) !default
 $input-focus-box-shadow-size: 0 0 0 0.125em !default
-$input-focus-box-shadow-color-hsla: utilities.bulmaVarOpacity(link, 0.25) !default // has to be declared in css vars
-$input-focus-box-shadow-color: var(--input-focus-box-shadow-color-hsla) !default
+$input-focus-box-shadow-color: rgba(var(--scheme-invert-rgb), 0.25) !default
 
 $input-disabled-color: var(--text-light) !default
 $input-disabled-background-color: var(--background) !default
@@ -35,7 +34,7 @@ $input-radius: var(--radius) !default
 $form-colors: vars.$colors !default
 
 // Map Local variables
-$-css-vars-map: ("input-color": $input-color, "input-background-color": $input-background-color, "input-border-color": $input-border-color, "input-height": $input-height, "input-shadow-color": $input-shadow-color, "input-shadow": $input-shadow, "input-placeholder-color": $input-placeholder-color, "input-placeholder-opacity": $input-placeholder-opacity, "input-hover-color": $input-hover-color, "input-hover-border-color": $input-hover-border-color, "input-focus-color": $input-focus-color, "input-focus-border-color": $input-focus-border-color, "input-focus-box-shadow-size": $input-focus-box-shadow-size, "input-focus-box-shadow-color-hsla": $input-focus-box-shadow-color-hsla, "input-focus-box-shadow-color": $input-focus-box-shadow-color, "input-disabled-color": $input-disabled-color, "input-disabled-background-color": $input-disabled-background-color, "input-disabled-border-color": $input-disabled-border-color, "input-disabled-placeholder-color": $input-disabled-placeholder-color, "input-disabled-placeholder-opacity": $input-disabled-placeholder-opacity, "input-arrow-color": $input-arrow-color, "input-icon-color": $input-icon-color, "input-icon-active-color": $input-icon-active-color, "input-radius": $input-radius)
+$-css-vars-map: ("input-color": $input-color, "input-background-color": $input-background-color, "input-border-color": $input-border-color, "input-height": $input-height, "input-shadow-color": $input-shadow-color, "input-shadow": $input-shadow, "input-placeholder-color": $input-placeholder-color, "input-placeholder-opacity": $input-placeholder-opacity, "input-hover-color": $input-hover-color, "input-hover-border-color": $input-hover-border-color, "input-focus-color": $input-focus-color, "input-focus-border-color": $input-focus-border-color, "input-focus-box-shadow-size": $input-focus-box-shadow-size, "input-focus-box-shadow-color": $input-focus-box-shadow-color, "input-disabled-color": $input-disabled-color, "input-disabled-background-color": $input-disabled-background-color, "input-disabled-border-color": $input-disabled-border-color, "input-disabled-placeholder-color": $input-disabled-placeholder-color, "input-disabled-placeholder-opacity": $input-disabled-placeholder-opacity, "input-arrow-color": $input-arrow-color, "input-icon-color": $input-icon-color, "input-icon-active-color": $input-icon-active-color, "input-radius": $input-radius)
 +utilities.exportCSSVars($-css-vars-map)
 +utilities.registerComponentCSSVars("input", $-css-vars-map)
 // --input-color: #{$input-color}
@@ -50,7 +49,6 @@ $-css-vars-map: ("input-color": $input-color, "input-background-color": $input-b
 // --input-focus-color: #{$input-focus-color}
 // --input-focus-border-color: #{$input-focus-border-color}
 // --input-focus-box-shadow-size: #{$input-focus-box-shadow-size}
-// --input-focus-box-shadow-color-hsla: #{$input-focus-box-shadow-color-hsla}
 // --input-focus-box-shadow-color: #{$input-focus-box-shadow-color}
 // --input-disabled-color: #{$input-disabled-color}
 // --input-disabled-background-color: #{$input-disabled-background-color}

@@ -3,7 +3,7 @@
 @use "shared" as form-shared
 @use "../utilities"
 
-$label-font-size: var(--size-normal) !default
+$label-size: var(--size-normal) !default
 $label-color: var(--text-strong) !default
 $label-weight: var(--weight-bold) !default
 
@@ -12,22 +12,22 @@ $help-font-size: var(--size-small) !default
 $label-colors: form-shared.$form-colors !default
 
 // Map Local variables
-$-css-vars-map: ("label-font-size": $label-font-size, "label-color": $label-color, "label-weight": $label-weight)
+$-css-vars-map: ("label-size": $label-size, "label-color": $label-color, "label-weight": $label-weight)
 +utilities.exportCSSVars($-css-vars-map)
 +utilities.registerComponentCSSVars("label", $-css-vars-map)
-// --label-font-size: #{$label-font-size}
+// --label-size: #{$label-size}
 // --label-color: #{$label-color}
 // --label-weight: #{$label-weight}
 
 .label
   color: var(--label-color)
   display: block
-  font-size: var(--label-font-size)
+  font-size: var(--label-size)
   font-weight: var(--label-weight)
   &:not(:last-child)
     margin-bottom: 0.5em
   // Sizes
-  +utilities.control-sizes(label-font-size)
+  +utilities.control-sizes(label-size)
 
 // Map Local variables
 $-css-vars-map: ("help-font-size": $help-font-size)

@@ -96,15 +96,15 @@ $-css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
     $color: list.nth($pair, 1)
     $color-invert: list.nth($pair, 2)
     &.is-#{$name}
-      --tag-background-color: var(--#{$name})
-      --tag-color: var(--#{$name}-invert)
+      background-color: var(--#{$name})
+      color: var(--#{$name}-invert)
       // If a light and dark colors are provided
       @if list.length($pair) > 3
         $color-light: list.nth($pair, 3)
         $color-dark: list.nth($pair, 4)
         &.is-light
-          --tag-background-color: var(--#{$name}-light)
-          --tag-color: var(--#{$name}-dark)
+          background-color: var(--#{$name}-light)
+          color: var(--#{$name}-dark)
   // Sizes
   +utilities.control-sizes(tag-font-size)
   .icon
