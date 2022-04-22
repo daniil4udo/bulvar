@@ -187,7 +187,14 @@ $-css-vars-map: (
             &.is-selected {
                 .checkbox input {
                     &:checked + .check {
-                        background: var(--table-row-active-color) url(functions.checkmark(bulma-table.$table-row-active-background-color)) no-repeat center center;
+												color: bulma-table.$table-row-active-background-color;
+                        background: var(--table-row-active-color); // url(functions.checkmark(bulma-table.$table-row-active-background-color)) no-repeat center center;
+
+												&::after {
+													position: absolute;
+													top: 0;
+													content: "✓"
+												}
                     }
                     + .check {
                         border-color: var(--table-row-active-color);

@@ -65,29 +65,36 @@ $-css-vars-map: (
                 transition-timing-function: var(--easing);
                 background: var(--checkbox-background-color)
             }
+            &:checked,
+						&:indeterminate {
+							& +.check {
+									background: var(--checkbox-active-background-color); // url(functions.checkmark($checkbox-checkmark-color)) no-repeat center center;
+									color: var(--checkbox-checkmark-color);
+									border-color: var(--checkbox-active-background-color);
+									@each $name, $pair in $checkbox-colors {
+											$color: list.nth($pair, 1);
+											$color-invert: list.nth($pair, 2);
+											&.is-#{$name} {
+													background: var(--#{$name}); // url(functions.checkmark($color-invert)) no-repeat center center;
+													color: var(--#{$name}-invert);
+													border-color: var(--#{$name});
+											}
+									}
+							}
+						}
             &:checked + .check {
-                background: var(--checkbox-active-background-color) url(functions.checkmark($checkbox-checkmark-color)) no-repeat center center;
-                border-color: var(--checkbox-active-background-color);
-                @each $name, $pair in $checkbox-colors {
-                    $color: list.nth($pair, 1);
-                    $color-invert: list.nth($pair, 2);
-                    &.is-#{$name} {
-                        background: var(--#{$name}) url(functions.checkmark($color-invert)) no-repeat center center;
-                        border-color: var(--#{$name});
-                    }
-                }
+								&::after {
+									position: absolute;
+									top: 0;
+									content: "✓"
+								}
             }
             &:indeterminate + .check {
-                background: var(--checkbox-active-background-color) url(functions.indeterminate($checkbox-checkmark-color)) no-repeat center center;
-                border-color: var(--checkbox-active-background-color);
-                @each $name, $pair in $checkbox-colors {
-                    $color: list.nth($pair, 1);
-                    $color-invert: list.nth($pair, 2);
-                    &.is-#{$name} {
-                        background: var(--#{$name}) url(functions.indeterminate($color-invert)) no-repeat center center;
-                        border-color: var(--#{$name});
-                    }
-                }
+								&::after {
+									position: absolute;
+									top: 0;
+									content: "─"
+								}
             }
             &:focus {
                 + .check {
@@ -98,8 +105,7 @@ $-css-vars-map: (
                     @each $name, $pair in $checkbox-colors {
                         $color: list.nth($pair, 1);
                         &.is-#{$name} {
-                            --focus-box-shadow-color: #{bulma-utilities.bulmaVarOpacity($name, 0.8)};
-                            box-shadow: 0 0 0.5em var(--focus-box-shadow-color);
+                            box-shadow: 0 0 0.5em #{bulma-utilities.bulmaVarOpacity($name, 0.8)};
                         }
                     }
                 }
