@@ -29,6 +29,8 @@ $blue-invert: fn.findColorInvert($blue) !default
 $purple-invert: fn.findColorInvert($purple) !default
 $red-invert: fn.findColorInvert($red) !default
 
+// Theme colors
+
 $primary-invert: fn.findColorInvert($primary, $turquoise) !default
 $primary-light: fn.findLightColor($primary, $turquoise) !default
 $primary-dark: fn.findDarkColor($primary, $turquoise) !default
@@ -52,9 +54,14 @@ $dark-invert: fn.findColorInvert($dark, $grey-darker) !default
 
 // General colors
 
+$white-invert: fn.findColorInvert($white)
+$black-invert: fn.findColorInvert($black)
+
 $scheme-main: $white !default
+$scheme-main-rgb: fn.bulmaToRGB($scheme-main) !default
 $scheme-main-bis: $white-bis !default
 $scheme-main-ter: $white-ter !default
+
 $scheme-invert: $black !default
 $scheme-invert-rgb: fn.bulmaToRGB($scheme-invert) !default
 $scheme-invert-bis: $black-bis !default
@@ -68,6 +75,18 @@ $border-rgb: fn.bulmaToRGB($border) !default
 $border-hover: $grey-light !default
 $border-light: $grey-lightest !default
 $border-light-hover: $grey-light !default
+
+// Invert Colors
+
+$invert-dark-color: rgba($black, .7) !default
+$invert-dark-color-rgb: fn.bulmaToRGB($invert-dark-color) !default
+$invert-dark-color-bis: fn.bulmaLighten($invert-dark-color, 5%) !default
+$invert-dark-color-ter: fn.bulmaLighten($invert-dark-color, 10%) !default
+
+$invert-light-color: rgba($white, 1) !default
+$invert-light-color-rgb: fn.bulmaToRGB($invert-light-color) !default
+$invert-light-color-bis: fn.bulmaDarken($invert-light-color, 5%) !default
+$invert-light-color-ter: fn.bulmaDarken($invert-light-color, 10%) !default
 
 // Text colors
 
@@ -122,7 +141,7 @@ $shadow: 0 0.5em 1em -0.125em rgba(var(--scheme-invert-rgb), 0.1), 0 0 0 1px rgb
 $custom-colors: null !default
 $custom-shades: null !default
 
-$colors: fn.mergeColorMaps(("white": ($white, $black), "black": ($black, $white), "light": ($light, $light-invert), "dark": ($dark, $dark-invert), "primary": ($primary, $primary-invert, $primary-light, $primary-dark), "secondary": ($secondary, $secondary-invert, $secondary-light, $secondary-dark), "link": ($link, $link-invert, $link-light, $link-dark), "info": ($info, $info-invert, $info-light, $info-dark), "success": ($success, $success-invert, $success-light, $success-dark), "warning": ($warning, $warning-invert, $warning-light, $warning-dark), "danger": ($danger, $danger-invert, $danger-light, $danger-dark)), $custom-colors) !default
+$colors: fn.mergeColorMaps(("white": ($white, $white-invert), "black": ($black, $black-invert), "light": ($light, $light-invert), "dark": ($dark, $dark-invert), "primary": ($primary, $primary-invert, $primary-light, $primary-dark), "secondary": ($secondary, $secondary-invert, $secondary-light, $secondary-dark), "link": ($link, $link-invert, $link-light, $link-dark), "info": ($info, $info-invert, $info-light, $info-dark), "success": ($success, $success-invert, $success-light, $success-dark), "warning": ($warning, $warning-invert, $warning-light, $warning-dark), "danger": ($danger, $danger-invert, $danger-light, $danger-dark)), $custom-colors) !default
 
 $shades: fn.mergeColorMaps(("black-bis": $black-bis, "black-ter": $black-ter, "grey-darker": $grey-darker, "grey-dark": $grey-dark, "grey": $grey, "grey-light": $grey-light, "grey-lighter": $grey-lighter, "grey-lightest": $grey-lightest, "white-ter": $white-ter, "white-bis": $white-bis), $custom-shades) !default
 

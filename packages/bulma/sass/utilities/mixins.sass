@@ -1,6 +1,7 @@
 @use "sass:color"
 @use "sass:list"
 @use "sass:meta"
+@use "sass:string"
 
 @use "derived-variables" as vars
 @use "functions" as fn
@@ -362,6 +363,8 @@
   // Invert color
   $color-invert: list.nth($components, 2)
   --#{$base}-invert: #{$color-invert}
+  --#{$base}-invert-bis: #{if(string.index($color-invert, 'light'), var(--invert-light-color-bis), var(--invert-dark-color-bis))}
+  --#{$base}-invert-ter: #{if(string.index($color-invert, 'light'), var(--invert-light-color-ter), var(--invert-dark-color-ter))}
 
   // Light color
   $color-light: if(list.length($components) >= 3, list.nth($components, 3), fn.findLightColor($color))

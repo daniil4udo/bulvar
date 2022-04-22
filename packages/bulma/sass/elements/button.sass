@@ -214,7 +214,7 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
         color: var(--#{$name})
         &:hover,
         &.is-hovered
-          background-color: utilities.bulmaDarken($color-invert, 5%)
+          background-color: var(--#{$name}-invert-ter) // utilities.bulmaDarken($color-invert, 5%)
         &[disabled],
         fieldset[disabled] &
           background-color: var(--#{$name}-invert)
