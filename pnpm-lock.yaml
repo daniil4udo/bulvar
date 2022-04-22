@@ -34,7 +34,7 @@ specifiers:
   rimraf: ^3.0.2
   rtlcss: ^3.5.0
   sass: ^1.50.0
-  stylelint: ^14.6.1
+  stylelint: ^14.0.0
   stylelint-config-idiomatic-order: ^8.1.0
   stylelint-config-prettier: ^9.0.3
   stylelint-config-standard-scss: ^3.0.0
@@ -217,7 +217,7 @@ packages:
       p-map: 4.0.0
       p-map-series: 2.1.0
       p-waterfall: 2.1.1
-      read-package-tree: /@npmcli/arborist/5.0.5
+      read-package-tree: /@npmcli/arborist/5.1.0
       semver: 7.3.7
     transitivePeerDependencies:
       - supports-color
@@ -886,8 +886,8 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@npmcli/arborist/5.0.5:
-    resolution: {integrity: sha512-96UwbW4ASOMg/ltORxx36njDiIy5HYdWR5HOvroYeVhoSOLYKwlixALowNK7ZBt49MOaJVCfLMyu9on71gQC/g==}
+  /@npmcli/arborist/5.1.0:
+    resolution: {integrity: sha512-MMutHkOmGyLJTBGXeeZ7khANmjlJtuqHScDATXaxChHMLF6MhAlw2Cca4TXlbeJuq0X1s7wm6ODa/vnBS3DVAw==}
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
     hasBin: true
     dependencies:

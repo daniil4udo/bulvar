@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/daniil4udo/bulvar/compare/v0.10.2...v0.11.0) (2022-04-22)
+
+
+### Bug Fixes
+
+* **Buefy:** 🐛  skeleton gradient colors ([d2ec731](https://github.com/daniil4udo/bulvar/commit/d2ec731c1e220e6a6b476d847cd961670dde9a8d))
+
+
+* refactoring!: ♻️  rename input-arrow -> input-arrow-color & use it as derive ([cf5873c](https://github.com/daniil4udo/bulvar/commit/cf5873c2de6c6713ca93e28339851ffe3c19bf7d))
+* mv(Buefy)!: 🚚  conventional name of the files ([b2a471c](https://github.com/daniil4udo/bulvar/commit/b2a471cd6d1488117732f8b33d7fb0f45d39af80))
+
+
+### BREAKING CHANGES
+
+* renamed variable input-arrow -> input-arrow-color
+* Remove underscore in ALL(!) imports
+
+
+
+
+
 ## [0.10.2](https://github.com/daniil4udo/bulvar/compare/v0.10.1...v0.10.2) (2022-03-15)
 
 **Note:** Version bump only for package @bulvar/buefy

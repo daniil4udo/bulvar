@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/daniil4udo/bulvar/compare/v0.10.2...v0.11.0) (2022-04-22)
+
+
+### Bug Fixes
+
+* 🐛  controls and input mixind should be in utilities ([0b5e294](https://github.com/daniil4udo/bulvar/commit/0b5e294a22075ad918fe044087e2dded62c506c7))
+* **Buefy:** 🐛  skeleton gradient colors ([d2ec731](https://github.com/daniil4udo/bulvar/commit/d2ec731c1e220e6a6b476d847cd961670dde9a8d))
+* **Bulma:** 🐛  add missing CSS variables ([bb038e8](https://github.com/daniil4udo/bulvar/commit/bb038e881c96f35c69d533d63047f5363adfbf3a))
+* **Bulma:** 🐛  align SASS & CSS var name (title-size | subtitle-size) ([baa83e1](https://github.com/daniil4udo/bulvar/commit/baa83e175e4b19b832c13c53a9d4e3b165624c22))
+* **Bulma:** 🐛  fix invert button hover ([f1f0753](https://github.com/daniil4udo/bulvar/commit/f1f0753968a712ff4cd9fe3c803ed7a790e75f91))
+* **Bulma:** 🐛  proper chaining of color variables ([2fba8d5](https://github.com/daniil4udo/bulvar/commit/2fba8d5f14518d75209e57555b3c7471b0a2bda6))
+* **Bulma:** 🐛  use CSS var color in hero.sass ([5285970](https://github.com/daniil4udo/bulvar/commit/5285970c413b1e95955231aee8ac140097be04bc))
+* **Bulma:** 🐛  usless import prevent from customizing colors ([db08040](https://github.com/daniil4udo/bulvar/commit/db08040a1141a858498090aaf020bda895651b15))
+* **Bulma:** 🐛  wrong order of inverted colors [#90](https://github.com/daniil4udo/bulvar/issues/90) ([199f8b6](https://github.com/daniil4udo/bulvar/commit/199f8b6be4b0a1dd9cb908195f46762a98b22da6))
+
+
+* refactoring!: ♻️  rename input-arrow -> input-arrow-color & use it as derive ([cf5873c](https://github.com/daniil4udo/bulvar/commit/cf5873c2de6c6713ca93e28339851ffe3c19bf7d))
+* mv(Buefy)!: 🚚  conventional name of the files ([b2a471c](https://github.com/daniil4udo/bulvar/commit/b2a471cd6d1488117732f8b33d7fb0f45d39af80))
+
+
+### BREAKING CHANGES
+
+* renamed variable input-arrow -> input-arrow-color
+* Remove underscore in ALL(!) imports
+
+
+
+
+
 ## [0.10.2](https://github.com/daniil4udo/bulvar/compare/v0.10.1...v0.10.2) (2022-03-15)
 
 **Note:** Version bump only for package @bulvar/root
