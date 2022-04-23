@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1](https://github.com/daniil4udo/bulvar/compare/v0.11.0...v0.11.1) (2022-04-23)
+
+
+### Bug Fixes
+
+* **Bulma:** 🐛  add missing font-size property ([27b2a50](https://github.com/daniil4udo/bulvar/commit/27b2a50646927e174355c8656f3938e183f4fe33))
+* **Bulma:** 🐛  correct name of the invert variables ([d438c4a](https://github.com/daniil4udo/bulvar/commit/d438c4a50d48f46c116f806275951dd005bff296))
+* **Bulma:** 🐛  replace static variable to var() ([370efa9](https://github.com/daniil4udo/bulvar/commit/370efa96a2749f89f7edd7efcf0d465992d16575))
+
+
+
+
+
 # [0.11.0](https://github.com/daniil4udo/bulvar/compare/v0.10.2...v0.11.0) (2022-04-22)
 
 

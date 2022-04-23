@@ -1,5 +1,5 @@
 /*!
-  * @bulvar/buefy v0.11.0 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
+  * @bulvar/buefy v0.11.1 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
   * Copyright 2022 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
@@ -51,7 +51,7 @@
   --invert-light-color-bis: #f2f2f2;
   --invert-light-color-ter: #e6e6e6;
   --text: hsl(0deg, 0%, 29%);
-  --text-invert: var(--invert-light-colors);
+  --text-invert: var(--invert-light-color);
   --text-light: hsl(0deg, 0%, 48%);
   --text-strong: hsl(0deg, 0%, 21%);
   --code: #da1039;
@@ -59,7 +59,7 @@
   --pre: var(--text);
   --pre-background: var(--background);
   --link: hsl(217deg, 61%, 40%);
-  --link-invert: var(--invert-light-colors);
+  --link-invert: var(--invert-light-color);
   --link-light: #eff3fb;
   --link-dark: #326dcd;
   --link-visited: hsl(271deg, 100%, 71%);
@@ -82,7 +82,7 @@
   --white-l: 100%;
   --white-a: 1;
   --white: hsla(var(--white-h), var(--white-s), var(--white-l), var(--white-a));
-  --white-invert: var(--invert-dark-colors);
+  --white-invert: var(--invert-dark-color);
   --white-invert-bis: var(--invert-dark-color-bis);
   --white-invert-ter: var(--invert-dark-color-ter);
   --white-light-l: 100%;
@@ -94,7 +94,7 @@
   --black-l: 4%;
   --black-a: 1;
   --black: hsla(var(--black-h), var(--black-s), var(--black-l), var(--black-a));
-  --black-invert: var(--invert-light-colors);
+  --black-invert: var(--invert-light-color);
   --black-invert-bis: var(--invert-light-color-bis);
   --black-invert-ter: var(--invert-light-color-ter);
   --black-light-l: 96%;
@@ -106,7 +106,7 @@
   --light-l: 96%;
   --light-a: 1;
   --light: hsla(var(--light-h), var(--light-s), var(--light-l), var(--light-a));
-  --light-invert: var(--invert-dark-colors);
+  --light-invert: var(--invert-dark-color);
   --light-invert-bis: var(--invert-dark-color-bis);
   --light-invert-ter: var(--invert-dark-color-ter);
   --light-light-l: 96%;
@@ -118,7 +118,7 @@
   --dark-l: 21%;
   --dark-a: 1;
   --dark: hsla(var(--dark-h), var(--dark-s), var(--dark-l), var(--dark-a));
-  --dark-invert: var(--invert-light-colors);
+  --dark-invert: var(--invert-light-color);
   --dark-invert-bis: var(--invert-light-color-bis);
   --dark-invert-ter: var(--invert-light-color-ter);
   --dark-light-l: 96%;
@@ -130,7 +130,7 @@
   --primary-l: 37%;
   --primary-a: 1;
   --primary: hsla(var(--primary-h), var(--primary-s), var(--primary-l), var(--primary-a));
-  --primary-invert: var(--invert-light-colors);
+  --primary-invert: var(--invert-light-color);
   --primary-invert-bis: var(--invert-light-color-bis);
   --primary-invert-ter: var(--invert-light-color-ter);
   --primary-light-l: 96%;
@@ -142,7 +142,7 @@
   --secondary-l: 40%;
   --secondary-a: 1;
   --secondary: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), var(--secondary-a));
-  --secondary-invert: var(--invert-light-colors);
+  --secondary-invert: var(--invert-light-color);
   --secondary-invert-bis: var(--invert-light-color-bis);
   --secondary-invert-ter: var(--invert-light-color-ter);
   --secondary-light-l: 96%;
@@ -154,7 +154,7 @@
   --link-l: 40%;
   --link-a: 1;
   --link: hsla(var(--link-h), var(--link-s), var(--link-l), var(--link-a));
-  --link-invert: var(--invert-light-colors);
+  --link-invert: var(--invert-light-color);
   --link-invert-bis: var(--invert-light-color-bis);
   --link-invert-ter: var(--invert-light-color-ter);
   --link-light-l: 96%;
@@ -166,7 +166,7 @@
   --info-l: 53%;
   --info-a: 1;
   --info: hsla(var(--info-h), var(--info-s), var(--info-l), var(--info-a));
-  --info-invert: var(--invert-light-colors);
+  --info-invert: var(--invert-light-color);
   --info-invert-bis: var(--invert-light-color-bis);
   --info-invert-ter: var(--invert-light-color-ter);
   --info-light-l: 96%;
@@ -178,7 +178,7 @@
   --success-l: 53%;
   --success-a: 1;
   --success: hsla(var(--success-h), var(--success-s), var(--success-l), var(--success-a));
-  --success-invert: var(--invert-light-colors);
+  --success-invert: var(--invert-light-color);
   --success-invert-bis: var(--invert-light-color-bis);
   --success-invert-ter: var(--invert-light-color-ter);
   --success-light-l: 96%;
@@ -190,7 +190,7 @@
   --warning-l: 77%;
   --warning-a: 1;
   --warning: hsla(var(--warning-h), var(--warning-s), var(--warning-l), var(--warning-a));
-  --warning-invert: var(--invert-dark-colors);
+  --warning-invert: var(--invert-dark-color);
   --warning-invert-bis: var(--invert-dark-color-bis);
   --warning-invert-ter: var(--invert-dark-color-ter);
   --warning-light-l: 96%;
@@ -202,7 +202,7 @@
   --danger-l: 61%;
   --danger-a: 1;
   --danger: hsla(var(--danger-h), var(--danger-s), var(--danger-l), var(--danger-a));
-  --danger-invert: var(--invert-light-colors);
+  --danger-invert: var(--invert-light-color);
   --danger-invert-bis: var(--invert-light-color-bis);
   --danger-invert-ter: var(--invert-light-color-ter);
   --danger-light-l: 96%;
@@ -807,6 +807,7 @@ a.box:active {
   --button-color: var(--text-strong);
   --button-background-color: var(--scheme-main);
   --button-family: false;
+  --button-font-size: var(--size-normal);
   --button-border-color: var(--border);
   --button-border-width: var(--control-border-width);
   --button-padding-vertical: calc(0.5em - var(--button-border-width));
@@ -3331,7 +3332,7 @@ a.tag:hover {
   --input-disabled-color: var(--text-light);
   --input-disabled-background-color: var(--background);
   --input-disabled-border-color: var(--background);
-  --input-disabled-placeholder-color: hsl(0deg, 0%, 48%);
+  --input-disabled-placeholder-color: var(--text-light);
   --input-disabled-placeholder-opacity: 0.3;
   --input-arrow-color: var(--link);
   --input-icon-color: var(--border);
