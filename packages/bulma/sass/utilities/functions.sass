@@ -79,7 +79,7 @@
 
 /// Invert color calculation
 @function _calculateInvertColor($color)
-  @return if(colorLuminance($color) > 0.55, #{var(--invert-dark-colors)}, #{var(--invert-light-colors)})
+  @return if(colorLuminance($color) > 0.55, #{var(--invert-dark-color)}, #{var(--invert-light-color)})
 
 @function findColorInvert($color, $fallback: null)
   @if meta.type-of($color) == 'color'
