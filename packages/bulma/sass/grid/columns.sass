@@ -14,7 +14,7 @@ $column-map: ('full': 100%, 'three-quarters': math.div(100% * 3, 4), 'two-thirds
   padding: $column-gap
   .columns.is-mobile > &.is-narrow
     flex: none
-    width: unset    
+    width: unset
   @each $name, $value in $column-map
     .columns.is-mobile > &.is-#{$name}
       flex: none

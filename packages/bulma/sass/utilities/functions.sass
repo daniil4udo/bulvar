@@ -58,6 +58,7 @@
 
   @return $merged-colors
 
+$-light-breakpoint: 0.55
 /// Returns the luminance of `$color` as a float (between 0 and 1)
 /// 1 is pure white, 0 is pure black
 /// @param {Color} $color - Color
@@ -65,27 +66,31 @@
 /// @link http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef Reference
 @function colorLuminance($color)
   @if meta.type-of($color) != 'color'
-    @return 0.55
+    @return $-light-breakpoint
   $color-rgb: ('red': color.red($color),'green': color.green($color),'blue': color.blue($color))
   @each $name, $value in $color-rgb
     $value: math.div($value, 255)
     @if $value < 0.03928
       $value: math.div($value, 12.92)
     @else
-      $value: math.div(($value + .055), 1.055)
+      $value: math.div(($value + 0.055), 1.055)
       $value: math.pow($value, 2)
     $color-rgb: map.merge($color-rgb, ($name: $value))
-  @return (map.get($color-rgb, 'red') * .2126) + (map.get($color-rgb, 'green') * .7152) + (map.get($color-rgb, 'blue') * .0722)
+  @return (map.get($color-rgb, 'red') * 0.2126) + (map.get($color-rgb, 'green') * 0.7152) + (map.get($color-rgb, 'blue') * 0.0722)
+
+@function isLightColor($color)
+  @return colorLuminance($color) > $-light-breakpoint
+
+@function isDarkColor($color)
+  @return not isLightColor($color)
 
 /// Invert color calculation
-@function _calculateInvertColor($color)
-  @return if(colorLuminance($color) > 0.55, #{var(--invert-dark-color)}, #{var(--invert-light-color)})
-
-@function findColorInvert($color, $fallback: null)
+@function findColorInvert($color)
   @if meta.type-of($color) == 'color'
-    @return _calculateInvertColor($color)
-  @else if meta.type-of($fallback) == 'color'
-    @return _calculateInvertColor($fallback)
+    @if isLightColor($color)
+      @return #{var(--invert-dark-color)}
+    @else
+      @return #{var(--invert-light-color)}
   @return $color
 
 /// Light color calculation
@@ -130,6 +135,14 @@
     @return $color
   @return color.adjust($color, $lightness: $amount)
 
+/// State colors calculation base on color lightness
+@function findColorState($color, $amount)
+  @if meta.type-of($color) != 'color'
+    @return $color
+  @if isLightColor($color)
+    @return bulmaDarken($color, $amount)
+  @else
+    @return bulmaLighten($color, $amount)
 //
 // Additional @funtion for bulvar
 //
@@ -211,14 +224,3 @@
 
 @function bulmaVarDarken($color, $amount)
   @return bulmaVarLighten($color, ($amount * -1))
-
-/// function color helpres
-
-@function schemeInvertRgba($alpha)
-    @return rgba(var(--scheme-invert-rgb, #{bulmaToRGB($scheme-invert)}), $alpha)
-
-@function borderInvertRgba($alpha)
-    @return rgba(var(--border-rgb, #{bulmaToRGB($border)}), $alpha)
-
-@function linkInvertRgba($alpha)
-    @return rgba(var(--link-rgb, #{bulmaToRGB($link)}), $alpha)
