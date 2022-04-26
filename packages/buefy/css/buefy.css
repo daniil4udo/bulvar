@@ -1,5 +1,5 @@
 /*!
-  * @bulvar/buefy v0.11.1 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
+  * @bulvar/buefy v0.11.2 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
   * Copyright 2022 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
@@ -29,14 +29,14 @@
   --easing: ease-out;
   --speed: 86ms;
   --scheme-main: hsl(0deg, 0%, 100%);
-  --scheme-main-bis: hsl(0deg, 0%, 98%);
-  --scheme-main-ter: hsl(0deg, 0%, 96%);
+  --scheme-main-bis: hsl(0deg, 0%, 96%);
+  --scheme-main-ter: hsl(0deg, 0%, 92%);
   --scheme-invert: hsl(0deg, 0%, 4%);
   --scheme-invert-rgb: 10, 10, 10;
-  --scheme-invert-bis: hsl(0deg, 0%, 7%);
+  --scheme-invert-bis: hsl(0deg, 0%, 9%);
   --scheme-invert-ter: hsl(0deg, 0%, 14%);
-  --background: hsl(0deg, 0%, 96%);
-  --background-rgb: 245, 245, 245;
+  --background: hsl(0deg, 0%, 92%);
+  --background-rgb: 235, 235, 235;
   --border: hsl(0deg, 0%, 86%);
   --border-rgb: 219, 219, 219;
   --border-hover: hsl(0deg, 0%, 71%);
@@ -103,7 +103,7 @@
   --black-dark: hsla(var(--black-h), var(--black-s), var(--black-dark-l), var(--black-a));
   --light-h: 0deg;
   --light-s: 0%;
-  --light-l: 96%;
+  --light-l: 92%;
   --light-a: 1;
   --light: hsla(var(--light-h), var(--light-s), var(--light-l), var(--light-a));
   --light-invert: var(--invert-dark-color);
@@ -211,7 +211,7 @@
   --danger-dark: hsla(var(--danger-h), var(--danger-s), var(--danger-dark-l), var(--danger-a));
 }
 :root {
-  --black-bis: hsl(0deg, 0%, 7%);
+  --black-bis: hsl(0deg, 0%, 9%);
   --black-ter: hsl(0deg, 0%, 14%);
   --grey-darker: hsl(0deg, 0%, 21%);
   --grey-dark: hsl(0deg, 0%, 29%);
@@ -219,8 +219,8 @@
   --grey-light: hsl(0deg, 0%, 71%);
   --grey-lighter: hsl(0deg, 0%, 86%);
   --grey-lightest: hsl(0deg, 0%, 93%);
-  --white-ter: hsl(0deg, 0%, 96%);
-  --white-bis: hsl(0deg, 0%, 98%);
+  --white-ter: hsl(0deg, 0%, 92%);
+  --white-bis: hsl(0deg, 0%, 96%);
 }
 
 /*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
@@ -11043,11 +11043,11 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   color: var(--light);
 }
 .hero.is-light.is-bold {
-  background-image: linear-gradient(141deg, hsla(calc(var(--light-h) - 10deg), calc(var(--light-s) + 10%), calc(var(--light-l) - 10%), var(--light-a)) 0%, hsl(0deg, 0%, 96%) 71%, hsla(calc(var(--light-h) + 10deg), calc(var(--light-s) + 5%), calc(var(--light-l) + 5%), var(--light-a)) 100%);
+  background-image: linear-gradient(141deg, hsla(calc(var(--light-h) - 10deg), calc(var(--light-s) + 10%), calc(var(--light-l) - 10%), var(--light-a)) 0%, hsl(0deg, 0%, 92%) 71%, hsla(calc(var(--light-h) + 10deg), calc(var(--light-s) + 5%), calc(var(--light-l) + 5%), var(--light-a)) 100%);
 }
 @media screen and (max-width: 768px) {
   .hero.is-light.is-bold .navbar-menu {
-    background-image: linear-gradient(141deg, hsla(calc(var(--light-h) - 10deg), calc(var(--light-s) + 10%), calc(var(--light-l) - 10%), var(--light-a)) 0%, hsl(0deg, 0%, 96%) 71%, hsla(calc(var(--light-h) + 10deg), calc(var(--light-s) + 5%), calc(var(--light-l) + 5%), var(--light-a)) 100%);
+    background-image: linear-gradient(141deg, hsla(calc(var(--light-h) - 10deg), calc(var(--light-s) + 10%), calc(var(--light-l) - 10%), var(--light-a)) 0%, hsl(0deg, 0%, 92%) 71%, hsla(calc(var(--light-h) + 10deg), calc(var(--light-s) + 5%), calc(var(--light-l) + 5%), var(--light-a)) 100%);
   }
 }
 .hero.is-dark {
