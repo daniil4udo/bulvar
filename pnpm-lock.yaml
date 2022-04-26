@@ -29,7 +29,7 @@ specifiers:
   postcss: ^8.4.12
   postcss-cli: ^9.1.0
   postcss-sass: ^0.5.0
-  postcss-scss: ^4.0.3
+  postcss-scss: ^4.0.4
   prettier: ^2.6.2
   rimraf: ^3.0.2
   rtlcss: ^3.5.0
@@ -56,7 +56,7 @@ devDependencies:
   postcss: 8.4.12
   postcss-cli: 9.1.0_postcss@8.4.12
   postcss-sass: 0.5.0
-  postcss-scss: 4.0.3_postcss@8.4.12
+  postcss-scss: 4.0.4_postcss@8.4.12
   prettier: 2.6.2
   rimraf: 3.0.2
   rtlcss: 3.5.0
@@ -2602,7 +2602,7 @@ packages:
       glob: 7.2.0
       picocolors: 1.0.0
       postcss: 8.4.12
-      postcss-scss: 4.0.3_postcss@8.4.12
+      postcss-scss: 4.0.4_postcss@8.4.12
     dev: true
 
   /find-up/2.1.0:
@@ -5109,8 +5109,8 @@ packages:
       postcss: 8.4.12
     dev: true
 
-  /postcss-scss/4.0.3_postcss@8.4.12:
-    resolution: {integrity: sha512-j4KxzWovfdHsyxwl1BxkUal/O4uirvHgdzMKS1aWJBAV0qh2qj5qAZqpeBfVUYGWv+4iK9Az7SPyZ4fyNju1uA==}
+  /postcss-scss/4.0.4_postcss@8.4.12:
+    resolution: {integrity: sha512-aBBbVyzA8b3hUL0MGrpydxxXKXFZc5Eqva0Q3V9qsBOLEMsjb6w49WfpsoWzpEgcqJGW4t7Rio8WXVU9Gd8vWg==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.3.3
@@ -6008,7 +6008,7 @@ packages:
     peerDependencies:
       stylelint: ^14.0.0
     dependencies:
-      postcss-scss: 4.0.3_postcss@8.4.12
+      postcss-scss: 4.0.4_postcss@8.4.12
       stylelint: 14.6.1
       stylelint-config-recommended: 6.0.0_stylelint@14.6.1
       stylelint-scss: 4.2.0_stylelint@14.6.1

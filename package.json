@@ -60,7 +60,7 @@
 		"postcss": "^8.4.12",
 		"postcss-cli": "^9.1.0",
 		"postcss-sass": "^0.5.0",
-		"postcss-scss": "^4.0.3",
+		"postcss-scss": "^4.0.4",
 		"prettier": "^2.6.2",
 		"rimraf": "^3.0.2",
 		"rtlcss": "^3.5.0",
