@@ -60,8 +60,7 @@
         border-radius: var(--radius-rounded);
 
         .file-name {
-            border-bottom-right-radius: var(--radius-rounded);
-            border-top-right-radius: var(--radius-rounded);
+            @include bulma-utilities.ltr-border-x("radius", var(--radius-rounded));
         }
     }
 }

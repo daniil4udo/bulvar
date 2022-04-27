@@ -131,9 +131,9 @@ $-css-vars-map: (
             &.is-boxed {
                 li {
                     a {
-                        border-radius: var(--tabs-boxed-link-radius) 0 0 var(--tabs-boxed-link-radius);
                         border-right-color: var(--tabs-border-bottom-color) !important;
                         border-bottom-color: transparent !important;
+                        @include bulma-utilities.ltr-border-x("radius", var(--tabs-boxed-link-radius), false);
                     }
 
                     &.is-active {
@@ -151,12 +151,12 @@ $-css-vars-map: (
                     }
                     &:first-child {
                         a {
-                            border-radius: var(--tabs-toggle-link-radius) var(--tabs-toggle-link-radius) 0 0;
+                            @include bulma-utilities.ltr-border-y("radius", var(--tabs-toggle-link-radius));
                         }
                     }
                     &:last-child {
                         a {
-                            border-radius: 0 0 var(--tabs-toggle-link-radius) var(--tabs-toggle-link-radius);
+                            @include bulma-utilities.ltr-border-y("radius", var(--tabs-toggle-link-radius), false);
                         }
                     }
                 }
@@ -191,10 +191,10 @@ $-css-vars-map: (
                 &.is-boxed {
                     li {
                         a {
-                            border-radius: 0 var(--tabs-boxed-link-radius) var(--tabs-boxed-link-radius) 0;
                             border-right-color: transparent !important;
                             border-bottom-color: transparent !important;
                             border-left-color: var(--tabs-border-bottom-color) !important;
+                            @include bulma-utilities.ltr-border-x("radius", var(--tabs-boxed-link-radius));
                         }
 
                         &.is-active {
