@@ -93,7 +93,7 @@ $-css-vars-map: ("modal-z": $modal-z, "modal-background-background-color": $moda
   @extend %delete
   height: var(--modal-close-dimensions)
   position: fixed
-  +utilities.ltr-position(var(--modal-close-right))
+  +utilities.ltr-property("inset", var(--modal-close-right))
   top: var(--modal-close-top)
   width: var(--modal-close-dimensions)
 
@@ -116,8 +116,7 @@ $-css-vars-map: ("modal-z": $modal-z, "modal-background-background-color": $moda
 
 .modal-card-head
   border-bottom: var(--modal-card-head-border-bottom)
-  border-top-left-radius: var(--modal-card-head-radius)
-  border-top-right-radius: var(--modal-card-head-radius)
+  +utilities.ltr-border-y("radius", var(--modal-card-head-radius))
 
 .modal-card-title
   color: var(--modal-card-title-color)
@@ -127,8 +126,7 @@ $-css-vars-map: ("modal-z": $modal-z, "modal-background-background-color": $moda
   line-height: var(--modal-card-title-line-height)
 
 .modal-card-foot
-  border-bottom-left-radius: var(--modal-card-foot-radius)
-  border-bottom-right-radius: var(--modal-card-foot-radius)
+  +utilities.ltr-border-y("radius", var(--modal-card-foot-radius), false)
   border-top: var(--modal-card-foot-border-top)
   .button
     &:not(:last-child)

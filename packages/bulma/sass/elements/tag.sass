@@ -46,33 +46,22 @@ $-css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
   &.is-centered
     justify-content: center
     .tag
-      margin-right: 0.25rem
-      margin-left: 0.25rem
+      margin-inline: 0.25rem
   &.is-right
     justify-content: flex-end
     .tag
       &:not(:first-child)
-        margin-left: 0.5rem
+        +utilities.ltr-property("margin", 0.5rem, false)
       &:not(:last-child)
-        margin-right: 0
+        +utilities.ltr-property("margin", 0)
   &.has-addons
     .tag
       +utilities.ltr-property("margin", 0)
       &:not(:first-child)
         +utilities.ltr-property("margin", 0, false)
-        +utilities.ltr
-          border-top-left-radius: 0
-          border-bottom-left-radius: 0
-        +utilities.rtl
-          border-top-right-radius: 0
-          border-bottom-right-radius: 0
+        +utilities.ltr-border-x("radius", 0, false)
       &:not(:last-child)
-        +utilities.ltr
-          border-top-right-radius: 0
-          border-bottom-right-radius: 0
-        +utilities.rtl
-          border-top-left-radius: 0
-          border-bottom-left-radius: 0
+        +utilities.ltr-border-x("radius", 0)
 
 .tag:not(body)
   align-items: center
@@ -84,8 +73,7 @@ $-css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
   height: 2em
   justify-content: center
   line-height: 1.5
-  padding-left: 0.75em
-  padding-right: 0.75em
+  padding-inline: 0.75em
   white-space: nowrap
   .delete
     +utilities.ltr-property("margin", 0.25rem, false)
@@ -114,8 +102,7 @@ $-css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
       +utilities.ltr-property("margin", 0.1875em, false)
       +utilities.ltr-property("margin", -0.375em)
     &:first-child:last-child
-      +utilities.ltr-property("margin", -0.375em, false)
-      +utilities.ltr-property("margin", -0.375em)
+      margin-inline: -0.375em
   // Modifiers
   &.is-delete
     +utilities.ltr-property("margin", var(--tag-delete-margin), false)

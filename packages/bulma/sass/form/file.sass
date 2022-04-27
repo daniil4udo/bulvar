@@ -79,11 +79,9 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
   // Modifiers
   &.has-name
     .file-cta
-      border-bottom-right-radius: 0
-      border-top-right-radius: 0
+      +utilities.ltr-border-x("radius", 0)
     .file-name
-      border-bottom-left-radius: 0
-      border-top-left-radius: 0
+      +utilities.ltr-border-x("radius", 0, false)
     &.is-empty
       .file-cta
         border-radius: var(--file-radius)
@@ -110,9 +108,11 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
       --file-icon-font-size: 35px
     &.has-name
       .file-cta
-        border-radius: var(--file-radius) var(--file-radius) 0 0
+        +utilities.ltr-border-y("radius", var(--file-radius))
+        +utilities.ltr-border-y("radius", 0, false)
       .file-name
-        border-radius: 0 0 var(--file-radius) var(--file-radius)
+        +utilities.ltr-border-y("radius", 0)
+        +utilities.ltr-border-y("radius", var(--file-radius), false)
         border-width: 0 1px 1px
   &.is-centered
     justify-content: center
@@ -125,9 +125,11 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
   &.is-right
     justify-content: flex-end
     .file-cta
-      border-radius: 0 var(--file-radius) var(--file-radius) 0
+      +utilities.ltr-border-x("radius", var(--file-radius))
+      +utilities.ltr-border-x("radius", 0, false)
     .file-name
-      border-radius: var(--file-radius) 0 0 var(--file-radius)
+      +utilities.ltr-border-x("radius", 0)
+      +utilities.ltr-border-x("radius", var(--file-radius), false)
       border-width: 1px 0 1px 1px
       order: -1
 
@@ -166,8 +168,7 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
   border-color: var(--file-border-color)
   border-radius: var(--file-radius)
   font-size: 1em
-  padding-left: 1em
-  padding-right: 1em
+  padding-inline: 1em
   white-space: nowrap
 
 .file-cta

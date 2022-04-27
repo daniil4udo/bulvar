@@ -188,20 +188,18 @@
     @content
 
 =ltr-property($property, $spacing, $right: true)
-  $normal: if($right, "right", "left")
-  $opposite: if($right, "left", "right")
-  +rtl
-    #{$property}-#{$opposite}: $spacing
-  +ltr
-    #{$property}-#{$normal}: $spacing
+  $position: if($right, "end", "start")
+  #{$property}-inline-#{$position}: $spacing
 
-=ltr-position($spacing, $right: true)
-  $normal: if($right, "right", "left")
-  $opposite: if($right, "left", "right")
-  +rtl
-    #{$opposite}: $spacing
-  +ltr
-    #{$normal}: $spacing
+=ltr-border-y($property, $radius, $top: true)
+  $position: if($top, "start", "end")
+  border-#{$position}-start-#{$property}: $radius
+  border-#{$position}-end-#{$property}: $radius
+
+=ltr-border-x($property, $radius, $right: true)
+  $position: if($right, "end", "start")
+  border-start-#{$position}-#{$property}: $radius
+  border-end-#{$position}-#{$property}: $radius
 
 // Placeholders
 

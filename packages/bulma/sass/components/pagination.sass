@@ -72,8 +72,7 @@ $-css-vars-map: ("pagination-color": $pagination-color, "pagination-border-color
   &.is-rounded
     .pagination-previous,
     .pagination-next
-      padding-left: 1em
-      padding-right: 1em
+      padding-inline: 1em
       border-radius: var(--radius-rounded)
     .pagination-link
       border-radius: var(--radius-rounded)
@@ -94,8 +93,8 @@ $-css-vars-map: ("pagination-color": $pagination-color, "pagination-border-color
   font-size: var(--pagination-item-font-size)
   justify-content: center
   margin: var(--pagination-item-margin)
-  padding-left: var(--pagination-item-padding-left)
-  padding-right: var(--pagination-item-padding-right)
+  padding-inline-start: var(--pagination-item-padding-left)
+  padding-inline-end: var(--pagination-item-padding-right)
   text-align: center
 
 .pagination-previous,
@@ -121,8 +120,8 @@ $-css-vars-map: ("pagination-color": $pagination-color, "pagination-border-color
 
 .pagination-previous,
 .pagination-next
-  padding-left: var(--pagination-nav-padding-left)
-  padding-right: var(--pagination-nav-padding-right)
+  padding-inline-start: var(--pagination-nav-padding-left)
+  padding-inline-end: var(--pagination-nav-padding-right)
   white-space: nowrap
 
 .pagination-link

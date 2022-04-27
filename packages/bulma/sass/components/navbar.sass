@@ -225,8 +225,7 @@ body
   position: relative
   .icon
     &:only-child
-      margin-left: -0.25rem
-      margin-right: -0.25rem
+      margin-inline: -0.25rem
 
 a.navbar-item,
 .navbar-link
@@ -274,15 +273,14 @@ a.navbar-item,
     @extend %arrow
     border-color: var(--navbar-dropdown-arrow)
     margin-top: -0.375em
-    +utilities.ltr-position(1.125em)
+    +utilities.ltr-property("inset", 1.125em)
 
 .navbar-dropdown
   font-size: 0.875rem
   padding-bottom: 0.5rem
   padding-top: 0.5rem
   .navbar-item
-    padding-left: 1.5rem
-    padding-right: 1.5rem
+    padding-inline: 1.5rem
 
 .navbar-divider
   background-color: var(--navbar-divider-background-color)
@@ -413,13 +411,12 @@ a.navbar-item,
     +utilities.ltr-property("margin", auto, false)
   .navbar-dropdown
     background-color: var(--navbar-dropdown-background-color)
-    border-bottom-left-radius: var(--navbar-dropdown-radius)
-    border-bottom-right-radius: var(--navbar-dropdown-radius)
+    +utilities.ltr-border-y("radius", var(--navbar-dropdown-radius), false)
     border-top: var(--navbar-dropdown-border-top)
     box-shadow: 0 8px 8px var(--navbar-shadow-color)
     display: none
     font-size: 0.875rem
-    +utilities.ltr-position(0, false)
+    +utilities.ltr-property("inset", 0, false)
     min-width: 100%
     position: absolute
     top: 100%
@@ -456,9 +453,9 @@ a.navbar-item,
   .navbar > .container,
   .container > .navbar
     .navbar-brand
-      +utilities.ltr-property("margin", -.75rem, false)
+      +utilities.ltr-property("margin", -0.75rem, false)
     .navbar-menu
-      +utilities.ltr-property("margin", -.75rem)
+      +utilities.ltr-property("margin", -0.75rem)
   // Fixed navbar
   .navbar
     &.is-fixed-bottom-desktop,

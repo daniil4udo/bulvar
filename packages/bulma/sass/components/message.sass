@@ -17,7 +17,7 @@ $message-header-padding: 0.75em 1em !default
 $message-header-radius: var(--radius) !default
 
 $message-body-border-color: var(--border) !default
-$message-body-border-width: 0 0 0 4px !default
+$message-body-border-width: 4px !default
 $message-body-color: var(--text) !default
 $message-body-padding: 1.25em 1.5em !default
 $message-body-radius: var(--radius) !default
@@ -73,7 +73,7 @@ $-css-vars-map: ("message-background-color": $message-background-color, "message
 .message-header
   align-items: center
   background-color: var(--message-header-background-color)
-  border-radius: var(--message-header-radius) var(--message-header-radius) 0 0
+  +utilities.ltr-border-y("radius", var(--message-header-radius))
   color: var(--message-header-color)
   display: flex
   font-weight: var(--message-header-weight)
@@ -87,14 +87,14 @@ $-css-vars-map: ("message-background-color": $message-background-color, "message
     +utilities.ltr-property("margin", 0.75em, false)
   & + .message-body
     border-width: var(--message-header-body-border-width)
-    border-top-left-radius: 0
-    border-top-right-radius: 0
+    +utilities.ltr-border-y("radius", 0)
 
 .message-body
   border-color: var(--message-body-border-color)
   border-radius: var(--message-body-radius)
   border-style: solid
-  border-width: var(--message-body-border-width)
+  border-width: var(--message-header-body-border-width)
+  border-inline-start-width: var(--message-body-border-width)
   color: var(--message-body-color)
   padding: var(--message-body-padding)
   code,
