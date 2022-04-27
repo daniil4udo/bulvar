@@ -130,7 +130,7 @@ $-css-vars-map: ("panel-font-size": $panel-font-size, "panel-margin": $panel-mar
   &.is-wrapped
     flex-wrap: wrap
   &.is-active
-    +utilities.ltr-border-x("color", var(--panel-block-active-border-left-color))
+    border-inline-start: 1px solid var(--panel-block-active-border-left-color)
     color: var(--panel-block-active-color)
     .panel-icon
       color: var(--panel-block-active-icon-color)
