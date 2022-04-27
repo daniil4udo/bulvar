@@ -101,13 +101,18 @@ $-css-vars-map: ('tabs-font-size': $tabs-font-size, 'tabs-border-bottom-color': 
     justify-content: flex-start
     &.is-left
       padding-right: 0.75em
+    &.is-start
+      padding-inline-end: 0.75em
     &.is-center
       flex: none
       justify-content: center
       padding-inline: 0.75em
     &.is-right
-      justify-content: flex-end
+      justify-content: right
       padding-left: 0.75em
+    &.is-end
+      justify-content: flex-end
+      padding-inline-start: 0.75em
   .icon
     &:first-child
       +utilities.ltr-property("margin", 0.5em)
@@ -118,6 +123,9 @@ $-css-vars-map: ('tabs-font-size': $tabs-font-size, 'tabs-border-bottom-color': 
     ul
       justify-content: center
   &.is-right
+    ul
+      justify-content: right
+  &.is-end
     ul
       justify-content: flex-end
   // Styles

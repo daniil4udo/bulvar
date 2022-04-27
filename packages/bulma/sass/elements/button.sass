@@ -376,6 +376,11 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
       .button:not(.is-fullwidth)
         margin-inline: 0.25rem
   &.is-right
+    justify-content: right
+    &:not(.has-addons)
+      .button:not(.is-fullwidth)
+        margin-inline: 0.25rem
+  &.is-end
     justify-content: flex-end
     &:not(.has-addons)
       .button:not(.is-fullwidth)

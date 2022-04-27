@@ -48,6 +48,13 @@ $-css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
     .tag
       margin-inline: 0.25rem
   &.is-right
+    justify-content: right
+    .tag
+      &:not(:first-child)
+        +utilities.ltr-property("margin", 0.5rem, false)
+      &:not(:last-child)
+        +utilities.ltr-property("margin", 0)
+  &.is-end
     justify-content: flex-end
     .tag
       &:not(:first-child)

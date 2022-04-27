@@ -186,7 +186,9 @@ $-css-vars-map: ("control-radius": $control-radius, "control-radius-small": $con
   text-align: inherit
   // Modifiers
   &.has-icons-left,
-  &.has-icons-right
+  &.has-icons-right,
+  &.has-icons-start,
+  &.has-icons-end
     .input,
     .select
       &:focus
@@ -218,6 +220,18 @@ $-css-vars-map: ("control-radius": $control-radius, "control-radius-small": $con
       padding-right: var(--input-height)
     .icon.is-right
       right: 0
+  &.has-icons-start
+    .input,
+    .select select
+      +utilities.ltr-property("padding", var(--input-height), false)
+    .icon.is-start
+      +utilities.ltr-property("inset", 0, false)
+  &.has-icons-end
+    .input,
+    .select select
+      +utilities.ltr-property("padding", var(--input-height))
+    .icon.is-end
+      +utilities.ltr-property("inset", 0)
   &.is-loading
     &.has-icons-right
       .icon.is-right

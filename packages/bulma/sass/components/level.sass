@@ -21,9 +21,12 @@ $-css-vars-map: ("level-item-spacing": $level-item-spacing)
   &.is-mobile
     display: flex
     .level-left,
-    .level-right
+    .level-right,
+    .level-start,
+    .level-end
       display: flex
-    .level-left + .level-right
+    .level-left + .level-right,
+    .level-start + .level-end
       margin-top: 0
     .level-item
       &:not(:last-child)
@@ -54,7 +57,9 @@ $-css-vars-map: ("level-item-spacing": $level-item-spacing)
       margin-bottom: var(--level-item-spacing)
 
 .level-left,
-.level-right
+.level-start,
+.level-right,
+.level-end
   flex-basis: auto
   flex-grow: 0
   flex-shrink: 0
@@ -68,18 +73,29 @@ $-css-vars-map: ("level-item-spacing": $level-item-spacing)
         +utilities.ltr-property("margin", var(--level-item-spacing))
 
 .level-left
-  align-items: center
+  justify-content: left
+
+.level-start
   justify-content: flex-start
+
+.level-left, .level-start
+  align-items: center
   // Responsiveness
   +utilities.mobile
-    & + .level-right
+    & + .level-right, & + .level-end
       margin-top: 1.5rem
   +utilities.tablet
     display: flex
 
 .level-right
-  align-items: center
+  justify-content: right
+
+.level-end
   justify-content: flex-end
+
+.level-right,
+.level-end
+  align-items: center
   // Responsiveness
   +utilities.tablet
     display: flex

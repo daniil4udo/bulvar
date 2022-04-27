@@ -46,15 +46,23 @@ $-css-vars-map: ("media-border-color": $media-border-color, "media-border-size":
       padding-top: var(--media-spacing-large)
 
 .media-left,
-.media-right
+.media-start,
+.media-right,
+.media-end
   flex-basis: auto
   flex-grow: 0
   flex-shrink: 0
 
 .media-left
-  +utilities.ltr-property("margin", var(--media-spacing))
+  margin-right: var(--media-spacing)
 
 .media-right
+  margin-left: var(--media-spacing)
+
+.media-start
+  +utilities.ltr-property("margin", var(--media-spacing))
+
+.media-end
   +utilities.ltr-property("margin", var(--media-spacing), false)
 
 .media-content
