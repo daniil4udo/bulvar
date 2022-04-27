@@ -41,15 +41,9 @@ $-css-vars-map: ("icon-dimensions": $icon-dimensions, "icon-dimensions-small": $
     flex-grow: 0
     flex-shrink: 0
     &:not(:last-child)
-      +utilities.ltr
-        margin-right: var(--icon-text-spacing)
-      +utilities.rtl
-        margin-left: var(--icon-text-spacing)
+      +utilities.ltr-property("margin", var(--icon-text-spacing))
     &:not(:first-child)
-      +utilities.ltr
-        margin-left: var(--icon-text-spacing)
-      +utilities.rtl
-        margin-right: var(--icon-text-spacing)
+      +utilities.ltr-property("margin", var(--icon-text-spacing), false)
 
 div.icon-text
   display: flex

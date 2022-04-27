@@ -60,7 +60,7 @@ $-css-vars-map: ("dropdown-content-offset": $dropdown-content-offset, "dropdown-
 
 .dropdown-menu
   display: none
-  +utilities.ltr-position(0, false)
+  +utilities.ltr-property("inset", 0, false)
   min-width: var(--dropdown-menu-min-width)
   padding-top: var(--dropdown-content-offset)
   position: absolute
