@@ -32,16 +32,14 @@ $-css-vars-map: (
             .button,
             .input,
             .select select {
-                border-bottom-left-radius: var(--input-radius);
-                border-top-left-radius: var(--input-radius);
+                @include bulma-utilities.ltr-border-x("radius", var(--input-radius), false);
             }
         }
         &:last-child .control {
             .button,
             .input,
             .select select {
-                border-bottom-right-radius: var(--input-radius);
-                border-top-right-radius: var(--input-radius);
+                @include bulma-utilities.ltr-border-x("radius", var(--input-radius));
             }
         }
         .control {
@@ -60,8 +58,7 @@ $-css-vars-map: (
                     .button,
                     .input,
                     .select select {
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
+                        @include bulma-utilities.ltr-border-x("radius", 0, false);
                     }
                 }
             }
@@ -70,8 +67,7 @@ $-css-vars-map: (
                     .button,
                     .input,
                     .select select {
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
+                        @include bulma-utilities.ltr-border-x("radius", 0);
                     }
                 }
             }
@@ -113,8 +109,7 @@ $-css-vars-map: (
                     .button,
                     .input,
                     .select select {
-                        border-bottom-left-radius: var(--input-radius);
-                        border-top-left-radius: var(--input-radius);
+                        @include bulma-utilities.ltr-border-x("radius", var(--input-radius), false);
                     }
                 }
             }

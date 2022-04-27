@@ -107,8 +107,7 @@ $-css-vars-map: (
     }
 
     .card-header {
-        border-top-left-radius: var(--clockpicker-card-radius);
-        border-top-right-radius: var(--clockpicker-card-radius);
+        @include bulma-utilities.ltr-border-y("radius", var(--clockpicker-card-radius));
     }
 
     .card-content {

@@ -132,9 +132,8 @@ $-css-vars-map: (
                     &.is-within-hovered-range {
                         &.is-first-hovered {
                             background-color: var(--grey);
-                            border-bottom-right-radius: 0;
-                            border-top-right-radius: 0;
                             color: var(--grey-lighter);
+                            @include bulma-utilities.ltr-border-x("radius", 0);
                         }
                         &.is-within-hovered {
                             background-color: var(--datepicker-item-hover-background-color);
@@ -143,9 +142,8 @@ $-css-vars-map: (
                         }
                         &.is-last-hovered {
                             background-color: var(--grey);
-                            border-bottom-left-radius: 0;
-                            border-top-left-radius: 0;
                             color: var(--grey-lighter);
+                            @include bulma-utilities.ltr-border-x("radius", 0, false);
                         }
                     }
                 }
@@ -154,9 +152,8 @@ $-css-vars-map: (
                     color: var(--datepicker-item-selected-color);
                     &.is-first-selected {
                         background-color: var(--datepicker-item-selected-background-color);
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
                         color: var(--datepicker-item-selected-color);
+                        @include bulma-utilities.ltr-border-x("radius", 0);
                     }
                     &.is-within-selected {
                         --datepicker-item-selected-background-color: #{bulma-utilities.bulmaVarOpacity(primary, 0.5)};
@@ -165,9 +162,8 @@ $-css-vars-map: (
                     }
                     &.is-last-selected {
                         background-color: var(--datepicker-item-selected-background-color);
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
                         color: var(--datepicker-item-selected-color);
+                        @include bulma-utilities.ltr-border-x("radius", 0, false);
                     }
                 }
                 &.is-nearby:not(.is-selected) {
