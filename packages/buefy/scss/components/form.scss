@@ -119,8 +119,7 @@ $-css-vars-map: (
     &.is-floating-label {
         .label {
             top: -0.775em;
-            padding-right: 0.125em;
-            padding-left: 0.125em;
+            padding-inline: 0.125em;
             &::before {
                 position: absolute;
                 z-index: -1;

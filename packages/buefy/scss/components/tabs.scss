@@ -182,8 +182,7 @@ $-css-vars-map: (
                         flex-direction: row-reverse;
 
                         .icon:first-child {
-                            margin-right: 0;
-                            margin-left: 0.5em
+                            margin-inline: 0.5em 0;
                         }
                     }
                 }
