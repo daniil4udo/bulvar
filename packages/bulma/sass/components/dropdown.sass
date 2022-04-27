@@ -51,6 +51,10 @@ $-css-vars-map: ("dropdown-content-offset": $dropdown-content-offset, "dropdown-
     .dropdown-menu
       left: auto
       right: 0
+  &.is-end
+    .dropdown-menu
+      +utilities.ltr-property("inset", auto)
+      +utilities.ltr-property("inset", 0, false)
   &.is-up
     .dropdown-menu
       bottom: 100%
@@ -83,7 +87,8 @@ $-css-vars-map: ("dropdown-content-offset": $dropdown-content-offset, "dropdown-
   position: relative
 
 a.dropdown-item,
-button.dropdown-item
+button.dropdown-item,
+.button.dropdown-item
   +utilities.ltr-property("padding", 3rem)
   text-align: inherit
   white-space: nowrap

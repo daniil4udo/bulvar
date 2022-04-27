@@ -123,7 +123,7 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
       flex-grow: 1
       max-width: none
   &.is-right
-    justify-content: flex-end
+    justify-content: right
     .file-cta
       +utilities.ltr-border-x("radius", var(--file-radius))
       +utilities.ltr-border-x("radius", 0, false)
@@ -131,6 +131,17 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
       +utilities.ltr-border-x("radius", 0)
       +utilities.ltr-border-x("radius", var(--file-radius), false)
       border-width: 1px 0 1px 1px
+      order: -1
+  &.is-end
+    justify-content: flex-end
+    .file-cta
+      +utilities.ltr-border-x("radius", var(--file-radius))
+      +utilities.ltr-border-x("radius", 0, false)
+    .file-name
+      +utilities.ltr-border-x("radius", 0)
+      +utilities.ltr-border-x("radius", var(--file-radius), false)
+      border-width: 1px
+      border-inline-end-width: 0
       order: -1
 
 .file-label
