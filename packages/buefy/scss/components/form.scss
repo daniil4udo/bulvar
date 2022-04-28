@@ -18,7 +18,7 @@ $-css-vars-map: (
         .field {
             flex-shrink: 0;
             &:not(:last-child) {
-                margin-right: 0.75rem;
+                @include bulma-utilities.ltr-property("margin", .75rem);
             }
             &.is-expanded {
                 flex-grow: 1;
@@ -74,7 +74,7 @@ $-css-vars-map: (
         }
         &.b-numberinput {
             .control {
-                margin-right: unset;
+                @include bulma-utilities.ltr-property("margin", unset);
             }
         }
     }
@@ -233,44 +233,45 @@ $-css-vars-map: (
             }
         }
     }
-    &.is-floating-label, &.is-floating-in-label {
+    &.is-floating-label,
+    &.is-floating-in-label {
         &.has-numberinput {
             .label {
-                margin-left: calc(var(--size-normal) * 3);
+                @include bulma-utilities.ltr-property("margin", calc(var(--size-normal) * 3), false);
             }
             &.has-numberinput-is-small {
                 .label {
-                    margin-left: calc(var(--size-small) * 3);
+                    @include bulma-utilities.ltr-property("margin", calc(var(--size-small) * 3), false);
                 }
             }
             &.has-numberinput-is-medium {
                 .label {
-                    margin-left: calc(var(--size-medium) * 3);
+                    @include bulma-utilities.ltr-property("margin", calc(var(--size-medium) * 3), false);
                 }
             }
             &.has-numberinput-is-large {
                 .label {
-                    margin-left: calc(var(--size-large) * 3);
+                    @include bulma-utilities.ltr-property("margin", calc(var(--size-large) * 3), false);
                 }
             }
         }
         &.has-numberinput-compact {
             .label {
-                margin-left: calc(var(--size-normal) * 2.25);
+                @include bulma-utilities.ltr-property("margin", calc(var(--size-normal) * 2.25), false);
             }
             &.has-numberinput-is-small {
                 .label {
-                    margin-left: calc(var(--size-small) * 2.25);
+                    @include bulma-utilities.ltr-property("margin", calc(var(--size-small) * 2.25), false);
                 }
             }
             &.has-numberinput-is-medium {
                 .label {
-                    margin-left: calc(var(--size-medium) * 2.25);
+                    @include bulma-utilities.ltr-property("margin", calc(var(--size-medium) * 2.25), false);
                 }
             }
             &.has-numberinput-is-large {
                 .label {
-                    margin-left: calc(var(--size-large) * 2.25);
+                    @include bulma-utilities.ltr-property("margin", calc(var(--size-large) * 2.25), false);
                 }
             }
         }
@@ -293,8 +294,8 @@ $-css-vars-map: (
 
 .control {
     .help.counter {
-        margin-left: 0.5em;
         float: right;
+        @include bulma-utilities.ltr-property("margin", 0.5em, false);
     }
     .icon {
         &.is-clickable {

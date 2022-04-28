@@ -18,7 +18,7 @@
             }
         }
     }
-    // unset opacity when dropdow is disabled
+    // unset opacity when dropdown is disabled
     .dropdown {
         &.is-disabled {
             opacity: 1;
@@ -39,7 +39,7 @@
                 margin: 0 0.125em;
 
                 select {
-                    padding-right: var(--control-padding-horizontal);
+                    @include bulma-utilities.ltr-property("padding", var(--control-padding-horizontal));
                     border: 0;
                     font-weight: var(--weight-semibold);
                     option {
@@ -57,7 +57,7 @@
                 line-height: 1.7em;
 
                 &:last-child {
-                    padding-right: var(--control-padding-horizontal);
+                    @include bulma-utilities.ltr-property("padding", var(--control-padding-horizontal));
                 }
             }
         }

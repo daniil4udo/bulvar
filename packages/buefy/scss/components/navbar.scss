@@ -1,12 +1,14 @@
+@use "../../../bulma/sass/utilities" as bulma-utilities;
+
 .navbar {
     &.has-navbar-centered {
         .navbar-start {
             justify-content: center;
-            margin-left: auto;
+            @include bulma-utilities.ltr-property("margin", auto, false);
         }
 
         .navbar-end {
-            margin-left: 0;
+            @include bulma-utilities.ltr-property("margin", 0, false);
         }
     }
 

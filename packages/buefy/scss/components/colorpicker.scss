@@ -32,7 +32,7 @@ $-css-vars-map: (
                 flex-grow: 1;
 
                 .field-label {
-                    margin-right: .5rem;
+                    @include bulma-utilities.ltr-property("margin", .5rem);
                 }
                 .control {
                     display: flex;
@@ -65,10 +65,10 @@ $-css-vars-map: (
 
         .colorpicker-footer {
             padding-top: 0;
-            padding-left: .875rem;
             border-width: 0 0 0 1px;
             margin-top: 0;
-            margin-left: .875rem;
+            @include bulma-utilities.ltr-property("margin", 0.875rem, false);
+            @include bulma-utilities.ltr-property("padding", 0.875rem, false);
         }
     }
 }

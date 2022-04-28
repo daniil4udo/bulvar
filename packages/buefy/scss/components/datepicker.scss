@@ -226,8 +226,8 @@ $-css-vars-map: (
         .footer-horizontal-timepicker {
             display: flex;
             padding-left: 10px;
-            border: none;
-            margin-left: 5px;
+            border:none;
+            @include bulma-utilities.ltr-property("margin", 0.5em, false);
         }
         .dropdown-horizonal-timepicker {
             display: flex;

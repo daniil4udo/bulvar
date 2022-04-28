@@ -28,7 +28,7 @@ $-css-vars-map: (
         margin-bottom: calc(var(--block-spacing) * 0.5);
     }
     &.is-spaced .rate-item:not(:last-child) {
-        margin-right: var(--rate-spaced);
+        @include bulma-utilities.ltr-property("margin", var(--rate-spaced));
     }
     &.is-disabled .rate-item {
         cursor: initial;
@@ -41,8 +41,7 @@ $-css-vars-map: (
             order: 1;
         }
         .rate-text {
-            margin-right: var(--rate-text-spaced);
-            margin-left: 0;
+            margin-inline: 0 var(--rate-text-spaced);
         }
     }
     .rate-item {
@@ -75,8 +74,8 @@ $-css-vars-map: (
         left: 0;
     }
     .rate-text {
-        margin-left: var(--rate-text-spaced);
         font-size: calc(var(--rate-text-font-size) / 1.25);
+        @include bulma-utilities.ltr-property("margin", var(--rate-text-spaced), false);
         @include bulma-utilities.control-sizes(rate-text-font-size);
     }
 }

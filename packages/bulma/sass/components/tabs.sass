@@ -102,7 +102,7 @@ $-css-vars-map: ('tabs-font-size': $tabs-font-size, 'tabs-border-bottom-color': 
     &.is-left
       padding-right: 0.75em
     &.is-start
-      padding-inline-end: 0.75em
+      +utilities.ltr-property("padding", 0.75em)
     &.is-center
       flex: none
       justify-content: center
@@ -112,7 +112,7 @@ $-css-vars-map: ('tabs-font-size': $tabs-font-size, 'tabs-border-bottom-color': 
       padding-left: 0.75em
     &.is-end
       justify-content: flex-end
-      padding-inline-start: 0.75em
+      +utilities.ltr-property("padding", 0.75em, false)
   .icon
     &:first-child
       +utilities.ltr-property("margin", 0.5em)

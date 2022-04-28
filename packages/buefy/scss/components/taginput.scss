@@ -38,7 +38,7 @@ $-css-vars-map: (
         > .tags {
             height: var(--taginput-height);
             margin-bottom: calc(0.275em - 1px);
-            margin-left: 0.275rem;
+            @include bulma-utilities.ltr-property("margin", 0.275rem, false);
             font-size: 0.9em;
             .tag {
                 height: var(--taginput-height);

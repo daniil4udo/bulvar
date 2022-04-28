@@ -132,8 +132,7 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
       +utilities.ltr-property("margin", calc(var(--button-padding-horizontal) * 0.25), false)
       +utilities.ltr-property("margin", calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width)))
     &:first-child:last-child
-      margin-left: calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width))
-      margin-right: calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width))
+      margin-inline: calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width))
   // States
   &:hover,
   &.is-hovered

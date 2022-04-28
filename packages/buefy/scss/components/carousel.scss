@@ -116,7 +116,7 @@ $-css-vars-map: (
         }
         .indicator-item {
             &:not(:last-child) {
-                margin-right: var(--carousel-indicator-spaced);
+                @include bulma-utilities.ltr-property("margin", var(--carousel-indicator-spaced));
             }
             &.is-active .indicator-style,
             .indicator-style:hover {

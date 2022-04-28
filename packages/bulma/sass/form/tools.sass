@@ -211,13 +211,13 @@ $-css-vars-map: ("control-radius": $control-radius, "control-radius-small": $con
   &.has-icons-left
     .input,
     .select select
-      padding-left: var(--input-height)
+      +utilities.ltr-property("padding", var(--input-height), false)
     .icon.is-left
       left: 0
   &.has-icons-right
     .input,
     .select select
-      padding-right: var(--input-height)
+      +utilities.ltr-property("padding", var(--input-height))
     .icon.is-right
       right: 0
   &.has-icons-start
