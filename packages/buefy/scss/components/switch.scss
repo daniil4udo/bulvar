@@ -24,10 +24,10 @@ $-css-vars-map: (
     position: relative;
     display: inline-flex;
     align-items: center;
-    margin-right: 0.5em;
+    @include bulma-utilities.ltr-property("margin", 0.5em);
     cursor: pointer;
     & + .switch:last-child {
-        margin-right: 0;
+        @include bulma-utilities.ltr-property("margin", 0);
     }
     input[type="checkbox"] {
         position: absolute;
@@ -122,13 +122,13 @@ $-css-vars-map: (
     &.has-left-label {
         flex-direction: row-reverse;
         .control-label {
-            padding-right: var(--control-padding-horizontal);
+            @include bulma-utilities.ltr-property("padding", var(--control-padding-horizontal));
         }
     }
 
     &:not(.has-left-label) {
         .control-label {
-            padding-left: var(--control-padding-horizontal);
+            @include bulma-utilities.ltr-property("padding", var(--control-padding-horizontal), false);
         }
     }
 

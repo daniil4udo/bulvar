@@ -25,14 +25,14 @@ $-css-vars-map: (
         align-items: center;
         outline: none;
         &:not(.button) {
-            margin-right: 0.5em;
+            @include bulma-utilities.ltr-property("margin", 0.5em);
             & + .radio:last-child {
-                margin-right: 0;
+                @include bulma-utilities.ltr-property("margin", 0);
             }
         }
         // reset Bulma
         & + .radio {
-            margin-left: 0;
+            @include bulma-utilities.ltr-property("margin", 0, false);
         }
         input[type=radio] {
             position: absolute;
@@ -64,6 +64,7 @@ $-css-vars-map: (
                     content: "";
                     transform: scale(0);
                     transition: transform calc(var(--speed) * 2) var(--easing);
+                    @include bulma-utilities.ltr-property("margin", calc(-0.5 * var(--radio-size)), false);
                 }
                 @each $name, $pair in $radio-colors {
                     $color: list.nth($pair, 1);
@@ -102,7 +103,7 @@ $-css-vars-map: (
             }
         }
         .control-label {
-            padding-left: var(--control-padding-horizontal);
+            @include bulma-utilities.ltr-property("padding", var(--control-padding-horizontal), false);
         }
         &.button {
             display: flex;

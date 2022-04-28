@@ -147,7 +147,7 @@ $-css-vars-map: (
             &.is-toggle {
                 li {
                     + li {
-                        margin-left: 0;
+                        @include bulma-utilities.ltr-property("margin", 0, false);
                     }
                     &:first-child {
                         a {

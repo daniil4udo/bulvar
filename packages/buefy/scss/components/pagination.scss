@@ -3,8 +3,7 @@
 .pagination {
     .pagination-next,
     .pagination-previous {
-        padding-right: var(--pagination-nav-padding-right);
-        padding-left: var(--pagination-nav-padding-left);
+        padding-inline: var(--pagination-nav-padding-left) var(--pagination-nav-padding-right);
         &.is-disabled {
             cursor: not-allowed;
             opacity: 0.5;
@@ -17,6 +16,9 @@
             justify-content: center;
         }
         &.is-right {
+            justify-content: right;
+        }
+        &.is-end {
             justify-content: flex-end;
         }
     }
