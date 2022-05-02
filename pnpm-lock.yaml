@@ -1,4 +1,4 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 neverBuiltDependencies:
   - fsevents
@@ -14,7 +14,7 @@ overrides:
   uuid: ^8.0.0
 
 specifiers:
-  autoprefixer: ^10.4.5
+  autoprefixer: ^10.4.7
   commitizen: ^4.2.4
   cross-env: ^7.0.3
   csso-cli: ^3.0.0
@@ -34,14 +34,14 @@ specifiers:
   rimraf: ^3.0.2
   rtlcss: ^3.5.0
   sass: ^1.51.0
-  stylelint: ^14.7.1
+  stylelint: ^14.0.0
   stylelint-config-idiomatic-order: ^8.1.0
   stylelint-config-prettier: ^9.0.3
   stylelint-config-standard-scss: ^3.0.0
   sugarss: ^4.0.1
 
 devDependencies:
-  autoprefixer: 10.4.5_postcss@8.4.12
+  autoprefixer: 10.4.7_postcss@8.4.12
   commitizen: 4.2.4
   cross-env: 7.0.3
   csso-cli: 3.0.0
@@ -64,7 +64,7 @@ devDependencies:
   stylelint: 14.7.1
   stylelint-config-idiomatic-order: 8.1.0_stylelint@14.7.1
   stylelint-config-prettier: 9.0.3_stylelint@14.7.1
-  stylelint-config-standard-scss: 3.0.0_postcss@8.4.12+stylelint@14.7.1
+  stylelint-config-standard-scss: 3.0.0_hvhykwj52jemuwo5rz657ji2su
   sugarss: 4.0.1_postcss@8.4.12
 
 packages:
@@ -117,7 +117,7 @@ packages:
       '@types/node': 17.0.27
       chalk: 4.1.2
       cosmiconfig: 7.0.1
-      cosmiconfig-typescript-loader: 1.0.9_237e4226c9260fe57b2f293b24795fca
+      cosmiconfig-typescript-loader: 1.0.9_en7eejwjeyh6k6zpfe5si6k7zi
       lodash: 4.17.21
       resolve-from: 5.0.0
       typescript: 4.6.3
@@ -217,7 +217,7 @@ packages:
       p-map: 4.0.0
       p-map-series: 2.1.0
       p-waterfall: 2.1.1
-      read-package-tree: /@npmcli/arborist/5.1.0
+      read-package-tree: /@npmcli/arborist/5.1.1
       semver: 7.3.7
     transitivePeerDependencies:
       - supports-color
@@ -886,8 +886,8 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@npmcli/arborist/5.1.0:
-    resolution: {integrity: sha512-MMutHkOmGyLJTBGXeeZ7khANmjlJtuqHScDATXaxChHMLF6MhAlw2Cca4TXlbeJuq0X1s7wm6ODa/vnBS3DVAw==}
+  /@npmcli/arborist/5.1.1:
+    resolution: {integrity: sha512-qAlwjo95HuqYoOBJgg2dSZRQniHR+GxLdcIoEBQ1f79GFd1TFdIyqHtr77HBGsnGVqTpvBGD0A2vFbEJ9CwWlg==}
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -1458,15 +1458,15 @@ packages:
     engines: {node: '>= 4.0.0'}
     dev: true
 
-  /autoprefixer/10.4.5_postcss@8.4.12:
-    resolution: {integrity: sha512-Fvd8yCoA7lNX/OUllvS+aS1I7WRBclGXsepbvT8ZaPgrH24rgXpZzF0/6Hh3ZEkwg+0AES/Osd196VZmYoEFtw==}
+  /autoprefixer/10.4.7_postcss@8.4.12:
+    resolution: {integrity: sha512-ypHju4Y2Oav95SipEcCcI5J7CGPuvz8oat7sUtYj3ClK44bldfvtvcxK6IEK++7rqB7YchDGzweZIBG+SD0ZAA==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.20.3
-      caniuse-lite: 1.0.30001332
+      caniuse-lite: 1.0.30001335
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -1542,7 +1542,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001332
+      caniuse-lite: 1.0.30001335
       electron-to-chromium: 1.4.121
       escalade: 3.1.1
       node-releases: 2.0.3
@@ -1652,8 +1652,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /caniuse-lite/1.0.30001332:
-    resolution: {integrity: sha512-10T30NYOEQtN6C11YGg411yebhvpnC6Z102+B95eAsN0oB6KUs01ivE8u+G6FMIRtIrVlYXhL+LUwQ3/hXwDWw==}
+  /caniuse-lite/1.0.30001335:
+    resolution: {integrity: sha512-ddP1Tgm7z2iIxu6QTtbZUv6HJxSaV/PZeSrWFZtbY4JZ69tOeNhBCl3HyRQgeNZKE5AOn1kpV7fhljigy0Ty3w==}
     dev: true
 
   /caseless/0.12.0:
@@ -2047,7 +2047,7 @@ packages:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
     dev: true
 
-  /cosmiconfig-typescript-loader/1.0.9_237e4226c9260fe57b2f293b24795fca:
+  /cosmiconfig-typescript-loader/1.0.9_en7eejwjeyh6k6zpfe5si6k7zi:
     resolution: {integrity: sha512-tRuMRhxN4m1Y8hP9SNYfz7jRwt8lZdWxdjg/ohg5esKmsndJIn4yT96oJVcf5x0eA11taXl+sIp+ielu529k6g==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
@@ -2056,7 +2056,7 @@ packages:
     dependencies:
       '@types/node': 17.0.27
       cosmiconfig: 7.0.1
-      ts-node: 10.7.0_237e4226c9260fe57b2f293b24795fca
+      ts-node: 10.7.0_en7eejwjeyh6k6zpfe5si6k7zi
       typescript: 4.6.3
     transitivePeerDependencies:
       - '@swc/core'
@@ -6022,7 +6022,7 @@ packages:
       stylelint: 14.7.1
     dev: true
 
-  /stylelint-config-recommended-scss/5.0.2_postcss@8.4.12+stylelint@14.7.1:
+  /stylelint-config-recommended-scss/5.0.2_hvhykwj52jemuwo5rz657ji2su:
     resolution: {integrity: sha512-b14BSZjcwW0hqbzm9b0S/ScN2+3CO3O4vcMNOw2KGf8lfVSwJ4p5TbNEXKwKl1+0FMtgRXZj6DqVUe/7nGnuBg==}
     peerDependencies:
       stylelint: ^14.0.0
@@ -6043,13 +6043,13 @@ packages:
       stylelint: 14.7.1
     dev: true
 
-  /stylelint-config-standard-scss/3.0.0_postcss@8.4.12+stylelint@14.7.1:
+  /stylelint-config-standard-scss/3.0.0_hvhykwj52jemuwo5rz657ji2su:
     resolution: {integrity: sha512-zt3ZbzIbllN1iCmc94e4pDxqpkzeR6CJo5DDXzltshuXr+82B8ylHyMMARNnUYrZH80B7wgY7UkKTYCFM0UUyw==}
     peerDependencies:
       stylelint: ^14.0.0
     dependencies:
       stylelint: 14.7.1
-      stylelint-config-recommended-scss: 5.0.2_postcss@8.4.12+stylelint@14.7.1
+      stylelint-config-recommended-scss: 5.0.2_hvhykwj52jemuwo5rz657ji2su
       stylelint-config-standard: 24.0.0_stylelint@14.7.1
     transitivePeerDependencies:
       - postcss
@@ -6315,7 +6315,7 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /ts-node/10.7.0_237e4226c9260fe57b2f293b24795fca:
+  /ts-node/10.7.0_en7eejwjeyh6k6zpfe5si6k7zi:
     resolution: {integrity: sha512-TbIGS4xgJoX2i3do417KSaep1uRAW/Lu+WAL2doDHC0D6ummjirVOXU5/7aiZotbQ5p1Zp9tP7U6cYhA0O7M8A==}
     hasBin: true
     peerDependencies:
