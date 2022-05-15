@@ -2,4 +2,4 @@
 
 echo "🔍  Start pre–commit checks..."
 
-pnpx --no-install cross-env PRE_COMMIT=true lint-staged
+pnpm exec cross-env PRE_COMMIT=true lint-staged
