@@ -29,7 +29,7 @@ $-css-vars-map: (
                 width: 100%;
                 border: 0;
                 margin-bottom: 1rem;
-                text-align: right;
+                text-align: end;
             }
         }
     }
@@ -72,12 +72,12 @@ $-css-vars-map: (
             width: auto;
             justify-content: space-between;
             border-bottom: 1px solid var(--background);
-            text-align: right;
+            text-align: end;
             &::before {
                 @include bulma-utilities.ltr-property("padding", 0.5em);
                 content: attr(data-label);
                 font-weight: var(--weight-semibold);
-                text-align: left;
+                text-align: start;
             }
         }
     }
@@ -134,7 +134,7 @@ $-css-vars-map: (
                 }
                 &.is-numeric {
                     flex-direction: row-reverse;
-                    text-align: right;
+                    text-align: end;
                     .icon {
                         margin-inline: 0 0.5em;
                     }
