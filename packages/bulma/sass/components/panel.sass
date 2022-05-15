@@ -135,9 +135,9 @@ $-css-vars-map: ("panel-font-size": $panel-font-size, "panel-margin": $panel-mar
     .panel-icon
       color: var(--panel-block-active-icon-color)
   &:first-child
-    +utilities.ltr-border-y("radius", var(--panel-radius))
+    +utilities.lph-border-radius(top, var(--panel-radius))
   &:last-child
-    +utilities.ltr-border-y("radius", var(--panel-radius), false)
+    +utilities.lph-border-radius(bottom, var(--panel-radius))
 
 a.panel-block,
 label.panel-block

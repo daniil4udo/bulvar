@@ -73,7 +73,7 @@ $-css-vars-map: ("message-background-color": $message-background-color, "message
 .message-header
   align-items: center
   background-color: var(--message-header-background-color)
-  +utilities.ltr-border-y("radius", var(--message-header-radius))
+  +utilities.lph-border-radius(top, var(--message-header-radius))
   color: var(--message-header-color)
   display: flex
   font-weight: var(--message-header-weight)
@@ -87,7 +87,7 @@ $-css-vars-map: ("message-background-color": $message-background-color, "message
     +utilities.ltr-property("margin", 0.75em, false)
   & + .message-body
     border-width: var(--message-header-body-border-width)
-    +utilities.ltr-border-y("radius", 0)
+    +utilities.lph-border-radius(top, 0)
 
 .message-body
   border-color: var(--message-body-border-color)

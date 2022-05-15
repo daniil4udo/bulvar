@@ -132,8 +132,8 @@ $-css-vars-map: ('tabs-font-size': $tabs-font-size, 'tabs-border-bottom-color': 
   &.is-boxed
     a
       border: 1px solid transparent
-      +utilities.ltr-border-y("radius", var(--tabs-boxed-link-radius))
-      +utilities.ltr-border-y("radius", 0, false)
+      +utilities.lph-border-radius(top, var(--tabs-boxed-link-radius))
+      +utilities.lph-border-radius(bottom, 0)
       &:hover
         background-color: var(--tabs-boxed-link-hover-background-color)
         border-bottom-color: var(--tabs-boxed-link-hover-border-bottom-color)
@@ -162,9 +162,9 @@ $-css-vars-map: ('tabs-font-size': $tabs-font-size, 'tabs-border-bottom-color': 
       & + li
         +utilities.ltr-property("margin", calc(-1 * var(--tabs-toggle-link-border-width)), false)
       &:first-child a
-        +utilities.ltr-border-x("radius", var(--tabs-toggle-link-radius), false)
+        +utilities.lph-border-radius(left, var(--tabs-toggle-link-radius))
       &:last-child a
-        +utilities.ltr-border-x("radius", var(--tabs-toggle-link-radius))
+        +utilities.lph-border-radius(right, var(--tabs-toggle-link-radius))
       &.is-active
         a
           background-color: var(--tabs-toggle-link-active-background-color)
@@ -177,9 +177,9 @@ $-css-vars-map: ('tabs-font-size': $tabs-font-size, 'tabs-border-bottom-color': 
       li
         &:first-child a
           +utilities.ltr-property("padding", 1.25em, false)
-          +utilities.ltr-border-x("radius", var(--radius-rounded), false)
+          +utilities.lph-border-radius(left, var(--radius-rounded))
         &:last-child a
           +utilities.ltr-property("padding", 1.25em)
-          +utilities.ltr-border-x("radius", var(--radius-rounded))
+          +utilities.lph-border-radius(right, var(--radius-rounded))
   // Sizes
   +utilities.control-sizes(tabs-font-size)

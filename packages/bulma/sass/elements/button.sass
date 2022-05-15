@@ -349,9 +349,9 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
   &.has-addons
     .button
       &:not(:first-child)
-        +utilities.ltr-border-x("radius", 0, false)
+        +utilities.lph-border-radius(left, 0)
       &:not(:last-child)
-        +utilities.ltr-border-x("radius", 0)
+        +utilities.lph-border-radius(right, 0)
         +utilities.ltr-property("margin", -1px)
       &:last-child
         +utilities.ltr-property("margin", 0)
