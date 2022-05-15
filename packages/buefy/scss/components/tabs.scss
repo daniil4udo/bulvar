@@ -133,7 +133,7 @@ $-css-vars-map: (
                     a {
                         border-right-color: var(--tabs-border-bottom-color) !important;
                         border-bottom-color: transparent !important;
-						@include bulma-utilities.lph-border-radius(left, var(--tabs-boxed-link-radius));
+                        @include bulma-utilities.lph-border-radius(left, var(--tabs-boxed-link-radius));
                     }
 
                     &.is-active {
