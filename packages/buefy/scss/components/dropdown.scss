@@ -22,13 +22,13 @@ $-css-vars-map: (
     .background {
         @extend %overlay;
         position: fixed;
-        background-color: var(--dropdown-background-color);
         z-index: 40;
+        background-color: var(--dropdown-background-color);
         cursor: pointer;
 
-				@include bulma-utilities.from($dropdown-mobile-breakpoint) {
-						display: none;
-				}
+        @include bulma-utilities.from($dropdown-mobile-breakpoint) {
+            display: none;
+        }
     }
     &.dropdown-menu-animation {
         .dropdown-menu {
@@ -90,8 +90,8 @@ $-css-vars-map: (
         height: 100%;
     }
     &.is-disabled {
-        opacity: var(--dropdown-disabled-opacity);
         cursor: not-allowed;
+        opacity: var(--dropdown-disabled-opacity);
         .dropdown-trigger {
             pointer-events: none;
         }
@@ -112,8 +112,8 @@ $-css-vars-map: (
     &.is-top-left {
         .dropdown-menu {
             top: auto;
-            bottom: 100%;
             right: 0;
+            bottom: 100%;
             left: auto;
         }
     }
@@ -124,21 +124,21 @@ $-css-vars-map: (
         }
     }
 
-		@include bulma-utilities.until($dropdown-mobile-breakpoint) {
+    @include bulma-utilities.until($dropdown-mobile-breakpoint) {
         &.is-mobile-modal {
             > .dropdown-menu {
                 position: fixed !important;
+                z-index: 50 !important;
+                top: 25% !important;
+                right: auto !important;
+                bottom: auto !important;
+                left: 50% !important;
                 width: calc(100vw - 40px);
                 max-width: 460px;
                 max-height: calc(100vh - 120px);
-                top: 25% !important;
-                left: 50% !important;
-                bottom: auto !important;
-                right: auto !important;
+                overflow-y: auto;
                 transform: translate3d(-50%, -25%, 0);
                 white-space: normal;
-                overflow-y: auto;
-                z-index: 50 !important;
                 > .dropdown-content {
                     > .dropdown-item, > .has-link a {
                         padding: 1rem 1.5rem;

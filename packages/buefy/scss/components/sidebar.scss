@@ -29,10 +29,10 @@ $-css-vars-map: (
 
 .b-sidebar {
     .sidebar-content {
+        z-index: 39;
+        width: var(--sidebar-width);
         background-color: var(--background);
         box-shadow: var(--sidebar-box-shadow);
-        width: var(--sidebar-width);
-        z-index: 39;
         @each $name, $pair in $sidebar-colors {
             $color: list.nth($pair, 1);
             &.is-#{$name} {
@@ -41,29 +41,26 @@ $-css-vars-map: (
         }
         &.is-fixed {
             position: fixed;
-            left: 0;
             top: 0;
+            left: 0;
             &.is-right {
-                left: auto;
                 right: 0;
+                left: auto;
             }
         }
         &.is-absolute {
             position: absolute;
-            left: 0;
             top: 0;
+            left: 0;
             &.is-right {
-                left: auto;
                 right: 0;
+                left: auto;
             }
         }
         &.is-mini {
             width: var(--sidebar-mobile-width);
             &.is-mini-expand:hover:not(.is-mini-delayed) {
-                // transition: width $speed-slow $easing;
-                transition-property: width;
-                transition-duration: calc(var(--speed) * 2);
-                transition-timing-function: var(--easing);
+                transition: width calc(var(--speed) * 2) var(--easing);
                 &:not(.is-fullwidth) {
                     width: var(--sidebar-width);
                     &.is-mini-expand-fixed {
@@ -76,26 +73,23 @@ $-css-vars-map: (
             position: static;
         }
         &.is-absolute, &.is-static {
-            // transition: width $speed-slow $easing;
-            transition-property: width;
-            transition-duration: calc(var(--speed) * 2);
-            transition-timing-function: var(--easing);
+            transition: width calc(var(--speed) * 2) var(--easing);
         }
         &.is-fullwidth {
             width: 100%;
             max-width: 100%;
         }
         &.is-fullheight {
+            display: flex;
+            overflow: hidden;
             height: 100%;
             max-height: 100%;
-            overflow: hidden;
-            overflow-y: auto;
-            display: flex;
             flex-direction: column;
             align-content: stretch;
+            overflow-y: auto;
         }
 
-				@include bulma-utilities.until($sidebar-mobile-breakpoint) {
+        @include bulma-utilities.until($sidebar-mobile-breakpoint) {
             &.is-mini-mobile {
                 width: var(--sidebar-mobile-width);
                 &.is-mini-expand:hover {
@@ -108,9 +102,9 @@ $-css-vars-map: (
                 }
             }
             &.is-hidden-mobile {
+                overflow: hidden;
                 width: 0;
                 height: 0;
-                overflow: hidden;
             }
             &.is-fullwidth-mobile {
                 width: 100%;
@@ -120,8 +114,8 @@ $-css-vars-map: (
     }
     .sidebar-background {
         @extend %overlay;
-        background: var(--sidebar-background);
         position: fixed;
         z-index: 38;
+        background: var(--sidebar-background);
     }
 }

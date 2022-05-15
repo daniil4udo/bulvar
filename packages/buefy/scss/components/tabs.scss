@@ -36,12 +36,12 @@ $-css-vars-map: (
 
 .b-tabs {
     .tabs {
-        margin-bottom: 0;
         flex-shrink: 0;
+        margin-bottom: 0;
         li {
             a:focus {
-                outline: var(--tabs-focused-outline);
                 border-bottom-color: var(--tabs-link-focus-active-border-bottom-color);
+                outline: var(--tabs-focused-outline);
             }
             &:not(.is-active) {
                 a:focus {
@@ -50,9 +50,9 @@ $-css-vars-map: (
             }
 
             &.is-disabled {
-                pointer-events: none;
                 cursor: not-allowed;
                 opacity: 0.5;
+                pointer-events: none;
             }
         }
 
@@ -60,13 +60,13 @@ $-css-vars-map: (
         &.is-boxed {
             li {
                 a:focus {
-                    background-color: var(--tabs-boxed-link-focus-active-background-color);
                     border-bottom-color: var(--tabs-boxed-link-focus-active-border-bottom-color);
+                    background-color: var(--tabs-boxed-link-focus-active-background-color);
                 }
                 &:not(.is-active) {
                     a:focus {
-                        background-color: var(--tabs-boxed-link-focus-background-color);
                         border-bottom-color: var(--tabs-boxed-link-focus-border-bottom-color);
+                        background-color: var(--tabs-boxed-link-focus-background-color);
                     }
                 }
             }
@@ -74,13 +74,13 @@ $-css-vars-map: (
         &.is-toggle {
             li {
                 a:focus {
-                    background-color: var(--tabs-toggle-link-focus-active-background-color);
                     border-color: var(--tabs-toggle-link-focus-active-border-color);
+                    background-color: var(--tabs-toggle-link-focus-active-background-color);
                 }
                 &:not(.is-active) {
                     a:focus {
-                        background-color: var(--tabs-toggle-link-focus-background-color);
                         border-color: var(--tabs-toggle-link-focus-border-color);
+                        background-color: var(--tabs-toggle-link-focus-background-color);
                     }
                 }
             }
@@ -88,13 +88,13 @@ $-css-vars-map: (
     }
     .tab-content {
         position: relative;
-        overflow: visible;
         display: flex;
+        overflow: visible;
         flex-direction: column;
         padding: 1rem;
         .tab-item {
-            flex-shrink: 0;
             flex-basis: auto;
+            flex-shrink: 0;
 
             &:focus {
                 outline: var(--tabs-items-focused-outline);
@@ -131,15 +131,15 @@ $-css-vars-map: (
             &.is-boxed {
                 li {
                     a {
-                        border-bottom-color: transparent !important;
                         border-right-color: var(--tabs-border-bottom-color) !important;
+                        border-bottom-color: transparent !important;
                         border-radius: var(--tabs-boxed-link-radius) 0 0 var(--tabs-boxed-link-radius);
                     }
 
                     &.is-active {
                         a {
-                            border-bottom-color: var(--tabs-border-bottom-color) !important;
                             border-right-color: transparent !important;
+                            border-bottom-color: var(--tabs-border-bottom-color) !important;
                         }
                     }
                 }
@@ -191,16 +191,16 @@ $-css-vars-map: (
                 &.is-boxed {
                     li {
                         a {
-                            border-bottom-color: transparent !important;
                             border-right-color: transparent !important;
+                            border-bottom-color: transparent !important;
                             border-left-color: var(--tabs-border-bottom-color) !important;
                             border-radius: 0 var(--tabs-boxed-link-radius) var(--tabs-boxed-link-radius) 0;
                         }
 
                         &.is-active {
                             a {
-                                border-bottom-color: var(--tabs-border-bottom-color) !important;
                                 border-right-color: var(--tabs-border-bottom-color) !important;
+                                border-bottom-color: var(--tabs-border-bottom-color) !important;
                                 border-left-color: transparent !important;
                             }
                         }
@@ -212,8 +212,8 @@ $-css-vars-map: (
     &.is-multiline {
         > .tabs {
             ul {
-                flex-wrap: wrap;
                 flex-shrink: 1;
+                flex-wrap: wrap;
             }
         }
     }

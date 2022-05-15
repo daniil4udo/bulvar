@@ -28,11 +28,11 @@ $-css-vars-map: (
         position: absolute;
         top: 0;
         left: 50%;
-        transform: translateX(-50%);
-        font-size: calc(var(--progress-value-size) / 1.5);
-        line-height: var(--progress-value-size);
-        font-weight: var(--weight-bold);
         color: var(--progress-value-color);
+        font-size: calc(var(--progress-value-size) / 1.5);
+        font-weight: var(--weight-bold);
+        line-height: var(--progress-value-size);
+        transform: translateX(-50%);
         white-space: nowrap;
     }
 
@@ -68,16 +68,16 @@ $-css-vars-map: (
 
     &.is-not-native {
         @extend .progress;
-        white-space: nowrap;
         background-color: var(--progress-bar-background-color);
         border-radius: var(--progress-border-radius);
+        white-space: nowrap;
 
         .progress-bar {
             position: relative;
             display: inline-block;
-            vertical-align: top;
             height: 100%;
             background-color: var(--progress-value-background-color);
+            vertical-align: top;
 
             .progress-value {
                 color: var(--progress-value-color);

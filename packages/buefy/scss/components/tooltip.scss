@@ -38,7 +38,7 @@ $-css-vars-map: (
 @mixin tooltip($direction) {
     &.#{$direction} {
         .tooltip-content {
-            // TODO: move calculaions calc(100... to CSS Var
+            // TODO: move calculations calc(100... to CSS Var
             --tooltip-content-spacing: calc(100% + var(--tooltip-arrow-size) + var(--tooltip-arrow-margin));
             @if  $direction == "is-top" {
                 top: auto;
@@ -46,63 +46,68 @@ $-css-vars-map: (
                 bottom: var(--tooltip-content-spacing);
                 left: 50%;
                 transform: translateX(-50%);
+
+                &::before {
+                    top: 100%;
+                    right: auto;
+                    bottom: auto;
+                    left: 50%;
+                    border-top: var(--tooltip-arrow-size) solid var(--primary);
+                    border-right: var(--tooltip-arrow-size) solid transparent;
+                    border-left: var(--tooltip-arrow-size) solid transparent;
+                    transform: translateX(-50%);
+                }
             } @else if $direction == "is-bottom" {
                 top: var(--tooltip-content-spacing);
                 right: auto;
                 bottom: auto;
                 left: 50%;
                 transform: translateX(-50%);
+
+                &::before {
+                    top: auto;
+                    right: auto;
+                    bottom: 100%;
+                    left: 50%;
+                    border-right: var(--tooltip-arrow-size) solid transparent;
+                    border-bottom: var(--tooltip-arrow-size) solid var(--primary);
+                    border-left: var(--tooltip-arrow-size) solid transparent;
+                    transform: translateX(-50%);
+                }
             } @else if $direction == "is-right" {
                 top: 50%;
                 right: auto;
                 bottom: auto;
                 left: var(--tooltip-content-spacing);
                 transform: translateY(-50%);
+
+                &::before {
+                    top: 50%;
+                    right: 100%;
+                    bottom: auto;
+                    left: auto;
+                    border-top: var(--tooltip-arrow-size) solid transparent;
+                    border-right: var(--tooltip-arrow-size) solid var(--primary);
+                    border-bottom: var(--tooltip-arrow-size) solid transparent;
+                    transform: translateY(-50%);
+                }
             } @else if $direction == "is-left" {
                 top: 50%;
                 right: var(--tooltip-content-spacing);
                 bottom: auto;
                 left: auto;
                 transform: translateY(-50%);
-            }
-        }
-        .tooltip-content::before {
-            @if  $direction == "is-bottom" {
-                top: auto;
-                right: auto;
-                bottom: 100%;
-                left: 50%;
-                transform: translateX(-50%);
-                border-right: var(--tooltip-arrow-size) solid transparent;
-                border-bottom: var(--tooltip-arrow-size) solid var(--primary);
-                border-left: var(--tooltip-arrow-size) solid transparent;
-            } @else if $direction == "is-top" {
-                top: 100%;
-                right: auto;
-                bottom: auto;
-                left: 50%;
-                transform: translateX(-50%);
-                border-top: var(--tooltip-arrow-size) solid var(--primary);
-                border-right: var(--tooltip-arrow-size) solid transparent;
-                border-left: var(--tooltip-arrow-size) solid transparent;
-            } @else if $direction == "is-left" {
-                top: 50%;
-                right: auto;
-                bottom: auto;
-                left: 100%;
-                transform: translateY(-50%);
-                border-top: var(--tooltip-arrow-size) solid transparent;
-                border-bottom: var(--tooltip-arrow-size) solid transparent;
-                border-left: var(--tooltip-arrow-size) solid var(--primary);
-            } @else if $direction == "is-right" {
-                top: 50%;
-                right: 100%;
-                bottom: auto;
-                left: auto;
-                transform: translateY(-50%);
-                border-top: var(--tooltip-arrow-size) solid transparent;
-                border-right: var(--tooltip-arrow-size) solid var(--primary);
-                border-bottom: var(--tooltip-arrow-size) solid transparent;
+
+                &::before {
+                    top: 50%;
+                    right: auto;
+                    bottom: auto;
+                    left: 100%;
+                    border-top: var(--tooltip-arrow-size) solid transparent;
+                    border-bottom: var(--tooltip-arrow-size) solid transparent;
+                    border-left: var(--tooltip-arrow-size) solid var(--primary);
+                    transform: translateY(-50%);
+                }
             }
         }
         @each $name, $pair in $tooltip-colors {
@@ -134,21 +139,22 @@ $-css-vars-map: (
     position: relative;
     display: inline-flex;
     .tooltip-content {
+        position: absolute;
+        z-index: 38;
         width: auto;
         padding: 0.35rem 0.75rem;
         border-radius: var(--radius-large);
+        box-shadow: 0 1px 2px 1px rgba(var(--scheme-invert-rgb), 0.2);
         font-size: 0.85rem;
         font-weight: var(--weight-normal);
-        box-shadow: 0 1px 2px 1px rgba(var(--scheme-invert-rgb), 0.2);
-        z-index: 38;
         white-space: nowrap;
-        position: absolute;
-    }
-    .tooltip-content::before {
-        position: absolute;
-        content: "";
-        pointer-events: none;
-        z-index: 38;
+
+        &::before {
+            position: absolute;
+            z-index: 38;
+            content: "";
+            pointer-events: none;
+        }
     }
     .tooltip-trigger {
         width: 100%;

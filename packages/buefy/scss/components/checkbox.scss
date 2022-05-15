@@ -38,9 +38,9 @@ $-css-vars-map: (
 .b-checkbox {
     &.checkbox {
         @extend %unselectable;
-        outline: none;
         display: inline-flex;
         align-items: center;
+        outline: none;
         &:not(.button) {
             margin-right: 0.5em;
             & + .checkbox:last-child {
@@ -49,56 +49,57 @@ $-css-vars-map: (
         }
         input[type=checkbox] {
             position: absolute;
+            z-index: -1;
             left: 0;
             opacity: 0;
             outline: none;
-            z-index: -1;
             + .check {
                 width: var(--checkbox-size);
                 height: var(--checkbox-size);
                 flex-shrink: 0;
-                border-radius: var(--checkbox-border-radius);
                 border: var(--checkbox-border-width) solid var(--checkbox-border-color);
-                // transition: background $speed-slow $easing;
-                transition-property: background;
-                transition-duration: calc(var(--speed) * 2);
-                transition-timing-function: var(--easing);
-                background: var(--checkbox-background-color)
+                background: var(--checkbox-background-color);
+                border-radius: var(--checkbox-border-radius);
+                transition: background calc(var(--speed) * 2) var(--easing);
             }
             &:checked,
-						&:indeterminate {
-							& +.check {
-									background: var(--checkbox-active-background-color); // url(functions.checkmark($checkbox-checkmark-color)) no-repeat center center;
-									color: var(--checkbox-checkmark-color);
-									border-color: var(--checkbox-active-background-color);
-									@each $name, $pair in $checkbox-colors {
-											$color: list.nth($pair, 1);
-											$color-invert: list.nth($pair, 2);
-											&.is-#{$name} {
-													background: var(--#{$name}); // url(functions.checkmark($color-invert)) no-repeat center center;
-													color: var(--#{$name}-invert);
-													border-color: var(--#{$name});
-											}
-									}
-							}
-						}
+            &:indeterminate {
+                & +.check {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-color: var(--checkbox-active-background-color);
+                    background: var(--checkbox-active-background-color); // url(functions.checkmark($checkbox-checkmark-color)) no-repeat center center;
+                    color: var(--checkbox-checkmark-color);
+                    font-weight: var(--weight-bold);
+                    text-align: center;
+                    @each $name, $pair in $checkbox-colors {
+                        $color: list.nth($pair, 1);
+                        $color-invert: list.nth($pair, 2);
+                        &.is-#{$name} {
+                            border-color: var(--#{$name});
+                            background: var(--#{$name}); // url(functions.checkmark($color-invert)) no-repeat center center;
+                            color: var(--#{$name}-invert);
+                        }
+                    }
+                    &::before {
+                        position: absolute;
+                    }
+                }
+            }
             &:checked + .check {
-								&::after {
-									position: absolute;
-									top: 0;
-									content: "✓"
-								}
+                &::before {
+                    content: "✓";
+                }
             }
             &:indeterminate + .check {
-								&::after {
-									position: absolute;
-									top: 0;
-									content: "─"
-								}
+                &::before {
+                    content: "─";
+                }
             }
             &:focus {
                 + .check {
-										box-shadow: 0 0 0.5em var(--grey-light);
+                    box-shadow: 0 0 0.5em var(--grey-light);
                 }
                 &:checked + .check {
                     box-shadow: 0 0 0.5em var(--checkbox-focus-box-shadow-color);

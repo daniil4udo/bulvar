@@ -47,7 +47,7 @@ module.exports = {
         'rule-empty-line-before': null,
         'custom-property-empty-line-before': null,
 
-        // 'color-function-notation': null,
+        'color-function-notation': null,
         // 'hue-degree-notation': null,
         'property-no-vendor-prefix': null,
 
@@ -60,7 +60,9 @@ module.exports = {
         'scss/dollar-variable-empty-line-before': null,
         'scss/dollar-variable-colon-space-after': null,
 
+        'at-rule-empty-line-before': 'blockless-after-blockless',
         'indentation': 'tab',
+        'indentation': 4,
         'string-quotes': 'double',
 
         /// Sometime Stylelint remove comments

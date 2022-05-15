@@ -91,14 +91,14 @@ $-css-vars-map: (
 
         .label {
             position: absolute;
-            left: 1em;
-            font-size: calc(var(--field-label-font-size) * 0.75);
-            background-color: transparent;
             z-index: 5;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            max-width: calc(100% - 2em);
+            left: 1em;
             overflow: hidden;
+            max-width: calc(100% - 2em);
+            background-color: transparent;
+            font-size: calc(var(--field-label-font-size) * 0.75);
+            text-overflow: ellipsis;
+            white-space: nowrap;
 
             @include bulma-utilities.control-sizes(field-label-font-size);
         }
@@ -124,18 +124,18 @@ $-css-vars-map: (
     &.is-floating-label {
         .label {
             top: -0.775em;
-            padding-left: 0.125em;
             padding-right: 0.125em;
+            padding-left: 0.125em;
             &::before {
-                content: "";
-                display: block;
                 position: absolute;
+                z-index: -1;
                 top: 0.775em;
-                left: 0;
                 right: 0;
+                left: 0;
+                display: block;
                 height: 0.375em;
                 background-color: var(--input-background-color);
-                z-index: -1;
+                content: "";
             }
         }
         .input,
@@ -162,18 +162,18 @@ $-css-vars-map: (
             + .control {
                 &.datepicker, &.timepicker {
                     .input {
+                        height: var(--floating-in-height);
                         padding-top: var(--field-floating-indent);
                         padding-bottom: 1px;
-                        height: var(--floating-in-height);
                     }
                 }
                 &:not(.datepicker):not(.timepicker):not(.taginput) {
                     .input,
                     .textarea,
                     select {
+                        height: var(--floating-in-height);
                         padding-top: var(--field-floating-indent);
                         padding-bottom: 1px;
-                        height: var(--floating-in-height);
                     }
                     .select:not(multiple) {
                         height: var(--floating-in-height);
@@ -299,13 +299,13 @@ $-css-vars-map: (
 
 .control {
     .help.counter {
-        float: right;
         margin-left: 0.5em;
+        float: right;
     }
     .icon {
         &.is-clickable {
-            pointer-events: auto;
             cursor: pointer;
+            pointer-events: auto;
         }
     }
     // fix Bulma 0.8.2

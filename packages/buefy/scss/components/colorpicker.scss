@@ -20,10 +20,10 @@ $-css-vars-map: (
         text-transform: uppercase;
     }
     .colorpicker-footer {
-        margin-top: .875rem;
         padding-top: .875rem;
         border: 1px solid var(--grey-lighter);
         border-width: 1px 0 0;
+        margin-top: .875rem;
 
         .colorpicker-fields {
             margin-bottom: .875rem;
@@ -37,18 +37,18 @@ $-css-vars-map: (
                 .control {
                     display: flex;
                     .input {
+                        width: 0;
+                        min-width: 42px;
+                        flex-grow: 1;
                         -webkit-appearance: none;
                         -moz-appearance: textfield;
                         appearance: textfield;
-                        flex-grow: 1;
-                        width: 0;
-                        min-width: 42px;
                         text-align: right;
 
                         &::-webkit-outer-spin-button,
                         &::-webkit-inner-spin-button {
-                            -webkit-appearance: none;
                             margin: 0;
+                            -webkit-appearance: none;
                         }
                     }
                 }
@@ -64,11 +64,11 @@ $-css-vars-map: (
         flex-direction: row;
 
         .colorpicker-footer {
+            padding-top: 0;
+            padding-left: .875rem;
             border-width: 0 0 0 1px;
             margin-top: 0;
-            padding-top: 0;
             margin-left: .875rem;
-            padding-left: .875rem;
         }
     }
 }
@@ -111,15 +111,15 @@ svg.b-colorpicker-triangle {
 
     .hue-range-thumb,
     .sl-range-thumb {
+        width: calc(100% / 1 - .25em / 1);
+        height: calc(100% / 1 - .25em / 1);
+        margin: .125em;
         background: transparent;
         border-radius: var(--colorpicker-radius);
         box-shadow:
             inset 0 0 0 1px #fff,
             0 0 0 1px var(--grey-lighter);
         cursor: grab;
-        height: calc(100% / 1 - .25em / 1);
-        width: calc(100% / 1 - .25em / 1);
-        margin: .125em;
 
         &:hover {
             box-shadow:
@@ -130,7 +130,7 @@ svg.b-colorpicker-triangle {
             box-shadow:
                 inset 0 0 0 1px #fff,
                 0 0 0 1px var(--colorpicker-hue-selected-stroke);
-                // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
+            // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
         }
         &:active {
             cursor: grabbing;
@@ -144,6 +144,11 @@ div.b-colorpicker-square {
     @extend %unselectable;
 
     .colorpicker-square-slider-hue {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
         background:
             conic-gradient(
                 #f00,
@@ -155,21 +160,16 @@ div.b-colorpicker-square {
                 #f00
             );
         border-radius: var(--colorpicker-radius);
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
 
         .hue-range-thumb {
-            border-radius: calc(var(--colorpicker-radius) / 1.75);
             position: absolute;
             aspect-ratio: 1 / 1;
-            transform: translate(-50%, -50%);
+            border-radius: calc(var(--colorpicker-radius) / 1.75);
             box-shadow:
                 inset 0 0 0 1px #fff,
                 0 0 0 1px var(--grey-lighter);
             cursor: grab;
+            transform: translate(-50%, -50%);
 
             &:hover {
                 box-shadow:
@@ -181,7 +181,7 @@ div.b-colorpicker-square {
                 box-shadow:
                     inset 0 0 0 1px #fff,
                     0 0 0 1px var(--colorpicker-hue-selected-stroke);
-                    // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
+                // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
             }
             &:active {
                 cursor: grabbing;
@@ -189,36 +189,36 @@ div.b-colorpicker-square {
         }
     }
     .colorpicker-square-slider-sl {
-        background: #fff;
-        border-radius: calc(var(--colorpicker-radius) / 2);
         position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
+        background: #fff;
+        border-radius: calc(var(--colorpicker-radius) / 2);
 
         &::before {
-            content: "";
-            background: linear-gradient(0deg, #000, #fff);
             position: absolute;
             top: 0;
             right: 0;
             bottom: 0;
             left: 0;
+            background: linear-gradient(0deg, #000, #fff);
+            content: "";
             mix-blend-mode: hard-light;
         }
 
         .sl-range-thumb {
-            display: block;
-            border-radius: var(--colorpicker-radius);
             position: absolute;
+            display: block;
             width: 8px;
             height: 8px;
-            transform: translate(-50%, -50%);
+            border-radius: var(--colorpicker-radius);
             box-shadow:
                 inset 0 0 0 1px #fff,
                 0 0 0 1px var(--grey-lighter);
             cursor: grab;
+            transform: translate(-50%, -50%);
 
             &:hover {
                 box-shadow:
@@ -230,7 +230,7 @@ div.b-colorpicker-square {
                 box-shadow:
                     inset 0 0 0 1px #fff,
                     0 0 0 1px var(--colorpicker-hue-selected-stroke);
-                    // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
+                // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
             }
             &:active {
                 cursor: grabbing;
@@ -240,18 +240,21 @@ div.b-colorpicker-square {
 }
 
 .b-colorpicker-alpha-slider {
+    position: relative;
     height: 1em;
+    margin-top: .125em;
+    margin-bottom: .875rem;
     background-image:
         linear-gradient(45deg, #c7c7c7 25%, transparent 25%, transparent 75%, #c7c7c7 75%, #c7c7c7),
         linear-gradient(45deg, #c7c7c7 25%, transparent 25%, transparent 75%, #c7c7c7 75%, #c7c7c7);
-    background-size: 1em 1em;
     background-position: .5em .5em, 0 0;
+    background-size: 1em 1em;
     border-radius: var(--colorpicker-radius);
-    margin-top: .125em;
-    margin-bottom: .875rem;
-    position: relative;
 
     .alpha-range-thumb {
+        position: absolute;
+        top: 50%;
+        left: 0;
         width: .4em;
         height: 1.25em;
         border-radius: var(--colorpicker-radius);
@@ -260,9 +263,6 @@ div.b-colorpicker-square {
             inset 0 0 0 2px var(--grey-lighter),
             0 0 0 1px var(--grey-lighter);
         cursor: grab;
-        position: absolute;
-        top: 50%;
-        left: 0;
         transform: translate(-50%, -50%);
 
         &:hover {
@@ -275,7 +275,7 @@ div.b-colorpicker-square {
             box-shadow:
                 inset 0 0 0 1px #fff,
                 0 0 0 1px var(--colorpicker-hue-selected-stroke);
-                // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
+            // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
         }
         &:active {
             cursor: grabbing;
@@ -285,11 +285,11 @@ div.b-colorpicker-square {
             &,
             &> .tooltip-trigger {
                 position: absolute;
-                display: block;
                 top: 0;
                 right: 0;
                 bottom: 0;
                 left: 0;
+                display: block;
             }
         }
     }

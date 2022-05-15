@@ -1,4 +1,5 @@
 @use "sass:list";
+@use "sass:math";
 
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
@@ -43,8 +44,8 @@ $-css-vars-map: (
     .dropdown-trigger {
         width: 100%;
         .input[readonly] {
-            cursor: pointer;
             box-shadow: var(--input-shadow);
+            cursor: pointer;
             &:focus,
             &.is-focused,
             &:active,
@@ -69,23 +70,23 @@ $-css-vars-map: (
     }
     .datepicker-header {
         padding-bottom: 0.875rem;
-        margin-bottom: 0.875rem;
         border-bottom: 1px solid var(--grey-lighter);
+        margin-bottom: 0.875rem;
     }
     .datepicker-footer {
-        margin-top: 0.875rem;
         padding-top: 0.875rem;
         border-top: 1px solid var(--grey-lighter);
+        margin-top: 0.875rem;
     }
     .datepicker-table {
         display: table;
         margin: 0 auto;
         .datepicker-cell {
+            display: table-cell;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius);
             text-align: center;
             vertical-align: middle;
-            display: table-cell;
-            border-radius: var(--radius);
-            padding: 0.5rem 0.75rem;
         }
         .datepicker-header {
             display: table-header-group;
@@ -101,15 +102,15 @@ $-css-vars-map: (
             }
             .datepicker-months {
                 display: inline-flex;
-                flex-wrap: wrap;
-                flex-direction: row;
                 width: 17rem;
+                flex-direction: row;
+                flex-wrap: wrap;
                 .datepicker-cell {
                     display: flex;
+                    width: math.div(100, 3) * 1%;
+                    height: 2.5rem;
                     align-items: center;
                     justify-content: center;
-                    width: 33.33%;
-                    height: 2.5rem;
                 }
             }
             .datepicker-cell {
@@ -131,20 +132,20 @@ $-css-vars-map: (
                     &.is-within-hovered-range {
                         &.is-first-hovered {
                             background-color: var(--grey);
-                            color: var(--grey-lighter);
                             border-bottom-right-radius: 0;
                             border-top-right-radius: 0;
+                            color: var(--grey-lighter);
                         }
                         &.is-within-hovered {
                             background-color: var(--datepicker-item-hover-background-color);
-                            color: var(--datepicker-item-hover-color);
                             border-radius: 0;
+                            color: var(--datepicker-item-hover-color);
                         }
                         &.is-last-hovered {
                             background-color: var(--grey);
-                            color: var(--grey-lighter);
                             border-bottom-left-radius: 0;
                             border-top-left-radius: 0;
+                            color: var(--grey-lighter);
                         }
                     }
                 }
@@ -153,9 +154,9 @@ $-css-vars-map: (
                     color: var(--datepicker-item-selected-color);
                     &.is-first-selected {
                         background-color: var(--datepicker-item-selected-background-color);
-                        color: var(--datepicker-item-selected-color);
                         border-bottom-right-radius: 0;
                         border-top-right-radius: 0;
+                        color: var(--datepicker-item-selected-color);
                     }
                     &.is-within-selected {
                         --datepicker-item-selected-background-color: #{bulma-utilities.bulmaVarOpacity(primary, 0.5)};
@@ -164,9 +165,9 @@ $-css-vars-map: (
                     }
                     &.is-last-selected {
                         background-color: var(--datepicker-item-selected-background-color);
-                        color: var(--datepicker-item-selected-color);
                         border-bottom-left-radius: 0;
                         border-top-left-radius: 0;
+                        color: var(--datepicker-item-selected-color);
                     }
                 }
                 &.is-nearby:not(.is-selected) {
@@ -182,13 +183,13 @@ $-css-vars-map: (
                     &.has-event {
                         position: relative;
                         .events {
-                            bottom: .425rem;
-                            display: flex;
-                            justify-content: center;
-                            left: 0;
-                            padding: 0 .35rem;
                             position: absolute;
+                            bottom: .425rem;
+                            left: 0;
+                            display: flex;
                             width: 100%;
+                            justify-content: center;
+                            padding: 0 .35rem;
                             .event {
                                 @each $name, $pair in $datepicker-colors {
                                     $color: list.nth($pair, 1);
@@ -199,14 +200,14 @@ $-css-vars-map: (
                             }
                         }
                         &.dots .event {
-                            border-radius: 50%;
+                            width: .35em;
                             height: .35em;
                             margin: 0 .1em;
-                            width: .35em;
+                            border-radius: 50%;
                         }
                         &.bars .event {
-                            height: .25em;
                             width: 100%;
+                            height: .25em;
                         }
                     }
                     &.is-selected {
@@ -227,10 +228,10 @@ $-css-vars-map: (
     @include bulma-utilities.control-sizes;
     @include bulma-utilities.desktop {
         .footer-horizontal-timepicker {
-            border: none;
-            padding-left: 10px;
-            margin-left: 5px;
             display: flex;
+            padding-left: 10px;
+            border: none;
+            margin-left: 5px;
         }
         .dropdown-horizonal-timepicker {
             display: flex;

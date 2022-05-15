@@ -8,30 +8,30 @@
     display: inline-flex;
     input[type="file"] {
         position: absolute;
+        z-index: -1;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+        cursor: pointer;
         opacity: 0;
         outline: none;
-        cursor: pointer;
-        z-index: -1;
     }
     .upload-draggable {
-        cursor: pointer;
         padding: 0.25em;
         border: 1px dashed var(--grey-light);
         border-radius: var(--radius-large);
+        cursor: pointer;
         &.is-disabled {
-            opacity: 0.5;
             cursor: not-allowed;
+            opacity: 0.5;
         }
         &.is-loading {
             position: relative;
-            pointer-events: none;
             opacity: 0.5;
+            pointer-events: none;
             &::after {
-								@extend %loader;
+                @extend %loader;
                 top: 0;
                 left: calc(50% - 1.5em);
                 width: 3em;
@@ -60,19 +60,19 @@
         border-radius: var(--radius-rounded);
 
         .file-name {
-            border-top-right-radius: var(--radius-rounded);
             border-bottom-right-radius: var(--radius-rounded);
+            border-top-right-radius: var(--radius-rounded);
         }
     }
 }
 // temporary IE 11 hack !!!
 @include bulma-utilities.ie11 {
-	.upload {
-			input[type="file"] {
-					z-index: auto;
-			}
-			.upload-draggable + input[type="file"] {
-					z-index: -1;
-			}
-	}
+    .upload {
+        input[type="file"] {
+            z-index: auto;
+        }
+        .upload-draggable + input[type="file"] {
+            z-index: -1;
+        }
+    }
 }

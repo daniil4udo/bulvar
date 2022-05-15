@@ -21,9 +21,9 @@ $-css-vars-map: (
 .b-radio {
     &.radio {
         @extend %unselectable;
-        outline: none;
         display: inline-flex;
         align-items: center;
+        outline: none;
         &:not(.button) {
             margin-right: 0.5em;
             & + .radio:last-child {
@@ -36,40 +36,34 @@ $-css-vars-map: (
         }
         input[type=radio] {
             position: absolute;
+            z-index: -1;
             left: 0;
             opacity: 0;
             outline: none;
-            z-index: -1;
             + .check {
-                display: flex;
-                flex-shrink: 0;
                 position: relative;
-                cursor: pointer;
+                display: flex;
                 width: var(--radio-size);
                 height: var(--radio-size);
-                // transition: background $speed-slow $easing;
-                transition-property: background;
-                transition-duration: calc(var(--speed) * 2);
-                transition-timing-function: var(--easing);
-                border-radius: 50%;
+                flex-shrink: 0;
                 border: 2px solid var(--grey);
+                border-radius: 50%;
+                cursor: pointer;
+                transition: background calc(var(--speed) * 2) var(--easing);
                 &::before {
-                    content: "";
-                    display: flex;
                     position: absolute;
-                    left: 50%;
-                    margin-left: calc(-0.5 * var(--radio-size));
                     bottom: 50%;
-                    margin-bottom: calc(-0.5 * var(--radio-size));
+                    left: 50%;
+                    display: flex;
                     width: var(--radio-size);
                     height: var(--radio-size);
-                    // transition: transform $speed-slow $easing;
-                    transition-property: transform;
-                    transition-duration: calc(var(--speed) * 2);
-                    transition-timing-function: var(--easing);
-                    border-radius: 50%;
-                    transform: scale(0);
+                    margin-bottom: calc(-0.5 * var(--radio-size));
+                    margin-left: calc(-0.5 * var(--radio-size));
                     background-color: var(--radio-active-background-color);
+                    border-radius: 50%;
+                    content: "";
+                    transform: scale(0);
+                    transition: transform calc(var(--speed) * 2) var(--easing);
                 }
                 @each $name, $pair in $radio-colors {
                     $color: list.nth($pair, 1);

@@ -6,12 +6,12 @@ $loading-icon-size: 3em !default;
 $loading-full-page-icon-size: 5em !default;
 
 .loading-overlay {
-		@extend %overlay;
-    align-items: center;
-    display: none;
-    justify-content: center;
-    overflow: hidden;
+    @extend %overlay;
     z-index: 29;
+    display: none;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
     &.is-active {
         display: flex
     }
@@ -28,14 +28,14 @@ $loading-full-page-icon-size: 5em !default;
         }
     }
     .loading-background {
-				@extend %overlay;
+        @extend %overlay;
         background:$loading-background-legacy;
         background:$loading-background;
     }
     .loading-icon {
         position: relative;
         &::after {
-						@extend %loader;
+            @extend %loader;
             position: absolute;
             top: calc(50% - #{$loading-icon-size * 0.5});
             left: calc(50% - #{$loading-icon-size * 0.5});

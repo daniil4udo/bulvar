@@ -236,8 +236,8 @@ By default it sets to `true`, and results into
 
 ```css
 :root {
-	--footer-background-color: SOME_COLOR;
-	--footer-padding: SOME_PADDING;
+ --footer-background-color: SOME_COLOR;
+ --footer-padding: SOME_PADDING;
 }
 ```
 
@@ -245,8 +245,8 @@ In case you need more strict scoping, you can set it to `false`, wich, in case o
 
 ```css
 .footer {
-	--footer-background-color: SOME_COLOR;
-	--footer-padding: SOME_PADDING;
+ --footer-background-color: SOME_COLOR;
+ --footer-padding: SOME_PADDING;
 }
 ```
 

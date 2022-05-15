@@ -51,16 +51,16 @@ $-css-vars-map: (
 @include bulma-utilities.registerComponentCSSVars("b-slider", $-css-vars-map);
 
 @mixin slider-size {
-	$track-height: calc(var(--slider-size) / var(--slider-thumb-to-track-ratio));
-	$tick-height: calc(#{$track-height} * var(--slider-tick-to-track-ratio));
+    $track-height: calc(var(--slider-size) / var(--slider-thumb-to-track-ratio));
+    $tick-height: calc(#{$track-height} * var(--slider-tick-to-track-ratio));
 
     .b-slider-track {
         height: $track-height;
     }
 
-	.b-slider-thumb {
-		height: var(--slider-size);
-		width: var(--slider-size);
+    .b-slider-thumb {
+        width: var(--slider-size);
+        height: var(--slider-size);
     }
 
     .b-slider-tick {
@@ -68,52 +68,52 @@ $-css-vars-map: (
     }
 
     .b-slider-tick-label {
-        font-size: var(--slider-mark-size);
         position: absolute;
         top: calc((#{$track-height} * 0.5) + 2px);
         left: 50%;
+        font-size: var(--slider-mark-size);
         transform: translateX(-50%);
     }
 }
 
 .b-slider {
+    width: 100%;
     margin: 1em 0;
     background: transparent;
-    width: 100%;
 
     .b-slider-track {
+        position: relative;
         display: flex;
         align-items: center;
-        position: relative;
-        cursor: pointer;
         background: var(--slider-track-background);
         border-radius: var(--slider-radius);
+        cursor: pointer;
     }
     .b-slider-fill {
         position: absolute;
-        height: 100%;
-        box-shadow: var(--slider-track-shadow);
-        background: var(--slider-track-background);
-        border-radius: $slider-track-radius;
-        border: var(--slider-track-border);
         // Fix alignment in IE 11. Cancel out for others
         top: 50%;
+        height: 100%;
+        border: var(--slider-track-border);
+        background: var(--slider-track-background);
+        border-radius: $slider-track-radius;
+        box-shadow: var(--slider-track-shadow);
         transform: translateY(-50%);
     }
     .b-slider-thumb-wrapper {
-        display: inline-flex;
-        align-items: center;
         position: absolute;
+        top: 50%;
+        display: inline-flex;
+        flex-direction: column; // Fix shrinked thumb at the end in IE 11
+        align-items: center;
         cursor: grab;
         transform: translate(-50%, -50%);
-        top: 50%;
-        flex-direction: column; // Fix shrinked thumb at the end in IE 11
 
         .b-slider-thumb {
-            box-shadow: var(--slider-thumb-shadow);
             border: var(--slider-thumb-border);
-            border-radius: var(--slider-thumb-radius);
             background: var(--slider-thumb-background);
+            border-radius: var(--slider-thumb-radius);
+            box-shadow: var(--slider-thumb-shadow);
             &:focus {
                 transform: scale(1.25);
             }
@@ -128,10 +128,10 @@ $-css-vars-map: (
 
         &.has-indicator {
             .b-slider-thumb {
-                padding: 16px 10px;
                 display: flex;
-                align-items: center;
                 width: auto;
+                align-items: center;
+                padding: 16px 10px;
             }
         }
     }
@@ -176,11 +176,11 @@ $-css-vars-map: (
 
     .b-slider-tick {
         position: absolute;
-		width: var(--slider-tick-width);
-        transform: translate(-50%, -50%);
         top: 50%;
+        width: var(--slider-tick-width);
         background: var(--slider-tick-background);
         border-radius: var(--slider-tick-radius);
+        transform: translate(-50%, -50%);
         &.is-tick-hidden {
             background: transparent;
         }

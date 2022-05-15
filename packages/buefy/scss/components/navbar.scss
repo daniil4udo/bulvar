@@ -11,8 +11,8 @@
     }
 
     .navbar-dropdown.is-boxed {
-        visibility: hidden;
         transition-property: opacity, visibility, transform;
+        visibility: hidden;
     }
 
     .navbar-item.has-dropdown.is-active .is-boxed,

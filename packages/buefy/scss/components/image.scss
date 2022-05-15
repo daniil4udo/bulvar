@@ -19,8 +19,8 @@ $-css-vars-map: (
         &.has-ratio,
         &.placeholder {
             @extend %overlay;
-            height: 100%;
             width: 100%;
+            height: 100%;
         }
         @if $image-placeholder-blur-enabled {
             &.placeholder {

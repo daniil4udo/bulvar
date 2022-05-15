@@ -8,8 +8,8 @@
     .dropdown-trigger {
         width: 100%;
         .input[readonly] {
-            cursor: pointer;
             box-shadow: var(--input-shadow);
+            cursor: pointer;
             &:focus,
             &.is-focused,
             &:active,
@@ -25,26 +25,26 @@
         }
     }
     .dropdown-item {
-        font-size: inherit;
         padding: 0;
+        font-size: inherit;
     }
     .timepicker-footer {
         padding: 0 0.5rem;
     }
     .dropdown-content {
         .control {
-            font-size: 1.25em;
             margin-right: 0 !important;
+            font-size: 1.25em;
             .select {
                 margin: 0 0.125em;
 
                 select {
-                    font-weight: var(--weight-semibold);
                     padding-right: var(--control-padding-horizontal);
                     border: 0;
+                    font-weight: var(--weight-semibold);
                     option {
                         &:disabled {
-														color: var(--grey-light);
+                            color: var(--grey-light);
                         }
                     }
                 }

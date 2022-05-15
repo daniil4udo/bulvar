@@ -38,59 +38,59 @@ $-css-vars-map: (
 
 .notices {
     position: fixed;
-    display: flex;
+    z-index: 1000;
     top: 0;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
-    padding: 2em;
+    display: flex;
     overflow: hidden;
-    z-index: 1000;
+    padding: 2em;
     pointer-events: none;
     .toast {
         display: inline-flex;
-        animation-duration: calc(var(--speed) * 2);
-        margin: 0.5em 0;
-        text-align: center;
-        box-shadow: var(--toast-box-shadow);
-        border-radius: var(--toast-border-radius);
         padding: 0.75em 1.5em;
-        pointer-events: auto;
+        margin: 0.5em 0;
+        animation-duration: calc(var(--speed) * 2);
+        border-radius: var(--toast-border-radius);
+        box-shadow: var(--toast-box-shadow);
         opacity: var(--toast-opacity);
+        pointer-events: auto;
+        text-align: center;
         @each $name, $pair in $snackbar-colors {
             $color: list.nth($pair, 1);
             $color-invert: list.nth($pair, 2);
             &.is-#{$name} {
-                color: var(--#{$name}-invert);
                 background: var(--#{$name});
+                color: var(--#{$name}-invert);
             }
         }
     }
     .snackbar {
         --snackbar-button-background-color: #{bulma-utilities.bulmaVarDarken(dark, 5%)};
         display: inline-flex;
+        min-height: 3em;
         align-items: center;
         justify-content: space-around;
-        animation-duration: calc(var(--speed) * 2);
         margin: 0.5em 0;
-        box-shadow: var(--snackbar-box-shadow);
-        border-radius: var(--snackbar-border-radius);
-        pointer-events: auto;
+        animation-duration: calc(var(--speed) * 2);
         background: var(--snackbar-background-color);
+        border-radius: var(--snackbar-border-radius);
+        box-shadow: var(--snackbar-box-shadow);
         color: var(--snackbar-color);
-        min-height: 3em;
+        pointer-events: auto;
         .text {
             padding: 0.5em 1em;
         }
         .action {
-            margin-left: auto;
             padding: 0.5em;
             padding-left: 0;
+            margin-left: auto;
             .button {
+                border: transparent;
+                background: var(--snackbar-background-color);
                 font-weight: var(--weight-semibold);
                 text-transform: var(--snackbar-button-text-transform);
-                background: var(--snackbar-background-color);
-                border: transparent;
             }
             .button:hover {
                 // TODO: revisit
@@ -117,14 +117,14 @@ $-css-vars-map: (
             border-radius: 0;
         }
         @include bulma-utilities.tablet {
+            overflow: hidden;
             min-width: 350px;
             max-width: 600px;
-            overflow: hidden;
         }
     }
     .notification {
-        pointer-events: auto;
         max-width: 600px;
+        pointer-events: auto;
     }
 
     .toast,
@@ -166,7 +166,7 @@ $-css-vars-map: (
     }
 
     @include bulma-utilities.mobile {
-        padding: 0;
         position: fixed !important;
+        padding: 0;
     }
 }

@@ -21,7 +21,7 @@ $-css-vars-map: (
 
 .switch {
     @extend %unselectable;
-		position: relative;
+    position: relative;
     display: inline-flex;
     align-items: center;
     margin-right: 0.5em;
@@ -45,10 +45,7 @@ $-css-vars-map: (
             padding: var(--switch-padding);
             background: var(--grey-light);
             border-radius: var(--radius);
-            transition-duration: calc(var(--speed) * 2), calc(var(--speed) * 2);
-            // transition: background $speed-slow $easing, box-shadow $speed-slow $easing;
-            transition-property: background, box-shadow;
-            transition-timing-function: var(--easing), var(--easing);
+            transition: background calc(var(--speed) * 2) var(--easing), box-shadow calc(var(--speed) * 2) var(--easing);
 
             @each $name, $pair in $switch-colors {
                 $color: list.nth($pair, 1);
@@ -73,15 +70,12 @@ $-css-vars-map: (
                     0 3px 3px 0 rgba(var(--scheme-invert-rgb), 0.05);
                 content: "";
                 transform-origin: left;
-                transition-duration: calc(var(--speed) * 2);
-                // transition: transform $speed-slow $easing;
-                transition-property: transform;
-                transition-timing-function: var(--easing);
+                transition: transform calc(var(--speed) * 2) var(--easing);
                 will-change: transform;
             }
             &.is-elastic::before {
-								transform: scaleX(1.5);
-								border-radius: var(--radius);
+                border-radius: var(--radius);
+                transform: scaleX(1.5);
             }
         }
         &:checked + .check {
@@ -168,8 +162,8 @@ $-css-vars-map: (
                 }
             }
             &.is-elastic::before {
-								transform: scaleX(1.5);
-								border-radius: var(--radius-rounded);
+                border-radius: var(--radius-rounded);
+                transform: scaleX(1.5);
             }
         }
     }
@@ -220,13 +214,13 @@ $-css-vars-map: (
                 background: transparent;
             }
             input[type="checkbox"]:checked + .check {
+                border-color: var(--switch-active-background-color);
                 // border-color: rgba($switch-active-background-color, 0.9);
                 background: transparent;
-                border-color: var(--switch-active-background-color);
                 @each $name, $pair in $switch-colors {
                     $color: list.nth($pair, 1);
                     &.is-#{$name} {
-												--#{$name}-a: 0.9;
+                        --#{$name}-a: 0.9;
                         border-color: var(--#{$name});
                     }
                 }
@@ -235,8 +229,8 @@ $-css-vars-map: (
     }
     @include bulma-utilities.control-sizes;
     &[disabled] {
-			opacity: 0.5;
-			cursor: not-allowed;
-			color: var(--grey);
+        color: var(--grey);
+        cursor: not-allowed;
+        opacity: 0.5;
     }
 }

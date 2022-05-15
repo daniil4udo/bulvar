@@ -52,9 +52,9 @@ $-css-vars-map: (
 
 @mixin steps-size {
     .steps {
+        min-height: calc(var(--steps-size) * 2);
         background-color: var(--steps-background-color);
         font-size: var(--steps-size);
-        min-height: calc(var(--steps-size) * 2);
 
         .step-items {
             height: var(--steps-height);
@@ -62,11 +62,11 @@ $-css-vars-map: (
 
             .step-item {
                 .step-marker {
-                    height: calc(var(--steps-size) * 2);
                     width: calc(var(--steps-size) * 2);
+                    height: calc(var(--steps-size) * 2);
 
                     .icon {
-                *, *::before {
+                        *, *::before {
                             font-size: var(--steps-size);
                         }
                     }
@@ -84,8 +84,8 @@ $-css-vars-map: (
 
                 &:not(:first-child), &:only-child {
                     &::before {
-                        height: var(--steps-divider-height);
                         top: var(--steps-size);
+                        height: var(--steps-divider-height);
                     }
                 }
                 &:only-child {
@@ -122,8 +122,8 @@ $-css-vars-map: (
                     .step-item {
                         &:not(:first-child), &:only-child {
                             &::before, &::after {
-                                left: auto;
                                 right: var(--steps-divider-indent-height);
+                                left: auto;
                             }
                         }
                     }
@@ -149,8 +149,8 @@ $-css-vars-map: (
                         .step-item {
                             &:not(:first-child), &:only-child {
                                 &::before, &::after {
-                                    left: auto;
                                     right: var(--steps-divider-indent-height);
+                                    left: auto;
                                 }
                             }
                         }
@@ -168,16 +168,16 @@ $-css-vars-map: (
             flex-wrap: wrap;
 
             .step-item {
-                margin-top: 0;
                 position: relative;
-                flex-grow: 1;
                 flex-basis: 1em;
+                flex-grow: 1;
+                margin-top: 0;
 
                 .step-link {
                     display: flex;
+                    flex-direction: column;
                     align-items: center;
                     justify-content: center;
-                    flex-direction: column;
                     color: var(--body-color);
 
                     &:not(.is-clickable) {
@@ -186,16 +186,16 @@ $-css-vars-map: (
                 }
 
                 .step-marker {
-                    align-items: center;
-                    display: flex;
-                    border-radius: var(--radius);
-                    font-weight: var(--weight-bold);
-                    justify-content: center;
-                    background: var(--steps-maker-default-color);
-                    color: var(--steps-maker-color);
-                    border: var(--steps-marker-default-border);
                     z-index: 1;
+                    display: flex;
                     overflow: hidden;
+                    align-items: center;
+                    justify-content: center;
+                    border: var(--steps-marker-default-border);
+                    background: var(--steps-maker-default-color);
+                    border-radius: var(--radius);
+                    color: var(--steps-maker-color);
+                    font-weight: var(--weight-bold);
                 }
 
                 // Override marker color per step
@@ -206,13 +206,13 @@ $-css-vars-map: (
                     &.is-#{$name} {
                         &::before, &::after {
                             background: linear-gradient(to left, var(--steps-default-color) 50%, var(--#{$name}) 50%);
-                            background-size: 200% 100%;
                             background-position: right bottom;
+                            background-size: 200% 100%;
                         }
                         &.is-active {
                             .step-marker {
-                                background-color: var(--steps-maker-color);
                                 border-color: var(--#{$name});
+                                background-color: var(--steps-maker-color);
                                 color: var(--#{$name});
                             }
 
@@ -222,8 +222,8 @@ $-css-vars-map: (
                         }
                         &.is-previous {
                             .step-marker {
-                                color: var(--#{$name}-invert);
                                 background-color: var(--#{$name});
+                                color: var(--#{$name}-invert);
                             }
 
                             &::before, &::after {
@@ -238,35 +238,35 @@ $-css-vars-map: (
                 }
 
                 .step-details {
-                    text-align: center;
                     z-index: 1;
+                    text-align: center;
                 }
 
                 &:not(:first-child), &:only-child {
                     flex-shrink: 1;
 
                     &::before {
-                        // This will contain the divider
-                        content: " ";
-                        display: block;
                         position: absolute;
-                        width: 100%;
                         bottom: 0;
                         left: -50%;
+                        display: block;
+                        width: 100%;
+                        // This will contain the divider
+                        content: " ";
                     }
                 }
                 &:only-child {
                     &::after {
+                        position: absolute;
+                        bottom: 0;
+                        display: block;
+                        height: var(--steps-divider-height);
                         // This will contain the divider
                         content: " ";
-                        display: block;
-                        position: absolute;
-                        height: var(--steps-divider-height);
-                        bottom: 0;
                     }
                     &::before, &::after {
-                        width: 25%;
                         left: 50%;
+                        width: 25%;
                     }
                     &::before {
                         right: 50%;
@@ -276,8 +276,8 @@ $-css-vars-map: (
 
                 &::before, &::after {
                     background: linear-gradient(to left, var(--steps-default-color) 50%, var(--steps-active-color) 50%);
-                    background-size: 200% 100%;
                     background-position: right bottom;
+                    background-size: 200% 100%;
                 }
 
                 &.is-active {
@@ -286,8 +286,8 @@ $-css-vars-map: (
                     }
 
                     .step-marker {
-                        background-color: var(--steps-maker-color);
                         border-color: var(--steps-active-color);
+                        background-color: var(--steps-maker-color);
                         color: var(--steps-active-color);
                     }
 
@@ -297,8 +297,8 @@ $-css-vars-map: (
                 }
                 &.is-previous {
                     .step-marker {
-                        color: var(--steps-maker-color);
                         background-color: var(--steps-previous-color);
+                        color: var(--steps-maker-color);
                     }
 
                     &::before, &::after {
@@ -310,13 +310,13 @@ $-css-vars-map: (
 
         + .step-content {
             position: relative;
-            overflow: visible;
             display: flex;
+            overflow: visible;
             flex-direction: column;
             padding: 1rem;
             .step-item {
-                flex-shrink: 0;
                 flex-basis: auto;
+                flex-shrink: 0;
 
                 &:focus {
                     outline: var(--steps-items-focused-outline);
@@ -339,10 +339,7 @@ $-css-vars-map: (
             .step-item {
                 &:not(:first-child), &:only-child {
                     &::before {
-                        // transition: background $speed-slow $easing;
-                        transition-property: background;
-                        transition-duration: calc(var(--speed) * 2);
-                        transition-timing-function: var(--easing);
+                        transition: background calc(var(--speed) * 2) var(--easing);
                     }
                 }
             }
@@ -355,8 +352,8 @@ $-css-vars-map: (
                         flex-direction: row;
 
                         > .step-details {
-                            background-color: var(--steps-details-background-color);
                             padding: .2em;
+                            background-color: var(--steps-details-background-color);
                         }
                     }
                 }
@@ -388,16 +385,16 @@ $-css-vars-map: (
                 border-bottom-color: transparent;
 
                 .step-item {
-                    width: 100%;
                     display: flex;
+                    width: 100%;
                     align-items: center;
                     justify-content: center;
                     padding: var(--steps-vertical-padding);
 
                     &::before, &::after {
                         background: linear-gradient(to top, var(--steps-default-color) 50%, var(--steps-active-color) 50%);
-                        background-size: 100% 200%;
                         background-position: left bottom;
+                        background-size: 100% 200%;
                     }
 
                     // Override marker connector color per step
@@ -407,18 +404,18 @@ $-css-vars-map: (
                         &.is-#{$name} {
                             &::before, &::after {
                                 background: linear-gradient(to top, var(--steps-default-color) 50%, var(--#{$name}) 50%);
-                                background-size: 100% 200%;
                                 background-position: left bottom;
+                                background-size: 100% 200%;
                             }
                         }
                     }
 
                     &:not(:first-child), &:only-child {
                         &::before {
-                            height: 100%;
-                            width: var(--steps-divider-height);
                             top: -50%;
                             left: calc(50% - var(--steps-divider-height) * 0.5);
+                            width: var(--steps-divider-height);
+                            height: 100%;
                         }
                     }
 
@@ -433,9 +430,9 @@ $-css-vars-map: (
                             top: 50%;
                         }
                         &::after {
-                            width: var(--steps-divider-height);
                             top: auto;
                             bottom: 50%;
+                            width: var(--steps-divider-height);
                         }
                         &::before, &::after {
                             height: 25%;
@@ -493,14 +490,14 @@ $-css-vars-map: (
                                 display: none;
                             }
                             &::before, &::after, &:not(:first-child)::before {
-                                // This will contain the divider
-                                content: " ";
-                                display: block;
                                 position: absolute;
-                                height: var(--steps-divider-height);
-                                width: 25%;
                                 bottom: 0;
                                 left: 50%;
+                                display: block;
+                                width: 25%;
+                                height: var(--steps-divider-height);
+                                // This will contain the divider
+                                content: " ";
                             }
                             &::before, &:not(:first-child)::before {
                                 right: 50%;

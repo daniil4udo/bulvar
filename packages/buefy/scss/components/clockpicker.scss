@@ -22,7 +22,7 @@ $-css-vars-map: (
     $transition-swing: cubic-bezier(.25, .8, .50, 1);
 
     $time-font-size: 60px;
-    $period-font-size: 16px;
+    $period-font-size: 1rem;
     $number-font-size: 18px;
 
     $indicator-size: 40px;
@@ -40,8 +40,8 @@ $-css-vars-map: (
             background-color: var(--primary);
         }
         &-hand {
-            background-color: var(--primary);
             border-color: var(--primary);
+            background-color: var(--primary);
         }
         &-number.active {
             background-color: var(--primary);
@@ -64,8 +64,8 @@ $-css-vars-map: (
                     background-color: var(--#{$name});
                 }
                 &-hand {
-                    background-color: var(--#{$name});
                     border-color: var(--#{$name});
+                    background-color: var(--#{$name});
                 }
                 &-number.active {
                     background-color: var(--#{$name});
@@ -82,8 +82,8 @@ $-css-vars-map: (
     .dropdown-trigger {
         width: 100%;
         .input[readonly] {
-            cursor: pointer;
             box-shadow: var(--input-shadow);
+            cursor: pointer;
             &:focus,
             &.is-focused,
             &:active,
@@ -94,8 +94,8 @@ $-css-vars-map: (
         }
     }
     .dropdown-item {
-        font-size: inherit;
         padding: 0;
+        font-size: inherit;
     }
     .dropdown-content {
         padding-top: 0;
@@ -132,17 +132,17 @@ $-css-vars-map: (
 
     &-time {
         span {
-            align-items: center;
             display: inline-flex;
+            align-items: center;
             justify-content: center;
         }
     }
 
     &-header {
         display: flex;
-        line-height: 1;
         justify-content: flex-end;
         color: inherit;
+        line-height: 1;
 
         // time display in the title for inline display
         .b-clockpicker-time {
@@ -155,9 +155,9 @@ $-css-vars-map: (
 
         // am/pm in the title for inline display
         .b-clockpicker-period {
-            align-self: flex-end;
             display: flex;
             flex-direction: column;
+            align-self: flex-end;
             margin: 8px 0 6px 8px;
         }
     }
@@ -167,8 +167,8 @@ $-css-vars-map: (
 
         .b-clockpicker-btn {
             padding: 0 8px;
-            border-radius: var(--radius-rounded);
             margin-bottom: 2px;
+            border-radius: var(--radius-rounded);
             &:hover,
             &.active {
                 background-color: var(--primary);
@@ -191,51 +191,51 @@ $-css-vars-map: (
         }
 
         .b-clockpicker-face {
-            // Outer border circle of clock
-            border-radius: 50%;
             position: relative;
-            background-color: var(--grey-lighter);
+            display: flex;
             width: 100%;
             height: 100%;
             align-items: center;
-            display: flex;
             justify-content: center;
+            background-color: var(--grey-lighter);
+            // Outer border circle of clock
+            border-radius: 50%;
 
             &::after {
+                position: absolute;
+                z-index: 10;
+                top: 50%;
+                left: 50%;
+                width: $hand-endpoint-size;
+                height: $hand-endpoint-size;
                 // Dot in center
                 border-radius: 50%;
                 content: "";
-                position: absolute;
-                left: 50%;
-                top: 50%;
                 transform: translate(-50%, -50%);
-                width: $hand-endpoint-size;
-                height: $hand-endpoint-size;
-                z-index: 10;
             }
 
             &-outer-ring {
                 @extend %unselectable;
-                height: calc(100% - #{$indicator-size + ($padding-inner * 2)});
-                width: calc(100% - #{$indicator-size + ($padding-inner * 2)});
                 position: relative;
+                width: calc(100% - #{$indicator-size + ($padding-inner * 2)});
+                height: calc(100% - #{$indicator-size + ($padding-inner * 2)});
                 border-radius: 50%;
             }
 
             // Clock face number indicators
             &-number {
-                align-items: center;
-                border-radius: 100%;
-                cursor: default;
-                display: flex;
-                font-size: $number-font-size;
-                text-align: center;
-                justify-content: center;
                 position: absolute;
+                top: calc(50% - #{$indicator-size} * 0.5);
+                left: calc(50% - #{$indicator-size} * 0.5);
+                display: flex;
                 width: $indicator-size;
                 height: $indicator-size;
-                left: calc(50% - #{$indicator-size} * 0.5);
-                top: calc(50% - #{$indicator-size} * 0.5);
+                align-items: center;
+                justify-content: center;
+                border-radius: 100%;
+                cursor: default;
+                font-size: $number-font-size;
+                text-align: center;
                 @extend %unselectable;
 
                 > span {
@@ -244,51 +244,51 @@ $-css-vars-map: (
 
                 &::before,
                 &::after {
-                    content: "";
-                    height: $indicator-size;
-                    width: $indicator-size;
-                    border-radius: 100%;
                     position: absolute;
                     top: 50%;
                     left: 50%;
+                    width: $indicator-size;
+                    height: $indicator-size;
+                    border-radius: 100%;
+                    content: "";
                     transform: translate(-50%, -50%);
                 }
 
                 &.active {
-                    cursor: default;
                     z-index: 2;
+                    cursor: default;
                 }
 
                 &.disabled {
-                    pointer-events: none;
                     opacity: .25;
+                    pointer-events: none;
                 }
             }
 
             &-hand {
-                height: calc(50% - #{$hand-endpoint-size * 0.5});
-                width: 2px;
+                position: absolute;
+                z-index: 1;
                 bottom: 50%;
                 left: calc(50% - 1px);
+                width: 2px;
+                height: calc(50% - #{$hand-endpoint-size * 0.5});
 
                 transform-origin: center bottom;
-                position: absolute;
+                transition: .3s $transition-swing;
                 will-change: transform;
-                z-index: 1;
-                // transition: .3s $transition-swing;
 
                 &::before {
-                    background: transparent;
-                    border-width: 2px;
-                    border-style: solid;
-                    border-color: inherit;
-                    border-radius: 100%;
-                    width: $hand-endpoint-size;
-                    height: $hand-endpoint-size;
-                    content: "";
                     position: absolute;
                     top: -($hand-endpoint-size) * 0.5;
                     left: 50%;
+                    width: $hand-endpoint-size;
+                    height: $hand-endpoint-size;
+                    border-width: 2px;
+                    border-style: solid;
+                    border-color: inherit;
+                    background: transparent;
+                    border-radius: 100%;
+                    content: "";
                     transform: translate(-50%, -50%);
                 }
             }

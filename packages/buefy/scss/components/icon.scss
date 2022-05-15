@@ -17,12 +17,12 @@ $-css-vars-map: (
     @extend %unselectable;
     cursor: inherit;
     svg {
-        background-color: transparent;
-        fill: currentColor;
-        stroke-width: 0;
-        stroke: currentColor;
-        pointer-events: none;
         width: var(--icon-svg-width);
         height: var(--icon-svg-height);
+        background-color: transparent;
+        fill: currentColor;
+        pointer-events: none;
+        stroke: currentColor;
+        stroke-width: 0;
     }
 }

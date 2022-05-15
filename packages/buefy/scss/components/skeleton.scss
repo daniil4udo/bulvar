@@ -12,13 +12,13 @@ $skeleton-line-height-size: var(--size-normal) !default;
 
 // Map Local variables
 $-css-vars-map: (
-		"skeleton-color": $skeleton-color,
-		"skeleton-shine-color": $skeleton-shine-color,
-		"skeleton-background": $skeleton-background,
-		"skeleton-border-radius": $skeleton-border-radius,
-		"skeleton-duration": $skeleton-duration,
-		"skeleton-margin-top": $skeleton-margin-top,
-		"skeleton-line-height-size": $skeleton-line-height-size,
+    "skeleton-color": $skeleton-color,
+    "skeleton-shine-color": $skeleton-shine-color,
+    "skeleton-background": $skeleton-background,
+    "skeleton-border-radius": $skeleton-border-radius,
+    "skeleton-duration": $skeleton-duration,
+    "skeleton-margin-top": $skeleton-margin-top,
+    "skeleton-line-height-size": $skeleton-line-height-size,
 );
 
 // Register & Export CSS Variabless
@@ -26,56 +26,56 @@ $-css-vars-map: (
 @include bulma-utilities.registerComponentCSSVars("b-skeleton", $-css-vars-map);
 
 .b-skeleton {
-	display: inline-flex;
-	flex-direction: column;
-	vertical-align: middle;
-	width: 100%;
+    display: inline-flex;
+    width: 100%;
+    flex-direction: column;
+    vertical-align: middle;
 
-	>.b-skeleton-item {
-		background: $skeleton-background;
-		line-height: var(--skeleton-line-height-size);
-		background-size: 400% 100%;
-		width: 100%;
+    >.b-skeleton-item {
+        width: 100%;
+        background: $skeleton-background;
+        background-size: 400% 100%;
+        line-height: var(--skeleton-line-height-size);
 
-		&.is-rounded {
-			border-radius: var(--skeleton-border-radius)
-		}
+        &.is-rounded {
+            border-radius: var(--skeleton-border-radius)
+        }
 
-		&::after {
-			content: "\00a0";
-		}
+        &::after {
+            content: "\00a0";
+        }
 
-		+.b-skeleton-item {
-			margin-top: var(--skeleton-margin-top);
-		}
-	}
+        +.b-skeleton-item {
+            margin-top: var(--skeleton-margin-top);
+        }
+    }
 
-	&.is-animated {
-		>.b-skeleton-item {
-			animation: skeleton-loading var(--skeleton-duration) infinite;
-		}
-	}
+    &.is-animated {
+        >.b-skeleton-item {
+            animation: skeleton-loading var(--skeleton-duration) infinite;
+        }
+    }
 
-	&.is-centered {
-		align-items: center;
-	}
+    &.is-centered {
+        align-items: center;
+    }
 
-	&.is-right {
-		align-items: flex-end;
-	}
+    &.is-right {
+        align-items: flex-end;
+    }
 
-	+.b-skeleton {
-		margin-top: var(--skeleton-margin-top);
-	}
+    +.b-skeleton {
+        margin-top: var(--skeleton-margin-top);
+    }
 
-	@include bulma-utilities.control-sizes(skeleton-line-height-size);
+    @include bulma-utilities.control-sizes(skeleton-line-height-size);
 }
 
 @keyframes skeleton-loading {
-		0% {
-				background-position: 100% 50%;
-		}
-		100% {
-				background-position: 0 50%;
-		}
+    0% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
 }

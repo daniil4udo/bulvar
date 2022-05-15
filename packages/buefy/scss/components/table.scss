@@ -19,35 +19,35 @@ $-css-vars-map: (
     }
     thead {
         tr {
-            box-shadow: none;
             border-width: 0;
+            box-shadow: none;
             th {
                 display: none;
             }
             .checkbox-cell {
                 display: block;
                 width: 100%;
-                text-align: right;
-                margin-bottom: 1rem;
                 border: 0;
+                margin-bottom: 1rem;
+                text-align: right;
             }
         }
     }
     tfoot {
-         th {
-            border: 0; // Disable is-bordered
+        th {
             display: inherit;
-         }
+            border: 0; // Disable is-bordered
+        }
     }
     tr {
-        // Card style — Cannot extend inside media query
-        box-shadow: 0 2px 3px rgba(var(--scheme-invert-rgb), 0.1), 0 0 0 1px rgba(var(--scheme-invert-rgb), 0.1);
-        max-width: 100%;
         position: relative;
         display: block;
+        max-width: 100%;
+        // Card style — Cannot extend inside media query
+        box-shadow: 0 2px 3px rgba(var(--scheme-invert-rgb), 0.1), 0 0 0 1px rgba(var(--scheme-invert-rgb), 0.1);
         td {
-            border: 0; // Disable is-bordered
             display: inherit;
+            border: 0; // Disable is-bordered
             &:last-child {
                 border-bottom: 0;
             }
@@ -71,12 +71,12 @@ $-css-vars-map: (
             display: flex;
             width: auto;
             justify-content: space-between;
-            text-align: right;
             border-bottom: 1px solid var(--background);
+            text-align: right;
             &::before {
+                padding-right: 0.5em;
                 content: attr(data-label);
                 font-weight: var(--weight-semibold);
-                padding-right: 0.5em;
                 text-align: left;
             }
         }
@@ -96,10 +96,7 @@ $-css-vars-map: (
 }
 
 .b-table {
-    // transition: opacity $speed $easing;
-    transition-property: transform, opacity;
-    transition-duration: calc(var(--speed) * 2), var(--speed);
-    transition-timing-function: var(--easing), var(--easing);
+    transition: opacity var(--speed) var(--easing);
 
     .table-mobile-sort {
         @include bulma-utilities.tablet {
@@ -108,10 +105,7 @@ $-css-vars-map: (
     }
 
     .icon {
-        // transition: transform $speed-slow $easing, opacity $speed $easing;
-        transition-property: transform, opacity;
-        transition-duration: calc(var(--speed) * 2), var(--speed);
-        transition-timing-function: var(--easing), var(--easing);
+        transition: transform calc(var(--speed) * 2) var(--easing), opacity var(--speed) var(--easing);
         &.is-desc {
             transform: rotate(180deg);
         }
@@ -127,24 +121,24 @@ $-css-vars-map: (
     .table {
         width: 100%;
         border: 1px solid transparent;
-        border-radius: var(--radius);
         border-collapse: separate;
+        border-radius: var(--radius);
         th {
             font-weight: var(--weight-semibold);
             .th-wrap {
                 display: flex;
                 align-items: center;
                 .icon {
-                    margin-left: 0.5rem;
                     margin-right: 0;
+                    margin-left: 0.5rem;
                     font-size: 1rem;
                 }
                 &.is-numeric {
                     flex-direction: row-reverse;
                     text-align: right;
                     .icon {
-                        margin-left: 0;
                         margin-right: 0.5rem;
+                        margin-left: 0;
                     }
                 }
                 &.is-centered {
@@ -178,8 +172,8 @@ $-css-vars-map: (
             }
             &.is-sticky {
                 position: sticky;
-                left: 0;
                 z-index: 3 !important;
+                left: 0;
                 background: var(--table-head-background-color);
             }
         }
@@ -187,14 +181,14 @@ $-css-vars-map: (
             &.is-selected {
                 .checkbox input {
                     &:checked + .check {
-												color: bulma-table.$table-row-active-background-color;
                         background: var(--table-row-active-color); // url(functions.checkmark(bulma-table.$table-row-active-background-color)) no-repeat center center;
+                        color: bulma-table.$table-row-active-background-color;
 
-												&::after {
-													position: absolute;
-													top: 0;
-													content: "✓"
-												}
+                        &::after {
+                            position: absolute;
+                            top: 0;
+                            content: "✓"
+                        }
                     }
                     + .check {
                         border-color: var(--table-row-active-color);
@@ -221,8 +215,8 @@ $-css-vars-map: (
             }
         }
         tr.detail {
-            box-shadow: inset 0 1px 3px var(--grey-lighter);
             background: var(--scheme-main-bis);
+            box-shadow: inset 0 1px 3px var(--grey-lighter);
             .detail-container {
                 padding: 1rem;
             }
@@ -245,8 +239,8 @@ $-css-vars-map: (
         td {
             &.is-sticky {
                 position: sticky;
-                left: 0;
                 z-index: 1;
+                left: 0;
                 background: var(--table-background-color);
             }
         }
@@ -284,8 +278,8 @@ $-css-vars-map: (
             tr:first-child {
                 th {
                     position: sticky;
-                    top: 0;
                     z-index: 2;
+                    top: 0;
                     background: var(--table-background-color);
                 }
             }

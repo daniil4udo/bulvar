@@ -5,10 +5,10 @@
 
 .tag {
     .has-ellipsis {
-        max-width: 10em;
         overflow: hidden;
-        white-space: nowrap;
+        max-width: 10em;
         text-overflow: ellipsis;
+        white-space: nowrap;
     }
     .delete, &.is-delete, &.has-delete-icon {
         @each $name, $pair in bulma-tag.$tag-colors {
