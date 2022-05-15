@@ -1,5 +1,5 @@
 /*!
-  * @bulvar/buefy v0.11.2 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
+  * @bulvar/buefy v0.11.3 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
   * Copyright 2022 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
@@ -11693,17 +11693,17 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   max-height: var(--dropdown-content-max-height);
 }
 .autocomplete .dropdown-item {
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .autocomplete .dropdown-item.is-hovered {
   background: var(--dropdown-item-hover-background-color);
   color: var(--dropdown-item-hover-color);
 }
 .autocomplete .dropdown-item.is-disabled {
-  opacity: 0.5;
   cursor: not-allowed;
+  opacity: 0.5;
 }
 .autocomplete.is-small {
   font-size: var(--size-small);
@@ -11730,18 +11730,18 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .carousel {
-  min-height: var(--carousel-min-height);
   position: relative;
+  min-height: var(--carousel-min-height);
 }
 .carousel.is-overlay {
-  background-color: var(--carousel-overlay-background);
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  display: flex;
-  max-height: 100vh;
   position: fixed;
   z-index: var(--carousel-overlay-z);
+  display: flex;
+  max-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--carousel-overlay-background);
 }
 .carousel.is-overlay .carousel-item img {
   cursor: default;
@@ -11750,9 +11750,9 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background: transparent;
 }
 .carousel .progress {
-  border-radius: var(--radius-small);
   height: 0.25rem;
   margin-bottom: 0;
+  border-radius: var(--radius-small);
 }
 .carousel .carousel-items {
   position: relative;
@@ -11766,32 +11766,32 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   }
 }
 .carousel .carousel-items .carousel-item {
-  flex-shrink: 0;
   width: 100%;
+  flex-shrink: 0;
 }
 .carousel .carousel-pause {
-  pointer-events: none;
   position: absolute;
+  z-index: 1;
   top: 0;
   right: 0.15rem;
-  z-index: 1;
+  pointer-events: none;
 }
 .carousel .carousel-indicator {
-  width: 100%;
-  padding: var(--carousel-indicator-spaced);
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: center;
+  padding: var(--carousel-indicator-spaced);
 }
 .carousel .carousel-indicator.has-background {
   background: var(--carousel-indicator-background);
 }
 .carousel .carousel-indicator.has-custom {
+  overflow: hidden;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  -webkit-overflow-scrolling: touch;
-  overflow: hidden;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .carousel .carousel-indicator.has-custom.is-small .indicator-item {
   flex: 1 0 10%;
@@ -11813,30 +11813,28 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 .carousel .carousel-indicator .indicator-item.is-active .indicator-style,
 .carousel .carousel-indicator .indicator-item .indicator-style:hover {
-  background: var(--carousel-indicator-color);
   border: 1px solid var(--carousel-indicator-border);
+  background: var(--carousel-indicator-color);
 }
 .carousel .carousel-indicator .indicator-item .indicator-style {
   display: block;
   border: 1px solid var(--carousel-indicator-color);
   background: var(--carousel-indicator-border);
   outline: none;
-  transition-property: all;
-  transition-duration: calc(var(--speed) * 2);
-  transition-timing-function: var(--easing);
+  transition: calc(var(--speed) * 2) var(--easing);
 }
 .carousel .carousel-indicator .indicator-item .indicator-style.is-boxes {
-  height: 10px;
   width: 10px;
+  height: 10px;
 }
 .carousel .carousel-indicator .indicator-item .indicator-style.is-dots {
-  border-radius: var(--radius-rounded);
-  height: 10px;
   width: 10px;
+  height: 10px;
+  border-radius: var(--radius-rounded);
 }
 .carousel .carousel-indicator .indicator-item .indicator-style.is-lines {
-  height: 5px;
   width: 25px;
+  height: 5px;
 }
 
 .carousel-list {
@@ -11858,9 +11856,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   width: 100%;
 }
 .carousel-list .carousel-slides:not(.is-dragging) {
-  transition-property: all;
-  transition-duration: calc(var(--speed) * 3);
-  transition-timing-function: ease-out;
+  transition: all calc(var(--speed) * 3) ease-out 0s;
 }
 .carousel-list .carousel-slides.has-grayscale .carousel-slide img {
   filter: grayscale(100%);
@@ -11875,24 +11871,22 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   opacity: 1;
 }
 .carousel-list .carousel-slides .carousel-slide {
-  border: 2px solid transparent;
   flex-shrink: 0;
+  border: 2px solid transparent;
 }
 
 .carousel-arrow {
-  transition-property: all;
-  transition-duration: calc(var(--speed) * 2);
-  transition-timing-function: var(--easing);
+  transition: calc(var(--speed) * 2) var(--easing);
 }
 .carousel-arrow.is-hovered {
   opacity: 0;
 }
 .carousel-arrow .icon {
+  border: 1px solid var(--carousel-arrow-background);
   background: var(--carousel-arrow-background);
+  border-radius: var(--radius-rounded);
   color: var(--carousel-arrow-color);
   cursor: pointer;
-  border: 1px solid var(--carousel-arrow-background);
-  border-radius: var(--radius-rounded);
   outline: 0;
 }
 .carousel-arrow .icon:hover {
@@ -11901,9 +11895,9 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 .carousel-arrow .icon.has-icons-left, .carousel-arrow .icon.has-icons-right {
   position: absolute;
+  z-index: 1;
   top: var(--carousel-arrow-top);
   transform: translateY(calc(-1 * var(--carousel-arrow-top)));
-  z-index: 1;
 }
 .carousel-arrow .icon.has-icons-left {
   left: var(--carousel-arrow-icon-spaced);
@@ -11926,9 +11920,9 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .b-checkbox.checkbox {
-  outline: none;
   display: inline-flex;
   align-items: center;
+  outline: none;
 }
 .b-checkbox.checkbox:not(.button) {
   margin-right: 0.5em;
@@ -11938,90 +11932,92 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 .b-checkbox.checkbox input[type=checkbox] {
   position: absolute;
+  z-index: -1;
   left: 0;
   opacity: 0;
   outline: none;
-  z-index: -1;
 }
 .b-checkbox.checkbox input[type=checkbox] + .check {
   width: var(--checkbox-size);
   height: var(--checkbox-size);
   flex-shrink: 0;
-  border-radius: var(--checkbox-border-radius);
   border: var(--checkbox-border-width) solid var(--checkbox-border-color);
-  transition-property: background;
-  transition-duration: calc(var(--speed) * 2);
-  transition-timing-function: var(--easing);
   background: var(--checkbox-background-color);
+  border-radius: var(--checkbox-border-radius);
+  transition: background calc(var(--speed) * 2) var(--easing);
 }
 .b-checkbox.checkbox input[type=checkbox]:checked + .check, .b-checkbox.checkbox input[type=checkbox]:indeterminate + .check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: var(--checkbox-active-background-color);
   background: var(--checkbox-active-background-color);
   color: var(--checkbox-checkmark-color);
-  border-color: var(--checkbox-active-background-color);
+  font-weight: var(--weight-bold);
+  text-align: center;
 }
 .b-checkbox.checkbox input[type=checkbox]:checked + .check.is-white, .b-checkbox.checkbox input[type=checkbox]:indeterminate + .check.is-white {
+  border-color: var(--white);
   background: var(--white);
   color: var(--white-invert);
-  border-color: var(--white);
 }
 .b-checkbox.checkbox input[type=checkbox]:checked + .check.is-black, .b-checkbox.checkbox input[type=checkbox]:indeterminate + .check.is-black {
+  border-color: var(--black);
   background: var(--black);
   color: var(--black-invert);
-  border-color: var(--black);
 }
 .b-checkbox.checkbox input[type=checkbox]:checked + .check.is-light, .b-checkbox.checkbox input[type=checkbox]:indeterminate + .check.is-light {
+  border-color: var(--light);
   background: var(--light);
   color: var(--light-invert);
-  border-color: var(--light);
 }
 .b-checkbox.checkbox input[type=checkbox]:checked + .check.is-dark, .b-checkbox.checkbox input[type=checkbox]:indeterminate + .check.is-dark {
+  border-color: var(--dark);
   background: var(--dark);
   color: var(--dark-invert);
-  border-color: var(--dark);
 }
 .b-checkbox.checkbox input[type=checkbox]:checked + .check.is-primary, .b-checkbox.checkbox input[type=checkbox]:indeterminate + .check.is-primary {
+  border-color: var(--primary);
   background: var(--primary);
   color: var(--primary-invert);
-  border-color: var(--primary);
 }
 .b-checkbox.checkbox input[type=checkbox]:checked + .check.is-secondary, .b-checkbox.checkbox input[type=checkbox]:indeterminate + .check.is-secondary {
+  border-color: var(--secondary);
   background: var(--secondary);
   color: var(--secondary-invert);
-  border-color: var(--secondary);
 }
 .b-checkbox.checkbox input[type=checkbox]:checked + .check.is-link, .b-checkbox.checkbox input[type=checkbox]:indeterminate + .check.is-link {
+  border-color: var(--link);
   background: var(--link);
   color: var(--link-invert);
-  border-color: var(--link);
 }
 .b-checkbox.checkbox input[type=checkbox]:checked + .check.is-info, .b-checkbox.checkbox input[type=checkbox]:indeterminate + .check.is-info {
+  border-color: var(--info);
   background: var(--info);
   color: var(--info-invert);
-  border-color: var(--info);
 }
 .b-checkbox.checkbox input[type=checkbox]:checked + .check.is-success, .b-checkbox.checkbox input[type=checkbox]:indeterminate + .check.is-success {
+  border-color: var(--success);
   background: var(--success);
   color: var(--success-invert);
-  border-color: var(--success);
 }
 .b-checkbox.checkbox input[type=checkbox]:checked + .check.is-warning, .b-checkbox.checkbox input[type=checkbox]:indeterminate + .check.is-warning {
+  border-color: var(--warning);
   background: var(--warning);
   color: var(--warning-invert);
-  border-color: var(--warning);
 }
 .b-checkbox.checkbox input[type=checkbox]:checked + .check.is-danger, .b-checkbox.checkbox input[type=checkbox]:indeterminate + .check.is-danger {
+  border-color: var(--danger);
   background: var(--danger);
   color: var(--danger-invert);
-  border-color: var(--danger);
 }
-.b-checkbox.checkbox input[type=checkbox]:checked + .check::after {
+.b-checkbox.checkbox input[type=checkbox]:checked + .check::before, .b-checkbox.checkbox input[type=checkbox]:indeterminate + .check::before {
   position: absolute;
-  top: 0;
+}
+.b-checkbox.checkbox input[type=checkbox]:checked + .check::before {
   content: "✓";
 }
-.b-checkbox.checkbox input[type=checkbox]:indeterminate + .check::after {
-  position: absolute;
-  top: 0;
+.b-checkbox.checkbox input[type=checkbox]:indeterminate + .check::before {
   content: "─";
 }
 .b-checkbox.checkbox input[type=checkbox]:focus + .check {
@@ -12130,8 +12126,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--primary);
 }
 .b-clockpicker .b-clockpicker-face-hand {
-  background-color: var(--primary);
   border-color: var(--primary);
+  background-color: var(--primary);
 }
 .b-clockpicker .b-clockpicker-face-number.active {
   background-color: var(--primary);
@@ -12145,8 +12141,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--white);
 }
 .b-clockpicker.is-white .b-clockpicker-face-hand {
-  background-color: var(--white);
   border-color: var(--white);
+  background-color: var(--white);
 }
 .b-clockpicker.is-white .b-clockpicker-face-number.active {
   background-color: var(--white);
@@ -12160,8 +12156,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--black);
 }
 .b-clockpicker.is-black .b-clockpicker-face-hand {
-  background-color: var(--black);
   border-color: var(--black);
+  background-color: var(--black);
 }
 .b-clockpicker.is-black .b-clockpicker-face-number.active {
   background-color: var(--black);
@@ -12175,8 +12171,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--light);
 }
 .b-clockpicker.is-light .b-clockpicker-face-hand {
-  background-color: var(--light);
   border-color: var(--light);
+  background-color: var(--light);
 }
 .b-clockpicker.is-light .b-clockpicker-face-number.active {
   background-color: var(--light);
@@ -12190,8 +12186,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--dark);
 }
 .b-clockpicker.is-dark .b-clockpicker-face-hand {
-  background-color: var(--dark);
   border-color: var(--dark);
+  background-color: var(--dark);
 }
 .b-clockpicker.is-dark .b-clockpicker-face-number.active {
   background-color: var(--dark);
@@ -12205,8 +12201,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--primary);
 }
 .b-clockpicker.is-primary .b-clockpicker-face-hand {
-  background-color: var(--primary);
   border-color: var(--primary);
+  background-color: var(--primary);
 }
 .b-clockpicker.is-primary .b-clockpicker-face-number.active {
   background-color: var(--primary);
@@ -12220,8 +12216,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--secondary);
 }
 .b-clockpicker.is-secondary .b-clockpicker-face-hand {
-  background-color: var(--secondary);
   border-color: var(--secondary);
+  background-color: var(--secondary);
 }
 .b-clockpicker.is-secondary .b-clockpicker-face-number.active {
   background-color: var(--secondary);
@@ -12235,8 +12231,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--link);
 }
 .b-clockpicker.is-link .b-clockpicker-face-hand {
-  background-color: var(--link);
   border-color: var(--link);
+  background-color: var(--link);
 }
 .b-clockpicker.is-link .b-clockpicker-face-number.active {
   background-color: var(--link);
@@ -12250,8 +12246,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--info);
 }
 .b-clockpicker.is-info .b-clockpicker-face-hand {
-  background-color: var(--info);
   border-color: var(--info);
+  background-color: var(--info);
 }
 .b-clockpicker.is-info .b-clockpicker-face-number.active {
   background-color: var(--info);
@@ -12265,8 +12261,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--success);
 }
 .b-clockpicker.is-success .b-clockpicker-face-hand {
-  background-color: var(--success);
   border-color: var(--success);
+  background-color: var(--success);
 }
 .b-clockpicker.is-success .b-clockpicker-face-number.active {
   background-color: var(--success);
@@ -12280,8 +12276,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--warning);
 }
 .b-clockpicker.is-warning .b-clockpicker-face-hand {
-  background-color: var(--warning);
   border-color: var(--warning);
+  background-color: var(--warning);
 }
 .b-clockpicker.is-warning .b-clockpicker-face-number.active {
   background-color: var(--warning);
@@ -12295,8 +12291,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--danger);
 }
 .b-clockpicker.is-danger .b-clockpicker-face-hand {
-  background-color: var(--danger);
   border-color: var(--danger);
+  background-color: var(--danger);
 }
 .b-clockpicker.is-danger .b-clockpicker-face-number.active {
   background-color: var(--danger);
@@ -12311,8 +12307,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 .b-clockpicker .dropdown .input[readonly],
 .b-clockpicker .dropdown-trigger .input[readonly] {
-  cursor: pointer;
   box-shadow: var(--input-shadow);
+  cursor: pointer;
 }
 .b-clockpicker .dropdown .input[readonly]:focus, .b-clockpicker .dropdown .input[readonly].is-focused, .b-clockpicker .dropdown .input[readonly]:active, .b-clockpicker .dropdown .input[readonly].is-active,
 .b-clockpicker .dropdown-trigger .input[readonly]:focus,
@@ -12322,8 +12318,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   box-shadow: var(--input-focus-box-shadow-size) var(--input-focus-box-shadow-color);
 }
 .b-clockpicker .dropdown-item {
-  font-size: inherit;
   padding: 0;
+  font-size: inherit;
 }
 .b-clockpicker .dropdown-content {
   padding-top: 0;
@@ -12347,18 +12343,18 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   opacity: 1;
 }
 .b-clockpicker-period .b-clockpicker-btn {
-  font-size: 16px;
+  font-size: 1rem;
 }
 .b-clockpicker-time span {
-  align-items: center;
   display: inline-flex;
+  align-items: center;
   justify-content: center;
 }
 .b-clockpicker-header {
   display: flex;
-  line-height: 1;
   justify-content: flex-end;
   color: inherit;
+  line-height: 1;
 }
 .b-clockpicker-header .b-clockpicker-time {
   white-space: nowrap;
@@ -12368,9 +12364,9 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   font-size: 60px;
 }
 .b-clockpicker-header .b-clockpicker-period {
-  align-self: flex-end;
   display: flex;
   flex-direction: column;
+  align-self: flex-end;
   margin: 8px 0 6px 8px;
 }
 .b-clockpicker-body {
@@ -12378,8 +12374,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 .b-clockpicker-body .b-clockpicker-btn {
   padding: 0 8px;
-  border-radius: var(--radius-rounded);
   margin-bottom: 2px;
+  border-radius: var(--radius-rounded);
 }
 .b-clockpicker-body .b-clockpicker-btn:hover, .b-clockpicker-body .b-clockpicker-btn.active {
   background-color: var(--primary);
@@ -12394,92 +12390,93 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   position: absolute;
   top: 5px;
   left: 5px;
-  font-size: 16px;
+  font-size: 1rem;
 }
 .b-clockpicker-body .b-clockpicker-face {
-  border-radius: 50%;
   position: relative;
-  background-color: var(--grey-lighter);
+  display: flex;
   width: 100%;
   height: 100%;
   align-items: center;
-  display: flex;
   justify-content: center;
+  background-color: var(--grey-lighter);
+  border-radius: 50%;
 }
 .b-clockpicker-body .b-clockpicker-face::after {
-  border-radius: 50%;
-  content: "";
   position: absolute;
-  left: 50%;
+  z-index: 10;
   top: 50%;
-  transform: translate(-50%, -50%);
+  left: 50%;
   width: 12px;
   height: 12px;
-  z-index: 10;
+  border-radius: 50%;
+  content: "";
+  transform: translate(-50%, -50%);
 }
 .b-clockpicker-body .b-clockpicker-face-outer-ring {
-  height: calc(100% - 50px);
-  width: calc(100% - 50px);
   position: relative;
+  width: calc(100% - 50px);
+  height: calc(100% - 50px);
   border-radius: 50%;
 }
 .b-clockpicker-body .b-clockpicker-face-number {
-  align-items: center;
-  border-radius: 100%;
-  cursor: default;
-  display: flex;
-  font-size: 18px;
-  text-align: center;
-  justify-content: center;
   position: absolute;
+  top: calc(50% - 40px * 0.5);
+  left: calc(50% - 40px * 0.5);
+  display: flex;
   width: 40px;
   height: 40px;
-  left: calc(50% - 40px * 0.5);
-  top: calc(50% - 40px * 0.5);
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  cursor: default;
+  font-size: 18px;
+  text-align: center;
 }
 .b-clockpicker-body .b-clockpicker-face-number > span {
   z-index: 1;
 }
 .b-clockpicker-body .b-clockpicker-face-number::before, .b-clockpicker-body .b-clockpicker-face-number::after {
-  content: "";
-  height: 40px;
-  width: 40px;
-  border-radius: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  content: "";
   transform: translate(-50%, -50%);
 }
 .b-clockpicker-body .b-clockpicker-face-number.active {
-  cursor: default;
   z-index: 2;
+  cursor: default;
 }
 .b-clockpicker-body .b-clockpicker-face-number.disabled {
-  pointer-events: none;
   opacity: 0.25;
+  pointer-events: none;
 }
 .b-clockpicker-body .b-clockpicker-face-hand {
-  height: calc(50% - 6px);
-  width: 2px;
+  position: absolute;
+  z-index: 1;
   bottom: 50%;
   left: calc(50% - 1px);
+  width: 2px;
+  height: calc(50% - 6px);
   transform-origin: center bottom;
-  position: absolute;
+  transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
   will-change: transform;
-  z-index: 1;
 }
 .b-clockpicker-body .b-clockpicker-face-hand::before {
-  background: transparent;
-  border-width: 2px;
-  border-style: solid;
-  border-color: inherit;
-  border-radius: 100%;
-  width: 12px;
-  height: 12px;
-  content: "";
   position: absolute;
   top: -6px;
   left: 50%;
+  width: 12px;
+  height: 12px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: inherit;
+  background: transparent;
+  border-radius: 100%;
+  content: "";
   transform: translate(-50%, -50%);
 }
 .b-clockpicker-footer {
@@ -12514,10 +12511,10 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   text-transform: uppercase;
 }
 .b-colorpicker .colorpicker-footer, .colorpicker .colorpicker-footer {
-  margin-top: 0.875rem;
   padding-top: 0.875rem;
   border: 1px solid var(--grey-lighter);
   border-width: 1px 0 0;
+  margin-top: 0.875rem;
 }
 .b-colorpicker .colorpicker-footer .colorpicker-fields, .colorpicker .colorpicker-footer .colorpicker-fields {
   margin-bottom: 0.875rem;
@@ -12532,17 +12529,17 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   display: flex;
 }
 .b-colorpicker .colorpicker-footer .colorpicker-fields .field .control .input, .colorpicker .colorpicker-footer .colorpicker-fields .field .control .input {
+  width: 0;
+  min-width: 42px;
+  flex-grow: 1;
   -webkit-appearance: none;
   -moz-appearance: textfield;
   appearance: textfield;
-  flex-grow: 1;
-  width: 0;
-  min-width: 42px;
   text-align: right;
 }
 .b-colorpicker .colorpicker-footer .colorpicker-fields .field .control .input::-webkit-outer-spin-button, .b-colorpicker .colorpicker-footer .colorpicker-fields .field .control .input::-webkit-inner-spin-button, .colorpicker .colorpicker-footer .colorpicker-fields .field .control .input::-webkit-outer-spin-button, .colorpicker .colorpicker-footer .colorpicker-fields .field .control .input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
   margin: 0;
+  -webkit-appearance: none;
 }
 .b-colorpicker .dropdown.is-expanded .dropdown-menu,
 .b-colorpicker .dropdown.is-expanded.is-mobile-modal .dropdown-menu, .colorpicker .dropdown.is-expanded .dropdown-menu,
@@ -12554,11 +12551,11 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   flex-direction: row;
 }
 .b-colorpicker .dropdown-horizonal-colorpicker .colorpicker-footer, .colorpicker .dropdown-horizonal-colorpicker .colorpicker-footer {
+  padding-top: 0;
+  padding-left: 0.875rem;
   border-width: 0 0 0 1px;
   margin-top: 0;
-  padding-top: 0;
   margin-left: 0.875rem;
-  padding-left: 0.875rem;
 }
 
 svg.b-colorpicker-triangle {
@@ -12581,14 +12578,14 @@ svg.b-colorpicker-triangle .colorpicker-triangle-slider-hue, svg.b-colorpicker-t
 }
 svg.b-colorpicker-triangle .hue-range-thumb,
 svg.b-colorpicker-triangle .sl-range-thumb {
+  width: calc(100% - 0.25em);
+  height: calc(100% - 0.25em);
+  margin: 0.125em;
   background: transparent;
   border-radius: var(--colorpicker-radius);
   box-shadow: inset 0 0 0 1px #fff, 0 0 0 1px var(--grey-lighter);
   cursor: -webkit-grab;
   cursor: grab;
-  height: calc(100% - 0.25em);
-  width: calc(100% - 0.25em);
-  margin: 0.125em;
 }
 svg.b-colorpicker-triangle .hue-range-thumb:hover,
 svg.b-colorpicker-triangle .sl-range-thumb:hover {
@@ -12609,22 +12606,22 @@ div.b-colorpicker-square {
   aspect-ratio: 1/1;
 }
 div.b-colorpicker-square .colorpicker-square-slider-hue {
-  background: conic-gradient(#f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
-  border-radius: var(--colorpicker-radius);
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  background: conic-gradient(#f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+  border-radius: var(--colorpicker-radius);
 }
 div.b-colorpicker-square .colorpicker-square-slider-hue .hue-range-thumb {
-  border-radius: calc(var(--colorpicker-radius) / 1.75);
   position: absolute;
   aspect-ratio: 1/1;
-  transform: translate(-50%, -50%);
+  border-radius: calc(var(--colorpicker-radius) / 1.75);
   box-shadow: inset 0 0 0 1px #fff, 0 0 0 1px var(--grey-lighter);
   cursor: -webkit-grab;
   cursor: grab;
+  transform: translate(-50%, -50%);
 }
 div.b-colorpicker-square .colorpicker-square-slider-hue .hue-range-thumb:hover {
   box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 2px var(--grey-light), 0 0 0 1px var(--grey-light);
@@ -12637,34 +12634,34 @@ div.b-colorpicker-square .colorpicker-square-slider-hue .hue-range-thumb:active 
   cursor: grabbing;
 }
 div.b-colorpicker-square .colorpicker-square-slider-sl {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: #fff;
   border-radius: calc(var(--colorpicker-radius) / 2);
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
 }
 div.b-colorpicker-square .colorpicker-square-slider-sl::before {
-  content: "";
-  background: linear-gradient(0deg, #000, #fff);
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  background: linear-gradient(0deg, #000, #fff);
+  content: "";
   mix-blend-mode: hard-light;
 }
 div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb {
-  display: block;
-  border-radius: var(--colorpicker-radius);
   position: absolute;
+  display: block;
   width: 8px;
   height: 8px;
-  transform: translate(-50%, -50%);
+  border-radius: var(--colorpicker-radius);
   box-shadow: inset 0 0 0 1px #fff, 0 0 0 1px var(--grey-lighter);
   cursor: -webkit-grab;
   cursor: grab;
+  transform: translate(-50%, -50%);
 }
 div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:hover {
   box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 2px var(--grey-light), 0 0 0 1px var(--grey-light);
@@ -12678,25 +12675,25 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 
 .b-colorpicker-alpha-slider {
+  position: relative;
   height: 1em;
-  background-image: linear-gradient(45deg, #c7c7c7 25%, transparent 25%, transparent 75%, #c7c7c7 75%, #c7c7c7), linear-gradient(45deg, #c7c7c7 25%, transparent 25%, transparent 75%, #c7c7c7 75%, #c7c7c7);
-  background-size: 1em 1em;
-  background-position: 0.5em 0.5em, 0 0;
-  border-radius: var(--colorpicker-radius);
   margin-top: 0.125em;
   margin-bottom: 0.875rem;
-  position: relative;
+  background-image: linear-gradient(45deg, #c7c7c7 25%, transparent 25%, transparent 75%, #c7c7c7 75%, #c7c7c7), linear-gradient(45deg, #c7c7c7 25%, transparent 25%, transparent 75%, #c7c7c7 75%, #c7c7c7);
+  background-position: 0.5em 0.5em, 0 0;
+  background-size: 1em 1em;
+  border-radius: var(--colorpicker-radius);
 }
 .b-colorpicker-alpha-slider .alpha-range-thumb {
+  position: absolute;
+  top: 50%;
+  left: 0;
   width: 0.4em;
   height: 1.25em;
   border-radius: var(--colorpicker-radius);
   box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 2px var(--grey-lighter), 0 0 0 1px var(--grey-lighter);
   cursor: -webkit-grab;
   cursor: grab;
-  position: absolute;
-  top: 50%;
-  left: 0;
   transform: translate(-50%, -50%);
 }
 .b-colorpicker-alpha-slider .alpha-range-thumb:hover {
@@ -12711,11 +12708,11 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .b-colorpicker-alpha-slider .alpha-range-thumb > .b-tooltip, .b-colorpicker-alpha-slider .alpha-range-thumb > .b-tooltip > .tooltip-trigger {
   position: absolute;
-  display: block;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  display: block;
 }
 
 :root {
@@ -12741,8 +12738,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .datepicker .dropdown .input[readonly],
 .datepicker .dropdown-trigger .input[readonly] {
-  cursor: pointer;
   box-shadow: var(--input-shadow);
+  cursor: pointer;
 }
 .datepicker .dropdown .input[readonly]:focus, .datepicker .dropdown .input[readonly].is-focused, .datepicker .dropdown .input[readonly]:active, .datepicker .dropdown .input[readonly].is-active,
 .datepicker .dropdown-trigger .input[readonly]:focus,
@@ -12764,24 +12761,24 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .datepicker .datepicker-header {
   padding-bottom: 0.875rem;
-  margin-bottom: 0.875rem;
   border-bottom: 1px solid var(--grey-lighter);
+  margin-bottom: 0.875rem;
 }
 .datepicker .datepicker-footer {
-  margin-top: 0.875rem;
   padding-top: 0.875rem;
   border-top: 1px solid var(--grey-lighter);
+  margin-top: 0.875rem;
 }
 .datepicker .datepicker-table {
   display: table;
   margin: 0 auto;
 }
 .datepicker .datepicker-table .datepicker-cell {
+  display: table-cell;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
   text-align: center;
   vertical-align: middle;
-  display: table-cell;
-  border-radius: var(--radius);
-  padding: 0.5rem 0.75rem;
 }
 .datepicker .datepicker-table .datepicker-header {
   display: table-header-group;
@@ -12798,16 +12795,16 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .datepicker .datepicker-table .datepicker-body .datepicker-months {
   display: inline-flex;
-  flex-wrap: wrap;
-  flex-direction: row;
   width: 17rem;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .datepicker .datepicker-table .datepicker-body .datepicker-months .datepicker-cell {
   display: flex;
+  width: 33.3333333333%;
+  height: 2.5rem;
   align-items: center;
   justify-content: center;
-  width: 33.33%;
-  height: 2.5rem;
 }
 .datepicker .datepicker-table .datepicker-body .datepicker-cell.is-unselectable {
   color: var(--datepicker-item-disabled-color);
@@ -12826,20 +12823,20 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .datepicker .datepicker-table .datepicker-body .datepicker-cell.is-selectable.is-within-hovered-range.is-first-hovered {
   background-color: var(--grey);
-  color: var(--grey-lighter);
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
+  color: var(--grey-lighter);
 }
 .datepicker .datepicker-table .datepicker-body .datepicker-cell.is-selectable.is-within-hovered-range.is-within-hovered {
   background-color: var(--datepicker-item-hover-background-color);
-  color: var(--datepicker-item-hover-color);
   border-radius: 0;
+  color: var(--datepicker-item-hover-color);
 }
 .datepicker .datepicker-table .datepicker-body .datepicker-cell.is-selectable.is-within-hovered-range.is-last-hovered {
   background-color: var(--grey);
-  color: var(--grey-lighter);
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
+  color: var(--grey-lighter);
 }
 .datepicker .datepicker-table .datepicker-body .datepicker-cell.is-selected {
   background-color: var(--datepicker-item-selected-background-color);
@@ -12847,9 +12844,9 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .datepicker .datepicker-table .datepicker-body .datepicker-cell.is-selected.is-first-selected {
   background-color: var(--datepicker-item-selected-background-color);
-  color: var(--datepicker-item-selected-color);
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
+  color: var(--datepicker-item-selected-color);
 }
 .datepicker .datepicker-table .datepicker-body .datepicker-cell.is-selected.is-within-selected {
   --datepicker-item-selected-background-color: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.5);
@@ -12858,9 +12855,9 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .datepicker .datepicker-table .datepicker-body .datepicker-cell.is-selected.is-last-selected {
   background-color: var(--datepicker-item-selected-background-color);
-  color: var(--datepicker-item-selected-color);
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
+  color: var(--datepicker-item-selected-color);
 }
 .datepicker .datepicker-table .datepicker-body .datepicker-cell.is-nearby:not(.is-selected) {
   color: var(--grey-light);
@@ -12875,13 +12872,13 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   position: relative;
 }
 .datepicker .datepicker-table .datepicker-body.has-events .datepicker-cell.has-event .events {
-  bottom: 0.425rem;
-  display: flex;
-  justify-content: center;
-  left: 0;
-  padding: 0 0.35rem;
   position: absolute;
+  bottom: 0.425rem;
+  left: 0;
+  display: flex;
   width: 100%;
+  justify-content: center;
+  padding: 0 0.35rem;
 }
 .datepicker .datepicker-table .datepicker-body.has-events .datepicker-cell.has-event .events .event.is-white {
   background-color: var(--white);
@@ -12917,14 +12914,14 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   background-color: var(--danger);
 }
 .datepicker .datepicker-table .datepicker-body.has-events .datepicker-cell.has-event.dots .event {
-  border-radius: 50%;
+  width: 0.35em;
   height: 0.35em;
   margin: 0 0.1em;
-  width: 0.35em;
+  border-radius: 50%;
 }
 .datepicker .datepicker-table .datepicker-body.has-events .datepicker-cell.has-event.bars .event {
-  height: 0.25em;
   width: 100%;
+  height: 0.25em;
 }
 .datepicker .datepicker-table .datepicker-body.has-events .datepicker-cell.is-selected {
   overflow: hidden;
@@ -12944,10 +12941,10 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 @media screen and (min-width: 1024px) {
   .datepicker .footer-horizontal-timepicker {
-    border: none;
-    padding-left: 10px;
-    margin-left: 5px;
     display: flex;
+    padding-left: 10px;
+    border: none;
+    margin-left: 5px;
   }
   .datepicker .dropdown-horizonal-timepicker {
     display: flex;
@@ -12958,8 +12955,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 
 .dialog .modal-card {
-  max-width: 460px;
   width: auto;
+  max-width: 460px;
 }
 .dialog .modal-card .modal-card-head {
   font-size: var(--size-5);
@@ -13014,8 +13011,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .dropdown .background {
   position: fixed;
-  background-color: var(--dropdown-background-color);
   z-index: 40;
+  background-color: var(--dropdown-background-color);
   cursor: pointer;
 }
 @media screen and (min-width: 1023px) {
@@ -13062,8 +13059,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   height: 100%;
 }
 .dropdown.is-disabled {
-  opacity: var(--dropdown-disabled-opacity);
   cursor: not-allowed;
+  opacity: var(--dropdown-disabled-opacity);
 }
 .dropdown.is-disabled .dropdown-trigger {
   pointer-events: none;
@@ -13079,8 +13076,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .dropdown.is-top-left .dropdown-menu {
   top: auto;
-  bottom: 100%;
   right: 0;
+  bottom: 100%;
   left: auto;
 }
 .dropdown.is-bottom-left .dropdown-menu {
@@ -13090,17 +13087,17 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 @media screen and (max-width: 1022px) {
   .dropdown.is-mobile-modal > .dropdown-menu {
     position: fixed !important;
+    z-index: 50 !important;
+    top: 25% !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: 50% !important;
     width: calc(100vw - 40px);
     max-width: 460px;
     max-height: calc(100vh - 120px);
-    top: 25% !important;
-    left: 50% !important;
-    bottom: auto !important;
-    right: auto !important;
+    overflow-y: auto;
     transform: translate3d(-50%, -25%, 0);
     white-space: normal;
-    overflow-y: auto;
-    z-index: 50 !important;
   }
   .dropdown.is-mobile-modal > .dropdown-menu > .dropdown-content > .dropdown-item, .dropdown .dropdown-menu .has-link .dropdown.is-mobile-modal > .dropdown-menu > .dropdown-content > a, .dropdown.is-mobile-modal > .dropdown-menu > .dropdown-content > .has-link a {
     padding: 1rem 1.5rem;
@@ -13160,14 +13157,14 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .field.is-floating-label .label, .field.is-floating-in-label .label {
   position: absolute;
-  left: 1em;
-  font-size: calc(var(--field-label-font-size) * 0.75);
-  background-color: transparent;
   z-index: 5;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  max-width: calc(100% - 2em);
+  left: 1em;
   overflow: hidden;
+  max-width: calc(100% - 2em);
+  background-color: transparent;
+  font-size: calc(var(--field-label-font-size) * 0.75);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .field.is-floating-label .label.is-small, .field.is-floating-in-label .label.is-small {
   --field-label-font-size: var(--size-small);
@@ -13192,19 +13189,19 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .field.is-floating-label .label {
   top: -0.775em;
-  padding-left: 0.125em;
   padding-right: 0.125em;
+  padding-left: 0.125em;
 }
 .field.is-floating-label .label::before {
-  content: "";
-  display: block;
   position: absolute;
+  z-index: -1;
   top: 0.775em;
-  left: 0;
   right: 0;
+  left: 0;
+  display: block;
   height: 0.375em;
   background-color: var(--input-background-color);
-  z-index: -1;
+  content: "";
 }
 .field.is-floating-label .input:focus,
 .field.is-floating-label .textarea:focus,
@@ -13224,16 +13221,16 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   top: 0.25em;
 }
 .field.is-floating-in-label > .label + .control.datepicker .input, .field.is-floating-in-label > .label + .control.timepicker .input {
+  height: var(--floating-in-height);
   padding-top: var(--field-floating-indent);
   padding-bottom: 1px;
-  height: var(--floating-in-height);
 }
 .field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .input,
 .field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .textarea,
 .field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) select {
+  height: var(--floating-in-height);
   padding-top: var(--field-floating-indent);
   padding-bottom: 1px;
-  height: var(--floating-in-height);
 }
 .field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .select:not(multiple) {
   height: var(--floating-in-height);
@@ -13312,12 +13309,12 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 
 .control .help.counter {
-  float: right;
   margin-left: 0.5em;
+  float: right;
 }
 .control .icon.is-clickable {
-  pointer-events: auto;
   cursor: pointer;
+  pointer-events: auto;
 }
 .control.is-loading::after {
   top: calc(50% - 0.5em);
@@ -13333,13 +13330,13 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   cursor: inherit;
 }
 .icon svg {
-  background-color: transparent;
-  fill: currentColor;
-  stroke-width: 0;
-  stroke: currentColor;
-  pointer-events: none;
   width: var(--icon-svg-width);
   height: var(--icon-svg-height);
+  background-color: transparent;
+  fill: currentColor;
+  pointer-events: none;
+  stroke: currentColor;
+  stroke-width: 0;
 }
 
 :root {
@@ -13351,19 +13348,19 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   object-fit: cover;
 }
 .b-image-wrapper > img.has-ratio, .b-image-wrapper > img.placeholder {
-  height: 100%;
   width: 100%;
+  height: 100%;
 }
 .b-image-wrapper > img.placeholder {
   filter: blur(var(--image-placeholder-blur));
 }
 
 .loading-overlay {
-  align-items: center;
-  display: none;
-  justify-content: center;
-  overflow: hidden;
   z-index: 29;
+  display: none;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
 }
 .loading-overlay.is-active {
   display: flex;
@@ -13395,9 +13392,9 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 
 .menu .menu-list li > a.is-disabled {
-  pointer-events: none;
   cursor: not-allowed;
   opacity: 0.5;
+  pointer-events: none;
 }
 
 .message .media,
@@ -13445,8 +13442,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   margin-left: 0;
 }
 .navbar .navbar-dropdown.is-boxed {
-  visibility: hidden;
   transition-property: opacity, visibility, transform;
+  visibility: hidden;
 }
 .navbar .navbar-item.has-dropdown.is-active .is-boxed,
 .navbar .navbar-item.has-dropdown.is-hoverable:hover .is-boxed {
@@ -13467,100 +13464,100 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 
 .notices {
   position: fixed;
-  display: flex;
+  z-index: 1000;
   top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  padding: 2em;
+  display: flex;
   overflow: hidden;
-  z-index: 1000;
+  padding: 2em;
   pointer-events: none;
 }
 .notices .toast {
   display: inline-flex;
+  padding: 0.75em 1.5em;
+  margin: 0.5em 0;
   -webkit-animation-duration: calc(var(--speed) * 2);
   animation-duration: calc(var(--speed) * 2);
-  margin: 0.5em 0;
-  text-align: center;
-  box-shadow: var(--toast-box-shadow);
   border-radius: var(--toast-border-radius);
-  padding: 0.75em 1.5em;
-  pointer-events: auto;
+  box-shadow: var(--toast-box-shadow);
   opacity: var(--toast-opacity);
+  pointer-events: auto;
+  text-align: center;
 }
 .notices .toast.is-white {
-  color: var(--white-invert);
   background: var(--white);
+  color: var(--white-invert);
 }
 .notices .toast.is-black {
-  color: var(--black-invert);
   background: var(--black);
+  color: var(--black-invert);
 }
 .notices .toast.is-light {
-  color: var(--light-invert);
   background: var(--light);
+  color: var(--light-invert);
 }
 .notices .toast.is-dark {
-  color: var(--dark-invert);
   background: var(--dark);
+  color: var(--dark-invert);
 }
 .notices .toast.is-primary {
-  color: var(--primary-invert);
   background: var(--primary);
+  color: var(--primary-invert);
 }
 .notices .toast.is-secondary {
-  color: var(--secondary-invert);
   background: var(--secondary);
+  color: var(--secondary-invert);
 }
 .notices .toast.is-link {
-  color: var(--link-invert);
   background: var(--link);
+  color: var(--link-invert);
 }
 .notices .toast.is-info {
-  color: var(--info-invert);
   background: var(--info);
+  color: var(--info-invert);
 }
 .notices .toast.is-success {
-  color: var(--success-invert);
   background: var(--success);
+  color: var(--success-invert);
 }
 .notices .toast.is-warning {
-  color: var(--warning-invert);
   background: var(--warning);
+  color: var(--warning-invert);
 }
 .notices .toast.is-danger {
-  color: var(--danger-invert);
   background: var(--danger);
+  color: var(--danger-invert);
 }
 .notices .snackbar {
   --snackbar-button-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) + -5%), var(--dark-a));
   display: inline-flex;
+  min-height: 3em;
   align-items: center;
   justify-content: space-around;
+  margin: 0.5em 0;
   -webkit-animation-duration: calc(var(--speed) * 2);
   animation-duration: calc(var(--speed) * 2);
-  margin: 0.5em 0;
-  box-shadow: var(--snackbar-box-shadow);
-  border-radius: var(--snackbar-border-radius);
-  pointer-events: auto;
   background: var(--snackbar-background-color);
+  border-radius: var(--snackbar-border-radius);
+  box-shadow: var(--snackbar-box-shadow);
   color: var(--snackbar-color);
-  min-height: 3em;
+  pointer-events: auto;
 }
 .notices .snackbar .text {
   padding: 0.5em 1em;
 }
 .notices .snackbar .action {
-  margin-left: auto;
   padding: 0.5em;
   padding-left: 0;
+  margin-left: auto;
 }
 .notices .snackbar .action .button {
+  border: transparent;
+  background: var(--snackbar-background-color);
   font-weight: var(--weight-semibold);
   text-transform: var(--snackbar-button-text-transform);
-  background: var(--snackbar-background-color);
-  border: transparent;
 }
 .notices .snackbar .action .button:hover {
   background: var(--snackbar-button-background-color);
@@ -13613,14 +13610,14 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 @media screen and (min-width: 769px), print {
   .notices .snackbar {
+    overflow: hidden;
     min-width: 350px;
     max-width: 600px;
-    overflow: hidden;
   }
 }
 .notices .notification {
-  pointer-events: auto;
   max-width: 600px;
+  pointer-events: auto;
 }
 .notices .toast.is-top, .notices .toast.is-bottom,
 .notices .snackbar.is-top,
@@ -13665,8 +13662,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 @media screen and (max-width: 768px) {
   .notices {
-    padding: 0;
     position: fixed !important;
+    padding: 0;
   }
 }
 
@@ -13702,20 +13699,20 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   text-align: center;
 }
 .b-numberinput .button.is-rounded {
-  padding-left: 1em;
   padding-right: 1em;
+  padding-left: 1em;
 }
 
 .pagination .pagination-next,
 .pagination .pagination-previous {
-  padding-left: var(--pagination-nav-padding-left);
   padding-right: var(--pagination-nav-padding-right);
+  padding-left: var(--pagination-nav-padding-left);
 }
 .pagination .pagination-next.is-disabled,
 .pagination .pagination-previous.is-disabled {
-  pointer-events: none;
   cursor: not-allowed;
   opacity: 0.5;
+  pointer-events: none;
 }
 .pagination.is-simple {
   justify-content: normal;
@@ -13727,8 +13724,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   justify-content: flex-end;
 }
 .pagination .is-current {
-  pointer-events: none;
   cursor: not-allowed;
+  pointer-events: none;
 }
 
 @media screen and (min-width: 769px), print {
@@ -13857,11 +13854,11 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translateX(-50%);
-  font-size: calc(var(--progress-value-size) / 1.5);
-  line-height: var(--progress-value-size);
-  font-weight: var(--weight-bold);
   color: var(--progress-value-color);
+  font-size: calc(var(--progress-value-size) / 1.5);
+  font-weight: var(--weight-bold);
+  line-height: var(--progress-value-size);
+  transform: translateX(-50%);
   white-space: nowrap;
 }
 .progress-wrapper .progress, .progress-wrapper .progress-wrapper.is-not-native, .progress-wrapper .progress-bar {
@@ -13920,16 +13917,16 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   border-radius: 0;
 }
 .progress-wrapper.is-not-native {
-  white-space: nowrap;
   background-color: var(--progress-bar-background-color);
   border-radius: var(--progress-border-radius);
+  white-space: nowrap;
 }
 .progress-wrapper.is-not-native .progress-bar {
   position: relative;
   display: inline-block;
-  vertical-align: top;
   height: 100%;
   background-color: var(--progress-value-background-color);
+  vertical-align: top;
 }
 .progress-wrapper.is-not-native .progress-bar .progress-value {
   color: var(--progress-value-color);
@@ -14010,9 +14007,9 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 
 .b-radio.radio {
-  outline: none;
   display: inline-flex;
   align-items: center;
+  outline: none;
 }
 .b-radio.radio:not(.button) {
   margin-right: 0.5em;
@@ -14025,40 +14022,36 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .b-radio.radio input[type=radio] {
   position: absolute;
+  z-index: -1;
   left: 0;
   opacity: 0;
   outline: none;
-  z-index: -1;
 }
 .b-radio.radio input[type=radio] + .check {
-  display: flex;
-  flex-shrink: 0;
   position: relative;
-  cursor: pointer;
+  display: flex;
   width: var(--radio-size);
   height: var(--radio-size);
-  transition-property: background;
-  transition-duration: calc(var(--speed) * 2);
-  transition-timing-function: var(--easing);
-  border-radius: 50%;
+  flex-shrink: 0;
   border: 2px solid var(--grey);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background calc(var(--speed) * 2) var(--easing);
 }
 .b-radio.radio input[type=radio] + .check::before {
-  content: "";
-  display: flex;
   position: absolute;
-  left: 50%;
-  margin-left: calc(-0.5 * var(--radio-size));
   bottom: 50%;
-  margin-bottom: calc(-0.5 * var(--radio-size));
+  left: 50%;
+  display: flex;
   width: var(--radio-size);
   height: var(--radio-size);
-  transition-property: transform;
-  transition-duration: calc(var(--speed) * 2);
-  transition-timing-function: var(--easing);
-  border-radius: 50%;
-  transform: scale(0);
+  margin-bottom: calc(-0.5 * var(--radio-size));
+  margin-left: calc(-0.5 * var(--radio-size));
   background-color: var(--radio-active-background-color);
+  border-radius: 50%;
+  content: "";
+  transform: scale(0);
+  transition: transform calc(var(--speed) * 2) var(--easing);
 }
 .b-radio.radio input[type=radio] + .check.is-white:before {
   background: var(--white);
@@ -14250,8 +14243,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 
 .rate {
-  align-items: center;
   display: flex;
+  align-items: center;
 }
 .rate:not(:last-child) {
   margin-bottom: calc(var(--block-spacing) * 0.5);
@@ -14269,13 +14262,13 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   order: 1;
 }
 .rate.is-rtl .rate-text {
-  margin-left: 0;
   margin-right: var(--rate-text-spaced);
+  margin-left: 0;
 }
 .rate .rate-item {
-  cursor: pointer;
-  display: inline-flex;
   position: relative;
+  display: inline-flex;
+  cursor: pointer;
   transition: all 0.3s;
 }
 .rate .rate-item:hover {
@@ -14286,23 +14279,23 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .rate .rate-item.set-half .is-half {
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
   overflow: hidden;
 }
 .rate .icon {
+  width: inherit;
   color: var(--rate-color);
   line-height: 1;
   pointer-events: none;
-  width: inherit;
 }
 .rate .is-half > i {
   position: absolute;
   left: 0;
 }
 .rate .rate-text {
-  font-size: calc(var(--rate-text-font-size) / 1.25);
   margin-left: var(--rate-text-spaced);
+  font-size: calc(var(--rate-text-font-size) / 1.25);
 }
 .rate .rate-text.is-small {
   --rate-text-font-size: var(--size-small);
@@ -14315,22 +14308,22 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 
 .select select {
-  text-rendering: auto !important;
   padding-right: 2.5em;
+  text-rendering: auto !important;
 }
 .select select option {
-  color: var(--grey-dark);
   padding: var(--control-padding-vertical) var(--control-padding-horizontal);
+  color: var(--grey-dark);
 }
 .select select option:disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
 .select select optgroup {
-  color: var(--grey-lighter);
-  font-weight: var(--weight-normal);
-  font-style: normal;
   padding: 0.25em 0;
+  color: var(--grey-lighter);
+  font-style: normal;
+  font-weight: var(--weight-normal);
 }
 .select select[disabled] {
   opacity: 1;
@@ -14353,10 +14346,10 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 
 .b-sidebar .sidebar-content {
+  z-index: 39;
+  width: var(--sidebar-width);
   background-color: var(--background);
   box-shadow: var(--sidebar-box-shadow);
-  width: var(--sidebar-width);
-  z-index: 39;
 }
 .b-sidebar .sidebar-content.is-white {
   background-color: var(--white);
@@ -14393,29 +14386,27 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .b-sidebar .sidebar-content.is-fixed {
   position: fixed;
-  left: 0;
   top: 0;
+  left: 0;
 }
 .b-sidebar .sidebar-content.is-fixed.is-right {
-  left: auto;
   right: 0;
+  left: auto;
 }
 .b-sidebar .sidebar-content.is-absolute {
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
 }
 .b-sidebar .sidebar-content.is-absolute.is-right {
-  left: auto;
   right: 0;
+  left: auto;
 }
 .b-sidebar .sidebar-content.is-mini {
   width: var(--sidebar-mobile-width);
 }
 .b-sidebar .sidebar-content.is-mini.is-mini-expand:hover:not(.is-mini-delayed) {
-  transition-property: width;
-  transition-duration: calc(var(--speed) * 2);
-  transition-timing-function: var(--easing);
+  transition: width calc(var(--speed) * 2) var(--easing);
 }
 .b-sidebar .sidebar-content.is-mini.is-mini-expand:hover:not(.is-mini-delayed):not(.is-fullwidth) {
   width: var(--sidebar-width);
@@ -14427,22 +14418,20 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   position: static;
 }
 .b-sidebar .sidebar-content.is-absolute, .b-sidebar .sidebar-content.is-static {
-  transition-property: width;
-  transition-duration: calc(var(--speed) * 2);
-  transition-timing-function: var(--easing);
+  transition: width calc(var(--speed) * 2) var(--easing);
 }
 .b-sidebar .sidebar-content.is-fullwidth {
   width: 100%;
   max-width: 100%;
 }
 .b-sidebar .sidebar-content.is-fullheight {
+  display: flex;
+  overflow: hidden;
   height: 100%;
   max-height: 100%;
-  overflow: hidden;
-  overflow-y: auto;
-  display: flex;
   flex-direction: column;
   align-content: stretch;
+  overflow-y: auto;
 }
 @media screen and (max-width: 768px) {
   .b-sidebar .sidebar-content.is-mini-mobile {
@@ -14455,9 +14444,9 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
     position: fixed;
   }
   .b-sidebar .sidebar-content.is-hidden-mobile {
+    overflow: hidden;
     width: 0;
     height: 0;
-    overflow: hidden;
   }
   .b-sidebar .sidebar-content.is-fullwidth-mobile {
     width: 100%;
@@ -14465,9 +14454,9 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   }
 }
 .b-sidebar .sidebar-background {
-  background: var(--sidebar-background);
   position: fixed;
   z-index: 38;
+  background: var(--sidebar-background);
 }
 
 :root {
@@ -14482,15 +14471,15 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 
 .b-skeleton {
   display: inline-flex;
+  width: 100%;
   flex-direction: column;
   vertical-align: middle;
-  width: 100%;
 }
 .b-skeleton > .b-skeleton-item {
-  background: linear-gradient(to right, var(--grey-lightest) 25%, var(--scheme-main-bis) 50%, var(--grey-lightest) 75%);
-  line-height: var(--skeleton-line-height-size);
-  background-size: 400% 100%;
   width: 100%;
+  background: linear-gradient(to right, var(--grey-lightest) 25%, var(--scheme-main-bis) 50%, var(--grey-lightest) 75%);
+  background-size: 400% 100%;
+  line-height: var(--skeleton-line-height-size);
 }
 .b-skeleton > .b-skeleton-item.is-rounded {
   border-radius: var(--skeleton-border-radius);
@@ -14563,43 +14552,43 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 
 .b-slider {
+  width: 100%;
   margin: 1em 0;
   background: transparent;
-  width: 100%;
 }
 .b-slider .b-slider-track {
+  position: relative;
   display: flex;
   align-items: center;
-  position: relative;
-  cursor: pointer;
   background: var(--slider-track-background);
   border-radius: var(--slider-radius);
+  cursor: pointer;
 }
 .b-slider .b-slider-fill {
   position: absolute;
+  top: 50%;
   height: 100%;
-  box-shadow: var(--slider-track-shadow);
+  border: var(--slider-track-border);
   background: var(--slider-track-background);
   border-radius: var(--radius);
-  border: var(--slider-track-border);
-  top: 50%;
+  box-shadow: var(--slider-track-shadow);
   transform: translateY(-50%);
 }
 .b-slider .b-slider-thumb-wrapper {
-  display: inline-flex;
-  align-items: center;
   position: absolute;
+  top: 50%;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
   cursor: -webkit-grab;
   cursor: grab;
   transform: translate(-50%, -50%);
-  top: 50%;
-  flex-direction: column;
 }
 .b-slider .b-slider-thumb-wrapper .b-slider-thumb {
-  box-shadow: var(--slider-thumb-shadow);
   border: var(--slider-thumb-border);
-  border-radius: var(--slider-thumb-radius);
   background: var(--slider-thumb-background);
+  border-radius: var(--slider-thumb-radius);
+  box-shadow: var(--slider-thumb-shadow);
 }
 .b-slider .b-slider-thumb-wrapper .b-slider-thumb:focus {
   transform: scale(1.25);
@@ -14612,10 +14601,10 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   transform: scale(1.25);
 }
 .b-slider .b-slider-thumb-wrapper.has-indicator .b-slider-thumb {
-  padding: 16px 10px;
   display: flex;
-  align-items: center;
   width: auto;
+  align-items: center;
+  padding: 16px 10px;
 }
 .b-slider.slider-focus {
   padding-top: 20px;
@@ -14641,17 +14630,17 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   height: calc(var(--slider-size) / var(--slider-thumb-to-track-ratio));
 }
 .b-slider .b-slider-thumb {
-  height: var(--slider-size);
   width: var(--slider-size);
+  height: var(--slider-size);
 }
 .b-slider .b-slider-tick {
   height: calc(calc(var(--slider-size) / var(--slider-thumb-to-track-ratio)) * var(--slider-tick-to-track-ratio));
 }
 .b-slider .b-slider-tick-label {
-  font-size: var(--slider-mark-size);
   position: absolute;
   top: calc((calc(var(--slider-size) / var(--slider-thumb-to-track-ratio)) * 0.5) + 2px);
   left: 50%;
+  font-size: var(--slider-mark-size);
   transform: translateX(-50%);
 }
 .b-slider.is-small {
@@ -14698,11 +14687,11 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .b-slider .b-slider-tick {
   position: absolute;
-  width: var(--slider-tick-width);
-  transform: translate(-50%, -50%);
   top: 50%;
+  width: var(--slider-tick-width);
   background: var(--slider-tick-background);
   border-radius: var(--slider-tick-radius);
+  transform: translate(-50%, -50%);
 }
 .b-slider .b-slider-tick.is-tick-hidden {
   background: transparent;
@@ -14736,249 +14725,249 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   flex-wrap: wrap;
 }
 .b-steps .steps .step-items .step-item {
-  margin-top: 0;
   position: relative;
-  flex-grow: 1;
   flex-basis: 1em;
+  flex-grow: 1;
+  margin-top: 0;
 }
 .b-steps .steps .step-items .step-item .step-link {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   color: var(--body-color);
 }
 .b-steps .steps .step-items .step-item .step-link:not(.is-clickable) {
   cursor: not-allowed;
 }
 .b-steps .steps .step-items .step-item .step-marker {
-  align-items: center;
-  display: flex;
-  border-radius: var(--radius);
-  font-weight: var(--weight-bold);
-  justify-content: center;
-  background: var(--steps-maker-default-color);
-  color: var(--steps-maker-color);
-  border: var(--steps-marker-default-border);
   z-index: 1;
+  display: flex;
   overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  border: var(--steps-marker-default-border);
+  background: var(--steps-maker-default-color);
+  border-radius: var(--radius);
+  color: var(--steps-maker-color);
+  font-weight: var(--weight-bold);
 }
 .b-steps .steps .step-items .step-item.is-white::before, .b-steps .steps .step-items .step-item.is-white::after {
   background: linear-gradient(to left, var(--steps-default-color) 50%, var(--white) 50%);
-  background-size: 200% 100%;
   background-position: right bottom;
+  background-size: 200% 100%;
 }
 .b-steps .steps .step-items .step-item.is-white.is-active .step-marker {
-  background-color: var(--steps-maker-color);
   border-color: var(--white);
+  background-color: var(--steps-maker-color);
   color: var(--white);
 }
 .b-steps .steps .step-items .step-item.is-white.is-active::before, .b-steps .steps .step-items .step-item.is-white.is-active::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-white.is-previous .step-marker {
-  color: var(--white-invert);
   background-color: var(--white);
+  color: var(--white-invert);
 }
 .b-steps .steps .step-items .step-item.is-white.is-previous::before, .b-steps .steps .step-items .step-item.is-white.is-previous::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-black::before, .b-steps .steps .step-items .step-item.is-black::after {
   background: linear-gradient(to left, var(--steps-default-color) 50%, var(--black) 50%);
-  background-size: 200% 100%;
   background-position: right bottom;
+  background-size: 200% 100%;
 }
 .b-steps .steps .step-items .step-item.is-black.is-active .step-marker {
-  background-color: var(--steps-maker-color);
   border-color: var(--black);
+  background-color: var(--steps-maker-color);
   color: var(--black);
 }
 .b-steps .steps .step-items .step-item.is-black.is-active::before, .b-steps .steps .step-items .step-item.is-black.is-active::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-black.is-previous .step-marker {
-  color: var(--black-invert);
   background-color: var(--black);
+  color: var(--black-invert);
 }
 .b-steps .steps .step-items .step-item.is-black.is-previous::before, .b-steps .steps .step-items .step-item.is-black.is-previous::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-light::before, .b-steps .steps .step-items .step-item.is-light::after {
   background: linear-gradient(to left, var(--steps-default-color) 50%, var(--light) 50%);
-  background-size: 200% 100%;
   background-position: right bottom;
+  background-size: 200% 100%;
 }
 .b-steps .steps .step-items .step-item.is-light.is-active .step-marker {
-  background-color: var(--steps-maker-color);
   border-color: var(--light);
+  background-color: var(--steps-maker-color);
   color: var(--light);
 }
 .b-steps .steps .step-items .step-item.is-light.is-active::before, .b-steps .steps .step-items .step-item.is-light.is-active::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-light.is-previous .step-marker {
-  color: var(--light-invert);
   background-color: var(--light);
+  color: var(--light-invert);
 }
 .b-steps .steps .step-items .step-item.is-light.is-previous::before, .b-steps .steps .step-items .step-item.is-light.is-previous::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-dark::before, .b-steps .steps .step-items .step-item.is-dark::after {
   background: linear-gradient(to left, var(--steps-default-color) 50%, var(--dark) 50%);
-  background-size: 200% 100%;
   background-position: right bottom;
+  background-size: 200% 100%;
 }
 .b-steps .steps .step-items .step-item.is-dark.is-active .step-marker {
-  background-color: var(--steps-maker-color);
   border-color: var(--dark);
+  background-color: var(--steps-maker-color);
   color: var(--dark);
 }
 .b-steps .steps .step-items .step-item.is-dark.is-active::before, .b-steps .steps .step-items .step-item.is-dark.is-active::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-dark.is-previous .step-marker {
-  color: var(--dark-invert);
   background-color: var(--dark);
+  color: var(--dark-invert);
 }
 .b-steps .steps .step-items .step-item.is-dark.is-previous::before, .b-steps .steps .step-items .step-item.is-dark.is-previous::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-primary::before, .b-steps .steps .step-items .step-item.is-primary::after {
   background: linear-gradient(to left, var(--steps-default-color) 50%, var(--primary) 50%);
-  background-size: 200% 100%;
   background-position: right bottom;
+  background-size: 200% 100%;
 }
 .b-steps .steps .step-items .step-item.is-primary.is-active .step-marker {
-  background-color: var(--steps-maker-color);
   border-color: var(--primary);
+  background-color: var(--steps-maker-color);
   color: var(--primary);
 }
 .b-steps .steps .step-items .step-item.is-primary.is-active::before, .b-steps .steps .step-items .step-item.is-primary.is-active::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-primary.is-previous .step-marker {
-  color: var(--primary-invert);
   background-color: var(--primary);
+  color: var(--primary-invert);
 }
 .b-steps .steps .step-items .step-item.is-primary.is-previous::before, .b-steps .steps .step-items .step-item.is-primary.is-previous::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-secondary::before, .b-steps .steps .step-items .step-item.is-secondary::after {
   background: linear-gradient(to left, var(--steps-default-color) 50%, var(--secondary) 50%);
-  background-size: 200% 100%;
   background-position: right bottom;
+  background-size: 200% 100%;
 }
 .b-steps .steps .step-items .step-item.is-secondary.is-active .step-marker {
-  background-color: var(--steps-maker-color);
   border-color: var(--secondary);
+  background-color: var(--steps-maker-color);
   color: var(--secondary);
 }
 .b-steps .steps .step-items .step-item.is-secondary.is-active::before, .b-steps .steps .step-items .step-item.is-secondary.is-active::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-secondary.is-previous .step-marker {
-  color: var(--secondary-invert);
   background-color: var(--secondary);
+  color: var(--secondary-invert);
 }
 .b-steps .steps .step-items .step-item.is-secondary.is-previous::before, .b-steps .steps .step-items .step-item.is-secondary.is-previous::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-link::before, .b-steps .steps .step-items .step-item.is-link::after {
   background: linear-gradient(to left, var(--steps-default-color) 50%, var(--link) 50%);
-  background-size: 200% 100%;
   background-position: right bottom;
+  background-size: 200% 100%;
 }
 .b-steps .steps .step-items .step-item.is-link.is-active .step-marker {
-  background-color: var(--steps-maker-color);
   border-color: var(--link);
+  background-color: var(--steps-maker-color);
   color: var(--link);
 }
 .b-steps .steps .step-items .step-item.is-link.is-active::before, .b-steps .steps .step-items .step-item.is-link.is-active::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-link.is-previous .step-marker {
-  color: var(--link-invert);
   background-color: var(--link);
+  color: var(--link-invert);
 }
 .b-steps .steps .step-items .step-item.is-link.is-previous::before, .b-steps .steps .step-items .step-item.is-link.is-previous::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-info::before, .b-steps .steps .step-items .step-item.is-info::after {
   background: linear-gradient(to left, var(--steps-default-color) 50%, var(--info) 50%);
-  background-size: 200% 100%;
   background-position: right bottom;
+  background-size: 200% 100%;
 }
 .b-steps .steps .step-items .step-item.is-info.is-active .step-marker {
-  background-color: var(--steps-maker-color);
   border-color: var(--info);
+  background-color: var(--steps-maker-color);
   color: var(--info);
 }
 .b-steps .steps .step-items .step-item.is-info.is-active::before, .b-steps .steps .step-items .step-item.is-info.is-active::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-info.is-previous .step-marker {
-  color: var(--info-invert);
   background-color: var(--info);
+  color: var(--info-invert);
 }
 .b-steps .steps .step-items .step-item.is-info.is-previous::before, .b-steps .steps .step-items .step-item.is-info.is-previous::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-success::before, .b-steps .steps .step-items .step-item.is-success::after {
   background: linear-gradient(to left, var(--steps-default-color) 50%, var(--success) 50%);
-  background-size: 200% 100%;
   background-position: right bottom;
+  background-size: 200% 100%;
 }
 .b-steps .steps .step-items .step-item.is-success.is-active .step-marker {
-  background-color: var(--steps-maker-color);
   border-color: var(--success);
+  background-color: var(--steps-maker-color);
   color: var(--success);
 }
 .b-steps .steps .step-items .step-item.is-success.is-active::before, .b-steps .steps .step-items .step-item.is-success.is-active::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-success.is-previous .step-marker {
-  color: var(--success-invert);
   background-color: var(--success);
+  color: var(--success-invert);
 }
 .b-steps .steps .step-items .step-item.is-success.is-previous::before, .b-steps .steps .step-items .step-item.is-success.is-previous::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-warning::before, .b-steps .steps .step-items .step-item.is-warning::after {
   background: linear-gradient(to left, var(--steps-default-color) 50%, var(--warning) 50%);
-  background-size: 200% 100%;
   background-position: right bottom;
+  background-size: 200% 100%;
 }
 .b-steps .steps .step-items .step-item.is-warning.is-active .step-marker {
-  background-color: var(--steps-maker-color);
   border-color: var(--warning);
+  background-color: var(--steps-maker-color);
   color: var(--warning);
 }
 .b-steps .steps .step-items .step-item.is-warning.is-active::before, .b-steps .steps .step-items .step-item.is-warning.is-active::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-warning.is-previous .step-marker {
-  color: var(--warning-invert);
   background-color: var(--warning);
+  color: var(--warning-invert);
 }
 .b-steps .steps .step-items .step-item.is-warning.is-previous::before, .b-steps .steps .step-items .step-item.is-warning.is-previous::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-danger::before, .b-steps .steps .step-items .step-item.is-danger::after {
   background: linear-gradient(to left, var(--steps-default-color) 50%, var(--danger) 50%);
-  background-size: 200% 100%;
   background-position: right bottom;
+  background-size: 200% 100%;
 }
 .b-steps .steps .step-items .step-item.is-danger.is-active .step-marker {
-  background-color: var(--steps-maker-color);
   border-color: var(--danger);
+  background-color: var(--steps-maker-color);
   color: var(--danger);
 }
 .b-steps .steps .step-items .step-item.is-danger.is-active::before, .b-steps .steps .step-items .step-item.is-danger.is-active::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-danger.is-previous .step-marker {
-  color: var(--danger-invert);
   background-color: var(--danger);
+  color: var(--danger-invert);
 }
 .b-steps .steps .step-items .step-item.is-danger.is-previous::before, .b-steps .steps .step-items .step-item.is-danger.is-previous::after {
   background-position: left bottom;
@@ -14987,30 +14976,30 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   color: var(--steps-maker-color);
 }
 .b-steps .steps .step-items .step-item .step-details {
-  text-align: center;
   z-index: 1;
+  text-align: center;
 }
 .b-steps .steps .step-items .step-item:not(:first-child), .b-steps .steps .step-items .step-item:only-child {
   flex-shrink: 1;
 }
 .b-steps .steps .step-items .step-item:not(:first-child)::before, .b-steps .steps .step-items .step-item:only-child::before {
-  content: " ";
-  display: block;
   position: absolute;
-  width: 100%;
   bottom: 0;
   left: -50%;
+  display: block;
+  width: 100%;
+  content: " ";
 }
 .b-steps .steps .step-items .step-item:only-child::after {
-  content: " ";
-  display: block;
   position: absolute;
-  height: var(--steps-divider-height);
   bottom: 0;
+  display: block;
+  height: var(--steps-divider-height);
+  content: " ";
 }
 .b-steps .steps .step-items .step-item:only-child::before, .b-steps .steps .step-items .step-item:only-child::after {
-  width: 25%;
   left: 50%;
+  width: 25%;
 }
 .b-steps .steps .step-items .step-item:only-child::before {
   right: 50%;
@@ -15018,37 +15007,37 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 }
 .b-steps .steps .step-items .step-item::before, .b-steps .steps .step-items .step-item::after {
   background: linear-gradient(to left, var(--steps-default-color) 50%, var(--steps-active-color) 50%);
-  background-size: 200% 100%;
   background-position: right bottom;
+  background-size: 200% 100%;
 }
 .b-steps .steps .step-items .step-item.is-active .step-link {
   cursor: default;
 }
 .b-steps .steps .step-items .step-item.is-active .step-marker {
-  background-color: var(--steps-maker-color);
   border-color: var(--steps-active-color);
+  background-color: var(--steps-maker-color);
   color: var(--steps-active-color);
 }
 .b-steps .steps .step-items .step-item.is-active::before, .b-steps .steps .step-items .step-item.is-active::after {
   background-position: left bottom;
 }
 .b-steps .steps .step-items .step-item.is-previous .step-marker {
-  color: var(--steps-maker-color);
   background-color: var(--steps-previous-color);
+  color: var(--steps-maker-color);
 }
 .b-steps .steps .step-items .step-item.is-previous::before, .b-steps .steps .step-items .step-item.is-previous::after {
   background-position: left bottom;
 }
 .b-steps .steps + .step-content {
   position: relative;
-  overflow: visible;
   display: flex;
+  overflow: visible;
   flex-direction: column;
   padding: 1rem;
 }
 .b-steps .steps + .step-content .step-item {
-  flex-shrink: 0;
   flex-basis: auto;
+  flex-shrink: 0;
 }
 .b-steps .steps + .step-content .step-item:focus {
   outline: var(--steps-items-focused-outline);
@@ -15060,32 +15049,30 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   border-radius: var(--radius-rounded);
 }
 .b-steps .steps.is-animated .step-item:not(:first-child)::before, .b-steps .steps.is-animated .step-item:only-child::before {
-  transition-property: background;
-  transition-duration: calc(var(--speed) * 2);
-  transition-timing-function: var(--easing);
+  transition: background calc(var(--speed) * 2) var(--easing);
 }
 .b-steps .steps.has-label-right .step-items .step-item .step-link, .b-steps .steps.has-label-left .step-items .step-item .step-link {
   flex-direction: row;
 }
 .b-steps .steps.has-label-right .step-items .step-item .step-link > .step-details, .b-steps .steps.has-label-left .step-items .step-item .step-link > .step-details {
-  background-color: var(--steps-details-background-color);
   padding: 0.2em;
+  background-color: var(--steps-details-background-color);
 }
 .b-steps .steps.has-label-left .step-items .step-item .step-link {
   flex-direction: row-reverse;
 }
 .b-steps .steps {
+  min-height: calc(var(--steps-size) * 2);
   background-color: var(--steps-background-color);
   font-size: var(--steps-size);
-  min-height: calc(var(--steps-size) * 2);
 }
 .b-steps .steps .step-items {
   height: var(--steps-height);
   align-items: center;
 }
 .b-steps .steps .step-items .step-item .step-marker {
-  height: calc(var(--steps-size) * 2);
   width: calc(var(--steps-size) * 2);
+  height: calc(var(--steps-size) * 2);
 }
 .b-steps .steps .step-items .step-item .step-marker .icon *, .b-steps .steps .step-items .step-item .step-marker .icon *::before {
   font-size: var(--steps-size);
@@ -15099,8 +15086,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   line-height: var(--steps-size);
 }
 .b-steps .steps .step-items .step-item:not(:first-child)::before, .b-steps .steps .step-items .step-item:only-child::before {
-  height: var(--steps-divider-height);
   top: var(--steps-size);
+  height: var(--steps-divider-height);
 }
 .b-steps .steps .step-items .step-item:only-child::after {
   top: var(--steps-size);
@@ -15117,15 +15104,15 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   left: var(--steps-divider-indent-height);
 }
 .b-steps.is-vertical > .steps.has-label-left .step-items .step-item:not(:first-child)::before, .b-steps.is-vertical > .steps.has-label-left .step-items .step-item:not(:first-child)::after, .b-steps.is-vertical > .steps.has-label-left .step-items .step-item:only-child::before, .b-steps.is-vertical > .steps.has-label-left .step-items .step-item:only-child::after {
-  left: auto;
   right: var(--steps-divider-indent-height);
+  left: auto;
 }
 .b-steps.is-vertical.is-right > .steps.has-label-right .step-items .step-item:not(:first-child)::before, .b-steps.is-vertical.is-right > .steps.has-label-right .step-items .step-item:not(:first-child)::after, .b-steps.is-vertical.is-right > .steps.has-label-right .step-items .step-item:only-child::before, .b-steps.is-vertical.is-right > .steps.has-label-right .step-items .step-item:only-child::after {
   left: var(--steps-divider-indent-height);
 }
 .b-steps.is-vertical.is-right > .steps.has-label-left .step-items .step-item:not(:first-child)::before, .b-steps.is-vertical.is-right > .steps.has-label-left .step-items .step-item:not(:first-child)::after, .b-steps.is-vertical.is-right > .steps.has-label-left .step-items .step-item:only-child::before, .b-steps.is-vertical.is-right > .steps.has-label-left .step-items .step-item:only-child::after {
-  left: auto;
   right: var(--steps-divider-indent-height);
+  left: auto;
 }
 .b-steps.is-small {
   --steps-size: var(--size-small);
@@ -15147,77 +15134,77 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   border-bottom-color: transparent;
 }
 .b-steps.is-vertical > .steps .step-items .step-item {
-  width: 100%;
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: center;
   padding: var(--steps-vertical-padding);
 }
 .b-steps.is-vertical > .steps .step-items .step-item::before, .b-steps.is-vertical > .steps .step-items .step-item::after {
   background: linear-gradient(to top, var(--steps-default-color) 50%, var(--steps-active-color) 50%);
-  background-size: 100% 200%;
   background-position: left bottom;
+  background-size: 100% 200%;
 }
 .b-steps.is-vertical > .steps .step-items .step-item.is-white::before, .b-steps.is-vertical > .steps .step-items .step-item.is-white::after {
   background: linear-gradient(to top, var(--steps-default-color) 50%, var(--white) 50%);
-  background-size: 100% 200%;
   background-position: left bottom;
+  background-size: 100% 200%;
 }
 .b-steps.is-vertical > .steps .step-items .step-item.is-black::before, .b-steps.is-vertical > .steps .step-items .step-item.is-black::after {
   background: linear-gradient(to top, var(--steps-default-color) 50%, var(--black) 50%);
-  background-size: 100% 200%;
   background-position: left bottom;
+  background-size: 100% 200%;
 }
 .b-steps.is-vertical > .steps .step-items .step-item.is-light::before, .b-steps.is-vertical > .steps .step-items .step-item.is-light::after {
   background: linear-gradient(to top, var(--steps-default-color) 50%, var(--light) 50%);
-  background-size: 100% 200%;
   background-position: left bottom;
+  background-size: 100% 200%;
 }
 .b-steps.is-vertical > .steps .step-items .step-item.is-dark::before, .b-steps.is-vertical > .steps .step-items .step-item.is-dark::after {
   background: linear-gradient(to top, var(--steps-default-color) 50%, var(--dark) 50%);
-  background-size: 100% 200%;
   background-position: left bottom;
+  background-size: 100% 200%;
 }
 .b-steps.is-vertical > .steps .step-items .step-item.is-primary::before, .b-steps.is-vertical > .steps .step-items .step-item.is-primary::after {
   background: linear-gradient(to top, var(--steps-default-color) 50%, var(--primary) 50%);
-  background-size: 100% 200%;
   background-position: left bottom;
+  background-size: 100% 200%;
 }
 .b-steps.is-vertical > .steps .step-items .step-item.is-secondary::before, .b-steps.is-vertical > .steps .step-items .step-item.is-secondary::after {
   background: linear-gradient(to top, var(--steps-default-color) 50%, var(--secondary) 50%);
-  background-size: 100% 200%;
   background-position: left bottom;
+  background-size: 100% 200%;
 }
 .b-steps.is-vertical > .steps .step-items .step-item.is-link::before, .b-steps.is-vertical > .steps .step-items .step-item.is-link::after {
   background: linear-gradient(to top, var(--steps-default-color) 50%, var(--link) 50%);
-  background-size: 100% 200%;
   background-position: left bottom;
+  background-size: 100% 200%;
 }
 .b-steps.is-vertical > .steps .step-items .step-item.is-info::before, .b-steps.is-vertical > .steps .step-items .step-item.is-info::after {
   background: linear-gradient(to top, var(--steps-default-color) 50%, var(--info) 50%);
-  background-size: 100% 200%;
   background-position: left bottom;
+  background-size: 100% 200%;
 }
 .b-steps.is-vertical > .steps .step-items .step-item.is-success::before, .b-steps.is-vertical > .steps .step-items .step-item.is-success::after {
   background: linear-gradient(to top, var(--steps-default-color) 50%, var(--success) 50%);
-  background-size: 100% 200%;
   background-position: left bottom;
+  background-size: 100% 200%;
 }
 .b-steps.is-vertical > .steps .step-items .step-item.is-warning::before, .b-steps.is-vertical > .steps .step-items .step-item.is-warning::after {
   background: linear-gradient(to top, var(--steps-default-color) 50%, var(--warning) 50%);
-  background-size: 100% 200%;
   background-position: left bottom;
+  background-size: 100% 200%;
 }
 .b-steps.is-vertical > .steps .step-items .step-item.is-danger::before, .b-steps.is-vertical > .steps .step-items .step-item.is-danger::after {
   background: linear-gradient(to top, var(--steps-default-color) 50%, var(--danger) 50%);
-  background-size: 100% 200%;
   background-position: left bottom;
+  background-size: 100% 200%;
 }
 .b-steps.is-vertical > .steps .step-items .step-item:not(:first-child)::before, .b-steps.is-vertical > .steps .step-items .step-item:only-child::before {
-  height: 100%;
-  width: var(--steps-divider-height);
   top: -50%;
   left: calc(50% - var(--steps-divider-height) * 0.5);
+  width: var(--steps-divider-height);
+  height: 100%;
 }
 .b-steps.is-vertical > .steps .step-items .step-item.is-active::before, .b-steps.is-vertical > .steps .step-items .step-item.is-active::after, .b-steps.is-vertical > .steps .step-items .step-item.is-previous::before, .b-steps.is-vertical > .steps .step-items .step-item.is-previous::after {
   background-position: right top;
@@ -15226,9 +15213,9 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   top: 50%;
 }
 .b-steps.is-vertical > .steps .step-items .step-item:only-child::after {
-  width: var(--steps-divider-height);
   top: auto;
   bottom: 50%;
+  width: var(--steps-divider-height);
 }
 .b-steps.is-vertical > .steps .step-items .step-item:only-child::before, .b-steps.is-vertical > .steps .step-items .step-item:only-child::after {
   height: 25%;
@@ -15256,13 +15243,13 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
     display: none;
   }
   .b-steps:not(.is-vertical) .steps.mobile-minimalist .step-items .step-item::before, .b-steps:not(.is-vertical) .steps.mobile-minimalist .step-items .step-item::after, .b-steps:not(.is-vertical) .steps.mobile-minimalist .step-items .step-item:not(:first-child)::before {
-    content: " ";
-    display: block;
     position: absolute;
-    height: var(--steps-divider-height);
-    width: 25%;
     bottom: 0;
     left: 50%;
+    display: block;
+    width: 25%;
+    height: var(--steps-divider-height);
+    content: " ";
   }
   .b-steps:not(.is-vertical) .steps.mobile-minimalist .step-items .step-item::before, .b-steps:not(.is-vertical) .steps.mobile-minimalist .step-items .step-item:not(:first-child)::before {
     right: 50%;
@@ -15305,9 +15292,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   padding: var(--switch-padding);
   background: var(--grey-light);
   border-radius: var(--radius);
-  transition-duration: calc(var(--speed) * 2), calc(var(--speed) * 2);
-  transition-property: background, box-shadow;
-  transition-timing-function: var(--easing), var(--easing);
+  transition: background calc(var(--speed) * 2) var(--easing), box-shadow calc(var(--speed) * 2) var(--easing);
 }
 .switch input[type=checkbox] + .check.is-white-passive, .switch input[type=checkbox] + .check:hover {
   background: var(--white);
@@ -15384,14 +15369,12 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   box-shadow: 0 3px 1px 0 rgba(var(--scheme-invert-rgb), 0.05), 0 2px 2px 0 rgba(var(--scheme-invert-rgb), 0.1), 0 3px 3px 0 rgba(var(--scheme-invert-rgb), 0.05);
   content: "";
   transform-origin: left;
-  transition-duration: calc(var(--speed) * 2);
-  transition-property: transform;
-  transition-timing-function: var(--easing);
+  transition: transform calc(var(--speed) * 2) var(--easing);
   will-change: transform;
 }
 .switch input[type=checkbox] + .check.is-elastic::before {
-  transform: scaleX(1.5);
   border-radius: var(--radius);
+  transform: scaleX(1.5);
 }
 .switch input[type=checkbox]:checked + .check {
   background: var(--switch-active-background-color);
@@ -15598,8 +15581,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   border-radius: var(--radius-rounded);
 }
 .switch.is-rounded input[type=checkbox].is-elastic::before {
-  transform: scaleX(1.5);
   border-radius: var(--radius-rounded);
+  transform: scaleX(1.5);
 }
 .switch.is-outlined input[type=checkbox] + .check {
   border: 0.1rem solid var(--grey-light);
@@ -15795,8 +15778,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   background: transparent;
 }
 .switch.is-outlined:hover input[type=checkbox]:checked + .check {
-  background: transparent;
   border-color: var(--switch-active-background-color);
+  background: transparent;
 }
 .switch.is-outlined:hover input[type=checkbox]:checked + .check.is-white {
   --white-a: 0.9;
@@ -15852,9 +15835,9 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   font-size: var(--size-large);
 }
 .switch[disabled] {
-  opacity: 0.5;
-  cursor: not-allowed;
   color: var(--grey);
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 :root {
@@ -15874,9 +15857,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 }
 
 .b-table {
-  transition-property: transform, opacity;
-  transition-duration: calc(var(--speed) * 2), var(--speed);
-  transition-timing-function: var(--easing), var(--easing);
+  transition: opacity var(--speed) var(--easing);
 }
 @media screen and (min-width: 769px), print {
   .b-table .table-mobile-sort {
@@ -15884,9 +15865,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   }
 }
 .b-table .icon {
-  transition-property: transform, opacity;
-  transition-duration: calc(var(--speed) * 2), var(--speed);
-  transition-timing-function: var(--easing), var(--easing);
+  transition: transform calc(var(--speed) * 2) var(--easing), opacity var(--speed) var(--easing);
 }
 .b-table .icon.is-desc {
   transform: rotate(180deg);
@@ -15900,8 +15879,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-table .table {
   width: 100%;
   border: 1px solid transparent;
-  border-radius: var(--radius);
   border-collapse: separate;
+  border-radius: var(--radius);
 }
 .b-table .table th {
   font-weight: var(--weight-semibold);
@@ -15911,8 +15890,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   align-items: center;
 }
 .b-table .table th .th-wrap .icon {
-  margin-left: 0.5rem;
   margin-right: 0;
+  margin-left: 0.5rem;
   font-size: 1rem;
 }
 .b-table .table th .th-wrap.is-numeric {
@@ -15920,8 +15899,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   text-align: right;
 }
 .b-table .table th .th-wrap.is-numeric .icon {
-  margin-left: 0;
   margin-right: 0.5rem;
+  margin-left: 0;
 }
 .b-table .table th .th-wrap.is-centered {
   justify-content: center;
@@ -15952,13 +15931,13 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-table .table th.is-sticky {
   position: -webkit-sticky;
   position: sticky;
-  left: 0;
   z-index: 3 !important;
+  left: 0;
   background: var(--table-head-background-color);
 }
 .b-table .table tr.is-selected .checkbox input:checked + .check {
-  color: var(--primary);
   background: var(--table-row-active-color);
+  color: var(--primary);
 }
 .b-table .table tr.is-selected .checkbox input:checked + .check::after {
   position: absolute;
@@ -15987,8 +15966,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   transition: none;
 }
 .b-table .table tr.detail {
-  box-shadow: inset 0 1px 3px var(--grey-lighter);
   background: var(--scheme-main-bis);
+  box-shadow: inset 0 1px 3px var(--grey-lighter);
 }
 .b-table .table tr.detail .detail-container {
   padding: 1rem;
@@ -16006,8 +15985,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-table .table td.is-sticky {
   position: -webkit-sticky;
   position: sticky;
-  left: 0;
   z-index: 1;
+  left: 0;
   background: var(--table-background-color);
 }
 .b-table .table.is-striped tbody tr:not(.is-selected):nth-child(even) td.is-sticky {
@@ -16032,8 +16011,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-table .table-wrapper.has-sticky-header tr:first-child th {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
   z-index: 2;
+  top: 0;
   background: var(--table-background-color);
 }
 @media screen and (max-width: 768px) {
@@ -16041,8 +16020,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
     background-color: transparent;
   }
   .b-table .table-wrapper.has-mobile-cards thead tr {
-    box-shadow: none;
     border-width: 0;
+    box-shadow: none;
   }
   .b-table .table-wrapper.has-mobile-cards thead tr th {
     display: none;
@@ -16050,23 +16029,23 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   .b-table .table-wrapper.has-mobile-cards thead tr .checkbox-cell {
     display: block;
     width: 100%;
-    text-align: right;
-    margin-bottom: 1rem;
     border: 0;
+    margin-bottom: 1rem;
+    text-align: right;
   }
   .b-table .table-wrapper.has-mobile-cards tfoot th {
-    border: 0;
     display: inherit;
+    border: 0;
   }
   .b-table .table-wrapper.has-mobile-cards tr {
-    box-shadow: 0 2px 3px rgba(var(--scheme-invert-rgb), 0.1), 0 0 0 1px rgba(var(--scheme-invert-rgb), 0.1);
-    max-width: 100%;
     position: relative;
     display: block;
+    max-width: 100%;
+    box-shadow: 0 2px 3px rgba(var(--scheme-invert-rgb), 0.1), 0 0 0 1px rgba(var(--scheme-invert-rgb), 0.1);
   }
   .b-table .table-wrapper.has-mobile-cards tr td {
-    border: 0;
     display: inherit;
+    border: 0;
   }
   .b-table .table-wrapper.has-mobile-cards tr td:last-child {
     border-bottom: 0;
@@ -16087,13 +16066,13 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
     display: flex;
     width: auto;
     justify-content: space-between;
-    text-align: right;
     border-bottom: 1px solid var(--background);
+    text-align: right;
   }
   .b-table .table-wrapper.has-mobile-cards tr:not(.detail):not(.is-empty):not(.table-footer) td::before {
+    padding-right: 0.5em;
     content: attr(data-label);
     font-weight: var(--weight-semibold);
-    padding-right: 0.5em;
     text-align: left;
   }
 }
@@ -16101,8 +16080,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   background-color: transparent;
 }
 .b-table .table-wrapper.is-card-list thead tr {
-  box-shadow: none;
   border-width: 0;
+  box-shadow: none;
 }
 .b-table .table-wrapper.is-card-list thead tr th {
   display: none;
@@ -16110,23 +16089,23 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-table .table-wrapper.is-card-list thead tr .checkbox-cell {
   display: block;
   width: 100%;
-  text-align: right;
-  margin-bottom: 1rem;
   border: 0;
+  margin-bottom: 1rem;
+  text-align: right;
 }
 .b-table .table-wrapper.is-card-list tfoot th {
-  border: 0;
   display: inherit;
+  border: 0;
 }
 .b-table .table-wrapper.is-card-list tr {
-  box-shadow: 0 2px 3px rgba(var(--scheme-invert-rgb), 0.1), 0 0 0 1px rgba(var(--scheme-invert-rgb), 0.1);
-  max-width: 100%;
   position: relative;
   display: block;
+  max-width: 100%;
+  box-shadow: 0 2px 3px rgba(var(--scheme-invert-rgb), 0.1), 0 0 0 1px rgba(var(--scheme-invert-rgb), 0.1);
 }
 .b-table .table-wrapper.is-card-list tr td {
-  border: 0;
   display: inherit;
+  border: 0;
 }
 .b-table .table-wrapper.is-card-list tr td:last-child {
   border-bottom: 0;
@@ -16147,13 +16126,13 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   display: flex;
   width: auto;
   justify-content: space-between;
-  text-align: right;
   border-bottom: 1px solid var(--background);
+  text-align: right;
 }
 .b-table .table-wrapper.is-card-list tr:not(.detail):not(.is-empty):not(.table-footer) td::before {
+  padding-right: 0.5em;
   content: attr(data-label);
   font-weight: var(--weight-semibold);
-  padding-right: 0.5em;
   text-align: left;
 }
 
@@ -16173,47 +16152,47 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 }
 
 .b-tabs .tabs {
-  margin-bottom: 0;
   flex-shrink: 0;
+  margin-bottom: 0;
 }
 .b-tabs .tabs li a:focus {
-  outline: var(--tabs-focused-outline);
   border-bottom-color: var(--tabs-link-focus-active-border-bottom-color);
+  outline: var(--tabs-focused-outline);
 }
 .b-tabs .tabs li:not(.is-active) a:focus {
   border-bottom-color: var(--tabs-link-focus-border-bottom-color);
 }
 .b-tabs .tabs li.is-disabled {
-  pointer-events: none;
   cursor: not-allowed;
   opacity: 0.5;
+  pointer-events: none;
 }
 .b-tabs .tabs.is-boxed li a:focus {
-  background-color: var(--tabs-boxed-link-focus-active-background-color);
   border-bottom-color: var(--tabs-boxed-link-focus-active-border-bottom-color);
+  background-color: var(--tabs-boxed-link-focus-active-background-color);
 }
 .b-tabs .tabs.is-boxed li:not(.is-active) a:focus {
-  background-color: var(--tabs-boxed-link-focus-background-color);
   border-bottom-color: var(--tabs-boxed-link-focus-border-bottom-color);
+  background-color: var(--tabs-boxed-link-focus-background-color);
 }
 .b-tabs .tabs.is-toggle li a:focus {
-  background-color: var(--tabs-toggle-link-focus-active-background-color);
   border-color: var(--tabs-toggle-link-focus-active-border-color);
+  background-color: var(--tabs-toggle-link-focus-active-background-color);
 }
 .b-tabs .tabs.is-toggle li:not(.is-active) a:focus {
-  background-color: var(--tabs-toggle-link-focus-background-color);
   border-color: var(--tabs-toggle-link-focus-border-color);
+  background-color: var(--tabs-toggle-link-focus-background-color);
 }
 .b-tabs .tab-content {
   position: relative;
-  overflow: visible;
   display: flex;
+  overflow: visible;
   flex-direction: column;
   padding: 1rem;
 }
 .b-tabs .tab-content .tab-item {
-  flex-shrink: 0;
   flex-basis: auto;
+  flex-shrink: 0;
 }
 .b-tabs .tab-content .tab-item:focus {
   outline: var(--tabs-items-focused-outline);
@@ -16243,13 +16222,13 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   justify-content: left;
 }
 .b-tabs.is-vertical > .tabs.is-boxed li a {
-  border-bottom-color: transparent !important;
   border-right-color: var(--tabs-border-bottom-color) !important;
+  border-bottom-color: transparent !important;
   border-radius: var(--tabs-boxed-link-radius) 0 0 var(--tabs-boxed-link-radius);
 }
 .b-tabs.is-vertical > .tabs.is-boxed li.is-active a {
-  border-bottom-color: var(--tabs-border-bottom-color) !important;
   border-right-color: transparent !important;
+  border-bottom-color: var(--tabs-border-bottom-color) !important;
 }
 .b-tabs.is-vertical > .tabs.is-toggle li + li {
   margin-left: 0;
@@ -16277,26 +16256,26 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   margin-left: 0.5em;
 }
 .b-tabs.is-vertical.is-right > .tabs.is-boxed li a {
-  border-bottom-color: transparent !important;
   border-right-color: transparent !important;
+  border-bottom-color: transparent !important;
   border-left-color: var(--tabs-border-bottom-color) !important;
   border-radius: 0 var(--tabs-boxed-link-radius) var(--tabs-boxed-link-radius) 0;
 }
 .b-tabs.is-vertical.is-right > .tabs.is-boxed li.is-active a {
-  border-bottom-color: var(--tabs-border-bottom-color) !important;
   border-right-color: var(--tabs-border-bottom-color) !important;
+  border-bottom-color: var(--tabs-border-bottom-color) !important;
   border-left-color: transparent !important;
 }
 .b-tabs.is-multiline > .tabs ul {
-  flex-wrap: wrap;
   flex-shrink: 1;
+  flex-wrap: wrap;
 }
 
 .tag .has-ellipsis {
-  max-width: 10em;
   overflow: hidden;
-  white-space: nowrap;
+  max-width: 10em;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .tag .delete.is-white, .tag.is-delete.is-white, .tag.has-delete-icon.is-white {
   background: var(--white);
@@ -16380,21 +16359,21 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   display: flex;
 }
 .taginput .taginput-container.is-focusable {
-  padding-bottom: 0;
-  padding-top: calc(0.275em - 1px);
-  padding-left: 0;
-  padding-right: 0;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: flex-start;
   height: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: calc(0.275em - 1px);
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
   cursor: text;
 }
 .taginput .taginput-container:not(.is-focusable) {
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: flex-start;
   height: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
 }
 .taginput .taginput-container:not(.is-focusable).is-small {
   font-size: var(--size-small);
@@ -16407,16 +16386,16 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 }
 .taginput .taginput-container > .tag,
 .taginput .taginput-container > .tags {
-  margin-left: 0.275rem;
-  margin-bottom: calc(0.275em - 1px);
-  font-size: 0.9em;
   height: var(--taginput-height);
+  margin-bottom: calc(0.275em - 1px);
+  margin-left: 0.275rem;
+  font-size: 0.9em;
 }
 .taginput .taginput-container > .tag .tag,
 .taginput .taginput-container > .tags .tag {
+  height: var(--taginput-height);
   margin-bottom: 0;
   font-size: 0.9em;
-  height: var(--taginput-height);
 }
 .taginput .taginput-container > .tag .tag.is-delete,
 .taginput .taginput-container > .tags .tag.is-delete {
@@ -16427,13 +16406,13 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   flex: 1;
 }
 .taginput .taginput-container .autocomplete input {
+  min-width: 8em;
   height: var(--taginput-height);
-  margin-bottom: calc(0.275em - 1px);
   padding-top: 0;
   padding-bottom: 0;
   border: none;
+  margin-bottom: calc(0.275em - 1px);
   box-shadow: none;
-  min-width: 8em;
 }
 .taginput .taginput-container .autocomplete input:focus {
   box-shadow: none !important;
@@ -16454,8 +16433,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 }
 .timepicker .dropdown .input[readonly],
 .timepicker .dropdown-trigger .input[readonly] {
-  cursor: pointer;
   box-shadow: var(--input-shadow);
+  cursor: pointer;
 }
 .timepicker .dropdown .input[readonly]:focus, .timepicker .dropdown .input[readonly].is-focused, .timepicker .dropdown .input[readonly]:active, .timepicker .dropdown .input[readonly].is-active,
 .timepicker .dropdown-trigger .input[readonly]:focus,
@@ -16468,23 +16447,23 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   opacity: 1;
 }
 .timepicker .dropdown-item {
-  font-size: inherit;
   padding: 0;
+  font-size: inherit;
 }
 .timepicker .timepicker-footer {
   padding: 0 0.5rem;
 }
 .timepicker .dropdown-content .control {
-  font-size: 1.25em;
   margin-right: 0 !important;
+  font-size: 1.25em;
 }
 .timepicker .dropdown-content .control .select {
   margin: 0 0.125em;
 }
 .timepicker .dropdown-content .control .select select {
-  font-weight: var(--weight-semibold);
   padding-right: var(--control-padding-horizontal);
   border: 0;
+  font-weight: var(--weight-semibold);
 }
 .timepicker .dropdown-content .control .select select option:disabled {
   color: var(--grey-light);
@@ -16531,10 +16510,10 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   right: auto;
   bottom: auto;
   left: 50%;
-  transform: translateX(-50%);
   border-top: var(--tooltip-arrow-size) solid var(--primary);
   border-right: var(--tooltip-arrow-size) solid transparent;
   border-left: var(--tooltip-arrow-size) solid transparent;
+  transform: translateX(-50%);
 }
 .b-tooltip.is-top.is-white .tooltip-content::before {
   border-top-color: var(--white);
@@ -16603,10 +16582,10 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   right: 100%;
   bottom: auto;
   left: auto;
-  transform: translateY(-50%);
   border-top: var(--tooltip-arrow-size) solid transparent;
   border-right: var(--tooltip-arrow-size) solid var(--primary);
   border-bottom: var(--tooltip-arrow-size) solid transparent;
+  transform: translateY(-50%);
 }
 .b-tooltip.is-right.is-white .tooltip-content::before {
   border-right-color: var(--white);
@@ -16675,10 +16654,10 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   right: auto;
   bottom: 100%;
   left: 50%;
-  transform: translateX(-50%);
   border-right: var(--tooltip-arrow-size) solid transparent;
   border-bottom: var(--tooltip-arrow-size) solid var(--primary);
   border-left: var(--tooltip-arrow-size) solid transparent;
+  transform: translateX(-50%);
 }
 .b-tooltip.is-bottom.is-white .tooltip-content::before {
   border-bottom-color: var(--white);
@@ -16747,10 +16726,10 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   right: auto;
   bottom: auto;
   left: 100%;
-  transform: translateY(-50%);
   border-top: var(--tooltip-arrow-size) solid transparent;
   border-bottom: var(--tooltip-arrow-size) solid transparent;
   border-left: var(--tooltip-arrow-size) solid var(--primary);
+  transform: translateY(-50%);
 }
 .b-tooltip.is-left.is-white .tooltip-content::before {
   border-left-color: var(--white);
@@ -16807,21 +16786,21 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   border-left-color: var(--danger-light);
 }
 .b-tooltip .tooltip-content {
+  position: absolute;
+  z-index: 38;
   width: auto;
   padding: 0.35rem 0.75rem;
   border-radius: var(--radius-large);
+  box-shadow: 0 1px 2px 1px rgba(var(--scheme-invert-rgb), 0.2);
   font-size: 0.85rem;
   font-weight: var(--weight-normal);
-  box-shadow: 0 1px 2px 1px rgba(var(--scheme-invert-rgb), 0.2);
-  z-index: 38;
   white-space: nowrap;
-  position: absolute;
 }
 .b-tooltip .tooltip-content::before {
   position: absolute;
+  z-index: 38;
   content: "";
   pointer-events: none;
-  z-index: 38;
 }
 .b-tooltip .tooltip-trigger {
   width: 100%;
@@ -16931,29 +16910,29 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 }
 .upload input[type=file] {
   position: absolute;
+  z-index: -1;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  cursor: pointer;
   opacity: 0;
   outline: none;
-  cursor: pointer;
-  z-index: -1;
 }
 .upload .upload-draggable {
-  cursor: pointer;
   padding: 0.25em;
   border: 1px dashed var(--grey-light);
   border-radius: var(--radius-large);
+  cursor: pointer;
 }
 .upload .upload-draggable.is-disabled {
-  opacity: 0.5;
   cursor: not-allowed;
+  opacity: 0.5;
 }
 .upload .upload-draggable.is-loading {
   position: relative;
-  pointer-events: none;
   opacity: 0.5;
+  pointer-events: none;
 }
 .upload .upload-draggable.is-loading::after {
   top: 0;
@@ -17016,8 +16995,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   border-radius: var(--radius-rounded);
 }
 .upload.is-rounded .file-name {
-  border-top-right-radius: var(--radius-rounded);
   border-bottom-right-radius: var(--radius-rounded);
+  border-top-right-radius: var(--radius-rounded);
 }
 
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
@@ -17177,9 +17156,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
  */
 .fade-enter-active,
 .fade-leave-active {
-  transition-property: opacity;
-  transition-duration: calc(var(--speed) * 2);
-  transition-timing-function: var(--easing);
+  transition: opacity calc(var(--speed) * 2) var(--easing);
 }
 
 .fade-enter,
@@ -17189,17 +17166,13 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 
 .zoom-in-enter-active,
 .zoom-in-leave-active {
-  transition-property: opacity;
-  transition-duration: calc(var(--speed) * 2);
-  transition-timing-function: var(--easing);
+  transition: opacity calc(var(--speed) * 2) var(--easing);
 }
 .zoom-in-enter-active .animation-content,
 .zoom-in-enter-active .animation-content,
 .zoom-in-leave-active .animation-content,
 .zoom-in-leave-active .animation-content {
-  transition-property: transform;
-  transition-duration: calc(var(--speed) * 2);
-  transition-timing-function: var(--easing);
+  transition: transform calc(var(--speed) * 2) var(--easing);
 }
 
 .zoom-in-enter,
@@ -17215,17 +17188,13 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 
 .zoom-out-enter-active,
 .zoom-out-leave-active {
-  transition-property: opacity;
-  transition-duration: calc(var(--speed) * 2);
-  transition-timing-function: var(--easing);
+  transition: opacity calc(var(--speed) * 2) var(--easing);
 }
 .zoom-out-enter-active .animation-content,
 .zoom-out-enter-active .animation-content,
 .zoom-out-leave-active .animation-content,
 .zoom-out-leave-active .animation-content {
-  transition-property: transform;
-  transition-duration: calc(var(--speed) * 2);
-  transition-timing-function: var(--easing);
+  transition: transform calc(var(--speed) * 2) var(--easing);
 }
 
 .zoom-out-enter,
@@ -17243,42 +17212,38 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .slide-next-leave-active,
 .slide-prev-enter-active,
 .slide-prev-leave-active {
-  transition-property: transform;
-  transition-duration: calc(var(--speed) * 3);
-  transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: transform calc(var(--speed) * 3) cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
 .slide-prev-leave-to, .slide-next-enter {
-  transform: translate3d(-100%, 0, 0);
   position: absolute;
   width: 100%;
+  transform: translate3d(-100%, 0, 0);
 }
 
 .slide-prev-enter, .slide-next-leave-to {
-  transform: translate3d(100%, 0, 0);
   position: absolute;
   width: 100%;
+  transform: translate3d(100%, 0, 0);
 }
 
 .slide-down-enter-active,
 .slide-down-leave-active,
 .slide-up-enter-active,
 .slide-up-leave-active {
-  transition-property: transform;
-  transition-duration: calc(var(--speed) * 3);
-  transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: transform calc(var(--speed) * 3) cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
 .slide-up-leave-to, .slide-down-enter {
-  transform: translate3d(0, -100%, 0);
   position: absolute;
   height: 100%;
+  transform: translate3d(0, -100%, 0);
 }
 
 .slide-up-enter, .slide-down-leave-to {
-  transform: translate3d(0, 100%, 0);
   position: absolute;
   height: 100%;
+  transform: translate3d(0, 100%, 0);
 }
 
 .slide-enter-active {
@@ -17291,8 +17256,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 }
 
 .slide-enter-to, .slide-leave {
-  max-height: 100px;
   overflow: hidden;
+  max-height: 100px;
 }
 
 .slide-enter, .slide-leave-to {
@@ -17302,9 +17267,9 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 
 .is-noscroll {
   position: fixed;
-  overflow-y: hidden;
-  width: 100%;
   bottom: 0;
+  width: 100%;
+  overflow-y: hidden;
 }
 
 /* Buefy Helpers */
