@@ -65,12 +65,12 @@ $-css-vars-map: ("help-font-size": $help-font-size)
         .button,
         .input,
         .select select
-          +utilities.ltr-border-x("radius", 0)
+          +utilities.lph-border-radius(right, 0)
       &:last-child:not(:only-child)
         .button,
         .input,
         .select select
-          +utilities.ltr-border-x("radius", 0, false)
+          +utilities.lph-border-radius(left, 0)
       .button,
       .input,
       .select select

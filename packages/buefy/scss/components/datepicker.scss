@@ -133,7 +133,7 @@ $-css-vars-map: (
                         &.is-first-hovered {
                             background-color: var(--grey);
                             color: var(--grey-lighter);
-                            @include bulma-utilities.ltr-border-x("radius", 0);
+                            @include bulma-utilities.lph-border-radius(right, 0);
                         }
                         &.is-within-hovered {
                             background-color: var(--datepicker-item-hover-background-color);
@@ -143,7 +143,7 @@ $-css-vars-map: (
                         &.is-last-hovered {
                             background-color: var(--grey);
                             color: var(--grey-lighter);
-                            @include bulma-utilities.ltr-border-x("radius", 0, false);
+                            @include bulma-utilities.lph-border-radius(left, 0);
                         }
                     }
                 }
@@ -153,7 +153,7 @@ $-css-vars-map: (
                     &.is-first-selected {
                         background-color: var(--datepicker-item-selected-background-color);
                         color: var(--datepicker-item-selected-color);
-                        @include bulma-utilities.ltr-border-x("radius", 0);
+                        @include bulma-utilities.lph-border-radius(right, 0);
                     }
                     &.is-within-selected {
                         --datepicker-item-selected-background-color: #{bulma-utilities.bulmaVarOpacity(primary, 0.5)};
@@ -163,7 +163,7 @@ $-css-vars-map: (
                     &.is-last-selected {
                         background-color: var(--datepicker-item-selected-background-color);
                         color: var(--datepicker-item-selected-color);
-                        @include bulma-utilities.ltr-border-x("radius", 0, false);
+                        @include bulma-utilities.lph-border-radius(left, 0);
                     }
                 }
                 &.is-nearby:not(.is-selected) {

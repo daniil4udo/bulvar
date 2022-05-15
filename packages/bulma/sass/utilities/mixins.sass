@@ -187,19 +187,72 @@
   @if vars.$rtl
     @content
 
+=lph-border-radius($args...)
+  $list-of-directions: ("top", "top-right", "right", "bottom-right", "bottom", "bottom-left", "left", "top-left") !default
+  $list: list.join($list-of-directions, ("cross-left", "cross-right", "all"))
+
+  $position-top: if(vars.$logical, "start", "top")
+  $position-bottom: if(vars.$logical, "end", "bottom")
+  $position-left: if(vars.$logical, "start", "left")
+  $position-right: if(vars.$logical, "end", "right")
+
+  @if list.length($args) == 1
+    $value: list.nth($args, 1)
+    border-radius: fn.null($value, space)
+  @else if list.length($args) == 2
+    $corner: list.nth($args, 1)
+    $value: list.nth($args, 2)
+    @if list.index($list, $corner)
+      @if $corner == "top"
+        border-#{$position-top}-#{$position-left}-radius: $value
+        border-#{$position-top}-#{$position-right}-radius: $value
+      @else if $corner == "top-right"
+        border-#{$position-top}-#{$position-right}-radius: $value
+      @else if $corner == "right"
+        border-#{$position-top}-#{$position-right}-radius: $value
+        border-#{$position-bottom}-#{$position-right}-radius: $value
+      @else if $corner == "bottom-right"
+        border-#{$position-bottom}-#{$position-right}-radius: $value
+      @else if $corner == "bottom"
+        border-#{$position-bottom}-#{$position-left}-radius: $value
+        border-#{$position-bottom}-#{$position-right}-radius: $value
+      @else if $corner == "bottom-left"
+        border-#{$position-bottom}-#{$position-left}-radius: $value
+      @else if $corner == "left"
+        border-#{$position-top}-#{$position-left}-radius: $value
+        border-#{$position-bottom}-#{$position-left}-radius: $value
+      @else if $corner == "top-left"
+        border-#{$position-top}-#{$position-left}-radius: $value
+      @else if $corner == "all"
+        border-radius: $value
+      @else if $corner == "cross-left"
+        border-#{$position-top}-#{$position-left}-radius: $value
+        border-#{$position-bottom}-#{$position-right}-radius: $value
+      @else if $corner == "cross-right"
+        border-#{$position-top}-#{$position-right}-radius: $value
+        border-#{$position-bottom}-#{$position-left}-radius: $value
+      @else
+        @error "Corner value must be one of the followings: #{string.quote($list)}."
+    @else if list.length($args) == 4
+      $args: fn.null($args, space, true)
+      border-#{$position-top}-#{$position-left}-radius: list.nth($args, 1)
+      border-#{$position-top}-#{$position-right}-radius: list.nth($args, 2)
+      border-#{$position-bottom}-#{$position-right}-radius: list.nth($args, 3)
+      border-#{$position-bottom}-#{$position-left}-radius: list.nth($args, 4)
+
 =ltr-property($property, $spacing, $right: true)
   $position: if($right, "end", "start")
   #{$property}-inline-#{$position}: $spacing
 
-=ltr-border-y($property, $radius, $top: true)
+=logical-border-radius-y($radius, $top: true)
   $position: if($top, "start", "end")
-  border-#{$position}-start-#{$property}: $radius
-  border-#{$position}-end-#{$property}: $radius
+  border-#{$position}-start-radius: $radius
+  border-#{$position}-end-radius: $radius
 
-=ltr-border-x($property, $radius, $right: true)
+=logical-border-radius-x($radius, $right: true)
   $position: if($right, "end", "start")
-  border-start-#{$position}-#{$property}: $radius
-  border-end-#{$position}-#{$property}: $radius
+  border-start-#{$position}-radius: $radius
+  border-end-#{$position}-radius: $radius
 
 // Placeholders
 
@@ -302,7 +355,6 @@
   position: absolute
   right: $offset
   top: $offset
-
 
 //
 // Additional @mixins for bulvar

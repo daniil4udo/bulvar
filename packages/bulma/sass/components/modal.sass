@@ -116,7 +116,7 @@ $-css-vars-map: ("modal-z": $modal-z, "modal-background-background-color": $moda
 
 .modal-card-head
   border-bottom: var(--modal-card-head-border-bottom)
-  +utilities.ltr-border-y("radius", var(--modal-card-head-radius))
+  +utilities.lph-border-radius(top, var(--modal-card-head-radius))
 
 .modal-card-title
   color: var(--modal-card-title-color)
@@ -126,7 +126,7 @@ $-css-vars-map: ("modal-z": $modal-z, "modal-background-background-color": $moda
   line-height: var(--modal-card-title-line-height)
 
 .modal-card-foot
-  +utilities.ltr-border-y("radius", var(--modal-card-foot-radius), false)
+  +utilities.lph-border-radius(bottom, var(--modal-card-foot-radius))
   border-top: var(--modal-card-foot-border-top)
   .button
     &:not(:last-child)

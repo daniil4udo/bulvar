@@ -66,9 +66,9 @@ $-css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
       +utilities.ltr-property("margin", 0)
       &:not(:first-child)
         +utilities.ltr-property("margin", 0, false)
-        +utilities.ltr-border-x("radius", 0, false)
+        +utilities.lph-border-radius(left, 0)
       &:not(:last-child)
-        +utilities.ltr-border-x("radius", 0)
+        +utilities.lph-border-radius(right, 0)
 
 .tag:not(body)
   align-items: center

@@ -50,9 +50,9 @@ $-css-vars-map: ("card-background-color": $card-background-color, "card-shadow":
 
 %card-item
   &:first-child
-    +utilities.ltr-border-y("radius", var(--card-radius))
+    +utilities.lph-border-radius(top, var(--card-radius))
   &:last-child
-    +utilities.ltr-border-y("radius", var(--card-radius), false)
+    +utilities.lph-border-radius(bottom, var(--card-radius))
 
 .card-header
   @extend %card-item
@@ -84,10 +84,10 @@ $-css-vars-map: ("card-background-color": $card-background-color, "card-shadow":
   position: relative
   &:first-child
     img
-      +utilities.ltr-border-y("radius", var(--card-radius))
+      +utilities.lph-border-radius(top, var(--card-radius))
   &:last-child
     img
-      +utilities.ltr-border-y("radius", var(--card-radius), false)
+      +utilities.lph-border-radius(bottom, var(--card-radius))
 
 .card-content
   @extend %card-item

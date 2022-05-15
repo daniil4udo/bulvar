@@ -32,14 +32,14 @@ $-css-vars-map: (
             .button,
             .input,
             .select select {
-                @include bulma-utilities.ltr-border-x("radius", var(--input-radius), false);
+                @include bulma-utilities.lph-border-radius(left, var(--input-radius));
             }
         }
         &:last-child .control {
             .button,
             .input,
             .select select {
-                @include bulma-utilities.ltr-border-x("radius", var(--input-radius));
+                @include bulma-utilities.lph-border-radius(right, var(--input-radius));
             }
         }
         .control {
@@ -58,7 +58,7 @@ $-css-vars-map: (
                     .button,
                     .input,
                     .select select {
-                        @include bulma-utilities.ltr-border-x("radius", 0, false);
+                        @include bulma-utilities.lph-border-radius(left, 0);
                     }
                 }
             }
@@ -67,7 +67,7 @@ $-css-vars-map: (
                     .button,
                     .input,
                     .select select {
-                        @include bulma-utilities.ltr-border-x("radius", 0);
+                        @include bulma-utilities.lph-border-radius(right, 0);
                     }
                 }
             }
@@ -109,7 +109,7 @@ $-css-vars-map: (
                     .button,
                     .input,
                     .select select {
-                        @include bulma-utilities.ltr-border-x("radius", var(--input-radius), false);
+                        @include bulma-utilities.lph-border-radius(left, var(--input-radius));
                     }
                 }
             }

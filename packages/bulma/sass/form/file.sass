@@ -79,9 +79,9 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
   // Modifiers
   &.has-name
     .file-cta
-      +utilities.ltr-border-x("radius", 0)
+      +utilities.lph-border-radius(right, 0)
     .file-name
-      +utilities.ltr-border-x("radius", 0, false)
+      +utilities.lph-border-radius(left, 0)
     &.is-empty
       .file-cta
         border-radius: var(--file-radius)
@@ -108,11 +108,11 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
       --file-icon-font-size: 35px
     &.has-name
       .file-cta
-        +utilities.ltr-border-y("radius", var(--file-radius))
-        +utilities.ltr-border-y("radius", 0, false)
+        +utilities.lph-border-radius(top, var(--file-radius))
+        +utilities.lph-border-radius(bottom, 0)
       .file-name
-        +utilities.ltr-border-y("radius", 0)
-        +utilities.ltr-border-y("radius", var(--file-radius), false)
+        +utilities.lph-border-radius(top, 0)
+        +utilities.lph-border-radius(bottom, var(--file-radius))
         border-width: 0 1px 1px
   &.is-centered
     justify-content: center
@@ -125,21 +125,21 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
   &.is-right
     justify-content: right
     .file-cta
-      +utilities.ltr-border-x("radius", var(--file-radius))
-      +utilities.ltr-border-x("radius", 0, false)
+      +utilities.lph-border-radius(right, var(--file-radius))
+      +utilities.lph-border-radius(left, 0)
     .file-name
-      +utilities.ltr-border-x("radius", 0)
-      +utilities.ltr-border-x("radius", var(--file-radius), false)
+      +utilities.lph-border-radius(right, 0)
+      +utilities.lph-border-radius(left, var(--file-radius))
       border-width: 1px 0 1px 1px
       order: -1
   &.is-end
     justify-content: flex-end
     .file-cta
-      +utilities.ltr-border-x("radius", var(--file-radius))
-      +utilities.ltr-border-x("radius", 0, false)
+      +utilities.lph-border-radius(right, var(--file-radius))
+      +utilities.lph-border-radius(left, 0)
     .file-name
-      +utilities.ltr-border-x("radius", 0)
-      +utilities.ltr-border-x("radius", var(--file-radius), false)
+      +utilities.lph-border-radius(right, 0)
+      +utilities.lph-border-radius(left, var(--file-radius))
       border-width: 1px
       border-inline-end-width: 0
       order: -1
