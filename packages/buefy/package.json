@@ -63,9 +63,6 @@
 	"dependencies": {
 		"@bulvar/bulma": "^0.11.3"
 	},
-	"peerDependencies": {
-		"@bulvar/bulma": "^0.11.3"
-	},
 	"maintainers": [
 		"Daniil Chumachenko <daniil4udo@gmail.com>"
 	]
