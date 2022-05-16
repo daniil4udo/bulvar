@@ -84,6 +84,7 @@ $-css-vars-map: (
                     }
                     &::before {
                         position: absolute;
+                        font-family: system-ui;
                     }
                 }
             }
