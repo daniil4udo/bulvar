@@ -1,5 +1,5 @@
 /*!
-  * @bulvar/buefy v0.11.3 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
+  * @bulvar/buefy v0.11.4 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
   * Copyright 2022 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
@@ -12013,6 +12013,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 .b-checkbox.checkbox input[type=checkbox]:checked + .check::before, .b-checkbox.checkbox input[type=checkbox]:indeterminate + .check::before {
   position: absolute;
+  font-family: system-ui;
 }
 .b-checkbox.checkbox input[type=checkbox]:checked + .check::before {
   content: "✓";
