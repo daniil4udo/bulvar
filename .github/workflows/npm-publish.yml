@@ -18,13 +18,11 @@ jobs:
           node-version: 14
 
       - name: Install Dependencies
-        run: yarn install
-      - run: yarn add -D node-sass
+        run: npm install
+      - run: npm install -D sass
 
       - name: Test Dart Sass
         run: node test/dart-sass/dart-sass.js
-      - name: Test Node Sass
-        run: node test/node-sass/node-sass.js
 
   publish-gpr:
     needs: build
@@ -40,14 +38,14 @@ jobs:
           registry-url: https://npm.pkg.github.com/
 
       - name: Install Dependencies
-        run: yarn install
+        run: npm install
 
       - run: git config --global user.email "Daniil Chudo"
       - run: git config --global user.name "daniil4udo@gmail.com"
       - run: git fetch --tags
 
       - name: Publishing
-        run: yarn publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
@@ -62,13 +60,13 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - name: Install Dependencies
-        run: yarn install
+        run: npm install
 
       - run: git config --global user.email "Daniil Chudo"
       - run: git config --global user.name "daniil4udo@gmail.com"
       - run: git fetch --tags
 
       - name: Publishing
-        run: yarn publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTOMATION_TOKEN}}
