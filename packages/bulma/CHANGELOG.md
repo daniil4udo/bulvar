@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.6](https://github.com/daniil4udo/bulvar/compare/v0.11.5...v0.11.6) (2022-05-25)
+
+
+### Bug Fixes
+
+* **Bulma:** tablet styling for .hero container ([#110](https://github.com/daniil4udo/bulvar/issues/110)) ([9412ae5](https://github.com/daniil4udo/bulvar/commit/9412ae5a276c4e8db92c6428e1dcb9ac23cb85e4))
+
+
+
+
+
 ## [0.11.5](https://github.com/daniil4udo/bulvar/compare/v0.11.4...v0.11.5) (2022-05-25)
 
 

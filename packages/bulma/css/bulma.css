@@ -1,5 +1,5 @@
 /*!
-  * @bulvar/bulma v0.11.5 (https://github.com/daniil4udo/bulvar/tree/master/packages/bulma)
+  * @bulvar/bulma v0.11.6 (https://github.com/daniil4udo/bulvar/tree/master/packages/bulma)
   * Copyright 2022 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
@@ -11637,7 +11637,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   flex-shrink: 0;
   padding: var(--hero-body-padding);
 }
-@media screen and (min-width: 769px), print {
+@media screen and (min-width: 769px) and (max-width: 1023px) {
   .hero-body {
     padding: var(--hero-body-padding-tablet);
   }
