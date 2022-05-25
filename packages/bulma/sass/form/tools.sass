@@ -229,6 +229,9 @@ $-css-vars-map: ("control-radius": $control-radius, "control-radius-small": $con
     .icon.is-right
       right: 0
   &.is-loading
+    &.has-icons-right
+      .icon.is-right
+        visibility: hidden
     &::after
       @extend %loader
       position: absolute !important
