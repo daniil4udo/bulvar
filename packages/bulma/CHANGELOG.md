@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.5](https://github.com/daniil4udo/bulvar/compare/v0.11.4...v0.11.5) (2022-05-25)
+
+
+### Bug Fixes
+
+* **Bulma:** 🐛  hide icon is state is-loading ([6e3e2c6](https://github.com/daniil4udo/bulvar/commit/6e3e2c6879118af9fb27cecc7c2fe22193f1146e))
+* **Bulma:** 🐛  hr has to have only block margin ([cf4bc79](https://github.com/daniil4udo/bulvar/commit/cf4bc79bddda21249b9dce516ea9c6fcc170024b))
+
+
+
+
+
 ## [0.11.4](https://github.com/daniil4udo/bulvar/compare/v0.11.3...v0.11.4) (2022-05-16)
 
 **Note:** Version bump only for package @bulvar/bulma

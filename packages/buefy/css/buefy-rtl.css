@@ -1,5 +1,5 @@
 /*!
-  * @bulvar/buefy v0.11.4 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
+  * @bulvar/buefy v0.11.5 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
   * Copyright 2022 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
@@ -672,7 +672,7 @@ hr {
   border: none;
   display: block;
   height: var(--hr-height);
-  margin: var(--hr-margin);
+  margin-block: var(--hr-margin);
 }
 
 img {
@@ -4427,6 +4427,9 @@ a.tag:hover {
 }
 .control.has-icons-right .icon.is-right {
   left: 0;
+}
+.control.is-loading.has-icons-right .icon.is-right {
+  visibility: hidden;
 }
 .control.is-loading::after {
   position: absolute !important;
