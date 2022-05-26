@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.7](https://github.com/daniil4udo/bulvar/compare/v0.11.6...v0.11.7) (2022-05-26)
+
+
+### Bug Fixes
+
+* **Bulma:** 🐛  keep background for modal-close button ([aef3cee](https://github.com/daniil4udo/bulvar/commit/aef3ceec9a80e43804de43de4b81331cd30e0423))
+
+
+
+
+
 ## [0.11.6](https://github.com/daniil4udo/bulvar/compare/v0.11.5...v0.11.6) (2022-05-25)
 
 

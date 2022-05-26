@@ -1,5 +1,5 @@
 /*!
-  * @bulvar/bulma v0.11.6 (https://github.com/daniil4udo/bulvar/tree/master/packages/bulma)
+  * @bulvar/bulma v0.11.7 (https://github.com/daniil4udo/bulvar/tree/master/packages/bulma)
   * Copyright 2022 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
@@ -5193,7 +5193,6 @@ button.dropdown-item.is-active {
 }
 
 .modal-close {
-  background: none;
   height: var(--modal-close-dimensions);
   position: fixed;
   right: var(--modal-close-right);
