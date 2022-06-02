@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.8](https://github.com/daniil4udo/bulvar/compare/v0.11.7...v0.11.8) (2022-06-02)
+
+
+### Bug Fixes
+
+* **Bulma:** 🐛  iOS button border fix ([e2e810e](https://github.com/daniil4udo/bulvar/commit/e2e810e53b5ecac0d55f10c9a1d64e0436578f94))
+
+
+
+
+
 ## [0.11.7](https://github.com/daniil4udo/bulvar/compare/v0.11.6...v0.11.7) (2022-05-26)
 
 

@@ -1,5 +1,5 @@
 /*!
-  * @bulvar/buefy v0.11.7 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
+  * @bulvar/buefy v0.11.8 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
   * Copyright 2022 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
@@ -946,7 +946,7 @@ a.box:active {
 }
 .button.is-white[disabled], fieldset[disabled] .button.is-white {
   background-color: var(--white);
-  border-color: transparent;
+  border-color: var(--white);
   box-shadow: none;
 }
 .button.is-white.is-inverted {
@@ -1029,7 +1029,7 @@ a.box:active {
 }
 .button.is-black[disabled], fieldset[disabled] .button.is-black {
   background-color: var(--black);
-  border-color: transparent;
+  border-color: var(--black);
   box-shadow: none;
 }
 .button.is-black.is-inverted {
@@ -1112,7 +1112,7 @@ a.box:active {
 }
 .button.is-light[disabled], fieldset[disabled] .button.is-light {
   background-color: var(--light);
-  border-color: transparent;
+  border-color: var(--light);
   box-shadow: none;
 }
 .button.is-light.is-inverted {
@@ -1195,7 +1195,7 @@ a.box:active {
 }
 .button.is-dark[disabled], fieldset[disabled] .button.is-dark {
   background-color: var(--dark);
-  border-color: transparent;
+  border-color: var(--dark);
   box-shadow: none;
 }
 .button.is-dark.is-inverted {
@@ -1278,7 +1278,7 @@ a.box:active {
 }
 .button.is-primary[disabled], fieldset[disabled] .button.is-primary {
   background-color: var(--primary);
-  border-color: transparent;
+  border-color: var(--primary);
   box-shadow: none;
 }
 .button.is-primary.is-inverted {
@@ -1375,7 +1375,7 @@ a.box:active {
 }
 .button.is-secondary[disabled], fieldset[disabled] .button.is-secondary {
   background-color: var(--secondary);
-  border-color: transparent;
+  border-color: var(--secondary);
   box-shadow: none;
 }
 .button.is-secondary.is-inverted {
@@ -1472,7 +1472,7 @@ a.box:active {
 }
 .button.is-link[disabled], fieldset[disabled] .button.is-link {
   background-color: var(--link);
-  border-color: transparent;
+  border-color: var(--link);
   box-shadow: none;
 }
 .button.is-link.is-inverted {
@@ -1569,7 +1569,7 @@ a.box:active {
 }
 .button.is-info[disabled], fieldset[disabled] .button.is-info {
   background-color: var(--info);
-  border-color: transparent;
+  border-color: var(--info);
   box-shadow: none;
 }
 .button.is-info.is-inverted {
@@ -1666,7 +1666,7 @@ a.box:active {
 }
 .button.is-success[disabled], fieldset[disabled] .button.is-success {
   background-color: var(--success);
-  border-color: transparent;
+  border-color: var(--success);
   box-shadow: none;
 }
 .button.is-success.is-inverted {
@@ -1763,7 +1763,7 @@ a.box:active {
 }
 .button.is-warning[disabled], fieldset[disabled] .button.is-warning {
   background-color: var(--warning);
-  border-color: transparent;
+  border-color: var(--warning);
   box-shadow: none;
 }
 .button.is-warning.is-inverted {
@@ -1860,7 +1860,7 @@ a.box:active {
 }
 .button.is-danger[disabled], fieldset[disabled] .button.is-danger {
   background-color: var(--danger);
-  border-color: transparent;
+  border-color: var(--danger);
   box-shadow: none;
 }
 .button.is-danger.is-inverted {
@@ -2783,6 +2783,7 @@ div.icon-text {
   --table-cell-border-width: 0 0 1px;
   --table-cell-border: 1px solid var(--border);
   --table-cell-heading-color: var(--text-strong);
+  --table-cell-text-align: left;
   --table-cell-padding: 0.5em 0.75em;
   --table-head-cell-border-width: 0 0 2px;
   --table-head-cell-color: var(--text-strong);
@@ -2899,7 +2900,7 @@ div.icon-text {
   color: var(--table-cell-heading-color);
 }
 .table th:not([align]) {
-  text-align: inherit;
+  text-align: var(--table-cell-text-align);
 }
 .table tr.is-selected {
   background-color: var(--table-row-active-background-color);
@@ -3520,6 +3521,7 @@ a.tag:hover {
   --select-disabled-border-color: var(--input-disabled-border-color);
   --select-hover-color: var(--input-hover-color);
   --select-disabled-color: var(--input-disabled-color);
+  --select-disabled-opacity: 0.5;
   --select-focus-box-shadow-size: var(--input-focus-box-shadow-size);
 }
 
@@ -3713,6 +3715,7 @@ a.tag:hover {
 }
 .select.is-disabled::after {
   border-color: var(--select-disabled-color);
+  opacity: var(--select-disabled-opacity);
 }
 .select.is-fullwidth {
   width: 100%;
