@@ -10,6 +10,7 @@ $table-cell-border: 1px solid var(--border) !default
 $table-cell-border-width: 0 0 1px !default
 $table-cell-padding: 0.5em 0.75em !default
 $table-cell-heading-color: var(--text-strong) !default
+$table-cell-text-align: left !default
 
 $table-head-cell-border-width: 0 0 2px !default
 $table-head-cell-color: var(--text-strong) !default
@@ -31,7 +32,7 @@ $table-striped-row-even-hover-background-color: var(--scheme-main-ter) !default
 $table-colors: vars.$colors !default
 
 // Map Local variables
-$-css-vars-map: ('table-color': $table-color, 'table-cell-border-width': $table-cell-border-width, 'table-cell-border': $table-cell-border, 'table-cell-heading-color': $table-cell-heading-color, 'table-cell-padding': $table-cell-padding, 'table-head-cell-border-width': $table-head-cell-border-width, 'table-head-cell-color': $table-head-cell-color, 'table-foot-cell-border-width': $table-foot-cell-border-width, 'table-foot-cell-color': $table-foot-cell-color, 'table-head-background-color': $table-head-background-color, 'table-body-background-color': $table-body-background-color, 'table-foot-background-color': $table-foot-background-color, 'table-row-hover-background-color': $table-row-hover-background-color, 'table-row-active-background-color': $table-row-active-background-color, 'table-row-active-color': $table-row-active-color, 'table-striped-row-even-background-color': $table-striped-row-even-background-color, 'table-striped-row-even-hover-background-color': $table-striped-row-even-hover-background-color)
+$-css-vars-map: ('table-color': $table-color, 'table-cell-border-width': $table-cell-border-width, 'table-cell-border': $table-cell-border, 'table-cell-heading-color': $table-cell-heading-color, 'table-cell-text-align': $table-cell-text-align, 'table-cell-padding': $table-cell-padding, 'table-head-cell-border-width': $table-head-cell-border-width, 'table-head-cell-color': $table-head-cell-color, 'table-foot-cell-border-width': $table-foot-cell-border-width, 'table-foot-cell-color': $table-foot-cell-color, 'table-head-background-color': $table-head-background-color, 'table-body-background-color': $table-body-background-color, 'table-foot-background-color': $table-foot-background-color, 'table-row-hover-background-color': $table-row-hover-background-color, 'table-row-active-background-color': $table-row-active-background-color, 'table-row-active-color': $table-row-active-color, 'table-striped-row-even-background-color': $table-striped-row-even-background-color, 'table-striped-row-even-hover-background-color': $table-striped-row-even-hover-background-color)
 +utilities.exportCSSVars($-css-vars-map)
 +utilities.registerComponentCSSVars("table", $-css-vars-map)
 // --table-color: #{$table-color}
@@ -85,7 +86,7 @@ $-css-vars-map: ('table-color': $table-color, 'table-cell-border-width': $table-
   th
     color: var(--table-cell-heading-color)
     &:not([align])
-      text-align: inherit
+      text-align: var(--table-cell-text-align)
   tr
     &.is-selected
       background-color: var(--table-row-active-background-color)
