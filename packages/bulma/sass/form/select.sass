@@ -7,12 +7,13 @@ $select-arrow-color: var(--input-arrow-color)
 $select-disabled-border-color: var(--input-disabled-border-color)
 $select-hover-color: var(--input-hover-color)
 $select-disabled-color: var(--input-disabled-color)
+$select-disabled-opacity: 0.5 !default
 $select-focus-box-shadow-size: var(--input-focus-box-shadow-size)
 
 $select-colors: form-shared.$form-colors !default
 
 // Map Local variables
-$-css-vars-map: ('select-arrow-color': $select-arrow-color, 'select-disabled-border-color': $select-disabled-border-color, 'select-hover-color': $select-hover-color, 'select-disabled-color': $select-disabled-color, 'select-focus-box-shadow-size': $select-focus-box-shadow-size)
+$-css-vars-map: ('select-arrow-color': $select-arrow-color, 'select-disabled-border-color': $select-disabled-border-color, 'select-hover-color': $select-hover-color, 'select-disabled-color': $select-disabled-color, 'select-disabled-opacity': $select-disabled-opacity, 'select-focus-box-shadow-size': $select-focus-box-shadow-size)
 +utilities.exportCSSVars($-css-vars-map)
 +utilities.registerComponentCSSVars("select", $-css-vars-map)
 // --select-arrow-color: #{$input-arrow-color}
@@ -85,6 +86,7 @@ $-css-vars-map: ('select-arrow-color': $select-arrow-color, 'select-disabled-bor
   &.is-disabled
     &::after
       border-color: var(--select-disabled-color)
+      opacity: var(--select-disabled-opacity)
   &.is-fullwidth
     width: 100%
     select
