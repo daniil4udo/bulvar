@@ -1,6 +1,6 @@
 {
 	"name": "@bulvar/buefy",
-	"version": "0.11.8",
+	"version": "0.11.9",
 	"description": "Lightweight UI components for Vue.js based on Bulma",
 	"keywords": [
 		"bulma",
@@ -61,7 +61,7 @@
 		"start": "sass --verbose --error-css --no-source-map --color buefy.sass css/buefy.css --watch"
 	},
 	"dependencies": {
-		"@bulvar/bulma": "^0.11.8"
+		"@bulvar/bulma": "^0.11.9"
 	},
 	"maintainers": [
 		"Daniil Chumachenko <daniil4udo@gmail.com>"
