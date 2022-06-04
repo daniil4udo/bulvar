@@ -112,10 +112,8 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
     font-family: var(--button-family)
   font-size: var(--button-font-size)
   justify-content: center
-  padding-bottom: var(--button-padding-vertical)
-  padding-left: var(--button-padding-horizontal)
-  padding-right: var(--button-padding-horizontal)
-  padding-top: var(--button-padding-vertical)
+  padding-block: var(--button-padding-vertical)
+  padding-inline: var(--button-padding-horizontal)
   text-align: center
   white-space: nowrap
   strong
@@ -134,8 +132,7 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
       +utilities.ltr-property("margin", calc(var(--button-padding-horizontal) * 0.25), false)
       +utilities.ltr-property("margin", calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width)))
     &:first-child:last-child
-      margin-left: calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width))
-      margin-right: calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width))
+      margin-inline: calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width))
   // States
   &:hover,
   &.is-hovered
@@ -324,8 +321,7 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
     pointer-events: none
   &.is-rounded
     border-radius: var(--radius-rounded)
-    padding-left: calc(var(--button-padding-horizontal) + 0.25em)
-    padding-right: calc(var(--button-padding-horizontal) + 0.25em)
+    padding-inline: calc(var(--button-padding-horizontal) + 0.25em)
 
 .buttons
   align-items: center
@@ -353,11 +349,9 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
   &.has-addons
     .button
       &:not(:first-child)
-        border-bottom-left-radius: 0
-        border-top-left-radius: 0
+        +utilities.lph-border-radius(left, 0)
       &:not(:last-child)
-        border-bottom-right-radius: 0
-        border-top-right-radius: 0
+        +utilities.lph-border-radius(right, 0)
         +utilities.ltr-property("margin", -1px)
       &:last-child
         +utilities.ltr-property("margin", 0)
@@ -379,14 +373,17 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
     justify-content: center
     &:not(.has-addons)
       .button:not(.is-fullwidth)
-        margin-left: 0.25rem
-        margin-right: 0.25rem
+        margin-inline: 0.25rem
   &.is-right
+    justify-content: right
+    &:not(.has-addons)
+      .button:not(.is-fullwidth)
+        margin-inline: 0.25rem
+  &.is-end
     justify-content: flex-end
     &:not(.has-addons)
       .button:not(.is-fullwidth)
-        margin-left: 0.25rem
-        margin-right: 0.25rem
+        margin-inline: 0.25rem
 
 @each $name, $sizes in $button-responsive-sizes
   +utilities.breakpoint($name)

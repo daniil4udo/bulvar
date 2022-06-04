@@ -79,11 +79,9 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
   // Modifiers
   &.has-name
     .file-cta
-      border-bottom-right-radius: 0
-      border-top-right-radius: 0
+      +utilities.lph-border-radius(right, 0)
     .file-name
-      border-bottom-left-radius: 0
-      border-top-left-radius: 0
+      +utilities.lph-border-radius(left, 0)
     &.is-empty
       .file-cta
         border-radius: var(--file-radius)
@@ -110,9 +108,11 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
       --file-icon-font-size: 35px
     &.has-name
       .file-cta
-        border-radius: var(--file-radius) var(--file-radius) 0 0
+        +utilities.lph-border-radius(top, var(--file-radius))
+        +utilities.lph-border-radius(bottom, 0)
       .file-name
-        border-radius: 0 0 var(--file-radius) var(--file-radius)
+        +utilities.lph-border-radius(top, 0)
+        +utilities.lph-border-radius(bottom, var(--file-radius))
         border-width: 0 1px 1px
   &.is-centered
     justify-content: center
@@ -123,12 +123,25 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
       flex-grow: 1
       max-width: none
   &.is-right
+    justify-content: right
+    .file-cta
+      +utilities.lph-border-radius(right, var(--file-radius))
+      +utilities.lph-border-radius(left, 0)
+    .file-name
+      +utilities.lph-border-radius(right, 0)
+      +utilities.lph-border-radius(left, var(--file-radius))
+      border-width: 1px 0 1px 1px
+      order: -1
+  &.is-end
     justify-content: flex-end
     .file-cta
-      border-radius: 0 var(--file-radius) var(--file-radius) 0
+      +utilities.lph-border-radius(right, var(--file-radius))
+      +utilities.lph-border-radius(left, 0)
     .file-name
-      border-radius: var(--file-radius) 0 0 var(--file-radius)
-      border-width: 1px 0 1px 1px
+      +utilities.lph-border-radius(right, 0)
+      +utilities.lph-border-radius(left, var(--file-radius))
+      border-width: 1px
+      border-inline-end-width: 0
       order: -1
 
 .file-label
@@ -166,8 +179,7 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
   border-color: var(--file-border-color)
   border-radius: var(--file-radius)
   font-size: 1em
-  padding-left: 1em
-  padding-right: 1em
+  padding-inline: 1em
   white-space: nowrap
 
 .file-cta

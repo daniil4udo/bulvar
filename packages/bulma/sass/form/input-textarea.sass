@@ -43,14 +43,12 @@ $textarea-colors: form-shared.$form-colors !default
   @extend %input-textarea
   &.is-rounded
     border-radius: var(--radius-rounded)
-    padding-left: calc(var(--control-padding-horizontal) + 0.375em)
-    padding-right: calc(var(--control-padding-horizontal) + 0.375em)
+    padding-inline: calc(var(--control-padding-horizontal) + 0.375em)
   &.is-static
     background-color: transparent
     border-color: transparent
     box-shadow: none
-    padding-left: 0
-    padding-right: 0
+    padding-inline: 0
 
 // Map Local variables
 $-css-vars-map: ('textarea-padding': $textarea-padding, 'textarea-max-height': $textarea-max-height, 'textarea-min-height': $textarea-min-height)

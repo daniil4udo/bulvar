@@ -22,10 +22,9 @@ $-css-vars-map: (
             align-items: center;
             justify-content: flex-start;
             padding-top: calc(0.275em - 1px);
-            padding-right: 0;
             padding-bottom: 0;
-            padding-left: 0;
             cursor: text;
+            padding-inline: 0;
         }
         &:not(.is-focusable) {
             height: auto;
@@ -39,7 +38,7 @@ $-css-vars-map: (
         > .tags {
             height: var(--taginput-height);
             margin-bottom: calc(0.275em - 1px);
-            margin-left: 0.275rem;
+            @include bulma-utilities.ltr-property("margin", 0.275rem, false);
             font-size: 0.9em;
             .tag {
                 height: var(--taginput-height);
@@ -57,11 +56,10 @@ $-css-vars-map: (
             input {
                 min-width: 8em;
                 height: var(--taginput-height);
-                padding-top: 0;
-                padding-bottom: 0;
                 border: none;
                 margin-bottom: calc(0.275em - 1px);
                 box-shadow: none;
+                padding-block: 0;
                 &:focus {
                     box-shadow: none !important;
                 }

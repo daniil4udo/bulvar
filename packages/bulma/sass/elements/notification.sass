@@ -6,14 +6,13 @@
 $notification-background-color: var(--background) !default
 $notification-code-background-color: var(--scheme-main) !default
 $notification-radius: var(--radius) !default
-$notification-padding: 1.25rem 2.5rem 1.25rem 1.5rem !default
-$notification-padding-ltr: 1.25rem 2.5rem 1.25rem 1.5rem !default
-$notification-padding-rtl: 1.25rem 1.5rem 1.25rem 2.5rem !default
+$notification-padding-horizontal: 1.5rem 2.5rem !default
+$notification-padding-vertical: 1.25rem !default
 
 $notification-colors: vars.$colors !default
 
 // Map Local variables
-$-css-vars-map: ('notification-background-color': $notification-background-color, 'notification-code-background-color': $notification-code-background-color, 'notification-radius': $notification-radius, 'notification-padding-ltr': $notification-padding-ltr, 'notification-padding-rtl': $notification-padding-rtl)
+$-css-vars-map: ("notification-background-color": $notification-background-color, "notification-code-background-color": $notification-code-background-color, "notification-radius": $notification-radius, "notification-padding-horizontal": $notification-padding-horizontal, "notification-padding-vertical": $notification-padding-vertical)
 +utilities.exportCSSVars($-css-vars-map)
 +utilities.registerComponentCSSVars("notification", $-css-vars-map)
 // --notification-background-color: #{$notification-background-color}
@@ -28,10 +27,8 @@ $-css-vars-map: ('notification-background-color': $notification-background-color
   border-radius: var(--notification-radius)
   color: var(--notification-color)
   position: relative
-  +utilities.ltr
-    padding: var(--notification-padding-ltr)
-  +utilities.rtl
-    padding: var(--notification-padding-rtl)
+  padding-block: var(--notification-padding-vertical)
+  padding-inline: var(--notification-padding-horizontal)
   a:not(.button):not(.dropdown-item)
     color: currentColor
     text-decoration: underline
@@ -43,7 +40,7 @@ $-css-vars-map: ('notification-background-color': $notification-background-color
   pre code
     background: transparent
   & > .delete
-    +utilities.ltr-position(0.5rem)
+    +utilities.ltr-property("inset", 0.5rem)
     position: absolute
     top: 0.5rem
   .title,

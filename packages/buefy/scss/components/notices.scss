@@ -83,9 +83,9 @@ $-css-vars-map: (
             padding: 0.5em 1em;
         }
         .action {
+            @include bulma-utilities.ltr-property("margin", auto, false);
             padding: 0.5em;
             padding-left: 0;
-            margin-left: auto;
             .button {
                 border: transparent;
                 background: var(--snackbar-background-color);
@@ -109,7 +109,7 @@ $-css-vars-map: (
             }
         }
         .action.is-cancel {
-            padding-right: 0;
+            @include bulma-utilities.ltr-property("padding", 0);
         }
         @include bulma-utilities.mobile {
             width: 100%;
