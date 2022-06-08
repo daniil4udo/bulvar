@@ -14,6 +14,7 @@
         }
         option:disabled {
             cursor: not-allowed;
+			color: var(--grey-light);
             opacity: 0.5;
         }
         optgroup {
