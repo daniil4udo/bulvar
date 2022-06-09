@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.10](https://github.com/daniil4udo/bulvar/compare/v0.11.9...v0.11.10) (2022-06-09)
+
+
+### Bug Fixes
+
+* **Bulma:** 🐛  FireFox ignores opacity for disabled options ([7bdcc92](https://github.com/daniil4udo/bulvar/commit/7bdcc92f99cdc1923f8cdbb33ec0de80b2e41217))
+
+
+
+
+
 ## [0.11.9](https://github.com/daniil4udo/bulvar/compare/v0.11.8...v0.11.9) (2022-06-04)
 
 **Note:** Version bump only for package @bulvar/buefy

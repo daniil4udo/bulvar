@@ -1,5 +1,5 @@
 /*!
-  * @bulvar/buefy v0.11.9 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
+  * @bulvar/buefy v0.11.10 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
   * Copyright 2022 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
@@ -672,7 +672,7 @@ hr {
   border: none;
   display: block;
   height: var(--hr-height);
-  margin-block: var(--hr-margin);
+  margin: var(--hr-margin);
 }
 
 img {
@@ -14323,6 +14323,7 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .select select option:disabled {
   cursor: not-allowed;
+  color: var(--grey-light);
   opacity: 0.5;
 }
 .select select optgroup {

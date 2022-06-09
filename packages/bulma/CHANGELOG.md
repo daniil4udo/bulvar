@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.10](https://github.com/daniil4udo/bulvar/compare/v0.11.9...v0.11.10) (2022-06-09)
+
+
+### Bug Fixes
+
+* **Bulma:** 🐛  hr to have margin ([854c531](https://github.com/daniil4udo/bulvar/commit/854c53166ecd327aa0276c3638a50b1b1e611b7d))
+
+
+
+
+
 ## [0.11.9](https://github.com/daniil4udo/bulvar/compare/v0.11.8...v0.11.9) (2022-06-04)
 
 **Note:** Version bump only for package @bulvar/bulma
