@@ -3,3 +3,4 @@
 /tests/unit/coverage/**
 
 .czrc
+.npmrc
