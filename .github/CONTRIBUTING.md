@@ -19,7 +19,7 @@ When modifying any `.sass`, you will need to rebuild the css. You can do this by
 
 ```
 yarn
-yarn deploy
+yarn build
 ```
 
 To see documentation changes check [the documentation readme](../docs/README.md).
