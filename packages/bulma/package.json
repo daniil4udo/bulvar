@@ -56,7 +56,7 @@
 		"minify:rtl": "csso -o css/bulma-rtl.min.css -i css/bulma-rtl.css --stat",
 		"prefix": "run-p -l prefix:*",
 		"prefix:main": "postcss --config ../../postcss.config.js --output css/bulma.css css/bulma.css",
-		"prefix:rtl": "rtlcss --config ../../.rtlcssrc css/bulma-rtl.css css/bulma-rtl.css && cross-env NODE_ENV=RTL postcss postcss --config ../../postcss.config.js --output css/bulma-rtl.css css/bulma-rtl.css",
+		"prefix:rtl": "cross-env NODE_ENV=RTL postcss --config ../../postcss.config.js --output css/bulma-rtl.css css/bulma-rtl.css",
 		"publish": "npm publish --access public",
 		"start": "sass --verbose --error-css --no-source-map --color bulma.sass css/bulma.css --watch"
 	},

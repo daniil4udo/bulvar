@@ -56,7 +56,7 @@
 		"minify:rtl": "csso -o css/buefy-rtl.min.css -i css/buefy-rtl.css --stat",
 		"prefix": "run-p -l prefix:*",
 		"prefix:main": "postcss --config ../../postcss.config.js --output css/buefy.css css/buefy.css",
-		"prefix:rtl": "rtlcss --config ../../.rtlcssrc css/buefy-rtl.css css/buefy-rtl.css && cross-env NODE_ENV=RTL postcss postcss --config ../../postcss.config.js --output css/buefy-rtl.css css/buefy-rtl.css",
+		"prefix:rtl": "cross-env NODE_ENV=RTL postcss --config ../../postcss.config.js --output css/buefy-rtl.css css/buefy-rtl.css",
 		"publish": "npm publish --access public",
 		"start": "sass --verbose --error-css --no-source-map --color buefy.sass css/buefy.css --watch"
 	},
