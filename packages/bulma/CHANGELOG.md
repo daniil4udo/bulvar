@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.11](https://github.com/daniil4udo/bulvar/compare/v0.11.10...v0.11.11) (2022-08-06)
+
+
+### Bug Fixes
+
+* 🐛 RTL been processed twice ([c6057fe](https://github.com/daniil4udo/bulvar/commit/c6057fe1ef54479ba8bcd7cd5dff03a35826d964))
+* **Bulma:** 🐛  progress backgroung filling ([a265bb9](https://github.com/daniil4udo/bulvar/commit/a265bb94ecc6deb1e12f53023625a8cb6355b2ff))
+
+
+
+
+
 ## [0.11.10](https://github.com/daniil4udo/bulvar/compare/v0.11.9...v0.11.10) (2022-06-09)
 
 

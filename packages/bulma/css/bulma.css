@@ -1,5 +1,5 @@
 /*!
-  * @bulvar/bulma v0.11.10 (https://github.com/daniil4udo/bulvar/tree/master/packages/bulma)
+  * @bulvar/bulma v0.11.11 (https://github.com/daniil4udo/bulvar/tree/master/packages/bulma)
   * Copyright 2022 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
@@ -420,7 +420,6 @@ fieldset[disabled] .file-name, fieldset[disabled] .button, fieldset[disabled] .s
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
@@ -2055,16 +2054,13 @@ a.box:active {
   .button.is-responsive.is-small {
     font-size: calc(var(--size-small) * 0.75);
   }
-
   .button.is-responsive,
 .button.is-responsive.is-normal {
     font-size: calc(var(--size-small) * 0.875);
   }
-
   .button.is-responsive.is-medium {
     font-size: var(--size-small);
   }
-
   .button.is-responsive.is-large {
     font-size: var(--size-normal);
   }
@@ -2073,16 +2069,13 @@ a.box:active {
   .button.is-responsive.is-small {
     font-size: calc(var(--size-small) * 0.875);
   }
-
   .button.is-responsive,
 .button.is-responsive.is-normal {
     font-size: var(--size-small);
   }
-
   .button.is-responsive.is-medium {
     font-size: var(--size-normal);
   }
-
   .button.is-responsive.is-large {
     font-size: var(--size-medium);
   }
@@ -2613,133 +2606,133 @@ div.icon-text {
   border: none;
 }
 .progress.is-white::-webkit-progress-value {
-  --progress-value-background-color: var(--white);
+  background-color: var(--white);
 }
 .progress.is-white::-moz-progress-bar {
-  --progress-value-background-color: var(--white);
+  background-color: var(--white);
 }
 .progress.is-white::-ms-fill {
-  --progress-value-background-color: var(--white);
+  background-color: var(--white);
 }
 .progress.is-white:indeterminate {
   background-image: linear-gradient(to right, var(--white) 30%, var(--progress-bar-background-color) 30%);
 }
 .progress.is-black::-webkit-progress-value {
-  --progress-value-background-color: var(--black);
+  background-color: var(--black);
 }
 .progress.is-black::-moz-progress-bar {
-  --progress-value-background-color: var(--black);
+  background-color: var(--black);
 }
 .progress.is-black::-ms-fill {
-  --progress-value-background-color: var(--black);
+  background-color: var(--black);
 }
 .progress.is-black:indeterminate {
   background-image: linear-gradient(to right, var(--black) 30%, var(--progress-bar-background-color) 30%);
 }
 .progress.is-light::-webkit-progress-value {
-  --progress-value-background-color: var(--light);
+  background-color: var(--light);
 }
 .progress.is-light::-moz-progress-bar {
-  --progress-value-background-color: var(--light);
+  background-color: var(--light);
 }
 .progress.is-light::-ms-fill {
-  --progress-value-background-color: var(--light);
+  background-color: var(--light);
 }
 .progress.is-light:indeterminate {
   background-image: linear-gradient(to right, var(--light) 30%, var(--progress-bar-background-color) 30%);
 }
 .progress.is-dark::-webkit-progress-value {
-  --progress-value-background-color: var(--dark);
+  background-color: var(--dark);
 }
 .progress.is-dark::-moz-progress-bar {
-  --progress-value-background-color: var(--dark);
+  background-color: var(--dark);
 }
 .progress.is-dark::-ms-fill {
-  --progress-value-background-color: var(--dark);
+  background-color: var(--dark);
 }
 .progress.is-dark:indeterminate {
   background-image: linear-gradient(to right, var(--dark) 30%, var(--progress-bar-background-color) 30%);
 }
 .progress.is-primary::-webkit-progress-value {
-  --progress-value-background-color: var(--primary);
+  background-color: var(--primary);
 }
 .progress.is-primary::-moz-progress-bar {
-  --progress-value-background-color: var(--primary);
+  background-color: var(--primary);
 }
 .progress.is-primary::-ms-fill {
-  --progress-value-background-color: var(--primary);
+  background-color: var(--primary);
 }
 .progress.is-primary:indeterminate {
   background-image: linear-gradient(to right, var(--primary) 30%, var(--progress-bar-background-color) 30%);
 }
 .progress.is-secondary::-webkit-progress-value {
-  --progress-value-background-color: var(--secondary);
+  background-color: var(--secondary);
 }
 .progress.is-secondary::-moz-progress-bar {
-  --progress-value-background-color: var(--secondary);
+  background-color: var(--secondary);
 }
 .progress.is-secondary::-ms-fill {
-  --progress-value-background-color: var(--secondary);
+  background-color: var(--secondary);
 }
 .progress.is-secondary:indeterminate {
   background-image: linear-gradient(to right, var(--secondary) 30%, var(--progress-bar-background-color) 30%);
 }
 .progress.is-link::-webkit-progress-value {
-  --progress-value-background-color: var(--link);
+  background-color: var(--link);
 }
 .progress.is-link::-moz-progress-bar {
-  --progress-value-background-color: var(--link);
+  background-color: var(--link);
 }
 .progress.is-link::-ms-fill {
-  --progress-value-background-color: var(--link);
+  background-color: var(--link);
 }
 .progress.is-link:indeterminate {
   background-image: linear-gradient(to right, var(--link) 30%, var(--progress-bar-background-color) 30%);
 }
 .progress.is-info::-webkit-progress-value {
-  --progress-value-background-color: var(--info);
+  background-color: var(--info);
 }
 .progress.is-info::-moz-progress-bar {
-  --progress-value-background-color: var(--info);
+  background-color: var(--info);
 }
 .progress.is-info::-ms-fill {
-  --progress-value-background-color: var(--info);
+  background-color: var(--info);
 }
 .progress.is-info:indeterminate {
   background-image: linear-gradient(to right, var(--info) 30%, var(--progress-bar-background-color) 30%);
 }
 .progress.is-success::-webkit-progress-value {
-  --progress-value-background-color: var(--success);
+  background-color: var(--success);
 }
 .progress.is-success::-moz-progress-bar {
-  --progress-value-background-color: var(--success);
+  background-color: var(--success);
 }
 .progress.is-success::-ms-fill {
-  --progress-value-background-color: var(--success);
+  background-color: var(--success);
 }
 .progress.is-success:indeterminate {
   background-image: linear-gradient(to right, var(--success) 30%, var(--progress-bar-background-color) 30%);
 }
 .progress.is-warning::-webkit-progress-value {
-  --progress-value-background-color: var(--warning);
+  background-color: var(--warning);
 }
 .progress.is-warning::-moz-progress-bar {
-  --progress-value-background-color: var(--warning);
+  background-color: var(--warning);
 }
 .progress.is-warning::-ms-fill {
-  --progress-value-background-color: var(--warning);
+  background-color: var(--warning);
 }
 .progress.is-warning:indeterminate {
   background-image: linear-gradient(to right, var(--warning) 30%, var(--progress-bar-background-color) 30%);
 }
 .progress.is-danger::-webkit-progress-value {
-  --progress-value-background-color: var(--danger);
+  background-color: var(--danger);
 }
 .progress.is-danger::-moz-progress-bar {
-  --progress-value-background-color: var(--danger);
+  background-color: var(--danger);
 }
 .progress.is-danger::-ms-fill {
-  --progress-value-background-color: var(--danger);
+  background-color: var(--danger);
 }
 .progress.is-danger:indeterminate {
   background-image: linear-gradient(to right, var(--danger) 30%, var(--progress-bar-background-color) 30%);
@@ -6273,17 +6266,14 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   .navbar > .container {
     display: block;
   }
-
   .navbar-brand .navbar-item,
 .navbar-tabs .navbar-item {
     align-items: center;
     display: flex;
   }
-
   .navbar-link::after {
     display: none;
   }
-
   .navbar-menu {
     background-color: var(--navbar-background-color);
     box-shadow: 0 8px 16px var(--navbar-shadow-color);
@@ -6292,7 +6282,6 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   .navbar-menu.is-active {
     display: block;
   }
-
   .navbar.is-fixed-bottom-touch, .navbar.is-fixed-top-touch {
     left: 0;
     position: fixed;
@@ -6313,7 +6302,6 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
     max-height: calc(100vh - var(--navbar-height));
     overflow: auto;
   }
-
   html.has-navbar-fixed-top-touch,
 body.has-navbar-fixed-top-touch {
     padding-top: var(--navbar-height);
@@ -6331,7 +6319,6 @@ body.has-navbar-fixed-bottom-touch {
     align-items: stretch;
     display: flex;
   }
-
   .navbar {
     min-height: var(--navbar-height);
   }
@@ -6363,17 +6350,14 @@ body.has-navbar-fixed-bottom-touch {
     background-color: var(--navbar-dropdown-item-active-background-color);
     color: var(--navbar-dropdown-item-active-color);
   }
-
   .navbar-burger {
     display: none;
   }
-
   .navbar-item,
 .navbar-link {
     align-items: center;
     display: flex;
   }
-
   .navbar-item.has-dropdown {
     align-items: stretch;
   }
@@ -6396,22 +6380,18 @@ body.has-navbar-fixed-bottom-touch {
     pointer-events: auto;
     transform: translateY(0);
   }
-
   .navbar-menu {
     flex-grow: 1;
     flex-shrink: 0;
   }
-
   .navbar-start {
     justify-content: flex-start;
     margin-right: auto;
   }
-
   .navbar-end {
     justify-content: flex-end;
     margin-left: auto;
   }
-
   .navbar-dropdown {
     background-color: var(--navbar-dropdown-background-color);
     border-bottom-left-radius: var(--navbar-dropdown-radius);
@@ -6457,11 +6437,9 @@ body.has-navbar-fixed-bottom-touch {
     left: auto;
     right: 0;
   }
-
   .navbar-divider {
     display: block;
   }
-
   .navbar > .container .navbar-brand,
 .container > .navbar .navbar-brand {
     margin-left: -0.75rem;
@@ -6470,7 +6448,6 @@ body.has-navbar-fixed-bottom-touch {
 .container > .navbar .navbar-menu {
     margin-right: -0.75rem;
   }
-
   .navbar.is-fixed-bottom-desktop, .navbar.is-fixed-top-desktop {
     left: 0;
     position: fixed;
@@ -6486,7 +6463,6 @@ body.has-navbar-fixed-bottom-touch {
   .navbar.is-fixed-top-desktop {
     top: 0;
   }
-
   html.has-navbar-fixed-top-desktop,
 body.has-navbar-fixed-top-desktop {
     padding-top: var(--navbar-height);
@@ -6503,7 +6479,6 @@ body.has-spaced-navbar-fixed-top {
 body.has-spaced-navbar-fixed-bottom {
     padding-bottom: calc(var(--navbar-height) + var(--navbar-padding-vertical) * 2);
   }
-
   a.navbar-item.is-active,
 .navbar-link.is-active {
     color: var(--navbar-item-active-color);
@@ -6512,7 +6487,6 @@ body.has-spaced-navbar-fixed-bottom {
 .navbar-link.is-active:not(:focus):not(:hover) {
     background-color: var(--navbar-item-active-background-color);
   }
-
   .navbar-item.has-dropdown:focus .navbar-link, .navbar-item.has-dropdown:hover .navbar-link, .navbar-item.has-dropdown.is-active .navbar-link {
     background-color: var(--navbar-item-hover-background-color);
   }
@@ -6654,13 +6628,11 @@ body.has-spaced-navbar-fixed-bottom {
   .pagination {
     flex-wrap: wrap;
   }
-
   .pagination-previous,
 .pagination-next {
     flex-grow: 1;
     flex-shrink: 1;
   }
-
   .pagination-list li {
     flex-grow: 1;
     flex-shrink: 1;
@@ -6673,7 +6645,6 @@ body.has-spaced-navbar-fixed-bottom {
     justify-content: flex-start;
     order: 1;
   }
-
   .pagination-previous,
 .pagination-next,
 .pagination-link,
@@ -6681,15 +6652,12 @@ body.has-spaced-navbar-fixed-bottom {
     margin-bottom: 0;
     margin-top: 0;
   }
-
   .pagination-previous {
     order: 2;
   }
-
   .pagination-next {
     order: 3;
   }
-
   .pagination {
     justify-content: space-between;
     margin-bottom: 0;
@@ -10065,27 +10033,21 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   .is-size-1-mobile {
     font-size: 3rem !important;
   }
-
   .is-size-2-mobile {
     font-size: 2.5rem !important;
   }
-
   .is-size-3-mobile {
     font-size: 2rem !important;
   }
-
   .is-size-4-mobile {
     font-size: 1.5rem !important;
   }
-
   .is-size-5-mobile {
     font-size: 1.25rem !important;
   }
-
   .is-size-6-mobile {
     font-size: 1rem !important;
   }
-
   .is-size-7-mobile {
     font-size: 0.75rem !important;
   }
@@ -10094,27 +10056,21 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   .is-size-1-tablet {
     font-size: 3rem !important;
   }
-
   .is-size-2-tablet {
     font-size: 2.5rem !important;
   }
-
   .is-size-3-tablet {
     font-size: 2rem !important;
   }
-
   .is-size-4-tablet {
     font-size: 1.5rem !important;
   }
-
   .is-size-5-tablet {
     font-size: 1.25rem !important;
   }
-
   .is-size-6-tablet {
     font-size: 1rem !important;
   }
-
   .is-size-7-tablet {
     font-size: 0.75rem !important;
   }
@@ -10123,27 +10079,21 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   .is-size-1-touch {
     font-size: 3rem !important;
   }
-
   .is-size-2-touch {
     font-size: 2.5rem !important;
   }
-
   .is-size-3-touch {
     font-size: 2rem !important;
   }
-
   .is-size-4-touch {
     font-size: 1.5rem !important;
   }
-
   .is-size-5-touch {
     font-size: 1.25rem !important;
   }
-
   .is-size-6-touch {
     font-size: 1rem !important;
   }
-
   .is-size-7-touch {
     font-size: 0.75rem !important;
   }
@@ -10152,27 +10102,21 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   .is-size-1-desktop {
     font-size: 3rem !important;
   }
-
   .is-size-2-desktop {
     font-size: 2.5rem !important;
   }
-
   .is-size-3-desktop {
     font-size: 2rem !important;
   }
-
   .is-size-4-desktop {
     font-size: 1.5rem !important;
   }
-
   .is-size-5-desktop {
     font-size: 1.25rem !important;
   }
-
   .is-size-6-desktop {
     font-size: 1rem !important;
   }
-
   .is-size-7-desktop {
     font-size: 0.75rem !important;
   }
@@ -10181,27 +10125,21 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   .is-size-1-widescreen {
     font-size: 3rem !important;
   }
-
   .is-size-2-widescreen {
     font-size: 2.5rem !important;
   }
-
   .is-size-3-widescreen {
     font-size: 2rem !important;
   }
-
   .is-size-4-widescreen {
     font-size: 1.5rem !important;
   }
-
   .is-size-5-widescreen {
     font-size: 1.25rem !important;
   }
-
   .is-size-6-widescreen {
     font-size: 1rem !important;
   }
-
   .is-size-7-widescreen {
     font-size: 0.75rem !important;
   }
@@ -10210,27 +10148,21 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   .is-size-1-fullhd {
     font-size: 3rem !important;
   }
-
   .is-size-2-fullhd {
     font-size: 2.5rem !important;
   }
-
   .is-size-3-fullhd {
     font-size: 2rem !important;
   }
-
   .is-size-4-fullhd {
     font-size: 1.5rem !important;
   }
-
   .is-size-5-fullhd {
     font-size: 1.25rem !important;
   }
-
   .is-size-6-fullhd {
     font-size: 1rem !important;
   }
-
   .is-size-7-fullhd {
     font-size: 0.75rem !important;
   }
