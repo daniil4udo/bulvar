@@ -45,11 +45,11 @@ $-css-vars-map: ('progress-height': $progress-height, 'progress-bar-background-c
     $color: list.nth($pair, 1)
     &.is-#{$name}
       &::-webkit-progress-value
-        --progress-value-background-color: var(--#{$name})
+        background-color: var(--#{$name})
       &::-moz-progress-bar
-        --progress-value-background-color: var(--#{$name})
+        background-color: var(--#{$name})
       &::-ms-fill
-        --progress-value-background-color: var(--#{$name})
+        background-color: var(--#{$name})
       &:indeterminate
         background-image: linear-gradient(to right, var(--#{$name}) 30%, var(--progress-bar-background-color) 30%)
 
