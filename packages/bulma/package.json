@@ -54,10 +54,10 @@
 		"minify": "run-p -l minify:*",
 		"minify:main": "csso -o css/bulma.min.css -i css/bulma.css --stat",
 		"minify:rtl": "csso -o css/bulma-rtl.min.css -i css/bulma-rtl.css --stat",
+		"package:publish": "npm publish --access public",
 		"prefix": "run-p -l prefix:*",
 		"prefix:main": "postcss --config ../../postcss.config.js --output css/bulma.css css/bulma.css",
 		"prefix:rtl": "cross-env NODE_ENV=RTL postcss --config ../../postcss.config.js --output css/bulma-rtl.css css/bulma-rtl.css",
-		"publish": "npm publish --access public",
 		"start": "sass --verbose --error-css --no-source-map --color bulma.sass css/bulma.css --watch"
 	},
 	"maintainers": [

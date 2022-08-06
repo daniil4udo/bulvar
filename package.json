@@ -30,11 +30,11 @@
 	"scripts": {
 		"prepare": "husky install",
 		"postinstall": "lerna link",
-		"release": "lerna version --no-push --no-commit-hooks",
 		"watch": "lerna run --parallel start",
-		"publish": "lerna run --parallel publish",
 		"version": "pnpm install && pnpm build",
 		"build": "lerna run deploy --stream",
+		"package:publish": "lerna run --parallel package:publish",
+		"package:release": "lerna version --no-push --no-commit-hooks",
 		"lint": "run-p --continue-on-error lint:all:*",
 		"lint:prettier": "prettier --write --loglevel warn",
 		"lint:stylelint": "stylelint --fix",
