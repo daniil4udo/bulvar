@@ -136,6 +136,7 @@ $-css-vars-map: (
                 &.is-numeric {
                     flex-direction: row-reverse;
                     text-align: right;
+					width: 95%;
                     .icon {
                         margin-right: 0.5rem;
                         margin-left: 0;
