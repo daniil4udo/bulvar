@@ -175,7 +175,7 @@ $-css-vars-map: (
                         padding-top: var(--field-floating-indent);
                         padding-bottom: 1px;
                     }
-                    .select:not(multiple) {
+                    .select:not([multiple]) {
                         height: var(--floating-in-height);
                         &.is-loading {
                             &::after {
