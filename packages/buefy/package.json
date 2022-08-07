@@ -28,6 +28,9 @@
 		"email": "daniil4udo@gmail.com",
 		"url": "https://github.com/daniil4udo"
 	},
+	"maintainers": [
+		"Daniil Chumachenko <daniil4udo@gmail.com>"
+	],
 	"sideEffects": [
 		"*.css",
 		"*.sass",
@@ -62,8 +65,5 @@
 	},
 	"dependencies": {
 		"@bulvar/bulma": "^0.11.11"
-	},
-	"maintainers": [
-		"Daniil Chumachenko <daniil4udo@gmail.com>"
-	]
+	}
 }

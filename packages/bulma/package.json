@@ -27,6 +27,9 @@
 		"email": "daniil4udo@gmail.com",
 		"url": "https://github.com/daniil4udo"
 	},
+	"maintainers": [
+		"Daniil Chumachenko <daniil4udo@gmail.com>"
+	],
 	"sideEffects": [
 		"*.css",
 		"*.sass",
@@ -59,8 +62,5 @@
 		"prefix:main": "postcss --config ../../postcss.config.js --output css/bulma.css css/bulma.css",
 		"prefix:rtl": "cross-env NODE_ENV=RTL postcss --config ../../postcss.config.js --output css/bulma-rtl.css css/bulma-rtl.css",
 		"start": "sass --verbose --error-css --no-source-map --color bulma.sass css/bulma.css --watch"
-	},
-	"maintainers": [
-		"Daniil Chumachenko <daniil4udo@gmail.com>"
-	]
+	}
 }
