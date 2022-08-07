@@ -73,8 +73,9 @@ $-css-vars-map: ("breadcrumb-font-size": $breadcrumb-font-size, "breadcrumb-item
   // Sizes
   +utilities.control-sizes(breadcrumb-font-size)
   // Styles
+  --breadcrumb-li-content: "\0002f"
   &.has-arrow-separator
-    --breadcrumb-li-content: "\02192"
+    --breadcrumb-li-content: "\02192"/*rtl:"\02190"*/
   &.has-bullet-separator
     --breadcrumb-li-content: "\02022"
   &.has-dot-separator
