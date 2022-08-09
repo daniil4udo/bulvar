@@ -32,7 +32,7 @@ specifiers:
   postcss-scss: ^4.0.4
   prettier: ^2.7.1
   rimraf: ^3.0.2
-  rtlcss: ^3.5.0
+  rtlcss: ^4.0.0
   sass: ^1.54.3
   stylelint: ^14.0.0
   stylelint-config-idiomatic-order: ^8.1.0
@@ -59,7 +59,7 @@ devDependencies:
   postcss-scss: 4.0.4_postcss@8.4.16
   prettier: 2.7.1
   rimraf: 3.0.2
-  rtlcss: 3.5.0
+  rtlcss: 4.0.0
   sass: 1.54.3
   stylelint: 14.9.1
   stylelint-config-idiomatic-order: 8.1.0_stylelint@14.9.1
@@ -5160,11 +5160,12 @@ packages:
       glob: 7.2.3
     dev: true
 
-  /rtlcss/3.5.0:
-    resolution: {integrity: sha512-wzgMaMFHQTnyi9YOwsx9LjOxYXJPzS8sYnFaKm6R5ysvTkwzHiB0vxnbHwchHQT65PTdBjDG21/kQBWI7q9O7A==}
+  /rtlcss/4.0.0:
+    resolution: {integrity: sha512-j6oypPP+mgFwDXL1JkLCtm6U/DQntMUqlv5SOhpgHhdIE+PmBcjrtAHIpXfbIup47kD5Sgja9JDsDF1NNOsBwQ==}
+    engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
-      find-up: 5.0.0
+      escalade: 3.1.1
       picocolors: 1.0.0
       postcss: 8.4.16
       strip-json-comments: 3.1.1
