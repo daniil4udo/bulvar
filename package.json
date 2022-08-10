@@ -63,7 +63,7 @@
 		"postcss-scss": "^4.0.4",
 		"prettier": "^2.7.1",
 		"rimraf": "^3.0.2",
-		"rtlcss": "^3.5.0",
+		"rtlcss": "^4.0.0",
 		"sass": "^1.54.3",
 		"stylelint": "^14.9.1",
 		"stylelint-config-idiomatic-order": "^8.1.0",
