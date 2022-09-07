@@ -33,7 +33,7 @@ specifiers:
   prettier: ^2.7.1
   rimraf: ^3.0.2
   rtlcss: ^4.0.0
-  sass: ^1.54.3
+  sass: ^1.54.9
   stylelint: ^14.0.0
   stylelint-config-idiomatic-order: ^8.1.0
   stylelint-config-prettier: ^9.0.3
@@ -60,7 +60,7 @@ devDependencies:
   prettier: 2.7.1
   rimraf: 3.0.2
   rtlcss: 4.0.0
-  sass: 1.54.3
+  sass: 1.54.9
   stylelint: 14.9.1
   stylelint-config-idiomatic-order: 8.1.0_stylelint@14.9.1
   stylelint-config-prettier: 9.0.3_stylelint@14.9.1
@@ -5227,8 +5227,8 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
-  /sass/1.54.3:
-    resolution: {integrity: sha512-fLodey5Qd41Pxp/Tk7Al97sViYwF/TazRc5t6E65O7JOk4XF8pzwIW7CvCxYVOfJFFI/1x5+elDyBIixrp+zrw==}
+  /sass/1.54.9:
+    resolution: {integrity: sha512-xb1hjASzEH+0L0WI9oFjqhRi51t/gagWnxLiwUNMltA0Ab6jIDkAacgKiGYKM9Jhy109osM7woEEai6SXeJo5Q==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
