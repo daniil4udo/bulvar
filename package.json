@@ -29,7 +29,6 @@
 	],
 	"scripts": {
 		"prepare": "husky install",
-		"postinstall": "lerna link",
 		"watch": "lerna run --parallel start",
 		"version": "pnpm install && pnpm build",
 		"build": "lerna run deploy --stream",
