@@ -1,5 +1,5 @@
 /*!
-  * @bulvar/bulma v0.11.11 (https://github.com/daniil4udo/bulvar/tree/master/packages/bulma)
+  * @bulvar/bulma v0.11.12 (https://github.com/daniil4udo/bulvar/tree/master/packages/bulma)
   * Copyright 2022 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
@@ -441,10 +441,6 @@ fieldset[disabled] .file-name, fieldset[disabled] .button, fieldset[disabled] .s
   width: 0.625em;
 }
 
-.tabs, .pagination, .message, .level, .breadcrumb, .block, .title,
-.subtitle, .table, .table-container, .progress, .notification, .content, .box {
-  --block-spacing: 1.5rem;
-}
 .tabs:not(:last-child), .pagination:not(:last-child), .message:not(:last-child), .level:not(:last-child), .breadcrumb:not(:last-child), .block:not(:last-child), .title:not(:last-child),
 .subtitle:not(:last-child), .table:not(:last-child), .table-container:not(:last-child), .progress:not(:last-child), .notification:not(:last-child), .content:not(:last-child), .box:not(:last-child) {
   margin-bottom: var(--block-spacing);
@@ -4458,6 +4454,7 @@ a.tag:hover {
 .breadcrumb {
   font-size: var(--breadcrumb-font-size);
   white-space: nowrap;
+  --breadcrumb-li-content: "/";
 }
 .breadcrumb a {
   align-items: center;
@@ -4516,7 +4513,7 @@ a.tag:hover {
   --breadcrumb-font-size: var(--size-large);
 }
 .breadcrumb.has-arrow-separator {
-  --breadcrumb-li-content: "→";
+  --breadcrumb-li-content: "\02190";
 }
 .breadcrumb.has-bullet-separator {
   --breadcrumb-li-content: "•";
@@ -9289,11 +9286,11 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .is-justify-content-left {
-  justify-content: left !important;
+  justify-content: right !important;
 }
 
 .is-justify-content-right {
-  justify-content: right !important;
+  justify-content: left !important;
 }
 
 .is-align-content-flex-start {

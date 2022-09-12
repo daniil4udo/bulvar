@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.12](https://github.com/daniil4udo/bulvar/compare/v0.11.11...v0.11.12) (2022-09-12)
+
+
+### Bug Fixes
+
+* **Buefy:** 🐛  horizontal classes typo ([56470b4](https://github.com/daniil4udo/bulvar/commit/56470b47cc76667e7ea1377951736c2ffa90212f))
+* **Buefy:** 🐛  multiple attribute selector must be in the brackets ([2b7deb9](https://github.com/daniil4udo/bulvar/commit/2b7deb9e2ae1381297744d3a9354d7808801c405))
+* **Bulma:** 🐛  css var generated additinal code ([ace0d42](https://github.com/daniil4udo/bulvar/commit/ace0d4206ca94a4580670ed08dae2abc6a44f4c6))
+
+
+
+
+
 ## [0.11.11](https://github.com/daniil4udo/bulvar/compare/v0.11.10...v0.11.11) (2022-08-06)
 
 

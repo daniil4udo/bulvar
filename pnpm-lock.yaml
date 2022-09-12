@@ -37,7 +37,7 @@ importers:
       rimraf: ^3.0.2
       rtlcss: ^4.0.0
       sass: ^1.54.9
-      stylelint: ^14.11.0
+      stylelint: ^14.0.0
       stylelint-config-idiomatic-order: ^8.1.0
       stylelint-config-prettier: ^9.0.3
       stylelint-config-standard-scss: ^5.0.0
@@ -71,7 +71,7 @@ importers:
 
   packages/buefy:
     specifiers:
-      '@bulvar/bulma': ^0.11.11
+      '@bulvar/bulma': ^0.11.12
     dependencies:
       '@bulvar/bulma': link:../bulma
 

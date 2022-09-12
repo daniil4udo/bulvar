@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.12](https://github.com/daniil4udo/bulvar/compare/v0.11.11...v0.11.12) (2022-09-12)
+
+
+### Bug Fixes
+
+* **Bulma:** 🐛  css var generated additinal code ([ace0d42](https://github.com/daniil4udo/bulvar/commit/ace0d4206ca94a4580670ed08dae2abc6a44f4c6))
+
+
+
+
+
 ## [0.11.11](https://github.com/daniil4udo/bulvar/compare/v0.11.10...v0.11.11) (2022-08-06)
 
 

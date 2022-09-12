@@ -1,5 +1,5 @@
 /*!
-  * @bulvar/buefy v0.11.11 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
+  * @bulvar/buefy v0.11.12 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
   * Copyright 2022 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
@@ -441,10 +441,6 @@ fieldset[disabled] .file-name, fieldset[disabled] .button, fieldset[disabled] .s
   width: 0.625em;
 }
 
-.tabs, .pagination, .message, .level, .breadcrumb, .block, .title,
-.subtitle, .table, .table-container, .progress, .progress-wrapper.is-not-native, .notification, .content, .box {
-  --block-spacing: 1.5rem;
-}
 .tabs:not(:last-child), .pagination:not(:last-child), .message:not(:last-child), .level:not(:last-child), .breadcrumb:not(:last-child), .block:not(:last-child), .title:not(:last-child),
 .subtitle:not(:last-child), .table:not(:last-child), .table-container:not(:last-child), .progress:not(:last-child), .progress-wrapper.is-not-native:not(:last-child), .notification:not(:last-child), .content:not(:last-child), .box:not(:last-child) {
   margin-bottom: var(--block-spacing);
@@ -4458,6 +4454,7 @@ a.tag:hover {
 .breadcrumb {
   font-size: var(--breadcrumb-font-size);
   white-space: nowrap;
+  --breadcrumb-li-content: "/";
 }
 .breadcrumb a {
   align-items: center;
@@ -4516,7 +4513,7 @@ a.tag:hover {
   --breadcrumb-font-size: var(--size-large);
 }
 .breadcrumb.has-arrow-separator {
-  --breadcrumb-li-content: "→";
+  --breadcrumb-li-content: "→"/*rtl:"\02190"*/;
 }
 .breadcrumb.has-bullet-separator {
   --breadcrumb-li-content: "•";
@@ -12484,11 +12481,11 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .colorpicker .dropdown.is-expanded.is-mobile-modal .dropdown-menu {
   width: unset;
 }
-.b-colorpicker .dropdown-horizonal-colorpicker, .colorpicker .dropdown-horizonal-colorpicker {
+.b-colorpicker .dropdown-horizontal-colorpicker, .colorpicker .dropdown-horizontal-colorpicker {
   display: flex;
   flex-direction: row;
 }
-.b-colorpicker .dropdown-horizonal-colorpicker .colorpicker-footer, .colorpicker .dropdown-horizonal-colorpicker .colorpicker-footer {
+.b-colorpicker .dropdown-horizontal-colorpicker .colorpicker-footer, .colorpicker .dropdown-horizontal-colorpicker .colorpicker-footer {
   padding-top: 0;
   padding-left: 0.875rem;
   border-width: 0 0 0 1px;
@@ -12884,10 +12881,10 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
     border: none;
     margin-left: 5px;
   }
-  .datepicker .dropdown-horizonal-timepicker {
+  .datepicker .dropdown-horizontal-timepicker {
     display: flex;
   }
-  .datepicker .content-horizonal-timepicker {
+  .datepicker .content-horizontal-timepicker {
     border-right: 1px solid #dbdbdb;
   }
 }
@@ -13170,13 +13167,13 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   padding-top: var(--field-floating-indent);
   padding-bottom: 1px;
 }
-.field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .select:not(multiple) {
+.field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .select:not([multiple]) {
   height: var(--floating-in-height);
 }
-.field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .select:not(multiple).is-loading::after {
+.field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .select:not([multiple]).is-loading::after {
   margin-top: var(--field-floating-indent);
 }
-.field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .select:not(multiple)::after {
+.field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .select:not([multiple])::after {
   margin-top: 1px;
 }
 .field.is-floating-in-label > .label + .control.taginput .taginput-container {
@@ -15869,7 +15866,6 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   margin-left: 10px;
 }
 .b-table .table th.is-sticky {
-  position: -webkit-sticky;
   position: sticky;
   z-index: 3 !important;
   left: 0;
@@ -15923,7 +15919,6 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   background: var(--background);
 }
 .b-table .table td.is-sticky {
-  position: -webkit-sticky;
   position: sticky;
   z-index: 1;
   left: 0;
@@ -15949,7 +15944,6 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   }
 }
 .b-table .table-wrapper.has-sticky-header tr:first-child th {
-  position: -webkit-sticky;
   position: sticky;
   z-index: 2;
   top: 0;
