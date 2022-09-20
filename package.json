@@ -44,7 +44,7 @@
 		"cz": "git cz"
 	},
 	"devDependencies": {
-		"autoprefixer": "^10.4.9",
+		"autoprefixer": "^10.4.12",
 		"commitizen": "^4.2.5",
 		"cross-env": "^7.0.3",
 		"csso-cli": "^4.0.1",
