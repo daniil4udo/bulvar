@@ -58,8 +58,8 @@ $-css-vars-map: (
     }
     .progress {
         height: 0.25rem;
-        margin-bottom: 0;
         border-radius: var(--radius-small);
+        margin-bottom: 0;
     }
     .carousel-items {
         position: relative;
@@ -201,8 +201,8 @@ $-css-vars-map: (
     }
     .icon {
         border: 1px solid var(--carousel-arrow-background);
-        background: var(--carousel-arrow-background);
         border-radius: var(--radius-rounded);
+        background: var(--carousel-arrow-background);
         color: var(--carousel-arrow-color);
         cursor: pointer;
         outline: 0;

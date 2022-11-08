@@ -167,7 +167,7 @@ $-css-vars-map: (
                         padding-bottom: 1px;
                     }
                 }
-                &:not(.datepicker):not(.timepicker):not(.taginput) {
+                &:not(.datepicker, .timepicker, .taginput) {
                     .input,
                     .textarea,
                     select {

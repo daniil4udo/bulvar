@@ -50,9 +50,9 @@ $-css-vars-map: (
     .toast {
         display: inline-flex;
         padding: 0.75em 1.5em;
+        border-radius: var(--toast-border-radius);
         margin: 0.5em 0;
         animation-duration: calc(var(--speed) * 2);
-        border-radius: var(--toast-border-radius);
         box-shadow: var(--toast-box-shadow);
         opacity: var(--toast-opacity);
         pointer-events: auto;
@@ -72,10 +72,10 @@ $-css-vars-map: (
         min-height: 3em;
         align-items: center;
         justify-content: space-around;
+        border-radius: var(--snackbar-border-radius);
         margin: 0.5em 0;
         animation-duration: calc(var(--speed) * 2);
         background: var(--snackbar-background-color);
-        border-radius: var(--snackbar-border-radius);
         box-shadow: var(--snackbar-box-shadow);
         color: var(--snackbar-color);
         pointer-events: auto;
@@ -113,8 +113,8 @@ $-css-vars-map: (
         }
         @include bulma-utilities.mobile {
             width: 100%;
-            margin: 0;
             border-radius: 0;
+            margin: 0;
         }
         @include bulma-utilities.tablet {
             overflow: hidden;

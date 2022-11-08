@@ -56,7 +56,7 @@ $-css-vars-map: ("help-font-size": $help-font-size)
     .control
       &:not(:last-child)
         +utilities.ltr-property("margin", -1px)
-      &:not(:first-child):not(:last-child)
+      &:not(:first-child, :last-child)
         .button,
         .input,
         .select select

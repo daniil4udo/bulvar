@@ -38,10 +38,10 @@ $-css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
     margin-bottom: 1rem
   // Sizes
   &.are-medium
-    .tag:not(.is-normal):not(.is-large)
+    .tag:not(.is-normal, .is-large)
       --tag-font-size: var(--size-normal)
   &.are-large
-    .tag:not(.is-normal):not(.is-medium)
+    .tag:not(.is-normal, .is-medium)
       --tag-font-size: var(--size-medium)
   &.is-centered
     justify-content: center

@@ -2,7 +2,6 @@
 
 .select {
     select {
-
         padding-right: 2.5em;
         // TODO Remove below when the following problem will be fixed from Bulma or Safari:
         // https://github.com/jgthms/bulma/issues/2626
@@ -11,11 +10,11 @@
         option {
             padding: var(--control-padding-vertical) var(--control-padding-horizontal);
             color: var(--grey-dark);
-        }
-        option:disabled {
-            cursor: not-allowed;
-			color: var(--grey-light);
-            opacity: 0.5;
+            &:disabled {
+                color: var(--grey-light);
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
         }
         optgroup {
             padding: 0.25em 0;

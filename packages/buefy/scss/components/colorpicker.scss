@@ -113,9 +113,9 @@ svg.b-colorpicker-triangle {
     .sl-range-thumb {
         width: calc(100% / 1 - .25em / 1);
         height: calc(100% / 1 - .25em / 1);
+        border-radius: var(--colorpicker-radius);
         margin: .125em;
         background: transparent;
-        border-radius: var(--colorpicker-radius);
         box-shadow:
             inset 0 0 0 1px #fff,
             0 0 0 1px var(--grey-lighter);
@@ -149,6 +149,7 @@ div.b-colorpicker-square {
         right: 0;
         bottom: 0;
         left: 0;
+        border-radius: var(--colorpicker-radius);
         background:
             conic-gradient(
                 #f00,
@@ -159,12 +160,11 @@ div.b-colorpicker-square {
                 #f0f,
                 #f00
             );
-        border-radius: var(--colorpicker-radius);
 
         .hue-range-thumb {
             position: absolute;
-            aspect-ratio: 1 / 1;
             border-radius: calc(var(--colorpicker-radius) / 1.75);
+            aspect-ratio: 1 / 1;
             box-shadow:
                 inset 0 0 0 1px #fff,
                 0 0 0 1px var(--grey-lighter);
@@ -194,8 +194,8 @@ div.b-colorpicker-square {
         right: 0;
         bottom: 0;
         left: 0;
-        background: #fff;
         border-radius: calc(var(--colorpicker-radius) / 2);
+        background: #fff;
 
         &::before {
             position: absolute;
@@ -242,6 +242,7 @@ div.b-colorpicker-square {
 .b-colorpicker-alpha-slider {
     position: relative;
     height: 1em;
+    border-radius: var(--colorpicker-radius);
     margin-top: .125em;
     margin-bottom: .875rem;
     background-image:
@@ -249,7 +250,6 @@ div.b-colorpicker-square {
         linear-gradient(45deg, #c7c7c7 25%, transparent 25%, transparent 75%, #c7c7c7 75%, #c7c7c7);
     background-position: .5em .5em, 0 0;
     background-size: 1em 1em;
-    border-radius: var(--colorpicker-radius);
 
     .alpha-range-thumb {
         position: absolute;

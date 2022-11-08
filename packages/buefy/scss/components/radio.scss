@@ -57,10 +57,10 @@ $-css-vars-map: (
                     display: flex;
                     width: var(--radio-size);
                     height: var(--radio-size);
+                    border-radius: 50%;
                     margin-bottom: calc(-0.5 * var(--radio-size));
                     margin-left: calc(-0.5 * var(--radio-size));
                     background-color: var(--radio-active-background-color);
-                    border-radius: 50%;
                     content: "";
                     transform: scale(0);
                     transition: transform calc(var(--speed) * 2) var(--easing);

@@ -29,7 +29,7 @@ $-css-vars-map: ('select-arrow-color': $select-arrow-color, 'select-disabled-bor
   vertical-align: top
   &:not(.is-multiple)
     height: var(--input-height)
-  &:not(.is-multiple):not(.is-loading)
+  &:not(.is-multiple, .is-loading)
     &::after
       @extend %arrow
       border-color: var(--select-arrow-color)
@@ -59,7 +59,7 @@ $-css-vars-map: ('select-arrow-color': $select-arrow-color, 'select-disabled-bor
       option
         padding: 0.5em 1em
   // States
-  &:not(.is-multiple):not(.is-loading):hover
+  &:not(.is-multiple, .is-loading):hover
     &::after
       border-color: var(--select-hover-color)
   // Colors

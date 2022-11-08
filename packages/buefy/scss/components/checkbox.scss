@@ -58,8 +58,8 @@ $-css-vars-map: (
                 height: var(--checkbox-size);
                 flex-shrink: 0;
                 border: var(--checkbox-border-width) solid var(--checkbox-border-color);
-                background: var(--checkbox-background-color);
                 border-radius: var(--checkbox-border-radius);
+                background: var(--checkbox-background-color);
                 transition: background calc(var(--speed) * 2) var(--easing);
             }
             &:checked,

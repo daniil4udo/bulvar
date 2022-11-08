@@ -40,7 +40,7 @@ $-css-vars-map: ('hero-body-padding': $hero-body-padding, 'hero-body-padding-tab
     &.is-#{$name}
       background-color: var(--#{$name})
       color: var(--#{$name}-invert)
-      a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
+      a:not(.button, .dropdown-item, .tag, .pagination-link.is-current),
       strong
         color: inherit
       .title

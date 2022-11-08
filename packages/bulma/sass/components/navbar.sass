@@ -485,7 +485,7 @@ a.navbar-item,
   .navbar-link
     &.is-active
       color: var(--navbar-item-active-color)
-    &.is-active:not(:focus):not(:hover)
+    &.is-active:not(:focus, :hover)
       background-color: var(--navbar-item-active-background-color)
   .navbar-item.has-dropdown
     &:focus,

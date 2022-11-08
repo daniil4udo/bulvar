@@ -68,8 +68,8 @@ $-css-vars-map: (
 
     &.is-not-native {
         @extend .progress;
-        background-color: var(--progress-bar-background-color);
         border-radius: var(--progress-border-radius);
+        background-color: var(--progress-bar-background-color);
         white-space: nowrap;
 
         .progress-bar {
