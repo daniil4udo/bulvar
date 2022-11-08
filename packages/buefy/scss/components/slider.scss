@@ -85,8 +85,8 @@ $-css-vars-map: (
         position: relative;
         display: flex;
         align-items: center;
-        background: var(--slider-track-background);
         border-radius: var(--slider-radius);
+        background: var(--slider-track-background);
         cursor: pointer;
     }
     .b-slider-fill {
@@ -95,8 +95,8 @@ $-css-vars-map: (
         top: 50%;
         height: 100%;
         border: var(--slider-track-border);
-        background: var(--slider-track-background);
         border-radius: $slider-track-radius;
+        background: var(--slider-track-background);
         box-shadow: var(--slider-track-shadow);
         transform: translateY(-50%);
     }
@@ -111,8 +111,8 @@ $-css-vars-map: (
 
         .b-slider-thumb {
             border: var(--slider-thumb-border);
-            background: var(--slider-thumb-background);
             border-radius: var(--slider-thumb-radius);
+            background: var(--slider-thumb-background);
             box-shadow: var(--slider-thumb-shadow);
             &:focus {
                 transform: scale(1.25);
@@ -178,8 +178,8 @@ $-css-vars-map: (
         position: absolute;
         top: 50%;
         width: var(--slider-tick-width);
-        background: var(--slider-tick-background);
         border-radius: var(--slider-tick-radius);
+        background: var(--slider-tick-background);
         transform: translate(-50%, -50%);
         &.is-tick-hidden {
             background: transparent;

@@ -334,7 +334,7 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
   justify-content: flex-start
   .button
     margin-bottom: 0.5rem
-    &:not(:last-child):not(.is-fullwidth)
+    &:not(:last-child, .is-fullwidth)
       +utilities.ltr-property("margin", 0.5rem)
   &:last-child
     margin-bottom: -0.5rem
@@ -342,13 +342,13 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
     margin-bottom: 1rem
   // Sizes
   &.are-small
-    .button:not(.is-normal):not(.is-medium):not(.is-large)
+    .button:not(.is-normal, .is-medium, .is-large)
       +button-small
   &.are-medium
-    .button:not(.is-small):not(.is-normal):not(.is-large)
+    .button:not(.is-small, .is-normal, .is-large)
       +button-medium
   &.are-large
-    .button:not(.is-small):not(.is-normal):not(.is-medium)
+    .button:not(.is-small, .is-normal, .is-medium)
       +button-large
   &.has-addons
     .button

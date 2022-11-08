@@ -43,8 +43,8 @@ $-css-vars-map: (
             flex-shrink: 0;
             align-items: center;
             padding: var(--switch-padding);
-            background: var(--grey-light);
             border-radius: var(--radius);
+            background: var(--grey-light);
             transition: background calc(var(--speed) * 2) var(--easing), box-shadow calc(var(--speed) * 2) var(--easing);
 
             @each $name, $pair in $switch-colors {
@@ -63,8 +63,8 @@ $-css-vars-map: (
                 display: block;
                 width: calc((var(--switch-width) - var(--switch-padding) * 2) * 0.5);
                 height: calc((var(--switch-width) - var(--switch-padding) * 2) * 0.5);
-                background: var(--background);
                 border-radius: var(--radius);
+                background: var(--background);
                 box-shadow: 0 3px 1px 0 rgba(var(--scheme-invert-rgb), 0.05),
                     0 2px 2px 0 rgba(var(--scheme-invert-rgb), 0.1),
                     0 3px 3px 0 rgba(var(--scheme-invert-rgb), 0.05);

@@ -22,11 +22,11 @@ $container-max-width: vars.$fullhd !default
     &.is-widescreen:not(.is-max-desktop)
       max-width: math.min(vars.$widescreen, $container-max-width) - $container-offset
   +utilities.until-fullhd
-    &.is-fullhd:not(.is-max-desktop):not(.is-max-widescreen)
+    &.is-fullhd:not(.is-max-desktop, .is-max-widescreen)
       max-width: math.min(vars.$fullhd, $container-max-width) - $container-offset
   +utilities.widescreen
     &:not(.is-max-desktop)
       max-width: math.min(vars.$widescreen, $container-max-width) - $container-offset
   +utilities.fullhd
-    &:not(.is-max-desktop):not(.is-max-widescreen)
+    &:not(.is-max-desktop, .is-max-widescreen)
       max-width: math.min(vars.$fullhd, $container-max-width) - $container-offset
