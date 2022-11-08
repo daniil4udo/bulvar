@@ -192,8 +192,8 @@ $-css-vars-map: (
                     align-items: center;
                     justify-content: center;
                     border: var(--steps-marker-default-border);
-                    background: var(--steps-maker-default-color);
                     border-radius: var(--radius);
+                    background: var(--steps-maker-default-color);
                     color: var(--steps-maker-color);
                     font-weight: var(--weight-bold);
                 }
@@ -455,7 +455,7 @@ $-css-vars-map: (
                     }
                 }
             }
-            &:not(.has-label-right):not(.has-label-left) {
+            &:not(.has-label-right, .has-label-left) {
                 .step-items {
                     .step-item {
                         .step-link {

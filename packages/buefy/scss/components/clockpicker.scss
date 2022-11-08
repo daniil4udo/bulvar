@@ -167,8 +167,8 @@ $-css-vars-map: (
 
         .b-clockpicker-btn {
             padding: 0 8px;
-            margin-bottom: 2px;
             border-radius: var(--radius-rounded);
+            margin-bottom: 2px;
             &:hover,
             &.active {
                 background-color: var(--primary);
@@ -197,9 +197,9 @@ $-css-vars-map: (
             height: 100%;
             align-items: center;
             justify-content: center;
-            background-color: var(--grey-lighter);
             // Outer border circle of clock
             border-radius: 50%;
+            background-color: var(--grey-lighter);
 
             &::after {
                 position: absolute;
@@ -286,8 +286,8 @@ $-css-vars-map: (
                     border-width: 2px;
                     border-style: solid;
                     border-color: inherit;
-                    background: transparent;
                     border-radius: 100%;
+                    background: transparent;
                     content: "";
                     transform: translate(-50%, -50%);
                 }

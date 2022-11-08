@@ -66,7 +66,7 @@ $-css-vars-map: (
             margin-top: -1rem;
         }
     }
-    tr:not(.detail):not(.is-empty):not(.table-footer) {
+    tr:not(.detail, .is-empty, .table-footer) {
         td {
             display: flex;
             width: auto;
@@ -121,8 +121,8 @@ $-css-vars-map: (
     .table {
         width: 100%;
         border: 1px solid transparent;
-        border-collapse: separate;
         border-radius: var(--radius);
+        border-collapse: separate;
         th {
             font-weight: var(--weight-semibold);
             .th-wrap {
@@ -134,9 +134,9 @@ $-css-vars-map: (
                     font-size: 1rem;
                 }
                 &.is-numeric {
+                    width: 95%;
                     flex-direction: row-reverse;
                     text-align: right;
-					width: 95%;
                     .icon {
                         margin-right: 0.5rem;
                         margin-left: 0;
