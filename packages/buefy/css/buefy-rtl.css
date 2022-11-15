@@ -1,5 +1,5 @@
 /*!
-  * @bulvar/buefy v0.11.12 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
+  * @bulvar/buefy v0.11.13 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
   * Copyright 2022 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
@@ -423,7 +423,7 @@ fieldset[disabled] .file-name, fieldset[disabled] .button, fieldset[disabled] .s
   user-select: none;
 }
 
-.navbar-link:not(.is-arrowless)::after, .select:not(.is-multiple):not(.is-loading)::after {
+.navbar-link:not(.is-arrowless)::after, .select:not(.is-multiple, .is-loading)::after {
   --arrow-color: transparent;
   border: 3px solid var(--arrow-color);
   border-radius: 2px;
@@ -510,7 +510,6 @@ fieldset[disabled] .file-name, fieldset[disabled] .button, fieldset[disabled] .s
 
 .upload .upload-draggable.is-loading::after, .loading-overlay .loading-icon::after, .control.is-loading::after, .select.is-loading::after, .loader, .button.is-loading::after {
   --loader-border-color: var(--grey-lighter);
-  -webkit-animation: spinAround 500ms infinite linear;
   animation: spinAround 500ms infinite linear;
   border: 2px solid var(--loader-border-color);
   border-radius: var(--radius-rounded);
@@ -727,15 +726,6 @@ table th {
   color: var(--text-strong);
 }
 
-@-webkit-keyframes spinAround {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-359deg);
-  }
-}
-
 @keyframes spinAround {
   from {
     transform: rotate(0deg);
@@ -745,17 +735,7 @@ table th {
   }
 }
 .spinAround {
-  -webkit-animation-name: spinAround;
   animation-name: spinAround;
-}
-
-@-webkit-keyframes moveIndeterminate {
-  from {
-    background-position: -100% 0;
-  }
-  to {
-    background-position: 300% 0;
-  }
 }
 
 @keyframes moveIndeterminate {
@@ -767,7 +747,6 @@ table th {
   }
 }
 .moveIndeterminate {
-  -webkit-animation-name: moveIndeterminate;
   animation-name: moveIndeterminate;
 }
 
@@ -1985,7 +1964,7 @@ a.box:active {
 .buttons .button {
   margin-bottom: 0.5rem;
 }
-.buttons .button:not(:last-child):not(.is-fullwidth) {
+.buttons .button:not(:last-child, .is-fullwidth) {
   margin-right: 0.5rem;
 }
 .buttons:last-child {
@@ -1994,16 +1973,16 @@ a.box:active {
 .buttons:not(:last-child) {
   margin-bottom: 1rem;
 }
-.buttons.are-small .button:not(.is-normal):not(.is-medium):not(.is-large) {
+.buttons.are-small .button:not(.is-normal, .is-medium, .is-large) {
   --button-font-size: var(--size-small);
 }
-.buttons.are-small .button:not(.is-normal):not(.is-medium):not(.is-large):not(.is-rounded) {
+.buttons.are-small .button:not(.is-normal, .is-medium, .is-large):not(.is-rounded) {
   border-radius: var(--radius-small);
 }
-.buttons.are-medium .button:not(.is-small):not(.is-normal):not(.is-large) {
+.buttons.are-medium .button:not(.is-small, .is-normal, .is-large) {
   --button-font-size: var(--size-medium);
 }
-.buttons.are-large .button:not(.is-small):not(.is-normal):not(.is-medium) {
+.buttons.are-large .button:not(.is-small, .is-normal, .is-medium) {
   --button-font-size: var(--size-large);
 }
 .buttons.has-addons .button:not(:first-child) {
@@ -2051,7 +2030,7 @@ a.box:active {
     font-size: calc(var(--size-small) * 0.75);
   }
   .button.is-responsive,
-.button.is-responsive.is-normal {
+  .button.is-responsive.is-normal {
     font-size: calc(var(--size-small) * 0.875);
   }
   .button.is-responsive.is-medium {
@@ -2066,7 +2045,7 @@ a.box:active {
     font-size: calc(var(--size-small) * 0.875);
   }
   .button.is-responsive,
-.button.is-responsive.is-normal {
+  .button.is-responsive.is-normal {
     font-size: var(--size-small);
   }
   .button.is-responsive.is-medium {
@@ -2099,7 +2078,7 @@ a.box:active {
   }
 }
 @media screen and (max-width: 1407px) {
-  .container.is-fullhd:not(.is-max-desktop):not(.is-max-widescreen) {
+  .container.is-fullhd:not(.is-max-desktop, .is-max-widescreen) {
     max-width: 1344px;
   }
 }
@@ -2109,7 +2088,7 @@ a.box:active {
   }
 }
 @media screen and (min-width: 1408px) {
-  .container:not(.is-max-desktop):not(.is-max-widescreen) {
+  .container:not(.is-max-desktop, .is-max-widescreen) {
     max-width: 1344px;
   }
 }
@@ -2475,7 +2454,7 @@ div.icon-text {
   position: relative;
   padding: var(--notification-padding-rtl);
 }
-.notification a:not(.button):not(.dropdown-item) {
+.notification a:not(.button, .dropdown-item) {
   color: currentColor;
   text-decoration: underline;
 }
@@ -2734,13 +2713,9 @@ div.icon-text {
   background-image: linear-gradient(to left, var(--danger) 30%, var(--progress-bar-background-color) 30%);
 }
 .progress:indeterminate, .progress-wrapper.is-not-native:indeterminate {
-  -webkit-animation-duration: var(--progress-indeterminate-duration);
   animation-duration: var(--progress-indeterminate-duration);
-  -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-  -webkit-animation-name: moveIndeterminate;
   animation-name: moveIndeterminate;
-  -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
   background-color: var(--progress-bar-background-color);
   background-image: linear-gradient(to left, var(--text) 30%, var(--progress-bar-background-color) 30%);
@@ -2990,10 +2965,10 @@ div.icon-text {
 .tags:not(:last-child) {
   margin-bottom: 1rem;
 }
-.tags.are-medium .tag:not(.is-normal):not(.is-large) {
+.tags.are-medium .tag:not(.is-normal, .is-large) {
   --tag-font-size: var(--size-normal);
 }
-.tags.are-large .tag:not(.is-normal):not(.is-medium) {
+.tags.are-large .tag:not(.is-normal, .is-medium) {
   --tag-font-size: var(--size-medium);
 }
 .tags.is-centered {
@@ -3523,7 +3498,7 @@ a.tag:hover {
 .select:not(.is-multiple) {
   height: var(--input-height);
 }
-.select:not(.is-multiple):not(.is-loading)::after {
+.select:not(.is-multiple, .is-loading)::after {
   border-color: var(--select-arrow-color);
   right: 1.125em;
   z-index: 4;
@@ -3555,7 +3530,7 @@ a.tag:hover {
 .select select[multiple] option {
   padding: 0.5em 1em;
 }
-.select:not(.is-multiple):not(.is-loading):hover::after {
+.select:not(.is-multiple, .is-loading):hover::after {
   border-color: var(--select-hover-color);
 }
 .select.is-white:not(:hover)::after {
@@ -4206,9 +4181,9 @@ a.tag:hover {
 .field.has-addons .control:not(:last-child) {
   margin-right: -1px;
 }
-.field.has-addons .control:not(:first-child):not(:last-child) .button,
-.field.has-addons .control:not(:first-child):not(:last-child) .input,
-.field.has-addons .control:not(:first-child):not(:last-child) .select select {
+.field.has-addons .control:not(:first-child, :last-child) .button,
+.field.has-addons .control:not(:first-child, :last-child) .input,
+.field.has-addons .control:not(:first-child, :last-child) .select select {
   border-radius: 0;
 }
 .field.has-addons .control:first-child:not(:only-child) .button,
@@ -4801,7 +4776,7 @@ button.dropdown-item.is-active {
 }
 @media screen and (min-width: 769px), print {
   .level-left .level-item:not(:last-child),
-.level-right .level-item:not(:last-child) {
+  .level-right .level-item:not(:last-child) {
     margin-right: var(--level-item-spacing);
   }
 }
@@ -4997,7 +4972,7 @@ button.dropdown-item.is-active {
 .message strong {
   color: currentColor;
 }
-.message a:not(.button):not(.tag):not(.dropdown-item) {
+.message a:not(.button, .tag, .dropdown-item) {
   color: currentColor;
   text-decoration: underline;
 }
@@ -5178,7 +5153,7 @@ button.dropdown-item.is-active {
 }
 @media screen and (min-width: 769px) {
   .modal-content,
-.modal-card {
+  .modal-card {
     margin: 0 auto;
     max-height: calc(100vh - var(--modal-content-spacing-tablet));
     width: var(--modal-content-width);
@@ -5318,41 +5293,41 @@ button.dropdown-item.is-active {
     --navbar-dropdown-item-active-color: var(--white-invert);
   }
   .navbar.is-white .navbar-brand > .navbar-item,
-.navbar.is-white .navbar-brand .navbar-link,
-.navbar.is-white .navbar-start > .navbar-item,
-.navbar.is-white .navbar-start .navbar-link,
-.navbar.is-white .navbar-end > .navbar-item,
-.navbar.is-white .navbar-end .navbar-link {
+  .navbar.is-white .navbar-brand .navbar-link,
+  .navbar.is-white .navbar-start > .navbar-item,
+  .navbar.is-white .navbar-start .navbar-link,
+  .navbar.is-white .navbar-end > .navbar-item,
+  .navbar.is-white .navbar-end .navbar-link {
     color: var(--white-invert);
   }
   .navbar.is-white .navbar-brand > a.navbar-item:focus, .navbar.is-white .navbar-brand > a.navbar-item:hover, .navbar.is-white .navbar-brand > a.navbar-item.is-active,
-.navbar.is-white .navbar-brand .navbar-link:focus,
-.navbar.is-white .navbar-brand .navbar-link:hover,
-.navbar.is-white .navbar-brand .navbar-link.is-active,
-.navbar.is-white .navbar-start > a.navbar-item:focus,
-.navbar.is-white .navbar-start > a.navbar-item:hover,
-.navbar.is-white .navbar-start > a.navbar-item.is-active,
-.navbar.is-white .navbar-start .navbar-link:focus,
-.navbar.is-white .navbar-start .navbar-link:hover,
-.navbar.is-white .navbar-start .navbar-link.is-active,
-.navbar.is-white .navbar-end > a.navbar-item:focus,
-.navbar.is-white .navbar-end > a.navbar-item:hover,
-.navbar.is-white .navbar-end > a.navbar-item.is-active,
-.navbar.is-white .navbar-end .navbar-link:focus,
-.navbar.is-white .navbar-end .navbar-link:hover,
-.navbar.is-white .navbar-end .navbar-link.is-active {
+  .navbar.is-white .navbar-brand .navbar-link:focus,
+  .navbar.is-white .navbar-brand .navbar-link:hover,
+  .navbar.is-white .navbar-brand .navbar-link.is-active,
+  .navbar.is-white .navbar-start > a.navbar-item:focus,
+  .navbar.is-white .navbar-start > a.navbar-item:hover,
+  .navbar.is-white .navbar-start > a.navbar-item.is-active,
+  .navbar.is-white .navbar-start .navbar-link:focus,
+  .navbar.is-white .navbar-start .navbar-link:hover,
+  .navbar.is-white .navbar-start .navbar-link.is-active,
+  .navbar.is-white .navbar-end > a.navbar-item:focus,
+  .navbar.is-white .navbar-end > a.navbar-item:hover,
+  .navbar.is-white .navbar-end > a.navbar-item.is-active,
+  .navbar.is-white .navbar-end .navbar-link:focus,
+  .navbar.is-white .navbar-end .navbar-link:hover,
+  .navbar.is-white .navbar-end .navbar-link.is-active {
     --navbar-item-hover-background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) + -5%), var(--white-a));
     background-color: var(--navbar-item-hover-background-color);
     color: var(--white-invert);
   }
   .navbar.is-white .navbar-brand .navbar-link::after,
-.navbar.is-white .navbar-start .navbar-link::after,
-.navbar.is-white .navbar-end .navbar-link::after {
+  .navbar.is-white .navbar-start .navbar-link::after,
+  .navbar.is-white .navbar-end .navbar-link::after {
     border-color: var(--white-invert);
   }
   .navbar.is-white .navbar-item.has-dropdown:focus .navbar-link,
-.navbar.is-white .navbar-item.has-dropdown:hover .navbar-link,
-.navbar.is-white .navbar-item.has-dropdown.is-active .navbar-link {
+  .navbar.is-white .navbar-item.has-dropdown:hover .navbar-link,
+  .navbar.is-white .navbar-item.has-dropdown.is-active .navbar-link {
     --navbar-dropdown-item-hover-background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l) + -5%), var(--white-a));
     background-color: var(--navbar-dropdown-item-hover-background-color);
     color: var(--white-invert);
@@ -5388,41 +5363,41 @@ button.dropdown-item.is-active {
     --navbar-dropdown-item-active-color: var(--black-invert);
   }
   .navbar.is-black .navbar-brand > .navbar-item,
-.navbar.is-black .navbar-brand .navbar-link,
-.navbar.is-black .navbar-start > .navbar-item,
-.navbar.is-black .navbar-start .navbar-link,
-.navbar.is-black .navbar-end > .navbar-item,
-.navbar.is-black .navbar-end .navbar-link {
+  .navbar.is-black .navbar-brand .navbar-link,
+  .navbar.is-black .navbar-start > .navbar-item,
+  .navbar.is-black .navbar-start .navbar-link,
+  .navbar.is-black .navbar-end > .navbar-item,
+  .navbar.is-black .navbar-end .navbar-link {
     color: var(--black-invert);
   }
   .navbar.is-black .navbar-brand > a.navbar-item:focus, .navbar.is-black .navbar-brand > a.navbar-item:hover, .navbar.is-black .navbar-brand > a.navbar-item.is-active,
-.navbar.is-black .navbar-brand .navbar-link:focus,
-.navbar.is-black .navbar-brand .navbar-link:hover,
-.navbar.is-black .navbar-brand .navbar-link.is-active,
-.navbar.is-black .navbar-start > a.navbar-item:focus,
-.navbar.is-black .navbar-start > a.navbar-item:hover,
-.navbar.is-black .navbar-start > a.navbar-item.is-active,
-.navbar.is-black .navbar-start .navbar-link:focus,
-.navbar.is-black .navbar-start .navbar-link:hover,
-.navbar.is-black .navbar-start .navbar-link.is-active,
-.navbar.is-black .navbar-end > a.navbar-item:focus,
-.navbar.is-black .navbar-end > a.navbar-item:hover,
-.navbar.is-black .navbar-end > a.navbar-item.is-active,
-.navbar.is-black .navbar-end .navbar-link:focus,
-.navbar.is-black .navbar-end .navbar-link:hover,
-.navbar.is-black .navbar-end .navbar-link.is-active {
+  .navbar.is-black .navbar-brand .navbar-link:focus,
+  .navbar.is-black .navbar-brand .navbar-link:hover,
+  .navbar.is-black .navbar-brand .navbar-link.is-active,
+  .navbar.is-black .navbar-start > a.navbar-item:focus,
+  .navbar.is-black .navbar-start > a.navbar-item:hover,
+  .navbar.is-black .navbar-start > a.navbar-item.is-active,
+  .navbar.is-black .navbar-start .navbar-link:focus,
+  .navbar.is-black .navbar-start .navbar-link:hover,
+  .navbar.is-black .navbar-start .navbar-link.is-active,
+  .navbar.is-black .navbar-end > a.navbar-item:focus,
+  .navbar.is-black .navbar-end > a.navbar-item:hover,
+  .navbar.is-black .navbar-end > a.navbar-item.is-active,
+  .navbar.is-black .navbar-end .navbar-link:focus,
+  .navbar.is-black .navbar-end .navbar-link:hover,
+  .navbar.is-black .navbar-end .navbar-link.is-active {
     --navbar-item-hover-background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) + -5%), var(--black-a));
     background-color: var(--navbar-item-hover-background-color);
     color: var(--black-invert);
   }
   .navbar.is-black .navbar-brand .navbar-link::after,
-.navbar.is-black .navbar-start .navbar-link::after,
-.navbar.is-black .navbar-end .navbar-link::after {
+  .navbar.is-black .navbar-start .navbar-link::after,
+  .navbar.is-black .navbar-end .navbar-link::after {
     border-color: var(--black-invert);
   }
   .navbar.is-black .navbar-item.has-dropdown:focus .navbar-link,
-.navbar.is-black .navbar-item.has-dropdown:hover .navbar-link,
-.navbar.is-black .navbar-item.has-dropdown.is-active .navbar-link {
+  .navbar.is-black .navbar-item.has-dropdown:hover .navbar-link,
+  .navbar.is-black .navbar-item.has-dropdown.is-active .navbar-link {
     --navbar-dropdown-item-hover-background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l) + -5%), var(--black-a));
     background-color: var(--navbar-dropdown-item-hover-background-color);
     color: var(--black-invert);
@@ -5458,41 +5433,41 @@ button.dropdown-item.is-active {
     --navbar-dropdown-item-active-color: var(--light-invert);
   }
   .navbar.is-light .navbar-brand > .navbar-item,
-.navbar.is-light .navbar-brand .navbar-link,
-.navbar.is-light .navbar-start > .navbar-item,
-.navbar.is-light .navbar-start .navbar-link,
-.navbar.is-light .navbar-end > .navbar-item,
-.navbar.is-light .navbar-end .navbar-link {
+  .navbar.is-light .navbar-brand .navbar-link,
+  .navbar.is-light .navbar-start > .navbar-item,
+  .navbar.is-light .navbar-start .navbar-link,
+  .navbar.is-light .navbar-end > .navbar-item,
+  .navbar.is-light .navbar-end .navbar-link {
     color: var(--light-invert);
   }
   .navbar.is-light .navbar-brand > a.navbar-item:focus, .navbar.is-light .navbar-brand > a.navbar-item:hover, .navbar.is-light .navbar-brand > a.navbar-item.is-active,
-.navbar.is-light .navbar-brand .navbar-link:focus,
-.navbar.is-light .navbar-brand .navbar-link:hover,
-.navbar.is-light .navbar-brand .navbar-link.is-active,
-.navbar.is-light .navbar-start > a.navbar-item:focus,
-.navbar.is-light .navbar-start > a.navbar-item:hover,
-.navbar.is-light .navbar-start > a.navbar-item.is-active,
-.navbar.is-light .navbar-start .navbar-link:focus,
-.navbar.is-light .navbar-start .navbar-link:hover,
-.navbar.is-light .navbar-start .navbar-link.is-active,
-.navbar.is-light .navbar-end > a.navbar-item:focus,
-.navbar.is-light .navbar-end > a.navbar-item:hover,
-.navbar.is-light .navbar-end > a.navbar-item.is-active,
-.navbar.is-light .navbar-end .navbar-link:focus,
-.navbar.is-light .navbar-end .navbar-link:hover,
-.navbar.is-light .navbar-end .navbar-link.is-active {
+  .navbar.is-light .navbar-brand .navbar-link:focus,
+  .navbar.is-light .navbar-brand .navbar-link:hover,
+  .navbar.is-light .navbar-brand .navbar-link.is-active,
+  .navbar.is-light .navbar-start > a.navbar-item:focus,
+  .navbar.is-light .navbar-start > a.navbar-item:hover,
+  .navbar.is-light .navbar-start > a.navbar-item.is-active,
+  .navbar.is-light .navbar-start .navbar-link:focus,
+  .navbar.is-light .navbar-start .navbar-link:hover,
+  .navbar.is-light .navbar-start .navbar-link.is-active,
+  .navbar.is-light .navbar-end > a.navbar-item:focus,
+  .navbar.is-light .navbar-end > a.navbar-item:hover,
+  .navbar.is-light .navbar-end > a.navbar-item.is-active,
+  .navbar.is-light .navbar-end .navbar-link:focus,
+  .navbar.is-light .navbar-end .navbar-link:hover,
+  .navbar.is-light .navbar-end .navbar-link.is-active {
     --navbar-item-hover-background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) + -5%), var(--light-a));
     background-color: var(--navbar-item-hover-background-color);
     color: var(--light-invert);
   }
   .navbar.is-light .navbar-brand .navbar-link::after,
-.navbar.is-light .navbar-start .navbar-link::after,
-.navbar.is-light .navbar-end .navbar-link::after {
+  .navbar.is-light .navbar-start .navbar-link::after,
+  .navbar.is-light .navbar-end .navbar-link::after {
     border-color: var(--light-invert);
   }
   .navbar.is-light .navbar-item.has-dropdown:focus .navbar-link,
-.navbar.is-light .navbar-item.has-dropdown:hover .navbar-link,
-.navbar.is-light .navbar-item.has-dropdown.is-active .navbar-link {
+  .navbar.is-light .navbar-item.has-dropdown:hover .navbar-link,
+  .navbar.is-light .navbar-item.has-dropdown.is-active .navbar-link {
     --navbar-dropdown-item-hover-background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l) + -5%), var(--light-a));
     background-color: var(--navbar-dropdown-item-hover-background-color);
     color: var(--light-invert);
@@ -5528,41 +5503,41 @@ button.dropdown-item.is-active {
     --navbar-dropdown-item-active-color: var(--dark-invert);
   }
   .navbar.is-dark .navbar-brand > .navbar-item,
-.navbar.is-dark .navbar-brand .navbar-link,
-.navbar.is-dark .navbar-start > .navbar-item,
-.navbar.is-dark .navbar-start .navbar-link,
-.navbar.is-dark .navbar-end > .navbar-item,
-.navbar.is-dark .navbar-end .navbar-link {
+  .navbar.is-dark .navbar-brand .navbar-link,
+  .navbar.is-dark .navbar-start > .navbar-item,
+  .navbar.is-dark .navbar-start .navbar-link,
+  .navbar.is-dark .navbar-end > .navbar-item,
+  .navbar.is-dark .navbar-end .navbar-link {
     color: var(--dark-invert);
   }
   .navbar.is-dark .navbar-brand > a.navbar-item:focus, .navbar.is-dark .navbar-brand > a.navbar-item:hover, .navbar.is-dark .navbar-brand > a.navbar-item.is-active,
-.navbar.is-dark .navbar-brand .navbar-link:focus,
-.navbar.is-dark .navbar-brand .navbar-link:hover,
-.navbar.is-dark .navbar-brand .navbar-link.is-active,
-.navbar.is-dark .navbar-start > a.navbar-item:focus,
-.navbar.is-dark .navbar-start > a.navbar-item:hover,
-.navbar.is-dark .navbar-start > a.navbar-item.is-active,
-.navbar.is-dark .navbar-start .navbar-link:focus,
-.navbar.is-dark .navbar-start .navbar-link:hover,
-.navbar.is-dark .navbar-start .navbar-link.is-active,
-.navbar.is-dark .navbar-end > a.navbar-item:focus,
-.navbar.is-dark .navbar-end > a.navbar-item:hover,
-.navbar.is-dark .navbar-end > a.navbar-item.is-active,
-.navbar.is-dark .navbar-end .navbar-link:focus,
-.navbar.is-dark .navbar-end .navbar-link:hover,
-.navbar.is-dark .navbar-end .navbar-link.is-active {
+  .navbar.is-dark .navbar-brand .navbar-link:focus,
+  .navbar.is-dark .navbar-brand .navbar-link:hover,
+  .navbar.is-dark .navbar-brand .navbar-link.is-active,
+  .navbar.is-dark .navbar-start > a.navbar-item:focus,
+  .navbar.is-dark .navbar-start > a.navbar-item:hover,
+  .navbar.is-dark .navbar-start > a.navbar-item.is-active,
+  .navbar.is-dark .navbar-start .navbar-link:focus,
+  .navbar.is-dark .navbar-start .navbar-link:hover,
+  .navbar.is-dark .navbar-start .navbar-link.is-active,
+  .navbar.is-dark .navbar-end > a.navbar-item:focus,
+  .navbar.is-dark .navbar-end > a.navbar-item:hover,
+  .navbar.is-dark .navbar-end > a.navbar-item.is-active,
+  .navbar.is-dark .navbar-end .navbar-link:focus,
+  .navbar.is-dark .navbar-end .navbar-link:hover,
+  .navbar.is-dark .navbar-end .navbar-link.is-active {
     --navbar-item-hover-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) + -5%), var(--dark-a));
     background-color: var(--navbar-item-hover-background-color);
     color: var(--dark-invert);
   }
   .navbar.is-dark .navbar-brand .navbar-link::after,
-.navbar.is-dark .navbar-start .navbar-link::after,
-.navbar.is-dark .navbar-end .navbar-link::after {
+  .navbar.is-dark .navbar-start .navbar-link::after,
+  .navbar.is-dark .navbar-end .navbar-link::after {
     border-color: var(--dark-invert);
   }
   .navbar.is-dark .navbar-item.has-dropdown:focus .navbar-link,
-.navbar.is-dark .navbar-item.has-dropdown:hover .navbar-link,
-.navbar.is-dark .navbar-item.has-dropdown.is-active .navbar-link {
+  .navbar.is-dark .navbar-item.has-dropdown:hover .navbar-link,
+  .navbar.is-dark .navbar-item.has-dropdown.is-active .navbar-link {
     --navbar-dropdown-item-hover-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l) + -5%), var(--dark-a));
     background-color: var(--navbar-dropdown-item-hover-background-color);
     color: var(--dark-invert);
@@ -5598,41 +5573,41 @@ button.dropdown-item.is-active {
     --navbar-dropdown-item-active-color: var(--primary-invert);
   }
   .navbar.is-primary .navbar-brand > .navbar-item,
-.navbar.is-primary .navbar-brand .navbar-link,
-.navbar.is-primary .navbar-start > .navbar-item,
-.navbar.is-primary .navbar-start .navbar-link,
-.navbar.is-primary .navbar-end > .navbar-item,
-.navbar.is-primary .navbar-end .navbar-link {
+  .navbar.is-primary .navbar-brand .navbar-link,
+  .navbar.is-primary .navbar-start > .navbar-item,
+  .navbar.is-primary .navbar-start .navbar-link,
+  .navbar.is-primary .navbar-end > .navbar-item,
+  .navbar.is-primary .navbar-end .navbar-link {
     color: var(--primary-invert);
   }
   .navbar.is-primary .navbar-brand > a.navbar-item:focus, .navbar.is-primary .navbar-brand > a.navbar-item:hover, .navbar.is-primary .navbar-brand > a.navbar-item.is-active,
-.navbar.is-primary .navbar-brand .navbar-link:focus,
-.navbar.is-primary .navbar-brand .navbar-link:hover,
-.navbar.is-primary .navbar-brand .navbar-link.is-active,
-.navbar.is-primary .navbar-start > a.navbar-item:focus,
-.navbar.is-primary .navbar-start > a.navbar-item:hover,
-.navbar.is-primary .navbar-start > a.navbar-item.is-active,
-.navbar.is-primary .navbar-start .navbar-link:focus,
-.navbar.is-primary .navbar-start .navbar-link:hover,
-.navbar.is-primary .navbar-start .navbar-link.is-active,
-.navbar.is-primary .navbar-end > a.navbar-item:focus,
-.navbar.is-primary .navbar-end > a.navbar-item:hover,
-.navbar.is-primary .navbar-end > a.navbar-item.is-active,
-.navbar.is-primary .navbar-end .navbar-link:focus,
-.navbar.is-primary .navbar-end .navbar-link:hover,
-.navbar.is-primary .navbar-end .navbar-link.is-active {
+  .navbar.is-primary .navbar-brand .navbar-link:focus,
+  .navbar.is-primary .navbar-brand .navbar-link:hover,
+  .navbar.is-primary .navbar-brand .navbar-link.is-active,
+  .navbar.is-primary .navbar-start > a.navbar-item:focus,
+  .navbar.is-primary .navbar-start > a.navbar-item:hover,
+  .navbar.is-primary .navbar-start > a.navbar-item.is-active,
+  .navbar.is-primary .navbar-start .navbar-link:focus,
+  .navbar.is-primary .navbar-start .navbar-link:hover,
+  .navbar.is-primary .navbar-start .navbar-link.is-active,
+  .navbar.is-primary .navbar-end > a.navbar-item:focus,
+  .navbar.is-primary .navbar-end > a.navbar-item:hover,
+  .navbar.is-primary .navbar-end > a.navbar-item.is-active,
+  .navbar.is-primary .navbar-end .navbar-link:focus,
+  .navbar.is-primary .navbar-end .navbar-link:hover,
+  .navbar.is-primary .navbar-end .navbar-link.is-active {
     --navbar-item-hover-background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) + -5%), var(--primary-a));
     background-color: var(--navbar-item-hover-background-color);
     color: var(--primary-invert);
   }
   .navbar.is-primary .navbar-brand .navbar-link::after,
-.navbar.is-primary .navbar-start .navbar-link::after,
-.navbar.is-primary .navbar-end .navbar-link::after {
+  .navbar.is-primary .navbar-start .navbar-link::after,
+  .navbar.is-primary .navbar-end .navbar-link::after {
     border-color: var(--primary-invert);
   }
   .navbar.is-primary .navbar-item.has-dropdown:focus .navbar-link,
-.navbar.is-primary .navbar-item.has-dropdown:hover .navbar-link,
-.navbar.is-primary .navbar-item.has-dropdown.is-active .navbar-link {
+  .navbar.is-primary .navbar-item.has-dropdown:hover .navbar-link,
+  .navbar.is-primary .navbar-item.has-dropdown.is-active .navbar-link {
     --navbar-dropdown-item-hover-background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l) + -5%), var(--primary-a));
     background-color: var(--navbar-dropdown-item-hover-background-color);
     color: var(--primary-invert);
@@ -5668,41 +5643,41 @@ button.dropdown-item.is-active {
     --navbar-dropdown-item-active-color: var(--secondary-invert);
   }
   .navbar.is-secondary .navbar-brand > .navbar-item,
-.navbar.is-secondary .navbar-brand .navbar-link,
-.navbar.is-secondary .navbar-start > .navbar-item,
-.navbar.is-secondary .navbar-start .navbar-link,
-.navbar.is-secondary .navbar-end > .navbar-item,
-.navbar.is-secondary .navbar-end .navbar-link {
+  .navbar.is-secondary .navbar-brand .navbar-link,
+  .navbar.is-secondary .navbar-start > .navbar-item,
+  .navbar.is-secondary .navbar-start .navbar-link,
+  .navbar.is-secondary .navbar-end > .navbar-item,
+  .navbar.is-secondary .navbar-end .navbar-link {
     color: var(--secondary-invert);
   }
   .navbar.is-secondary .navbar-brand > a.navbar-item:focus, .navbar.is-secondary .navbar-brand > a.navbar-item:hover, .navbar.is-secondary .navbar-brand > a.navbar-item.is-active,
-.navbar.is-secondary .navbar-brand .navbar-link:focus,
-.navbar.is-secondary .navbar-brand .navbar-link:hover,
-.navbar.is-secondary .navbar-brand .navbar-link.is-active,
-.navbar.is-secondary .navbar-start > a.navbar-item:focus,
-.navbar.is-secondary .navbar-start > a.navbar-item:hover,
-.navbar.is-secondary .navbar-start > a.navbar-item.is-active,
-.navbar.is-secondary .navbar-start .navbar-link:focus,
-.navbar.is-secondary .navbar-start .navbar-link:hover,
-.navbar.is-secondary .navbar-start .navbar-link.is-active,
-.navbar.is-secondary .navbar-end > a.navbar-item:focus,
-.navbar.is-secondary .navbar-end > a.navbar-item:hover,
-.navbar.is-secondary .navbar-end > a.navbar-item.is-active,
-.navbar.is-secondary .navbar-end .navbar-link:focus,
-.navbar.is-secondary .navbar-end .navbar-link:hover,
-.navbar.is-secondary .navbar-end .navbar-link.is-active {
+  .navbar.is-secondary .navbar-brand .navbar-link:focus,
+  .navbar.is-secondary .navbar-brand .navbar-link:hover,
+  .navbar.is-secondary .navbar-brand .navbar-link.is-active,
+  .navbar.is-secondary .navbar-start > a.navbar-item:focus,
+  .navbar.is-secondary .navbar-start > a.navbar-item:hover,
+  .navbar.is-secondary .navbar-start > a.navbar-item.is-active,
+  .navbar.is-secondary .navbar-start .navbar-link:focus,
+  .navbar.is-secondary .navbar-start .navbar-link:hover,
+  .navbar.is-secondary .navbar-start .navbar-link.is-active,
+  .navbar.is-secondary .navbar-end > a.navbar-item:focus,
+  .navbar.is-secondary .navbar-end > a.navbar-item:hover,
+  .navbar.is-secondary .navbar-end > a.navbar-item.is-active,
+  .navbar.is-secondary .navbar-end .navbar-link:focus,
+  .navbar.is-secondary .navbar-end .navbar-link:hover,
+  .navbar.is-secondary .navbar-end .navbar-link.is-active {
     --navbar-item-hover-background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l) + -5%), var(--secondary-a));
     background-color: var(--navbar-item-hover-background-color);
     color: var(--secondary-invert);
   }
   .navbar.is-secondary .navbar-brand .navbar-link::after,
-.navbar.is-secondary .navbar-start .navbar-link::after,
-.navbar.is-secondary .navbar-end .navbar-link::after {
+  .navbar.is-secondary .navbar-start .navbar-link::after,
+  .navbar.is-secondary .navbar-end .navbar-link::after {
     border-color: var(--secondary-invert);
   }
   .navbar.is-secondary .navbar-item.has-dropdown:focus .navbar-link,
-.navbar.is-secondary .navbar-item.has-dropdown:hover .navbar-link,
-.navbar.is-secondary .navbar-item.has-dropdown.is-active .navbar-link {
+  .navbar.is-secondary .navbar-item.has-dropdown:hover .navbar-link,
+  .navbar.is-secondary .navbar-item.has-dropdown.is-active .navbar-link {
     --navbar-dropdown-item-hover-background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l) + -5%), var(--secondary-a));
     background-color: var(--navbar-dropdown-item-hover-background-color);
     color: var(--secondary-invert);
@@ -5738,41 +5713,41 @@ button.dropdown-item.is-active {
     --navbar-dropdown-item-active-color: var(--link-invert);
   }
   .navbar.is-link .navbar-brand > .navbar-item,
-.navbar.is-link .navbar-brand .navbar-link,
-.navbar.is-link .navbar-start > .navbar-item,
-.navbar.is-link .navbar-start .navbar-link,
-.navbar.is-link .navbar-end > .navbar-item,
-.navbar.is-link .navbar-end .navbar-link {
+  .navbar.is-link .navbar-brand .navbar-link,
+  .navbar.is-link .navbar-start > .navbar-item,
+  .navbar.is-link .navbar-start .navbar-link,
+  .navbar.is-link .navbar-end > .navbar-item,
+  .navbar.is-link .navbar-end .navbar-link {
     color: var(--link-invert);
   }
   .navbar.is-link .navbar-brand > a.navbar-item:focus, .navbar.is-link .navbar-brand > a.navbar-item:hover, .navbar.is-link .navbar-brand > a.navbar-item.is-active,
-.navbar.is-link .navbar-brand .navbar-link:focus,
-.navbar.is-link .navbar-brand .navbar-link:hover,
-.navbar.is-link .navbar-brand .navbar-link.is-active,
-.navbar.is-link .navbar-start > a.navbar-item:focus,
-.navbar.is-link .navbar-start > a.navbar-item:hover,
-.navbar.is-link .navbar-start > a.navbar-item.is-active,
-.navbar.is-link .navbar-start .navbar-link:focus,
-.navbar.is-link .navbar-start .navbar-link:hover,
-.navbar.is-link .navbar-start .navbar-link.is-active,
-.navbar.is-link .navbar-end > a.navbar-item:focus,
-.navbar.is-link .navbar-end > a.navbar-item:hover,
-.navbar.is-link .navbar-end > a.navbar-item.is-active,
-.navbar.is-link .navbar-end .navbar-link:focus,
-.navbar.is-link .navbar-end .navbar-link:hover,
-.navbar.is-link .navbar-end .navbar-link.is-active {
+  .navbar.is-link .navbar-brand .navbar-link:focus,
+  .navbar.is-link .navbar-brand .navbar-link:hover,
+  .navbar.is-link .navbar-brand .navbar-link.is-active,
+  .navbar.is-link .navbar-start > a.navbar-item:focus,
+  .navbar.is-link .navbar-start > a.navbar-item:hover,
+  .navbar.is-link .navbar-start > a.navbar-item.is-active,
+  .navbar.is-link .navbar-start .navbar-link:focus,
+  .navbar.is-link .navbar-start .navbar-link:hover,
+  .navbar.is-link .navbar-start .navbar-link.is-active,
+  .navbar.is-link .navbar-end > a.navbar-item:focus,
+  .navbar.is-link .navbar-end > a.navbar-item:hover,
+  .navbar.is-link .navbar-end > a.navbar-item.is-active,
+  .navbar.is-link .navbar-end .navbar-link:focus,
+  .navbar.is-link .navbar-end .navbar-link:hover,
+  .navbar.is-link .navbar-end .navbar-link.is-active {
     --navbar-item-hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) + -5%), var(--link-a));
     background-color: var(--navbar-item-hover-background-color);
     color: var(--link-invert);
   }
   .navbar.is-link .navbar-brand .navbar-link::after,
-.navbar.is-link .navbar-start .navbar-link::after,
-.navbar.is-link .navbar-end .navbar-link::after {
+  .navbar.is-link .navbar-start .navbar-link::after,
+  .navbar.is-link .navbar-end .navbar-link::after {
     border-color: var(--link-invert);
   }
   .navbar.is-link .navbar-item.has-dropdown:focus .navbar-link,
-.navbar.is-link .navbar-item.has-dropdown:hover .navbar-link,
-.navbar.is-link .navbar-item.has-dropdown.is-active .navbar-link {
+  .navbar.is-link .navbar-item.has-dropdown:hover .navbar-link,
+  .navbar.is-link .navbar-item.has-dropdown.is-active .navbar-link {
     --navbar-dropdown-item-hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l) + -5%), var(--link-a));
     background-color: var(--navbar-dropdown-item-hover-background-color);
     color: var(--link-invert);
@@ -5808,41 +5783,41 @@ button.dropdown-item.is-active {
     --navbar-dropdown-item-active-color: var(--info-invert);
   }
   .navbar.is-info .navbar-brand > .navbar-item,
-.navbar.is-info .navbar-brand .navbar-link,
-.navbar.is-info .navbar-start > .navbar-item,
-.navbar.is-info .navbar-start .navbar-link,
-.navbar.is-info .navbar-end > .navbar-item,
-.navbar.is-info .navbar-end .navbar-link {
+  .navbar.is-info .navbar-brand .navbar-link,
+  .navbar.is-info .navbar-start > .navbar-item,
+  .navbar.is-info .navbar-start .navbar-link,
+  .navbar.is-info .navbar-end > .navbar-item,
+  .navbar.is-info .navbar-end .navbar-link {
     color: var(--info-invert);
   }
   .navbar.is-info .navbar-brand > a.navbar-item:focus, .navbar.is-info .navbar-brand > a.navbar-item:hover, .navbar.is-info .navbar-brand > a.navbar-item.is-active,
-.navbar.is-info .navbar-brand .navbar-link:focus,
-.navbar.is-info .navbar-brand .navbar-link:hover,
-.navbar.is-info .navbar-brand .navbar-link.is-active,
-.navbar.is-info .navbar-start > a.navbar-item:focus,
-.navbar.is-info .navbar-start > a.navbar-item:hover,
-.navbar.is-info .navbar-start > a.navbar-item.is-active,
-.navbar.is-info .navbar-start .navbar-link:focus,
-.navbar.is-info .navbar-start .navbar-link:hover,
-.navbar.is-info .navbar-start .navbar-link.is-active,
-.navbar.is-info .navbar-end > a.navbar-item:focus,
-.navbar.is-info .navbar-end > a.navbar-item:hover,
-.navbar.is-info .navbar-end > a.navbar-item.is-active,
-.navbar.is-info .navbar-end .navbar-link:focus,
-.navbar.is-info .navbar-end .navbar-link:hover,
-.navbar.is-info .navbar-end .navbar-link.is-active {
+  .navbar.is-info .navbar-brand .navbar-link:focus,
+  .navbar.is-info .navbar-brand .navbar-link:hover,
+  .navbar.is-info .navbar-brand .navbar-link.is-active,
+  .navbar.is-info .navbar-start > a.navbar-item:focus,
+  .navbar.is-info .navbar-start > a.navbar-item:hover,
+  .navbar.is-info .navbar-start > a.navbar-item.is-active,
+  .navbar.is-info .navbar-start .navbar-link:focus,
+  .navbar.is-info .navbar-start .navbar-link:hover,
+  .navbar.is-info .navbar-start .navbar-link.is-active,
+  .navbar.is-info .navbar-end > a.navbar-item:focus,
+  .navbar.is-info .navbar-end > a.navbar-item:hover,
+  .navbar.is-info .navbar-end > a.navbar-item.is-active,
+  .navbar.is-info .navbar-end .navbar-link:focus,
+  .navbar.is-info .navbar-end .navbar-link:hover,
+  .navbar.is-info .navbar-end .navbar-link.is-active {
     --navbar-item-hover-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) + -5%), var(--info-a));
     background-color: var(--navbar-item-hover-background-color);
     color: var(--info-invert);
   }
   .navbar.is-info .navbar-brand .navbar-link::after,
-.navbar.is-info .navbar-start .navbar-link::after,
-.navbar.is-info .navbar-end .navbar-link::after {
+  .navbar.is-info .navbar-start .navbar-link::after,
+  .navbar.is-info .navbar-end .navbar-link::after {
     border-color: var(--info-invert);
   }
   .navbar.is-info .navbar-item.has-dropdown:focus .navbar-link,
-.navbar.is-info .navbar-item.has-dropdown:hover .navbar-link,
-.navbar.is-info .navbar-item.has-dropdown.is-active .navbar-link {
+  .navbar.is-info .navbar-item.has-dropdown:hover .navbar-link,
+  .navbar.is-info .navbar-item.has-dropdown.is-active .navbar-link {
     --navbar-dropdown-item-hover-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l) + -5%), var(--info-a));
     background-color: var(--navbar-dropdown-item-hover-background-color);
     color: var(--info-invert);
@@ -5878,41 +5853,41 @@ button.dropdown-item.is-active {
     --navbar-dropdown-item-active-color: var(--success-invert);
   }
   .navbar.is-success .navbar-brand > .navbar-item,
-.navbar.is-success .navbar-brand .navbar-link,
-.navbar.is-success .navbar-start > .navbar-item,
-.navbar.is-success .navbar-start .navbar-link,
-.navbar.is-success .navbar-end > .navbar-item,
-.navbar.is-success .navbar-end .navbar-link {
+  .navbar.is-success .navbar-brand .navbar-link,
+  .navbar.is-success .navbar-start > .navbar-item,
+  .navbar.is-success .navbar-start .navbar-link,
+  .navbar.is-success .navbar-end > .navbar-item,
+  .navbar.is-success .navbar-end .navbar-link {
     color: var(--success-invert);
   }
   .navbar.is-success .navbar-brand > a.navbar-item:focus, .navbar.is-success .navbar-brand > a.navbar-item:hover, .navbar.is-success .navbar-brand > a.navbar-item.is-active,
-.navbar.is-success .navbar-brand .navbar-link:focus,
-.navbar.is-success .navbar-brand .navbar-link:hover,
-.navbar.is-success .navbar-brand .navbar-link.is-active,
-.navbar.is-success .navbar-start > a.navbar-item:focus,
-.navbar.is-success .navbar-start > a.navbar-item:hover,
-.navbar.is-success .navbar-start > a.navbar-item.is-active,
-.navbar.is-success .navbar-start .navbar-link:focus,
-.navbar.is-success .navbar-start .navbar-link:hover,
-.navbar.is-success .navbar-start .navbar-link.is-active,
-.navbar.is-success .navbar-end > a.navbar-item:focus,
-.navbar.is-success .navbar-end > a.navbar-item:hover,
-.navbar.is-success .navbar-end > a.navbar-item.is-active,
-.navbar.is-success .navbar-end .navbar-link:focus,
-.navbar.is-success .navbar-end .navbar-link:hover,
-.navbar.is-success .navbar-end .navbar-link.is-active {
+  .navbar.is-success .navbar-brand .navbar-link:focus,
+  .navbar.is-success .navbar-brand .navbar-link:hover,
+  .navbar.is-success .navbar-brand .navbar-link.is-active,
+  .navbar.is-success .navbar-start > a.navbar-item:focus,
+  .navbar.is-success .navbar-start > a.navbar-item:hover,
+  .navbar.is-success .navbar-start > a.navbar-item.is-active,
+  .navbar.is-success .navbar-start .navbar-link:focus,
+  .navbar.is-success .navbar-start .navbar-link:hover,
+  .navbar.is-success .navbar-start .navbar-link.is-active,
+  .navbar.is-success .navbar-end > a.navbar-item:focus,
+  .navbar.is-success .navbar-end > a.navbar-item:hover,
+  .navbar.is-success .navbar-end > a.navbar-item.is-active,
+  .navbar.is-success .navbar-end .navbar-link:focus,
+  .navbar.is-success .navbar-end .navbar-link:hover,
+  .navbar.is-success .navbar-end .navbar-link.is-active {
     --navbar-item-hover-background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) + -5%), var(--success-a));
     background-color: var(--navbar-item-hover-background-color);
     color: var(--success-invert);
   }
   .navbar.is-success .navbar-brand .navbar-link::after,
-.navbar.is-success .navbar-start .navbar-link::after,
-.navbar.is-success .navbar-end .navbar-link::after {
+  .navbar.is-success .navbar-start .navbar-link::after,
+  .navbar.is-success .navbar-end .navbar-link::after {
     border-color: var(--success-invert);
   }
   .navbar.is-success .navbar-item.has-dropdown:focus .navbar-link,
-.navbar.is-success .navbar-item.has-dropdown:hover .navbar-link,
-.navbar.is-success .navbar-item.has-dropdown.is-active .navbar-link {
+  .navbar.is-success .navbar-item.has-dropdown:hover .navbar-link,
+  .navbar.is-success .navbar-item.has-dropdown.is-active .navbar-link {
     --navbar-dropdown-item-hover-background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l) + -5%), var(--success-a));
     background-color: var(--navbar-dropdown-item-hover-background-color);
     color: var(--success-invert);
@@ -5948,41 +5923,41 @@ button.dropdown-item.is-active {
     --navbar-dropdown-item-active-color: var(--warning-invert);
   }
   .navbar.is-warning .navbar-brand > .navbar-item,
-.navbar.is-warning .navbar-brand .navbar-link,
-.navbar.is-warning .navbar-start > .navbar-item,
-.navbar.is-warning .navbar-start .navbar-link,
-.navbar.is-warning .navbar-end > .navbar-item,
-.navbar.is-warning .navbar-end .navbar-link {
+  .navbar.is-warning .navbar-brand .navbar-link,
+  .navbar.is-warning .navbar-start > .navbar-item,
+  .navbar.is-warning .navbar-start .navbar-link,
+  .navbar.is-warning .navbar-end > .navbar-item,
+  .navbar.is-warning .navbar-end .navbar-link {
     color: var(--warning-invert);
   }
   .navbar.is-warning .navbar-brand > a.navbar-item:focus, .navbar.is-warning .navbar-brand > a.navbar-item:hover, .navbar.is-warning .navbar-brand > a.navbar-item.is-active,
-.navbar.is-warning .navbar-brand .navbar-link:focus,
-.navbar.is-warning .navbar-brand .navbar-link:hover,
-.navbar.is-warning .navbar-brand .navbar-link.is-active,
-.navbar.is-warning .navbar-start > a.navbar-item:focus,
-.navbar.is-warning .navbar-start > a.navbar-item:hover,
-.navbar.is-warning .navbar-start > a.navbar-item.is-active,
-.navbar.is-warning .navbar-start .navbar-link:focus,
-.navbar.is-warning .navbar-start .navbar-link:hover,
-.navbar.is-warning .navbar-start .navbar-link.is-active,
-.navbar.is-warning .navbar-end > a.navbar-item:focus,
-.navbar.is-warning .navbar-end > a.navbar-item:hover,
-.navbar.is-warning .navbar-end > a.navbar-item.is-active,
-.navbar.is-warning .navbar-end .navbar-link:focus,
-.navbar.is-warning .navbar-end .navbar-link:hover,
-.navbar.is-warning .navbar-end .navbar-link.is-active {
+  .navbar.is-warning .navbar-brand .navbar-link:focus,
+  .navbar.is-warning .navbar-brand .navbar-link:hover,
+  .navbar.is-warning .navbar-brand .navbar-link.is-active,
+  .navbar.is-warning .navbar-start > a.navbar-item:focus,
+  .navbar.is-warning .navbar-start > a.navbar-item:hover,
+  .navbar.is-warning .navbar-start > a.navbar-item.is-active,
+  .navbar.is-warning .navbar-start .navbar-link:focus,
+  .navbar.is-warning .navbar-start .navbar-link:hover,
+  .navbar.is-warning .navbar-start .navbar-link.is-active,
+  .navbar.is-warning .navbar-end > a.navbar-item:focus,
+  .navbar.is-warning .navbar-end > a.navbar-item:hover,
+  .navbar.is-warning .navbar-end > a.navbar-item.is-active,
+  .navbar.is-warning .navbar-end .navbar-link:focus,
+  .navbar.is-warning .navbar-end .navbar-link:hover,
+  .navbar.is-warning .navbar-end .navbar-link.is-active {
     --navbar-item-hover-background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) + -5%), var(--warning-a));
     background-color: var(--navbar-item-hover-background-color);
     color: var(--warning-invert);
   }
   .navbar.is-warning .navbar-brand .navbar-link::after,
-.navbar.is-warning .navbar-start .navbar-link::after,
-.navbar.is-warning .navbar-end .navbar-link::after {
+  .navbar.is-warning .navbar-start .navbar-link::after,
+  .navbar.is-warning .navbar-end .navbar-link::after {
     border-color: var(--warning-invert);
   }
   .navbar.is-warning .navbar-item.has-dropdown:focus .navbar-link,
-.navbar.is-warning .navbar-item.has-dropdown:hover .navbar-link,
-.navbar.is-warning .navbar-item.has-dropdown.is-active .navbar-link {
+  .navbar.is-warning .navbar-item.has-dropdown:hover .navbar-link,
+  .navbar.is-warning .navbar-item.has-dropdown.is-active .navbar-link {
     --navbar-dropdown-item-hover-background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l) + -5%), var(--warning-a));
     background-color: var(--navbar-dropdown-item-hover-background-color);
     color: var(--warning-invert);
@@ -6018,41 +5993,41 @@ button.dropdown-item.is-active {
     --navbar-dropdown-item-active-color: var(--danger-invert);
   }
   .navbar.is-danger .navbar-brand > .navbar-item,
-.navbar.is-danger .navbar-brand .navbar-link,
-.navbar.is-danger .navbar-start > .navbar-item,
-.navbar.is-danger .navbar-start .navbar-link,
-.navbar.is-danger .navbar-end > .navbar-item,
-.navbar.is-danger .navbar-end .navbar-link {
+  .navbar.is-danger .navbar-brand .navbar-link,
+  .navbar.is-danger .navbar-start > .navbar-item,
+  .navbar.is-danger .navbar-start .navbar-link,
+  .navbar.is-danger .navbar-end > .navbar-item,
+  .navbar.is-danger .navbar-end .navbar-link {
     color: var(--danger-invert);
   }
   .navbar.is-danger .navbar-brand > a.navbar-item:focus, .navbar.is-danger .navbar-brand > a.navbar-item:hover, .navbar.is-danger .navbar-brand > a.navbar-item.is-active,
-.navbar.is-danger .navbar-brand .navbar-link:focus,
-.navbar.is-danger .navbar-brand .navbar-link:hover,
-.navbar.is-danger .navbar-brand .navbar-link.is-active,
-.navbar.is-danger .navbar-start > a.navbar-item:focus,
-.navbar.is-danger .navbar-start > a.navbar-item:hover,
-.navbar.is-danger .navbar-start > a.navbar-item.is-active,
-.navbar.is-danger .navbar-start .navbar-link:focus,
-.navbar.is-danger .navbar-start .navbar-link:hover,
-.navbar.is-danger .navbar-start .navbar-link.is-active,
-.navbar.is-danger .navbar-end > a.navbar-item:focus,
-.navbar.is-danger .navbar-end > a.navbar-item:hover,
-.navbar.is-danger .navbar-end > a.navbar-item.is-active,
-.navbar.is-danger .navbar-end .navbar-link:focus,
-.navbar.is-danger .navbar-end .navbar-link:hover,
-.navbar.is-danger .navbar-end .navbar-link.is-active {
+  .navbar.is-danger .navbar-brand .navbar-link:focus,
+  .navbar.is-danger .navbar-brand .navbar-link:hover,
+  .navbar.is-danger .navbar-brand .navbar-link.is-active,
+  .navbar.is-danger .navbar-start > a.navbar-item:focus,
+  .navbar.is-danger .navbar-start > a.navbar-item:hover,
+  .navbar.is-danger .navbar-start > a.navbar-item.is-active,
+  .navbar.is-danger .navbar-start .navbar-link:focus,
+  .navbar.is-danger .navbar-start .navbar-link:hover,
+  .navbar.is-danger .navbar-start .navbar-link.is-active,
+  .navbar.is-danger .navbar-end > a.navbar-item:focus,
+  .navbar.is-danger .navbar-end > a.navbar-item:hover,
+  .navbar.is-danger .navbar-end > a.navbar-item.is-active,
+  .navbar.is-danger .navbar-end .navbar-link:focus,
+  .navbar.is-danger .navbar-end .navbar-link:hover,
+  .navbar.is-danger .navbar-end .navbar-link.is-active {
     --navbar-item-hover-background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) + -5%), var(--danger-a));
     background-color: var(--navbar-item-hover-background-color);
     color: var(--danger-invert);
   }
   .navbar.is-danger .navbar-brand .navbar-link::after,
-.navbar.is-danger .navbar-start .navbar-link::after,
-.navbar.is-danger .navbar-end .navbar-link::after {
+  .navbar.is-danger .navbar-start .navbar-link::after,
+  .navbar.is-danger .navbar-end .navbar-link::after {
     border-color: var(--danger-invert);
   }
   .navbar.is-danger .navbar-item.has-dropdown:focus .navbar-link,
-.navbar.is-danger .navbar-item.has-dropdown:hover .navbar-link,
-.navbar.is-danger .navbar-item.has-dropdown.is-active .navbar-link {
+  .navbar.is-danger .navbar-item.has-dropdown:hover .navbar-link,
+  .navbar.is-danger .navbar-item.has-dropdown.is-active .navbar-link {
     --navbar-dropdown-item-hover-background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l) + -5%), var(--danger-a));
     background-color: var(--navbar-dropdown-item-hover-background-color);
     color: var(--danger-invert);
@@ -6264,7 +6239,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
     display: block;
   }
   .navbar-brand .navbar-item,
-.navbar-tabs .navbar-item {
+  .navbar-tabs .navbar-item {
     align-items: center;
     display: flex;
   }
@@ -6300,19 +6275,19 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
     overflow: auto;
   }
   html.has-navbar-fixed-top-touch,
-body.has-navbar-fixed-top-touch {
+  body.has-navbar-fixed-top-touch {
     padding-top: var(--navbar-height);
   }
   html.has-navbar-fixed-bottom-touch,
-body.has-navbar-fixed-bottom-touch {
+  body.has-navbar-fixed-bottom-touch {
     padding-bottom: var(--navbar-height);
   }
 }
 @media screen and (min-width: 1024px) {
   .navbar,
-.navbar-menu,
-.navbar-start,
-.navbar-end {
+  .navbar-menu,
+  .navbar-start,
+  .navbar-end {
     align-items: stretch;
     display: flex;
   }
@@ -6323,17 +6298,17 @@ body.has-navbar-fixed-bottom-touch {
     padding: var(--navbar-padding-vertical) var(--navbar-padding-horizontal);
   }
   .navbar.is-spaced .navbar-start,
-.navbar.is-spaced .navbar-end {
+  .navbar.is-spaced .navbar-end {
     align-items: center;
   }
   .navbar.is-spaced a.navbar-item,
-.navbar.is-spaced .navbar-link {
+  .navbar.is-spaced .navbar-link {
     border-radius: var(--radius);
   }
   .navbar.is-transparent a.navbar-item:focus, .navbar.is-transparent a.navbar-item:hover, .navbar.is-transparent a.navbar-item.is-active,
-.navbar.is-transparent .navbar-link:focus,
-.navbar.is-transparent .navbar-link:hover,
-.navbar.is-transparent .navbar-link.is-active {
+  .navbar.is-transparent .navbar-link:focus,
+  .navbar.is-transparent .navbar-link:hover,
+  .navbar.is-transparent .navbar-link.is-active {
     background-color: transparent !important;
   }
   .navbar.is-transparent .navbar-item.has-dropdown.is-active .navbar-link, .navbar.is-transparent .navbar-item.has-dropdown.is-hoverable:focus .navbar-link, .navbar.is-transparent .navbar-item.has-dropdown.is-hoverable:focus-within .navbar-link, .navbar.is-transparent .navbar-item.has-dropdown.is-hoverable:hover .navbar-link {
@@ -6351,7 +6326,7 @@ body.has-navbar-fixed-bottom-touch {
     display: none;
   }
   .navbar-item,
-.navbar-link {
+  .navbar-link {
     align-items: center;
     display: flex;
   }
@@ -6438,11 +6413,11 @@ body.has-navbar-fixed-bottom-touch {
     display: block;
   }
   .navbar > .container .navbar-brand,
-.container > .navbar .navbar-brand {
+  .container > .navbar .navbar-brand {
     margin-left: -0.75rem;
   }
   .navbar > .container .navbar-menu,
-.container > .navbar .navbar-menu {
+  .container > .navbar .navbar-menu {
     margin-right: -0.75rem;
   }
   .navbar.is-fixed-bottom-desktop, .navbar.is-fixed-top-desktop {
@@ -6461,27 +6436,27 @@ body.has-navbar-fixed-bottom-touch {
     top: 0;
   }
   html.has-navbar-fixed-top-desktop,
-body.has-navbar-fixed-top-desktop {
+  body.has-navbar-fixed-top-desktop {
     padding-top: var(--navbar-height);
   }
   html.has-navbar-fixed-bottom-desktop,
-body.has-navbar-fixed-bottom-desktop {
+  body.has-navbar-fixed-bottom-desktop {
     padding-bottom: var(--navbar-height);
   }
   html.has-spaced-navbar-fixed-top,
-body.has-spaced-navbar-fixed-top {
+  body.has-spaced-navbar-fixed-top {
     padding-top: calc(var(--navbar-height) + var(--navbar-padding-vertical) * 2);
   }
   html.has-spaced-navbar-fixed-bottom,
-body.has-spaced-navbar-fixed-bottom {
+  body.has-spaced-navbar-fixed-bottom {
     padding-bottom: calc(var(--navbar-height) + var(--navbar-padding-vertical) * 2);
   }
   a.navbar-item.is-active,
-.navbar-link.is-active {
+  .navbar-link.is-active {
     color: var(--navbar-item-active-color);
   }
-  a.navbar-item.is-active:not(:focus):not(:hover),
-.navbar-link.is-active:not(:focus):not(:hover) {
+  a.navbar-item.is-active:not(:focus, :hover),
+  .navbar-link.is-active:not(:focus, :hover) {
     background-color: var(--navbar-item-active-background-color);
   }
   .navbar-item.has-dropdown:focus .navbar-link, .navbar-item.has-dropdown:hover .navbar-link, .navbar-item.has-dropdown.is-active .navbar-link {
@@ -6626,7 +6601,7 @@ body.has-spaced-navbar-fixed-bottom {
     flex-wrap: wrap;
   }
   .pagination-previous,
-.pagination-next {
+  .pagination-next {
     flex-grow: 1;
     flex-shrink: 1;
   }
@@ -6643,9 +6618,9 @@ body.has-spaced-navbar-fixed-bottom {
     order: 1;
   }
   .pagination-previous,
-.pagination-next,
-.pagination-link,
-.pagination-ellipsis {
+  .pagination-next,
+  .pagination-link,
+  .pagination-ellipsis {
     margin-bottom: 0;
     margin-top: 0;
   }
@@ -8763,7 +8738,6 @@ label.panel-block:hover {
   flex-basis: 0;
   flex-grow: 1;
   flex-shrink: 1;
-  min-height: -webkit-min-content;
   min-height: -moz-min-content;
   min-height: min-content;
 }
@@ -10799,7 +10773,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--white);
   color: var(--white-invert);
 }
-.hero.is-white a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
+.hero.is-white a:not(.button, .dropdown-item, .tag, .pagination-link.is-current),
 .hero.is-white strong {
   color: inherit;
 }
@@ -10862,7 +10836,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--black);
   color: var(--black-invert);
 }
-.hero.is-black a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
+.hero.is-black a:not(.button, .dropdown-item, .tag, .pagination-link.is-current),
 .hero.is-black strong {
   color: inherit;
 }
@@ -10925,7 +10899,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--light);
   color: var(--light-invert);
 }
-.hero.is-light a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
+.hero.is-light a:not(.button, .dropdown-item, .tag, .pagination-link.is-current),
 .hero.is-light strong {
   color: inherit;
 }
@@ -10988,7 +10962,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--dark);
   color: var(--dark-invert);
 }
-.hero.is-dark a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
+.hero.is-dark a:not(.button, .dropdown-item, .tag, .pagination-link.is-current),
 .hero.is-dark strong {
   color: inherit;
 }
@@ -11051,7 +11025,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--primary);
   color: var(--primary-invert);
 }
-.hero.is-primary a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
+.hero.is-primary a:not(.button, .dropdown-item, .tag, .pagination-link.is-current),
 .hero.is-primary strong {
   color: inherit;
 }
@@ -11114,7 +11088,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--secondary);
   color: var(--secondary-invert);
 }
-.hero.is-secondary a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
+.hero.is-secondary a:not(.button, .dropdown-item, .tag, .pagination-link.is-current),
 .hero.is-secondary strong {
   color: inherit;
 }
@@ -11177,7 +11151,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--link);
   color: var(--link-invert);
 }
-.hero.is-link a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
+.hero.is-link a:not(.button, .dropdown-item, .tag, .pagination-link.is-current),
 .hero.is-link strong {
   color: inherit;
 }
@@ -11240,7 +11214,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--info);
   color: var(--info-invert);
 }
-.hero.is-info a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
+.hero.is-info a:not(.button, .dropdown-item, .tag, .pagination-link.is-current),
 .hero.is-info strong {
   color: inherit;
 }
@@ -11303,7 +11277,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--success);
   color: var(--success-invert);
 }
-.hero.is-success a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
+.hero.is-success a:not(.button, .dropdown-item, .tag, .pagination-link.is-current),
 .hero.is-success strong {
   color: inherit;
 }
@@ -11366,7 +11340,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--warning);
   color: var(--warning-invert);
 }
-.hero.is-warning a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
+.hero.is-warning a:not(.button, .dropdown-item, .tag, .pagination-link.is-current),
 .hero.is-warning strong {
   color: inherit;
 }
@@ -11429,7 +11403,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: var(--danger);
   color: var(--danger-invert);
 }
-.hero.is-danger a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
+.hero.is-danger a:not(.button, .dropdown-item, .tag, .pagination-link.is-current),
 .hero.is-danger strong {
   color: inherit;
 }
@@ -11685,8 +11659,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 .carousel .progress {
   height: 0.25rem;
-  margin-bottom: 0;
   border-radius: var(--radius-small);
+  margin-bottom: 0;
 }
 .carousel .carousel-items {
   position: relative;
@@ -11817,8 +11791,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 .carousel-arrow .icon {
   border: 1px solid var(--carousel-arrow-background);
-  background: var(--carousel-arrow-background);
   border-radius: var(--radius-rounded);
+  background: var(--carousel-arrow-background);
   color: var(--carousel-arrow-color);
   cursor: pointer;
   outline: 0;
@@ -11876,8 +11850,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   height: var(--checkbox-size);
   flex-shrink: 0;
   border: var(--checkbox-border-width) solid var(--checkbox-border-color);
-  background: var(--checkbox-background-color);
   border-radius: var(--checkbox-border-radius);
+  background: var(--checkbox-background-color);
   transition: background calc(var(--speed) * 2) var(--easing);
 }
 .b-checkbox.checkbox input[type=checkbox]:checked + .check, .b-checkbox.checkbox input[type=checkbox]:indeterminate + .check {
@@ -12309,8 +12283,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 .b-clockpicker-body .b-clockpicker-btn {
   padding: 0 8px;
-  margin-bottom: 2px;
   border-radius: var(--radius-rounded);
+  margin-bottom: 2px;
 }
 .b-clockpicker-body .b-clockpicker-btn:hover, .b-clockpicker-body .b-clockpicker-btn.active {
   background-color: var(--primary);
@@ -12334,8 +12308,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   height: 100%;
   align-items: center;
   justify-content: center;
-  background-color: var(--grey-lighter);
   border-radius: 50%;
+  background-color: var(--grey-lighter);
 }
 .b-clockpicker-body .b-clockpicker-face::after {
   position: absolute;
@@ -12409,8 +12383,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   border-width: 2px;
   border-style: solid;
   border-color: inherit;
-  background: transparent;
   border-radius: 100%;
+  background: transparent;
   content: "";
   transform: translate(50%, -50%);
 }
@@ -12515,11 +12489,10 @@ svg.b-colorpicker-triangle .hue-range-thumb,
 svg.b-colorpicker-triangle .sl-range-thumb {
   width: calc(100% - 0.25em);
   height: calc(100% - 0.25em);
+  border-radius: var(--colorpicker-radius);
   margin: 0.125em;
   background: transparent;
-  border-radius: var(--colorpicker-radius);
   box-shadow: inset 0 0 0 1px #fff, 0 0 0 1px var(--grey-lighter);
-  cursor: -webkit-grab;
   cursor: grab;
 }
 svg.b-colorpicker-triangle .hue-range-thumb:hover,
@@ -12532,7 +12505,6 @@ svg.b-colorpicker-triangle .sl-range-thumb:focus {
 }
 svg.b-colorpicker-triangle .hue-range-thumb:active,
 svg.b-colorpicker-triangle .sl-range-thumb:active {
-  cursor: -webkit-grabbing;
   cursor: grabbing;
 }
 
@@ -12546,15 +12518,14 @@ div.b-colorpicker-square .colorpicker-square-slider-hue {
   left: 0;
   bottom: 0;
   right: 0;
-  background: conic-gradient(#f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
   border-radius: var(--colorpicker-radius);
+  background: conic-gradient(#f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
 }
 div.b-colorpicker-square .colorpicker-square-slider-hue .hue-range-thumb {
   position: absolute;
-  aspect-ratio: 1/1;
   border-radius: calc(var(--colorpicker-radius) / 1.75);
+  aspect-ratio: 1/1;
   box-shadow: inset 0 0 0 1px #fff, 0 0 0 1px var(--grey-lighter);
-  cursor: -webkit-grab;
   cursor: grab;
   transform: translate(50%, -50%);
 }
@@ -12565,7 +12536,6 @@ div.b-colorpicker-square .colorpicker-square-slider-hue .hue-range-thumb:focus {
   box-shadow: inset 0 0 0 1px #fff, 0 0 0 1px var(--colorpicker-hue-selected-stroke);
 }
 div.b-colorpicker-square .colorpicker-square-slider-hue .hue-range-thumb:active {
-  cursor: -webkit-grabbing;
   cursor: grabbing;
 }
 div.b-colorpicker-square .colorpicker-square-slider-sl {
@@ -12574,8 +12544,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl {
   left: 0;
   bottom: 0;
   right: 0;
-  background: #fff;
   border-radius: calc(var(--colorpicker-radius) / 2);
+  background: #fff;
 }
 div.b-colorpicker-square .colorpicker-square-slider-sl::before {
   position: absolute;
@@ -12594,7 +12564,6 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb {
   height: 8px;
   border-radius: var(--colorpicker-radius);
   box-shadow: inset 0 0 0 1px #fff, 0 0 0 1px var(--grey-lighter);
-  cursor: -webkit-grab;
   cursor: grab;
   transform: translate(50%, -50%);
 }
@@ -12605,19 +12574,18 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:focus {
   box-shadow: inset 0 0 0 1px #fff, 0 0 0 1px var(--colorpicker-hue-selected-stroke);
 }
 div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
-  cursor: -webkit-grabbing;
   cursor: grabbing;
 }
 
 .b-colorpicker-alpha-slider {
   position: relative;
   height: 1em;
+  border-radius: var(--colorpicker-radius);
   margin-top: 0.125em;
   margin-bottom: 0.875rem;
   background-image: linear-gradient(-45deg, #c7c7c7 25%, transparent 25%, transparent 75%, #c7c7c7 75%, #c7c7c7), linear-gradient(-45deg, #c7c7c7 25%, transparent 25%, transparent 75%, #c7c7c7 75%, #c7c7c7);
   background-position: right 0.5em top 0.5em, 100% 0;
   background-size: 1em 1em;
-  border-radius: var(--colorpicker-radius);
 }
 .b-colorpicker-alpha-slider .alpha-range-thumb {
   position: absolute;
@@ -12627,7 +12595,6 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   height: 1.25em;
   border-radius: var(--colorpicker-radius);
   box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 2px var(--grey-lighter), 0 0 0 1px var(--grey-lighter);
-  cursor: -webkit-grab;
   cursor: grab;
   transform: translate(50%, -50%);
 }
@@ -12638,7 +12605,6 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   box-shadow: inset 0 0 0 1px #fff, 0 0 0 1px var(--colorpicker-hue-selected-stroke);
 }
 .b-colorpicker-alpha-slider .alpha-range-thumb:active {
-  cursor: -webkit-grabbing;
   cursor: grabbing;
 }
 .b-colorpicker-alpha-slider .alpha-range-thumb > .b-tooltip, .b-colorpicker-alpha-slider .alpha-range-thumb > .b-tooltip > .tooltip-trigger {
@@ -12687,8 +12653,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   opacity: 1;
 }
 .datepicker .dropdown-content {
-  background-color: var(--datepicker-background-color);
   border-radius: var(--datepicker-radius);
+  background-color: var(--datepicker-background-color);
   box-shadow: var(--datepicker-shadow);
 }
 .datepicker .dropdown-item {
@@ -12763,8 +12729,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   color: var(--grey-lighter);
 }
 .datepicker .datepicker-table .datepicker-body .datepicker-cell.is-selectable.is-within-hovered-range.is-within-hovered {
-  background-color: var(--datepicker-item-hover-background-color);
   border-radius: 0;
+  background-color: var(--datepicker-item-hover-background-color);
   color: var(--datepicker-item-hover-color);
 }
 .datepicker .datepicker-table .datepicker-body .datepicker-cell.is-selectable.is-within-hovered-range.is-last-hovered {
@@ -12785,8 +12751,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .datepicker .datepicker-table .datepicker-body .datepicker-cell.is-selected.is-within-selected {
   --datepicker-item-selected-background-color: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.5);
-  background-color: var(--datepicker-item-selected-background-color);
   border-radius: 0;
+  background-color: var(--datepicker-item-selected-background-color);
 }
 .datepicker .datepicker-table .datepicker-body .datepicker-cell.is-selected.is-last-selected {
   background-color: var(--datepicker-item-selected-background-color);
@@ -12851,8 +12817,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 .datepicker .datepicker-table .datepicker-body.has-events .datepicker-cell.has-event.dots .event {
   width: 0.35em;
   height: 0.35em;
-  margin: 0 0.1em;
   border-radius: 50%;
+  margin: 0 0.1em;
 }
 .datepicker .datepicker-table .datepicker-body.has-events .datepicker-cell.has-event.bars .event {
   width: 100%;
@@ -13160,20 +13126,20 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   padding-top: var(--field-floating-indent);
   padding-bottom: 1px;
 }
-.field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .input,
-.field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .textarea,
-.field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) select {
+.field.is-floating-in-label > .label + .control:not(.datepicker, .timepicker, .taginput) .input,
+.field.is-floating-in-label > .label + .control:not(.datepicker, .timepicker, .taginput) .textarea,
+.field.is-floating-in-label > .label + .control:not(.datepicker, .timepicker, .taginput) select {
   height: var(--floating-in-height);
   padding-top: var(--field-floating-indent);
   padding-bottom: 1px;
 }
-.field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .select:not([multiple]) {
+.field.is-floating-in-label > .label + .control:not(.datepicker, .timepicker, .taginput) .select:not([multiple]) {
   height: var(--floating-in-height);
 }
-.field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .select:not([multiple]).is-loading::after {
+.field.is-floating-in-label > .label + .control:not(.datepicker, .timepicker, .taginput) .select:not([multiple]).is-loading::after {
   margin-top: var(--field-floating-indent);
 }
-.field.is-floating-in-label > .label + .control:not(.datepicker):not(.timepicker):not(.taginput) .select:not([multiple])::after {
+.field.is-floating-in-label > .label + .control:not(.datepicker, .timepicker, .taginput) .select:not([multiple])::after {
   margin-top: 1px;
 }
 .field.is-floating-in-label > .label + .control.taginput .taginput-container {
@@ -13412,10 +13378,9 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 .notices .toast {
   display: inline-flex;
   padding: 0.75em 1.5em;
-  margin: 0.5em 0;
-  -webkit-animation-duration: calc(var(--speed) * 2);
-  animation-duration: calc(var(--speed) * 2);
   border-radius: var(--toast-border-radius);
+  margin: 0.5em 0;
+  animation-duration: calc(var(--speed) * 2);
   box-shadow: var(--toast-box-shadow);
   opacity: var(--toast-opacity);
   pointer-events: auto;
@@ -13471,11 +13436,10 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   min-height: 3em;
   align-items: center;
   justify-content: space-around;
+  border-radius: var(--snackbar-border-radius);
   margin: 0.5em 0;
-  -webkit-animation-duration: calc(var(--speed) * 2);
   animation-duration: calc(var(--speed) * 2);
   background: var(--snackbar-background-color);
-  border-radius: var(--snackbar-border-radius);
   box-shadow: var(--snackbar-box-shadow);
   color: var(--snackbar-color);
   pointer-events: auto;
@@ -13539,8 +13503,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 @media screen and (max-width: 768px) {
   .notices .snackbar {
     width: 100%;
-    margin: 0;
     border-radius: 0;
+    margin: 0;
   }
 }
 @media screen and (min-width: 769px), print {
@@ -13852,8 +13816,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   border-radius: 0;
 }
 .progress-wrapper.is-not-native {
-  background-color: var(--progress-bar-background-color);
   border-radius: var(--progress-border-radius);
+  background-color: var(--progress-bar-background-color);
   white-space: nowrap;
 }
 .progress-wrapper.is-not-native .progress-bar {
@@ -13980,10 +13944,10 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   display: flex;
   width: var(--radio-size);
   height: var(--radio-size);
+  border-radius: 50%;
   margin-bottom: calc(-0.5 * var(--radio-size));
   margin-right: calc(-0.5 * var(--radio-size));
   background-color: var(--radio-active-background-color);
-  border-radius: 50%;
   content: "";
   transform: scale(0);
   transition: transform calc(var(--speed) * 2) var(--easing);
@@ -14251,8 +14215,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   color: var(--grey-dark);
 }
 .select select option:disabled {
-  cursor: not-allowed;
   color: var(--grey-light);
+  cursor: not-allowed;
   opacity: 0.5;
 }
 .select select optgroup {
@@ -14427,7 +14391,6 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   margin-top: var(--skeleton-margin-top);
 }
 .b-skeleton.is-animated > .b-skeleton-item {
-  -webkit-animation: skeleton-loading var(--skeleton-duration) infinite;
   animation: skeleton-loading var(--skeleton-duration) infinite;
 }
 .b-skeleton.is-centered {
@@ -14447,15 +14410,6 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 }
 .b-skeleton.is-large {
   --skeleton-line-height-size: var(--size-large);
-}
-
-@-webkit-keyframes skeleton-loading {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
 }
 
 @keyframes skeleton-loading {
@@ -14496,8 +14450,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   position: relative;
   display: flex;
   align-items: center;
-  background: var(--slider-track-background);
   border-radius: var(--slider-radius);
+  background: var(--slider-track-background);
   cursor: pointer;
 }
 .b-slider .b-slider-fill {
@@ -14505,8 +14459,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   top: 50%;
   height: 100%;
   border: var(--slider-track-border);
-  background: var(--slider-track-background);
   border-radius: var(--radius);
+  background: var(--slider-track-background);
   box-shadow: var(--slider-track-shadow);
   transform: translateY(-50%);
 }
@@ -14516,21 +14470,19 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  cursor: -webkit-grab;
   cursor: grab;
   transform: translate(50%, -50%);
 }
 .b-slider .b-slider-thumb-wrapper .b-slider-thumb {
   border: var(--slider-thumb-border);
-  background: var(--slider-thumb-background);
   border-radius: var(--slider-thumb-radius);
+  background: var(--slider-thumb-background);
   box-shadow: var(--slider-thumb-shadow);
 }
 .b-slider .b-slider-thumb-wrapper .b-slider-thumb:focus {
   transform: scale(1.25);
 }
 .b-slider .b-slider-thumb-wrapper.is-dragging {
-  cursor: -webkit-grabbing;
   cursor: grabbing;
 }
 .b-slider .b-slider-thumb-wrapper.is-dragging .b-slider-thumb {
@@ -14625,8 +14577,8 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   position: absolute;
   top: 50%;
   width: var(--slider-tick-width);
-  background: var(--slider-tick-background);
   border-radius: var(--slider-tick-radius);
+  background: var(--slider-tick-background);
   transform: translate(50%, -50%);
 }
 .b-slider .b-slider-tick.is-tick-hidden {
@@ -14683,8 +14635,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   align-items: center;
   justify-content: center;
   border: var(--steps-marker-default-border);
-  background: var(--steps-maker-default-color);
   border-radius: var(--radius);
+  background: var(--steps-maker-default-color);
   color: var(--steps-maker-color);
   font-weight: var(--weight-bold);
 }
@@ -15162,7 +15114,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-steps.is-vertical > .steps.has-label-left .step-items .step-item {
   justify-content: flex-end;
 }
-.b-steps.is-vertical > .steps:not(.has-label-right):not(.has-label-left) .step-items .step-item .step-link > .step-details {
+.b-steps.is-vertical > .steps:not(.has-label-right, .has-label-left) .step-items .step-item .step-link > .step-details {
   background-color: var(--steps-details-background-color);
 }
 .b-steps.is-vertical > .step-content {
@@ -15226,8 +15178,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   flex-shrink: 0;
   align-items: center;
   padding: var(--switch-padding);
-  background: var(--grey-light);
   border-radius: var(--radius);
+  background: var(--grey-light);
   transition: background calc(var(--speed) * 2) var(--easing), box-shadow calc(var(--speed) * 2) var(--easing);
 }
 .switch input[type=checkbox] + .check.is-white-passive, .switch input[type=checkbox] + .check:hover {
@@ -15300,8 +15252,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   display: block;
   width: calc((var(--switch-width) - var(--switch-padding) * 2) * 0.5);
   height: calc((var(--switch-width) - var(--switch-padding) * 2) * 0.5);
-  background: var(--background);
   border-radius: var(--radius);
+  background: var(--background);
   box-shadow: 0 3px 1px 0 rgba(var(--scheme-invert-rgb), 0.05), 0 2px 2px 0 rgba(var(--scheme-invert-rgb), 0.1), 0 3px 3px 0 rgba(var(--scheme-invert-rgb), 0.05);
   content: "";
   transform-origin: right;
@@ -15815,8 +15767,8 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-table .table {
   width: 100%;
   border: 1px solid transparent;
-  border-collapse: separate;
   border-radius: var(--radius);
+  border-collapse: separate;
 }
 .b-table .table th {
   font-weight: var(--weight-semibold);
@@ -15831,9 +15783,9 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   font-size: 1rem;
 }
 .b-table .table th .th-wrap.is-numeric {
+  width: 95%;
   flex-direction: row-reverse;
   text-align: left;
-  width: 95%;
 }
 .b-table .table th .th-wrap.is-numeric .icon {
   margin-left: 0.5rem;
@@ -15996,14 +15948,14 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   .b-table .table-wrapper.has-mobile-cards tr.detail {
     margin-top: -1rem;
   }
-  .b-table .table-wrapper.has-mobile-cards tr:not(.detail):not(.is-empty):not(.table-footer) td {
+  .b-table .table-wrapper.has-mobile-cards tr:not(.detail, .is-empty, .table-footer) td {
     display: flex;
     width: auto;
     justify-content: space-between;
     border-bottom: 1px solid var(--background);
     text-align: left;
   }
-  .b-table .table-wrapper.has-mobile-cards tr:not(.detail):not(.is-empty):not(.table-footer) td::before {
+  .b-table .table-wrapper.has-mobile-cards tr:not(.detail, .is-empty, .table-footer) td::before {
     padding-left: 0.5em;
     content: attr(data-label);
     font-weight: var(--weight-semibold);
@@ -16056,14 +16008,14 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 .b-table .table-wrapper.is-card-list tr.detail {
   margin-top: -1rem;
 }
-.b-table .table-wrapper.is-card-list tr:not(.detail):not(.is-empty):not(.table-footer) td {
+.b-table .table-wrapper.is-card-list tr:not(.detail, .is-empty, .table-footer) td {
   display: flex;
   width: auto;
   justify-content: space-between;
   border-bottom: 1px solid var(--background);
   text-align: left;
 }
-.b-table .table-wrapper.is-card-list tr:not(.detail):not(.is-empty):not(.table-footer) td::before {
+.b-table .table-wrapper.is-card-list tr:not(.detail, .is-empty, .table-footer) td::before {
   padding-left: 0.5em;
   content: attr(data-label);
   font-weight: var(--weight-semibold);
@@ -16156,9 +16108,9 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   justify-content: right;
 }
 .b-tabs.is-vertical > .tabs.is-boxed li a {
+  border-radius: 0 var(--tabs-boxed-link-radius) var(--tabs-boxed-link-radius) 0;
   border-left-color: var(--tabs-border-bottom-color) !important;
   border-bottom-color: transparent !important;
-  border-radius: 0 var(--tabs-boxed-link-radius) var(--tabs-boxed-link-radius) 0;
 }
 .b-tabs.is-vertical > .tabs.is-boxed li.is-active a {
   border-left-color: transparent !important;
@@ -16190,10 +16142,10 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   margin-right: 0.5em;
 }
 .b-tabs.is-vertical.is-right > .tabs.is-boxed li a {
+  border-radius: var(--tabs-boxed-link-radius) 0 0 var(--tabs-boxed-link-radius);
   border-left-color: transparent !important;
   border-bottom-color: transparent !important;
   border-right-color: var(--tabs-border-bottom-color) !important;
-  border-radius: var(--tabs-boxed-link-radius) 0 0 var(--tabs-boxed-link-radius);
 }
 .b-tabs.is-vertical.is-right > .tabs.is-boxed li.is-active a {
   border-left-color: var(--tabs-border-bottom-color) !important;
@@ -16942,14 +16894,6 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   }
 }
 /* Buefy Components */
-@-webkit-keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
 @keyframes fadeOut {
   from {
     opacity: 1;
@@ -16959,18 +16903,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   }
 }
 .fadeOut {
-  -webkit-animation-name: fadeOut;
   animation-name: fadeOut;
-}
-
-@-webkit-keyframes fadeOutDown {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    transform: translate3d(0, 100%, 0);
-  }
 }
 
 @keyframes fadeOutDown {
@@ -16983,18 +16916,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   }
 }
 .fadeOutDown {
-  -webkit-animation-name: fadeOutDown;
   animation-name: fadeOutDown;
-}
-
-@-webkit-keyframes fadeOutUp {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    transform: translate3d(0, -100%, 0);
-  }
 }
 
 @keyframes fadeOutUp {
@@ -17007,17 +16929,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   }
 }
 .fadeOutUp {
-  -webkit-animation-name: fadeOutUp;
   animation-name: fadeOutUp;
-}
-
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 @keyframes fadeIn {
@@ -17029,19 +16941,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   }
 }
 .fadeIn {
-  -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
-}
-
-@-webkit-keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translate3d(0, -100%, 0);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 @keyframes fadeInDown {
@@ -17055,19 +16955,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   }
 }
 .fadeInDown {
-  -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
-}
-
-@-webkit-keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 100%, 0);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 @keyframes fadeInUp {
@@ -17081,7 +16969,6 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   }
 }
 .fadeInUp {
-  -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
 }
 

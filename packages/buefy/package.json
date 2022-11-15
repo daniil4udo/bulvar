@@ -1,6 +1,6 @@
 {
 	"name": "@bulvar/buefy",
-	"version": "0.11.12",
+	"version": "0.11.13",
 	"description": "Lightweight UI components for Vue.js based on Bulma",
 	"keywords": [
 		"bulma",
@@ -63,6 +63,6 @@
 		"watch": "sass --verbose --error-css --no-source-map --color buefy.sass css/buefy.css --watch"
 	},
 	"dependencies": {
-		"@bulvar/bulma": "workspace:^0.11.12"
+		"@bulvar/bulma": "workspace:^0.11.13"
 	}
 }

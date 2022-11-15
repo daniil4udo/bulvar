@@ -1,32 +1,28 @@
 {
-    "version": "0.11.12",
-    "packages": [
-        "packages/*"
-    ],
-    "npmClient": "pnpm",
-    "useWorkspaces": true,
-    "granularPathspec": false,
-    "command": {
-        "version": {
-            "allowBranch": [
-                "master"
-            ],
-            "conventionalCommits": true,
-            "createRelease": "github",
-            "message": "release: 🔖 publish %s"
-        },
-        "publish": {
-            "npmClient": "npm"
-        }
-    },
-    "changelog": {
-        "labels": {
-            "feature": "New Feature",
-            "fix": "Bug Fix",
-            "docs": "Documentation",
-            "types": "Types",
-            "perf": "Performance",
-            "refactoring": "Refactor"
-        }
-    }
+	"version": "0.11.13",
+	"packages": ["packages/*"],
+	"npmClient": "pnpm",
+	"useWorkspaces": true,
+	"granularPathspec": false,
+	"command": {
+		"version": {
+			"allowBranch": ["master"],
+			"conventionalCommits": true,
+			"createRelease": "github",
+			"message": "release: 🔖 publish %s"
+		},
+		"publish": {
+			"npmClient": "npm"
+		}
+	},
+	"changelog": {
+		"labels": {
+			"feature": "New Feature",
+			"fix": "Bug Fix",
+			"docs": "Documentation",
+			"types": "Types",
+			"perf": "Performance",
+			"refactoring": "Refactor"
+		}
+	}
 }
