@@ -29,9 +29,9 @@
 	],
 	"scripts": {
 		"prepare": "husky install",
-		"watch": "lerna run --parallel start",
+		"watch": "lerna run --parallel watch",
 		"version": "pnpm install && pnpm build",
-		"build": "lerna run deploy --stream",
+		"build": "lerna run build --stream",
 		"package:publish": "lerna run --parallel package:publish",
 		"package:release": "lerna version --no-push --no-commit-hooks",
 		"lint": "run-p --continue-on-error lint:all:*",

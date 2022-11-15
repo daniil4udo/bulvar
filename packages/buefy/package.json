@@ -48,12 +48,11 @@
 		"README.md"
 	],
 	"scripts": {
-		"build": "run-s -l compile prefix minify",
+		"build": "run-s -l clean compile prefix minify",
 		"clean": "rimraf css && mkdir css",
 		"compile": "run-p -l compile:*",
 		"compile:main": "sass --verbose --error-css buefy.sass | node banner.js > css/buefy.css",
 		"compile:rtl": "sass --verbose --error-css buefy-rtl.sass | node banner.js > css/buefy-rtl.css",
-		"deploy": "run-s -l clean build",
 		"minify": "run-p -l minify:*",
 		"minify:main": "csso -o css/buefy.min.css -i css/buefy.css --stat",
 		"minify:rtl": "csso -o css/buefy-rtl.min.css -i css/buefy-rtl.css --stat",
@@ -61,7 +60,7 @@
 		"prefix": "run-p -l prefix:*",
 		"prefix:main": "postcss --config ../../postcss.config.js --output css/buefy.css css/buefy.css",
 		"prefix:rtl": "cross-env NODE_ENV=RTL postcss --config ../../postcss.config.js --output css/buefy-rtl.css css/buefy-rtl.css",
-		"start": "sass --verbose --error-css --no-source-map --color buefy.sass css/buefy.css --watch"
+		"watch": "sass --verbose --error-css --no-source-map --color buefy.sass css/buefy.css --watch"
 	},
 	"dependencies": {
 		"@bulvar/bulma": "workspace:^0.11.12"
