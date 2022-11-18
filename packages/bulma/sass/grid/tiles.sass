@@ -42,4 +42,4 @@ $-css-vars-map: ('tile-spacing': $tile-spacing)
     @for $i from 1 through $tile-denominator
       &.is-#{$i}
         flex: none
-        width: (math.div($i, $tile-denominator)) * 100%
+        width: math.percentage(math.div($i, $tile-denominator))

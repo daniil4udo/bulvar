@@ -41,33 +41,33 @@ $dimensions: 16 24 32 48 64 96 128 !default
   &.is-1by1
     padding-top: 100%
   &.is-5by4
-    padding-top: math.div(100, math.div(5, 4)) * 1%
+    padding-top: math.percentage(math.div(1, math.div(5, 4)))
   &.is-4by3
-    padding-top: math.div(100, math.div(4, 3)) * 1%
+    padding-top: math.percentage(math.div(1, math.div(4, 3)))
   &.is-3by2
-    padding-top: math.div(100, math.div(3, 2)) * 1%
+    padding-top: math.percentage(math.div(1, math.div(3, 2)))
   &.is-5by3
-    padding-top: math.div(100, math.div(5, 3)) * 1%
+    padding-top: math.percentage(math.div(1, math.div(5, 3)))
   &.is-16by9
-    padding-top: math.div(100, math.div(16, 9)) * 1%
+    padding-top: math.percentage(math.div(1, math.div(16, 9)))
   &.is-2by1
-    padding-top: math.div(100, math.div(2, 1)) * 1%
+    padding-top: math.percentage(math.div(1, math.div(2, 1)))
   &.is-3by1
-    padding-top: math.div(100, math.div(3, 1)) * 1%
+    padding-top: math.percentage(math.div(1, math.div(3, 1)))
   &.is-4by5
-    padding-top: math.div(100, math.div(4, 5)) * 1%
+    padding-top: math.percentage(math.div(1, math.div(4, 5)))
   &.is-3by4
-    padding-top: math.div(100, math.div(3, 4)) * 1%
+    padding-top: math.percentage(math.div(1, math.div(3, 4)))
   &.is-2by3
-    padding-top: math.div(100, math.div(2, 3)) * 1%
+    padding-top: math.percentage(math.div(1, math.div(2, 3)))
   &.is-3by5
-    padding-top: math.div(100, math.div(3, 5)) * 1%
+    padding-top: math.percentage(math.div(1, math.div(3, 5)))
   &.is-9by16
-    padding-top: math.div(100, math.div(9, 16)) * 1%
+    padding-top: math.percentage(math.div(1, math.div(9, 16)))
   &.is-1by2
-    padding-top: math.div(100, math.div(1, 2)) * 1%
+    padding-top: math.percentage(math.div(1, math.div(1, 2)))
   &.is-1by3
-    padding-top: math.div(100, math.div(1, 3)) * 1%
+    padding-top: math.percentage(math.div(1, math.div(1, 3)))
   // Sizes
   @each $dimension in $dimensions
     &.is-#{$dimension}x#{$dimension}
