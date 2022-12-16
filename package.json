@@ -37,10 +37,8 @@
 		"lint": "run-p --continue-on-error lint:all:*",
 		"lint:prettier": "prettier --write --loglevel warn",
 		"lint:stylelint": "stylelint --fix",
-		"lint:markdownlint": "markdownlint --fix -i CHANGELOG.md -i packages/**/CHANGELOG.md",
 		"lint:all:vars": "fusv packages/",
 		"lint:all:stylelint": "pnpm lint:stylelint \"packages/**/*.{sss,scss}\" --cache --cache-location .cache/.stylelintcache --rd --color",
-		"lint:all:markdownlint": "pnpm lint:markdownlint \"packages/**/*.md\" \"*.md\"",
 		"cz": "git cz"
 	},
 	"devDependencies": {
@@ -54,7 +52,6 @@
 		"husky": "^8.0.2",
 		"lerna": "^6.1.0",
 		"lint-staged": "^13.1.0",
-		"markdownlint-cli": "^0.32.2",
 		"npm-run-all": "^4.1.5",
 		"postcss": "^8.4.20",
 		"postcss-cli": "^10.1.0",
@@ -81,7 +78,6 @@
 		],
 		"overrides": {
 			"@npmcli/move-file": "npm:@npmcli/fs@latest",
-			"@stylelint/postcss-markdown": "npm:postcss-markdown@latest",
 			"ansi-regex": "^5.0.1",
 			"read-package-tree": "npm:@npmcli/arborist@latest",
 			"readdir-scoped-modules": "npm:@npmcli/fs@latest",

@@ -8,7 +8,6 @@ module.exports = {
     // '{*.scss,*.sass}': [ 'pnpm lint:stylelint' ],
 
     '*.md': [
-        'pnpm lint:markdownlint',
         'pnpm lint:prettier',
     ],
 };
