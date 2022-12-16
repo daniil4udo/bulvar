@@ -5,6 +5,8 @@
 </p>
 <br/>
 <p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/CSS-Custom_Properties-blue.svg" alt="npm package"></a>
+  <a href="https://www.npmjs.com/package/@bulvar/bulma"><img src="https://img.shields.io/npm/v/@bulvar/bulma.svg?logo=npm" alt="npm package"></a>
   <a href="https://www.npmjs.com/package/@bulvar/bulma"><img src="https://img.shields.io/npm/v/@bulvar/bulma.svg?logo=npm" alt="npm package"></a>
   <a href="https://github.com/jgthms/bulma/"><img src="https://img.shields.io/github/v/release/jgthms/bulma?logo=Bulma" alt="npm package"></a>
   <a href="https://github.com/buefy/buefy/releases"><img src="https://img.shields.io/github/v/release/buefy/buefy?logo=buefy&color=7957d5&labelColor=lightgrey" /></a>
@@ -14,14 +16,15 @@
 
 # 🛣 Bulvar
 
-> Bulvar [Bulma](https://bulma.io) and [Buefy](https://buefy.org) on steroids usin CSS variables
+> Bulvar [Bulma](https://bulma.io) and [Buefy](https://buefy.org) on steroids using CSS variables
 
 -   ⚡️ Runtime variables change
--   🛠️ Rich Features - includes Bulma, Buefy CSS and Bulma extentions
+-   🛠️ Rich Features - includes Bulma, Buefy CSS and Bulma extensions
 -   💡 Root and Local variables scoping
 -   📦 CSS minifier with structural optimizations
 
 ## 💙 SPECIAL SPONSOR
+
 <!--special start-->
 
 <p align="center">
@@ -48,7 +51,6 @@ or Yarn
 yarn add @bulvar/bulma
 ```
 
-
 ### Buefy
 
 Install using NPM.
@@ -69,21 +71,21 @@ yarn add @bulvar/buefy
 
 Build includes (for both Bulma & Buefy)
 
--   Standart CSS file `bulma.css` or `buefy.css`
--   Standart minified CSS file `bulma.min.css` and `buefy.min.css`
+-   Standard CSS file `bulma.css` or `buefy.css`
+-   Standard minified CSS file `bulma.min.css` and `buefy.min.css`
 -   RTL CSS file `bulma-rtl.css` and `buefy-rtl.css`
 -   Minified RTL CSS file `bulma-rtl.min.css` and `buefy-rtl.min.css`
 
 After installation, you can import any from above CSS file into your project using this snippet:
 
 ```css
-@import "@bulvar/bulma/css/bulma.css";
+@import '@bulvar/bulma/css/bulma.css';
 ```
 
 or
 
 ```css
-@import "@bulvar/bulma/css/buefy.css";
+@import '@bulvar/bulma/css/buefy.css';
 ```
 
 ## 🤔 WHY Bulvar?
@@ -94,14 +96,14 @@ Currently Includes :
 
 -   [Bulma](https://bulma.io) itself (duh) as `@bulvar/bulma`
 -   [Buefy](https://buefy.org) (SCSS only) as `@bulvar/buefy`
--   [Bulma Extentions](https://bulma.io/extensions/) (still WIP) as `@bulvar/bulma-extentions`
+-   [Bulma Extensions](https://bulma.io/extensions/) (still WIP) as `@bulvar/bulma-extentions`
 
 ## 🧪 WHAT HAS BEEN CHANGED
 
 -   CSS Vars compatible! Woohoo!
 -   Real modularity! Drop deprecated `@import`. Use `@foward` and `@use` (read more [HERE](https://css-tricks.com/introducing-sass-modules))
 -   Always using latest Dart(⚠️ make sure you are using Dart version of SASS in your project too) Sass instead of deprecated node-sass
--   Added namespacing. No need to worry about variables overwrite
+-   Added namespace. No need to worry about variables overwrite
 -   Added flag to be able to exports SASS variables using `export` for JS
 -   Added secondary color
 -   Added flexbox gap helper classes
@@ -190,7 +192,7 @@ NOTE: If you need Buefy styles, do not import Bulma, it already includes it in c
 
 CSS Variables named after SASS [Bulma variables](https://bulma.io/documentation/overview/variables/)
 
-Each main color in `$colors` and shade in `$shades` has coresponding
+Each main color in `$colors` and shade in `$shades` has corresponding
 
 `--#{$name}-h` - stands for color <i>hue</i>
 `--#{$name}-s` - stands for color <i>saturation</i>
@@ -211,20 +213,21 @@ or
 --primary-a: calc(var(--primary-a) - var(--some-other-value));
 ```
 
-### Modify Lightnes and Darkness
+### Modify Lightness and Darkness
 
 Same applies for lightness. Instead of using sass lightness function (which you cannot with css variables), just modify `--primary-l` value.
 
-Tome make color lighter increase (add) value to the `--primary-l`, to make it darker, decrease (substract) accordingly.
+Tome make color lighter increase (add) value to the `--primary-l`, to make it darker, decrease (subtract) accordingly.
 
 ### Modify Invert Colors
+
 By default, if color's luminance less then 0.55, then invert color will be `rgba(#000, 0.7)` otherwise `white`.
 
 You can change those colors now by overwriting `$invert-dark-colors` & `$invert-light-colors`
 
 ### Proper color change in runtime
 
-Best way to change main colors (primary, info etc.) is to change their coresponding `--#{$name}-h` (hue), `--#{$name}-s` (saturation),
+Best way to change main colors (primary, info etc.) is to change their corresponding `--#{$name}-h` (hue), `--#{$name}-s` (saturation),
 `--#{$name}-l` (lightness) and `--#{$name}-a` (alpha aka opacity)
 
 ### Scoping
@@ -235,17 +238,17 @@ By default it sets to `true`, and results into
 
 ```css
 :root {
-    --footer-background-color: SOME_COLOR;
-    --footer-padding: SOME_PADDING;
+	--footer-background-color: SOME_COLOR;
+	--footer-padding: SOME_PADDING;
 }
 ```
 
-In case you need more strict scoping, you can set it to `false`, wich, in case of footer component, will trnasform into:
+In case you need more strict scoping, you can set it to `false`, which, in case of footer component, will transform into:
 
 ```css
 .footer {
-    --footer-background-color: SOME_COLOR;
-    --footer-padding: SOME_PADDING;
+	--footer-background-color: SOME_COLOR;
+	--footer-padding: SOME_PADDING;
 }
 ```
 
@@ -259,7 +262,7 @@ If you are using style modules SASS variable in you JS files, you can set `$expo
 }
 ```
 
-Note that all SASS variable will be camelcased.
+Note that all SASS variable will be camelized.
 
 ## 📢 VERSIONING
 
@@ -282,14 +285,10 @@ According to [Can I use](https://caniuse.com/css-variables), Bulma is compatible
 -   Opera
 -   Safari
 
-Internet Explorer  is not supported due to the use of css variables.
+Internet Explorer is not supported due to the use of css variables.
 
-Although  you can use polyfill.
+Although you can use polyfill.
 
 ## 📖 COPYRIGHT AND LICENSE ![Github](https://img.shields.io/github/license/daniil4udo/bulvar?logo=Github)
 
 Code copyright 2022 Daniil Chumachenko. Code released under [the MIT license](https://github.com/daniil4udo/bulvar/blob/master/LICENSE).
-
-[npm-link]: https://www.npmjs.com/package/bulvar
-[awesome-link]: https://github.com/awesome-css-group/awesome-css
-[awesome-badge]: https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg
