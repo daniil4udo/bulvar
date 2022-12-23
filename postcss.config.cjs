@@ -1,3 +1,7 @@
+import autoprefixer from 'autoprefixer';
+import csso from 'postcss-csso';
+import rtlcss from 'rtlcss';
+
 const map = {
 	none: 'none',
 	auto: 'default',
@@ -21,7 +25,7 @@ const postcssTouchCallout = (root) =>
 		}
 	});
 
-module.exports = (ctx) => {
+export default function (ctx) {
 	return {
 		map: {
 			inline: false,
@@ -29,11 +33,14 @@ module.exports = (ctx) => {
 			sourcesContent: true,
 		},
 		plugins: [
-			require('autoprefixer')({
+			autoprefixer({
 				cascade: false,
 			}),
+			csso({
+				restructure: true,
+			}),
 			postcssTouchCallout,
-			ctx.env === 'RTL' ? require('rtlcss')({}) : () => {},
+			ctx.env === 'RTL' ? rtlcss({}) : () => {},
 		],
 	};
 };

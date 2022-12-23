@@ -24,6 +24,7 @@
 		"email": "daniil4udo@gmail.com",
 		"url": "https://github.com/daniil4udo"
 	},
+	"type": "module",
 	"workspaces": [
 		"packages/*"
 	],
