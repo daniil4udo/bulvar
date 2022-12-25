@@ -1,18 +1,18 @@
 <h1 align='center'><samp>🛣 Bulvar</samp></h1>
 
+<p align="center">
+  <a href="https://github.com/daniil4udo/bulvar/" target="_blank" rel="noopener noreferrer">
+    <img width="99" src="./bulvar.svg" alt="Bulvar logo">
+  </a>
+</p>
+
+<br/>
+
 <h3 align='center'>
  <strong>Bulvar it is</strong> <a href="https://bulma.io">Bulma</a> and <a href="https://buefy.org">Buefy</a> on steroids using CSS variables
 </h3>
 
 <br>
-
-<p align="center">
-  <a href="https://github.com/daniil4udo/bulvar/" target="_blank" rel="noopener noreferrer">
-    <img width="180" src="./bulvar.svg" alt="Bulvar logo">
-  </a>
-</p>
-
-<br/>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@bulvar/bulma"><img src="https://img.shields.io/npm/v/@bulvar/bulma.svg?logo=npm" alt="npm package"></a>
