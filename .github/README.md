@@ -1,22 +1,27 @@
+<h1 align='center'><samp>🛣 Bulvar</samp></h1>
+
+<h3 align='center'>
+ <strong>Bulvar it is</strong> <a href="https://bulma.io">Bulma</a> and <a href="https://buefy.org">Buefy</a> on steroids using CSS variables
+</h3>
+
+<br>
+
 <p align="center">
   <a href="https://github.com/daniil4udo/bulvar/" target="_blank" rel="noopener noreferrer">
     <img width="180" src="./bulvar.svg" alt="Bulvar logo">
   </a>
 </p>
+
 <br/>
+
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/CSS-Custom_Properties-blue.svg" alt="npm package"></a>
-  <a href="https://www.npmjs.com/package/@bulvar/bulma"><img src="https://img.shields.io/npm/v/@bulvar/bulma.svg?logo=npm" alt="npm package"></a>
   <a href="https://www.npmjs.com/package/@bulvar/bulma"><img src="https://img.shields.io/npm/v/@bulvar/bulma.svg?logo=npm" alt="npm package"></a>
   <a href="https://github.com/jgthms/bulma/"><img src="https://img.shields.io/github/v/release/jgthms/bulma?logo=Bulma" alt="npm package"></a>
   <a href="https://github.com/buefy/buefy/releases"><img src="https://img.shields.io/github/v/release/buefy/buefy?logo=buefy&color=7957d5&labelColor=lightgrey" /></a>
   <a href="https://github.com/daniil4udo/bulvar/actions/workflows/npm-publish.yml"><img src="https://github.com/daniil4udo/bulvar/actions/workflows/npm-publish.yml/badge.svg?branch=master" alt="build status"></a>
 </p>
+
 <br/>
-
-# 🛣 Bulvar
-
-> Bulvar [Bulma](https://bulma.io) and [Buefy](https://buefy.org) on steroids using CSS variables
 
 -   ⚡️ Runtime variables change
 -   🛠️ Rich Features - includes Bulma, Buefy CSS and Bulma extensions
@@ -24,8 +29,6 @@
 -   📦 CSS minifier with structural optimizations
 
 ## 💙 SPECIAL SPONSOR
-
-<!--special start-->
 
 <p align="center">
   <a href="https://www.democrance.com" target="_blank">
@@ -35,35 +38,49 @@
 
 ## 🚀 QUICK INSTALL
 
-Bulma & Buefy is constantly in development! Try it out now:
+Bulvar is constantly in development! Try it out now:
 
-### Bulma
+### For Bulma only
 
-Install using NPM
+Install using <strong>PNPM</strong>
 
-```sh
+```bash
+pnpm add @bulvar/bulma
+```
+
+Install using <strong>NPM</strong>
+
+```bash
 npm install @bulvar/bulma
 ```
 
-or Yarn
+Install using <strong>Yarn</strong>
 
-```sh
+```bash
 yarn add @bulvar/bulma
 ```
 
-### Buefy
+### For Buefy
 
 Install using NPM.
 
-NOTE: If you install Buefy, bulma get installed as well as dependency.
+NOTE: If you install Buefy, Bulma is installed as well as dependency.
 
-```sh
+Install using <strong>PNPM</strong>
+
+```bash
+pnpm add @bulvar/buefy
+```
+
+Install using <strong>NPM</strong>
+
+```bash
 npm install @bulvar/buefy
 ```
 
-or Yarn
+Install using <strong>Yarn</strong>
 
-```sh
+```bash
 yarn add @bulvar/buefy
 ```
 
@@ -96,14 +113,14 @@ Currently Includes :
 
 -   [Bulma](https://bulma.io) itself (duh) as `@bulvar/bulma`
 -   [Buefy](https://buefy.org) (SCSS only) as `@bulvar/buefy`
--   [Bulma Extensions](https://bulma.io/extensions/) (still WIP) as `@bulvar/bulma-extentions`
+-   [Bulma Extentions](https://bulma.io/extensions/) (still WIP) as `@bulvar/bulma-extentions`
 
 ## 🧪 WHAT HAS BEEN CHANGED
 
 -   CSS Vars compatible! Woohoo!
 -   Real modularity! Drop deprecated `@import`. Use `@foward` and `@use` (read more [HERE](https://css-tricks.com/introducing-sass-modules))
 -   Always using latest Dart(⚠️ make sure you are using Dart version of SASS in your project too) Sass instead of deprecated node-sass
--   Added namespace. No need to worry about variables overwrite
+-   Added namespacing. No need to worry about variables overwrite
 -   Added flag to be able to exports SASS variables using `export` for JS
 -   Added secondary color
 -   Added flexbox gap helper classes
@@ -227,7 +244,7 @@ You can change those colors now by overwriting `$invert-dark-colors` & `$invert-
 
 ### Proper color change in runtime
 
-Best way to change main colors (primary, info etc.) is to change their corresponding `--#{$name}-h` (hue), `--#{$name}-s` (saturation),
+Best way to change main colors (primary, info etc.) is to change their coresponding `--#{$name}-h` (hue), `--#{$name}-s` (saturation),
 `--#{$name}-l` (lightness) and `--#{$name}-a` (alpha aka opacity)
 
 ### Scoping
@@ -243,7 +260,7 @@ By default it sets to `true`, and results into
 }
 ```
 
-In case you need more strict scoping, you can set it to `false`, which, in case of footer component, will transform into:
+In case you need more strict scoping, you can set it to `false`, wich, in case of footer component, will trnasform into:
 
 ```css
 .footer {
@@ -262,7 +279,7 @@ If you are using style modules SASS variable in you JS files, you can set `$expo
 }
 ```
 
-Note that all SASS variable will be camelized.
+Note that all SASS variable will be camelcased.
 
 ## 📢 VERSIONING
 
