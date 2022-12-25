@@ -96,13 +96,17 @@ Build includes (for both Bulma & Buefy)
 After installation, you can import any from above CSS file into your project using this snippet:
 
 ```css
-@import '@bulvar/bulma/css/bulma.css';
+@use 'sass:meta';
+
+@include meta.load-css('@bulvar/bulma/css/bulma.css');
 ```
 
 or
 
 ```css
-@import '@bulvar/bulma/css/buefy.css';
+@use 'sass:meta';
+
+@include meta.load-css('@bulvar/bulma/css/buefy.css');
 ```
 
 ## 🤔 WHY Bulvar?
