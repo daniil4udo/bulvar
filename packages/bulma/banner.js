@@ -1,11 +1,11 @@
-'use strict'
-const pack = require('./package.json')
+import pkg from './package.json' assert { type: "json" };
+
 const year = new Date().getFullYear()
-const homepage = `(${pack.homepage})` || ''
+const homepage = `(${pkg.homepage})` || ''
 
 const bannerTxt = `/*!
-  * ${pack.name} v${pack.version} ${homepage}
-  * Copyright ${year} ${pack.author.name} ${pack.author.email}
+  * ${pkg.name} v${pkg.version} ${homepage}
+  * Copyright ${year} ${pkg.author.name} ${pkg.author.email}
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */\n`
 

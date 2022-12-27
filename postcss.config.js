@@ -1,5 +1,4 @@
 import autoprefixer from 'autoprefixer';
-import csso from 'postcss-csso';
 import rtlcss from 'rtlcss';
 
 const map = {
@@ -35,9 +34,6 @@ export default function (ctx) {
 		plugins: [
 			autoprefixer({
 				cascade: false,
-			}),
-			csso({
-				restructure: true,
 			}),
 			postcssTouchCallout,
 			ctx.env === 'RTL' ? rtlcss({}) : () => {},

@@ -35,6 +35,7 @@
 		"*.sass",
 		"*.scss"
 	],
+	"type": "module",
 	"main": "bulma.sass",
 	"unpkg": "css/bulma.css",
 	"style": "bulma/css/bulma.min.css",
@@ -48,16 +49,16 @@
 		"README.md"
 	],
 	"scripts": {
-		"build": "run-s -l clean compile prefix minify",
+		"build": "concurrently --timings -c auto -m 1 -g \"pnpm:clean\" \"pnpm:compile\" \"pnpm:prefix\" \"pnpm:minify\"",
 		"clean": "rimraf css && mkdir css",
-		"compile": "run-p -l compile:*",
+		"compile": "concurrently -c auto \"pnpm:compile:*\" ",
 		"compile:main": "sass --verbose --error-css bulma.sass | node banner.js > css/bulma.css",
 		"compile:rtl": "sass --verbose --error-css bulma-rtl.sass | node banner.js > css/bulma-rtl.css",
-		"minify": "run-p -l minify:*",
+		"minify": "concurrently -c auto \"pnpm:minify:*\" ",
 		"minify:main": "csso -o css/bulma.min.css -i css/bulma.css --stat",
 		"minify:rtl": "csso -o css/bulma-rtl.min.css -i css/bulma-rtl.css --stat",
-		"package:publish": "npm publish --access public",
-		"prefix": "run-p -l prefix:*",
+		"package:publish": "pnpm publish --access public",
+		"prefix": "concurrently -c auto \"pnpm:prefix:*\" ",
 		"prefix:main": "postcss --config ../../postcss.config.js --output css/bulma.css css/bulma.css",
 		"prefix:rtl": "cross-env NODE_ENV=RTL postcss --config ../../postcss.config.js --output css/bulma-rtl.css css/bulma-rtl.css",
 		"watch": "sass --verbose --error-css --no-source-map --color bulma.sass css/bulma.css --watch"
