@@ -17,7 +17,7 @@ $-css-vars-map: (
 
 .dropdown {
     & + .dropdown {
-        margin-left: 0.5em;
+        @include bulma-utilities.ltr-property("margin", 0.5em, false);
     }
     .background {
         @extend %overlay;
@@ -47,7 +47,7 @@ $-css-vars-map: (
         }
         .has-link a {
             @extend .dropdown-item;
-            padding-right: 3rem;
+            @include bulma-utilities.ltr-property("padding", 3rem);
             white-space: nowrap;
         }
     }

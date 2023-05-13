@@ -24,8 +24,7 @@
     &.has-delete-icon {
         padding: 0;
         .icon:first-child:not(:last-child) {
-            margin-right: 0;
-            margin-left: 0;
+            margin-inline: 0;
         }
     }
 }

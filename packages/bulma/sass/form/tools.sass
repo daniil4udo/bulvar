@@ -65,22 +65,12 @@ $-css-vars-map: ("help-font-size": $help-font-size)
         .button,
         .input,
         .select select
-          +utilities.ltr
-            border-bottom-right-radius: 0
-            border-top-right-radius: 0
-          +utilities.rtl
-            border-bottom-left-radius: 0
-            border-top-left-radius: 0
+          +utilities.lph-border-radius(right, 0)
       &:last-child:not(:only-child)
         .button,
         .input,
         .select select
-          +utilities.ltr
-            border-bottom-left-radius: 0
-            border-top-left-radius: 0
-          +utilities.rtl
-            border-bottom-right-radius: 0
-            border-top-right-radius: 0
+          +utilities.lph-border-radius(left, 0)
       .button,
       .input,
       .select select
@@ -145,7 +135,7 @@ $-css-vars-map: ("help-font-size": $help-font-size)
     flex-grow: 1
     flex-shrink: 0
     +utilities.ltr-property("margin", 1.5rem)
-    text-align: right
+    text-align: end
     +utilities.control-sizes
     &.is-small,
     &.is-normal,
@@ -196,7 +186,9 @@ $-css-vars-map: ("control-radius": $control-radius, "control-radius-small": $con
   text-align: inherit
   // Modifiers
   &.has-icons-left,
-  &.has-icons-right
+  &.has-icons-right,
+  &.has-icons-start,
+  &.has-icons-end
     .input,
     .select
       &:focus
@@ -219,15 +211,27 @@ $-css-vars-map: ("control-radius": $control-radius, "control-radius-small": $con
   &.has-icons-left
     .input,
     .select select
-      padding-left: var(--input-height)
+      +utilities.ltr-property("padding", var(--input-height), false)
     .icon.is-left
       left: 0
   &.has-icons-right
     .input,
     .select select
-      padding-right: var(--input-height)
+      +utilities.ltr-property("padding", var(--input-height))
     .icon.is-right
       right: 0
+  &.has-icons-start
+    .input,
+    .select select
+      +utilities.ltr-property("padding", var(--input-height), false)
+    .icon.is-start
+      +utilities.ltr-property("inset", 0, false)
+  &.has-icons-end
+    .input,
+    .select select
+      +utilities.ltr-property("padding", var(--input-height))
+    .icon.is-end
+      +utilities.ltr-property("inset", 0)
   &.is-loading
     &.has-icons-right
       .icon.is-right
@@ -235,7 +239,7 @@ $-css-vars-map: ("control-radius": $control-radius, "control-radius-small": $con
     &::after
       @extend %loader
       position: absolute !important
-      +utilities.ltr-position(var(--control-padding-horizontal))
+      +utilities.ltr-property("inset", var(--control-padding-horizontal))
       top: calc(50% - (1em / 2))
       z-index: 4
     &.is-small:after

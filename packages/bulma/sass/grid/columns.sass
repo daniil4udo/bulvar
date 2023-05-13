@@ -142,8 +142,7 @@ $column-map: ('full': 100%, 'three-quarters': math.div(100% * 3, 4), 'two-thirds
         +utilities.ltr-property("margin", math.percentage(math.div($i, 12)), false)
 
 .columns
-  +utilities.ltr-property("margin", (-$column-gap), false)
-  +utilities.ltr-property("margin", (-$column-gap))
+  margin-inline: (-$column-gap)
   margin-top: (-$column-gap)
   &:last-child
     margin-bottom: (-$column-gap)
@@ -153,8 +152,7 @@ $column-map: ('full': 100%, 'three-quarters': math.div(100% * 3, 4), 'two-thirds
   &.is-centered
     justify-content: center
   &.is-gapless
-    +utilities.ltr-property("margin", 0, false)
-    +utilities.ltr-property("margin", 0)
+    margin-inline: 0
     margin-top: 0
     & > .column
       margin: 0
@@ -181,11 +179,9 @@ $column-map: ('full': 100%, 'three-quarters': math.div(100% * 3, 4), 'two-thirds
 @if vars.$variable-columns
   .columns.is-variable
     --column-gap: 0.75rem
-    +utilities.ltr-property("margin", calc(-1 * var(--column-gap)), false)
-    +utilities.ltr-property("margin", calc(-1 * var(--column-gap)))
+    margin-inline: calc(-1 * var(--column-gap))
     > .column
-      padding-left: var(--column-gap)
-      padding-right: var(--column-gap)
+      padding-inline: var(--column-gap)
     @for $i from 0 through 8
       &.is-#{$i}
         --column-gap: #{$i * 0.25rem}

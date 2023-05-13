@@ -13,8 +13,7 @@
                 margin-top: 16px;
             }
             &.is-titleless {
-                border-top-left-radius: var(--card-radius);
-                border-top-right-radius: var(--card-radius);
+                @include bulma-utilities.lph-border-radius(top, var(--card-radius));
             }
         }
         .modal-card-foot {

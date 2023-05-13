@@ -9,7 +9,7 @@ $-css-vars-map: (
     "table-sticky-header-height": $table-sticky-header-height,
 );
 
-// Register & Export CSS Variabless
+// Register & Export CSS Variables
 @include bulma-utilities.exportCSSVars($-css-vars-map);
 @include bulma-utilities.registerComponentCSSVars("b-table", $-css-vars-map);
 
@@ -29,7 +29,7 @@ $-css-vars-map: (
                 width: 100%;
                 border: 0;
                 margin-bottom: 1rem;
-                text-align: right;
+                text-align: end;
             }
         }
     }
@@ -72,12 +72,12 @@ $-css-vars-map: (
             width: auto;
             justify-content: space-between;
             border-bottom: 1px solid var(--background);
-            text-align: right;
+            text-align: end;
             &::before {
-                padding-right: 0.5em;
+                @include bulma-utilities.ltr-property("padding", 0.5em);
                 content: attr(data-label);
                 font-weight: var(--weight-semibold);
-                text-align: left;
+                text-align: start;
             }
         }
     }
@@ -129,17 +129,15 @@ $-css-vars-map: (
                 display: flex;
                 align-items: center;
                 .icon {
-                    margin-right: 0;
-                    margin-left: 0.5rem;
                     font-size: 1rem;
+                    margin-inline: 0.5em 0;
                 }
                 &.is-numeric {
                     width: 95%;
                     flex-direction: row-reverse;
-                    text-align: right;
+                    text-align: end;
                     .icon {
-                        margin-right: 0.5rem;
-                        margin-left: 0;
+                        margin-inline: 0 0.5em;
                     }
                 }
                 &.is-centered {
@@ -169,7 +167,7 @@ $-css-vars-map: (
                 transform: translateY(50%);
             }
             .multi-sort-cancel-icon {
-                margin-left: 10px;
+                @include bulma-utilities.ltr-property("margin", 0.875rem, false);
             }
             &.is-sticky {
                 position: sticky;
