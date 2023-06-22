@@ -13,10 +13,10 @@ $-css-vars-map: ("number-background": $number-background, "number-radius-rounded
 // --number-font-size: var(--size-medium)
 
 .block
-  @extend %block
+  +utilities.block
 
 .delete
-  @extend %delete
+  +utilities.delete
 
 .heading
   display: block
@@ -26,7 +26,7 @@ $-css-vars-map: ("number-background": $number-background, "number-radius-rounded
   text-transform: uppercase
 
 .loader
-  @extend %loader
+  +utilities.loader
 
 .number
   align-items: center
