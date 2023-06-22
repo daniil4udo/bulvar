@@ -1,6 +1,6 @@
 {
 	"name": "@bulvar/bulma",
-	"version": "0.11.13",
+	"version": "0.11.14",
 	"description": "Modern CSS framework based on Flexbox and CSS Variables",
 	"keywords": [
 		"bulma",

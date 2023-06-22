@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.14](https://github.com/daniil4udo/bulvar/compare/v0.11.13...v0.11.14) (2023-06-22)
+
+### Bug Fixes
+
+-   **Buefy:** 🐛 fix minimalist steps ([f821c8a](https://github.com/daniil4udo/bulvar/commit/f821c8a6a625166d3b583033b0d2b16b3e88325e))
+-   time to move to the module ([44a63e9](https://github.com/daniil4udo/bulvar/commit/44a63e961a5237f04f7b800a3908f49588bd3307))
+
 ## [0.11.13](https://github.com/daniil4udo/bulvar/compare/v0.11.12...v0.11.13) (2022-11-15)
 
 **Note:** Version bump only for package @bulvar/root
