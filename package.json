@@ -1,84 +1,84 @@
 {
-	"name": "@bulvar/root",
-	"description": "DMC Bulma Monorepo",
-	"keywords": [
-		"css",
-		"css vars",
-		"css properties",
-		"sass",
-		"flexbox",
-		"responsive",
-		"framework"
-	],
-	"homepage": "https://github.com/daniil4udo/bulvar",
-	"bugs": {
-		"url": "https://github.com/daniil4udo/bulvar/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/daniil4udo/bulvar.git"
-	},
-	"license": "MIT",
-	"author": {
-		"name": "Daniil Chumachenko",
-		"email": "daniil4udo@gmail.com",
-		"url": "https://github.com/daniil4udo"
-	},
-	"type": "module",
-	"workspaces": [
-		"packages/*"
-	],
-	"scripts": {
-		"prepare": "husky install",
-		"watch": "lerna run --parallel watch",
-		"version": "pnpm install && pnpm build",
-		"build": "lerna run build --stream",
-		"package:publish": "lerna run --parallel package:publish",
-		"package:release": "lerna version --no-push --no-commit-hooks",
-		"lint": "concurrently -c auto  \"pnpm:lint:all:*\" ",
-		"lint:prettier": "prettier --write --loglevel warn",
-		"lint:stylelint": "stylelint --fix",
-		"lint:all:variables": "fusv packages/",
-		"lint:all:stylelint": "pnpm lint:stylelint \"packages/**/*.{sss,scss}\" --cache --cache-location .cache/.stylelintcache --rd --color",
-		"cz": "git cz"
-	},
-	"devDependencies": {
-		"@democrance/stylelint-config": "^0.7.0",
-		"@types/node": "^18.16.18",
-		"autoprefixer": "^10.4.14",
-		"commitizen": "^4.3.0",
-		"concurrently": "^8.2.0",
-		"cross-env": "^7.0.3",
-		"csso-cli": "^4.0.2",
-		"cz-conventional-changelog": "^3.3.0",
-		"cz-emoji": "1.3.1",
-		"find-unused-sass-variables": "^5.0.0",
-		"husky": "^8.0.3",
-		"lerna": "7.0.2",
-		"lint-staged": "^13.2.2",
-		"postcss": "^8.4.24",
-		"postcss-cli": "^10.1.0",
-		"postcss-csso": "^6.0.1",
-		"postcss-sass": "^0.5.0",
-		"postcss-scss": "^4.0.6",
-		"prettier": "^2.8.8",
-		"rimraf": "^5.0.1",
-		"rtlcss": "^4.1.0",
-		"sass": "^1.63.6",
-		"stylelint": "^15.8.0",
-		"sugarss": "^4.0.1"
-	},
-	"publishConfig": {
-		"access": "public"
-	},
-	"pnpm": {
-		"neverBuiltDependencies": [
-			"fsevents",
-			"level",
-			"node-gyp"
-		],
-		"overrides": {
-			"@npmcli/move-file": "npm:@npmcli/fs@latest"
-		}
-	}
+    "name": "@bulvar/root",
+    "description": "DMC Bulma Monorepo",
+    "keywords": [
+        "css",
+        "css vars",
+        "css properties",
+        "sass",
+        "flexbox",
+        "responsive",
+        "framework"
+    ],
+    "homepage": "https://github.com/daniil4udo/bulvar",
+    "bugs": {
+        "url": "https://github.com/daniil4udo/bulvar/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/daniil4udo/bulvar.git"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Daniil Chumachenko",
+        "email": "daniil4udo@gmail.com",
+        "url": "https://github.com/daniil4udo"
+    },
+    "type": "module",
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "prepare": "husky install",
+        "watch": "lerna run --parallel watch",
+        "version": "pnpm install && pnpm build",
+        "build": "lerna run build --stream",
+        "package:publish": "lerna run --parallel package:publish",
+        "package:release": "lerna version --no-push --no-commit-hooks",
+        "lint": "concurrently -c auto  \"pnpm:lint:all:*\" ",
+        "lint:prettier": "prettier --write --loglevel warn",
+        "lint:stylelint": "stylelint --fix",
+        "lint:all:variables": "fusv packages/",
+        "lint:all:stylelint": "pnpm lint:stylelint \"packages/**/*.{sss,scss}\" --cache --cache-location .cache/.stylelintcache --rd --color",
+        "cz": "git cz"
+    },
+    "devDependencies": {
+        "@democrance/stylelint-config": "^0.11.1",
+        "@types/node": "^18.16.18",
+        "autoprefixer": "^10.4.14",
+        "commitizen": "^4.3.0",
+        "concurrently": "^8.2.0",
+        "cross-env": "^7.0.3",
+        "csso-cli": "^4.0.2",
+        "cz-conventional-changelog": "^3.3.0",
+        "cz-emoji": "1.3.1",
+        "find-unused-sass-variables": "^5.0.0",
+        "husky": "^8.0.3",
+        "lerna": "7.0.2",
+        "lint-staged": "^13.2.2",
+        "postcss": "^8.4.24",
+        "postcss-cli": "^10.1.0",
+        "postcss-csso": "^6.0.1",
+        "postcss-sass": "^0.5.0",
+        "postcss-scss": "^4.0.6",
+        "prettier": "^3.0.3",
+        "rimraf": "^5.0.1",
+        "rtlcss": "^4.1.0",
+        "sass": "^1.63.6",
+        "stylelint": "^15.10.3",
+        "sugarss": "^4.0.1"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "pnpm": {
+        "neverBuiltDependencies": [
+            "fsevents",
+            "level",
+            "node-gyp"
+        ],
+        "overrides": {
+            "@npmcli/move-file": "npm:@npmcli/fs@latest"
+        }
+    }
 }
