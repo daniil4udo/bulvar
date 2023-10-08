@@ -1,69 +1,64 @@
 {
-	"name": "@bulvar/buefy",
-	"version": "0.11.14",
-	"description": "Lightweight UI components for Vue.js based on Bulma",
-	"keywords": [
-		"bulma",
-		"bulma extentions",
-		"buefy",
-		"css",
-		"sass",
-		"flexbox",
-		"responsive",
-		"css properties",
-		"css variables",
-		"framework"
-	],
-	"homepage": "https://github.com/daniil4udo/bulvar/tree/master/packages/buefy",
-	"bugs": {
-		"url": "https://github.com/daniil4udo/bulvar/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/daniil4udo/bulvar.git"
-	},
-	"license": "MIT",
-	"author": {
-		"name": "Daniil Chumachenko",
-		"email": "daniil4udo@gmail.com",
-		"url": "https://github.com/daniil4udo"
-	},
-	"maintainers": [
-		"Daniil Chumachenko <daniil4udo@gmail.com>"
-	],
-	"sideEffects": [
-		"*.css",
-		"*.sass",
-		"*.scss"
-	],
-	"type": "module",
-	"main": "buefy.sass",
-	"unpkg": "css/buefy.css",
-	"style": "buefy/css/buefy.min.css",
-	"files": [
-		"css",
-		"scss",
-		"buefy.sass",
-		"buefy-rtl.sass",
-		"LICENSE",
-		"README.md"
-	],
-	"scripts": {
-		"build": "concurrently --timings -c auto -m 1 -g \"pnpm:clean\" \"pnpm:compile\" \"pnpm:prefix\" \"pnpm:minify\"",
-		"clean": "rimraf css && mkdir css",
-		"compile": "concurrently -c auto \"pnpm:compile:*\" ",
-		"compile:main": "sass --verbose --error-css buefy.sass | node banner.js > css/buefy.css",
-		"compile:rtl": "sass --verbose --error-css buefy-rtl.sass | node banner.js > css/buefy-rtl.css",
-		"minify": "concurrently -c auto \"pnpm:minify:*\" ",
-		"minify:main": "csso -o css/buefy.min.css -i css/buefy.css --stat",
-		"minify:rtl": "csso -o css/buefy-rtl.min.css -i css/buefy-rtl.css --stat",
-		"package:publish": "npm publish --access public",
-		"prefix": "concurrently -c auto \"pnpm:prefix:*\" ",
-		"prefix:main": "postcss --config ../../postcss.config.js --output css/buefy.css css/buefy.css",
-		"prefix:rtl": "cross-env NODE_ENV=RTL postcss --config ../../postcss.config.js --output css/buefy-rtl.css css/buefy-rtl.css",
-		"watch": "sass --verbose --error-css --no-source-map --color buefy.sass css/buefy.css --watch"
-	},
-	"dependencies": {
-		"@bulvar/bulma": "workspace:*"
-	}
+    "name": "@bulvar/buefy",
+    "version": "0.11.23",
+    "description": "Lightweight UI components for Vue.js based on Bulma",
+    "keywords": [
+        "bulma",
+        "bulma extentions",
+        "buefy",
+        "css",
+        "sass",
+        "flexbox",
+        "responsive",
+        "css properties",
+        "css variables",
+        "framework"
+    ],
+    "homepage": "https://github.com/daniil4udo/bulvar/tree/master/packages/buefy",
+    "bugs": {
+        "url": "https://github.com/daniil4udo/bulvar/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/daniil4udo/bulvar.git"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Daniil Chumachenko",
+        "email": "daniil4udo@gmail.com",
+        "url": "https://github.com/daniil4udo"
+    },
+    "maintainers": [
+        "Daniil Chumachenko <daniil4udo@gmail.com>"
+    ],
+    "sideEffects": [
+        "*.css",
+        "*.sass",
+        "*.scss"
+    ],
+    "type": "module",
+    "main": "buefy.scss",
+    "unpkg": "css/buefy.css",
+    "style": "buefy/css/buefy.min.css",
+    "files": [
+        "css",
+        "scss",
+        "buefy.scss",
+        "buefy-rtl.scss",
+        "LICENSE",
+        "README.md"
+    ],
+    "scripts": {
+        "clean": "rimraf css && mkdir css",
+        "watch": "sass --verbose --error-css --no-source-map --color buefy.scss css/buefy.css --watch",
+        "compile": "concurrently -c auto \"pnpm:compile:*\" ",
+        "compile:main": "node --no-warnings --loader @swc-node/register/esm ../../scripts/compile.ts --scope=buefy",
+        "compile:rtl": "cross-env NODE_ENV=RTL node --no-warnings --loader @swc-node/register/esm ../../scripts/compile.ts --scope=buefy --rtl"
+    },
+    "dependencies": {
+        "@bulvar/bulma": "workspace:*"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
 }

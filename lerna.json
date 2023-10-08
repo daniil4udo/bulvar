@@ -1,27 +1,18 @@
 {
-	"version": "0.11.14",
-	"packages": ["packages/*"],
-	"npmClient": "pnpm",
-	"granularPathspec": false,
-	"command": {
-		"version": {
-			"allowBranch": ["master"],
-			"conventionalCommits": true,
-			"createRelease": "github",
-			"message": "release: 🔖 publish %s"
-		},
-		"publish": {
-			"npmClient": "npm"
-		}
-	},
-	"changelog": {
-		"labels": {
-			"feature": "New Feature",
-			"fix": "Bug Fix",
-			"docs": "Documentation",
-			"types": "Types",
-			"perf": "Performance",
-			"refactoring": "Refactor"
-		}
-	}
+    "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+    "useNx": true,
+    "version": "0.11.23",
+    "npmClient": "pnpm",
+    "command": {
+        "version": {
+            "allowBranch": ["master", "new-ci"],
+            "conventionalCommits": true,
+            "message": "release: 🔖 publish %s"
+        },
+        "publish": {
+            "npmClient": "pnpm"
+        }
+    },
+    "changelog": true,
+    "concurrency": 2
 }

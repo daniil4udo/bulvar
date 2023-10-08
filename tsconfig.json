@@ -1,0 +1,11 @@
+{
+    "extends": "@tsconfig/node18/tsconfig.json",
+    "include": ["package.json", "scripts/**/*", "scripts/**/*.ts"],
+    "compilerOptions": {
+        "composite": true,
+        "module": "NodeNext",
+        "resolveJsonModule": true,
+        "moduleResolution": "NodeNext",
+        "types": ["node"]
+    }
+}
