@@ -1,5 +1,6 @@
 @use "sass:color"
 @use "sass:list"
+@use "sass:map"
 @use "sass:meta"
 @use "sass:string"
 
@@ -165,10 +166,10 @@
     @content
 
 =breakpoint($name)
-  $breakpoint: map-get(vars.$breakpoints, $name)
+  $breakpoint: map.get(vars.$breakpoints, $name)
   @if $breakpoint
-    $from: map-get($breakpoint, "from")
-    $until: map-get($breakpoint, "until")
+    $from: map.get($breakpoint, "from")
+    $until: map.get($breakpoint, "until")
     @if $from and $until
       +between($from, $until)
         @content
@@ -353,9 +354,9 @@
 
   // Base color
   $color: list.nth($components, 1)
-  --#{$base}-h: #{color.hue($color)}
-  --#{$base}-s: #{color.saturation($color)}
-  --#{$base}-l: #{color.lightness($color)}
+  --#{$base}-h: #{color.channel($color, "hue", $space: hsl)}
+  --#{$base}-s: #{color.channel($color, "saturation", $space: hsl)}
+  --#{$base}-l: #{color.channel($color, "lightness", $space: hsl)}
   --#{$base}-a: 1
   --#{$base}: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-l), var(--#{$base}-a))
 
@@ -371,13 +372,13 @@
 
   // Light color
   $color-light: if(list.length($components) >= 3, list.nth($components, 3), fn.findLightColor($color))
-  $light-l: color.lightness($color-light)
+  $light-l: color.channel($color-light, "lightness", $space: hsl)
   --#{$base}-light-l: #{$light-l}
   --#{$base}-light: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-light-l), var(--#{$base}-a))
 
   // Dark color
   $color-dark: if(list.length($components) >= 4, list.nth($components, 4), fn.findDarkColor($color))
-  $dark-l: color.lightness($color-dark)
+  $dark-l: color.channel($color-dark, "lightness", $space: hsl)
   --#{$base}-dark-l: #{$dark-l}
   --#{$base}-dark: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-dark-l), var(--#{$base}-a))
 

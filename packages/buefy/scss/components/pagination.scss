@@ -1,3 +1,4 @@
+@use "sass:list";
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 
 .pagination {
@@ -27,8 +28,8 @@
 }
 
 @mixin paginationPositions($classes...) {
-    @for $i from 0 to length($classes) {
-        .pagination-#{nth($classes, $i + 1)} {
+    @for $i from 0 to list.length($classes) {
+        .pagination-#{list.nth($classes, $i + 1)} {
             order: $i + 1;
         }
     }

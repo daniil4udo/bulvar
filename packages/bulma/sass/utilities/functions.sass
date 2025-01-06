@@ -67,7 +67,7 @@ $-light-breakpoint: 0.55
 @function colorLuminance($color)
   @if meta.type-of($color) != 'color'
     @return $-light-breakpoint
-  $color-rgb: ('red': color.red($color),'green': color.green($color),'blue': color.blue($color))
+  $color-rgb: ('red': color.channel($color, "red", $space: rgb),'green': color.channel($color, "green", $space: rgb),'blue': color.channel($color, "blue", $space: rgb))
   @each $name, $value in $color-rgb
     $value: math.div($value, 255)
     @if $value < 0.03928
@@ -95,8 +95,8 @@ $-light-breakpoint: 0.55
 
 /// Light color calculation
 @function _calculateLightColor($color, $l: 96%)
-  @if color.lightness($color) > 96%
-    $l: color.lightness($color)
+  @if color.channel($color, "lightness", $space: hsl) > 96%
+    $l: color.channel($color, "lightness", $space: hsl)
   @return color.change($color, $lightness: $l)
 
 @function findLightColor($color, $fallback: null)
@@ -199,7 +199,7 @@ $-light-breakpoint: 0.55
 @function bulmaToRGB($color)
   @if meta.type-of($color) != 'color'
       @return $color
-  @return color.red($color), color.green($color), color.blue($color)
+  @return color.channel($color, "red", $space: rgb), color.channel($color, "green", $space: rgb), color.channel($color, "blue", $space: rgb)
 
 /// lighten & darken with css vars
 

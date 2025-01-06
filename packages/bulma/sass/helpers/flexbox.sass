@@ -1,3 +1,5 @@
+@use "sass:list"
+
 $flex-direction-values: row, row-reverse, column, column-reverse !default
 @each $value in $flex-direction-values
   .is-flex-direction-#{$value}
@@ -36,6 +38,6 @@ $flex-operators: grow, shrink !default
 
 $flex-gap-values: 0, .25rem, .5rem, .75rem, 1rem, 1.5rem, 3rem !default
 @each $value in $flex-gap-values
-  $i: index($flex-gap-values, $value)
+  $i: list.index($flex-gap-values, $value)
   .is-gap-#{$i}
     gap: $value !important
