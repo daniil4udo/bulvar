@@ -14,10 +14,10 @@ test.css.map
 
 .idea/
 .sass-cache
+.stylelintcache
 _gh_pages
 _site
 dev
-docs
 node_modules
 test/output/
 
@@ -29,5 +29,7 @@ test/output/
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+.nx/*
 
-css
+# css
+# docs
