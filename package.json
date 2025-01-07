@@ -28,7 +28,7 @@
     "type": "module",
     "scripts": {
         "prerelease": "lerna run compile",
-        "release": "lerna publish --no-push --yes",
+        "release": "lerna publish --no-push",
         "watch": "lerna run watch --stream --parallel",
         "lint": "concurrently -c auto \"pnpm:lint:all:*\" ",
         "lint:all:stylelint": "pnpm lint:stylelint \"packages/**/*.{sass,scss}\" --cache --rd --color",
