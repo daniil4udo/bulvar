@@ -52,8 +52,8 @@
         "clean": "rimraf css && mkdir css",
         "watch": "sass --verbose --error-css --no-source-map --color buefy.scss css/buefy.css --watch",
         "compile": "concurrently -c auto \"pnpm:compile:*\" ",
-        "compile:main": "node --no-warnings --loader @swc-node/register/esm ../../scripts/compile.ts --scope=buefy",
-        "compile:rtl": "cross-env NODE_ENV=RTL node --no-warnings --loader @swc-node/register/esm ../../scripts/compile.ts --scope=buefy --rtl"
+        "compile:main": "bun run ../../scripts/compile.ts --scope=buefy",
+        "compile:rtl": "cross-env NODE_ENV=RTL bun run ../../scripts/compile.ts --scope=buefy --rtl"
     },
     "dependencies": {
         "@bulvar/bulma": "workspace:*"
