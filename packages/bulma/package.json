@@ -51,6 +51,9 @@
     "scripts": {
         "clean": "rimraf css && mkdir css",
         "watch": "sass --verbose --error-css --no-source-map --color bulma.scss css/bulma.css --watch",
+        "lint": "concurrently -c auto \"pnpm:lint:*\" ",
+        "lint:stylelint": "stylelint --fix \"./**/*.{sass,scss}\" --cache --rd --color",
+        "lint:variables": "fusv ./",
         "compile": "concurrently -c auto \"pnpm:compile:*\" ",
         "compile:main": "bun run ../../scripts/compile.ts --scope=bulma",
         "compile:rtl": "cross-env NODE_ENV=RTL bun run ../../scripts/compile.ts --scope=bulma --rtl"

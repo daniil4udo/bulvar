@@ -31,5 +31,8 @@ test/output/
 .pnp.*
 .nx/*
 
+# Turbo
+.turbo
+
 # css
 # docs
