@@ -21,14 +21,17 @@ $-css-vars-map: ("level-item-spacing": $level-item-spacing)
   &.is-mobile
     display: flex
     .level-left,
-    .level-right
+    .level-right,
+    .level-start,
+    .level-end
       display: flex
-    .level-left + .level-right
-      margin-top: 0
+    .level-left + .level-right,
+    .level-start + .level-end
+      +utilities.logical-y(margin, 0, $bottom: false)
     .level-item
       &:not(:last-child)
-        margin-bottom: 0
-        +utilities.ltr-property("margin", var(--level-item-spacing))
+        +utilities.logical-y(margin, 0, $bottom: true)
+        +utilities.logical-x(margin, var(--level-item-spacing), $right: true)
       &:not(.is-narrow)
         flex-grow: 1
   // Responsiveness
@@ -47,14 +50,16 @@ $-css-vars-map: ("level-item-spacing": $level-item-spacing)
   justify-content: center
   .title,
   .subtitle
-    margin-bottom: 0
+    +utilities.logical-y(margin, 0, $bottom: true)
   // Responsiveness
   +utilities.mobile
     &:not(:last-child)
-      margin-bottom: var(--level-item-spacing)
+      +utilities.logical-y(margin, var(--level-item-spacing), $bottom: true)
 
 .level-left,
-.level-right
+.level-start,
+.level-right,
+.level-end
   flex-basis: auto
   flex-grow: 0
   flex-shrink: 0
@@ -65,21 +70,32 @@ $-css-vars-map: ("level-item-spacing": $level-item-spacing)
     // Responsiveness
     +utilities.tablet
       &:not(:last-child)
-        +utilities.ltr-property("margin", var(--level-item-spacing))
+        +utilities.logical-x(margin, var(--level-item-spacing), $right: true)
 
 .level-left
-  align-items: center
+  justify-content: left
+
+.level-start
   justify-content: flex-start
+
+.level-left, .level-start
+  align-items: center
   // Responsiveness
   +utilities.mobile
-    & + .level-right
-      margin-top: 1.5rem
+    & + .level-right, & + .level-end
+      +utilities.logical-y(margin, 1.5rem, $bottom: false)
   +utilities.tablet
     display: flex
 
 .level-right
-  align-items: center
+  justify-content: right
+
+.level-end
   justify-content: flex-end
+
+.level-right,
+.level-end
+  align-items: center
   // Responsiveness
   +utilities.tablet
     display: flex

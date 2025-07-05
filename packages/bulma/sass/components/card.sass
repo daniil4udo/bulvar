@@ -50,11 +50,9 @@ $-css-vars-map: ("card-background-color": $card-background-color, "card-shadow":
 
 %card-item
   &:first-child
-    border-top-left-radius: var(--card-radius)
-    border-top-right-radius: var(--card-radius)
+    +utilities.logical-border-radius(top, var(--card-radius))
   &:last-child
-    border-bottom-left-radius: var(--card-radius)
-    border-bottom-right-radius: var(--card-radius)
+    +utilities.logical-border-radius(bottom, var(--card-radius))
 
 .card-header
   @extend %card-item
@@ -86,12 +84,10 @@ $-css-vars-map: ("card-background-color": $card-background-color, "card-shadow":
   position: relative
   &:first-child
     img
-      border-top-left-radius: var(--card-radius)
-      border-top-right-radius: var(--card-radius)
+      +utilities.logical-border-radius(top, var(--card-radius))
   &:last-child
     img
-      border-bottom-left-radius: var(--card-radius)
-      border-bottom-right-radius: var(--card-radius)
+      +utilities.logical-border-radius(bottom, var(--card-radius))
 
 .card-content
   @extend %card-item
@@ -114,10 +110,10 @@ $-css-vars-map: ("card-background-color": $card-background-color, "card-shadow":
   justify-content: center
   padding: var(--card-footer-padding)
   &:not(:last-child)
-    +utilities.ltr-property("border", var(--card-footer-border-top))
+    +utilities.logical-x(border, var(--card-footer-border-top), $right: true)
 
 // Combinations
 
 .card
   .media:not(:last-child)
-    margin-bottom: var(--card-media-margin)
+    +utilities.logical-y(margin, var(--card-media-margin), $bottom: true)

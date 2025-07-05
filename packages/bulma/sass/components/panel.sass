@@ -27,7 +27,7 @@ $panel-list-item-hover-color: var(--link) !default
 
 $panel-block-color: var(--text-strong) !default
 $panel-block-hover-background-color: var(--background) !default
-$panel-block-active-border-left-color: var(--link) !default
+$panel-block-active-border-inline-start-color: var(--link) !default
 $panel-block-active-color: var(--link-active) !default
 $panel-block-active-icon-color: var(--link) !default
 
@@ -35,7 +35,7 @@ $panel-icon-color: var(--text-light) !default
 $panel-colors: vars.$colors !default
 
 // Map Local variables
-$-css-vars-map: ("panel-font-size": $panel-font-size, "panel-margin": $panel-margin, "panel-item-border": $panel-item-border, "panel-radius": $panel-radius, "panel-shadow": $panel-shadow, "panel-heading-background-color": $panel-heading-background-color, "panel-heading-color": $panel-heading-color, "panel-heading-line-height": $panel-heading-line-height, "panel-heading-padding": $panel-heading-padding, "panel-heading-size": $panel-heading-size, "panel-heading-weight": $panel-heading-weight, "panel-tabs-font-size": $panel-tabs-font-size, "panel-tab-border-bottom": $panel-tab-border-bottom, "panel-tab-active-border-bottom-color": $panel-tab-active-border-bottom-color, "panel-tab-active-color": $panel-tab-active-color, "panel-list-item-color": $panel-list-item-color, "panel-list-item-hover-color": $panel-list-item-hover-color, "panel-block-color": $panel-block-color, "panel-block-hover-background-color": $panel-block-hover-background-color, "panel-block-active-border-left-color": $panel-block-active-border-left-color, "panel-block-active-color": $panel-block-active-color, "panel-block-active-icon-color": $panel-block-active-icon-color, "panel-icon-color": $panel-icon-color)
+$-css-vars-map: ("panel-font-size": $panel-font-size, "panel-margin": $panel-margin, "panel-item-border": $panel-item-border, "panel-radius": $panel-radius, "panel-shadow": $panel-shadow, "panel-heading-background-color": $panel-heading-background-color, "panel-heading-color": $panel-heading-color, "panel-heading-line-height": $panel-heading-line-height, "panel-heading-padding": $panel-heading-padding, "panel-heading-size": $panel-heading-size, "panel-heading-weight": $panel-heading-weight, "panel-tabs-font-size": $panel-tabs-font-size, "panel-tab-border-bottom": $panel-tab-border-bottom, "panel-tab-active-border-bottom-color": $panel-tab-active-border-bottom-color, "panel-tab-active-color": $panel-tab-active-color, "panel-list-item-color": $panel-list-item-color, "panel-list-item-hover-color": $panel-list-item-hover-color, "panel-block-color": $panel-block-color, "panel-block-hover-background-color": $panel-block-hover-background-color, "panel-block-active-border-inline-start-color": $panel-block-active-border-inline-start-color, "panel-block-active-color": $panel-block-active-color, "panel-block-active-icon-color": $panel-block-active-icon-color, "panel-icon-color": $panel-icon-color)
 +utilities.exportCSSVars($-css-vars-map)
 +utilities.registerComponentCSSVars("panel", $-css-vars-map)
 // --panel-font-size: #{$panel-font-size}
@@ -57,7 +57,7 @@ $-css-vars-map: ("panel-font-size": $panel-font-size, "panel-margin": $panel-mar
 // --panel-list-item-hover-color: #{$panel-list-item-hover-color}
 // --panel-block-color: #{$panel-block-color}
 // --panel-block-hover-background-color: #{$panel-block-hover-background-color}
-// --panel-block-active-border-left-color: #{$panel-block-active-border-left-color}
+// --panel-block-active-border-inline-start-color: #{$panel-block-active-border-inline-start-color}
 // --panel-block-active-color: #{$panel-block-active-color}
 // --panel-block-active-icon-color: #{$panel-block-active-icon-color}
 // --panel-icon-color: #{$panel-icon-color}
@@ -67,7 +67,7 @@ $-css-vars-map: ("panel-font-size": $panel-font-size, "panel-margin": $panel-mar
   box-shadow: var(--panel-shadow)
   font-size: var(--panel-font-size)
   &:not(:last-child)
-    margin-bottom: var(--panel-margin)
+    +utilities.logical-y(margin, var(--panel-margin), $bottom: true)
   // Colors
   @each $name, $components in $panel-colors
     $color: list.nth($components, 1)
@@ -102,7 +102,7 @@ $-css-vars-map: ("panel-font-size": $panel-font-size, "panel-margin": $panel-mar
   justify-content: center
   a
     border-bottom: var(--panel-tab-border-bottom)
-    margin-bottom: -1px
+    +utilities.logical-y(margin, -1px, $bottom: true)
     padding: 0.5em
     // Modifiers
     &.is-active
@@ -122,7 +122,7 @@ $-css-vars-map: ("panel-font-size": $panel-font-size, "panel-margin": $panel-mar
   justify-content: flex-start
   padding: 0.5em 0.75em
   input[type="checkbox"]
-    +utilities.ltr-property("margin", 0.75em)
+    +utilities.logical-x(margin, 0.75em, $right: true)
   & > .control
     flex-grow: 1
     flex-shrink: 1
@@ -130,13 +130,14 @@ $-css-vars-map: ("panel-font-size": $panel-font-size, "panel-margin": $panel-mar
   &.is-wrapped
     flex-wrap: wrap
   &.is-active
-    border-left-color: var(--panel-block-active-border-left-color)
+    +utilities.logical-x(border, 1px solid var(--panel-block-active-border-inline-start-color), $right: false);
     color: var(--panel-block-active-color)
     .panel-icon
       color: var(--panel-block-active-icon-color)
+  &:first-child
+    +utilities.logical-border-radius(top, var(--panel-radius))
   &:last-child
-    border-bottom-left-radius: var(--panel-radius)
-    border-bottom-right-radius: var(--panel-radius)
+    +utilities.logical-border-radius(bottom, var(--panel-radius))
 
 a.panel-block,
 label.panel-block
@@ -147,7 +148,7 @@ label.panel-block
 .panel-icon
   +utilities.fa(14px, 1em)
   color: var(--panel-icon-color)
-  +utilities.ltr-property("margin", 0.75em)
+  +utilities.logical-x(margin, 0.75em, $right: true)
   .fa
     font-size: inherit
     line-height: inherit

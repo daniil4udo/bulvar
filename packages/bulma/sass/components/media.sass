@@ -23,39 +23,43 @@ $-css-vars-map: ("media-border-color": $media-border-color, "media-border-size":
   display: flex
   text-align: inherit
   .content:not(:last-child)
-    margin-bottom: var(--media-content-spacing)
+    +utilities.logical-y(margin, var(--media-content-spacing), $bottom: true)
   .media
     border-top: var(--media-border-size) solid var(--media-border-color)
     display: flex
-    padding-top: var(--media-level-1-spacing)
+    +utilities.logical-y(padding, var(--media-level-1-spacing), $bottom: false)
     .content:not(:last-child),
     .control:not(:last-child)
-      margin-bottom: var(--media-level-1-content-spacing)
+      +utilities.logical-y(margin, var(--media-level-1-content-spacing), $bottom: true)
     .media
-      padding-top: var(--media-level-2-spacing)
+      +utilities.logical-y(padding, var(--media-level-2-spacing), $bottom: false)
       & + .media
-        margin-top: var(--media-level-2-spacing)
+        +utilities.logical-y(margin, var(--media-level-2-spacing), $bottom: false)
   & + .media
     border-top: var(--media-border-size) solid var(--media-border-color)
-    margin-top: var(--media-spacing)
-    padding-top: var(--media-spacing)
+    +utilities.logical-y(margin, var(--media-spacing), $bottom: false)
+    +utilities.logical-y(padding, var(--media-spacing), $bottom: false)
   // Sizes
   &.is-large
     & + .media
-      margin-top: var(--media-spacing-large)
-      padding-top: var(--media-spacing-large)
+      +utilities.logical-y(margin, var(--media-spacing-large), $bottom: false)
+      +utilities.logical-y(padding, var(--media-spacing-large), $bottom: false)
 
 .media-left,
-.media-right
+.media-start,
+.media-right,
+.media-end
   flex-basis: auto
   flex-grow: 0
   flex-shrink: 0
 
-.media-left
-  +utilities.ltr-property("margin", var(--media-spacing))
+.media-left,
+.media-start
+  +utilities.logical-x(margin, var(--media-spacing), $right: true)
 
-.media-right
-  +utilities.ltr-property("margin", var(--media-spacing), false)
+.media-right,
+.media-end
+  +utilities.logical-x(margin, var(--media-spacing), $right: false)
 
 .media-content
   flex-basis: auto

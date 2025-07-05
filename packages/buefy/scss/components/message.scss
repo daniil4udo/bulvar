@@ -1,11 +1,14 @@
+@use "../../../bulma/sass/utilities" as bulma-utilities;
+
 .message,
 .notification {
     .media {
-        padding-top: 0;
+        @include bulma-utilities.logical-y(padding, 0, $bottom: false);
         border: 0;
     }
 
     .progress {
+
         height: 5px;
     }
 }

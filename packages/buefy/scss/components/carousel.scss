@@ -59,7 +59,7 @@ $-css-vars-map: (
     .progress {
         height: 0.25rem;
         border-radius: var(--radius-small);
-        margin-bottom: 0;
+        @include bulma-utilities.logical-y(margin, 0, $bottom: true);
     }
     .carousel-items {
         position: relative;
@@ -80,7 +80,7 @@ $-css-vars-map: (
         position: absolute;
         z-index: 1;
         top: 0;
-        right: 0.15rem;
+		@include bulma-utilities.logical-x(inset, 0.15rem, $right: true);
         pointer-events: none;
     }
     .carousel-indicator {
@@ -116,7 +116,7 @@ $-css-vars-map: (
         }
         .indicator-item {
             &:not(:last-child) {
-                margin-right: var(--carousel-indicator-spaced);
+                @include bulma-utilities.logical-x(margin, var(--carousel-indicator-spaced), $right: true);
             }
             &.is-active .indicator-style,
             .indicator-style:hover {
@@ -210,18 +210,17 @@ $-css-vars-map: (
             border: 1px solid var(--carousel-arrow-color);
             opacity: 1;
         }
-        &.has-icons-left,
-        &.has-icons-right {
+        &:is(.has-icons-left, .has-icons-start, .has-icons-right, .has-icons-end) {
             position: absolute;
             z-index: 1;
             top: var(--carousel-arrow-top);
             transform: translateY(calc(-1 * var(--carousel-arrow-top)));
         }
-        &.has-icons-left {
-            left: var(--carousel-arrow-icon-spaced);
+        &:is(.has-icons-left, .has-icons-start) {
+			@include bulma-utilities.logical-x(inset, var(--carousel-arrow-icon-spaced), $right: false);
         }
-        &.has-icons-right {
-            right: var(--carousel-arrow-icon-spaced);
+        &:is(.has-icons-right, .has-icons-end) {
+			@include bulma-utilities.logical-x(inset, var(--carousel-arrow-icon-spaced), $right: true);
         }
     }
 }

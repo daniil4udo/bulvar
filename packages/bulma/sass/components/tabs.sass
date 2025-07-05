@@ -78,7 +78,7 @@ $-css-vars-map: ('tabs-font-size': $tabs-font-size, 'tabs-border-bottom-color': 
     color: var(--tabs-link-color)
     display: flex
     justify-content: center
-    margin-bottom: calc(-1 * var(--tabs-border-bottom-width))
+    +utilities.logical-y(margin, calc(-1 * var(--tabs-border-bottom-width)), $bottom: true)
     padding: var(--tabs-link-padding)
     vertical-align: top
     &:hover
@@ -99,36 +99,38 @@ $-css-vars-map: ('tabs-font-size': $tabs-font-size, 'tabs-border-bottom-color': 
     flex-grow: 1
     flex-shrink: 0
     justify-content: flex-start
-    &.is-left
-      padding-right: 0.75em
+    &.is-left,
+    &.is-start
+      +utilities.logical-x(padding, 0.75em, $right: true)
     &.is-center
       flex: none
       justify-content: center
-      padding-left: 0.75em
-      padding-right: 0.75em
-    &.is-right
+      +utilities.logical-x(padding, 0.75em)
+    &.is-right,
+    &.is-end
       justify-content: flex-end
-      padding-left: 0.75em
+      +utilities.logical-x(padding, 0.75em, $right: false)
   .icon
     &:first-child
-      +utilities.ltr-property("margin", 0.5em)
+      +utilities.logical-x(margin, 0.5em, $right: true)
     &:last-child
-      +utilities.ltr-property("margin", 0.5em, false)
+      +utilities.logical-x(margin, 0.5em, $right: false)
   // Alignment
   &.is-centered
     ul
       justify-content: center
   &.is-right
     ul
+      justify-content: right
+  &.is-end
+    ul
       justify-content: flex-end
   // Styles
   &.is-boxed
     a
       border: 1px solid transparent
-      +utilities.ltr
-        border-radius: var(--tabs-boxed-link-radius) var(--tabs-boxed-link-radius) 0 0
-      +utilities.rtl
-        border-radius: 0 0 var(--tabs-boxed-link-radius) var(--tabs-boxed-link-radius)
+      +utilities.logical-border-radius(top, var(--tabs-boxed-link-radius))
+      +utilities.logical-border-radius(bottom, 0)
       &:hover
         background-color: var(--tabs-boxed-link-hover-background-color)
         border-bottom-color: var(--tabs-boxed-link-hover-border-bottom-color)
@@ -147,7 +149,7 @@ $-css-vars-map: ('tabs-font-size': $tabs-font-size, 'tabs-border-bottom-color': 
       border-color: var(--tabs-toggle-link-border-color)
       border-style: var(--tabs-toggle-link-border-style)
       border-width: var(--tabs-toggle-link-border-width)
-      margin-bottom: 0
+      +utilities.logical-y(margin, 0, $bottom: true)
       position: relative
       &:hover
         background-color: var(--tabs-toggle-link-hover-background-color)
@@ -155,21 +157,11 @@ $-css-vars-map: ('tabs-font-size': $tabs-font-size, 'tabs-border-bottom-color': 
         z-index: 2
     li
       & + li
-        +utilities.ltr-property("margin", calc(-1 * var(--tabs-toggle-link-border-width)), false)
+        +utilities.logical-x(margin, calc(-1 * var(--tabs-toggle-link-border-width)), $right: false)
       &:first-child a
-        +utilities.ltr
-          border-top-left-radius: var(--tabs-toggle-link-radius)
-          border-bottom-left-radius: var(--tabs-toggle-link-radius)
-        +utilities.rtl
-          border-top-right-radius: var(--tabs-toggle-link-radius)
-          border-bottom-right-radius: var(--tabs-toggle-link-radius)
+        +utilities.logical-border-radius(left, var(--tabs-toggle-link-radius))
       &:last-child a
-        +utilities.ltr
-          border-top-right-radius: var(--tabs-toggle-link-radius)
-          border-bottom-right-radius: var(--tabs-toggle-link-radius)
-        +utilities.rtl
-          border-top-left-radius: var(--tabs-toggle-link-radius)
-          border-bottom-left-radius: var(--tabs-toggle-link-radius)
+        +utilities.logical-border-radius(right, var(--tabs-toggle-link-radius))
       &.is-active
         a
           background-color: var(--tabs-toggle-link-active-background-color)
@@ -181,22 +173,10 @@ $-css-vars-map: ('tabs-font-size': $tabs-font-size, 'tabs-border-bottom-color': 
     &.is-toggle-rounded
       li
         &:first-child a
-          +utilities.ltr
-            border-bottom-left-radius: var(--radius-rounded)
-            border-top-left-radius: var(--radius-rounded)
-            padding-left: 1.25em
-          +utilities.rtl
-            border-bottom-right-radius: var(--radius-rounded)
-            border-top-right-radius: var(--radius-rounded)
-            padding-right: 1.25em
+          +utilities.logical-x(padding, 1.25em, $right: false)
+          +utilities.logical-border-radius(left, var(--radius-rounded))
         &:last-child a
-          +utilities.ltr
-            border-bottom-right-radius: var(--radius-rounded)
-            border-top-right-radius: var(--radius-rounded)
-            padding-right: 1.25em
-          +utilities.rtl
-            border-bottom-left-radius: var(--radius-rounded)
-            border-top-left-radius: var(--radius-rounded)
-            padding-left: 1.25em
+          +utilities.logical-x(padding, 1.25em, $right: true)
+          +utilities.logical-border-radius(right, var(--radius-rounded))
   // Sizes
   +utilities.control-sizes(tabs-font-size)

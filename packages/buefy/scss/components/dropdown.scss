@@ -17,7 +17,7 @@ $-css-vars-map: (
 
 .dropdown {
     & + .dropdown {
-        margin-left: 0.5em;
+        @include bulma-utilities.logical-x(margin, 0.5em, $right: false);
     }
     .background {
         @extend %overlay;
@@ -47,7 +47,7 @@ $-css-vars-map: (
         }
         .has-link a {
             @extend .dropdown-item;
-            padding-right: 3rem;
+            @include bulma-utilities.logical-x(padding, 3rem, $right: true);
             white-space: nowrap;
         }
     }
@@ -103,24 +103,20 @@ $-css-vars-map: (
             padding: 0;
         }
     }
-    &.is-top-right {
+    &:is(.is-top-right, .is-top-end) {
         .dropdown-menu {
-            top: auto;
-            bottom: 100%;
+			@include bulma-utilities.logical-y(inset, auto 100%);
         }
     }
-    &.is-top-left {
+    &:is(.is-top-left, .is-top-start) {
         .dropdown-menu {
-            top: auto;
-            right: 0;
-            bottom: 100%;
-            left: auto;
+			@include bulma-utilities.logical-y(inset, auto 100%);
+			@include bulma-utilities.logical-x(inset, auto 0);
         }
     }
-    &.is-bottom-left {
+    &:is(.is-bottom-left, .is-bottom-start) {
         .dropdown-menu {
-            right: 0;
-            left: auto;
+			@include bulma-utilities.logical-x(inset, auto 0);
         }
     }
 
@@ -130,9 +126,8 @@ $-css-vars-map: (
                 position: fixed !important;
                 z-index: 50 !important;
                 top: 25% !important;
-                right: auto !important;
+				@include bulma-utilities.logical-x(inset, 50% auto !important);
                 bottom: auto !important;
-                left: 50% !important;
                 width: calc(100vw - 40px);
                 max-width: 460px;
                 max-height: calc(100vh - 120px);

@@ -42,15 +42,15 @@ $-css-vars-map: (
         align-items: center;
         outline: none;
         &:not(.button) {
-            margin-right: 0.5em;
+            @include bulma-utilities.logical-x(margin, 0.5em, $right: true);
             & + .checkbox:last-child {
-                margin-right: 0;
+                @include bulma-utilities.logical-x(margin, 0, $right: true);
             }
         }
         input[type=checkbox] {
             position: absolute;
             z-index: -1;
-            left: 0;
+			@include bulma-utilities.logical-x(inset, 0, $right: false);
             opacity: 0;
             outline: none;
             + .check {
@@ -114,7 +114,7 @@ $-css-vars-map: (
             }
         }
         .control-label {
-            padding-left: var(--checkbox-padding);
+            @include bulma-utilities.logical-x(padding, var(--checkbox-padding), $right: false);
         }
         &.button {
             display: flex;

@@ -146,18 +146,18 @@ $-css-vars-map: ('hero-body-padding': $hero-body-padding, 'hero-body-padding-tab
     display: none
 
 .hero-buttons
-  margin-top: 1.5rem
+  +utilities.logical-y(margin, 1.5rem, $bottom: false)
   // Responsiveness
   +utilities.mobile
     .button
       display: flex
       &:not(:last-child)
-        margin-bottom: 0.75rem
+        +utilities.logical-y(margin, 0.75rem, $bottom: true)
   +utilities.tablet
     display: flex
     justify-content: center
     .button:not(:last-child)
-      +utilities.ltr-property("margin", 1.5rem)
+      +utilities.logical-x(margin, 1.5rem, $right: true)
 
 // Containers
 

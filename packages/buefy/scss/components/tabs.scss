@@ -37,7 +37,7 @@ $-css-vars-map: (
 .b-tabs {
     .tabs {
         flex-shrink: 0;
-        margin-bottom: 0;
+        @include bulma-utilities.logical-y(margin, 0, $bottom: true);
         li {
             a:focus {
                 border-bottom-color: var(--tabs-link-focus-active-border-bottom-color);
@@ -105,7 +105,7 @@ $-css-vars-map: (
         }
     }
     &:not(:last-child) {
-        margin-bottom: 1.5rem;
+        @include bulma-utilities.logical-y(margin, 1.5rem, $bottom: true);
     }
     &.is-fullwidth {
         width: 100%;
@@ -131,14 +131,14 @@ $-css-vars-map: (
             &.is-boxed {
                 li {
                     a {
-                        border-radius: var(--tabs-boxed-link-radius) 0 0 var(--tabs-boxed-link-radius);
-                        border-right-color: var(--tabs-border-bottom-color) !important;
+                        @include bulma-utilities.logical-border-radius(left, var(--tabs-boxed-link-radius));
+                        border-inline-end-color: var(--tabs-border-bottom-color) !important;
                         border-bottom-color: transparent !important;
                     }
 
                     &.is-active {
                         a {
-                            border-right-color: transparent !important;
+                            border-inline-end-color: transparent !important;
                             border-bottom-color: var(--tabs-border-bottom-color) !important;
                         }
                     }
@@ -147,16 +147,16 @@ $-css-vars-map: (
             &.is-toggle {
                 li {
                     + li {
-                        margin-left: 0;
+                        @include bulma-utilities.logical-x(margin, 0, $right: false);
                     }
                     &:first-child {
                         a {
-                            border-radius: var(--tabs-toggle-link-radius) var(--tabs-toggle-link-radius) 0 0;
+                            @include bulma-utilities.logical-border-radius(top, var(--tabs-toggle-link-radius));
                         }
                     }
                     &:last-child {
                         a {
-                            border-radius: 0 0 var(--tabs-toggle-link-radius) var(--tabs-toggle-link-radius);
+                            @include bulma-utilities.logical-border-radius(bottom, var(--tabs-toggle-link-radius));
                         }
                     }
                 }
@@ -182,8 +182,7 @@ $-css-vars-map: (
                         flex-direction: row-reverse;
 
                         .icon:first-child {
-                            margin-right: 0;
-                            margin-left: 0.5em
+                            @include bulma-utilities.logical-x(margin, 0.5em 0);
                         }
                     }
                 }
@@ -191,17 +190,17 @@ $-css-vars-map: (
                 &.is-boxed {
                     li {
                         a {
-                            border-radius: 0 var(--tabs-boxed-link-radius) var(--tabs-boxed-link-radius) 0;
-                            border-right-color: transparent !important;
+                            @include bulma-utilities.logical-border-radius(right, var(--tabs-boxed-link-radius));
+                            border-inline-end-color: transparent !important;
                             border-bottom-color: transparent !important;
-                            border-left-color: var(--tabs-border-bottom-color) !important;
+                            border-inline-start-color: var(--tabs-border-bottom-color) !important;
                         }
 
                         &.is-active {
                             a {
-                                border-right-color: var(--tabs-border-bottom-color) !important;
+                                border-inline-end-color: var(--tabs-border-bottom-color) !important;
                                 border-bottom-color: var(--tabs-border-bottom-color) !important;
-                                border-left-color: transparent !important;
+                                border-inline-start-color: transparent !important;
                             }
                         }
                     }

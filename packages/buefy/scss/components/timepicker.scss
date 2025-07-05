@@ -18,7 +18,7 @@
             }
         }
     }
-    // unset opacity when dropdow is disabled
+    // unset opacity when dropdown is disabled
     .dropdown {
         &.is-disabled {
             opacity: 1;
@@ -33,13 +33,13 @@
     }
     .dropdown-content {
         .control {
-            margin-right: 0 !important;
+			@include bulma-utilities.logical-x(margin, 0 !important, $right: true);
             font-size: 1.25em;
             .select {
                 margin: 0 0.125em;
 
                 select {
-                    padding-right: var(--control-padding-horizontal);
+                    @include bulma-utilities.logical-x(padding, var(--control-padding-horizontal), $right: true);
                     border: 0;
                     font-weight: var(--weight-semibold);
                     option {
@@ -57,7 +57,7 @@
                 line-height: 1.7em;
 
                 &:last-child {
-                    padding-right: var(--control-padding-horizontal);
+                    @include bulma-utilities.logical-x(padding, var(--control-padding-horizontal), $right: true);
                 }
             }
         }

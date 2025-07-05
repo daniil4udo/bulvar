@@ -10,11 +10,10 @@
         }
         .modal-card-body {
             .field {
-                margin-top: 16px;
+                @include bulma-utilities.logical-y(margin, 16px, $bottom: false);
             }
             &.is-titleless {
-                border-top-left-radius: var(--card-radius);
-                border-top-right-radius: var(--card-radius);
+                @include bulma-utilities.logical-border-radius(top, var(--card-radius));
             }
         }
         .modal-card-foot {

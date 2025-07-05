@@ -17,8 +17,7 @@ $-css-vars-map: (
         display: block;
         width: 100%;
         &.is-opened-top {
-            top: auto;
-            bottom: 100%;
+			@include bulma-utilities.logical-y(inset, auto 100%)
         }
     }
     .dropdown-content {

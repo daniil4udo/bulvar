@@ -39,10 +39,8 @@ $-css-vars-map: (
 .notices {
     position: fixed;
     z-index: 1000;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+	@include bulma-utilities.logical-y(inset, 0);
+	@include bulma-utilities.logical-x(inset, 0);
     display: flex;
     overflow: hidden;
     padding: 2em;
@@ -84,8 +82,8 @@ $-css-vars-map: (
         }
         .action {
             padding: 0.5em;
-            padding-left: 0;
-            margin-left: auto;
+            @include bulma-utilities.logical-x(padding, 0, $right: false);
+            @include bulma-utilities.logical-x(margin, auto, $right: false);
             .button {
                 border: transparent;
                 background: var(--snackbar-background-color);
@@ -109,7 +107,7 @@ $-css-vars-map: (
             }
         }
         .action.is-cancel {
-            padding-right: 0;
+            @include bulma-utilities.logical-x(padding, 0, $right: true);
         }
         @include bulma-utilities.mobile {
             width: 100%;
@@ -134,10 +132,10 @@ $-css-vars-map: (
         &.is-top, &.is-bottom {
             align-self: center;
         }
-        &.is-top-right, &.is-bottom-right {
+        &:is(.is-top-right, .is-top-end, .is-bottom-right, .is-bottom-end) {
             align-self: flex-end;
         }
-        &.is-top-left, &.is-bottom-left {
+        &:is(.is-top-left, .is-top-start, .is-bottom-left, .is-bottom-start) {
             align-self: flex-start;
         }
         &.is-toast {
@@ -155,9 +153,9 @@ $-css-vars-map: (
         // Since the columns are reversed, we need to reverse the margin logic from
         // :not(:last-child) to :not(:first-child)
         .notification {
-            margin-bottom: 0;
+            @include bulma-utilities.logical-y(margin, 0, $bottom: true);
             &:not(:first-child) {
-                margin-bottom: 1.5rem;
+                @include bulma-utilities.logical-y(margin, 1.5rem, $bottom: true);
             }
         }
     }

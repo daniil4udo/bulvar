@@ -21,7 +21,7 @@ $loading-full-page-icon-size: 5em !default;
         .loading-icon {
             &::after {
                 top: calc(50% - #{$loading-full-page-icon-size * 0.5});
-                left: calc(50% - #{$loading-full-page-icon-size * 0.5});
+				@include bulma-utilities.logical-x(inset, calc(50% - #{$loading-full-page-icon-size * 0.5}), $right: false);
                 width: $loading-full-page-icon-size;
                 height: $loading-full-page-icon-size;
             }
@@ -38,7 +38,7 @@ $loading-full-page-icon-size: 5em !default;
             @extend %loader;
             position: absolute;
             top: calc(50% - #{$loading-icon-size * 0.5});
-            left: calc(50% - #{$loading-icon-size * 0.5});
+			@include bulma-utilities.logical-x(inset, calc(50% - #{$loading-icon-size * 0.5}), $right: false);
             width: $loading-icon-size;
             height: $loading-icon-size;
             border-width: 0.25em;

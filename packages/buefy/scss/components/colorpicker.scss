@@ -20,19 +20,19 @@ $-css-vars-map: (
         text-transform: uppercase;
     }
     .colorpicker-footer {
-        padding-top: .875rem;
+        @include bulma-utilities.logical-y(padding, .875rem, $bottom: false);
         border: 1px solid var(--grey-lighter);
         border-width: 1px 0 0;
-        margin-top: .875rem;
+        @include bulma-utilities.logical-y(margin, .875rem, $bottom: false);
 
         .colorpicker-fields {
-            margin-bottom: .875rem;
+            @include bulma-utilities.logical-y(margin, .875rem, $bottom: true);
 
             .field {
                 flex-grow: 1;
 
                 .field-label {
-                    margin-right: .5rem;
+                    @include bulma-utilities.logical-x(margin, .5rem, $right: true);
                 }
                 .control {
                     display: flex;
@@ -43,7 +43,7 @@ $-css-vars-map: (
                         -webkit-appearance: none;
                         -moz-appearance: textfield;
                         appearance: textfield;
-                        text-align: right;
+                        text-align: end;
 
                         &::-webkit-outer-spin-button,
                         &::-webkit-inner-spin-button {
@@ -64,11 +64,11 @@ $-css-vars-map: (
         flex-direction: row;
 
         .colorpicker-footer {
-            padding-top: 0;
-            padding-left: .875rem;
+            @include bulma-utilities.logical-y(padding, 0, $bottom: false);
+            @include bulma-utilities.logical-x(padding, 0.875rem, $right: false);
             border-width: 0 0 0 1px;
-            margin-top: 0;
-            margin-left: .875rem;
+            @include bulma-utilities.logical-y(margin, 0, $bottom: false);
+            @include bulma-utilities.logical-x(margin, 0.875rem, $right: false);
         }
     }
 }
@@ -145,10 +145,8 @@ div.b-colorpicker-square {
 
     .colorpicker-square-slider-hue {
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+		@include bulma-utilities.logical-y(inset, 0);
+		@include bulma-utilities.logical-x(inset, 0);
         border-radius: var(--colorpicker-radius);
         background:
             conic-gradient(
@@ -191,18 +189,15 @@ div.b-colorpicker-square {
     .colorpicker-square-slider-sl {
         position: absolute;
         top: 0;
-        right: 0;
+		@include bulma-utilities.logical-x(inset, 0);
         bottom: 0;
-        left: 0;
         border-radius: calc(var(--colorpicker-radius) / 2);
         background: #fff;
 
         &::before {
             position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+			@include bulma-utilities.logical-y(inset, 0);
+			@include bulma-utilities.logical-x(inset, 0);
             background: linear-gradient(0deg, #000, #fff);
             content: "";
             mix-blend-mode: hard-light;
@@ -243,8 +238,7 @@ div.b-colorpicker-square {
     position: relative;
     height: 1em;
     border-radius: var(--colorpicker-radius);
-    margin-top: .125em;
-    margin-bottom: .875rem;
+	@include bulma-utilities.logical-y(margin, .125em .875rem);
     background-image:
         linear-gradient(45deg, #c7c7c7 25%, transparent 25%, transparent 75%, #c7c7c7 75%, #c7c7c7),
         linear-gradient(45deg, #c7c7c7 25%, transparent 25%, transparent 75%, #c7c7c7 75%, #c7c7c7);
@@ -254,7 +248,7 @@ div.b-colorpicker-square {
     .alpha-range-thumb {
         position: absolute;
         top: 50%;
-        left: 0;
+        @include bulma-utilities.logical-x(inset, 0, $right: false);
         width: .4em;
         height: 1.25em;
         border-radius: var(--colorpicker-radius);
@@ -285,10 +279,8 @@ div.b-colorpicker-square {
             &,
             &> .tooltip-trigger {
                 position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
+				@include bulma-utilities.logical-y(inset, 0);
+				@include bulma-utilities.logical-x(inset, 0);
                 display: block;
             }
         }

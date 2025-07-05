@@ -1,6 +1,8 @@
+@use "../../../bulma/sass/utilities" as bulma-utilities;
+
 .b-numberinput {
     &.field {
-        margin-bottom: 0;
+        @include bulma-utilities.logical-y(margin, 0, $bottom: true);
         &.is-grouped {
             div.control {
                 flex-grow: 1;
@@ -26,8 +28,7 @@
     }
     .button {
         &.is-rounded {
-            padding-right: 1em;
-            padding-left: 1em;
+            @include bulma-utilities.logical-x(padding, 1em);
         }
     }
 }

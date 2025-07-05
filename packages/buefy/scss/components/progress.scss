@@ -21,13 +21,13 @@ $-css-vars-map: (
     overflow: hidden;
 
     &:not(:last-child) {
-        margin-bottom: 1.5rem;
+        @include bulma-utilities.logical-y(margin, 1.5rem, $bottom: true);
     }
 
     .progress-value {
         position: absolute;
         top: 0;
-        left: 50%;
+		@include bulma-utilities.logical-x(inset, 50%, $right: false);
         color: var(--progress-value-color);
         font-size: calc(var(--progress-value-size) / 1.5);
         font-weight: var(--weight-bold);
@@ -37,7 +37,7 @@ $-css-vars-map: (
     }
 
     .progress, .progress-bar {
-        margin-bottom: 0;
+        @include bulma-utilities.logical-y(margin, 0, $bottom: true);
 
         @include bulma-utilities.control-sizes(progress-value-size);
 

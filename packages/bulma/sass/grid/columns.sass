@@ -21,13 +21,13 @@ $column-map: ('full': 100%, 'three-quarters': math.div(100% * 3, 4), 'two-thirds
       width: $value
   @each $name, $value in $column-map
     .columns.is-mobile > &.is-offset-#{$name}
-      +utilities.ltr-property("margin", #{$value}, false)
+      +utilities.logical-x(margin, #{$value}, $right: false)
   @for $i from 0 through 12
     .columns.is-mobile > &.is-#{$i}
       flex: none
       width: math.percentage(math.div($i, 12))
     .columns.is-mobile > &.is-offset-#{$i}
-      +utilities.ltr-property("margin", math.percentage(math.div($i, 12)), false)
+      +utilities.logical-x(margin, math.percentage(math.div($i, 12)), $right: false)
   +utilities.mobile
     &.is-narrow-mobile
       flex: none
@@ -38,13 +38,13 @@ $column-map: ('full': 100%, 'three-quarters': math.div(100% * 3, 4), 'two-thirds
         width: $value
     @each $name, $value in $column-map
       &.is-offset-#{$name}-mobile
-        +utilities.ltr-property("margin", #{$value}, false)
+        +utilities.logical-x(margin, #{$value}, $right: false)
     @for $i from 0 through 12
       &.is-#{$i}-mobile
         flex: none
         width: math.percentage(math.div($i, 12))
       &.is-offset-#{$i}-mobile
-        +utilities.ltr-property("margin", math.percentage(math.div($i, 12)), false)
+        +utilities.logical-x(margin, math.percentage(math.div($i, 12)), $right: false)
   +utilities.tablet
     &.is-narrow,
     &.is-narrow-tablet
@@ -59,7 +59,7 @@ $column-map: ('full': 100%, 'three-quarters': math.div(100% * 3, 4), 'two-thirds
     @each $name, $value in $column-map
       &.is-offset-#{$name},
       &.is-offset-#{$name}-tablet
-        +utilities.ltr-property("margin", #{$value}, false)
+        +utilities.logical-x(margin, #{$value}, $right: false)
     @for $i from 0 through 12
       &.is-#{$i},
       &.is-#{$i}-tablet
@@ -67,7 +67,7 @@ $column-map: ('full': 100%, 'three-quarters': math.div(100% * 3, 4), 'two-thirds
         width: math.percentage(math.div($i, 12))
       &.is-offset-#{$i},
       &.is-offset-#{$i}-tablet
-        +utilities.ltr-property("margin", math.percentage(math.div($i, 12)), false)
+        +utilities.logical-x(margin, math.percentage(math.div($i, 12)), $right: false)
   +utilities.touch
     &.is-narrow-touch
       flex: none
@@ -79,13 +79,13 @@ $column-map: ('full': 100%, 'three-quarters': math.div(100% * 3, 4), 'two-thirds
 
     @each $name, $value in $column-map
       &.is-offset-#{$name}-touch
-        +utilities.ltr-property("margin", #{$value}, false)
+        +utilities.logical-x(margin, #{$value}, $right: false)
     @for $i from 0 through 12
       &.is-#{$i}-touch
         flex: none
         width: math.percentage(math.div($i, 12))
       &.is-offset-#{$i}-touch
-        +utilities.ltr-property("margin", math.percentage(math.div($i, 12)), false)
+        +utilities.logical-x(margin, math.percentage(math.div($i, 12)), $right: false)
   +utilities.desktop
     &.is-narrow-desktop
       flex: none
@@ -97,13 +97,13 @@ $column-map: ('full': 100%, 'three-quarters': math.div(100% * 3, 4), 'two-thirds
 
     @each $name, $value in $column-map
       &.is-offset-#{$name}-desktop
-        +utilities.ltr-property("margin", #{$value}, false)
+        +utilities.logical-x(margin, #{$value}, $right: false)
     @for $i from 0 through 12
       &.is-#{$i}-desktop
         flex: none
         width: math.percentage(math.div($i, 12))
       &.is-offset-#{$i}-desktop
-        +utilities.ltr-property("margin", math.percentage(math.div($i, 12)), false)
+        +utilities.logical-x(margin, math.percentage(math.div($i, 12)), $right: false)
   +utilities.widescreen
     &.is-narrow-widescreen
       flex: none
@@ -115,13 +115,13 @@ $column-map: ('full': 100%, 'three-quarters': math.div(100% * 3, 4), 'two-thirds
 
     @each $name, $value in $column-map
       &.is-offset-#{$name}-widescreen
-        +utilities.ltr-property("margin", #{$value}, false)
+        +utilities.logical-x(margin, #{$value}, $right: false)
     @for $i from 0 through 12
       &.is-#{$i}-widescreen
         flex: none
         width: math.percentage(math.div($i, 12))
       &.is-offset-#{$i}-widescreen
-        +utilities.ltr-property("margin", math.percentage(math.div($i, 12)), false)
+        +utilities.logical-x(margin, math.percentage(math.div($i, 12)), $right: false)
   +utilities.fullhd
     &.is-narrow-fullhd
       flex: none
@@ -133,36 +133,34 @@ $column-map: ('full': 100%, 'three-quarters': math.div(100% * 3, 4), 'two-thirds
 
     @each $name, $value in $column-map
       &.is-offset-#{$name}-fullhd
-        +utilities.ltr-property("margin", $value, false)
+        +utilities.logical-x(margin, $value, $right: false)
     @for $i from 0 through 12
       &.is-#{$i}-fullhd
         flex: none
         width: math.percentage(math.div($i, 12))
       &.is-offset-#{$i}-fullhd
-        +utilities.ltr-property("margin", math.percentage(math.div($i, 12)), false)
+        +utilities.logical-x(margin, math.percentage(math.div($i, 12)), $right: false)
 
 .columns
-  +utilities.ltr-property("margin", (-$column-gap), false)
-  +utilities.ltr-property("margin", (-$column-gap))
-  margin-top: (-$column-gap)
+  +utilities.logical-x(margin, (-$column-gap))
+  +utilities.logical-y(margin, (-$column-gap), $bottom: false)
   &:last-child
-    margin-bottom: (-$column-gap)
+    +utilities.logical-y(margin, (-$column-gap), $bottom: true)
   &:not(:last-child)
-    margin-bottom: calc(1.5rem - #{$column-gap})
+    +utilities.logical-y(margin, calc(1.5rem - #{$column-gap}), $bottom: true)
   // Modifiers
   &.is-centered
     justify-content: center
   &.is-gapless
-    +utilities.ltr-property("margin", 0, false)
-    +utilities.ltr-property("margin", 0)
-    margin-top: 0
+    +utilities.logical-x(margin, 0)
+    +utilities.logical-y(margin, 0, $bottom: false)
     & > .column
       margin: 0
       padding: 0 !important
     &:not(:last-child)
-      margin-bottom: 1.5rem
+      +utilities.logical-y(margin, 1.5rem, $bottom: true)
     &:last-child
-      margin-bottom: 0
+      +utilities.logical-y(margin, 0, $bottom: true)
   &.is-mobile
     display: flex
   &.is-multiline
@@ -181,11 +179,9 @@ $column-map: ('full': 100%, 'three-quarters': math.div(100% * 3, 4), 'two-thirds
 @if vars.$variable-columns
   .columns.is-variable
     --column-gap: 0.75rem
-    +utilities.ltr-property("margin", calc(-1 * var(--column-gap)), false)
-    +utilities.ltr-property("margin", calc(-1 * var(--column-gap)))
+    +utilities.logical-x(margin, calc(-1 * var(--column-gap)))
     > .column
-      padding-left: var(--column-gap)
-      padding-right: var(--column-gap)
+      +utilities.logical-x(padding, var(--column-gap))
     @for $i from 0 through 8
       &.is-#{$i}
         --column-gap: #{$i * 0.25rem}

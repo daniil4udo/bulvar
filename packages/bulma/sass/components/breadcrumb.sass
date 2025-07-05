@@ -41,7 +41,7 @@ $-css-vars-map: ("breadcrumb-font-size": $breadcrumb-font-size, "breadcrumb-item
     align-items: center
     display: flex
     &:first-child a
-      +utilities.ltr-property("padding", 0, false)
+      +utilities.logical-x(padding, 0, $right: false)
     &.is-active
       a
         color: var(--breadcrumb-item-active-color)
@@ -58,15 +58,19 @@ $-css-vars-map: ("breadcrumb-font-size": $breadcrumb-font-size, "breadcrumb-item
     justify-content: flex-start
   .icon
     &:first-child
-      +utilities.ltr-property("margin", 0.5em)
+      +utilities.logical-x(margin, 0.5em, $right: true)
     &:last-child
-      +utilities.ltr-property("margin", 0.5em, false)
+      +utilities.logical-x(margin, 0.5em, $right: false)
   // Alignment
   &.is-centered
     ol,
     ul
       justify-content: center
   &.is-right
+    ol,
+    ul
+      justify-content: right
+  &.is-end
     ol,
     ul
       justify-content: flex-end

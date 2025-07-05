@@ -21,10 +21,8 @@ $-css-vars-map: (
             flex-wrap: wrap;
             align-items: center;
             justify-content: flex-start;
-            padding-top: calc(0.275em - 1px);
-            padding-right: 0;
-            padding-bottom: 0;
-            padding-left: 0;
+            @include bulma-utilities.logical-y(padding, calc(0.275em - 1px) 0);
+            @include bulma-utilities.logical-x(padding, 0);
             cursor: text;
         }
         &:not(.is-focusable) {
@@ -38,12 +36,12 @@ $-css-vars-map: (
         > .tag,
         > .tags {
             height: var(--taginput-height);
-            margin-bottom: calc(0.275em - 1px);
-            margin-left: 0.275rem;
+            @include bulma-utilities.logical-y(margin, calc(0.275em - 1px), $bottom: true);
+            @include bulma-utilities.logical-x(margin, 0.275rem, $right: false);
             font-size: 0.9em;
             .tag {
                 height: var(--taginput-height);
-                margin-bottom: 0;
+                @include bulma-utilities.logical-y(margin, 0, $bottom: true);
                 font-size: 0.9em;
                 &.is-delete {
                     width: var(--taginput-height);
@@ -57,10 +55,9 @@ $-css-vars-map: (
             input {
                 min-width: 8em;
                 height: var(--taginput-height);
-                padding-top: 0;
-                padding-bottom: 0;
+                @include bulma-utilities.logical-y(padding, 0);
                 border: none;
-                margin-bottom: calc(0.275em - 1px);
+                @include bulma-utilities.logical-y(margin, calc(0.275em - 1px), $bottom: true);
                 box-shadow: none;
                 &:focus {
                     box-shadow: none !important;

@@ -4,8 +4,7 @@
 .pagination {
     .pagination-next,
     .pagination-previous {
-        padding-right: var(--pagination-nav-padding-right);
-        padding-left: var(--pagination-nav-padding-left);
+        @include bulma-utilities.logical-x(padding, var(--pagination-nav-padding-left) var(--pagination-nav-padding-right));
         &.is-disabled {
             cursor: not-allowed;
             opacity: 0.5;
@@ -18,6 +17,9 @@
             justify-content: center;
         }
         &.is-right {
+            justify-content: right;
+        }
+        &.is-end {
             justify-content: flex-end;
         }
     }
@@ -40,26 +42,26 @@
         @include paginationPositions("list", "input", "previous", "next");
         &.is-centered {
             @include paginationPositions("previous", "list", "input", "next");
-            &.is-input-right {
+            &:is(.is-input-right, .is-input-end) {
                 @include paginationPositions("previous", "list", "next", "input");
             }
-            &.is-input-left {
+            &:is(.is-input-left, .is-input-start) {
                 @include paginationPositions("input", "previous", "list", "next");
             }
         }
-        &.is-right {
+        &:is(.is-right, .is-end) {
             @include paginationPositions("previous", "next", "input", "list");
-            &.is-input-right {
+            &:is(.is-input-right, .is-input-end) {
                 @include paginationPositions("previous", "next", "list", "input");
             }
-            &.is-input-left {
+            &:is(.is-input-left, .is-input-start) {
                 @include paginationPositions("input", "previous", "next", "list");
             }
         }
-        &.is-input-right {
+        &:is(.is-input-right, .is-input-end) {
             @include paginationPositions("list", "previous", "next", "input");
         }
-        &.is-input-left {
+        &:is(.is-input-left, .is-input-start) {
             @include paginationPositions("input", "list", "previous", "next");
         }
     }

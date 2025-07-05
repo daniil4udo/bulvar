@@ -66,7 +66,7 @@ $-css-vars-map: ("title-sub-size": $title-sub-size, "title-family": $title-famil
     color: var(--title-strong-color)
     font-weight: var(--title-strong-weight)
   &:not(.is-spaced) + .subtitle
-    margin-top: var(--subtitle-negative-margin)
+    +utilities.logical-y(margin, var(--subtitle-negative-margin), $bottom: false)
 
 .subtitle
   color: var(--subtitle-color)
@@ -79,7 +79,7 @@ $-css-vars-map: ("title-sub-size": $title-sub-size, "title-family": $title-famil
     color: var(--subtitle-strong-color)
     font-weight: var(--subtitle-strong-weight)
   &:not(.is-spaced) + .title
-    margin-top: var(--subtitle-negative-margin)
+    +utilities.logical-y(margin, var(--subtitle-negative-margin), $bottom: false)
 
 // Sizes
 .title,

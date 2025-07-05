@@ -112,10 +112,8 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
     font-family: var(--button-family)
   font-size: var(--button-font-size)
   justify-content: center
-  padding-bottom: var(--button-padding-vertical)
-  padding-left: var(--button-padding-horizontal)
-  padding-right: var(--button-padding-horizontal)
-  padding-top: var(--button-padding-vertical)
+  +utilities.logical-y(padding, var(--button-padding-vertical))
+  +utilities.logical-x(padding, var(--button-padding-horizontal))
   text-align: center
   white-space: nowrap
   strong
@@ -128,14 +126,13 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
       height: 1.5em
       width: 1.5em
     &:first-child:not(:last-child)
-      +utilities.ltr-property("margin", calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width)), false)
-      +utilities.ltr-property("margin", calc(var(--button-padding-horizontal) * 0.25))
+      +utilities.logical-x(margin, calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width)), $right: false)
+      +utilities.logical-x(margin, calc(var(--button-padding-horizontal) * 0.25), $right: true)
     &:last-child:not(:first-child)
-      +utilities.ltr-property("margin", calc(var(--button-padding-horizontal) * 0.25), false)
-      +utilities.ltr-property("margin", calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width)))
+      +utilities.logical-x(margin, calc(var(--button-padding-horizontal) * 0.25), $right: false)
+      +utilities.logical-x(margin, calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width)), $right: true)
     &:first-child:last-child
-      margin-left: calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width))
-      margin-right: calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width))
+      +utilities.logical-x(margin, calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width)))
   // States
   &:hover,
   &.is-hovered
@@ -324,8 +321,7 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
     pointer-events: none
   &.is-rounded
     border-radius: var(--radius-rounded)
-    padding-left: calc(var(--button-padding-horizontal) + 0.25em)
-    padding-right: calc(var(--button-padding-horizontal) + 0.25em)
+    +utilities.logical-x(padding, calc(var(--button-padding-horizontal) + 0.25em))
 
 .buttons
   align-items: center
@@ -333,13 +329,13 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
   flex-wrap: wrap
   justify-content: flex-start
   .button
-    margin-bottom: 0.5rem
+    +utilities.logical-y(margin, 0.5rem, $bottom: true)
     &:not(:last-child, .is-fullwidth)
-      +utilities.ltr-property("margin", 0.5rem)
+      +utilities.logical-x(margin, 0.5rem, $right: true)
   &:last-child
-    margin-bottom: -0.5rem
+    +utilities.logical-y(margin, -0.5rem, $bottom: true)
   &:not(:last-child)
-    margin-bottom: 1rem
+    +utilities.logical-y(margin, 1rem, $bottom: true)
   // Sizes
   &.are-small
     .button:not(.is-normal, .is-medium, .is-large)
@@ -353,14 +349,12 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
   &.has-addons
     .button
       &:not(:first-child)
-        border-bottom-left-radius: 0
-        border-top-left-radius: 0
+        +utilities.logical-border-radius(left, 0)
       &:not(:last-child)
-        border-bottom-right-radius: 0
-        border-top-right-radius: 0
-        +utilities.ltr-property("margin", -1px)
+        +utilities.logical-border-radius(right, 0)
+        +utilities.logical-x(margin, -1px, $right: true)
       &:last-child
-        +utilities.ltr-property("margin", 0)
+        +utilities.logical-x(margin, 0, $right: true)
       &:hover,
       &.is-hovered
         z-index: 2
@@ -379,14 +373,17 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
     justify-content: center
     &:not(.has-addons)
       .button:not(.is-fullwidth)
-        margin-left: 0.25rem
-        margin-right: 0.25rem
+        +utilities.logical-x(margin, 0.25rem)
   &.is-right
+    justify-content: right
+    &:not(.has-addons)
+      .button:not(.is-fullwidth)
+        +utilities.logical-x(margin, 0.25rem)
+  &.is-end
     justify-content: flex-end
     &:not(.has-addons)
       .button:not(.is-fullwidth)
-        margin-left: 0.25rem
-        margin-right: 0.25rem
+        +utilities.logical-x(margin, 0.25rem)
 
 @each $name, $sizes in $button-responsive-sizes
   +utilities.breakpoint($name)

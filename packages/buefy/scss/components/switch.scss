@@ -24,15 +24,15 @@ $-css-vars-map: (
     position: relative;
     display: inline-flex;
     align-items: center;
-    margin-right: 0.5em;
+    @include bulma-utilities.logical-x(margin, 0.5em, $right: true);
     cursor: pointer;
     & + .switch:last-child {
-        margin-right: 0;
+        @include bulma-utilities.logical-x(margin, 0, $right: true);
     }
     input[type="checkbox"] {
         position: absolute;
         z-index: -1;
-        left: 0;
+        @include bulma-utilities.logical-x(inset, 0, $right: false);
         opacity: 0;
         outline: none;
 
@@ -119,16 +119,16 @@ $-css-vars-map: (
         }
     }
 
-    &.has-left-label {
+    &:is(.has-left-label, .has-start-label) {
         flex-direction: row-reverse;
         .control-label {
-            padding-right: var(--control-padding-horizontal);
+            @include bulma-utilities.logical-x(padding, var(--control-padding-horizontal), $right: true);
         }
     }
 
-    &:not(.has-left-label) {
+    &:not(.has-left-label, .has-start-label) {
         .control-label {
-            padding-left: var(--control-padding-horizontal);
+            @include bulma-utilities.logical-x(padding, var(--control-padding-horizontal), $right: false);
         }
     }
 

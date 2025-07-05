@@ -98,8 +98,7 @@ $-css-vars-map: (
         font-size: inherit;
     }
     .dropdown-content {
-        padding-top: 0;
-        padding-bottom: 0;
+		@include bulma-utilities.logical-y(padding, 0);
     }
 
     .card {
@@ -107,8 +106,7 @@ $-css-vars-map: (
     }
 
     .card-header {
-        border-top-left-radius: var(--clockpicker-card-radius);
-        border-top-right-radius: var(--clockpicker-card-radius);
+        @include bulma-utilities.logical-border-radius(top, var(--clockpicker-card-radius));
     }
 
     .card-content {
@@ -168,7 +166,7 @@ $-css-vars-map: (
         .b-clockpicker-btn {
             padding: 0 8px;
             border-radius: var(--radius-rounded);
-            margin-bottom: 2px;
+            @include bulma-utilities.logical-y(margin, 2px, $bottom: true);
             &:hover,
             &.active {
                 background-color: var(--primary);
@@ -179,13 +177,13 @@ $-css-vars-map: (
         .b-clockpicker-period {
             position: absolute;
             top: 5px;
-            right: 5px;
+			@include bulma-utilities.logical-x(inset, 5px, $right: true);
         }
 
         .b-clockpicker-time {
             position: absolute;
             top: 5px;
-            left: 5px;
+			@include bulma-utilities.logical-x(inset, 5px, $right: false);
             font-size: $period-font-size;
 
         }
@@ -205,7 +203,7 @@ $-css-vars-map: (
                 position: absolute;
                 z-index: 10;
                 top: 50%;
-                left: 50%;
+				@include bulma-utilities.logical-x(inset, 50%, $right: false);
                 width: $hand-endpoint-size;
                 height: $hand-endpoint-size;
                 // Dot in center
@@ -226,7 +224,7 @@ $-css-vars-map: (
             &-number {
                 position: absolute;
                 top: calc(50% - #{$indicator-size} * 0.5);
-                left: calc(50% - #{$indicator-size} * 0.5);
+				@include bulma-utilities.logical-x(inset, calc(50% - #{$indicator-size} * 0.5), $right: false);
                 display: flex;
                 width: $indicator-size;
                 height: $indicator-size;
@@ -246,7 +244,7 @@ $-css-vars-map: (
                 &::after {
                     position: absolute;
                     top: 50%;
-                    left: 50%;
+					@include bulma-utilities.logical-x(inset, 50%, $right: false);
                     width: $indicator-size;
                     height: $indicator-size;
                     border-radius: 100%;
@@ -269,7 +267,7 @@ $-css-vars-map: (
                 position: absolute;
                 z-index: 1;
                 bottom: 50%;
-                left: calc(50% - 1px);
+				@include bulma-utilities.logical-x(inset, calc(50% - 1px), $right: false);
                 width: 2px;
                 height: calc(50% - #{$hand-endpoint-size * 0.5});
 
@@ -280,7 +278,7 @@ $-css-vars-map: (
                 &::before {
                     position: absolute;
                     top: -($hand-endpoint-size) * 0.5;
-                    left: 50%;
+					@include bulma-utilities.logical-x(inset, 50%, $right: false);
                     width: $hand-endpoint-size;
                     height: $hand-endpoint-size;
                     border-width: 2px;

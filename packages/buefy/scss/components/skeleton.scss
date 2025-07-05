@@ -46,7 +46,7 @@ $-css-vars-map: (
         }
 
         +.b-skeleton-item {
-            margin-top: var(--skeleton-margin-top);
+            @include bulma-utilities.logical-y(margin, var(--skeleton-margin-top), $bottom: false);
         }
     }
 
@@ -65,7 +65,7 @@ $-css-vars-map: (
     }
 
     +.b-skeleton {
-        margin-top: var(--skeleton-margin-top);
+        @include bulma-utilities.logical-y(margin, var(--skeleton-margin-top), $bottom: false);
     }
 
     @include bulma-utilities.control-sizes(skeleton-line-height-size);

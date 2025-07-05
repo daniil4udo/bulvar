@@ -61,9 +61,9 @@ $-css-vars-map: ("menu-font-size": $menu-font-size, "menu-list-line-height": $me
       color: var(--menu-item-active-color)
   li
     ul
-      +utilities.ltr-property("border", var(--menu-list-border-left), false)
+      +utilities.logical-x(border, var(--menu-list-border-left), $right: false)
       margin: var(--menu-nested-list-margin)
-      +utilities.ltr-property("padding", var(--menu-nested-list-padding-left), false)
+      +utilities.logical-x(padding, var(--menu-nested-list-padding-left), $right: false)
 
 .menu-label
   color: var(--menu-label-color)
@@ -71,6 +71,6 @@ $-css-vars-map: ("menu-font-size": $menu-font-size, "menu-list-line-height": $me
   letter-spacing: var(--menu-label-letter-spacing)
   text-transform: uppercase
   &:not(:first-child)
-    margin-top: var(--menu-label-spacing)
+    +utilities.logical-y(margin, var(--menu-label-spacing), $bottom: false)
   &:not(:last-child)
-    margin-bottom: var(--menu-label-spacing)
+    +utilities.logical-y(margin, var(--menu-label-spacing), $bottom: true)

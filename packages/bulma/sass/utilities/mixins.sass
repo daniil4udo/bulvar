@@ -16,10 +16,10 @@
 =center($width, $height: 0)
   position: absolute
   @if $height != 0
-    left: calc(50% - (#{$width} * 0.5))
+    +logical-x(inset, calc(50% - (#{$width} * 0.5)), $right: false)
     top: calc(50% - (#{$height} * 0.5))
   @else
-    left: calc(50% - (#{$width} * 0.5))
+    +logical-x(inset, calc(50% - (#{$width} * 0.5)), $right: false)
     top: calc(50% - (#{$width} * 0.5))
 
 =fa($size, $dimensions)
@@ -47,7 +47,7 @@
     background-color: currentColor
     display: block
     height: 1px
-    left: calc(50% - 8px)
+    +logical-x(inset, calc(50% - 8px), $right: false)
     position: absolute
     transform-origin: center
     transition-duration: var(--speed)
@@ -188,21 +188,84 @@
   @if vars.$rtl
     @content
 
-=ltr-property($property, $spacing, $right: true)
-  $normal: if($right, "right", "left")
-  $opposite: if($right, "left", "right")
-  +rtl
-    #{$property}-#{$opposite}: $spacing
-  +ltr
-    #{$property}-#{$normal}: $spacing
+=logical-border-radius($args...)
+  // Define allowed corner values
+  $list-of-directions: ("top", "top-right", "right", "bottom-right", "bottom", "bottom-left", "left", "top-left") !default
+  $list: list.join($list-of-directions, ("cross-left", "cross-right", "all"))
 
-=ltr-position($spacing, $right: true)
-  $normal: if($right, "right", "left")
-  $opposite: if($right, "left", "right")
-  +rtl
-    #{$opposite}: $spacing
-  +ltr
-    #{$normal}: $spacing
+  // Fix logical property mapping
+  $position-top: if(vars.$logical, "start", "top")
+  $position-bottom: if(vars.$logical, "end", "bottom")
+  $position-left: if(vars.$logical, "start", "left")
+  $position-right: if(vars.$logical, "end", "right")
+
+  // Handle different argument patterns
+  @if list.length($args) == 1
+    // Single value - apply to all corners
+    $value: list.nth($args, 1)
+    border-radius: fn.null($value, space)
+
+  @else if list.length($args) == 2
+    // Two values - corner specification + radius value
+    $corner: list.nth($args, 1)
+    $value: list.nth($args, 2)
+
+    @if list.index($list, $corner)
+      @if $corner == "top"
+        border-#{$position-top}-#{$position-left}-radius: $value
+        border-#{$position-top}-#{$position-right}-radius: $value
+      @else if $corner == "top-right"
+        border-#{$position-top}-#{$position-right}-radius: $value
+      @else if $corner == "right"
+        border-#{$position-top}-#{$position-right}-radius: $value
+        border-#{$position-bottom}-#{$position-right}-radius: $value
+      @else if $corner == "bottom-right"
+        border-#{$position-bottom}-#{$position-right}-radius: $value
+      @else if $corner == "bottom"
+        border-#{$position-bottom}-#{$position-left}-radius: $value
+        border-#{$position-bottom}-#{$position-right}-radius: $value
+      @else if $corner == "bottom-left"
+        border-#{$position-bottom}-#{$position-left}-radius: $value
+      @else if $corner == "left"
+        border-#{$position-top}-#{$position-left}-radius: $value
+        border-#{$position-bottom}-#{$position-left}-radius: $value
+      @else if $corner == "top-left"
+        border-#{$position-top}-#{$position-left}-radius: $value
+      @else if $corner == "all"
+        border-radius: $value
+      @else if $corner == "cross-left"
+        border-#{$position-top}-#{$position-left}-radius: $value
+        border-#{$position-bottom}-#{$position-right}-radius: $value
+      @else if $corner == "cross-right"
+        border-#{$position-top}-#{$position-right}-radius: $value
+        border-#{$position-bottom}-#{$position-left}-radius: $value
+    @else
+      @error "Corner value must be one of the following: #{$list}."
+
+  @else if list.length($args) == 4
+    // Four values - individual corner radii (top-left, top-right, bottom-right, bottom-left)
+    $processed-args: fn.null($args, space, true)
+    border-#{$position-top}-#{$position-left}-radius: list.nth($processed-args, 1)
+    border-#{$position-top}-#{$position-right}-radius: list.nth($processed-args, 2)
+    border-#{$position-bottom}-#{$position-right}-radius: list.nth($processed-args, 3)
+    border-#{$position-bottom}-#{$position-left}-radius: list.nth($processed-args, 4)
+
+  @else
+    @error "Invalid number of arguments. Expected 1, 2, or 4 arguments, got #{list.length($args)}."
+
+=logical-x($property, $spacing, $right: null)
+  @if $right == null
+    #{$property}-inline: $spacing;  // Shorthand when $right not specified
+  @else
+    $position: if($right, "end", "start")
+    #{$property}-inline-#{$position}: $spacing
+
+=logical-y($property, $spacing, $bottom: null)
+  @if $bottom == null
+    #{$property}-block: $spacing;  // Shorthand when $bottom not specified
+  @else
+    $position: if($bottom, "end", "start")
+    #{$property}-block-#{$position}: $spacing
 
 // Placeholders
 
@@ -213,12 +276,12 @@
   --arrow-color: #{$color}
   border: 3px solid var(--arrow-color)
   border-radius: 2px
-  border-right: 0
+  +logical-x(border, 0, $right: true);
   border-top: 0
   content: " "
   display: block
   height: 0.625em
-  margin-top: -0.4375em
+  +logical-y(margin, -0.4375em, $bottom: false)
   pointer-events: none
   position: absolute
   top: 50%
@@ -228,7 +291,7 @@
 
 =block($spacing: vars.$block-spacing)
   &:not(:last-child)
-    margin-bottom: var(--block-spacing)
+    +logical-y(margin, var(--block-spacing), $bottom: true)
 
 =delete
   --delete-height: 20px
@@ -258,7 +321,7 @@
     background-color: var(--scheme-main)
     content: ""
     display: block
-    left: 50%
+    +logical-x(inset, 50%, $right: false)
     position: absolute
     top: 50%
     transform: translateX(-50%) translateY(-50%) rotate(45deg)
@@ -290,7 +353,7 @@
   animation: spinAround 500ms infinite linear
   border: 2px solid var(--loader-border-color)
   border-radius: var(--radius-rounded)
-  border-right-color: transparent
+  border-inline-end-color: transparent
   border-top-color: transparent
   content: ""
   display: block
@@ -299,12 +362,8 @@
   width: 1em
 
 =overlay($offset: 0)
-  bottom: $offset
-  left: $offset
   position: absolute
-  right: $offset
-  top: $offset
-
+  inset: $offset
 
 //
 // Additional @mixins for bulvar

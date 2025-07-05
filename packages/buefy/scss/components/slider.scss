@@ -70,7 +70,7 @@ $-css-vars-map: (
     .b-slider-tick-label {
         position: absolute;
         top: calc((#{$track-height} * 0.5) + 2px);
-        left: 50%;
+        @include bulma-utilities.logical-x(inset, 50%, $right: false);
         font-size: var(--slider-mark-size);
         transform: translateX(-50%);
     }
@@ -137,10 +137,8 @@ $-css-vars-map: (
     }
 
     &.slider-focus{
-        padding-top: 20px;
-        padding-bottom: 20px;
-        margin-top: -20px;
-        margin-bottom: -20px;
+		@include bulma-utilities.logical-y(padding, 20px);
+		@include bulma-utilities.logical-y(margin, -20px);
         cursor: pointer;
     }
 

@@ -29,9 +29,9 @@ $-css-vars-map: (
     } @else if $direction == "is-bottom" {
         border-bottom-color: $color;
     } @else if $direction == "is-right" {
-        border-right-color: $color;
+        border-inline-end-color: $color;
     } @else if $direction == "is-left" {
-        border-left-color: $color;
+        border-inline-start-color: $color;
     }
 }
 
@@ -41,71 +41,51 @@ $-css-vars-map: (
             // TODO: move calculations calc(100... to CSS Var
             --tooltip-content-spacing: calc(100% + var(--tooltip-arrow-size) + var(--tooltip-arrow-margin));
             @if  $direction == "is-top" {
-                top: auto;
-                right: auto;
-                bottom: var(--tooltip-content-spacing);
-                left: 50%;
+				@include bulma-utilities.logical-y(inset, auto var(--tooltip-content-spacing));
+				@include bulma-utilities.logical-x(inset, 50% auto);
                 transform: translateX(-50%);
 
                 &::before {
-                    top: 100%;
-                    right: auto;
-                    bottom: auto;
-                    left: 50%;
+					@include bulma-utilities.logical-y(inset, 100% auto);
+					@include bulma-utilities.logical-x(inset, 50% auto);
                     border-top: var(--tooltip-arrow-size) solid var(--primary);
-                    border-right: var(--tooltip-arrow-size) solid transparent;
-                    border-left: var(--tooltip-arrow-size) solid transparent;
+					@include bulma-utilities.logical-x(border, var(--tooltip-arrow-size) solid transparent);
                     transform: translateX(-50%);
                 }
             } @else if $direction == "is-bottom" {
-                top: var(--tooltip-content-spacing);
-                right: auto;
-                bottom: auto;
-                left: 50%;
+				@include bulma-utilities.logical-y(inset, var(--tooltip-content-spacing) auto);
+				@include bulma-utilities.logical-x(inset, 50% auto);
                 transform: translateX(-50%);
 
                 &::before {
-                    top: auto;
-                    right: auto;
-                    bottom: 100%;
-                    left: 50%;
-                    border-right: var(--tooltip-arrow-size) solid transparent;
+					@include bulma-utilities.logical-y(inset, auto 100%);
+					@include bulma-utilities.logical-x(inset, 50% auto);
+					@include bulma-utilities.logical-x(border, var(--tooltip-arrow-size) solid transparent);
                     border-bottom: var(--tooltip-arrow-size) solid var(--primary);
-                    border-left: var(--tooltip-arrow-size) solid transparent;
                     transform: translateX(-50%);
                 }
             } @else if $direction == "is-right" {
-                top: 50%;
-                right: auto;
-                bottom: auto;
-                left: var(--tooltip-content-spacing);
+				@include bulma-utilities.logical-y(inset, 50% auto);
+				@include bulma-utilities.logical-x(inset, var(--tooltip-content-spacing) auto);
                 transform: translateY(-50%);
 
                 &::before {
-                    top: 50%;
-                    right: 100%;
-                    bottom: auto;
-                    left: auto;
-                    border-top: var(--tooltip-arrow-size) solid transparent;
-                    border-right: var(--tooltip-arrow-size) solid var(--primary);
-                    border-bottom: var(--tooltip-arrow-size) solid transparent;
+					@include bulma-utilities.logical-y(inset, 50% auto);
+					@include bulma-utilities.logical-x(inset, auto 100%);
+                    border-block: var(--tooltip-arrow-size) solid transparent;
+					@include bulma-utilities.logical-x(border, var(--tooltip-arrow-size) solid var(--primary), $right: true);
                     transform: translateY(-50%);
                 }
             } @else if $direction == "is-left" {
-                top: 50%;
-                right: var(--tooltip-content-spacing);
-                bottom: auto;
-                left: auto;
+				@include bulma-utilities.logical-y(inset, 50% auto);
+				@include bulma-utilities.logical-x(inset, auto var(--tooltip-content-spacing));
                 transform: translateY(-50%);
 
                 &::before {
-                    top: 50%;
-                    right: auto;
-                    bottom: auto;
-                    left: 100%;
-                    border-top: var(--tooltip-arrow-size) solid transparent;
-                    border-bottom: var(--tooltip-arrow-size) solid transparent;
-                    border-left: var(--tooltip-arrow-size) solid var(--primary);
+					@include bulma-utilities.logical-y(inset, 50% auto);
+					@include bulma-utilities.logical-x(inset, 100% auto);
+                    border-block: var(--tooltip-arrow-size) solid transparent;
+					@include bulma-utilities.logical-x(border, var(--tooltip-arrow-size) solid var(--primary), $right: false);
                     transform: translateY(-50%);
                 }
             }

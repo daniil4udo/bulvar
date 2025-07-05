@@ -29,13 +29,13 @@ $-css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
   flex-wrap: wrap
   justify-content: flex-start
   .tag
-    margin-bottom: 0.5rem
+    +utilities.logical-y(margin, 0.5rem, $bottom: true)
     &:not(:last-child)
-      +utilities.ltr-property("margin", 0.5rem)
+      +utilities.logical-x(margin, 0.5rem, $right: true)
   &:last-child
-    margin-bottom: -0.5rem
+    +utilities.logical-y(margin, -0.5rem, $bottom: true)
   &:not(:last-child)
-    margin-bottom: 1rem
+    +utilities.logical-y(margin, 1rem, $bottom: true)
   // Sizes
   &.are-medium
     .tag:not(.is-normal, .is-large)
@@ -46,33 +46,23 @@ $-css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
   &.is-centered
     justify-content: center
     .tag
-      margin-right: 0.25rem
-      margin-left: 0.25rem
-  &.is-right
+      +utilities.logical-x(margin, 0.25rem)
+  &.is-right,
+  &.is-end
     justify-content: flex-end
     .tag
       &:not(:first-child)
-        margin-left: 0.5rem
+        +utilities.logical-x(margin, 0.5rem, $right: false)
       &:not(:last-child)
-        margin-right: 0
+        +utilities.logical-x(margin, 0, $right: true)
   &.has-addons
     .tag
-      +utilities.ltr-property("margin", 0)
+      +utilities.logical-x(margin, 0, $right: true)
       &:not(:first-child)
-        +utilities.ltr-property("margin", 0, false)
-        +utilities.ltr
-          border-top-left-radius: 0
-          border-bottom-left-radius: 0
-        +utilities.rtl
-          border-top-right-radius: 0
-          border-bottom-right-radius: 0
+        +utilities.logical-x(margin, 0, $right: false)
+        +utilities.logical-border-radius(left, 0)
       &:not(:last-child)
-        +utilities.ltr
-          border-top-right-radius: 0
-          border-bottom-right-radius: 0
-        +utilities.rtl
-          border-top-left-radius: 0
-          border-bottom-left-radius: 0
+        +utilities.logical-border-radius(right, 0)
 
 .tag:not(body)
   align-items: center
@@ -84,12 +74,11 @@ $-css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
   height: 2em
   justify-content: center
   line-height: 1.5
-  padding-left: 0.75em
-  padding-right: 0.75em
+  +utilities.logical-x(padding, 0.75em)
   white-space: nowrap
   .delete
-    +utilities.ltr-property("margin", 0.25rem, false)
-    +utilities.ltr-property("margin", -0.375rem)
+    +utilities.logical-x(margin, 0.25rem, $right: false)
+    +utilities.logical-x(margin, -0.375rem, $right: true)
   // Colors
   @each $name, $pair in $tag-colors
     $color: list.nth($pair, 1)
@@ -108,17 +97,16 @@ $-css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
   +utilities.control-sizes(tag-font-size)
   .icon
     &:first-child:not(:last-child)
-      +utilities.ltr-property("margin", -0.375em, false)
-      +utilities.ltr-property("margin", 0.1875em)
+      +utilities.logical-x(margin, -0.375em, $right: false)
+      +utilities.logical-x(margin, 0.1875em, $right: true)
     &:last-child:not(:first-child)
-      +utilities.ltr-property("margin", 0.1875em, false)
-      +utilities.ltr-property("margin", -0.375em)
+      +utilities.logical-x(margin, 0.1875em, $right: false)
+      +utilities.logical-x(margin, -0.375em, $right: true)
     &:first-child:last-child
-      +utilities.ltr-property("margin", -0.375em, false)
-      +utilities.ltr-property("margin", -0.375em)
+      +utilities.logical-x(margin, -0.375em)
   // Modifiers
   &.is-delete
-    +utilities.ltr-property("margin", var(--tag-delete-margin), false)
+    +utilities.logical-x(margin, var(--tag-delete-margin), $right: false)
     padding: 0
     position: relative
     width: 2em
@@ -127,7 +115,7 @@ $-css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
       background-color: currentColor
       content: ""
       display: block
-      left: 50%
+      +utilities.logical-x(inset, 50%, $right: false)
       position: absolute
       top: 50%
       transform: translateX(-50%) translateY(-50%) rotate(45deg)

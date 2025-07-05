@@ -20,13 +20,12 @@ $-css-vars-map: ('tile-spacing': $tile-spacing)
   min-height: min-content
   // Modifiers
   &.is-ancestor
-    margin-left: calc(-1 * var(--tile-spacing))
-    margin-right: calc(-1 * var(--tile-spacing))
-    margin-top: calc(-1 * var(--tile-spacing))
+    +utilities.logical-x(margin, calc(-1 * var(--tile-spacing)))
+    +utilities.logical-y(margin, calc(-1 * var(--tile-spacing)), $bottom: false)
     &:last-child
-      margin-bottom: calc(-1 * var(--tile-spacing))
+      +utilities.logical-y(margin, calc(-1 * var(--tile-spacing)), $bottom: true)
     &:not(:last-child)
-      margin-bottom: var(--tile-spacing)
+      +utilities.logical-y(margin, var(--tile-spacing), $bottom: true)
   &.is-child
     margin: 0 !important
   &.is-parent
@@ -34,7 +33,7 @@ $-css-vars-map: ('tile-spacing': $tile-spacing)
   &.is-vertical
     flex-direction: column
     & > .tile.is-child:not(:last-child)
-      margin-bottom: 1.5rem !important
+      +utilities.logical-y(margin, 1.5rem !important, $bottom: true)
   // Responsiveness
   +utilities.tablet
     &:not(.is-child)

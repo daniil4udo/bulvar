@@ -42,19 +42,17 @@ $-css-vars-map: (
         &.is-fixed {
             position: fixed;
             top: 0;
-            left: 0;
+            @include bulma-utilities.logical-x(inset, 0, $right: false);
             &.is-right {
-                right: 0;
-                left: auto;
+				@include bulma-utilities.logical-x(inset, auto 0);
             }
         }
         &.is-absolute {
             position: absolute;
             top: 0;
-            left: 0;
+            @include bulma-utilities.logical-x(inset, 0, $right: false);
             &.is-right {
-                right: 0;
-                left: auto;
+				@include bulma-utilities.logical-x(inset, auto 0);
             }
         }
         &.is-mini {

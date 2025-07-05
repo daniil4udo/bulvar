@@ -2,7 +2,7 @@
 
 .select {
     select {
-        padding-right: 2.5em;
+        @include bulma-utilities.logical-x(padding, 2.5em, $right: true);
         // TODO Remove below when the following problem will be fixed from Bulma or Safari:
         // https://github.com/jgthms/bulma/issues/2626
         // https://bugs.webkit.org/show_bug.cgi?id=202055
@@ -35,6 +35,6 @@
     // fix Bulma 0.8.2
     &.is-loading::after {
         top: calc(50% - (1em * 0.5));
-        right: calc((2.5em * 0.5) - .5em);
+		@include bulma-utilities.logical-x(inset, calc((2.5em * 0.5) - .5em), $right: true);
     }
 }

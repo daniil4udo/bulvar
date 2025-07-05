@@ -33,12 +33,12 @@ $-css-vars-map: ('select-arrow-color': $select-arrow-color, 'select-disabled-bor
     &::after
       @extend %arrow
       border-color: var(--select-arrow-color)
-      +utilities.ltr-position(1.125em)
+      +utilities.logical-x(inset, 1.125em, $right: true)
       z-index: 4
   &.is-rounded
     select
       border-radius: var(--radius-rounded)
-      +utilities.ltr-property("padding", 1em, false)
+      +utilities.logical-x(padding, 1em, $right: false)
   select
     @extend %input
     cursor: pointer
@@ -52,7 +52,7 @@ $-css-vars-map: ('select-arrow-color': $select-arrow-color, 'select-disabled-bor
     fieldset[disabled] &:hover
       border-color: var(--select-disabled-border-color)
     &:not([multiple])
-      +utilities.ltr-property("padding", 2.5em)
+      +utilities.logical-x(padding, 2.5em, $right: true)
     &[multiple]
       height: auto
       padding: 0
@@ -94,10 +94,10 @@ $-css-vars-map: ('select-arrow-color': $select-arrow-color, 'select-disabled-bor
   &.is-loading
     &::after
       @extend %loader
-      margin-top: 0
+      +utilities.logical-y(margin, 0, $bottom: false)
       position: absolute
-      +utilities.ltr-position(0.625em)
-      top: 0.625em
+      +utilities.logical-x(inset, 0.75em, $right: true)
+      top: 0.75em
       transform: none
     &.is-small:after
       font-size: var(--size-small)

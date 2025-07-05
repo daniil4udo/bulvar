@@ -106,24 +106,23 @@ $-css-vars-map: (
     &.is-vertical {
         --steps-divider-indent-height: calc(var(--steps-size) - (var(--steps-divider-height) * 0.5));
         > .steps {
-            &.has-label-right {
+            &:is(.has-label-right, .has-label-end) {
                 .step-items {
                     .step-item {
                         &:not(:first-child), &:only-child {
                             &::before, &::after {
-                                left: var(--steps-divider-indent-height);
+								@include bulma-utilities.logical-x(inset, var(--steps-divider-indent-height), $right: false);
                             }
                         }
                     }
                 }
             }
-            &.has-label-left {
+            &:is(.has-label-left, .has-label-start) {
                 .step-items {
                     .step-item {
                         &:not(:first-child), &:only-child {
                             &::before, &::after {
-                                right: var(--steps-divider-indent-height);
-                                left: auto;
+								@include bulma-utilities.logical-x(inset, auto var(--steps-divider-indent-height));
                             }
                         }
                     }
@@ -131,26 +130,25 @@ $-css-vars-map: (
             }
         }
 
-        &.is-right {
+        &:is(.is-right, .is-end) {
             > .steps {
-                &.has-label-right {
+                &:is(.has-label-right, .has-label-end) {
                     .step-items {
                         .step-item {
                             &:not(:first-child), &:only-child {
                                 &::before, &::after {
-                                    left: var(--steps-divider-indent-height);
+									@include bulma-utilities.logical-x(inset, var(--steps-divider-indent-height), $right: false);
                                 }
                             }
                         }
                     }
                 }
-                &.has-label-left {
+                &:is(.has-label-left, .has-label-start) {
                     .step-items {
                         .step-item {
                             &:not(:first-child), &:only-child {
                                 &::before, &::after {
-                                    right: var(--steps-divider-indent-height);
-                                    left: auto;
+									@include bulma-utilities.logical-x(inset, auto var(--steps-divider-indent-height));
                                 }
                             }
                         }
@@ -171,7 +169,7 @@ $-css-vars-map: (
                 position: relative;
                 flex-basis: 1em;
                 flex-grow: 1;
-                margin-top: 0;
+                @include bulma-utilities.logical-y(margin, 0, $bottom: false);
 
                 .step-link {
                     display: flex;
@@ -248,7 +246,7 @@ $-css-vars-map: (
                     &::before {
                         position: absolute;
                         bottom: 0;
-                        left: -50%;
+						@include bulma-utilities.logical-x(inset, -50%, $right: false);
                         display: block;
                         width: 100%;
                         // This will contain the divider
@@ -265,12 +263,11 @@ $-css-vars-map: (
                         content: " ";
                     }
                     &::before, &::after {
-                        left: 50%;
+                        @include bulma-utilities.logical-x(inset, 50%, $right: false);
                         width: 25%;
                     }
                     &::before {
-                        right: 50%;
-                        left: auto;
+						@include bulma-utilities.logical-x(inset, auto 50%);
                     }
                 }
 
@@ -345,7 +342,7 @@ $-css-vars-map: (
             }
         }
 
-        &.has-label-right, &.has-label-left {
+        &:is(.has-label-right, .has-label-end, .has-label-left, .has-label-start) {
             .step-items {
                 .step-item {
                     .step-link {
@@ -359,7 +356,7 @@ $-css-vars-map: (
                 }
             }
         }
-        &.has-label-left {
+        &:is(.has-label-left, .has-label-start) {
             .step-items {
                 .step-item {
                     .step-link {
@@ -413,7 +410,7 @@ $-css-vars-map: (
                     &:not(:first-child), &:only-child {
                         &::before {
                             top: -50%;
-                            left: calc(50% - var(--steps-divider-height) * 0.5);
+							@include bulma-utilities.logical-x(inset, calc(50% - var(--steps-divider-height) * 0.5), $right: false);
                             width: var(--steps-divider-height);
                             height: 100%;
                         }
@@ -430,8 +427,7 @@ $-css-vars-map: (
                             top: 50%;
                         }
                         &::after {
-                            top: auto;
-                            bottom: 50%;
+							@include bulma-utilities.logical-y(inset, auto 50%);
                             width: var(--steps-divider-height);
                         }
                         &::before, &::after {
@@ -441,21 +437,21 @@ $-css-vars-map: (
                 }
             }
 
-            &.has-label-right {
+            &:is(.has-label-right, .has-label-end) {
                 .step-items {
                     .step-item {
                         justify-content: flex-start;
                     }
                 }
             }
-            &.has-label-left {
+            &:is(.has-label-left, .has-label-start) {
                 .step-items {
                     .step-item {
                         justify-content: flex-end;
                     }
                 }
             }
-            &:not(.has-label-right, .has-label-left) {
+            &:not(.has-label-right, .has-label-end, .has-label-left, .has-label-start) {
                 .step-items {
                     .step-item {
                         .step-link {
@@ -492,7 +488,7 @@ $-css-vars-map: (
                             &::before, &::after, &:not(:first-child)::before {
                                 position: absolute;
                                 bottom: 0;
-                                left: 50%;
+                                @include bulma-utilities.logical-x(inset, 50%, $right: false);
                                 display: block;
                                 width: 25%;
                                 height: var(--steps-divider-height);
@@ -500,8 +496,7 @@ $-css-vars-map: (
                                 content: " ";
                             }
                             &::before, &:not(:first-child)::before {
-                                right: 50%;
-                                left: auto;
+								@include bulma-utilities.logical-x(inset, auto 50%);
                             }
                         }
                     }

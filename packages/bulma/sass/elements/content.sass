@@ -48,7 +48,7 @@ $-css-vars-map: ("content-heading-color": $content-heading-color, "content-headi
   @extend %block
   // Inline
   li + li
-    margin-top: 0.25em
+    +utilities.logical-y(margin, 0.25em, $bottom: false)
   // Block
   p,
   dl,
@@ -58,7 +58,7 @@ $-css-vars-map: ("content-heading-color": $content-heading-color, "content-headi
   pre,
   table
     &:not(:last-child)
-      margin-bottom: var(--content-block-margin-bottom)
+      +utilities.logical-y(margin, var(--content-block-margin-bottom), $bottom: true)
   h1,
   h2,
   h3,
@@ -70,36 +70,36 @@ $-css-vars-map: ("content-heading-color": $content-heading-color, "content-headi
     line-height: var(--content-heading-line-height)
   h1
     font-size: 2em
-    margin-bottom: math.div(1, 2) * 1em
+    +utilities.logical-y(margin, math.div(1, 2) * 1em, $bottom: true)
     &:not(:first-child)
-      margin-top: 1em
+      +utilities.logical-y(margin, 1em, $bottom: false)
   h2
     font-size: 1.75em
-    margin-bottom: math.div(1, 1.75) * 1em
+    +utilities.logical-y(margin, math.div(1, 1.75) * 1em, $bottom: true)
     &:not(:first-child)
-      margin-top: 2 - math.div(1, 1.75) * 1em
+      +utilities.logical-y(margin, 2 - math.div(1, 1.75) * 1em, $bottom: false)
   h3
     font-size: 1.5em
-    margin-bottom: math.div(1, 1.5) * 1em
+    +utilities.logical-y(margin, math.div(1, 1.5) * 1em, $bottom: true)
     &:not(:first-child)
-      margin-top: 2 - math.div(1, 1.5) * 1em
+      +utilities.logical-y(margin, 2 - math.div(1, 1.5) * 1em, $bottom: false)
   h4
     font-size: 1.25em
-    margin-bottom: math.div(1, 1.25) * 1em
+    +utilities.logical-y(margin, math.div(1, 1.25) * 1em, $bottom: true)
   h5
     font-size: 1.125em
-    margin-bottom: math.div(1, 1.125) * 1em
+    +utilities.logical-y(margin, math.div(1, 1.125) * 1em, $bottom: true)
   h6
     font-size: 1em
-    margin-bottom: 1em
+    +utilities.logical-y(margin, 1em, $bottom: true)
   blockquote
     background-color: var(--content-blockquote-background-color)
-    +utilities.ltr-property("border", var(--content-blockquote-border-left), false)
+    +utilities.logical-x(border, var(--content-blockquote-border-left), $right: false)
     padding: var(--content-blockquote-padding)
   ol
     list-style-position: outside
-    +utilities.ltr-property("margin", 2em, false)
-    margin-top: 1em
+    +utilities.logical-x(margin, 2em, $right: false)
+    +utilities.logical-y(margin, 1em, $bottom: false)
     &:not([type])
       list-style-type: decimal
       &.is-lower-alpha
@@ -112,23 +112,22 @@ $-css-vars-map: ("content-heading-color": $content-heading-color, "content-headi
         list-style-type: upper-roman
   ul
     list-style: disc outside
-    +utilities.ltr-property("margin", 2em, false)
-    margin-top: 1em
+    +utilities.logical-x(margin, 2em, $right: false)
+    +utilities.logical-y(margin, 1em, $bottom: false)
     ul
       list-style-type: circle
-      margin-top: 0.5em
+      +utilities.logical-y(margin, 0.5em, $bottom: false)
       ul
         list-style-type: square
   dd
-    +utilities.ltr-property("margin", 2em, false)
+    +utilities.logical-x(margin, 2em, $right: false)
   figure
-    margin-left: 2em
-    margin-right: 2em
+    +utilities.logical-x(margin, 2em)
     text-align: center
     &:not(:first-child)
-      margin-top: 2em
+      +utilities.logical-y(margin, 2em, $bottom: false)
     &:not(:last-child)
-      margin-bottom: 2em
+      +utilities.logical-y(margin, 2em, $bottom: true)
     img
       display: inline-block
     figcaption
@@ -172,6 +171,6 @@ $-css-vars-map: ("content-heading-color": $content-heading-color, "content-headi
             border-bottom-width: var(--content-table-body-last-row-cell-border-bottom-width)
   .tabs
     li + li
-      margin-top: 0
+      +utilities.logical-y(margin, 0, $bottom: false)
   // Sizes
   +utilities.control-sizes($has-normal: true)

@@ -9,7 +9,7 @@ $-css-vars-map: (
     "table-sticky-header-height": $table-sticky-header-height,
 );
 
-// Register & Export CSS Variabless
+// Register & Export CSS Variables
 @include bulma-utilities.exportCSSVars($-css-vars-map);
 @include bulma-utilities.registerComponentCSSVars("b-table", $-css-vars-map);
 
@@ -28,8 +28,8 @@ $-css-vars-map: (
                 display: block;
                 width: 100%;
                 border: 0;
-                margin-bottom: 1rem;
-                text-align: right;
+                @include bulma-utilities.logical-y(margin, 1rem, $bottom: true);
+                text-align: end;
             }
         }
     }
@@ -53,7 +53,7 @@ $-css-vars-map: (
             }
         }
         &:not(:last-child) {
-            margin-bottom: 1rem;
+            @include bulma-utilities.logical-y(margin, 1rem, $bottom: true);
         }
         // Disables is-*
         &:not([class*="is-"]) {
@@ -63,7 +63,7 @@ $-css-vars-map: (
             }
         }
         &.detail {
-            margin-top: -1rem;
+            @include bulma-utilities.logical-y(margin, -1rem, $bottom: false);
         }
     }
     tr:not(.detail, .is-empty, .table-footer) {
@@ -72,12 +72,12 @@ $-css-vars-map: (
             width: auto;
             justify-content: space-between;
             border-bottom: 1px solid var(--background);
-            text-align: right;
+            text-align: end;
             &::before {
-                padding-right: 0.5em;
+                @include bulma-utilities.logical-x(padding, 0.5em, $right: true);
                 content: attr(data-label);
                 font-weight: var(--weight-semibold);
-                text-align: left;
+                text-align: start;
             }
         }
     }
@@ -85,10 +85,10 @@ $-css-vars-map: (
 
 .table-wrapper {
     .table {
-        margin-bottom: 0;
+        @include bulma-utilities.logical-y(margin, 0, $bottom: true);
     }
     &:not(:last-child) {
-        margin-bottom: 1.5rem;
+        @include bulma-utilities.logical-y(margin, 1.5rem, $bottom: true);
     }
     @include bulma-utilities.touch {
         overflow-x: auto;
@@ -129,17 +129,15 @@ $-css-vars-map: (
                 display: flex;
                 align-items: center;
                 .icon {
-                    margin-right: 0;
-                    margin-left: 0.5rem;
+                    @include bulma-utilities.logical-x(margin, 0.5em 0);
                     font-size: 1rem;
                 }
                 &.is-numeric {
                     width: 95%;
                     flex-direction: row-reverse;
-                    text-align: right;
+                    text-align: end;
                     .icon {
-                        margin-right: 0.5rem;
-                        margin-left: 0;
+                        @include bulma-utilities.logical-x(margin, 0 0.5em);
                     }
                 }
                 &.is-centered {
@@ -165,16 +163,16 @@ $-css-vars-map: (
             .sort-icon, .multi-sort-cancel-icon {
                 position: absolute;
                 bottom: 50%;
-                left: 100%;
+                @include bulma-utilities.logical-x(inset, 100%, $right: false);
                 transform: translateY(50%);
             }
             .multi-sort-cancel-icon {
-                margin-left: 10px;
+                @include bulma-utilities.logical-x(margin, 0.875rem, $right: false);
             }
             &.is-sticky {
                 position: sticky;
                 z-index: 3 !important;
-                left: 0;
+                @include bulma-utilities.logical-x(inset, 0, $right: false);
                 background: var(--table-head-background-color);
             }
         }
@@ -241,7 +239,7 @@ $-css-vars-map: (
             &.is-sticky {
                 position: sticky;
                 z-index: 1;
-                left: 0;
+                @include bulma-utilities.logical-x(inset, 0, $right: false);
                 background: var(--table-background-color);
             }
         }
@@ -262,7 +260,7 @@ $-css-vars-map: (
     }
 
     .level:not(.top) {
-        padding-bottom: 1.5rem;
+        @include bulma-utilities.logical-y(padding, 1.5rem, $bottom: true);
     }
 
     .table-wrapper {

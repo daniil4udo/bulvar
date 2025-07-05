@@ -25,7 +25,7 @@ $-css-vars-map: ("label-size": $label-size, "label-color": $label-color, "label-
   font-size: var(--label-size)
   font-weight: var(--label-weight)
   &:not(:last-child)
-    margin-bottom: 0.5em
+    +utilities.logical-y(margin, 0.5em, $bottom: true)
   // Sizes
   +utilities.control-sizes(label-size)
 
@@ -38,7 +38,7 @@ $-css-vars-map: ("help-font-size": $help-font-size)
 .help
   display: block
   font-size: var(--help-font-size)
-  margin-top: 0.25rem
+  +utilities.logical-y(margin, 0.25rem, $bottom: false)
   @each $name, $pair in $label-colors
     $color: list.nth($pair, 1)
     &.is-#{$name}
@@ -48,14 +48,14 @@ $-css-vars-map: ("help-font-size": $help-font-size)
 
 .field
   &:not(:last-child)
-    margin-bottom: 0.75rem
+    +utilities.logical-y(margin, 0.75rem, $bottom: true)
   // Modifiers
   &.has-addons
     display: flex
     justify-content: flex-start
     .control
       &:not(:last-child)
-        +utilities.ltr-property("margin", -1px)
+        +utilities.logical-x(margin, -1px, $right: true)
       &:not(:first-child, :last-child)
         .button,
         .input,
@@ -65,22 +65,12 @@ $-css-vars-map: ("help-font-size": $help-font-size)
         .button,
         .input,
         .select select
-          +utilities.ltr
-            border-bottom-right-radius: 0
-            border-top-right-radius: 0
-          +utilities.rtl
-            border-bottom-left-radius: 0
-            border-top-left-radius: 0
+          +utilities.logical-border-radius(right, 0)
       &:last-child:not(:only-child)
         .button,
         .input,
         .select select
-          +utilities.ltr
-            border-bottom-left-radius: 0
-            border-top-left-radius: 0
-          +utilities.rtl
-            border-bottom-right-radius: 0
-            border-top-right-radius: 0
+          +utilities.logical-border-radius(left, 0)
       .button,
       .input,
       .select select
@@ -112,8 +102,8 @@ $-css-vars-map: ("help-font-size": $help-font-size)
     & > .control
       flex-shrink: 0
       &:not(:last-child)
-        margin-bottom: 0
-        +utilities.ltr-property("margin", 0.75rem)
+        +utilities.logical-y(margin, 0, $bottom: true)
+        +utilities.logical-x(margin, 0.75rem, $right: true)
       &.is-expanded
         flex-grow: 1
         flex-shrink: 1
@@ -126,11 +116,11 @@ $-css-vars-map: ("help-font-size": $help-font-size)
       & > .control
         &:last-child,
         &:not(:last-child)
-          margin-bottom: 0.75rem
+          +utilities.logical-y(margin, 0.75rem, $bottom: true)
       &:last-child
-        margin-bottom: -0.75rem
+        +utilities.logical-y(margin, -0.75rem, $bottom: true)
       &:not(:last-child)
-        margin-bottom: 0
+        +utilities.logical-y(margin, 0, $bottom: true)
   &.is-horizontal
     +utilities.tablet
       display: flex
@@ -139,36 +129,36 @@ $-css-vars-map: ("help-font-size": $help-font-size)
   .label
     font-size: inherit
   +utilities.mobile
-    margin-bottom: 0.5rem
+    +utilities.logical-y(margin, 0.5rem, $bottom: true)
   +utilities.tablet
     flex-basis: 0
     flex-grow: 1
     flex-shrink: 0
-    +utilities.ltr-property("margin", 1.5rem)
-    text-align: right
+    +utilities.logical-x(margin, 1.5rem, $right: true)
+    text-align: end
     +utilities.control-sizes
     &.is-small,
     &.is-normal,
     &.is-medium,
     &.is-large
-      padding-top: 0.375em
+      +utilities.logical-y(padding, 0.375em, $bottom: false)
 
 .field-body
   .field .field
-    margin-bottom: 0
+    +utilities.logical-y(margin, 0, $bottom: true)
   +utilities.tablet
     display: flex
     flex-basis: 0
     flex-grow: 5
     flex-shrink: 1
     .field
-      margin-bottom: 0
+      +utilities.logical-y(margin, 0, $bottom: true)
     & > .field
       flex-shrink: 1
       &:not(.is-narrow)
         flex-grow: 1
       &:not(:last-child)
-        +utilities.ltr-property("margin", 0.75rem)
+        +utilities.logical-x(margin, 0.75rem, $right: true)
 
 $control-radius: var(--radius) !default
 $control-radius-small: var(--radius-small) !default
@@ -196,7 +186,9 @@ $-css-vars-map: ("control-radius": $control-radius, "control-radius-small": $con
   text-align: inherit
   // Modifiers
   &.has-icons-left,
-  &.has-icons-right
+  &.has-icons-right,
+  &.has-icons-start,
+  &.has-icons-end
     .input,
     .select
       &:focus
@@ -216,26 +208,26 @@ $-css-vars-map: ("control-radius": $control-radius, "control-radius-small": $con
       top: 0
       width: var(--input-height)
       z-index: 4
-  &.has-icons-left
+  &:is(.has-icons-left, .has-icons-start)
     .input,
     .select select
-      padding-left: var(--input-height)
-    .icon.is-left
-      left: 0
-  &.has-icons-right
+      +utilities.logical-x(padding, var(--input-height), $right: false)
+    :is(.icon.is-left, .icon.is-start)
+      +utilities.logical-x(inset, 0, $right: false)
+  &:is(.has-icons-right, .has-icons-end)
     .input,
     .select select
-      padding-right: var(--input-height)
-    .icon.is-right
-      right: 0
+      +utilities.logical-x(padding, var(--input-height), $right: true)
+    :is(.icon.is-right, .icon.is-end)
+      +utilities.logical-x(inset, 0, $right: true)
   &.is-loading
-    &.has-icons-right
-      .icon.is-right
+    &:is(.has-icons-right, .has-icons-end)
+      :is(.icon.is-right, .icon.is-end)
         visibility: hidden
     &::after
       @extend %loader
       position: absolute !important
-      +utilities.ltr-position(var(--control-padding-horizontal))
+      +utilities.logical-x(inset, var(--control-padding-horizontal), $right: true)
       top: calc(50% - (1em / 2))
       z-index: 4
     &.is-small:after

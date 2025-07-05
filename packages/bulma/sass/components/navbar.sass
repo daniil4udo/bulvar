@@ -58,9 +58,8 @@ $navbar-breakpoint: vars.$desktop !default
 $navbar-colors: vars.$colors !default
 
 =navbar-fixed
-  left: 0
   position: fixed
-  right: 0
+  +utilities.logical-x(inset, 0)
   z-index: var(--navbar-fixed-z)
 
 // Map Local variables
@@ -184,9 +183,9 @@ $-css-vars-map: ("navbar-background-color": $navbar-background-color, "navbar-bo
 html,
 body
   &.has-navbar-fixed-top
-    padding-top: var(--navbar-height)
+    +utilities.logical-y(padding, var(--navbar-height), $bottom: false)
   &.has-navbar-fixed-bottom
-    padding-bottom: var(--navbar-height)
+    +utilities.logical-y(padding, var(--navbar-height), $bottom: true)
 
 .navbar-brand,
 .navbar-tabs
@@ -211,7 +210,7 @@ body
   @extend %reset
   color: var(--navbar-burger-color)
   +utilities.hamburger(var(--navbar-height))
-  +utilities.ltr-property("margin", auto, false)
+  +utilities.logical-x(margin, auto, $right: false)
 
 .navbar-menu
   display: none
@@ -225,8 +224,7 @@ body
   position: relative
   .icon
     &:only-child
-      margin-left: -0.25rem
-      margin-right: -0.25rem
+      +utilities.logical-x(margin, -0.25rem)
 
 a.navbar-item,
 .navbar-link
@@ -251,7 +249,7 @@ a.navbar-item,
   &.is-tab
     border-bottom: 1px solid transparent
     min-height: var(--navbar-height)
-    padding-bottom: calc(0.5rem - 1px)
+    +utilities.logical-y(padding, calc(0.5rem - 1px), $bottom: true)
     &:focus,
     &:hover
       background-color: var(--navbar-tab-hover-background-color)
@@ -262,27 +260,25 @@ a.navbar-item,
       border-bottom-style: var(--navbar-tab-active-border-bottom-style)
       border-bottom-width: var(--navbar-tab-active-border-bottom-width)
       color: var(--navbar-tab-active-color)
-      padding-bottom: calc(0.5rem - var(--navbar-tab-active-border-bottom-width))
+      +utilities.logical-y(padding, calc(0.5rem - var(--navbar-tab-active-border-bottom-width)), $bottom: true)
 
 .navbar-content
   flex-grow: 1
   flex-shrink: 1
 
 .navbar-link:not(.is-arrowless)
-  +utilities.ltr-property("padding", 2.5em)
+  +utilities.logical-x(padding, 2.5em, $right: true)
   &::after
     @extend %arrow
     border-color: var(--navbar-dropdown-arrow)
-    margin-top: -0.375em
-    +utilities.ltr-position(1.125em)
+    +utilities.logical-y(margin, -0.375em, $bottom: false)
+    +utilities.logical-x(inset, 1.125em, $right: true)
 
 .navbar-dropdown
   font-size: 0.875rem
-  padding-bottom: 0.5rem
-  padding-top: 0.5rem
+  +utilities.logical-y(padding, 0.5rem)
   .navbar-item
-    padding-left: 1.5rem
-    padding-right: 1.5rem
+    +utilities.logical-x(padding, 1.5rem)
 
 .navbar-divider
   background-color: var(--navbar-divider-background-color)
@@ -328,9 +324,9 @@ a.navbar-item,
   html,
   body
     &.has-navbar-fixed-top-touch
-      padding-top: var(--navbar-height)
+      +utilities.logical-y(padding, var(--navbar-height), $bottom: false)
     &.has-navbar-fixed-bottom-touch
-      padding-bottom: var(--navbar-height)
+      +utilities.logical-y(padding, var(--navbar-height), $bottom: true)
 
 +utilities.from($navbar-breakpoint)
   .navbar,
@@ -385,9 +381,8 @@ a.navbar-item,
       .navbar-link::after
         transform: rotate(135deg) translate(0.25em, -0.25em)
       .navbar-dropdown
-        border-bottom: var(--navbar-dropdown-border-top)
         border-radius: var(--navbar-dropdown-radius) var(--navbar-dropdown-radius) 0 0
-        border-top: none
+        border-block: none var(--navbar-dropdown-border-top)
         bottom: 100%
         box-shadow: 0 -8px 8px var(--navbar-shadow-color)
         top: auto
@@ -407,19 +402,18 @@ a.navbar-item,
     flex-shrink: 0
   .navbar-start
     justify-content: flex-start
-    +utilities.ltr-property("margin", auto)
+    +utilities.logical-x(margin, auto, $right: true)
   .navbar-end
     justify-content: flex-end
-    +utilities.ltr-property("margin", auto, false)
+    +utilities.logical-x(margin, auto, $right: false)
   .navbar-dropdown
     background-color: var(--navbar-dropdown-background-color)
-    border-bottom-left-radius: var(--navbar-dropdown-radius)
-    border-bottom-right-radius: var(--navbar-dropdown-radius)
+    +utilities.logical-border-radius(bottom, var(--navbar-dropdown-radius))
     border-top: var(--navbar-dropdown-border-top)
     box-shadow: 0 8px 8px var(--navbar-shadow-color)
     display: none
     font-size: 0.875rem
-    +utilities.ltr-position(0, false)
+    +utilities.logical-x(inset, 0, $right: false)
     min-width: 100%
     position: absolute
     top: 100%
@@ -428,7 +422,7 @@ a.navbar-item,
       padding: var(--navbar-item-padding)
       white-space: nowrap
     a.navbar-item
-      +utilities.ltr-property("padding", 3rem)
+      +utilities.logical-x(padding, 3rem, $right: true)
       &:focus,
       &:hover
         background-color: var(--navbar-dropdown-item-hover-background-color)
@@ -448,17 +442,17 @@ a.navbar-item,
       transform: translateY(-5px)
       transition-duration: var(--speed)
       transition-property: opacity, transform
-    &.is-right
-      left: auto
-      right: 0
+    &.is-right,
+    &.is-end
+      +utilities.logical-x(inset, auto 0)
   .navbar-divider
     display: block
   .navbar > .container,
   .container > .navbar
     .navbar-brand
-      +utilities.ltr-property("margin", -.75rem, false)
+      +utilities.logical-x(margin, -0.75rem, $right: false)
     .navbar-menu
-      +utilities.ltr-property("margin", -.75rem)
+      +utilities.logical-x(margin, -0.75rem, $right: true)
   // Fixed navbar
   .navbar
     &.is-fixed-bottom-desktop,
@@ -473,13 +467,13 @@ a.navbar-item,
   html,
   body
     &.has-navbar-fixed-top-desktop
-      padding-top: var(--navbar-height)
+      +utilities.logical-y(padding, var(--navbar-height), $bottom: false)
     &.has-navbar-fixed-bottom-desktop
-      padding-bottom: var(--navbar-height)
+      +utilities.logical-y(padding, var(--navbar-height), $bottom: true)
     &.has-spaced-navbar-fixed-top
-      padding-top: calc(var(--navbar-height) + calc(var(--navbar-padding-vertical) * 2))
+      +utilities.logical-y(padding, calc(var(--navbar-height) + calc(var(--navbar-padding-vertical) * 2)), $bottom: false)
     &.has-spaced-navbar-fixed-bottom
-      padding-bottom: calc(var(--navbar-height) + calc(var(--navbar-padding-vertical) * 2))
+      +utilities.logical-y(padding, calc(var(--navbar-height) + calc(var(--navbar-padding-vertical) * 2)), $bottom: true)
   // Hover/Active states
   a.navbar-item,
   .navbar-link

@@ -49,20 +49,21 @@ $-css-vars-map: ("dropdown-content-offset": $dropdown-content-offset, "dropdown-
       display: block
   &.is-right
     .dropdown-menu
-      left: auto
-      right: 0
+      +utilities.logical-x(inset, auto 0)
+  &.is-end
+    .dropdown-menu
+      +utilities.logical-x(inset, auto, $right: true)
+      +utilities.logical-x(inset, 0, $right: false)
   &.is-up
     .dropdown-menu
-      bottom: 100%
-      padding-bottom: var(--dropdown-content-offset)
-      padding-top: initial
-      top: auto
+      +utilities.logical-y(padding, initial var(--dropdown-content-offset))
+      +utilities.logical-y(inset, auto 100%)
 
 .dropdown-menu
   display: none
-  +utilities.ltr-position(0, false)
+  +utilities.logical-x(inset, 0, $right: false)
   min-width: var(--dropdown-menu-min-width)
-  padding-top: var(--dropdown-content-offset)
+  +utilities.logical-y(padding, var(--dropdown-content-offset), $bottom: false)
   position: absolute
   top: 100%
   z-index: var(--dropdown-content-z)
@@ -71,8 +72,7 @@ $-css-vars-map: ("dropdown-content-offset": $dropdown-content-offset, "dropdown-
   background-color: var(--dropdown-content-background-color)
   border-radius: var(--dropdown-content-radius)
   box-shadow: var(--dropdown-content-shadow)
-  padding-bottom: var(--dropdown-content-padding-bottom)
-  padding-top: var(--dropdown-content-padding-top)
+  +utilities.logical-y(padding, var(--dropdown-content-padding-top) var(--dropdown-content-padding-bottom))
 
 .dropdown-item
   color: var(--dropdown-item-color)
@@ -83,8 +83,9 @@ $-css-vars-map: ("dropdown-content-offset": $dropdown-content-offset, "dropdown-
   position: relative
 
 a.dropdown-item,
-button.dropdown-item
-  +utilities.ltr-property("padding", 3rem)
+button.dropdown-item,
+.button.dropdown-item
+  +utilities.logical-x(padding, 3rem, $right: true)
   text-align: inherit
   white-space: nowrap
   width: 100%
