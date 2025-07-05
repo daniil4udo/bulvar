@@ -28,7 +28,7 @@
     "type": "module",
     "scripts": {
         "compile": "turbo run compile --color",
-        "release": "turbo publish --no-push --color",
+        "bump": "bumpp packages/*/package.json --commit 'release: 🔖 v' --tag --no-push",
         "watch": "turbo run watch --color",
         "lint": "turbo run lint --color --continue",
         "lint:prettier": "prettier --write --loglevel warn",
@@ -42,6 +42,8 @@
         "@tsconfig/node24": "^24.0.1",
         "@types/node": "^24.0.10",
         "@types/rtlcss": "^3.5.4",
+        "bumpp": "^10.2.0",
+        "changelogen": "^0.6.1",
         "commitizen": "^4.3.1",
         "concurrently": "^9.2.0",
         "cross-env": "^7.0.3",
