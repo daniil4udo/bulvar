@@ -51,12 +51,12 @@ $-css-vars-map: (
             white-space: nowrap;
         }
     }
-    &.is-hoverable:not(.is-active) {
-        .dropdown-menu {
-            display: none;
-        }
-    }
     &.is-hoverable {
+        &:not(.is-active) {
+            .dropdown-menu {
+                display: none;
+            }
+        }
         &:hover {
             .dropdown-menu {
                 display: inherit;

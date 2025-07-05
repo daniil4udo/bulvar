@@ -2,8 +2,7 @@
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 
 .pagination {
-    .pagination-next,
-    .pagination-previous {
+    :is(.pagination-next, .pagination-previous) {
         @include bulma-utilities.logical-x(padding, var(--pagination-nav-padding-left) var(--pagination-nav-padding-right));
         &.is-disabled {
             cursor: not-allowed;

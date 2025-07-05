@@ -139,8 +139,7 @@ $-css-vars-map: ("panel-font-size": $panel-font-size, "panel-margin": $panel-mar
   &:last-child
     +utilities.logical-border-radius(bottom, var(--panel-radius))
 
-a.panel-block,
-label.panel-block
+.panel-block:is(a, label)
   cursor: pointer
   &:hover
     background-color: var(--panel-block-hover-background-color)

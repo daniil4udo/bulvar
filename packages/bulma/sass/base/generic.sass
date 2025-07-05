@@ -139,8 +139,7 @@ img
   height: auto
   max-width: 100%
 
-input[type="checkbox"],
-input[type="radio"]
+input:is([type="checkbox"], [type="radio"])
   vertical-align: baseline
 
 small
@@ -175,8 +174,7 @@ pre
     padding: 0
 
 table
-  td,
-  th
+  :is(td, th)
     vertical-align: top
     &:not([align])
       text-align: inherit

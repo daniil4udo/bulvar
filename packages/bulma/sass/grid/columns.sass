@@ -46,27 +46,22 @@ $column-map: ('full': 100%, 'three-quarters': math.div(100% * 3, 4), 'two-thirds
       &.is-offset-#{$i}-mobile
         +utilities.logical-x(margin, math.percentage(math.div($i, 12)), $right: false)
   +utilities.tablet
-    &.is-narrow,
-    &.is-narrow-tablet
+    &:is(.is-narrow, .is-narrow-tablet)
       flex: none
       width: unset
     @each $name, $value in $column-map
-      &.is-#{$name},
-      &.is-#{$name}-tablet
+      &:is(.is-#{$name}, .is-#{$name}-tablet)
         flex: none
         width: $value
 
     @each $name, $value in $column-map
-      &.is-offset-#{$name},
-      &.is-offset-#{$name}-tablet
+      &:is(.is-offset-#{$name}, .is-offset-#{$name}-tablet)
         +utilities.logical-x(margin, #{$value}, $right: false)
     @for $i from 0 through 12
-      &.is-#{$i},
-      &.is-#{$i}-tablet
+      &:is(.is-#{$i}, .is-#{$i}-tablet)
         flex: none
         width: math.percentage(math.div($i, 12))
-      &.is-offset-#{$i},
-      &.is-offset-#{$i}-tablet
+      &:is(.is-offset-#{$i}, .is-offset-#{$i}-tablet)
         +utilities.logical-x(margin, math.percentage(math.div($i, 12)), $right: false)
   +utilities.touch
     &.is-narrow-touch

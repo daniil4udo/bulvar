@@ -94,8 +94,7 @@ $-css-vars-map: (
                 transform: translate3d(50%, 0, 0) scaleX(1.5);
             }
         }
-        &:focus,
-        &:active {
+        &:is(:focus, :active) {
             outline: none;
             + .check {
                 box-shadow: 0 0 0.5em var(--grey-lightest);

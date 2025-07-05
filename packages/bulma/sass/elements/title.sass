@@ -45,8 +45,7 @@ $-css-vars-map: ("title-sub-size": $title-sub-size, "title-family": $title-famil
 .subtitle
   @extend %block
   word-break: break-word
-  em,
-  span
+  :is(em, span)
     font-weight: inherit
   sub
     font-size: var(--title-sub-size)

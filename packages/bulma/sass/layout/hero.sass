@@ -53,13 +53,10 @@ $-css-vars-map: ('hero-body-padding': $hero-body-padding, 'hero-body-padding-tab
       .navbar-menu
         +utilities.touch
           background-color: var(--#{$name})
-      .navbar-item,
-      .navbar-link
+      :is(.navbar-item, .navbar-link)
         color: var(--#{$name}-invert-ter)
-      a.navbar-item,
-      .navbar-link
-        &:hover,
-        &.is-active
+      :is(a.navbar-item, .navbar-link)
+        &:is(:hover, .is-active)
           background-color: #{utilities.bulmaVarDarken($name, 5%)}
           color: var(--#{$name}-invert)
       .tabs
@@ -72,8 +69,7 @@ $-css-vars-map: ('hero-body-padding': $hero-body-padding, 'hero-body-padding-tab
           &.is-active a
             color: var(--#{$name}) !important
             opacity: 1
-        &.is-boxed,
-        &.is-toggle
+        &:is(.is-boxed, .is-toggle)
           a
             color: var(--#{$name}-invert)
             &:hover
@@ -112,9 +108,7 @@ $-css-vars-map: ('hero-body-padding': $hero-body-padding, 'hero-body-padding-tab
   &.is-large
     +utilities.tablet
       --hero-body-padding: var(--hero-body-padding-large)
-  &.is-halfheight,
-  &.is-fullheight,
-  &.is-fullheight-with-navbar
+  &:is(.is-halfheight, .is-fullheight, .is-fullheight-with-navbar)
     .hero-body
       align-items: center
       display: flex

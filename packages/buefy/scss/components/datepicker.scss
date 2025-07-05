@@ -40,21 +40,17 @@ $-css-vars-map: (
 
 .datepicker {
     font-size: 0.875rem;
-    .dropdown,
-    .dropdown-trigger {
+    :is(.dropdown, .dropdown-trigger) {
         width: 100%;
         .input[readonly] {
             box-shadow: var(--input-shadow);
             cursor: pointer;
-            &:focus,
-            &.is-focused,
-            &:active,
-            &.is-active {
+            &:is(:focus, .is-focused, :active, .is-active) {
                 box-shadow: var(--input-focus-box-shadow-size) var(--input-focus-box-shadow-color)
             }
         }
     }
-    // unset opacity when dropdow is disabled
+    // unset opacity when dropdown is disabled
     .dropdown {
         &.is-disabled {
             opacity: 1;
@@ -123,11 +119,12 @@ $-css-vars-map: (
                 }
                 &.is-selectable {
                     color: var(--datepicker-item-color);
-                    &:hover:not(.is-selected),
-                    &:focus:not(.is-selected) {
-                        background-color: var(--datepicker-item-hover-background-color);
-                        color: var(--datepicker-item-hover-color);
-                        cursor: pointer;
+                    &:is(:hover, :focus) {
+                        &:not(.is-selected) {
+                            background-color: var(--datepicker-item-hover-background-color);
+                            color: var(--datepicker-item-hover-color);
+                            cursor: pointer;
+                        }
                     }
                     &.is-within-hovered-range {
                         &.is-first-hovered {

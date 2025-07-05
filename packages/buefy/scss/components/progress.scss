@@ -36,7 +36,7 @@ $-css-vars-map: (
         white-space: nowrap;
     }
 
-    .progress, .progress-bar {
+    :is(.progress, .progress-bar) {
         @include bulma-utilities.logical-y(margin, 0, $bottom: true);
 
         @include bulma-utilities.control-sizes(progress-value-size);

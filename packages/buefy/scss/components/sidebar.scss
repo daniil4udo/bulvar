@@ -70,7 +70,7 @@ $-css-vars-map: (
         &.is-static {
             position: static;
         }
-        &.is-absolute, &.is-static {
+        &:is(.is-absolute, .is-static) {
             transition: width calc(var(--speed) * 2) var(--easing);
         }
         &.is-fullwidth {

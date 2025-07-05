@@ -10,7 +10,8 @@
         text-overflow: ellipsis;
         white-space: nowrap;
     }
-    .delete, &.is-delete, &.has-delete-icon {
+    .delete,
+    &:is(.is-delete, .has-delete-icon) {
         @each $name, $pair in bulma-tag.$tag-colors {
             $color: list.nth($pair, 1);
             &.is-#{$name} {

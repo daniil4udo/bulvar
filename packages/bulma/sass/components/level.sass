@@ -20,10 +20,7 @@ $-css-vars-map: ("level-item-spacing": $level-item-spacing)
   // Modifiers
   &.is-mobile
     display: flex
-    .level-left,
-    .level-right,
-    .level-start,
-    .level-end
+    :is(.level-left, .level-start, .level-right, .level-end)
       display: flex
     .level-left + .level-right,
     .level-start + .level-end
@@ -48,18 +45,14 @@ $-css-vars-map: ("level-item-spacing": $level-item-spacing)
   flex-grow: 0
   flex-shrink: 0
   justify-content: center
-  .title,
-  .subtitle
+  :is(.title, .subtitle)
     +utilities.logical-y(margin, 0, $bottom: true)
   // Responsiveness
   +utilities.mobile
     &:not(:last-child)
       +utilities.logical-y(margin, var(--level-item-spacing), $bottom: true)
 
-.level-left,
-.level-start,
-.level-right,
-.level-end
+:is(.level-left, .level-start, .level-right, .level-end)
   flex-basis: auto
   flex-grow: 0
   flex-shrink: 0

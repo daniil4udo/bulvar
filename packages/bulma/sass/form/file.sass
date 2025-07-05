@@ -52,20 +52,17 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
         background-color: var(--#{$name})
         border-color: transparent
         color: var(--#{$name}-invert)
-      &:hover,
-      &.is-hovered
+      &:is(:hover, .is-hovered)
         .file-cta
           background-color: #{utilities.bulmaVarDarken($name, 2.5%)}
           border-color: transparent
           color: var(--#{$name}-invert)
-      &:focus,
-      &.is-focused
+      &:is(:focus, .is-focused)
         .file-cta
           border-color: transparent
           box-shadow: 0 0 0.5em #{utilities.bulmaVarOpacity($name, 0.25)}
           color: var(--#{$name}-invert)
-      &:active,
-      &.is-active
+      &:is(:active, .is-active)
         .file-cta
           background-color: #{utilities.bulmaVarDarken($name, 5%)}
           border-color: transparent
@@ -164,8 +161,7 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
   top: 0
   width: 100%
 
-.file-cta,
-.file-name
+:is(.file-cta, .file-name)
   @extend %control
   border-color: var(--file-border-color)
   border-radius: var(--file-radius)

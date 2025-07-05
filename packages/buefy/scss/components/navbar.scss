@@ -17,8 +17,10 @@
         visibility: hidden;
     }
 
-    .navbar-item.has-dropdown.is-active .is-boxed,
-    .navbar-item.has-dropdown.is-hoverable:hover .is-boxed {
-        visibility: visible;
+    .navbar-item.has-dropdown {
+        &.is-active .is-boxed,
+        &.is-hoverable:hover .is-boxed {
+            visibility: visible;
+        }
     }
 }

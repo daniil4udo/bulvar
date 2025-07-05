@@ -14,7 +14,8 @@ $-css-vars-map: (
 @include bulma-utilities.registerComponentCSSVars("colorpicker", $-css-vars-map);
 
 // TODO: submit PR to rename to b-colorpicker
-.b-colorpicker, .colorpicker {
+.b-colorpicker,
+.colorpicker {
     .color-name {
         font-family: var(--family-monospace);
         text-transform: uppercase;
@@ -55,9 +56,13 @@ $-css-vars-map: (
             }
         }
     }
-    .dropdown.is-expanded .dropdown-menu,
-    .dropdown.is-expanded.is-mobile-modal .dropdown-menu {
-        width: unset;
+    .dropdown {
+        &.is-expanded {
+            .dropdown-menu,
+            &.is-mobile-modal .dropdown-menu {
+                width: unset;
+            }
+        }
     }
     .dropdown-horizontal-colorpicker {
         display: flex;

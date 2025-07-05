@@ -89,13 +89,14 @@ $-css-vars-map: (
                 background: var(--snackbar-background-color);
                 font-weight: var(--weight-semibold);
                 text-transform: var(--snackbar-button-text-transform);
-            }
-            .button:hover {
-                // TODO: revisit
-                background: var(--snackbar-button-background-color);
-            }
-            .button:active {
-                background: var(--snackbar-button-background-color);
+
+                &:hover {
+                    // TODO: revisit
+                    background: var(--snackbar-button-background-color);
+                }
+                &:active {
+                    background: var(--snackbar-button-background-color);
+                }
             }
             @each $name, $pair in $snackbar-colors {
                 $color: list.nth($pair, 1);
@@ -125,11 +126,9 @@ $-css-vars-map: (
         pointer-events: auto;
     }
 
-    .toast,
-    .snackbar,
-    .notification {
+    :is(.toast, .snackbar, .notification) {
         // Modifiers
-        &.is-top, &.is-bottom {
+        &:is(.is-top, .is-bottom) {
             align-self: center;
         }
         &:is(.is-top-right, .is-top-end, .is-bottom-right, .is-bottom-end) {

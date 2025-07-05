@@ -78,16 +78,12 @@ $-css-vars-map: (
     .dropdown-menu {
         min-width: 0;
     }
-    .dropdown,
-    .dropdown-trigger {
+    :is(.dropdown, .dropdown-trigger) {
         width: 100%;
         .input[readonly] {
             box-shadow: var(--input-shadow);
             cursor: pointer;
-            &:focus,
-            &.is-focused,
-            &:active,
-            &.is-active {
+            &:is(:focus, .is-focused, :active, .is-active) {
                 // box-shadow: $input-focus-box-shadow-size $input-focus-box-shadow-color;
                 box-shadow: var(--input-focus-box-shadow-size) var(--input-focus-box-shadow-color);
             }
@@ -167,8 +163,7 @@ $-css-vars-map: (
             padding: 0 8px;
             border-radius: var(--radius-rounded);
             @include bulma-utilities.logical-y(margin, 2px, $bottom: true);
-            &:hover,
-            &.active {
+            &:is(:hover, .active) {
                 background-color: var(--primary);
                 color: white;
             }

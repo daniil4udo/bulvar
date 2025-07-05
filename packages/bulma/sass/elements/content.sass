@@ -50,21 +50,10 @@ $-css-vars-map: ("content-heading-color": $content-heading-color, "content-headi
   li + li
     +utilities.logical-y(margin, 0.25em, $bottom: false)
   // Block
-  p,
-  dl,
-  ol,
-  ul,
-  blockquote,
-  pre,
-  table
+  :is(p, dl, ol, ul, blockquote, pre, table)
     &:not(:last-child)
       +utilities.logical-y(margin, var(--content-block-margin-bottom), $bottom: true)
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6
+  :is(h1, h2, h3, h4, h5, h6)
     color: var(--content-heading-color)
     font-weight: var(--content-heading-weight)
     line-height: var(--content-heading-line-height)
@@ -138,13 +127,11 @@ $-css-vars-map: ("content-heading-color": $content-heading-color, "content-headi
     padding: var(--content-pre-padding)
     white-space: pre
     word-wrap: normal
-  sup,
-  sub
+  :is(sup, sub)
     font-size: 75%
   table
     width: 100%
-    td,
-    th
+    :is(td, th)
       border: var(--content-table-cell-border)
       border-width: var(--content-table-cell-border-width)
       padding: var(--content-table-cell-padding)
@@ -154,20 +141,17 @@ $-css-vars-map: ("content-heading-color": $content-heading-color, "content-headi
       &:not([align])
         text-align: inherit
     thead
-      td,
-      th
+      :is(td, th)
         border-width: var(--content-table-head-cell-border-width)
         color: var(--content-table-head-cell-color)
     tfoot
-      td,
-      th
+      :is(td, th)
         border-width: var(--content-table-foot-cell-border-width)
         color: var(--content-table-foot-cell-color)
     tbody
       tr
         &:last-child
-          td,
-          th
+          :is(td, th)
             border-bottom-width: var(--content-table-body-last-row-cell-border-bottom-width)
   .tabs
     li + li

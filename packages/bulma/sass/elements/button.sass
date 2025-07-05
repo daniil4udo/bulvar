@@ -120,9 +120,7 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
     color: inherit
   .icon
     &,
-    &.is-small,
-    &.is-medium,
-    &.is-large
+    &:is(.is-small, .is-medium, .is-large)
       height: 1.5em
       width: 1.5em
     &:first-child:not(:last-child)
@@ -134,18 +132,15 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
     &:first-child:last-child
       +utilities.logical-x(margin, calc(-0.5 * var(--button-padding-horizontal) - var(--button-border-width)))
   // States
-  &:hover,
-  &.is-hovered
+  &:is(:hover, .is-hovered)
     border-color: var(--button-hover-border-color)
     color: var(--button-hover-color)
-  &:focus,
-  &.is-focused
+  &:is(:focus, .is-focused)
     border-color: var(--button-focus-border-color)
     color: var(--button-focus-color)
     &:not(:active)
       box-shadow: var(--button-focus-box-shadow-size) var(--button-focus-box-shadow-color)
-  &:active,
-  &.is-active
+  &:is(:active, .is-active)
     border-color: var(--button-active-border-color)
     color: var(--button-active-color)
   // Colors
@@ -154,14 +149,10 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
     border-color: transparent
     color: var(--button-text-color)
     text-decoration: var(--button-text-decoration)
-    &:hover,
-    &.is-hovered,
-    &:focus,
-    &.is-focused
+    &:is(:hover, .is-hovered, :focus, .is-focused)
       background-color: var(--white-ter)
       color: var(--text-strong)
-    &:active,
-    &.is-active
+    &:is(:active, .is-active)
       background-color: var(--grey-lightest)
       color: var(--text-strong)
     &[disabled],
@@ -174,8 +165,7 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
     border-color: var(--button-ghost-border-color)
     color: var(--button-ghost-color)
     text-decoration: var(--button-ghost-decoration)
-    &:hover,
-    &.is-hovered
+    &:is(:hover, .is-hovered)
       color: var(--button-ghost-hover-color)
       text-decoration: var(--button-ghost-hover-decoration)
   @each $name, $pair in $button-colors
@@ -185,19 +175,16 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
       background-color: var(--#{$name})
       border-color: transparent
       color: var(--#{$name}-invert)
-      &:hover,
-      &.is-hovered
+      &:is(:hover, .is-hovered)
         background-color: #{utilities.bulmaVarDarken($name, 2.5%)}
         border-color: transparent
         color: var(--#{$name}-invert)
-      &:focus,
-      &.is-focused
+      &:is(:focus, .is-focused)
         border-color: transparent
         color: var(--#{$name}-invert)
         &:not(:active)
           box-shadow: var(--button-focus-box-shadow-size) #{utilities.bulmaVarOpacity($name, 0.25)}
-      &:active,
-      &.is-active
+      &:is(:active, .is-active)
         background-color: #{utilities.bulmaVarDarken($name, 5%)}
         border-color: transparent
         color: var(--#{$name}-invert)
@@ -209,8 +196,7 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
       &.is-inverted
         background-color: var(--#{$name}-invert)
         color: var(--#{$name})
-        &:hover,
-        &.is-hovered
+        &:is(:hover, .is-hovered)
           background-color: var(--#{$name}-invert-ter) // utilities.bulmaDarken($color-invert, 5%)
         &[disabled],
         fieldset[disabled] &
@@ -225,20 +211,14 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
         background-color: transparent
         border-color: var(--#{$name})
         color: var(--#{$name})
-        &:hover,
-        &.is-hovered,
-        &:focus,
-        &.is-focused
+        &:is(:hover, .is-hovered, :focus, .is-focused)
           background-color: var(--#{$name})
           border-color: var(--#{$name})
           color: var(--#{$name}-invert)
         &.is-loading
           &::after
             border-color: transparent transparent var(--#{$name}) var(--#{$name}) !important
-          &:hover,
-          &.is-hovered,
-          &:focus,
-          &.is-focused
+          &:is(:hover, .is-hovered, :focus, .is-focused)
             &::after
               border-color: transparent transparent var(--#{$name}-invert) var(--#{$name}-invert) !important
         &[disabled],
@@ -251,17 +231,11 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
         background-color: transparent
         border-color: var(--#{$name}-invert)
         color: var(--#{$name}-invert)
-        &:hover,
-        &.is-hovered,
-        &:focus,
-        &.is-focused
+        &:is(:hover, .is-hovered, :focus, .is-focused)
           background-color: var(--#{$name}-invert)
           color: var(--#{$name})
         &.is-loading
-          &:hover,
-          &.is-hovered,
-          &:focus,
-          &.is-focused
+          &:is(:hover, .is-hovered, :focus, .is-focused)
             &::after
               border-color: transparent transparent var(--#{$name}) var(--#{$name}) !important
         &[disabled],
@@ -277,13 +251,11 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
         &.is-light
           background-color: var(--#{$name}-light)
           color: var(--#{$name}-dark)
-          &:hover,
-          &.is-hovered
+          &:is(:hover, .is-hovered)
             background-color: #{utilities.bulmaVarLighteness($name, calc(var(--#{$name}-light-l) - 2.5%))}
             border-color: transparent
             color: var(--#{$name}-dark)
-          &:active,
-          &.is-active
+          &:is(:active, .is-active)
             background-color: #{utilities.bulmaVarLighteness($name, calc(var(--#{$name}-light-l) - 5%))}
             border-color: transparent
             color: var(--#{$name}-dark)
@@ -355,14 +327,9 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
         +utilities.logical-x(margin, -1px, $right: true)
       &:last-child
         +utilities.logical-x(margin, 0, $right: true)
-      &:hover,
-      &.is-hovered
+      &:is(:hover, .is-hovered)
         z-index: 2
-      &:focus,
-      &.is-focused,
-      &:active,
-      &.is-active,
-      &.is-selected
+      &:is(:focus, .is-focused, :active, .is-active, .is-selected)
         z-index: 3
         &:hover
           z-index: 4

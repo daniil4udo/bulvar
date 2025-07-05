@@ -39,8 +39,7 @@
                 border-width: 0.25em;
             }
         }
-        &:hover,
-        &.is-hovered {
+        &:is(:hover, .is-hovered) {
             @each $name, $pair in bulma-file.$file-colors {
                 $color: list.nth($pair, 1);
                 &.is-#{$name} {

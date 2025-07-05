@@ -50,8 +50,7 @@ $-css-vars-map: ("breadcrumb-font-size": $breadcrumb-font-size, "breadcrumb-item
     & + li::before
       color: var(--breadcrumb-item-separator-color)
       content: var(--breadcrumb-li-content)
-  ul,
-  ol
+  :is(ul, ol)
     align-items: flex-start
     display: flex
     flex-wrap: wrap
@@ -63,16 +62,13 @@ $-css-vars-map: ("breadcrumb-font-size": $breadcrumb-font-size, "breadcrumb-item
       +utilities.logical-x(margin, 0.5em, $right: false)
   // Alignment
   &.is-centered
-    ol,
-    ul
+    :is(ol, ul)
       justify-content: center
   &.is-right
-    ol,
-    ul
+    :is(ol, ul)
       justify-content: right
   &.is-end
-    ol,
-    ul
+    :is(ol, ul)
       justify-content: flex-end
   // Sizes
   +utilities.control-sizes(breadcrumb-font-size)

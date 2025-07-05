@@ -97,8 +97,7 @@ $-css-vars-map: ("message-background-color": $message-background-color, "message
   border-inline-start-width: var(--message-body-border-width)
   color: var(--message-body-color)
   padding: var(--message-body-padding)
-  code,
-  pre
+  :is(code, pre)
     background-color: var(--message-body-pre-background-color)
   pre code
     background-color: var(--message-body-pre-code-background-color)

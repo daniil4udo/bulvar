@@ -57,31 +57,19 @@ $-css-vars-map: ("help-font-size": $help-font-size)
       &:not(:last-child)
         +utilities.logical-x(margin, -1px, $right: true)
       &:not(:first-child, :last-child)
-        .button,
-        .input,
-        .select select
+        :is(.button, .input, .select select)
           border-radius: 0
       &:first-child:not(:only-child)
-        .button,
-        .input,
-        .select select
+        :is(.button, .input, .select select)
           +utilities.logical-border-radius(right, 0)
       &:last-child:not(:only-child)
-        .button,
-        .input,
-        .select select
+        :is(.button, .input, .select select)
           +utilities.logical-border-radius(left, 0)
-      .button,
-      .input,
-      .select select
+      :is(.button, .input, .select select)
         &:not([disabled])
-          &:hover,
-          &.is-hovered
+          &:is(:hover, .is-hovered)
             z-index: 2
-          &:focus,
-          &.is-focused,
-          &:active,
-          &.is-active
+          &:is(:focus, .is-focused, :active, .is-active)
             z-index: 3
             &:hover
               z-index: 4
@@ -137,10 +125,7 @@ $-css-vars-map: ("help-font-size": $help-font-size)
     +utilities.logical-x(margin, 1.5rem, $right: true)
     text-align: end
     +utilities.control-sizes
-    &.is-small,
-    &.is-normal,
-    &.is-medium,
-    &.is-large
+    &:is(.is-small, .is-normal, .is-medium, .is-large)
       +utilities.logical-y(padding, 0.375em, $bottom: false)
 
 .field-body
@@ -185,12 +170,8 @@ $-css-vars-map: ("control-radius": $control-radius, "control-radius-small": $con
   position: relative
   text-align: inherit
   // Modifiers
-  &.has-icons-left,
-  &.has-icons-right,
-  &.has-icons-start,
-  &.has-icons-end
-    .input,
-    .select
+  &:is(.has-icons-left, .has-icons-start, .has-icons-right, .has-icons-end)
+    :is(.input, .select)
       &:focus
         & ~ .icon
           color: var(--input-icon-active-color)
@@ -209,16 +190,14 @@ $-css-vars-map: ("control-radius": $control-radius, "control-radius-small": $con
       width: var(--input-height)
       z-index: 4
   &:is(.has-icons-left, .has-icons-start)
-    .input,
-    .select select
+    :is(.input, .select select)
       +utilities.logical-x(padding, var(--input-height), $right: false)
     :is(.icon.is-left, .icon.is-start)
       +utilities.logical-x(inset, 0, $right: false)
   &:is(.has-icons-right, .has-icons-end)
-    .input,
-    .select select
+    :is(.input, .select select)
       +utilities.logical-x(padding, var(--input-height), $right: true)
-    :is(.icon.is-right, .icon.is-end)
+    .icon:is(.is-right, .is-end)
       +utilities.logical-x(inset, 0, $right: true)
   &.is-loading
     &:is(.has-icons-right, .has-icons-end)

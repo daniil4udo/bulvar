@@ -82,12 +82,12 @@ $-css-vars-map: (
                     }
                 }
 
-                &:not(:first-child), &:only-child {
-                    &::before {
-                        top: var(--steps-size);
-                        height: var(--steps-divider-height);
-                    }
-                }
+                &:is(:not(:first-child), :only-child) {
+					&::before {
+						top: var(--steps-size);
+						height: var(--steps-divider-height);
+					}
+				}
                 &:only-child {
                     &::after {
                         top: var(--steps-size);
@@ -95,7 +95,9 @@ $-css-vars-map: (
                 }
 
                 @include bulma-utilities.until($steps-mobile-max-width) {
-                    &::before, &::after, &:not(:first-child)::before {
+                    &::before,
+                    &::after,
+                    &:not(:first-child)::before {
                         top: var(--steps-size);
                     }
                 }
@@ -109,8 +111,9 @@ $-css-vars-map: (
             &:is(.has-label-right, .has-label-end) {
                 .step-items {
                     .step-item {
-                        &:not(:first-child), &:only-child {
-                            &::before, &::after {
+                        &:is(:not(:first-child), :only-child) {
+                            &::before,
+                            &::after {
 								@include bulma-utilities.logical-x(inset, var(--steps-divider-indent-height), $right: false);
                             }
                         }
@@ -120,8 +123,9 @@ $-css-vars-map: (
             &:is(.has-label-left, .has-label-start) {
                 .step-items {
                     .step-item {
-                        &:not(:first-child), &:only-child {
-                            &::before, &::after {
+                        &:is(:not(:first-child), :only-child) {
+                            &::before,
+                            &::after {
 								@include bulma-utilities.logical-x(inset, auto var(--steps-divider-indent-height));
                             }
                         }
@@ -135,8 +139,9 @@ $-css-vars-map: (
                 &:is(.has-label-right, .has-label-end) {
                     .step-items {
                         .step-item {
-                            &:not(:first-child), &:only-child {
-                                &::before, &::after {
+                            &:is(:not(:first-child), :only-child) {
+                                &::before,
+                                &::after {
 									@include bulma-utilities.logical-x(inset, var(--steps-divider-indent-height), $right: false);
                                 }
                             }
@@ -146,8 +151,9 @@ $-css-vars-map: (
                 &:is(.has-label-left, .has-label-start) {
                     .step-items {
                         .step-item {
-                            &:not(:first-child), &:only-child {
-                                &::before, &::after {
+                            &:is(:not(:first-child), :only-child) {
+                                &::before,
+                                &::after {
 									@include bulma-utilities.logical-x(inset, auto var(--steps-divider-indent-height));
                                 }
                             }
@@ -202,7 +208,8 @@ $-css-vars-map: (
                     $color-invert: list.nth($pair, 2);
 
                     &.is-#{$name} {
-                        &::before, &::after {
+                        &::before,
+                        &::after {
                             background: linear-gradient(to left, var(--steps-default-color) 50%, var(--#{$name}) 50%);
                             background-position: right bottom;
                             background-size: 200% 100%;
@@ -214,7 +221,8 @@ $-css-vars-map: (
                                 color: var(--#{$name});
                             }
 
-                            &::before, &::after {
+                            &::before,
+                            &::after {
                                 background-position: left bottom;
                             }
                         }
@@ -224,7 +232,8 @@ $-css-vars-map: (
                                 color: var(--#{$name}-invert);
                             }
 
-                            &::before, &::after {
+                            &::before,
+                            &::after {
                                 background-position: left bottom;
                             }
                         }
@@ -240,7 +249,7 @@ $-css-vars-map: (
                     text-align: center;
                 }
 
-                &:not(:first-child), &:only-child {
+                &:is(:not(:first-child), :only-child) {
                     flex-shrink: 1;
 
                     &::before {
@@ -262,7 +271,8 @@ $-css-vars-map: (
                         // This will contain the divider
                         content: " ";
                     }
-                    &::before, &::after {
+                    &::before,
+                    &::after {
                         @include bulma-utilities.logical-x(inset, 50%, $right: false);
                         width: 25%;
                     }
@@ -271,7 +281,8 @@ $-css-vars-map: (
                     }
                 }
 
-                &::before, &::after {
+                &::before,
+                &::after {
                     background: linear-gradient(to left, var(--steps-default-color) 50%, var(--steps-active-color) 50%);
                     background-position: right bottom;
                     background-size: 200% 100%;
@@ -288,7 +299,8 @@ $-css-vars-map: (
                         color: var(--steps-active-color);
                     }
 
-                    &::before, &::after {
+                    &::before,
+                    &::after {
                         background-position: left bottom;
                     }
                 }
@@ -298,7 +310,8 @@ $-css-vars-map: (
                         color: var(--steps-maker-color);
                     }
 
-                    &::before, &::after {
+                    &::before,
+                    &::after {
                         background-position: left bottom;
                     }
                 }
@@ -334,7 +347,7 @@ $-css-vars-map: (
 
         &.is-animated {
             .step-item {
-                &:not(:first-child), &:only-child {
+                &:is(:not(:first-child), :only-child) {
                     &::before {
                         transition: background calc(var(--speed) * 2) var(--easing);
                     }
@@ -388,7 +401,8 @@ $-css-vars-map: (
                     justify-content: center;
                     padding: var(--steps-vertical-padding);
 
-                    &::before, &::after {
+                    &::before,
+                    &::after {
                         background: linear-gradient(to top, var(--steps-default-color) 50%, var(--steps-active-color) 50%);
                         background-position: left bottom;
                         background-size: 100% 200%;
@@ -399,7 +413,8 @@ $-css-vars-map: (
                         $color: list.nth($pair, 1);
 
                         &.is-#{$name} {
-                            &::before, &::after {
+                            &::before,
+                            &::after {
                                 background: linear-gradient(to top, var(--steps-default-color) 50%, var(--#{$name}) 50%);
                                 background-position: left bottom;
                                 background-size: 100% 200%;
@@ -407,7 +422,7 @@ $-css-vars-map: (
                         }
                     }
 
-                    &:not(:first-child), &:only-child {
+                    &:is(:not(:first-child), :only-child) {
                         &::before {
                             top: -50%;
 							@include bulma-utilities.logical-x(inset, calc(50% - var(--steps-divider-height) * 0.5), $right: false);
@@ -416,8 +431,9 @@ $-css-vars-map: (
                         }
                     }
 
-                    &.is-active, &.is-previous {
-                        &::before, &::after {
+                    &:is(.is-active, .is-previous) {
+                        &::before,
+                        &::after {
                             background-position: right top;
                         }
                     }
@@ -430,7 +446,8 @@ $-css-vars-map: (
 							@include bulma-utilities.logical-y(inset, auto 50%);
                             width: var(--steps-divider-height);
                         }
-                        &::before, &::after {
+                        &::before,
+                        &::after {
                             height: 25%;
                         }
                     }
@@ -485,7 +502,9 @@ $-css-vars-map: (
                             &:not(.is-active) {
                                 display: none;
                             }
-                            &::before, &::after, &:not(:first-child)::before {
+                            &::before,
+                            &::after,
+                            &:not(:first-child)::before {
                                 position: absolute;
                                 bottom: 0;
                                 @include bulma-utilities.logical-x(inset, 50%, $right: false);
@@ -495,7 +514,8 @@ $-css-vars-map: (
                                 // This will contain the divider
                                 content: " ";
                             }
-                            &::before, &:not(:first-child)::before {
+                            &::before,
+                            &:not(:first-child)::before {
 								@include bulma-utilities.logical-x(inset, auto 50%);
                             }
                         }

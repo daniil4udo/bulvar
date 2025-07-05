@@ -34,8 +34,7 @@ $-css-vars-map: ("notification-background-color": $notification-background-color
     text-decoration: underline
   strong
     color: currentColor
-  code,
-  pre
+  :is(code, pre)
     background: var(--notification-code-background-color)
   pre code
     background: transparent
@@ -43,9 +42,7 @@ $-css-vars-map: ("notification-background-color": $notification-background-color
     +utilities.logical-x(inset, 0.5rem, $right: true)
     position: absolute
     top: 0.5rem
-  .title,
-  .subtitle,
-  .content
+  :is(.title, .subtitle, .content)
     color: currentColor
   // Colors
   @each $name, $pair in $notification-colors

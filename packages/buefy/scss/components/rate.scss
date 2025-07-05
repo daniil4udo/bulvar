@@ -52,8 +52,7 @@ $-css-vars-map: (
         &:hover {
             transform: scale(1.1);
         }
-        &.set-on .icon,
-        &.set-half .is-half {
+		&:is(.set-on .icon, .set-half .is-half) {
             color: var(--rate-color-active);
         }
         &.set-half .is-half {

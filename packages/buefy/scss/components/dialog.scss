@@ -29,23 +29,17 @@
         }
     }
     &.is-small {
-        .modal-card,
-        .input,
-        .button {
+        :is(.modal-card, .input, .button) {
             @include bulma-utilities.control-small;
         }
     }
     &.is-medium {
-        .modal-card,
-        .input,
-        .button {
+        :is(.modal-card, .input,.button) {
             @include bulma-utilities.control-medium;
         }
     }
     &.is-large {
-        .modal-card,
-        .input,
-        .button {
+        :is(.modal-card, .input,.button) {
             @include bulma-utilities.control-large;
         }
     }

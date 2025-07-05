@@ -4,16 +4,12 @@
     .dropdown-menu {
         min-width: 0;
     }
-    .dropdown,
-    .dropdown-trigger {
+    :is(.dropdown, .dropdown-trigger) {
         width: 100%;
         .input[readonly] {
             box-shadow: var(--input-shadow);
             cursor: pointer;
-            &:focus,
-            &.is-focused,
-            &:active,
-            &.is-active {
+            &:is(:focus, .is-focused, :active, .is-active) {
                 box-shadow: var(--input-focus-box-shadow-size) var(--input-focus-box-shadow-color);
             }
         }

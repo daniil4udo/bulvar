@@ -29,23 +29,17 @@ $-css-vars-map: (
     // Nested control addons (for Autocomplete and Datepicker)
     &.has-addons .control {
         &:first-child .control {
-            .button,
-            .input,
-            .select select {
+            :is(.button, .input, .select select) {
                 @include bulma-utilities.logical-border-radius(left, var(--input-radius));
             }
         }
         &:last-child .control {
-            .button,
-            .input,
-            .select select {
+            :is(.button, .input, .select select) {
                 @include bulma-utilities.logical-border-radius(right, var(--input-radius));
             }
         }
         .control {
-            .button,
-            .input,
-            .select select {
+            :is(.button, .input, .select select) {
                 border-radius: 0
             }
         }
@@ -55,18 +49,14 @@ $-css-vars-map: (
         .b-numberinput {
             &:not(:first-child) {
                 .control:first-child {
-                    .button,
-                    .input,
-                    .select select {
+                    :is(.button, .input, .select select) {
                         @include bulma-utilities.logical-border-radius(left, 0);
                     }
                 }
             }
             &:not(:last-child) {
                 .control:last-child {
-                    .button,
-                    .input,
-                    .select select {
+                    :is(.button, .input, .select select) {
                         @include bulma-utilities.logical-border-radius(right, 0);
                     }
                 }
@@ -81,8 +71,7 @@ $-css-vars-map: (
 }
 
 .field {
-    &.is-floating-label,
-    &.is-floating-in-label {
+    &:is(.is-floating-label, .is-floating-in-label) {
         position: relative;
 
         .label {
@@ -106,9 +95,7 @@ $-css-vars-map: (
         &.has-addons {
             > .label {
                 + .control {
-                    .button,
-                    .input,
-                    .select select {
+                    :is(.button, .input, .select select) {
                         @include bulma-utilities.logical-border-radius(left, var(--input-radius));
                     }
                 }
@@ -131,10 +118,7 @@ $-css-vars-map: (
                 content: "";
             }
         }
-        .input,
-        .textarea,
-        .select
-        select {
+        :is(.input, .textarea, .select select) {
             &:focus {
                 box-shadow: none;
             }
@@ -153,16 +137,14 @@ $-css-vars-map: (
             top: 0.25em;
 
             + .control {
-                &.datepicker, &.timepicker {
+                &:is(.datepicker, .timepicker) {
                     .input {
                         height: var(--floating-in-height);
 						@include bulma-utilities.logical-y(padding, var(--field-floating-indent) 1px);
                     }
                 }
                 &:not(.datepicker, .timepicker, .taginput) {
-                    .input,
-                    .textarea,
-                    select {
+                    :is(.input, .textarea, select) {
                         height: var(--floating-in-height);
 						@include bulma-utilities.logical-y(padding, var(--field-floating-indent) 1px);
                     }
@@ -202,15 +184,10 @@ $-css-vars-map: (
             + .field-body {
                 > .is-grouped, > .has-addons {
                     .control {
-                        .input,
-                        .textarea,
-                        select {
+                        :is(.input, .textarea, select) {
 							@include bulma-utilities.logical-y(padding, var(--field-floating-indent) 1px);
                         }
-                        .input,
-                        .textarea,
-                        select,
-                        .button {
+                        :is(.input, .textarea, select, .button) {
                             height: var(--floating-in-height);
                         }
                     }
@@ -221,16 +198,14 @@ $-css-vars-map: (
         &.has-numberinput {
             .b-numberinput {
                 .control {
-                    .input,
-                    .button {
+                    :is(.input, .button) {
                         height: var(--floating-in-height);
                     }
                 }
             }
         }
     }
-    &.is-floating-label,
-    &.is-floating-in-label {
+    &:is(.is-floating-label, .is-floating-in-label) {
         &.has-numberinput {
             .label {
                 @include bulma-utilities.logical-x(margin, calc(var(--size-normal) * 3), $right: false);
@@ -272,7 +247,7 @@ $-css-vars-map: (
             }
         }
     }
-    &.is-grouped-right, &.has-addons-right {
+    &:is(.is-grouped-right, .has-addons-right) {
         &.is-floating-in-label {
             .label {
                 position: relative;

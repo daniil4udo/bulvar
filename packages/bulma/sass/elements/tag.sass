@@ -126,8 +126,7 @@ $-css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
     &::after
       height: 50%
       width: 1px
-    &:hover,
-    &:focus
+    &:is(:hover, :focus)
       background-color: var(--tag-focus-background-color)
     &:active
       background-color: var(--tag-active-background-color)

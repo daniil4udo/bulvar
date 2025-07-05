@@ -16,8 +16,7 @@ $-css-vars-map: (
     > img {
         object-fit: cover;
 
-        &.has-ratio,
-        &.placeholder {
+        &:is(.has-ratio, .placeholder) {
             @extend %overlay;
             width: 100%;
             height: 100%;

@@ -123,9 +123,7 @@ $-css-vars-map: ("navbar-background-color": $navbar-background-color, "navbar-bo
           color: var(--#{$name}-invert)
         & > a.navbar-item,
         .navbar-link
-          &:focus,
-          &:hover,
-          &.is-active
+          &:is(:focus, :hover, .is-active)
             --navbar-item-hover-background-color: #{utilities.bulmaVarDarken($name, 5%)}
             background-color: var(--navbar-item-hover-background-color)
             color: var(--#{$name}-invert)
@@ -135,29 +133,25 @@ $-css-vars-map: ("navbar-background-color": $navbar-background-color, "navbar-bo
       +utilities.from($navbar-breakpoint)
         --navbar-dropdown-item-active-background-color: var(--#{$name})
         --navbar-dropdown-item-active-color: var(--#{$name}-invert)
-        .navbar-brand,
-        .navbar-start,
-        .navbar-end
+        :is(.navbar-brand, .navbar-start, .navbar-end)
           & > .navbar-item,
           .navbar-link
             color: var(--#{$name}-invert)
           & > a.navbar-item,
           .navbar-link
-            &:focus,
-            &:hover,
-            &.is-active
+            &:is(:focus, :hover, .is-active)
               --navbar-item-hover-background-color: #{utilities.bulmaVarDarken($name, 5%)}
               background-color: var(--navbar-item-hover-background-color)
               color: var(--#{$name}-invert)
           .navbar-link
             &::after
               border-color: var(--#{$name}-invert)
-        .navbar-item.has-dropdown:focus .navbar-link,
-        .navbar-item.has-dropdown:hover .navbar-link,
-        .navbar-item.has-dropdown.is-active .navbar-link
-          --navbar-dropdown-item-hover-background-color: #{utilities.bulmaVarDarken($name, 5%)}
-          background-color: var(--navbar-dropdown-item-hover-background-color)
-          color: var(--#{$name}-invert)
+        .navbar-item.has-dropdown
+          &:is(:focus, :hover, .is-active)
+            .navbar-link
+              --navbar-dropdown-item-hover-background-color: #{utilities.bulmaVarDarken($name, 5%)}
+              background-color: var(--navbar-dropdown-item-hover-background-color)
+              color: var(--#{$name}-invert)
         .navbar-dropdown
           a.navbar-item
             &.is-active
@@ -170,8 +164,7 @@ $-css-vars-map: ("navbar-background-color": $navbar-background-color, "navbar-bo
     width: 100%
   &.has-shadow
     box-shadow: var(--navbar-box-shadow-size) var(--navbar-box-shadow-color)
-  &.is-fixed-bottom,
-  &.is-fixed-top
+  &:is(.is-fixed-bottom, .is-fixed-top)
     +navbar-fixed
   &.is-fixed-bottom
     bottom: 0
@@ -196,8 +189,7 @@ body
 
 .navbar-brand
   a.navbar-item
-    &:focus,
-    &:hover
+    &:is(:focus, :hover)
       background-color: transparent
 
 .navbar-tabs
@@ -229,10 +221,7 @@ body
 a.navbar-item,
 .navbar-link
   cursor: pointer
-  &:focus,
-  &:focus-within,
-  &:hover,
-  &.is-active
+  &:is(:focus, :focus-within, :hover, .is-active)
     background-color: var(--navbar-item-hover-background-color)
     color: var(--navbar-item-hover-color)
 
@@ -250,8 +239,7 @@ a.navbar-item,
     border-bottom: 1px solid transparent
     min-height: var(--navbar-height)
     +utilities.logical-y(padding, calc(0.5rem - 1px), $bottom: true)
-    &:focus,
-    &:hover
+    &:is(:focus, :hover)
       background-color: var(--navbar-tab-hover-background-color)
       border-bottom-color: var(--navbar-tab-hover-border-bottom-color)
     &.is-active
@@ -290,8 +278,7 @@ a.navbar-item,
 +utilities.until($navbar-breakpoint)
   .navbar > .container
     display: block
-  .navbar-brand,
-  .navbar-tabs
+  :is(.navbar-brand, .navbar-tabs)
     .navbar-item
       align-items: center
       display: flex
@@ -306,8 +293,7 @@ a.navbar-item,
       display: block
   // Fixed navbar
   .navbar
-    &.is-fixed-bottom-touch,
-    &.is-fixed-top-touch
+    &:is(.is-fixed-bottom-touch, .is-fixed-top-touch)
       +navbar-fixed
     &.is-fixed-bottom-touch
       bottom: 0
@@ -315,8 +301,7 @@ a.navbar-item,
         box-shadow: 0 -2px 3px var(--navbar-shadow-color)
     &.is-fixed-top-touch
       top: 0
-    &.is-fixed-top,
-    &.is-fixed-top-touch
+    &:is(.is-fixed-top, .is-fixed-top-touch)
       .navbar-menu
         +utilities.overflow-touch
         max-height: calc(100vh - var(--navbar-height))
@@ -339,30 +324,21 @@ a.navbar-item,
     min-height: var(--navbar-height)
     &.is-spaced
       padding: var(--navbar-padding-vertical) var(--navbar-padding-horizontal)
-      .navbar-start,
-      .navbar-end
+      :is(.navbar-start, .navbar-end)
         align-items: center
-      a.navbar-item,
-      .navbar-link
+      :is(a.navbar-item, .navbar-link)
         border-radius: var(--radius)
     &.is-transparent
-      a.navbar-item,
-      .navbar-link
-        &:focus,
-        &:hover,
-        &.is-active
+      :is(a.navbar-item, .navbar-link)
+        &:is(:focus, :hover, .is-active)
           background-color: transparent !important
       .navbar-item.has-dropdown
-        &.is-active,
-        &.is-hoverable:focus,
-        &.is-hoverable:focus-within,
-        &.is-hoverable:hover
+        &:is(.is-active, .is-hoverable:is(:focus, :focus-within, :hover))
           .navbar-link
             background-color: transparent !important
       .navbar-dropdown
         a.navbar-item
-          &:focus,
-          &:hover
+          &:is(:focus, :hover)
             background-color: var(--navbar-dropdown-item-hover-background-color)
             color: var(--navbar-dropdown-item-hover-color)
           &.is-active
@@ -370,8 +346,7 @@ a.navbar-item,
             color: var(--navbar-dropdown-item-active-color)
   .navbar-burger
     display: none
-  .navbar-item,
-  .navbar-link
+  :is(.navbar-item, .navbar-link)
     align-items: center
     display: flex
   .navbar-item
@@ -386,10 +361,7 @@ a.navbar-item,
         bottom: 100%
         box-shadow: 0 -8px 8px var(--navbar-shadow-color)
         top: auto
-    &.is-active,
-    &.is-hoverable:focus,
-    &.is-hoverable:focus-within,
-    &.is-hoverable:hover
+    &:is(.is-active, .is-hoverable:is(:focus, :focus-within, :hover))
       .navbar-dropdown
         display: block
         .navbar.is-spaced &,
@@ -423,8 +395,7 @@ a.navbar-item,
       white-space: nowrap
     a.navbar-item
       +utilities.logical-x(padding, 3rem, $right: true)
-      &:focus,
-      &:hover
+      &:is(:focus, :hover)
         background-color: var(--navbar-dropdown-item-hover-background-color)
         color: var(--navbar-dropdown-item-hover-color)
       &.is-active
@@ -455,8 +426,7 @@ a.navbar-item,
       +utilities.logical-x(margin, -0.75rem, $right: true)
   // Fixed navbar
   .navbar
-    &.is-fixed-bottom-desktop,
-    &.is-fixed-top-desktop
+    &:is(.is-fixed-bottom-desktop, .is-fixed-top-desktop)
       +navbar-fixed
     &.is-fixed-bottom-desktop
       bottom: 0
@@ -464,8 +434,7 @@ a.navbar-item,
         box-shadow: 0 -2px 3px var(--navbar-shadow-color)
     &.is-fixed-top-desktop
       top: 0
-  html,
-  body
+  :is(html, body)
     &.has-navbar-fixed-top-desktop
       +utilities.logical-y(padding, var(--navbar-height), $bottom: false)
     &.has-navbar-fixed-bottom-desktop
@@ -475,16 +444,13 @@ a.navbar-item,
     &.has-spaced-navbar-fixed-bottom
       +utilities.logical-y(padding, calc(var(--navbar-height) + calc(var(--navbar-padding-vertical) * 2)), $bottom: true)
   // Hover/Active states
-  a.navbar-item,
-  .navbar-link
+  :is(a.navbar-item, .navbar-link)
     &.is-active
       color: var(--navbar-item-active-color)
     &.is-active:not(:focus, :hover)
       background-color: var(--navbar-item-active-background-color)
   .navbar-item.has-dropdown
-    &:focus,
-    &:hover,
-    &.is-active
+    &:is(:focus, :hover, .is-active)
       .navbar-link
         background-color: var(--navbar-item-hover-background-color)
 

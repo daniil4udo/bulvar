@@ -28,9 +28,9 @@ $-css-vars-map: ("media-border-color": $media-border-color, "media-border-size":
     border-top: var(--media-border-size) solid var(--media-border-color)
     display: flex
     +utilities.logical-y(padding, var(--media-level-1-spacing), $bottom: false)
-    .content:not(:last-child),
-    .control:not(:last-child)
-      +utilities.logical-y(margin, var(--media-level-1-content-spacing), $bottom: true)
+    :is(.content, .control)
+      &:not(:last-child)
+        +utilities.logical-y(margin, var(--media-level-1-content-spacing), $bottom: true)
     .media
       +utilities.logical-y(padding, var(--media-level-2-spacing), $bottom: false)
       & + .media

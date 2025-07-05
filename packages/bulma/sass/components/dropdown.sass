@@ -43,8 +43,7 @@ $-css-vars-map: ("dropdown-content-offset": $dropdown-content-offset, "dropdown-
   display: inline-flex
   position: relative
   vertical-align: top
-  &.is-active,
-  &.is-hoverable:hover
+  &:is(.is-active, .is-hoverable:hover)
     .dropdown-menu
       display: block
   &.is-right
@@ -82,8 +81,7 @@ $-css-vars-map: ("dropdown-content-offset": $dropdown-content-offset, "dropdown-
   padding: var(--dropdown-item-padding)
   position: relative
 
-a.dropdown-item,
-button.dropdown-item,
+.dropdown-item:is(a, button),
 .button.dropdown-item
   +utilities.logical-x(padding, 3rem, $right: true)
   text-align: inherit

@@ -76,9 +76,8 @@
   -webkit-overflow-scrolling: touch
 
 =placeholder
-  $placeholders: ':-moz' ':-webkit-input' '-moz' '-ms-input'
-  @each $placeholder in $placeholders
-    &:#{$placeholder}-placeholder
+    //   &:is(::placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder, ::-webkit-input-placeholder)
+    &::placeholder
       @content
 
 =reset
@@ -149,6 +148,22 @@
 =widescreen-only
   @if vars.$widescreen-enabled and vars.$fullhd-enabled
     @media screen and (min-width: vars.$widescreen) and (max-width: vars.$fullhd - 1px)
+      @content
+
+=is($classes...)
+  @if vars.$use-is
+    :is(#{$classes})
+      @content
+  @else
+    #{$classes}
+      @content
+
+=is-parent($classes...)
+  @if vars.$use-is
+    &:is(#{$classes})
+      @content
+  @else
+    #{$classes}
       @content
 
 =until-fullhd

@@ -57,8 +57,7 @@ $-css-vars-map: ('table-color': $table-color, 'table-cell-border-width': $table-
   @extend %block
   background-color: var(--table-background-color)
   color: var(--table-color)
-  td,
-  th
+  :is(td, th)
     border: var(--table-cell-border)
     border-width: var(--table-cell-border-width)
     padding: var(--table-cell-padding)
@@ -78,8 +77,7 @@ $-css-vars-map: ('table-color': $table-color, 'table-cell-border-width': $table-
     &.is-selected
       background-color: var(--table-row-active-background-color)
       color: var(--table-row-active-color)
-      a,
-      strong
+      :is(a, strong)
         color: currentColor
     &.is-vcentered
       vertical-align: middle
@@ -91,41 +89,34 @@ $-css-vars-map: ('table-color': $table-color, 'table-cell-border-width': $table-
     &.is-selected
       background-color: var(--table-row-active-background-color)
       color: var(--table-row-active-color)
-      a,
-      strong
+      :is(a, strong)
         color: currentColor
-      td,
-      th
+      :is(td, th)
         border-color: var(--table-row-active-color)
         color: currentColor
   thead
     background-color: var(--table-head-background-color)
-    td,
-    th
+    :is(td, th)
       border-width: var(--table-head-cell-border-width)
       color: var(--table-head-cell-color)
   tfoot
     background-color: var(--table-foot-background-color)
-    td,
-    th
+    :is(td, th)
       border-width: var(--table-foot-cell-border-width)
       color: var(--table-foot-cell-color)
   tbody
     background-color: var(--table-body-background-color)
     tr
       &:last-child
-        td,
-        th
+        :is(td, th)
           border-bottom-width: 0
   // Modifiers
   &.is-bordered
-    td,
-    th
+    :is(td, th)
       border-width: 1px
     tr
       &:last-child
-        td,
-        th
+        :is(td, th)
           border-bottom-width: 1px
   &.is-fullwidth
     width: 100%
@@ -142,8 +133,7 @@ $-css-vars-map: ('table-color': $table-color, 'table-cell-border-width': $table-
             &:nth-child(even)
               background-color: var(--table-striped-row-even-hover-background-color)
   &.is-narrow
-    td,
-    th
+    :is(td, th)
       padding: 0.25em 0.5em
   &.is-striped
     tbody

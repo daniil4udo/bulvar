@@ -33,8 +33,7 @@ $-css-vars-map: (
             @include bulma-utilities.control-sizes;
         }
 
-        > .tag,
-        > .tags {
+        > :is(.tag, .tags) {
             height: var(--taginput-height);
             @include bulma-utilities.logical-y(margin, calc(0.275em - 1px), $bottom: true);
             @include bulma-utilities.logical-x(margin, 0.275rem, $right: false);
