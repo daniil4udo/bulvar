@@ -1,6 +1,7 @@
 <!-- PLEASE READ THE FOLLOWING INSTRUCTIONS -->
 
 <!-- Choose one of the following: -->
+
 This is about **Bulma | Bulma | Extentions | the Docs**.
 
 <!-- Is it about Bulma, Buefy, Extentions or about the Docs? -->

@@ -1,19 +1,19 @@
 {
-	"extends": ["config:base"],
-	"baseBranches": ["master"],
-	"bumpVersion": null,
-	"packageRules": [
-		{
-			"depTypeList": ["devDependencies"],
-			"updateTypes": ["major"]
-		},
-		{
-			"matchDepTypes": ["optionalDependencies"],
-			"addLabels": ["optional"]
-		}
-	],
-	"commitMessagePrefix": "dep-up: 📦 ",
-	"prHourlyLimit": 5,
-	"prConcurrentLimit": 10,
-	"rangeStrategy": "bump"
+    "extends": ["config:base"],
+    "baseBranches": ["master"],
+    "bumpVersion": null,
+    "packageRules": [
+        {
+            "depTypeList": ["devDependencies"],
+            "updateTypes": ["major"]
+        },
+        {
+            "matchDepTypes": ["optionalDependencies"],
+            "addLabels": ["optional"]
+        }
+    ],
+    "commitMessagePrefix": "dep-up: 📦 ",
+    "prHourlyLimit": 5,
+    "prConcurrentLimit": 10,
+    "rangeStrategy": "bump"
 }

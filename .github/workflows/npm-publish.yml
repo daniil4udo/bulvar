@@ -4,69 +4,69 @@
 name: Publish
 
 on:
-  push:
-    branches:
-      - master
+    push:
+        branches:
+            - master
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+                with:
+                    node-version: 14
 
-      - name: Install Dependencies
-        run: npm install
-      - run: npm install -D sass
+            - name: Install Dependencies
+                run: npm install
+            - run: npm install -D sass
 
-      - name: Test Dart Sass
-        run: node test/dart-sass/dart-sass.js
+            - name: Test Dart Sass
+                run: node test/dart-sass/dart-sass.js
 
-  publish-gpr:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-          registry-url: https://npm.pkg.github.com/
+    publish-gpr:
+        needs: build
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            packages: write
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+                with:
+                    node-version: 14
+                    registry-url: https://npm.pkg.github.com/
 
-      - name: Install Dependencies
-        run: npm install
+            - name: Install Dependencies
+                run: npm install
 
-      - run: git config --global user.email "Daniil Chudo"
-      - run: git config --global user.name "daniil4udo@gmail.com"
-      - run: git fetch --tags
+            - run: git config --global user.email "Daniil Chudo"
+            - run: git config --global user.name "daniil4udo@gmail.com"
+            - run: git fetch --tags
 
-      - name: Publishing
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+            - name: Publishing
+                run: npm publish
+                env:
+                    NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-          registry-url: https://registry.npmjs.org/
+    publish-npm:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+                with:
+                    node-version: 14
+                    registry-url: https://registry.npmjs.org/
 
-      - name: Install Dependencies
-        run: npm install
+            - name: Install Dependencies
+                run: npm install
 
-      - run: git config --global user.email "Daniil Chudo"
-      - run: git config --global user.name "daniil4udo@gmail.com"
-      - run: git fetch --tags
+            - run: git config --global user.email "Daniil Chudo"
+            - run: git config --global user.name "daniil4udo@gmail.com"
+            - run: git fetch --tags
 
-      - name: Publishing
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTOMATION_TOKEN}}
+            - name: Publishing
+                run: npm publish
+                env:
+                    NODE_AUTH_TOKEN: ${{secrets.NPM_AUTOMATION_TOKEN}}

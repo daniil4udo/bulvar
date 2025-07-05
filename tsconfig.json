@@ -1,11 +1,11 @@
 {
-    "extends": "@tsconfig/node18/tsconfig.json",
-    "include": ["package.json", "scripts/**/*", "scripts/**/*.ts"],
+    "extends": "@tsconfig/node24/tsconfig.json",
     "compilerOptions": {
         "composite": true,
-        "module": "NodeNext",
+        "module": "ESNext",
+        "moduleResolution": "node",
         "resolveJsonModule": true,
-        "moduleResolution": "NodeNext",
         "types": ["node"]
-    }
+    },
+    "include": ["package.json", "scripts/**/*", "scripts/**/*.ts"]
 }

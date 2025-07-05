@@ -1,14 +1,14 @@
 matrix:
-  include:
-    - language: sass
-      before_install:
-        - gem install sass
-      script:
-        - test/ruby-sass/ruby-sass.sh
-    - language: node_js
-      node_js:
-        - 14
-      before_script:
-        - npm install -D sass
-      script:
-        - node test/dart-sass/dart-sass.js
+    include:
+        - language: sass
+            before_install:
+                - gem install sass
+            script:
+                - test/ruby-sass/ruby-sass.sh
+        - language: node_js
+            node_js:
+                - 14
+            before_script:
+                - npm install -D sass
+            script:
+                - node test/dart-sass/dart-sass.js

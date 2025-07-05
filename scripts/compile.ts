@@ -6,14 +6,14 @@ import fsp from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { transform as lightningcss, composeVisitors } from 'lightningcss';
+import { composeVisitors, transform as lightningcss } from 'lightningcss';
 import minimist from 'minimist';
 import rtlcss from 'rtlcss';
 import * as sass from 'sass';
 
 const _dirname = typeof __dirname !== 'undefined'
-	? __dirname
-	: path.dirname(fileURLToPath(import.meta.url));
+    ? __dirname
+    : path.dirname(fileURLToPath(import.meta.url));
 
 /**
  * Compile Sass files into CSS.
@@ -23,16 +23,16 @@ const _dirname = typeof __dirname !== 'undefined'
  * @returns The compiled CSS.
  */
 function compile(filepath: string, opts?: SassOptions<'sync'>) {
-	return sass.compile(filepath, {
-		...opts,
-		// loadPaths: [
-		// 	fileURLToPath(new URL('../node_modules', import.meta.url)),
-		// ],
-		alertColor: true,
-		verbose: true,
-		sourceMap: true,
-		sourceMapIncludeSources: true,
-	});
+    return sass.compile(filepath, {
+        ...opts,
+        // loadPaths: [
+        // 	fileURLToPath(new URL('../node_modules', import.meta.url)),
+        // ],
+        alertColor: true,
+        verbose: true,
+        sourceMap: true,
+        sourceMapIncludeSources: true,
+    });
 }
 
 /**
@@ -41,36 +41,36 @@ function compile(filepath: string, opts?: SassOptions<'sync'>) {
  * @returns
  */
 function lightningcssPluginWebkitTouchCallout() {
-	const map = {
-		all: 'default',
-		auto: 'default',
-		contain: 'default',
-		none: 'none',
-		text: 'default',
-		inherit: 'inherit',
-		initial: 'initial',
-		unset: 'unset',
-	} as const;
+    const map = {
+        all: 'default',
+        auto: 'default',
+        contain: 'default',
+        none: 'none',
+        text: 'default',
+        inherit: 'inherit',
+        initial: 'initial',
+        unset: 'unset',
+    } as const;
 
-	const visitor: Visitor<never> = {
-		Declaration: {
-			'user-select': decl => {
-				if (typeof decl.value === 'string' && decl.value in map) {
-					const mappedValue = map[decl.value];
-					if (mappedValue !== undefined) {
-						return [decl, {
-							property: '-webkit-touch-callout',
-							raw: mappedValue,
-						}];
-					}
-				}
+    const visitor: Visitor<never> = {
+        Declaration: {
+            'user-select': decl => {
+                if (typeof decl.value === 'string' && decl.value in map) {
+                    const mappedValue = map[decl.value];
+                    if (mappedValue !== undefined) {
+                        return [ decl, {
+                            property: '-webkit-touch-callout',
+                            raw: mappedValue,
+                        }];
+                    }
+                }
 
-				return [decl]; // Return the original declaration if there's no mapped value
-			},
-		},
-	};
+                return [ decl ]; // Return the original declaration if there's no mapped value
+            },
+        },
+    };
 
-	return visitor;
+    return visitor;
 }
 
 /**
@@ -81,17 +81,17 @@ function lightningcssPluginWebkitTouchCallout() {
  * @returns The minified code.
  */
 interface TransformOptions<C extends CustomAtRules> extends Partial<Omit<LightningcssTransformOptions<C>, 'code'>> {
-	code: string
+    code: string
 }
 function transform<C extends CustomAtRules>(filename: string, opts: TransformOptions<C>) {
-	return lightningcss({
-		filename,
-		minify: opts.minify ?? true,
-		code: Buffer.from(opts.code),
-		visitor: composeVisitors([
-			lightningcssPluginWebkitTouchCallout(),
-		]),
-	});
+    return lightningcss({
+        filename,
+        minify: opts.minify ?? true,
+        code: Buffer.from(opts.code),
+        visitor: composeVisitors([
+            lightningcssPluginWebkitTouchCallout(),
+        ]),
+    });
 }
 
 /**
@@ -102,7 +102,7 @@ function transform<C extends CustomAtRules>(filename: string, opts: TransformOpt
  * @returns The RTL CSS code.
  */
 function compileRTL(code: string, opts?: RtlOptions) {
-	return rtlcss.process(code, opts);
+    return rtlcss.process(code, opts);
 }
 
 /**
@@ -112,56 +112,56 @@ function compileRTL(code: string, opts?: RtlOptions) {
  * @returns The processed CSS code.
  */
 function main({ scope, rtl = false }: Record<string, any> = {}) {
-	// https://pnpm.io/cli/exec#--recursive--r
-	// const [ namespace, pckgName ] = process.env.PNPM_PACKAGE_NAME!.split('/')
+    // https://pnpm.io/cli/exec#--recursive--r
+    // const [ namespace, pckgName ] = process.env.PNPM_PACKAGE_NAME!.split('/')
 
-	// Computed file name base on "rtl" flag
-	const filename = rtl
-		? `${scope}-rtl`
-		: scope;
+    // Computed file name base on "rtl" flag
+    const filename = rtl
+        ? `${scope}-rtl`
+        : scope;
 
-	// Path to the package folder. i.e. packages/bulma
-	const filepath = path.resolve(_dirname, `../packages/${scope}`);
+    // Path to the package folder. i.e. packages/bulma
+    const filepath = path.resolve(_dirname, `../packages/${scope}`);
 
-	// Compile the SCSS first
-	const compiled = compile(`${filepath}/${filename}.scss`, {});
-	const compiledRTL = rtl
-		? compileRTL(compiled.css, {})
-		: compiled.css;
+    // Compile the SCSS first
+    const compiled = compile(`${filepath}/${filename}.scss`, {});
+    const compiledRTL = rtl
+        ? compileRTL(compiled.css, {})
+        : compiled.css;
 
-	const { code: expandedCss, ...transformed } = transform(`${filename}.css`, {
-		code: compiledRTL,
-		minify: false,
-	});
-	const { code: minifiedCss } = transform(`${filename}.css`, {
-		code: compiledRTL,
-		minify: true,
-	});
+    const { code: expandedCss, ...transformed } = transform(`${filename}.css`, {
+        code: compiledRTL,
+        minify: false,
+    });
+    const { code: minifiedCss } = transform(`${filename}.css`, {
+        code: compiledRTL,
+        minify: true,
+    });
 
-	return {
-		filepath,
-		filename,
-		...compiled,
-		expandedCss: expandedCss.toString(),
-		minifiedCss: minifiedCss.toString(),
-	};
+    return {
+        filepath,
+        filename,
+        ...compiled,
+        expandedCss: expandedCss.toString(),
+        minifiedCss: minifiedCss.toString(),
+    };
 }
 
 (async () => {
-	const argv = minimist(process.argv.slice(2));
-	const { bannerTxt } = await import(`../packages/${argv.scope}/banner.js`);
-	const {
-		expandedCss,
-		minifiedCss,
-		sourceMap,
+    const argv = minimist(process.argv.slice(2));
+    const { bannerTxt } = await import(`../packages/${argv.scope}/banner.js`);
+    const {
+        expandedCss,
+        minifiedCss,
+        sourceMap,
 
-		filepath,
-		filename,
-	} = main(argv);
+        filepath,
+        filename,
+    } = main(argv);
 
-	fsp.writeFile(`${filepath}/css/${filename}.css`, `${bannerTxt}\n${expandedCss}`);
-	fsp.writeFile(`${filepath}/css/${filename}.min.css`, `${bannerTxt}\n${minifiedCss}`);
-	fsp.writeFile(`${filepath}/css/${filename}.css.map`, JSON.stringify(sourceMap));
+    fsp.writeFile(`${filepath}/css/${filename}.css`, `${bannerTxt}\n${expandedCss}`);
+    fsp.writeFile(`${filepath}/css/${filename}.min.css`, `${bannerTxt}\n${minifiedCss}`);
+    fsp.writeFile(`${filepath}/css/${filename}.css.map`, JSON.stringify(sourceMap));
 })();
 
 // process.stdout.write(css)

@@ -1,5 +1,5 @@
 module.exports = {
     extends: [
-		'@democrance/stylelint-config',
+        '@democrance/stylelint-config',
     ],
 };
