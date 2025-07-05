@@ -224,3 +224,15 @@ $-light-breakpoint: 0.55
 
 @function bulmaVarDarken($color, $amount)
   @return bulmaVarLighten($color, ($amount * -1))
+
+@function null($values, $separator: space, $bracketed: false)
+  $result: ()
+
+  @if meta.type-of($values) == 'list'
+    @each $value in $values
+      @if $value and $value != null and $value != ""
+        $result: list.append($result, $value, $separator)
+  @else
+    @if $values and $values != null and $values != ""
+      $result: $values
+  @return if(list.length($result) > 0, $result, null);

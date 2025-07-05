@@ -1,7 +1,27 @@
 @use "../utilities"
 
 .is-radiusless
-  border-radius: 0 !important
+  +utilities.logical-border-radius(0 !important)
+  &-top
+    +utilities.logical-border-radius(top, 0 !important)
+    &-left
+      +utilities.logical-border-radius(top-left, 0 !important)
+    &-right
+      +utilities.logical-border-radius(top-right, 0 !important)
+  &-bottom
+    +utilities.logical-border-radius(bottom, 0 !important)
+    &-left
+      +utilities.logical-border-radius(bottom-left, 0 !important)
+    &-right
+      +utilities.logical-border-radius(bottom-right, 0 !important)
+  &-right
+    +utilities.logical-border-radius(right, 0 !important)
+  &-left
+    +utilities.logical-border-radius(left, 0 !important)
+  &-cross-left
+    +utilities.logical-border-radius(cross-left, 0 !important)
+  &-cross-right
+    +utilities.logical-border-radius(cross-right, 0 !important)
 
 .is-shadowless
   box-shadow: none !important
