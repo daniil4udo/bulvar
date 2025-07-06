@@ -282,7 +282,7 @@ a.navbar-item,
     .navbar-item
       align-items: center
       display: flex
-  .navbar-link
+  .navbar-link:not(.is-arrowless)
     &::after
       display: none
   .navbar-menu
@@ -413,8 +413,7 @@ a.navbar-item,
       transform: translateY(-5px)
       transition-duration: var(--speed)
       transition-property: opacity, transform
-    &.is-right,
-    &.is-end
+    &:is(.is-right, .is-end)
       +utilities.logical-x(inset, auto 0)
   .navbar-divider
     display: block

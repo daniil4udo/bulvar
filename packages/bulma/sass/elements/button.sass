@@ -204,6 +204,9 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
           border-color: transparent
           box-shadow: none
           color: var(--#{$name})
+        &.is-loading
+          &::after
+            border-color: transparent transparent var(--#{$name}-invert) var(--#{$name}-invert) !important
       &.is-loading
         &::after
           border-color: transparent transparent var(--#{$name}-invert) var(--#{$name}-invert) !important

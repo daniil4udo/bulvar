@@ -489,7 +489,7 @@ $-css-vars-map: (
             flex-basis: 100%;
         }
 
-        &.is-right {
+        &:is(.is-right, .is-end) {
             flex-direction: row-reverse;
         }
     }

@@ -43,7 +43,7 @@ $-css-vars-map: (
             position: fixed;
             top: 0;
             @include bulma-utilities.logical-x(inset, 0, $right: false);
-            &.is-right {
+            &:is(.is-right, .is-end) {
 				@include bulma-utilities.logical-x(inset, auto 0);
             }
         }
@@ -51,7 +51,7 @@ $-css-vars-map: (
             position: absolute;
             top: 0;
             @include bulma-utilities.logical-x(inset, 0, $right: false);
-            &.is-right {
+            &:is(.is-right, .is-end) {
 				@include bulma-utilities.logical-x(inset, auto 0);
             }
         }

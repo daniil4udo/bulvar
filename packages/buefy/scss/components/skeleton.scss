@@ -60,7 +60,7 @@ $-css-vars-map: (
         align-items: center;
     }
 
-    &.is-right {
+    &:is(.is-right, .is-end) {
         align-items: flex-end;
     }
 

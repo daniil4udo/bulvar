@@ -22,8 +22,7 @@ $-css-vars-map: ("level-item-spacing": $level-item-spacing)
     display: flex
     :is(.level-left, .level-start, .level-right, .level-end)
       display: flex
-    .level-left + .level-right,
-    .level-start + .level-end
+    :is(.level-left, .level-start) + :is(.level-right, .level-end)
       +utilities.logical-y(margin, 0, $bottom: false)
     .level-item
       &:not(:last-child)

@@ -99,15 +99,13 @@ $-css-vars-map: ("tabs-font-size": $tabs-font-size, "tabs-border-bottom-color": 
     flex-grow: 1
     flex-shrink: 0
     justify-content: flex-start
-    &.is-left,
-    &.is-start
+    &:is(.is-left, .is-start)
       +utilities.logical-x(padding, 0.75em, $right: true)
     &.is-center
       flex: none
       justify-content: center
       +utilities.logical-x(padding, 0.75em)
-    &.is-right,
-    &.is-end
+    &:is(.is-right, .is-end)
       justify-content: flex-end
       +utilities.logical-x(padding, 0.75em, $right: false)
   .icon
