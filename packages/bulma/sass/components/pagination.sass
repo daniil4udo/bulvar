@@ -170,15 +170,7 @@ $-css-vars-map: ("pagination-color": $pagination-color, "pagination-border-color
         order: 2
       .pagination-next
         order: 3
-    &.is-right
-      .pagination-previous
-        order: 1
-      .pagination-next
-        order: 2
-      .pagination-list
-        justify-content: right
-        order: 3
-    &.is-end
+    &:is(.is-right, .is-end)
       .pagination-previous
         order: 1
       .pagination-next

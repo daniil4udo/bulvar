@@ -119,8 +119,7 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
     .file-name
       flex-grow: 1
       max-width: none
-  &.is-right,
-  &.is-end
+  &:is(.is-right, .is-end)
     justify-content: flex-end
     .file-cta
       +utilities.logical-border-radius(right, var(--file-radius))

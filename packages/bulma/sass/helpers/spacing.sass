@@ -1,3 +1,5 @@
+@use "../utilities"
+
 .is-marginless
   margin: 0 !important
 
@@ -15,17 +17,27 @@ $spacing-values: ("0": 0, "1": 0.25rem, "2": 0.5rem, "3": 0.75rem, "4": 1rem, "5
     // All directions
     .#{$shortcut}-#{$name}
       #{$property}: $value !important
-    // Cardinal directions
+
+    // Cardinal directions using logical utilities
     @each $direction, $suffix in $spacing-directions
       .#{$shortcut}#{$suffix}-#{$name}
-        #{$property}-#{$direction}: $value !important
+        @if $direction == "top"
+          +utilities.logical-y($property, $value !important, $bottom: false)
+        @else if $direction == "bottom"
+          +utilities.logical-y($property, $value !important, $bottom: true)
+        @else if $direction == "left"
+          +utilities.logical-x($property, $value !important, $right: false)
+        @else if $direction == "right"
+          +utilities.logical-x($property, $value !important, $right: true)
+
     // Horizontal axis
     @if $spacing-horizontal != null
       .#{$shortcut}#{$spacing-horizontal}-#{$name}
-        #{$property}-left: $value !important
-        #{$property}-right: $value !important
+        +utilities.logical-x($property, $value !important, $right: false)
+        +utilities.logical-x($property, $value !important, $right: true)
+
     // Vertical axis
     @if $spacing-vertical != null
       .#{$shortcut}#{$spacing-vertical}-#{$name}
-        #{$property}-top: $value !important
-        #{$property}-bottom: $value !important
+        +utilities.logical-y($property, $value !important, $bottom: false)
+        +utilities.logical-y($property, $value !important, $bottom: true)

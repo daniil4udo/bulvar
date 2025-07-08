@@ -47,8 +47,7 @@ $-css-vars-map: ('tag-background-color': $tag-background-color, 'tag-color': $ta
     justify-content: center
     .tag
       +utilities.logical-x(margin, 0.25rem)
-  &.is-right,
-  &.is-end
+  &:is(.is-right, .is-end)
     justify-content: flex-end
     .tag
       &:not(:first-child)

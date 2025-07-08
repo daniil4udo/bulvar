@@ -46,13 +46,9 @@ $-css-vars-map: ("dropdown-content-offset": $dropdown-content-offset, "dropdown-
   &:is(.is-active, .is-hoverable:hover)
     > .dropdown-menu
       display: block
-  &.is-right
+  &:is(.is-right, .is-end)
     .dropdown-menu
       +utilities.logical-x(inset, auto 0)
-  &.is-end
-    .dropdown-menu
-      +utilities.logical-x(inset, auto, $right: true)
-      +utilities.logical-x(inset, 0, $right: false)
   &.is-up
     .dropdown-menu
       +utilities.logical-y(padding, initial var(--dropdown-content-offset))

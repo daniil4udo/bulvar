@@ -117,10 +117,7 @@ $-css-vars-map: ("tabs-font-size": $tabs-font-size, "tabs-border-bottom-color": 
   &.is-centered
     ul
       justify-content: center
-  &.is-right
-    ul
-      justify-content: right
-  &.is-end
+  &:is(.is-right, .is-end)
     ul
       justify-content: flex-end
   // Styles

@@ -64,29 +64,20 @@ $-css-vars-map: ("level-item-spacing": $level-item-spacing)
       &:not(:last-child)
         +utilities.logical-x(margin, var(--level-item-spacing), $right: true)
 
-.level-left
-  justify-content: left
-
+.level-left,
 .level-start
   justify-content: flex-start
-
-.level-left, .level-start
   align-items: center
   // Responsiveness
   +utilities.mobile
-    & + .level-right, & + .level-end
+    & + :is(.level-right, .level-end)
       +utilities.logical-y(margin, 1.5rem, $bottom: false)
   +utilities.tablet
     display: flex
 
-.level-right
-  justify-content: right
-
-.level-end
-  justify-content: flex-end
-
 .level-right,
 .level-end
+  justify-content: flex-end
   align-items: center
   // Responsiveness
   +utilities.tablet

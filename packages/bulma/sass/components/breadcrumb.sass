@@ -64,10 +64,7 @@ $-css-vars-map: ("breadcrumb-font-size": $breadcrumb-font-size, "breadcrumb-item
   &.is-centered
     :is(ol, ul)
       justify-content: center
-  &.is-right
-    :is(ol, ul)
-      justify-content: right
-  &.is-end
+  &:is(.is-right, .is-end)
     :is(ol, ul)
       justify-content: flex-end
   // Sizes

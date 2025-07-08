@@ -78,7 +78,7 @@ $-css-vars-map: ("help-font-size": $help-font-size)
         flex-shrink: 1
     &.has-addons-centered
       justify-content: center
-    &.has-addons-right
+    &:is(.has-addons-right, .has-addons-end)
       justify-content: flex-end
     &.has-addons-fullwidth
       .control
@@ -97,7 +97,7 @@ $-css-vars-map: ("help-font-size": $help-font-size)
         flex-shrink: 1
     &.is-grouped-centered
       justify-content: center
-    &.is-grouped-right
+    &:is(.is-grouped-right, .is-grouped-end)
       justify-content: flex-end
     &.is-grouped-multiline
       flex-wrap: wrap

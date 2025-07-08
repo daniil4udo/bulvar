@@ -15,11 +15,8 @@
         &.is-centered {
             justify-content: center;
         }
-        &.is-right {
-            justify-content: right;
-        }
-        &.is-end {
-            justify-content: flex-end;
+        &:is(.is-right, .is-end) {
+			justify-content: flex-end;
         }
     }
     .is-current {

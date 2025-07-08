@@ -173,7 +173,7 @@ $-css-vars-map: (
             flex-grow: 1;
         }
 
-        &.is-right {
+        &:is(.is-right, .is-end) {
             flex-direction: row-reverse;
 
             > .tabs {
