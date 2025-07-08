@@ -90,12 +90,9 @@ $-css-vars-map: (
                 font-weight: var(--weight-semibold);
                 text-transform: var(--snackbar-button-text-transform);
 
-                &:hover {
-                    // TODO: revisit
-                    background: var(--snackbar-button-background-color);
-                }
-                &:active {
-                    background: var(--snackbar-button-background-color);
+                &:hover,
+				:active {
+                    background: #{bulma-mixins-scss.darken-color(var(--dark), 5)};
                 }
             }
             @each $name, $pair in $snackbar-colors {

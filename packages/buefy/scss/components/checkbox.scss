@@ -61,8 +61,7 @@ $-css-vars-map: (
                 background: var(--checkbox-background-color);
                 transition: background calc(var(--speed) * 2) var(--easing);
             }
-            &:checked,
-            &:indeterminate {
+            &:is(:checked, :indeterminate) {
                 & +.check {
                     display: flex;
                     align-items: center;
