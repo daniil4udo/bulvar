@@ -29,26 +29,26 @@ $red-invert: mixins-scss.get-invert-color($red) !default;
 
 // Theme colors
 
-$primary-invert: mixins-scss.get-invert-color($primary) !default;
-$primary-light: mixins-scss.get-light-color($primary) !default;
-$primary-dark: mixins-scss.get-dark-color($primary) !default;
-$secondary-invert: mixins-scss.get-invert-color($secondary) !default;
-$secondary-light: mixins-scss.get-light-color($secondary) !default;
-$secondary-dark: mixins-scss.get-dark-color($secondary) !default;
-$info-invert: mixins-scss.get-invert-color($info) !default;
-$info-light: mixins-scss.get-light-color($info) !default;
-$info-dark: mixins-scss.get-dark-color($info) !default;
-$success-invert: mixins-scss.get-invert-color($success) !default;
-$success-light: mixins-scss.get-light-color($success) !default;
-$success-dark: mixins-scss.get-dark-color($success) !default;
-$warning-invert: mixins-scss.get-invert-color($warning) !default;
-$warning-light: mixins-scss.get-light-color($warning) !default;
-$warning-dark: mixins-scss.get-dark-color($warning) !default;
-$danger-invert: mixins-scss.get-invert-color($danger) !default;
-$danger-light: mixins-scss.get-light-color($danger) !default;
-$danger-dark: mixins-scss.get-dark-color($danger) !default;
-$light-invert: mixins-scss.get-invert-color($light) !default;
-$dark-invert: mixins-scss.get-invert-color($dark) !default;
+$primary-invert: mixins-scss.get-invert-color(var(--primary)) !default;
+$primary-light: mixins-scss.get-light-color(var(--primary)) !default;
+$primary-dark: mixins-scss.get-dark-color(var(--primary)) !default;
+$secondary-invert: mixins-scss.get-invert-color(var(--secondary)) !default;
+$secondary-light: mixins-scss.get-light-color(var(--secondary)) !default;
+$secondary-dark: mixins-scss.get-dark-color(var(--secondary)) !default;
+$info-invert: mixins-scss.get-invert-color(var(--info)) !default;
+$info-light: mixins-scss.get-light-color(var(--info)) !default;
+$info-dark: mixins-scss.get-dark-color(var(--info)) !default;
+$success-invert: mixins-scss.get-invert-color(var(--success)) !default;
+$success-light: mixins-scss.get-light-color(var(--success)) !default;
+$success-dark: mixins-scss.get-dark-color(var(--success)) !default;
+$warning-invert: mixins-scss.get-invert-color(var(--warning)) !default;
+$warning-light: mixins-scss.get-light-color(var(--warning)) !default;
+$warning-dark: mixins-scss.get-dark-color(var(--warning)) !default;
+$danger-invert: mixins-scss.get-invert-color(var(--danger)) !default;
+$danger-light: mixins-scss.get-light-color(var(--danger)) !default;
+$danger-dark: mixins-scss.get-dark-color(var(--danger)) !default;
+$light-invert: mixins-scss.get-invert-color(var(--light)) !default;
+$dark-invert: mixins-scss.get-invert-color(var(--dark)) !default;
 
 // General colors
 
@@ -81,9 +81,9 @@ $pre-background: var(--background) !default;
 // Link colors
 
 $link: $blue !default;
-$link-invert: mixins-scss.get-invert-color($link) !default;
-$link-light: mixins-scss.get-light-color($link) !default;
-$link-dark: mixins-scss.get-dark-color($link) !default;
+$link-invert: mixins-scss.get-invert-color(var(--link)) !default;
+$link-light: mixins-scss.get-light-color(var(--link)) !default;
+$link-dark: mixins-scss.get-dark-color(var(--link)) !default;
 $link-visited: $purple !default;
 $link-hover: $grey-darker !default;
 $link-hover-border: $grey-light !default;

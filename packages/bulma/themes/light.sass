@@ -1,5 +1,6 @@
 @use "../sass/utilities/derived-variables" as *
 @use "../sass/utilities/mixins" as *
+@use "../sass/utilities/mixins-scss" as *
 
 \:root
 	/// Initial variables
@@ -97,5 +98,5 @@
 	/// Color Maps
 	+registerCSSVarColors($colors)
 
-	/// As long as shades dont have -inver, -dark, -light register those withut modifiers
+	/// As long as shades do'nt have -invert, -dark, -light register those without modifiers
 	+registerCSSVars($shades)
