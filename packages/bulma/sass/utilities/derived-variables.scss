@@ -1,0 +1,160 @@
+/// to be able to use all possible variables withing 1 import
+/// @use "../utilities/derived-variables" as vars
+@forward "initial-variables";
+
+@use "sass:color";
+@use "functions" as fn;
+@use "mixins-scss";
+@use "initial-variables" as *;
+
+$primary: $turquoise !default;
+$secondary: $blue !default;
+$info: $cyan !default;
+$success: $green !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $white-ter !default;
+$dark: $grey-darker !default;
+
+// Base invert colors
+
+$invert-dark-color: color.change(oklch(8% 0 0deg), $alpha: 0.7) !default;
+$invert-dark-color-rgb: fn.bulmaToRGB($invert-dark-color) !default;
+$invert-dark-color-bis: fn.findColorState($invert-dark-color, 5%) !default;
+$invert-dark-color-ter: fn.findColorState($invert-dark-color, 10%) !default;
+$invert-light-color: color.change(oklch(100% 0 0deg), $alpha: 1) !default;
+$invert-light-color-rgb: fn.bulmaToRGB($invert-light-color) !default;
+$invert-light-color-bis: fn.findColorState($invert-light-color, 5%) !default;
+$invert-light-color-ter: fn.findColorState($invert-light-color, 10%) !default;
+
+// Invert colors
+
+$white-invert: mixins-scss.get-invert-color($white);
+$black-invert: mixins-scss.get-invert-color($black);
+$orange-invert: mixins-scss.get-invert-color($orange) !default;
+$yellow-invert: mixins-scss.get-invert-color($yellow) !default;
+$green-invert: mixins-scss.get-invert-color($green) !default;
+$turquoise-invert: mixins-scss.get-invert-color($turquoise) !default;
+$cyan-invert: mixins-scss.get-invert-color($cyan) !default;
+$blue-invert: mixins-scss.get-invert-color($blue) !default;
+$purple-invert: mixins-scss.get-invert-color($purple) !default;
+$red-invert: mixins-scss.get-invert-color($red) !default;
+
+// Theme colors
+
+$primary-invert: mixins-scss.get-invert-color($primary) !default;
+$primary-light: fn.findLightColor($primary) !default;
+$primary-dark: fn.findDarkColor($primary) !default;
+$secondary-invert: mixins-scss.get-invert-color($secondary) !default;
+$secondary-light: fn.findLightColor($secondary) !default;
+$secondary-dark: fn.findDarkColor($secondary) !default;
+$info-invert: mixins-scss.get-invert-color($info) !default;
+$info-light: fn.findLightColor($info) !default;
+$info-dark: fn.findDarkColor($info) !default;
+$success-invert: mixins-scss.get-invert-color($success) !default;
+$success-light: fn.findLightColor($success) !default;
+$success-dark: fn.findDarkColor($success) !default;
+$warning-invert: mixins-scss.get-invert-color($warning) !default;
+$warning-light: fn.findLightColor($warning) !default;
+$warning-dark: fn.findDarkColor($warning) !default;
+$danger-invert: mixins-scss.get-invert-color($danger) !default;
+$danger-light: fn.findLightColor($danger) !default;
+$danger-dark: fn.findDarkColor($danger) !default;
+$light-invert: mixins-scss.get-invert-color($light) !default;
+$dark-invert: mixins-scss.get-invert-color($dark) !default;
+
+// General colors
+
+$scheme-main: $white !default;
+$scheme-main-rgb: fn.bulmaToRGB($scheme-main) !default;
+$scheme-main-bis: $white-bis !default;
+$scheme-main-ter: $white-ter !default;
+$scheme-invert: $black !default;
+$scheme-invert-rgb: fn.bulmaToRGB($scheme-invert) !default;
+$scheme-invert-bis: $black-bis !default;
+$scheme-invert-ter: $black-ter !default;
+$background: $white-ter !default;
+$background-rgb: fn.bulmaToRGB($background) !default;
+$border: $grey-lighter !default;
+$border-rgb: fn.bulmaToRGB($border) !default;
+$border-hover: $grey-light !default;
+$border-light: $grey-lightest !default;
+$border-light-hover: $grey-light !default;
+
+// Text colors
+
+$text: $grey-dark !default;
+$text-invert: mixins-scss.get-invert-color($text) !default;
+$text-light: $grey !default;
+$text-strong: $grey-darker !default;
+
+// Code colors
+
+$code: color.adjust($red, $lightness: -15%) !default;
+$code-background: var(--background) !default;
+$pre: var(--text) !default;
+$pre-background: var(--background) !default;
+
+// Link colors
+
+$link: $blue !default;
+$link-rgb: fn.bulmaToRGB($link) !default;
+$link-invert: mixins-scss.get-invert-color($link) !default;
+$link-light: fn.findLightColor($link, $blue) !default;
+$link-dark: fn.findDarkColor($link, $blue) !default;
+$link-visited: $purple !default;
+$link-hover: $grey-darker !default;
+$link-hover-border: $grey-light !default;
+$link-focus: $grey-darker !default;
+$link-focus-border: var(--link) !default;
+$link-active: $grey-darker !default;
+$link-active-border: $grey-dark !default;
+
+// Typography
+
+$family-primary: $family-sans-serif !default;
+$family-secondary: $family-sans-serif !default;
+$family-code: $family-monospace !default;
+$size-small: $size-7 !default;
+$size-normal: $size-6 !default;
+$size-medium: $size-5 !default;
+$size-large: $size-4 !default;
+
+// Effects
+
+$shadow: 0 0.5em 1em -0.125em rgba(var(--scheme-invert-rgb), 0.1), 0 0 0 1px rgba(var(--scheme-invert-rgb), 0.02) !default;
+
+// Lists and maps
+
+$custom-colors: null !default;
+$custom-shades: null !default;
+$colors: fn.mergeColorMaps(
+	(
+		"white": ($white, $black),
+		"black": ($black, $white),
+		"light": ($light, $light-invert),
+		"dark": ($dark, $dark-invert),
+		"primary": ($primary, $primary-invert),
+		"secondary": ($secondary, $secondary-invert),
+		"link": ($link, $link-invert),
+		"info": ($info, $info-invert),
+		"success": ($success, $success-invert),
+		"warning": ($warning, $warning-invert),
+		"danger": ($danger, $danger-invert)
+	),
+$custom-colors) !default;
+$shades: fn.mergeColorMaps(
+	(
+		"black-bis": $black-bis,
+		"black-ter": $black-ter,
+		"grey-darker": $grey-darker,
+		"grey-dark": $grey-dark,
+		"grey": $grey,
+		"grey-light": $grey-light,
+		"grey-lighter": $grey-lighter,
+		"grey-lightest": $grey-lightest,
+		"white-ter": $white-ter,
+		"white-bis": $white-bis
+	),
+$custom-shades) !default;
+$sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7 !default;

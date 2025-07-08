@@ -1,0 +1,212 @@
+@use "sass:color";
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+@use "functions" as fn;
+
+/**
+ * Register a single CSS custom property
+ * @param {string} $name - CSS variable name (without --)
+ * @param {*} $value - CSS variable value
+ * @param {boolean} $at-root - Whether to register at :root level or current scope
+ */
+@mixin register-css-property($name, $value, $at-root: true) {
+  @if $at-root {
+    @at-root :root {
+      --#{$name}: #{$value};
+    }
+  } @else {
+    --#{$name}: #{$value};
+  }
+}
+
+/**
+ * Register multiple CSS custom properties from a map
+ * @param {map} $variable-map - Map of variable names to values
+ * @param {boolean} $at-root - Whether to register at :root level or current scope
+ */
+@mixin register-css-properties($variable-map, $at-root: true) {
+  @if $at-root {
+    @at-root :root {
+      @each $name, $value in $variable-map {
+        --#{$name}: #{$value};
+      }
+    }
+  } @else {
+    @each $name, $value in $variable-map {
+      --#{$name}: #{$value};
+    }
+  }
+}
+
+/**
+ * Register CSS variables scoped to specific components (general purpose)
+ * Turns list of component names into dynamic selectors
+ * e.g. ('tag', 'tags') becomes ('.tag', '[class^="tag-"]', '.tags', '[class^="tags-"]')
+ * @param {string|list} $component-classes - Component class name(s) to scope variables to
+ * @param {map} $variable-map - Map of CSS variable names to values
+ * @param {boolean} $include-starts-with - Whether to include [class^="component-"] selectors
+ */
+@mixin register-component-css-properties($component-classes, $variable-map, $include-starts-with: true) {
+  @if $component-classes == null or $component-classes == '' {
+    @include register-css-properties($variable-map, $at-root: true);
+  } @else {
+    $class-list: if(meta.type-of($component-classes) == 'list', $component-classes, ($component-classes));
+    $selector-list: ();
+
+    @each $class-name in $class-list {
+      $selector-list: list.append($selector-list, '.#{$class-name}', comma);
+
+      @if $include-starts-with {
+        $selector-list: list.append($selector-list, '[class^="#{$class-name}-"]', comma);
+      }
+    }
+
+    #{$selector-list} {
+      @include register-css-properties($variable-map, false);
+    }
+  }
+}
+
+// Essential Color Manipulation Functions using color-mix (modern CSS approach)
+
+/**
+ * Lightens a color by mixing it with white
+ * @param {string} $color-property - CSS color value or CSS variable like var(--primary)
+ * @param {number} $amount - Percentage to lighten (0-100)
+ * @return {string} CSS color-mix function
+ */
+@function lighten-color($color-property, $amount: 10) {
+  @return color-mix(in oklch, #{$color-property}, white #{$amount}%);
+}
+
+/**
+ * Darkens a color by mixing it with black
+ * @param {string} $color-property - CSS color value or CSS variable like var(--primary)
+ * @param {number} $amount - Percentage to darken (0-100)
+ * @return {string} CSS color-mix function
+ */
+@function darken-color($color-property, $amount: 10) {
+  @return color-mix(in oklch, #{$color-property}, black #{$amount}%);
+}
+
+/**
+ * Adjusts opacity/transparency of a color
+ * @param {string} $color-property - CSS color value or CSS variable like var(--primary)
+ * @param {number} $opacity - Opacity value (0-1)
+ * @return {string} CSS relative color with alpha channel
+ */
+@function set-color-alpha($color-property, $opacity: 0.5) {
+  @return oklch(from #{$color-property} l c h / #{$opacity});
+}
+
+/**
+ * Creates inverted color (black for light colors, white for dark colors)
+ * Simple, reliable approach using the upcoming CSS light-dark() function
+ * @param {string} $color-property - CSS color value or CSS variable
+ * @return {string} CSS light-dark() function that adapts to color scheme and lightness
+ */
+@function get-invert-color($color-property) {
+  // Use light-dark() for automatic light/dark mode support
+  // This function will automatically choose appropriate contrast colors
+  //   @return light-dark(black, white);
+    @if fn.isLightColor($color-property) {
+		@return color-mix(in oklch, #{$color-property} 10%, black 90%);   // Heavily favor black for light colors
+	} @else {
+		@return color-mix(in oklch, #{$color-property} 10%, white 90%);    // Heavily favor white for dark colors
+	}
+}
+
+/**
+ * Professional Color Registration Mixin
+ * Creates CSS custom properties for a color with all its variants
+ * @param {string} $color-name - Color name (e.g., 'primary')
+ * @param {color|list} $color-data - Base color value or tuple (color, invert, light, dark)
+ * @param {string} $prefix - Optional prefix for CSS variables
+ */
+@mixin register-color-system($color-name, $color-data, $prefix: '') {
+  $base-name: if($prefix != '', $prefix + '-' + $color-name, $color-name);
+
+  // Extract values with safe defaults using inline conditionals
+  $is-list: meta.type-of($color-data) == 'list';
+  $list-length: if($is-list, list.length($color-data), 1);
+  $color-value: if($is-list, list.nth($color-data, 1), $color-data);
+  $color-invert: if($list-length >= 2, list.nth($color-data, 2), null);
+  $color-light: if($list-length >= 3, list.nth($color-data, 3), null);
+  $color-dark: if($list-length >= 4, list.nth($color-data, 4), null);
+
+  // Base color - the main color value
+  --#{$base-name}: #{$color-value};
+
+  // Compact conditional registration using inline if statements
+  --#{$base-name}-invert: #{if($color-invert, $color-invert, get-invert-color(var(--#{$base-name})))};
+  --#{$base-name}-light: #{if($color-light, $color-light, lighten-color(var(--#{$base-name}), 25))};
+  --#{$base-name}-dark: #{if($color-dark, $color-dark, darken-color(var(--#{$base-name}), 25))};
+
+  // Professional scale (50-950) using color-mix for consistent results
+  --#{$base-name}-50: #{lighten-color(var(--#{$base-name}), 45)};    // Very light
+  --#{$base-name}-100: #{lighten-color(var(--#{$base-name}), 35)};   // Light
+  --#{$base-name}-200: #{lighten-color(var(--#{$base-name}), 25)};   // Same as --primary-light
+  --#{$base-name}-300: #{lighten-color(var(--#{$base-name}), 15)};   // Slightly light
+  --#{$base-name}-400: #{lighten-color(var(--#{$base-name}), 8)};    // Barely light
+  --#{$base-name}-500: var(--#{$base-name});                         // Base color (no change)
+  --#{$base-name}-600: #{darken-color(var(--#{$base-name}), 8)};     // Barely dark
+  --#{$base-name}-700: #{darken-color(var(--#{$base-name}), 15)};    // Slightly dark
+  --#{$base-name}-800: #{darken-color(var(--#{$base-name}), 25)};    // Same as --primary-dark
+  --#{$base-name}-900: #{darken-color(var(--#{$base-name}), 35)};    // Dark
+  --#{$base-name}-950: #{darken-color(var(--#{$base-name}), 45)};    // Very dark
+
+  // Alpha/transparency variants for overlays, shadows, etc.
+  --#{$base-name}-alpha-10: #{set-color-alpha(var(--#{$base-name}), 0.1)};  // 10% opacity
+  --#{$base-name}-alpha-20: #{set-color-alpha(var(--#{$base-name}), 0.2)};  // 20% opacity
+  --#{$base-name}-alpha-30: #{set-color-alpha(var(--#{$base-name}), 0.3)};  // 30% opacity
+  --#{$base-name}-alpha-50: #{set-color-alpha(var(--#{$base-name}), 0.5)};  // 50% opacity
+  --#{$base-name}-alpha-70: #{set-color-alpha(var(--#{$base-name}), 0.7)};  // 70% opacity
+  --#{$base-name}-alpha-90: #{set-color-alpha(var(--#{$base-name}), 0.9)};  // 90% opacity
+}
+
+/**
+ * Batch register multiple color systems
+ * Supports both single colors and color tuples (color, invert, light, dark)
+ * @param {map} $color-map - Map of color names to color values or color tuples
+ * @param {string} $prefix - Optional prefix for all CSS variables
+ */
+@mixin register-color-systems($color-map, $prefix: '') {
+  @each $color-name, $color-data in $color-map {
+    @include register-color-system($color-name, $color-data, $prefix);
+  }
+}
+
+/**
+ * Register color systems scoped to specific components
+ * Useful for component libraries where colors should only affect certain elements
+ * @param {string|list} $component-classes - CSS class name(s) to scope colors to
+ * @param {map} $color-map - Map of color names to color values
+ * @param {boolean} $include-starts-with - Whether to include [class^="component-"] selectors
+ */
+@mixin register-component-color-systems($component-classes, $color-map, $include-starts-with: true) {
+  @if $component-classes == null or $component-classes == '' {
+    // No scoping - register globally
+    :root {
+      @include register-color-systems($color-map);
+    }
+  } @else {
+    $class-list: if(meta.type-of($component-classes) == 'list', $component-classes, ($component-classes));
+    $selector-list: ();
+
+    @each $class-name in $class-list {
+      $selector-list: append($selector-list, '.#{$class-name}', comma);
+
+      @if $include-starts-with {
+        // Also target elements with classes that start with component name
+        // e.g., .button, .button-primary, .button-large
+        $selector-list: append($selector-list, '[class^="#{$class-name}-"]', comma);
+      }
+    }
+
+    #{$selector-list} {
+      @include register-color-systems($color-map);
+    }
+  }
+}

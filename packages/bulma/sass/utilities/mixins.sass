@@ -6,6 +6,7 @@
 
 @use "derived-variables" as vars
 @use "functions" as fn
+@use "mixins-scss"
 
 =clearfix
   &::after
@@ -458,19 +459,19 @@
 
 =registerCSSVarColors($colors, $prefix: '')
   @each $name, $components in $colors
-    +registerCSSVarColor($name, $components, $prefix)
+    +mixins-scss.register-color-system($name, $components, $prefix)
 
 // If declare variables only in component's root selector, i.e. .card
-// .card-item, .card-header etc. wont have acces to CSS Vars due to the scoping
+// .card-item, .card-header etc. wont have access to CSS Vars due to the scoping
 // so if $at-root is false, use starts-with selector
 
-// turns list of string that represent root casses
+// turns list of string that represent root cases
 // i.e. ('tag', 'tags')
 // into ('.tag', 'class^=tag', '.tags', 'class^=tags')
 // to use as dynamic selector
 =registerComponentCSSVars($component-class, $map, $has-starts-from: true)
   @if $component-class == null or $component-class == ''
-    +registerCSSVars($map, true)
+    +registerCSSVars($map, $at-root: true)
   @else
     $list: if(meta.type-of($component-class) == 'list', $component-class, ($component-class))
     $new-list: ()
@@ -481,4 +482,4 @@
         $new-list: list.append($new-list, '[class^=#{$name}-]', comma)
 
     #{$new-list}
-      +registerCSSVars($map, vars.$at-root)
+      +registerCSSVars($map, $at-root: vars.$at-root)

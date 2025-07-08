@@ -1,0 +1,96 @@
+// Colors
+
+// Achromatic colors (blacks, greys, whites) using OKLCH
+$black: oklch(8% 0 0deg) !default;      // 4% lightness - pure black
+$black-bis: oklch(15% 0 0deg) !default;      // 9% lightness
+$black-ter: oklch(23% 0 0deg) !default;      // 14% lightness
+
+$grey-darker: oklch(35% 0 0deg) !default;      // 21% lightness
+$grey-dark: oklch(45% 0 0deg) !default;      // 29% lightness
+$grey: oklch(60% 0 0deg) !default;       // 48% lightness
+$grey-light: oklch(75% 0 0deg) !default;      // 71% lightness
+$grey-lighter: oklch(88% 0 0deg) !default;      // 86% lightness
+$grey-lightest: oklch(94% 0 0deg) !default;      // 93% lightness
+
+$white-ter: oklch(93% 0 0deg) !default;      // 92% lightness
+$white-bis: oklch(97% 0 0deg) !default;      // 96% lightness
+$white: oklch(100% 0 0deg) !default;         // 100% lightness - pure white
+
+// Chromatic colors using OKLCH (better perceptual uniformity than HSL)
+$orange: oklch(70% 0.15 45deg) !default;   // Orange - 45° hue
+$yellow: oklch(90% 0.12 85deg) !default;   // Yellow - 85° hue
+$green: oklch(65% 0.15 140deg) !default;  // Green - 140° hue
+$turquoise: oklch(55% 0.12 180deg) !default;  // Turquoise - 180° hue
+$cyan: oklch(65% 0.1 220deg) !default;   // Cyan - 220° hue
+$blue: oklch(50% 0.15 240deg) !default;   // Blue - 240° hue
+$purple: oklch(75% 0.2 300deg) !default;   // Purple - 300° hue
+$red: oklch(65% 0.2 20deg) !default;    // Red - 20° hue
+
+// Typography
+
+$family-sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !default;
+$family-monospace: monospace !default;
+$render-mode: optimizeLegibility !default;
+$size-1: 3rem !default;
+$size-2: 2.5rem !default;
+$size-3: 2rem !default;
+$size-4: 1.5rem !default;
+$size-5: 1.25rem !default;
+$size-6: 1rem !default;
+$size-7: 0.75rem !default;
+$weight-light: 300 !default;
+$weight-normal: 400 !default;
+$weight-medium: 500 !default;
+$weight-semibold: 600 !default;
+$weight-bold: 700 !default;
+
+// Spacing
+
+$block-spacing: 1.5rem !default;
+$item-padding: 0.375rem 1rem !default;
+
+// Responsiveness
+
+// The container horizontal gap, which acts as the offset for breakpoints
+$gap: 32px !default;
+
+// 960, 1152, and 1344 have been chosen because they are divisible by both 12 and 16
+$tablet: 769px !default;
+
+// 960px container + 4rem
+$desktop: 960px + (2 * $gap) !default;
+
+// 1152px container + 4rem
+$widescreen: 1152px + (2 * $gap) !default;
+$widescreen-enabled: true !default;
+
+// 1344px container + 4rem
+$fullhd: 1344px + (2 * $gap) !default;
+$fullhd-enabled: true !default;
+$breakpoints: ("mobile": ("until": $tablet), "tablet": ("from": $tablet), "tablet-only": ("from": $tablet, "until": $desktop), "touch": ("from": $desktop), "desktop": ("from": $desktop), "desktop-only": ("from": $desktop, "until": $widescreen), "until-widescreen": ("until": $widescreen), "widescreen": ("from": $widescreen), "widescreen-only": ("from": $widescreen, "until": $fullhd), "until-fullhd": ("until": $fullhd), "fullhd": ("from": $fullhd)) !default;
+
+// Miscellaneous
+
+$radius-small: 2px !default;
+$radius: 4px !default;
+$radius-large: 6px !default;
+$radius-rounded: 9999px !default;
+
+// Animation
+
+$has-prefix: true !default;
+$easing: ease-out !default;
+$speed: 86ms !default;
+
+// Flags
+
+$variable-columns: true !default;
+$rtl: false !default;
+$logical: true !default;
+
+// CSS vars flags
+
+$use-is: true !default;
+$css-variables: true !default;
+$at-root: true !default;
+$export: false !default;
