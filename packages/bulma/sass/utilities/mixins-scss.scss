@@ -128,13 +128,12 @@
  * @return {string} CSS color that provides good contrast
  */
 @function get-invert-color($color-property, $threshold: 0.55) {
-  // Use CSS Relative Colors to create conditional contrast
-  // If lightness > threshold, use dark color, else use light color
-
-  // Method 1: Using light-dark() with CSS relative color logic
-  // Light theme: check OKLCH lightness and choose contrast
-  // Dark theme: slightly different threshold for dark mode
-  @return oklch(from #{$color-property} #{'calc((l > #{$threshold}) * 0.1 + (l <= #{$threshold}) * 0.9)'} 0 0);
+  // Apply conditional logic
+  @if fn.isLightColor($color-property) {
+    @return oklch(0.1 0 0); // dark gray
+  } @else {
+    @return oklch(0.96 0 0); // light gray
+  }
 }
 
 /**
