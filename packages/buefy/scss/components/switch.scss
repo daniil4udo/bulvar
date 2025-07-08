@@ -2,6 +2,7 @@
 
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/form/shared" as bulma-form;
+@use "../../../bulma/sass/utilities/mixins-scss" as bulma-mixins-scss;
 
 $switch-width: 2.75em !default;
 $switch-padding: 0.2em !default;
@@ -65,9 +66,9 @@ $-css-vars-map: (
                 height: calc((var(--switch-width) - var(--switch-padding) * 2) * 0.5);
                 border-radius: var(--radius);
                 background: var(--background);
-                box-shadow: 0 3px 1px 0 rgba(var(--scheme-invert-rgb), 0.05),
-                    0 2px 2px 0 rgba(var(--scheme-invert-rgb), 0.1),
-                    0 3px 3px 0 rgba(var(--scheme-invert-rgb), 0.05);
+                box-shadow: 0 3px 1px 0 #{bulma-mixins-scss.set-color-alpha(var(--scheme-invert), 0.05)},
+                    0 2px 2px 0 #{bulma-mixins-scss.set-color-alpha(var(--scheme-invert), 0.1)},
+                    0 3px 3px 0 #{bulma-mixins-scss.set-color-alpha(var(--scheme-invert), 0.05)};
                 content: "";
                 transform-origin: left;
                 transition: transform calc(var(--speed) * 2) var(--easing);
@@ -101,7 +102,7 @@ $-css-vars-map: (
                 @each $name, $pair in $switch-colors {
                     $color: list.nth($pair, 1);
                     &.is-#{$name}-passive {
-                        box-shadow: 0 0 0.5em bulma-utilities.bulmaVarOpacity($name, 0.8);
+                        box-shadow: 0 0 0.5em #{bulma-mixins-scss.set-color-alpha(var(--#{$name}), 0.8)};
                     }
                 }
             }
@@ -111,7 +112,7 @@ $-css-vars-map: (
                 @each $name, $pair in $switch-colors {
                     $color: list.nth($pair, 1);
                     &.is-#{$name} {
-                        box-shadow: 0 0 0.5em bulma-utilities.bulmaVarOpacity($name, 0.8);
+                        box-shadow: 0 0 0.5em #{bulma-mixins-scss.set-color-alpha(var(--#{$name}), 0.8)};
                     }
                 }
             }
@@ -132,24 +133,16 @@ $-css-vars-map: (
     }
 
     &:hover {
-        input[type="checkbox"] + .check {
-            background: var(--grey-lighter);
-            @each $name, $pair in $switch-colors {
-                $color: list.nth($pair, 1);
-                &.is-#{$name}-passive {
-                    background: bulma-utilities.bulmaVarOpacity($name, 0.9);
-                }
-            }
-        }
-        input[type="checkbox"]:checked + .check {
-            background: var(--grey-lighter);
-
-            @each $name, $pair in $switch-colors {
-                $color: list.nth($pair, 1);
-                &.is-#{$name} {
-                    background: bulma-utilities.bulmaVarOpacity($name, 0.9);
-                }
-            }
+        input[type="checkbox"]:is(:checked, :not(:checked)) {
+			 + .check {
+				 background: var(--grey-lighter);
+				 @each $name, $pair in $switch-colors {
+					 $color: list.nth($pair, 1);
+					 &:is(.is-#{$name}, .is-#{$name}-passive) {
+						 background: #{bulma-mixins-scss.set-color-alpha(var(--#{$name}), 0.9)};
+					 }
+				 }
+			 }
         }
     }
     &.is-rounded {
@@ -175,13 +168,13 @@ $-css-vars-map: (
                 @each $name, $pair in $switch-colors {
                     $color: list.nth($pair, 1);
                     &.is-#{$name}-passive {
-                        border: 0.1rem solid bulma-utilities.bulmaVarOpacity($name, 0.9);
+                        border: 0.1rem solid #{bulma-mixins-scss.set-color-alpha(var(--#{$name}), 0.9)};
 
                         &::before {
                             background: var(--#{$name});
                         }
                         &:hover {
-                            border-color: bulma-utilities.bulmaVarOpacity($name, 0.9);
+                            border-color: #{bulma-mixins-scss.set-color-alpha(var(--#{$name}), 0.9)};
                         }
                     }
                 }

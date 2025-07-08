@@ -2,6 +2,7 @@
 
 @use "shared" as form-shared
 @use "../utilities"
+@use "../utilities/mixins-scss"
 
 $file-border-color: var(--border) !default
 $file-radius: var(--radius) !default
@@ -54,17 +55,17 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
         color: var(--#{$name}-invert)
       &:is(:hover, .is-hovered)
         .file-cta
-          background-color: #{utilities.bulmaVarDarken($name, 2.5%)}
+          background-color: #{mixins-scss.darken-color(var(--#{$name}), 2.5)}
           border-color: transparent
           color: var(--#{$name}-invert)
       &:is(:focus, .is-focused)
         .file-cta
           border-color: transparent
-          box-shadow: 0 0 0.5em #{utilities.bulmaVarOpacity($name, 0.25)}
+          box-shadow: 0 0 0.5em #{mixins-scss.set-color-alpha(var(--#{$name}), 0.25)}
           color: var(--#{$name}-invert)
       &:is(:active, .is-active)
         .file-cta
-          background-color: #{utilities.bulmaVarDarken($name, 5%)}
+          background-color: #{mixins-scss.darken-color(var(--#{$name}), 5)}
           border-color: transparent
           color: var(--#{$name}-invert)
   // Sizes

@@ -1,6 +1,7 @@
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/elements/table" as bulma-table;
 @use "../utilities/functions";
+@use "../../../bulma/sass/utilities/mixins-scss" as bulma-mixins-scss;
 
 $table-sticky-header-height: 300px !default;
 
@@ -44,7 +45,8 @@ $-css-vars-map: (
         display: block;
         max-width: 100%;
         // Card style — Cannot extend inside media query
-        box-shadow: 0 2px 3px rgba(var(--scheme-invert-rgb), 0.1), 0 0 0 1px rgba(var(--scheme-invert-rgb), 0.1);
+        box-shadow: 0 2px 3px #{bulma-mixins-scss.set-color-alpha(var(--scheme-invert), 0.1)},
+			0 0 0 1px #{bulma-mixins-scss.set-color-alpha(var(--scheme-invert), 0.1)};
         td {
             display: inherit;
             border: 0; // Disable is-bordered
@@ -221,9 +223,8 @@ $-css-vars-map: (
             }
         }
         &:focus {
-            --focus-box-shadow-color: #{bulma-utilities.bulmaVarOpacity(link, 0.25)};
             border-color: var(--link);
-            box-shadow: 0 0 0 0.125em var(--focus-box-shadow-color);
+            box-shadow: 0 0 0 0.125em #{bulma-mixins-scss.set-color-alpha(var(--link), 0.25)};
         }
 
         // Modifiers

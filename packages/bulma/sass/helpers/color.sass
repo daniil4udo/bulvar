@@ -2,6 +2,7 @@
 
 @use "../utilities/derived-variables" as vars
 @use "../utilities"
+@use "../utilities/mixins-scss"
 
 $colors-helpers: vars.$colors !default
 $shades-helpers: vars.$shades !default
@@ -14,7 +15,7 @@ $shades-helpers: vars.$shades !default
   a.has-text-#{$name}
     &:hover,
     &:focus
-      color: #{utilities.bulmaVarDarken($name, 10%)} !important
+      color: #{mixins-scss.darken-color(var(--#{$name}), 10)} !important
   .has-background-#{$name}
     background-color: var(--#{$name}) !important
   @if list.length($pair) >= 4
@@ -26,7 +27,7 @@ $shades-helpers: vars.$shades !default
     a.has-text-#{$name}-light
       &:hover,
       &:focus
-        color: #{utilities.bulmaVarLighteness($name, calc(var(--#{$name}-light-l) - 10%))} !important
+        color: #{mixins-scss.darken-color(var(--#{$name}-light), 10)} !important
     .has-background-#{$name}-light
       background-color: var(--#{$name}-light) !important
     // Dark
@@ -35,7 +36,7 @@ $shades-helpers: vars.$shades !default
     a.has-text-#{$name}-dark
       &:hover,
       &:focus
-        color: #{utilities.bulmaVarLighteness($name, calc(var(--#{$name}-dark-l) + 10%))} !important
+        color: #{mixins-scss.lighten-color(var(--#{$name}-dark), 10)} !important
     .has-background-#{$name}-dark
       background-color: var(--#{$name}-dark) !important
 

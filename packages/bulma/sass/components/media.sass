@@ -1,6 +1,7 @@
 @use "../utilities"
+@use "../utilities/mixins-scss"
 
-$media-border-color: rgba(var(--border-rgb), 0.5) !default
+$media-border-color: mixins-scss.set-color-alpha(var(--border), 0.5) !default
 $media-border-size: 1px !default
 $media-spacing: 1rem !default
 $media-spacing-large: 1.5rem !default

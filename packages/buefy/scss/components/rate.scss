@@ -1,8 +1,8 @@
 @use "../../../bulma/sass/utilities" as bulma-utilities;
+@use "../../../bulma/sass/utilities/mixins-scss" as bulma-mixins-scss;
 
 $rate-color: var(--grey-lighter) !default;
-$rate-color-active-hsla: bulma-utilities.bulmaVarDarken(warning, 5%) !default;
-$rate-color-active: var(--rate-color-active-hsla) !default;
+$rate-color-active: bulma-mixins-scss.darken-color(var(--warning), 5) !default;
 $rate-spaced: 0.25rem !default;
 $rate-text-spaced: 0.35rem !default;
 $rate-text-font-size: var(--size-normal) !default;
@@ -10,7 +10,6 @@ $rate-text-font-size: var(--size-normal) !default;
 // Map Local variables
 $-css-vars-map: (
     "rate-color": $rate-color,
-    "rate-color-active-hsla": $rate-color-active-hsla,
     "rate-color-active": $rate-color-active,
     "rate-spaced": $rate-spaced,
     "rate-text-spaced": $rate-text-spaced,

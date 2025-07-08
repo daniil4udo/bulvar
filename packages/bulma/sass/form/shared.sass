@@ -1,11 +1,12 @@
 @use "../utilities/derived-variables" as vars
 @use "../utilities"
+@use "../utilities/mixins-scss"
 
 $input-color: var(--text-strong) !default
 $input-background-color: var(--scheme-main) !default
 $input-border-color: var(--border) !default
 $input-height: var(--control-height) !default
-$input-shadow-color: rgba(var(--scheme-invert-rgb), 0.05) !default
+$input-shadow-color: mixins-scss.set-color-alpha(var(--scheme-invert), 0.05) !default
 $input-shadow: inset 0 0.0625em 0.125em $input-shadow-color !default
 $input-placeholder-color: var(--text-strong) !default
 $input-placeholder-opacity: 0.3 !default
@@ -16,7 +17,7 @@ $input-hover-border-color: var(--border-hover) !default
 $input-focus-color: var(--text-strong) !default
 $input-focus-border-color: var(--link) !default
 $input-focus-box-shadow-size: 0 0 0 0.125em !default
-$input-focus-box-shadow-color: rgba(var(--scheme-invert-rgb), 0.25) !default
+$input-focus-box-shadow-color: mixins-scss.set-color-alpha(var(--scheme-invert), 0.25) !default
 
 $input-disabled-color: var(--text-light) !default
 $input-disabled-background-color: var(--background) !default

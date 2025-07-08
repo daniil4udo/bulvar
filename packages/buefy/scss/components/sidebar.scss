@@ -3,9 +3,10 @@
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
 @use "../../../bulma/sass/components/navbar" as bulma-navbar;
+@use "../../../bulma/sass/utilities/mixins-scss" as bulma-mixins-scss;
 
 $sidebar-background: var(--modal-background-background-color) !default;
-$sidebar-shadow-color: rgba(var(--scheme-invert-rgb), 0.1) !default;
+$sidebar-shadow-color: bulma-mixins-scss.set-color-alpha(var(--scheme-invert), 0.1) !default;
 $sidebar-box-shadow: 5px 0 13px 3px $sidebar-shadow-color !default;
 $sidebar-width: 260px !default;
 $sidebar-mobile-width: 80px !default;

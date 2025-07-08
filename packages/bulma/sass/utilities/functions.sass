@@ -99,11 +99,9 @@ $-light-breakpoint: 0.55
     $l: color.channel($color, "lightness", $space: hsl)
   @return color.change($color, $lightness: $l)
 
-@function findLightColor($color, $fallback: null)
+@function findLightColor($color)
   @if meta.type-of($color) == 'color'
     @return _calculateLightColor($color)
-  @else if meta.type-of($fallback) == 'color'
-    @return _calculateLightColor($fallback)
   @return $color
 
 /// Dark color calculation
@@ -113,17 +111,10 @@ $-light-breakpoint: 0.55
   $target-l: math.round($base-l + ($luminance-delta * 53))
   @return color.change($color, $lightness: math.max($base-l, $target-l))
 
-@function findDarkColor($color, $fallback: null)
+@function findDarkColor($color)
   @if meta.type-of($color) == 'color'
     @return _calculateDarkColor($color)
-  @else if meta.type-of($fallback) == 'color'
-    @return _calculateDarkColor($fallback)
   @return $color
-
-@function bulmaRgba($color, $alpha)
-  @if meta.type-of($color) != 'color'
-    @return $color
-  @return rgba($color, $alpha)
 
 @function bulmaDarken($color, $amount)
   @if meta.type-of($color) != 'color'
@@ -195,35 +186,6 @@ $-light-breakpoint: 0.55
     $end-at: (string.index($variable, ',') or -1) - 1
     @return string.slice($variable, $start-at, $end-at)
   @return $variable
-
-@function bulmaToRGB($color)
-  @if meta.type-of($color) != 'color'
-      @return $color
-  @return color.channel($color, "red", $space: rgb), color.channel($color, "green", $space: rgb), color.channel($color, "blue", $space: rgb)
-
-/// lighten & darken with css vars
-
-@function bulmaVarOpacity($color, $alpha)
-  $name: unwrap($color)
-  @if meta.type-of($name) == 'string'
-    @return hsla(var(--#{$name}-h), var(--#{$name}-s), var(--#{$name}-l), #{$alpha})
-  @return $color
-
-@function bulmaVarLighteness($color, $amount)
-  $name: unwrap($color)
-  @if meta.type-of($name) == 'string' // and map-has-key($colors, $name)
-    @return hsla(var(--#{$name}-h), var(--#{$name}-s), #{$amount}, var(--#{$name}-a))
-  @return $color
-
-@function bulmaVarLighten($color, $amount)
-  $name: unwrap($color)
-  @if meta.type-of($name) == 'string' // and map-has-key($colors, $name)
-    $name-l: calc(var(--#{$name}-l) + #{if(math.is-unitless($amount), ($amount * 1%), $amount)})
-    @return hsla(var(--#{$name}-h), var(--#{$name}-s), #{$name-l}, var(--#{$name}-a))
-  @return $color
-
-@function bulmaVarDarken($color, $amount)
-  @return bulmaVarLighten($color, ($amount * -1))
 
 @function null($values, $separator: space, $bracketed: false)
   $result: ()

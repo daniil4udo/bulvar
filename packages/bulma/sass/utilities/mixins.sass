@@ -62,8 +62,8 @@
     &:nth-child(3)
       top: calc(50% + 4px)
   &:hover
-    background-color: fn.bulmaRgba(black, 0.05)
-  // Modifers
+    background-color: #{mixins-scss.set-color-alpha(var(--scheme-main), 0.05)}
+  // Modifiers
   &.is-active
     span
       &:nth-child(1)
@@ -314,7 +314,7 @@
   --delete-width: 20px
   @extend %unselectable
   appearance: none
-  background-color: rgba(var(--scheme-invert-rgb), 0.2)
+  background-color: #{mixins-scss.set-color-alpha(var(--scheme-invert), 0.2)}
   border: none
   border-radius: var(--radius-rounded)
   cursor: pointer
@@ -350,9 +350,9 @@
     width: 2px
   &:hover,
   &:focus
-    background-color: rgba(var(--scheme-invert-rgb), 0.3)
+    background-color: #{mixins-scss.set-color-alpha(var(--scheme-invert), 0.3)}
   &:active
-    background-color: rgba(var(--scheme-invert-rgb), 0.4)
+    background-color: #{mixins-scss.set-color-alpha(var(--scheme-invert), 0.4)}
   // Sizes
   &.is-small
     --delete-height: 16px

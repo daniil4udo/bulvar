@@ -2,6 +2,7 @@
 
 @use "../utilities/derived-variables" as vars
 @use "../utilities"
+@use "../utilities/mixins-scss"
 
 $navbar-background-color: var(--scheme-main) !default
 $navbar-box-shadow-size: 0 2px 0 0 !default
@@ -11,7 +12,7 @@ $navbar-padding-vertical: 1rem !default
 $navbar-padding-horizontal: 2rem !default
 $navbar-z: 30 !default
 $navbar-fixed-z: 30 !default
-$navbar-shadow-color: rgba(var(--scheme-invert-rgb), 0.1) !default
+$navbar-shadow-color: mixins-scss.set-color-alpha(var(--scheme-invert), 0.1) !default
 
 $navbar-item-color: var(--text) !default
 $navbar-item-padding: var(--item-padding) !default
@@ -39,8 +40,8 @@ $navbar-dropdown-radius: var(--radius-large) !default
 $navbar-dropdown-z: 20 !default
 
 $navbar-dropdown-boxed-radius: var(--radius-large) !default
-$-navbar-dropdown-boxed-shadow-color: rgba(var(--scheme-invert-rgb), 0.1) !default
-$-navbar-dropdown-boxed-shadow-color-bis: rgba(var(--scheme-invert-rgb), 0.1) !default
+$-navbar-dropdown-boxed-shadow-color: mixins-scss.set-color-alpha(var(--scheme-invert), 0.1) !default
+$-navbar-dropdown-boxed-shadow-color-bis: mixins-scss.set-color-alpha(var(--scheme-invert), 0.1) !default
 $navbar-dropdown-boxed-shadow: 0 8px 8px $-navbar-dropdown-boxed-shadow-color, 0 0 0 1px $-navbar-dropdown-boxed-shadow-color-bis !default
 
 $navbar-dropdown-item-hover-color: var(--scheme-invert) !default
@@ -124,8 +125,7 @@ $-css-vars-map: ("navbar-background-color": $navbar-background-color, "navbar-bo
         & > a.navbar-item,
         .navbar-link
           &:is(:focus, :hover, .is-active)
-            --navbar-item-hover-background-color: #{utilities.bulmaVarDarken($name, 5%)}
-            background-color: var(--navbar-item-hover-background-color)
+            background-color: #{mixins-scss.darken-color(var(--#{$name}), 5)}
             color: var(--#{$name}-invert)
         .navbar-link
           &::after
@@ -140,8 +140,8 @@ $-css-vars-map: ("navbar-background-color": $navbar-background-color, "navbar-bo
           & > a.navbar-item,
           .navbar-link
             &:is(:focus, :hover, .is-active)
-              --navbar-item-hover-background-color: #{utilities.bulmaVarDarken($name, 5%)}
-              background-color: var(--navbar-item-hover-background-color)
+              --navbar-item-hover-background-color:
+              background-color: #{mixins-scss.darken-color(var(--#{$name}), 5)}
               color: var(--#{$name}-invert)
           .navbar-link
             &::after
@@ -149,8 +149,7 @@ $-css-vars-map: ("navbar-background-color": $navbar-background-color, "navbar-bo
         .navbar-item.has-dropdown
           &:is(:focus, :hover, .is-active)
             .navbar-link
-              --navbar-dropdown-item-hover-background-color: #{utilities.bulmaVarDarken($name, 5%)}
-              background-color: var(--navbar-dropdown-item-hover-background-color)
+              background-color: #{mixins-scss.darken-color(var(--#{$name}), 5)}
               color: var(--#{$name}-invert)
         .navbar-dropdown
           a.navbar-item

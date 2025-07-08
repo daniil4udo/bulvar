@@ -2,6 +2,7 @@
 
 @use "shared" as form-shared
 @use "../utilities"
+@use "../utilities/mixins-scss"
 
 $textarea-padding: var(--control-padding-horizontal) !default
 $textarea-max-height: 40em !default
@@ -20,13 +21,12 @@ $textarea-colors: form-shared.$form-colors !default
   @each $name, $pair in $textarea-colors
     $color: list.nth($pair, 1)
     &.is-#{$name}
-      --focus-box-shadow-color: #{utilities.bulmaVarOpacity($name, 0.25)}
       border-color: var(--#{$name})
       &:focus,
       &.is-focused,
       &:active,
       &.is-active
-        box-shadow: var(--input-focus-box-shadow-size) var(--focus-box-shadow-color)
+        box-shadow: var(--input-focus-box-shadow-size) #{mixins-scss.set-color-alpha(var(--#{$name}), 0.25)}
   // Sizes
   &.is-small
     border-radius: var(--control-radius-small)

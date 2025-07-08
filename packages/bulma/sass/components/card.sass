@@ -1,4 +1,5 @@
 @use "../utilities"
+@use "../utilities/mixins-scss"
 
 $card-color: var(--text) !default
 $card-background-color: var(--scheme-main) !default
@@ -8,7 +9,7 @@ $card-radius: 0.25rem !default
 $card-header-background-color: transparent !default
 $card-header-color: var(--text-strong) !default
 $card-header-padding: 0.75rem 1rem !default
-$card-header-shadow: 0 0.125em 0.25em rgba(var(--scheme-invert-rgb), .1) !default
+$card-header-shadow: 0 0.125em 0.25em mixins-scss.set-color-alpha(var(--scheme-invert), 0.1) !default
 $card-header-weight: var(--weight-bold) !default
 
 $card-content-background-color: transparent !default

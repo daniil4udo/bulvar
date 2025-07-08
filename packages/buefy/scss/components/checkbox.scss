@@ -2,11 +2,11 @@
 
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/form/shared" as bulma-form;
+@use "../../../bulma/sass/utilities/mixins-scss" as bulma-mixins-scss;
 @use "../utilities/functions";
 
 $checkbox-active-background-color: var(--primary) !default;
-$checkbox-focus-box-shadow-color-hsla: bulma-utilities.bulmaVarOpacity(primary, 0.8) !default;
-$checkbox-focus-box-shadow-color: var(--checkbox-focus-box-shadow-color-hsla) !default;
+$checkbox-focus-box-shadow-color: bulma-mixins-scss.set-color-alpha(var(--primary), 0.8) !default;
 $checkbox-background-color: transparent !default;
 $checkbox-border-color: var(--grey) !default;
 $checkbox-border-radius: var(--radius) !default;
@@ -20,7 +20,6 @@ $checkbox-colors: bulma-form.$form-colors !default;
 // Map Local variables
 $-css-vars-map: (
     "checkbox-active-background-color": $checkbox-active-background-color,
-    "checkbox-focus-box-shadow-color-hsla": $checkbox-focus-box-shadow-color-hsla,
     "checkbox-focus-box-shadow-color": $checkbox-focus-box-shadow-color,
     "checkbox-background-color": $checkbox-background-color,
     "checkbox-border-color": $checkbox-border-color,
@@ -107,7 +106,7 @@ $-css-vars-map: (
                     @each $name, $pair in $checkbox-colors {
                         $color: list.nth($pair, 1);
                         &.is-#{$name} {
-                            box-shadow: 0 0 0.5em #{bulma-utilities.bulmaVarOpacity($name, 0.8)};
+                            box-shadow: 0 0 0.5em #{bulma-mixins-scss.set-color-alpha(var(--#{$name}), 0.8)};
                         }
                     }
                 }

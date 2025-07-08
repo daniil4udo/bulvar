@@ -2,6 +2,7 @@
 
 @use "../utilities/derived-variables" as vars
 @use "../utilities"
+@use "../utilities/mixins-scss"
 
 $button-color: var(--text-strong) !default
 $button-background-color: var(--scheme-main) !default
@@ -20,7 +21,7 @@ $button-hover-border-color: var(--link-hover-border) !default
 $button-focus-color: var(--link-focus) !default
 $button-focus-border-color: var(--link-focus-border) !default
 $button-focus-box-shadow-size: 0 0 0 0.125em !default
-$button-focus-box-shadow-color: rgba(var(--scheme-invert-rgb), 0.25) !default
+$button-focus-box-shadow-color: mixins-scss.set-color-alpha(var(--scheme-invert), 0.25) !default
 
 $button-active-color: var(--link-active) !default
 $button-active-border-color: var(--link-active-border) !default
@@ -176,16 +177,16 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
       border-color: transparent
       color: var(--#{$name}-invert)
       &:is(:hover, .is-hovered)
-        background-color: #{utilities.bulmaVarDarken($name, 2.5%)}
+        background-color: #{mixins-scss.darken-color(var(--#{$name}), 2.5)}
         border-color: transparent
         color: var(--#{$name}-invert)
       &:is(:focus, .is-focused)
         border-color: transparent
         color: var(--#{$name}-invert)
         &:not(:active)
-          box-shadow: var(--button-focus-box-shadow-size) #{utilities.bulmaVarOpacity($name, 0.25)}
+          box-shadow: var(--button-focus-box-shadow-size) #{mixins-scss.set-color-alpha(var(--#{$name}), 0.25)}
       &:is(:active, .is-active)
-        background-color: #{utilities.bulmaVarDarken($name, 5%)}
+        background-color: #{mixins-scss.darken-color(var(--#{$name}), 5)}
         border-color: transparent
         color: var(--#{$name}-invert)
       &[disabled],
@@ -255,11 +256,11 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
           background-color: var(--#{$name}-light)
           color: var(--#{$name}-dark)
           &:is(:hover, .is-hovered)
-            background-color: #{utilities.bulmaVarLighteness($name, calc(var(--#{$name}-light-l) - 2.5%))}
+            background-color: #{mixins-scss.darken-color(var(--#{$name}-light), 2.5)}
             border-color: transparent
             color: var(--#{$name}-dark)
           &:is(:active, .is-active)
-            background-color: #{utilities.bulmaVarLighteness($name, calc(var(--#{$name}-light-l) - 5%))}
+            background-color: #{mixins-scss.darken-color(var(--#{$name}-light), 5)}
             border-color: transparent
             color: var(--#{$name}-dark)
   // Sizes

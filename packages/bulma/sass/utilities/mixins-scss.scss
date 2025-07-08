@@ -1,6 +1,7 @@
 @use "sass:color";
 @use "sass:list";
 @use "sass:map";
+@use "sass:math";
 @use "sass:meta";
 @use "sass:string";
 @use "functions" as fn;
@@ -78,7 +79,16 @@
  * @return {string} CSS color-mix function
  */
 @function lighten-color($color-property, $amount: 10) {
-  @return color-mix(in oklch, #{$color-property}, white #{$amount}%);
+  // Option #1: Using color-mix (modern CSS approach)
+  //   @return color-mix(in oklch, #{$color-property}, white "#{$amount}%");
+
+  // Option #2: Using oklch directly for more control
+  // Convert percentage to decimal (10 → 0.1)
+  $decimal-amount: math.div($amount, 100);
+
+  // Increase lightness while preserving chroma and hue
+  // Use clamp to ensure we don't exceed 1.0 (100% lightness)
+  @return oklch(from #{$color-property} clamp(0, calc(l + #{$decimal-amount}), 1) c h);
 }
 
 /**
@@ -88,7 +98,16 @@
  * @return {string} CSS color-mix function
  */
 @function darken-color($color-property, $amount: 10) {
-  @return color-mix(in oklch, #{$color-property}, black #{$amount}%);
+  // Option #1: Using color-mix (modern CSS approach)
+  //   @return color-mix(in oklch, #{$color-property}, black "#{$amount}%");
+
+  // Option #2: Using oklch directly for more control
+  // Convert percentage to decimal (10 → 0.1)
+  $decimal-amount: math.div($amount, 100);
+
+  // Decrease lightness while preserving chroma and hue
+  // Use clamp to ensure we don't go below 0 (0% lightness)
+  @return oklch(from #{$color-property} clamp(0, calc(l - #{$decimal-amount}), 1) c h);
 }
 
 /**
@@ -102,20 +121,20 @@
 }
 
 /**
- * Creates inverted color (black for light colors, white for dark colors)
- * Simple, reliable approach using the upcoming CSS light-dark() function
+ * Creates contrast color using pure CSS Relative Colors
+ * Uses OKLCH lightness as luminance proxy - no SCSS calculations needed!
  * @param {string} $color-property - CSS color value or CSS variable
- * @return {string} CSS light-dark() function that adapts to color scheme and lightness
+ * @param {number} $threshold - Lightness threshold (0-1, default 0.55 to match your breakpoint)
+ * @return {string} CSS color that provides good contrast
  */
-@function get-invert-color($color-property) {
-  // Use light-dark() for automatic light/dark mode support
-  // This function will automatically choose appropriate contrast colors
-  //   @return light-dark(black, white);
-    @if fn.isLightColor($color-property) {
-		@return color-mix(in oklch, #{$color-property} 10%, black 90%);   // Heavily favor black for light colors
-	} @else {
-		@return color-mix(in oklch, #{$color-property} 10%, white 90%);    // Heavily favor white for dark colors
-	}
+@function get-invert-color($color-property, $threshold: 0.55) {
+  // Use CSS Relative Colors to create conditional contrast
+  // If lightness > threshold, use dark color, else use light color
+
+  // Method 1: Using light-dark() with CSS relative color logic
+  // Light theme: check OKLCH lightness and choose contrast
+  // Dark theme: slightly different threshold for dark mode
+  @return oklch(from #{$color-property} #{'calc((l > #{$threshold}) * 0.1 + (l <= #{$threshold}) * 0.9)'} 0 0);
 }
 
 /**
@@ -145,25 +164,25 @@
   --#{$base-name}-dark: #{if($color-dark, $color-dark, darken-color(var(--#{$base-name}), 25))};
 
   // Professional scale (50-950) using color-mix for consistent results
-  --#{$base-name}-50: #{lighten-color(var(--#{$base-name}), 45)};    // Very light
-  --#{$base-name}-100: #{lighten-color(var(--#{$base-name}), 35)};   // Light
-  --#{$base-name}-200: #{lighten-color(var(--#{$base-name}), 25)};   // Same as --primary-light
-  --#{$base-name}-300: #{lighten-color(var(--#{$base-name}), 15)};   // Slightly light
-  --#{$base-name}-400: #{lighten-color(var(--#{$base-name}), 8)};    // Barely light
-  --#{$base-name}-500: var(--#{$base-name});                         // Base color (no change)
-  --#{$base-name}-600: #{darken-color(var(--#{$base-name}), 8)};     // Barely dark
-  --#{$base-name}-700: #{darken-color(var(--#{$base-name}), 15)};    // Slightly dark
-  --#{$base-name}-800: #{darken-color(var(--#{$base-name}), 25)};    // Same as --primary-dark
-  --#{$base-name}-900: #{darken-color(var(--#{$base-name}), 35)};    // Dark
-  --#{$base-name}-950: #{darken-color(var(--#{$base-name}), 45)};    // Very dark
+  //   --#{$base-name}-50: #{lighten-color(var(--#{$base-name}), 45)};    // Very light
+  //   --#{$base-name}-100: #{lighten-color(var(--#{$base-name}), 35)};   // Light
+  //   --#{$base-name}-200: #{lighten-color(var(--#{$base-name}), 25)};   // Same as --primary-light
+  //   --#{$base-name}-300: #{lighten-color(var(--#{$base-name}), 15)};   // Slightly light
+  //   --#{$base-name}-400: #{lighten-color(var(--#{$base-name}), 8)};    // Barely light
+  //   --#{$base-name}-500: var(--#{$base-name});                         // Base color (no change)
+  //   --#{$base-name}-600: #{darken-color(var(--#{$base-name}), 8)};     // Barely dark
+  //   --#{$base-name}-700: #{darken-color(var(--#{$base-name}), 15)};    // Slightly dark
+  //   --#{$base-name}-800: #{darken-color(var(--#{$base-name}), 25)};    // Same as --primary-dark
+  //   --#{$base-name}-900: #{darken-color(var(--#{$base-name}), 35)};    // Dark
+  //   --#{$base-name}-950: #{darken-color(var(--#{$base-name}), 45)};    // Very dark
 
   // Alpha/transparency variants for overlays, shadows, etc.
-  --#{$base-name}-alpha-10: #{set-color-alpha(var(--#{$base-name}), 0.1)};  // 10% opacity
-  --#{$base-name}-alpha-20: #{set-color-alpha(var(--#{$base-name}), 0.2)};  // 20% opacity
-  --#{$base-name}-alpha-30: #{set-color-alpha(var(--#{$base-name}), 0.3)};  // 30% opacity
-  --#{$base-name}-alpha-50: #{set-color-alpha(var(--#{$base-name}), 0.5)};  // 50% opacity
-  --#{$base-name}-alpha-70: #{set-color-alpha(var(--#{$base-name}), 0.7)};  // 70% opacity
-  --#{$base-name}-alpha-90: #{set-color-alpha(var(--#{$base-name}), 0.9)};  // 90% opacity
+  //   --#{$base-name}-alpha-10: #{set-color-alpha(var(--#{$base-name}), 0.1)};  // 10% opacity
+  //   --#{$base-name}-alpha-20: #{set-color-alpha(var(--#{$base-name}), 0.2)};  // 20% opacity
+  //   --#{$base-name}-alpha-30: #{set-color-alpha(var(--#{$base-name}), 0.3)};  // 30% opacity
+  //   --#{$base-name}-alpha-50: #{set-color-alpha(var(--#{$base-name}), 0.5)};  // 50% opacity
+  //   --#{$base-name}-alpha-70: #{set-color-alpha(var(--#{$base-name}), 0.7)};  // 70% opacity
+  //   --#{$base-name}-alpha-90: #{set-color-alpha(var(--#{$base-name}), 0.9)};  // 90% opacity
 }
 
 /**
@@ -209,4 +228,44 @@
       @include register-color-systems($color-map);
     }
   }
+}
+
+/*
+  Our old luminance calculation returns 0-1 scale:
+  - 0 = pure black
+  - 0.53 = perceptual middle
+  - 1 = pure white
+
+  OKLCH lightness is also 0-1 scale:
+  - 0 = pure black
+  - 0.5 = perceptual middle
+  - 1 = pure white
+
+  Key insight: OKLCH lightness IS perceptually uniform luminance!
+  So we can use OKLCH lightness directly instead of complex RGB→luminance conversion
+*/
+
+/**
+ * Smart light color using your 96% lightness target
+ * @param {string} $color-property - CSS color or variable
+ * @return {string} OKLCH color with smart lightness adjustment
+ */
+@function get-light-color($color-property, $l: 0.96) {
+  // Your logic: target 96% lightness, but don't go lighter if already > 96%
+  // In OKLCH: 0.96 lightness = your 96% target
+  @return oklch(from #{$color-property} max(l, 0.96) c h);
+}
+
+/**
+ * Smart dark color using your luminance-delta algorithm
+ * @param {string} $color-property - CSS color or variable
+ * @return {string} OKLCH color with smart darkness based on luminance
+ */
+@function get-dark-color($color-property) {
+  // Your algorithm translated to OKLCH:
+  // base-l = 0.29 (your 29%)
+  // middle = 0.5 (OKLCH perceptual middle, close to your 0.53)
+  // luminance-delta = (0.5 - current_lightness)
+  // target = 0.29 + (delta * 0.53)
+  @return oklch(from #{$color-property} max(0.29, calc(0.29 + (0.5 - l) * 0.53)) c h);
 }

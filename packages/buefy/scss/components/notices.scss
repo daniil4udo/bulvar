@@ -2,9 +2,10 @@
 
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/elements/notification" as bulma-notification;
+@use "../../../bulma/sass/utilities/mixins-scss" as bulma-mixins-scss;
 
-$notices-shadow-color: rgba(var(--scheme-invert-rgb), 0.12) !default;
-$notices-shadow-color-bis: rgba(var(--scheme-invert-rgb), 0.04) !default;
+$notices-shadow-color: bulma-mixins-scss.set-color-alpha(var(--scheme-invert), 0.12) !default;
+$notices-shadow-color-bis: bulma-mixins-scss.set-color-alpha(var(--scheme-invert), 0.04) !default;
 $notices-box-shadow: 0 1px 4px $notices-shadow-color, 0 0 6px $notices-shadow-color-bis !default;
 
 $toast-border-radius: 2em !default;
@@ -65,7 +66,6 @@ $-css-vars-map: (
         }
     }
     .snackbar {
-        --snackbar-button-background-color: #{bulma-utilities.bulmaVarDarken(dark, 5%)};
         display: inline-flex;
         min-height: 3em;
         align-items: center;

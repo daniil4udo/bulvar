@@ -2,6 +2,7 @@
 
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/form/shared" as bulma-form;
+@use "../../../bulma/sass/utilities/mixins-scss" as bulma-mixins-scss;
 
 $radio-active-background-color: var(--primary) !default;
 $radio-size: 1.25em !default;
@@ -89,13 +90,12 @@ $-css-vars-map: (
                     box-shadow: 0 0 0.5em var(--grey-light);
                 }
                 &:checked + .check {
-                    box-shadow: 0 0 0.5em rgba(var(--scheme-invert-rgb), 0.1);
+                    box-shadow: 0 0 0.5em #{bulma-mixins-scss.set-color-alpha(var(--scheme-invert), 0.1)};
 
                     @each $name, $pair in $radio-colors {
                         $color: list.nth($pair, 1);
                         &.is-#{$name} {
-                            --focus-box-shadow-color: #{bulma-utilities.bulmaVarOpacity($name, 0.8)};
-                            box-shadow: 0 0 0.5em var(--focus-box-shadow-color);
+                            box-shadow: 0 0 0.5em #{bulma-mixins-scss.set-color-alpha(var(--#{$name}), 0.8)};
                         }
                     }
                 }

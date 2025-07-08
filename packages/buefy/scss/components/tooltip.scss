@@ -2,6 +2,7 @@
 
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/form/shared" as bulma-form;
+@use "../../../bulma/sass/utilities/mixins-scss" as bulma-mixins-scss;
 
 $tooltip-arrow-size: 5px !default;
 $tooltip-arrow-margin: 2px !default;
@@ -124,7 +125,7 @@ $-css-vars-map: (
         width: auto;
         padding: 0.35rem 0.75rem;
         border-radius: var(--radius-large);
-        box-shadow: 0 1px 2px 1px rgba(var(--scheme-invert-rgb), 0.2);
+        box-shadow: 0 1px 2px 1px #{bulma-mixins-scss.set-color-alpha(var(--scheme-invert), 0.2)};
         font-size: 0.85rem;
         font-weight: var(--weight-normal);
         white-space: nowrap;
