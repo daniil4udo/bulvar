@@ -7,7 +7,7 @@
   border-radius: var(--control-radius)
   box-shadow: none
   display: inline-flex
-  font-size: var(--size-normal)
+  font-size: var(--control-size)
   height: var(--control-height)
   justify-content: flex-start
   line-height: var(--control-line-height)
@@ -15,8 +15,10 @@
   +utilities.logical-x(padding, var(--control-padding-horizontal))
   position: relative
   vertical-align: top
+  transition-duration: var(--duration)
+  transition-property: background-color, border-color, box-shadow, color;
   // States
-  &:is(:focus, .is-focused, :active, .is-active)
+  &:is(:focus, :focus-visible, :focus-within, .is-focused, :active, .is-active)
     outline: none
   &[disabled],
   fieldset[disabled] &

@@ -199,8 +199,7 @@ body
 
 .navbar-burger
   @extend %reset
-  color: var(--navbar-burger-color)
-  +utilities.hamburger(var(--navbar-height))
+  +utilities.burger(var(--navbar-height), var(--navbar-burger-color))
   +utilities.logical-x(margin, auto, $right: false)
 
 .navbar-menu

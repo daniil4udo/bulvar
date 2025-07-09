@@ -42,6 +42,7 @@ $-css-vars-map: ("card-background-color": $card-background-color, "card-shadow":
 // --card-media-margin: #{$card-media-margin}
 
 .card
+  @extend %block
   background-color: var(--card-background-color)
   border-radius: var(--card-radius)
   box-shadow: var(--card-shadow)

@@ -34,44 +34,57 @@
   vertical-align: top
   width: var(--fa-dimensions)
 
-=hamburger($dimensions)
-  --hamburger-dimensions: #{$dimensions}
+=burger($dimensions: var(--navbar-height), $color: var(--scheme-main))
+  --burger-color: #{$color}
+  --burger-dimensions: #{$dimensions}
+  --burger-gap: 5px
+  --burger-item-height: 0.125rem
+  --burger-item-width: 1.125rem
+  align-items: center
   appearance: none
   background: none
   border: none
+  color: var(--burger-color)
   cursor: pointer
-  display: block
-  height: var(--hamburger-dimensions)
+  display: inline-flex
+  flex-direction: column;
+  flex-shrink: 0;
+  height: var(--burger-dimensions)
+  justify-content: center;
   position: relative
-  width: var(--hamburger-dimensions)
+  vertical-align: top;
+  width: var(--burger-dimensions)
   span
     background-color: currentColor
     display: block
-    height: 1px
-    +logical-x(inset, calc(50% - 8px), $right: false)
+    height: var(--burger-item-height)
+    +logical-x(inset, calc(50% - calc(50% - calc(var(--burger-item-width)) / 2)), $right: false)
     position: absolute
     transform-origin: center
-    transition-duration: var(--speed)
-    transition-property: background-color, opacity, transform
+    transition-duration: var(--duration)
+    transition-property: background-color, color, opacity, transform
     transition-timing-function: var(--easing)
-    width: 16px
-    &:nth-child(1)
-      top: calc(50% - 6px)
+    width: var(--burger-item-width)
+    &:nth-child(1),
     &:nth-child(2)
-      top: calc(50% - 1px)
+      top: calc(50% - calc(var(--burger-item-height)) / 2)
     &:nth-child(3)
-      top: calc(50% + 4px)
+      bottom: calc(50% + var(--burger-gap))
+    &:nth-child(4)
+      top: calc(50% + var(--burger-gap));
   &:hover
-    background-color: #{mixins-scss.set-color-alpha(var(--scheme-main), 0.05)}
+    background-color: #{mixins-scss.set-color-alpha(var(--burger-color), 0.1)}
   // Modifiers
-  &.is-active
+  &:is(:active, .is-active)
+    background-color: #{mixins-scss.set-color-alpha(var(--burger-color), 0.2)}
     span
       &:nth-child(1)
-        transform: translateY(5px) rotate(45deg)
+        transform: rotate(-45deg)
       &:nth-child(2)
+        transform: rotate(45deg)
+      &:nth-child(3),
+      &:nth-child(4)
         opacity: 0
-      &:nth-child(3)
-        transform: translateY(-5px) rotate(-45deg)
 
 =overflow-touch
   -webkit-overflow-scrolling: touch
@@ -290,7 +303,7 @@
 
 =arrow($color: transparent)
   --arrow-color: #{$color}
-  border: 3px solid var(--arrow-color)
+  border: 0.125em solid var(--arrow-color)
   border-radius: 2px
   +logical-x(border, 0, $right: true);
   border-top: 0
@@ -303,6 +316,8 @@
   top: 50%
   transform: rotate(-45deg)
   transform-origin: center
+  transition-duration: var(--duration)
+  transition-property: border-color;
   width: 0.625em
 
 =block($spacing: vars.$block-spacing)
@@ -312,29 +327,31 @@
 =delete
   --delete-height: 20px
   --delete-width: 20px
+  --delete-color: var(--scheme-main)
+  --delete-background-color: var(--scheme-invert)
   @extend %unselectable
   appearance: none
-  background-color: #{mixins-scss.set-color-alpha(var(--scheme-invert), 0.2)}
+  background-color: #{mixins-scss.set-color-alpha(var(--delete-background-color), 0.5)}
   border: none
   border-radius: var(--radius-rounded)
   cursor: pointer
   pointer-events: auto
-  display: inline-block
+  display: inline-flex
   flex-grow: 0
   flex-shrink: 0
-  font-size: 0
+  font-size: 1em
   height: var(--delete-height)
   max-height: var(--delete-height)
   max-width: var(--delete-width)
+  width: var(--delete-width)
   min-height: var(--delete-height)
   min-width: var(--delete-width)
   outline: none
   position: relative
   vertical-align: top
-  width: var(--delete-width)
   &::before,
   &::after
-    background-color: var(--scheme-main)
+    background-color: var(--delete-color)
     content: ""
     display: block
     +logical-x(inset, 50%, $right: false)
@@ -348,27 +365,27 @@
   &::after
     height: 50%
     width: 2px
-  &:hover,
-  &:focus
+  &:is(:hover, :focus)
     background-color: #{mixins-scss.set-color-alpha(var(--scheme-invert), 0.3)}
   &:active
     background-color: #{mixins-scss.set-color-alpha(var(--scheme-invert), 0.4)}
   // Sizes
   &.is-small
-    --delete-height: 16px
-    --delete-width: 16px
+    --delete-height: 1rem
+    --delete-width: 1rem
   &.is-medium
-    --delete-height: 24px
-    --delete-width: 24px
+    --delete-height: 1.5rem
+    --delete-width: 1.5rem
   &.is-large
-    --delete-height: 32px
-    --delete-width: 32px
+    --delete-height: 2rem
+    --delete-width: 2rem
 
 =loader
-  --loader-border-color: var(--grey-lighter)
+  --loader-color: var(--grey-lighter)
+  --loader-radius: var(--radius-rounded)
   animation: spinAround 500ms infinite linear
-  border: 2px solid var(--loader-border-color)
-  border-radius: var(--radius-rounded)
+  border: 2px solid var(--loader-color)
+  border-radius: var(--loader-radius)
   border-inline-end-color: transparent
   border-top-color: transparent
   content: ""

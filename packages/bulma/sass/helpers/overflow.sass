@@ -6,3 +6,22 @@
 .is-clipped-touch
   +utilities.touch
     overflow: hidden !important
+
+$overflows: auto clip hidden scroll visible !default
+
+@each $overflow in $overflows
+  .is-overflow-#{$overflow}
+    overflow: $overflow !important
+  .is-overflow-#{$overflow}-touch
+    +utilities.touch
+      overflow: $overflow !important
+  .is-overflow-#{$overflow}-x
+    overflow-x: $overflow !important
+  .is-overflow-#{$overflow}-x-touch
+    +utilities.touch
+      overflow-x: $overflow !important
+  .is-overflow-#{$overflow}-y
+    overflow-y: $overflow !important
+  .is-overflow-#{$overflow}-y-touch
+    +utilities.touch
+      overflow-y: $overflow !important

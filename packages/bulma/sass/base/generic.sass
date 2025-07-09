@@ -25,7 +25,7 @@ $hr-height: 2px !default
 $hr-margin: 1.5rem 0 !default
 
 $strong-color: var(--text-strong) !default
-$strong-weight: var(--weight-bold) !default
+$strong-weight: var(--weight-semibold) !default
 
 $pre-font-size: 0.875em !default
 $pre-padding: 1.25rem 1.5rem !default
@@ -106,9 +106,25 @@ body
 
 // Inline
 
+a,
+button
+  cursor: pointer
+  transition-duration: var(--duration)
+  transition-property: background-color, border-color, color
+  &:focus-visible
+    outline-color: var(--focus-color, var(--link))
+    outline-offset: var(--focus-offset, 1px)
+    outline-style: var(--focus-style, solid)
+    outline-width: var(--focus-width, 2px)
+
+    &:active
+      outline-width: 1px
+
+  &:active
+    outline-width: 1px
+
 a
   color: var(--link)
-  cursor: pointer
   text-decoration: none
   strong
     color: currentColor
@@ -121,8 +137,12 @@ a
   &:focus
     color: var(--link-focus)
 
+button
+  +utilities.reset
+
 code
   background-color: var(--code-background)
+  border-radius: 0.5em
   color: var(--code)
   font-size: var(--code-size)
   font-weight: var(--code-weight)
@@ -152,6 +172,10 @@ span
 strong
   color: var(--strong-color)
   font-weight: var(--strong-weight)
+
+svg
+  height: auto
+  width: auto
 
 // Block
 

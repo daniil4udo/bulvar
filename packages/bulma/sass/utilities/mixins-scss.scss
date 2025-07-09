@@ -136,11 +136,7 @@
 	//     @return oklch(0.96 0 0); // light gray
 	//   }
 
-	@return color(from $color-property xyz
-        #{"round(up, min(1, max(0, 0.3 - y)))"}
-        #{"round(up, min(1, max(0, 0.3 - y)))"}
-        #{"round(up, min(1, max(0, 0.3 - y)))"}
-    );
+	@return color(from $color-property xyz var(--chanel) var(--chanel) var(--chanel));
 }
 
 /**

@@ -5,3 +5,9 @@
 
 .is-relative
   position: relative !important
+
+$positions: absolute fixed relative static sticky !default
+
+@each $position in $positions
+  .is-position-#{$position}
+    position: $position !important
