@@ -77,8 +77,7 @@ $-css-vars-map: ("dropdown-content-offset": $dropdown-content-offset, "dropdown-
   padding: var(--dropdown-item-padding)
   position: relative
 
-.dropdown-item:is(a, button),
-.button.dropdown-item
+.dropdown-item:is(a, button, .button)
   +utilities.logical-x(padding, 3rem, $right: true)
   text-align: inherit
   white-space: nowrap

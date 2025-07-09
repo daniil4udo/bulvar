@@ -13,8 +13,7 @@ $shades-helpers: vars.$shades !default
   .has-text-#{$name}
     color: var(--#{$name}) !important
   a.has-text-#{$name}
-    &:hover,
-    &:focus
+    &:is(:hover, :focus)
       color: #{mixins-scss.darken-color(var(--#{$name}), 10)} !important
   .has-background-#{$name}
     background-color: var(--#{$name}) !important
@@ -25,8 +24,7 @@ $shades-helpers: vars.$shades !default
     .has-text-#{$name}-light
       color: var(--#{$name}-light) !important
     a.has-text-#{$name}-light
-      &:hover,
-      &:focus
+      &:is(:hover, :focus)
         color: #{mixins-scss.darken-color(var(--#{$name}-light), 10)} !important
     .has-background-#{$name}-light
       background-color: var(--#{$name}-light) !important
@@ -34,8 +32,7 @@ $shades-helpers: vars.$shades !default
     .has-text-#{$name}-dark
       color: var(--#{$name}-dark) !important
     a.has-text-#{$name}-dark
-      &:hover,
-      &:focus
+      &:is(:hover, :focus)
         color: #{mixins-scss.lighten-color(var(--#{$name}-dark), 10)} !important
     .has-background-#{$name}-dark
       background-color: var(--#{$name}-dark) !important
