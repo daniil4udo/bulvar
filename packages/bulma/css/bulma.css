@@ -1,5 +1,5 @@
 /*!
-  * @bulvar/bulma v1.0.0-beta.2 (https://github.com/daniil4udo/bulvar/tree/master/packages/bulma)
+  * @bulvar/bulma v1.0.0-beta.3 (https://github.com/daniil4udo/bulvar/tree/master/packages/bulma)
   * Copyright 2025 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
@@ -28,47 +28,38 @@
   --radius-rounded: 9999px;
   --easing: ease-out;
   --speed: 86ms;
-  --scheme-main: #fff;
-  --scheme-main-bis: #f5f5f5;
-  --scheme-main-ter: #ebebeb;
-  --scheme-invert: #0a0a0a;
-  --scheme-invert-rgb: 10.2, 10.2, 10.2;
-  --scheme-invert-bis: #171717;
-  --scheme-invert-ter: #242424;
-  --background: #ebebeb;
-  --background-rgb: 234.6, 234.6, 234.6;
-  --border: #dbdbdb;
-  --border-rgb: 219.3, 219.3, 219.3;
-  --border-hover: #b5b5b5;
-  --border-light: #ededed;
-  --border-light-hover: #b5b5b5;
-  --invert-dark-color: #0a0a0ab3;
-  --invert-dark-color-rgb: 10.2, 10.2, 10.2;
-  --invert-dark-color-bis: #171717b3;
-  --invert-dark-color-ter: #242424b3;
-  --invert-light-color: white;
-  --invert-light-color-rgb: 255, 255, 255;
-  --invert-light-color-bis: #f2f2f2;
-  --invert-light-color-ter: #e6e6e6;
-  --text: #4a4a4a;
-  --text-invert: var(--invert-light-color);
-  --text-light: #7a7a7a;
-  --text-strong: #363636;
-  --code: #da1039;
+  --duration: .294s;
+  --chanel: round(up, min(1, max(0, .3 - y)));
+  --scheme-main: oklch(100% 0 0);
+  --scheme-main-bis: oklch(97% 0 0);
+  --scheme-main-ter: oklch(93% 0 0);
+  --scheme-invert: oklch(8% 0 0);
+  --scheme-invert-bis: oklch(15% 0 0);
+  --scheme-invert-ter: oklch(23% 0 0);
+  --background: oklch(93% 0 0);
+  --border: oklch(88% 0 0);
+  --border-hover: oklch(75% 0 0);
+  --border-light: oklch(94% 0 0);
+  --border-light-hover: oklch(75% 0 0);
+  --text: oklch(45% 0 0);
+  --text-invert: color(from oklch(45% 0 0) xyz var(--chanel) var(--chanel) var(--chanel));
+  --text-light: oklch(60% 0 0);
+  --text-strong: oklch(35% 0 0);
+  --code: oklch(50% .2 20);
   --code-background: var(--background);
   --pre: var(--text);
   --pre-background: var(--background);
-  --link: hsla(var(--link-h), var(--link-s), var(--link-l), var(--link-a));
-  --link-invert: var(--invert-light-color);
-  --link-light: hsla(var(--link-h), var(--link-s), var(--link-light-l), var(--link-a));
-  --link-dark: hsla(var(--link-h), var(--link-s), var(--link-dark-l), var(--link-a));
-  --link-visited: #b86bff;
-  --link-hover: #363636;
-  --link-hover-border: #b5b5b5;
-  --link-focus: #363636;
+  --link: oklch(50% .15 240);
+  --link-invert: color(from var(--link) xyz var(--chanel) var(--chanel) var(--chanel));
+  --link-light: oklch(from var(--link) max(l, .97) min(c, .03) h);
+  --link-dark: oklch(from var(--link) max(.29, .29 + (.5 - l) * .53) c h);
+  --link-visited: oklch(75% .2 300);
+  --link-hover: oklch(35% 0 0);
+  --link-hover-border: oklch(75% 0 0);
+  --link-focus: oklch(35% 0 0);
   --link-focus-border: var(--link);
-  --link-active: #363636;
-  --link-active-border: #4a4a4a;
+  --link-active: oklch(35% 0 0);
+  --link-active-border: oklch(45% 0 0);
   --family-primary: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   --family-secondary: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   --family-code: monospace;
@@ -76,145 +67,57 @@
   --size-normal: 1rem;
   --size-medium: 1.25rem;
   --size-large: 1.5rem;
-  --shadow: 0 .5em 1em -.125em rgba(var(--scheme-invert-rgb), .1), 0 0 0 1px rgba(var(--scheme-invert-rgb), .02);
-  --white-h: 0deg;
-  --white-s: 0%;
-  --white-l: 100%;
-  --white-a: 1;
-  --white: hsla(var(--white-h), var(--white-s), var(--white-l), var(--white-a));
-  --white-invert: var(--invert-dark-color);
-  --white-invert-bis: var(--invert-dark-color-bis);
-  --white-invert-ter: var(--invert-dark-color-ter);
-  --white-light-l: 100%;
-  --white-light: hsla(var(--white-h), var(--white-s), var(--white-light-l), var(--white-a));
-  --white-dark-l: 29%;
-  --white-dark: hsla(var(--white-h), var(--white-s), var(--white-dark-l), var(--white-a));
-  --black-h: 0deg;
-  --black-s: 0%;
-  --black-l: 4%;
-  --black-a: 1;
-  --black: hsla(var(--black-h), var(--black-s), var(--black-l), var(--black-a));
-  --black-invert: var(--invert-light-color);
-  --black-invert-bis: var(--invert-light-color-bis);
-  --black-invert-ter: var(--invert-light-color-ter);
-  --black-light-l: 96%;
-  --black-light: hsla(var(--black-h), var(--black-s), var(--black-light-l), var(--black-a));
-  --black-dark-l: 57%;
-  --black-dark: hsla(var(--black-h), var(--black-s), var(--black-dark-l), var(--black-a));
-  --light-h: 0deg;
-  --light-s: 0%;
-  --light-l: 92%;
-  --light-a: 1;
-  --light: hsla(var(--light-h), var(--light-s), var(--light-l), var(--light-a));
-  --light-invert: var(--invert-dark-color);
-  --light-invert-bis: var(--invert-dark-color-bis);
-  --light-invert-ter: var(--invert-dark-color-ter);
-  --light-light-l: 96%;
-  --light-light: hsla(var(--light-h), var(--light-s), var(--light-light-l), var(--light-a));
-  --light-dark-l: 29%;
-  --light-dark: hsla(var(--light-h), var(--light-s), var(--light-dark-l), var(--light-a));
-  --dark-h: 0deg;
-  --dark-s: 0%;
-  --dark-l: 21%;
-  --dark-a: 1;
-  --dark: hsla(var(--dark-h), var(--dark-s), var(--dark-l), var(--dark-a));
-  --dark-invert: var(--invert-light-color);
-  --dark-invert-bis: var(--invert-light-color-bis);
-  --dark-invert-ter: var(--invert-light-color-ter);
-  --dark-light-l: 96%;
-  --dark-light: hsla(var(--dark-h), var(--dark-s), var(--dark-light-l), var(--dark-a));
-  --dark-dark-l: 54%;
-  --dark-dark: hsla(var(--dark-h), var(--dark-s), var(--dark-dark-l), var(--dark-a));
-  --primary-h: 163deg;
-  --primary-s: 75%;
-  --primary-l: 37%;
-  --primary-a: 1;
-  --primary: hsla(var(--primary-h), var(--primary-s), var(--primary-l), var(--primary-a));
-  --primary-invert: var(--invert-light-color);
-  --primary-invert-bis: var(--invert-light-color-bis);
-  --primary-invert-ter: var(--invert-light-color-ter);
-  --primary-light-l: 96%;
-  --primary-light: hsla(var(--primary-h), var(--primary-s), var(--primary-light-l), var(--primary-a));
-  --primary-dark-l: 39%;
-  --primary-dark: hsla(var(--primary-h), var(--primary-s), var(--primary-dark-l), var(--primary-a));
-  --secondary-h: 217deg;
-  --secondary-s: 61%;
-  --secondary-l: 40%;
-  --secondary-a: 1;
-  --secondary: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), var(--secondary-a));
-  --secondary-invert: var(--invert-light-color);
-  --secondary-invert-bis: var(--invert-light-color-bis);
-  --secondary-invert-ter: var(--invert-light-color-ter);
-  --secondary-light-l: 96%;
-  --secondary-light: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-light-l), var(--secondary-a));
-  --secondary-dark-l: 50%;
-  --secondary-dark: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-dark-l), var(--secondary-a));
-  --link-h: 217deg;
-  --link-s: 61%;
-  --link-l: 40%;
-  --link-a: 1;
-  --link-invert-bis: var(--invert-light-color-bis);
-  --link-invert-ter: var(--invert-light-color-ter);
-  --link-light-l: 96%;
-  --link-dark-l: 50%;
-  --info-h: 207deg;
-  --info-s: 61%;
-  --info-l: 53%;
-  --info-a: 1;
-  --info: hsla(var(--info-h), var(--info-s), var(--info-l), var(--info-a));
-  --info-invert: var(--invert-light-color);
-  --info-invert-bis: var(--invert-light-color-bis);
-  --info-invert-ter: var(--invert-light-color-ter);
-  --info-light-l: 96%;
-  --info-light: hsla(var(--info-h), var(--info-s), var(--info-light-l), var(--info-a));
-  --info-dark-l: 41%;
-  --info-dark: hsla(var(--info-h), var(--info-s), var(--info-dark-l), var(--info-a));
-  --success-h: 153deg;
-  --success-s: 53%;
-  --success-l: 53%;
-  --success-a: 1;
-  --success: hsla(var(--success-h), var(--success-s), var(--success-l), var(--success-a));
-  --success-invert: var(--invert-light-color);
-  --success-invert-bis: var(--invert-light-color-bis);
-  --success-invert-ter: var(--invert-light-color-ter);
-  --success-light-l: 96%;
-  --success-light: hsla(var(--success-h), var(--success-s), var(--success-light-l), var(--success-a));
-  --success-dark-l: 31%;
-  --success-dark: hsla(var(--success-h), var(--success-s), var(--success-dark-l), var(--success-a));
-  --warning-h: 44deg;
-  --warning-s: 100%;
-  --warning-l: 77%;
-  --warning-a: 1;
-  --warning: hsla(var(--warning-h), var(--warning-s), var(--warning-l), var(--warning-a));
-  --warning-invert: var(--invert-dark-color);
-  --warning-invert-bis: var(--invert-dark-color-bis);
-  --warning-invert-ter: var(--invert-dark-color-ter);
-  --warning-light-l: 96%;
-  --warning-light: hsla(var(--warning-h), var(--warning-s), var(--warning-light-l), var(--warning-a));
-  --warning-dark-l: 29%;
-  --warning-dark: hsla(var(--warning-h), var(--warning-s), var(--warning-dark-l), var(--warning-a));
-  --danger-h: 348deg;
-  --danger-s: 86%;
-  --danger-l: 61%;
-  --danger-a: 1;
-  --danger: hsla(var(--danger-h), var(--danger-s), var(--danger-l), var(--danger-a));
-  --danger-invert: var(--invert-light-color);
-  --danger-invert-bis: var(--invert-light-color-bis);
-  --danger-invert-ter: var(--invert-light-color-ter);
-  --danger-light-l: 96%;
-  --danger-light: hsla(var(--danger-h), var(--danger-s), var(--danger-light-l), var(--danger-a));
-  --danger-dark-l: 43%;
-  --danger-dark: hsla(var(--danger-h), var(--danger-s), var(--danger-dark-l), var(--danger-a));
-  --black-bis: #171717;
-  --black-ter: #242424;
-  --grey-darker: #363636;
-  --grey-dark: #4a4a4a;
-  --grey: #7a7a7a;
-  --grey-light: #b5b5b5;
-  --grey-lighter: #dbdbdb;
-  --grey-lightest: #ededed;
-  --white-ter: #ebebeb;
-  --white-bis: #f5f5f5;
+  --shadow: 0 .5em 1em -.125em oklch(from var(--scheme-invert) l c h / .1), 0 0 0 1px oklch(from var(--scheme-invert) l c h / .02);
+  --white: oklch(100% 0 0);
+  --white-invert: oklch(8% 0 0);
+  --white-light: oklch(from var(--white) clamp(0, l + .25, 1) c h);
+  --white-dark: oklch(from var(--white) clamp(0, l - .25, 1) c h);
+  --black: oklch(8% 0 0);
+  --black-invert: oklch(100% 0 0);
+  --black-light: oklch(from var(--black) clamp(0, l + .25, 1) c h);
+  --black-dark: oklch(from var(--black) clamp(0, l - .25, 1) c h);
+  --light: oklch(93% 0 0);
+  --light-invert: color(from var(--light) xyz var(--chanel) var(--chanel) var(--chanel));
+  --light-light: oklch(from var(--light) clamp(0, l + .25, 1) c h);
+  --light-dark: oklch(from var(--light) clamp(0, l - .25, 1) c h);
+  --dark: oklch(35% 0 0);
+  --dark-invert: color(from var(--dark) xyz var(--chanel) var(--chanel) var(--chanel));
+  --dark-light: oklch(from var(--dark) clamp(0, l + .25, 1) c h);
+  --dark-dark: oklch(from var(--dark) clamp(0, l - .25, 1) c h);
+  --primary: oklch(55% .12 180);
+  --primary-invert: color(from var(--primary) xyz var(--chanel) var(--chanel) var(--chanel));
+  --primary-light: oklch(from var(--primary) max(l, .97) min(c, .03) h);
+  --primary-dark: oklch(from var(--primary) max(.29, .29 + (.5 - l) * .53) c h);
+  --secondary: oklch(50% .15 240);
+  --secondary-invert: color(from var(--secondary) xyz var(--chanel) var(--chanel) var(--chanel));
+  --secondary-light: oklch(from var(--secondary) max(l, .97) min(c, .03) h);
+  --secondary-dark: oklch(from var(--secondary) max(.29, .29 + (.5 - l) * .53) c h);
+  --info: oklch(65% .1 220);
+  --info-invert: color(from var(--info) xyz var(--chanel) var(--chanel) var(--chanel));
+  --info-light: oklch(from var(--info) max(l, .97) min(c, .03) h);
+  --info-dark: oklch(from var(--info) max(.29, .29 + (.5 - l) * .53) c h);
+  --success: oklch(65% .15 140);
+  --success-invert: color(from var(--success) xyz var(--chanel) var(--chanel) var(--chanel));
+  --success-light: oklch(from var(--success) max(l, .97) min(c, .03) h);
+  --success-dark: oklch(from var(--success) max(.29, .29 + (.5 - l) * .53) c h);
+  --warning: oklch(90% .12 85);
+  --warning-invert: color(from var(--warning) xyz var(--chanel) var(--chanel) var(--chanel));
+  --warning-light: oklch(from var(--warning) max(l, .97) min(c, .03) h);
+  --warning-dark: oklch(from var(--warning) max(.29, .29 + (.5 - l) * .53) c h);
+  --danger: oklch(65% .2 20);
+  --danger-invert: color(from var(--danger) xyz var(--chanel) var(--chanel) var(--chanel));
+  --danger-light: oklch(from var(--danger) max(l, .97) min(c, .03) h);
+  --danger-dark: oklch(from var(--danger) max(.29, .29 + (.5 - l) * .53) c h);
+  --black-bis: oklch(15% 0 0);
+  --black-ter: oklch(23% 0 0);
+  --grey-darker: oklch(35% 0 0);
+  --grey-dark: oklch(45% 0 0);
+  --grey: oklch(60% 0 0);
+  --grey-light: oklch(75% 0 0);
+  --grey-lighter: oklch(88% 0 0);
+  --grey-lightest: oklch(94% 0 0);
+  --white-ter: oklch(93% 0 0);
+  --white-bis: oklch(97% 0 0);
 }
 
 html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
@@ -270,19 +173,21 @@ td:not([align]), th:not([align]) {
   border: var(--control-border-width) solid transparent;
   border-radius: var(--control-radius);
   box-shadow: none;
-  font-size: var(--size-normal);
+  font-size: var(--control-size);
   height: var(--control-height);
   line-height: var(--control-line-height);
   padding-block: var(--control-padding-vertical);
   padding-inline: var(--control-padding-horizontal);
   vertical-align: top;
+  transition-duration: var(--duration);
   justify-content: flex-start;
   align-items: center;
+  transition-property: background-color, border-color, box-shadow, color;
   display: inline-flex;
   position: relative;
 }
 
-.pagination-previous:is(:focus, .is-focused, :active, .is-active), .pagination-next:is(:focus, .is-focused, :active, .is-active), .pagination-link:is(:focus, .is-focused, :active, .is-active), .pagination-ellipsis:is(:focus, .is-focused, :active, .is-active), :is(:focus, .is-focused, :active, .is-active):is(.file-cta, .file-name), .button:is(:focus, .is-focused, :active, .is-active), .select select:is(:focus, .is-focused, :active, .is-active), .input:is(:focus, .is-focused, :active, .is-active), .textarea:is(:focus, .is-focused, :active, .is-active) {
+.pagination-previous:is(:focus, :focus-visible, :focus-within, .is-focused, :active, .is-active), .pagination-next:is(:focus, :focus-visible, :focus-within, .is-focused, :active, .is-active), .pagination-link:is(:focus, :focus-visible, :focus-within, .is-focused, :active, .is-active), .pagination-ellipsis:is(:focus, :focus-visible, :focus-within, .is-focused, :active, .is-active), :is(:focus, :focus-visible, :focus-within, .is-focused, :active, .is-active):is(.file-cta, .file-name), .button:is(:focus, :focus-visible, :focus-within, .is-focused, :active, .is-active), .select select:is(:focus, :focus-visible, :focus-within, .is-focused, :active, .is-active), .input:is(:focus, :focus-visible, :focus-within, .is-focused, :active, .is-active), .textarea:is(:focus, :focus-visible, :focus-within, .is-focused, :active, .is-active) {
   outline: none;
 }
 
@@ -332,52 +237,56 @@ td:not([align]), th:not([align]) {
 
 .navbar-link:not(.is-arrowless):after, .select:not(.is-multiple, .is-loading):after {
   --arrow-color: transparent;
-  border: 3px solid var(--arrow-color);
+  border: .125em solid var(--arrow-color);
   border-inline-end: 0;
   content: " ";
   pointer-events: none;
   transform-origin: center;
+  height: .625em;
+  transition-duration: var(--duration);
   border-top: 0;
   border-radius: 2px;
   width: .625em;
-  height: .625em;
   margin-block-start: -.4375em;
+  transition-property: border-color;
   display: block;
   position: absolute;
   top: 50%;
   transform: rotate(-45deg);
 }
 
-.tabs:not(:last-child), .pagination:not(:last-child), .message:not(:last-child), .level:not(:last-child), .breadcrumb:not(:last-child), .title:not(:last-child), .subtitle:not(:last-child), .table:not(:last-child), .table-container:not(:last-child), .progress:not(:last-child), .notification:not(:last-child), .content:not(:last-child), .box:not(:last-child) {
+.tabs:not(:last-child), .pagination:not(:last-child), .message:not(:last-child), .media:not(:last-child), .level:not(:last-child), .card:not(:last-child), .breadcrumb:not(:last-child), .title:not(:last-child), .subtitle:not(:last-child), .table:not(:last-child), .table-container:not(:last-child), .progress:not(:last-child), .notification:not(:last-child), .content:not(:last-child), .box:not(:last-child) {
   margin-block-end: var(--block-spacing);
 }
 
 .modal-close {
   --delete-height: 20px;
   --delete-width: 20px;
+  --delete-color: var(--scheme-main);
+  --delete-background-color: var(--scheme-invert);
   appearance: none;
-  background-color: rgba(var(--scheme-invert-rgb), .2);
+  background-color: oklch(from var(--delete-background-color) l c h / .5);
   border-radius: var(--radius-rounded);
   cursor: pointer;
   pointer-events: auto;
   height: var(--delete-height);
   max-height: var(--delete-height);
   max-width: var(--delete-width);
+  width: var(--delete-width);
   min-height: var(--delete-height);
   min-width: var(--delete-width);
   vertical-align: top;
-  width: var(--delete-width);
   border: none;
   outline: none;
   flex-grow: 0;
   flex-shrink: 0;
-  font-size: 0;
-  display: inline-block;
+  font-size: 1em;
+  display: inline-flex;
   position: relative;
 }
 
 .modal-close:before, .modal-close:after {
-  background-color: var(--scheme-main);
+  background-color: var(--delete-color);
   content: "";
   inset-inline-start: 50%;
   transform-origin: center;
@@ -397,33 +306,34 @@ td:not([align]), th:not([align]) {
   height: 50%;
 }
 
-.modal-close:hover, .modal-close:focus {
-  background-color: rgba(var(--scheme-invert-rgb), .3);
+.modal-close:is(:hover, :focus) {
+  background-color: oklch(from var(--scheme-invert) l c h / .3);
 }
 
 .modal-close:active {
-  background-color: rgba(var(--scheme-invert-rgb), .4);
+  background-color: oklch(from var(--scheme-invert) l c h / .4);
 }
 
 .is-small.modal-close {
-  --delete-height: 16px;
-  --delete-width: 16px;
+  --delete-height: 1rem;
+  --delete-width: 1rem;
 }
 
 .is-medium.modal-close {
-  --delete-height: 24px;
-  --delete-width: 24px;
+  --delete-height: 1.5rem;
+  --delete-width: 1.5rem;
 }
 
 .is-large.modal-close {
-  --delete-height: 32px;
-  --delete-width: 32px;
+  --delete-height: 2rem;
+  --delete-width: 2rem;
 }
 
 .control.is-loading:after, .select.is-loading:after, .button.is-loading:after {
-  --loader-border-color: var(--grey-lighter);
-  border: 2px solid var(--loader-border-color);
-  border-radius: var(--radius-rounded);
+  --loader-color: var(--grey-lighter);
+  --loader-radius: var(--radius-rounded);
+  border: 2px solid var(--loader-color);
+  border-radius: var(--loader-radius);
   border-inline-end-color: #0000;
   content: "";
   border-top-color: #0000;
@@ -482,7 +392,7 @@ html {
   --hr-height: 2px;
   --hr-margin: 1.5rem 0;
   --strong-color: var(--text-strong);
-  --strong-weight: var(--weight-bold);
+  --strong-weight: var(--weight-semibold);
   --pre-font-size: .875em;
   --pre-padding: 1.25rem 1.5rem;
   --pre-code-font-size: 1em;
@@ -509,9 +419,25 @@ body {
   line-height: var(--body-line-height);
 }
 
+a, button {
+  cursor: pointer;
+  transition-duration: var(--duration);
+  transition-property: background-color, border-color, color;
+}
+
+a:focus-visible, button:focus-visible {
+  outline-color: var(--focus-color, var(--link));
+  outline-offset: var(--focus-offset, 1px);
+  outline-style: var(--focus-style, solid);
+  outline-width: var(--focus-width, 2px);
+}
+
+a:focus-visible:active, button:focus-visible:active, a:active, button:active {
+  outline-width: 1px;
+}
+
 a {
   color: var(--link);
-  cursor: pointer;
   text-decoration: none;
 }
 
@@ -535,12 +461,24 @@ a:focus {
   color: var(--link-focus);
 }
 
+button {
+  appearance: none;
+  color: currentColor;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: 1em;
+}
+
 code {
   background-color: var(--code-background);
   color: var(--code);
   font-size: var(--code-size);
   font-weight: var(--code-weight);
   padding: var(--code-padding);
+  border-radius: .5em;
 }
 
 hr {
@@ -572,6 +510,11 @@ span {
 strong {
   color: var(--strong-color);
   font-weight: var(--strong-weight);
+}
+
+svg {
+  width: auto;
+  height: auto;
 }
 
 fieldset {
@@ -642,8 +585,8 @@ table th {
   --box-radius: var(--radius-large);
   --box-shadow: var(--shadow);
   --box-padding: 1.25rem;
-  --box-link-hover-shadow: 0 .5em 1em -.125em rgba(var(--scheme-invert-rgb), .1), 0 0 0 1px var(--link);
-  --box-link-active-shadow: inset 0 1px 2px rgba(var(--scheme-invert-rgb), .2), 0 0 0 1px var(--link);
+  --box-link-hover-shadow: 0 .5em 1em -.125em oklch(from var(--scheme-invert) l c h / .1), 0 0 0 1px var(--link);
+  --box-link-active-shadow: inset 0 1px 2px oklch(from var(--scheme-invert) l c h / .2), 0 0 0 1px var(--link);
 }
 
 .box {
@@ -677,7 +620,7 @@ a.box:active {
   --button-focus-color: var(--link-focus);
   --button-focus-border-color: var(--link-focus-border);
   --button-focus-box-shadow-size: 0 0 0 .125em;
-  --button-focus-box-shadow-color: rgba(var(--scheme-invert-rgb), .25);
+  --button-focus-box-shadow-color: oklch(from var(--scheme-invert) l c h / .25);
   --button-active-color: var(--link-active);
   --button-active-border-color: var(--link-active-border);
   --button-text-color: var(--text);
@@ -799,7 +742,7 @@ a.box:active {
 }
 
 .button.is-white:is(:hover, .is-hovered) {
-  background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l)  + -2.5%), var(--white-a));
+  background-color: oklch(from var(--white) clamp(0, l - .025, 1) c h);
   color: var(--white-invert);
   border-color: #0000;
 }
@@ -810,11 +753,11 @@ a.box:active {
 }
 
 .button.is-white:is(:focus, .is-focused):not(:active) {
-  box-shadow: var(--button-focus-box-shadow-size) hsla(var(--white-h), var(--white-s), var(--white-l), .25);
+  box-shadow: var(--button-focus-box-shadow-size) oklch(from var(--white) l c h / .25);
 }
 
 .button.is-white:is(:active, .is-active) {
-  background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l)  + -5%), var(--white-a));
+  background-color: oklch(from var(--white) clamp(0, l - .05, 1) c h);
   color: var(--white-invert);
   border-color: #0000;
 }
@@ -901,7 +844,7 @@ a.box:active {
 }
 
 .button.is-black:is(:hover, .is-hovered) {
-  background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l)  + -2.5%), var(--black-a));
+  background-color: oklch(from var(--black) clamp(0, l - .025, 1) c h);
   color: var(--black-invert);
   border-color: #0000;
 }
@@ -912,11 +855,11 @@ a.box:active {
 }
 
 .button.is-black:is(:focus, .is-focused):not(:active) {
-  box-shadow: var(--button-focus-box-shadow-size) hsla(var(--black-h), var(--black-s), var(--black-l), .25);
+  box-shadow: var(--button-focus-box-shadow-size) oklch(from var(--black) l c h / .25);
 }
 
 .button.is-black:is(:active, .is-active) {
-  background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l)  + -5%), var(--black-a));
+  background-color: oklch(from var(--black) clamp(0, l - .05, 1) c h);
   color: var(--black-invert);
   border-color: #0000;
 }
@@ -1003,7 +946,7 @@ a.box:active {
 }
 
 .button.is-light:is(:hover, .is-hovered) {
-  background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l)  + -2.5%), var(--light-a));
+  background-color: oklch(from var(--light) clamp(0, l - .025, 1) c h);
   color: var(--light-invert);
   border-color: #0000;
 }
@@ -1014,11 +957,11 @@ a.box:active {
 }
 
 .button.is-light:is(:focus, .is-focused):not(:active) {
-  box-shadow: var(--button-focus-box-shadow-size) hsla(var(--light-h), var(--light-s), var(--light-l), .25);
+  box-shadow: var(--button-focus-box-shadow-size) oklch(from var(--light) l c h / .25);
 }
 
 .button.is-light:is(:active, .is-active) {
-  background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l)  + -5%), var(--light-a));
+  background-color: oklch(from var(--light) clamp(0, l - .05, 1) c h);
   color: var(--light-invert);
   border-color: #0000;
 }
@@ -1105,7 +1048,7 @@ a.box:active {
 }
 
 .button.is-dark:is(:hover, .is-hovered) {
-  background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l)  + -2.5%), var(--dark-a));
+  background-color: oklch(from var(--dark) clamp(0, l - .025, 1) c h);
   color: var(--dark-invert);
   border-color: #0000;
 }
@@ -1116,11 +1059,11 @@ a.box:active {
 }
 
 .button.is-dark:is(:focus, .is-focused):not(:active) {
-  box-shadow: var(--button-focus-box-shadow-size) hsla(var(--dark-h), var(--dark-s), var(--dark-l), .25);
+  box-shadow: var(--button-focus-box-shadow-size) oklch(from var(--dark) l c h / .25);
 }
 
 .button.is-dark:is(:active, .is-active) {
-  background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l)  + -5%), var(--dark-a));
+  background-color: oklch(from var(--dark) clamp(0, l - .05, 1) c h);
   color: var(--dark-invert);
   border-color: #0000;
 }
@@ -1207,7 +1150,7 @@ a.box:active {
 }
 
 .button.is-primary:is(:hover, .is-hovered) {
-  background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l)  + -2.5%), var(--primary-a));
+  background-color: oklch(from var(--primary) clamp(0, l - .025, 1) c h);
   color: var(--primary-invert);
   border-color: #0000;
 }
@@ -1218,11 +1161,11 @@ a.box:active {
 }
 
 .button.is-primary:is(:focus, .is-focused):not(:active) {
-  box-shadow: var(--button-focus-box-shadow-size) hsla(var(--primary-h), var(--primary-s), var(--primary-l), .25);
+  box-shadow: var(--button-focus-box-shadow-size) oklch(from var(--primary) l c h / .25);
 }
 
 .button.is-primary:is(:active, .is-active) {
-  background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l)  + -5%), var(--primary-a));
+  background-color: oklch(from var(--primary) clamp(0, l - .05, 1) c h);
   color: var(--primary-invert);
   border-color: #0000;
 }
@@ -1308,13 +1251,13 @@ a.box:active {
 }
 
 .button.is-primary.is-light:is(:hover, .is-hovered) {
-  background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-light-l)  - 2.5%), var(--primary-a));
+  background-color: oklch(from var(--primary-light) clamp(0, l - .025, 1) c h);
   color: var(--primary-dark);
   border-color: #0000;
 }
 
 .button.is-primary.is-light:is(:active, .is-active) {
-  background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-light-l)  - 5%), var(--primary-a));
+  background-color: oklch(from var(--primary-light) clamp(0, l - .05, 1) c h);
   color: var(--primary-dark);
   border-color: #0000;
 }
@@ -1326,7 +1269,7 @@ a.box:active {
 }
 
 .button.is-secondary:is(:hover, .is-hovered) {
-  background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l)  + -2.5%), var(--secondary-a));
+  background-color: oklch(from var(--secondary) clamp(0, l - .025, 1) c h);
   color: var(--secondary-invert);
   border-color: #0000;
 }
@@ -1337,11 +1280,11 @@ a.box:active {
 }
 
 .button.is-secondary:is(:focus, .is-focused):not(:active) {
-  box-shadow: var(--button-focus-box-shadow-size) hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), .25);
+  box-shadow: var(--button-focus-box-shadow-size) oklch(from var(--secondary) l c h / .25);
 }
 
 .button.is-secondary:is(:active, .is-active) {
-  background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l)  + -5%), var(--secondary-a));
+  background-color: oklch(from var(--secondary) clamp(0, l - .05, 1) c h);
   color: var(--secondary-invert);
   border-color: #0000;
 }
@@ -1427,13 +1370,13 @@ a.box:active {
 }
 
 .button.is-secondary.is-light:is(:hover, .is-hovered) {
-  background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-light-l)  - 2.5%), var(--secondary-a));
+  background-color: oklch(from var(--secondary-light) clamp(0, l - .025, 1) c h);
   color: var(--secondary-dark);
   border-color: #0000;
 }
 
 .button.is-secondary.is-light:is(:active, .is-active) {
-  background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-light-l)  - 5%), var(--secondary-a));
+  background-color: oklch(from var(--secondary-light) clamp(0, l - .05, 1) c h);
   color: var(--secondary-dark);
   border-color: #0000;
 }
@@ -1445,7 +1388,7 @@ a.box:active {
 }
 
 .button.is-link:is(:hover, .is-hovered) {
-  background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l)  + -2.5%), var(--link-a));
+  background-color: oklch(from var(--link) clamp(0, l - .025, 1) c h);
   color: var(--link-invert);
   border-color: #0000;
 }
@@ -1456,11 +1399,11 @@ a.box:active {
 }
 
 .button.is-link:is(:focus, .is-focused):not(:active) {
-  box-shadow: var(--button-focus-box-shadow-size) hsla(var(--link-h), var(--link-s), var(--link-l), .25);
+  box-shadow: var(--button-focus-box-shadow-size) oklch(from var(--link) l c h / .25);
 }
 
 .button.is-link:is(:active, .is-active) {
-  background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l)  + -5%), var(--link-a));
+  background-color: oklch(from var(--link) clamp(0, l - .05, 1) c h);
   color: var(--link-invert);
   border-color: #0000;
 }
@@ -1546,13 +1489,13 @@ a.box:active {
 }
 
 .button.is-link.is-light:is(:hover, .is-hovered) {
-  background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-light-l)  - 2.5%), var(--link-a));
+  background-color: oklch(from var(--link-light) clamp(0, l - .025, 1) c h);
   color: var(--link-dark);
   border-color: #0000;
 }
 
 .button.is-link.is-light:is(:active, .is-active) {
-  background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-light-l)  - 5%), var(--link-a));
+  background-color: oklch(from var(--link-light) clamp(0, l - .05, 1) c h);
   color: var(--link-dark);
   border-color: #0000;
 }
@@ -1564,7 +1507,7 @@ a.box:active {
 }
 
 .button.is-info:is(:hover, .is-hovered) {
-  background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l)  + -2.5%), var(--info-a));
+  background-color: oklch(from var(--info) clamp(0, l - .025, 1) c h);
   color: var(--info-invert);
   border-color: #0000;
 }
@@ -1575,11 +1518,11 @@ a.box:active {
 }
 
 .button.is-info:is(:focus, .is-focused):not(:active) {
-  box-shadow: var(--button-focus-box-shadow-size) hsla(var(--info-h), var(--info-s), var(--info-l), .25);
+  box-shadow: var(--button-focus-box-shadow-size) oklch(from var(--info) l c h / .25);
 }
 
 .button.is-info:is(:active, .is-active) {
-  background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l)  + -5%), var(--info-a));
+  background-color: oklch(from var(--info) clamp(0, l - .05, 1) c h);
   color: var(--info-invert);
   border-color: #0000;
 }
@@ -1665,13 +1608,13 @@ a.box:active {
 }
 
 .button.is-info.is-light:is(:hover, .is-hovered) {
-  background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-light-l)  - 2.5%), var(--info-a));
+  background-color: oklch(from var(--info-light) clamp(0, l - .025, 1) c h);
   color: var(--info-dark);
   border-color: #0000;
 }
 
 .button.is-info.is-light:is(:active, .is-active) {
-  background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-light-l)  - 5%), var(--info-a));
+  background-color: oklch(from var(--info-light) clamp(0, l - .05, 1) c h);
   color: var(--info-dark);
   border-color: #0000;
 }
@@ -1683,7 +1626,7 @@ a.box:active {
 }
 
 .button.is-success:is(:hover, .is-hovered) {
-  background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l)  + -2.5%), var(--success-a));
+  background-color: oklch(from var(--success) clamp(0, l - .025, 1) c h);
   color: var(--success-invert);
   border-color: #0000;
 }
@@ -1694,11 +1637,11 @@ a.box:active {
 }
 
 .button.is-success:is(:focus, .is-focused):not(:active) {
-  box-shadow: var(--button-focus-box-shadow-size) hsla(var(--success-h), var(--success-s), var(--success-l), .25);
+  box-shadow: var(--button-focus-box-shadow-size) oklch(from var(--success) l c h / .25);
 }
 
 .button.is-success:is(:active, .is-active) {
-  background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l)  + -5%), var(--success-a));
+  background-color: oklch(from var(--success) clamp(0, l - .05, 1) c h);
   color: var(--success-invert);
   border-color: #0000;
 }
@@ -1784,13 +1727,13 @@ a.box:active {
 }
 
 .button.is-success.is-light:is(:hover, .is-hovered) {
-  background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-light-l)  - 2.5%), var(--success-a));
+  background-color: oklch(from var(--success-light) clamp(0, l - .025, 1) c h);
   color: var(--success-dark);
   border-color: #0000;
 }
 
 .button.is-success.is-light:is(:active, .is-active) {
-  background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-light-l)  - 5%), var(--success-a));
+  background-color: oklch(from var(--success-light) clamp(0, l - .05, 1) c h);
   color: var(--success-dark);
   border-color: #0000;
 }
@@ -1802,7 +1745,7 @@ a.box:active {
 }
 
 .button.is-warning:is(:hover, .is-hovered) {
-  background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l)  + -2.5%), var(--warning-a));
+  background-color: oklch(from var(--warning) clamp(0, l - .025, 1) c h);
   color: var(--warning-invert);
   border-color: #0000;
 }
@@ -1813,11 +1756,11 @@ a.box:active {
 }
 
 .button.is-warning:is(:focus, .is-focused):not(:active) {
-  box-shadow: var(--button-focus-box-shadow-size) hsla(var(--warning-h), var(--warning-s), var(--warning-l), .25);
+  box-shadow: var(--button-focus-box-shadow-size) oklch(from var(--warning) l c h / .25);
 }
 
 .button.is-warning:is(:active, .is-active) {
-  background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l)  + -5%), var(--warning-a));
+  background-color: oklch(from var(--warning) clamp(0, l - .05, 1) c h);
   color: var(--warning-invert);
   border-color: #0000;
 }
@@ -1903,13 +1846,13 @@ a.box:active {
 }
 
 .button.is-warning.is-light:is(:hover, .is-hovered) {
-  background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-light-l)  - 2.5%), var(--warning-a));
+  background-color: oklch(from var(--warning-light) clamp(0, l - .025, 1) c h);
   color: var(--warning-dark);
   border-color: #0000;
 }
 
 .button.is-warning.is-light:is(:active, .is-active) {
-  background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-light-l)  - 5%), var(--warning-a));
+  background-color: oklch(from var(--warning-light) clamp(0, l - .05, 1) c h);
   color: var(--warning-dark);
   border-color: #0000;
 }
@@ -1921,7 +1864,7 @@ a.box:active {
 }
 
 .button.is-danger:is(:hover, .is-hovered) {
-  background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l)  + -2.5%), var(--danger-a));
+  background-color: oklch(from var(--danger) clamp(0, l - .025, 1) c h);
   color: var(--danger-invert);
   border-color: #0000;
 }
@@ -1932,11 +1875,11 @@ a.box:active {
 }
 
 .button.is-danger:is(:focus, .is-focused):not(:active) {
-  box-shadow: var(--button-focus-box-shadow-size) hsla(var(--danger-h), var(--danger-s), var(--danger-l), .25);
+  box-shadow: var(--button-focus-box-shadow-size) oklch(from var(--danger) l c h / .25);
 }
 
 .button.is-danger:is(:active, .is-active) {
-  background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l)  + -5%), var(--danger-a));
+  background-color: oklch(from var(--danger) clamp(0, l - .05, 1) c h);
   color: var(--danger-invert);
   border-color: #0000;
 }
@@ -2022,13 +1965,13 @@ a.box:active {
 }
 
 .button.is-danger.is-light:is(:hover, .is-hovered) {
-  background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-light-l)  - 2.5%), var(--danger-a));
+  background-color: oklch(from var(--danger-light) clamp(0, l - .025, 1) c h);
   color: var(--danger-dark);
   border-color: #0000;
 }
 
 .button.is-danger.is-light:is(:active, .is-active) {
-  background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-light-l)  - 5%), var(--danger-a));
+  background-color: oklch(from var(--danger-light) clamp(0, l - .05, 1) c h);
   color: var(--danger-dark);
   border-color: #0000;
 }
@@ -2210,49 +2153,6 @@ a.box:active {
 
   .button.is-responsive.is-large {
     font-size: var(--size-medium);
-  }
-}
-
-.container {
-  flex-grow: 1;
-  width: auto;
-  margin: 0 auto;
-  position: relative;
-}
-
-.container.is-fluid {
-  width: 100%;
-  padding-inline: 32px;
-  max-width: none !important;
-}
-
-@media screen and (width >= 1024px) {
-  .container {
-    max-width: 960px;
-  }
-}
-
-@media screen and (width <= 1215px) {
-  .container.is-widescreen:not(.is-max-desktop) {
-    max-width: 1152px;
-  }
-}
-
-@media screen and (width <= 1407px) {
-  .container.is-fullhd:not(.is-max-desktop, .is-max-widescreen) {
-    max-width: 1344px;
-  }
-}
-
-@media screen and (width >= 1216px) {
-  .container:not(.is-max-desktop) {
-    max-width: 1152px;
-  }
-}
-
-@media screen and (width >= 1408px) {
-  .container:not(.is-max-desktop, .is-max-widescreen) {
-    max-width: 1344px;
   }
 }
 
@@ -3039,7 +2939,7 @@ div.icon-text {
   --table-cell-border-width: 0 0 1px;
   --table-cell-border: 1px solid var(--border);
   --table-cell-heading-color: var(--text-strong);
-  --table-cell-text-align: left;
+  --table-cell-text-align: start;
   --table-cell-padding: .5em .75em;
   --table-head-cell-border-width: 0 0 2px;
   --table-head-cell-color: var(--text-strong);
@@ -3594,29 +3494,31 @@ a.tag:hover {
 .delete {
   --delete-height: 20px;
   --delete-width: 20px;
+  --delete-color: var(--scheme-main);
+  --delete-background-color: var(--scheme-invert);
   appearance: none;
-  background-color: rgba(var(--scheme-invert-rgb), .2);
+  background-color: oklch(from var(--delete-background-color) l c h / .5);
   border-radius: var(--radius-rounded);
   cursor: pointer;
   pointer-events: auto;
   height: var(--delete-height);
   max-height: var(--delete-height);
   max-width: var(--delete-width);
+  width: var(--delete-width);
   min-height: var(--delete-height);
   min-width: var(--delete-width);
   vertical-align: top;
-  width: var(--delete-width);
   border: none;
   outline: none;
   flex-grow: 0;
   flex-shrink: 0;
-  font-size: 0;
-  display: inline-block;
+  font-size: 1em;
+  display: inline-flex;
   position: relative;
 }
 
 .delete:before, .delete:after {
-  background-color: var(--scheme-main);
+  background-color: var(--delete-color);
   content: "";
   inset-inline-start: 50%;
   transform-origin: center;
@@ -3636,27 +3538,27 @@ a.tag:hover {
   height: 50%;
 }
 
-.delete:hover, .delete:focus {
-  background-color: rgba(var(--scheme-invert-rgb), .3);
+.delete:is(:hover, :focus) {
+  background-color: oklch(from var(--scheme-invert) l c h / .3);
 }
 
 .delete:active {
-  background-color: rgba(var(--scheme-invert-rgb), .4);
+  background-color: oklch(from var(--scheme-invert) l c h / .4);
 }
 
 .delete.is-small {
-  --delete-height: 16px;
-  --delete-width: 16px;
+  --delete-height: 1rem;
+  --delete-width: 1rem;
 }
 
 .delete.is-medium {
-  --delete-height: 24px;
-  --delete-width: 24px;
+  --delete-height: 1.5rem;
+  --delete-width: 1.5rem;
 }
 
 .delete.is-large {
-  --delete-height: 32px;
-  --delete-width: 32px;
+  --delete-height: 2rem;
+  --delete-width: 2rem;
 }
 
 .heading {
@@ -3668,9 +3570,10 @@ a.tag:hover {
 }
 
 .loader {
-  --loader-border-color: var(--grey-lighter);
-  border: 2px solid var(--loader-border-color);
-  border-radius: var(--radius-rounded);
+  --loader-color: var(--grey-lighter);
+  --loader-radius: var(--radius-rounded);
+  border: 2px solid var(--loader-color);
+  border-radius: var(--loader-radius);
   border-inline-end-color: #0000;
   content: "";
   border-top-color: #0000;
@@ -3701,8 +3604,8 @@ a.tag:hover {
   --input-background-color: var(--scheme-main);
   --input-border-color: var(--border);
   --input-height: var(--control-height);
-  --input-shadow-color: rgba(var(--scheme-invert-rgb), .05);
-  --input-shadow: inset 0 .0625em .125em rgba(var(--scheme-invert-rgb), .05);
+  --input-shadow-color: oklch(from var(--scheme-invert) l c h / .05);
+  --input-shadow: inset 0 .0625em .125em oklch(from var(--scheme-invert) l c h / .05);
   --input-placeholder-color: var(--text-strong);
   --input-placeholder-opacity: .3;
   --input-hover-color: var(--text-strong);
@@ -3710,7 +3613,7 @@ a.tag:hover {
   --input-focus-color: var(--text-strong);
   --input-focus-border-color: var(--link);
   --input-focus-box-shadow-size: 0 0 0 .125em;
-  --input-focus-box-shadow-color: rgba(var(--scheme-invert-rgb), .25);
+  --input-focus-box-shadow-color: oklch(from var(--scheme-invert) l c h / .25);
   --input-disabled-color: var(--text-light);
   --input-disabled-background-color: var(--background);
   --input-disabled-border-color: var(--background);
@@ -3733,102 +3636,91 @@ a.tag:hover {
 }
 
 .is-white.textarea, .is-white.input {
-  --focus-box-shadow-color: hsla(var(--white-h), var(--white-s), var(--white-l), .25);
   border-color: var(--white);
 }
 
 .is-white.textarea:focus, .is-white.input:focus, .is-white.is-focused.textarea, .is-white.is-focused.input, .is-white.textarea:active, .is-white.input:active, .is-white.is-active.textarea, .is-white.is-active.input {
-  box-shadow: var(--input-focus-box-shadow-size) var(--focus-box-shadow-color);
+  box-shadow: var(--input-focus-box-shadow-size) oklch(from var(--white) l c h / .25);
 }
 
 .is-black.textarea, .is-black.input {
-  --focus-box-shadow-color: hsla(var(--black-h), var(--black-s), var(--black-l), .25);
   border-color: var(--black);
 }
 
 .is-black.textarea:focus, .is-black.input:focus, .is-black.is-focused.textarea, .is-black.is-focused.input, .is-black.textarea:active, .is-black.input:active, .is-black.is-active.textarea, .is-black.is-active.input {
-  box-shadow: var(--input-focus-box-shadow-size) var(--focus-box-shadow-color);
+  box-shadow: var(--input-focus-box-shadow-size) oklch(from var(--black) l c h / .25);
 }
 
 .is-light.textarea, .is-light.input {
-  --focus-box-shadow-color: hsla(var(--light-h), var(--light-s), var(--light-l), .25);
   border-color: var(--light);
 }
 
 .is-light.textarea:focus, .is-light.input:focus, .is-light.is-focused.textarea, .is-light.is-focused.input, .is-light.textarea:active, .is-light.input:active, .is-light.is-active.textarea, .is-light.is-active.input {
-  box-shadow: var(--input-focus-box-shadow-size) var(--focus-box-shadow-color);
+  box-shadow: var(--input-focus-box-shadow-size) oklch(from var(--light) l c h / .25);
 }
 
 .is-dark.textarea, .is-dark.input {
-  --focus-box-shadow-color: hsla(var(--dark-h), var(--dark-s), var(--dark-l), .25);
   border-color: var(--dark);
 }
 
 .is-dark.textarea:focus, .is-dark.input:focus, .is-dark.is-focused.textarea, .is-dark.is-focused.input, .is-dark.textarea:active, .is-dark.input:active, .is-dark.is-active.textarea, .is-dark.is-active.input {
-  box-shadow: var(--input-focus-box-shadow-size) var(--focus-box-shadow-color);
+  box-shadow: var(--input-focus-box-shadow-size) oklch(from var(--dark) l c h / .25);
 }
 
 .is-primary.textarea, .is-primary.input {
-  --focus-box-shadow-color: hsla(var(--primary-h), var(--primary-s), var(--primary-l), .25);
   border-color: var(--primary);
 }
 
 .is-primary.textarea:focus, .is-primary.input:focus, .is-primary.is-focused.textarea, .is-primary.is-focused.input, .is-primary.textarea:active, .is-primary.input:active, .is-primary.is-active.textarea, .is-primary.is-active.input {
-  box-shadow: var(--input-focus-box-shadow-size) var(--focus-box-shadow-color);
+  box-shadow: var(--input-focus-box-shadow-size) oklch(from var(--primary) l c h / .25);
 }
 
 .is-secondary.textarea, .is-secondary.input {
-  --focus-box-shadow-color: hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), .25);
   border-color: var(--secondary);
 }
 
 .is-secondary.textarea:focus, .is-secondary.input:focus, .is-secondary.is-focused.textarea, .is-secondary.is-focused.input, .is-secondary.textarea:active, .is-secondary.input:active, .is-secondary.is-active.textarea, .is-secondary.is-active.input {
-  box-shadow: var(--input-focus-box-shadow-size) var(--focus-box-shadow-color);
+  box-shadow: var(--input-focus-box-shadow-size) oklch(from var(--secondary) l c h / .25);
 }
 
 .is-link.textarea, .is-link.input {
-  --focus-box-shadow-color: hsla(var(--link-h), var(--link-s), var(--link-l), .25);
   border-color: var(--link);
 }
 
 .is-link.textarea:focus, .is-link.input:focus, .is-link.is-focused.textarea, .is-link.is-focused.input, .is-link.textarea:active, .is-link.input:active, .is-link.is-active.textarea, .is-link.is-active.input {
-  box-shadow: var(--input-focus-box-shadow-size) var(--focus-box-shadow-color);
+  box-shadow: var(--input-focus-box-shadow-size) oklch(from var(--link) l c h / .25);
 }
 
 .is-info.textarea, .is-info.input {
-  --focus-box-shadow-color: hsla(var(--info-h), var(--info-s), var(--info-l), .25);
   border-color: var(--info);
 }
 
 .is-info.textarea:focus, .is-info.input:focus, .is-info.is-focused.textarea, .is-info.is-focused.input, .is-info.textarea:active, .is-info.input:active, .is-info.is-active.textarea, .is-info.is-active.input {
-  box-shadow: var(--input-focus-box-shadow-size) var(--focus-box-shadow-color);
+  box-shadow: var(--input-focus-box-shadow-size) oklch(from var(--info) l c h / .25);
 }
 
 .is-success.textarea, .is-success.input {
-  --focus-box-shadow-color: hsla(var(--success-h), var(--success-s), var(--success-l), .25);
   border-color: var(--success);
 }
 
 .is-success.textarea:focus, .is-success.input:focus, .is-success.is-focused.textarea, .is-success.is-focused.input, .is-success.textarea:active, .is-success.input:active, .is-success.is-active.textarea, .is-success.is-active.input {
-  box-shadow: var(--input-focus-box-shadow-size) var(--focus-box-shadow-color);
+  box-shadow: var(--input-focus-box-shadow-size) oklch(from var(--success) l c h / .25);
 }
 
 .is-warning.textarea, .is-warning.input {
-  --focus-box-shadow-color: hsla(var(--warning-h), var(--warning-s), var(--warning-l), .25);
   border-color: var(--warning);
 }
 
 .is-warning.textarea:focus, .is-warning.input:focus, .is-warning.is-focused.textarea, .is-warning.is-focused.input, .is-warning.textarea:active, .is-warning.input:active, .is-warning.is-active.textarea, .is-warning.is-active.input {
-  box-shadow: var(--input-focus-box-shadow-size) var(--focus-box-shadow-color);
+  box-shadow: var(--input-focus-box-shadow-size) oklch(from var(--warning) l c h / .25);
 }
 
 .is-danger.textarea, .is-danger.input {
-  --focus-box-shadow-color: hsla(var(--danger-h), var(--danger-s), var(--danger-l), .25);
   border-color: var(--danger);
 }
 
 .is-danger.textarea:focus, .is-danger.input:focus, .is-danger.is-focused.textarea, .is-danger.is-focused.input, .is-danger.textarea:active, .is-danger.input:active, .is-danger.is-active.textarea, .is-danger.is-active.input {
-  box-shadow: var(--input-focus-box-shadow-size) var(--focus-box-shadow-color);
+  box-shadow: var(--input-focus-box-shadow-size) oklch(from var(--danger) l c h / .25);
 }
 
 .is-small.textarea, .is-small.input {
@@ -3998,11 +3890,11 @@ a.tag:hover {
 }
 
 .select.is-white select:is(:hover, .is-hovered) {
-  border-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l)  + -5%), var(--white-a));
+  border-color: oklch(from var(--white) clamp(0, l - .05, 1) c h);
 }
 
 .select.is-white select:is(:focus, .is-focused, :active, .is-active) {
-  box-shadow: var(--select-focus-box-shadow-size) hsla(var(--white-h), var(--white-s), var(--white-l), .25);
+  box-shadow: var(--select-focus-box-shadow-size) oklch(from var(--white) l c h / .25);
 }
 
 .select.is-black:not(:hover):after, .select.is-black select {
@@ -4010,11 +3902,11 @@ a.tag:hover {
 }
 
 .select.is-black select:is(:hover, .is-hovered) {
-  border-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l)  + -5%), var(--black-a));
+  border-color: oklch(from var(--black) clamp(0, l - .05, 1) c h);
 }
 
 .select.is-black select:is(:focus, .is-focused, :active, .is-active) {
-  box-shadow: var(--select-focus-box-shadow-size) hsla(var(--black-h), var(--black-s), var(--black-l), .25);
+  box-shadow: var(--select-focus-box-shadow-size) oklch(from var(--black) l c h / .25);
 }
 
 .select.is-light:not(:hover):after, .select.is-light select {
@@ -4022,11 +3914,11 @@ a.tag:hover {
 }
 
 .select.is-light select:is(:hover, .is-hovered) {
-  border-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l)  + -5%), var(--light-a));
+  border-color: oklch(from var(--light) clamp(0, l - .05, 1) c h);
 }
 
 .select.is-light select:is(:focus, .is-focused, :active, .is-active) {
-  box-shadow: var(--select-focus-box-shadow-size) hsla(var(--light-h), var(--light-s), var(--light-l), .25);
+  box-shadow: var(--select-focus-box-shadow-size) oklch(from var(--light) l c h / .25);
 }
 
 .select.is-dark:not(:hover):after, .select.is-dark select {
@@ -4034,11 +3926,11 @@ a.tag:hover {
 }
 
 .select.is-dark select:is(:hover, .is-hovered) {
-  border-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l)  + -5%), var(--dark-a));
+  border-color: oklch(from var(--dark) clamp(0, l - .05, 1) c h);
 }
 
 .select.is-dark select:is(:focus, .is-focused, :active, .is-active) {
-  box-shadow: var(--select-focus-box-shadow-size) hsla(var(--dark-h), var(--dark-s), var(--dark-l), .25);
+  box-shadow: var(--select-focus-box-shadow-size) oklch(from var(--dark) l c h / .25);
 }
 
 .select.is-primary:not(:hover):after, .select.is-primary select {
@@ -4046,11 +3938,11 @@ a.tag:hover {
 }
 
 .select.is-primary select:is(:hover, .is-hovered) {
-  border-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l)  + -5%), var(--primary-a));
+  border-color: oklch(from var(--primary) clamp(0, l - .05, 1) c h);
 }
 
 .select.is-primary select:is(:focus, .is-focused, :active, .is-active) {
-  box-shadow: var(--select-focus-box-shadow-size) hsla(var(--primary-h), var(--primary-s), var(--primary-l), .25);
+  box-shadow: var(--select-focus-box-shadow-size) oklch(from var(--primary) l c h / .25);
 }
 
 .select.is-secondary:not(:hover):after, .select.is-secondary select {
@@ -4058,11 +3950,11 @@ a.tag:hover {
 }
 
 .select.is-secondary select:is(:hover, .is-hovered) {
-  border-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l)  + -5%), var(--secondary-a));
+  border-color: oklch(from var(--secondary) clamp(0, l - .05, 1) c h);
 }
 
 .select.is-secondary select:is(:focus, .is-focused, :active, .is-active) {
-  box-shadow: var(--select-focus-box-shadow-size) hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), .25);
+  box-shadow: var(--select-focus-box-shadow-size) oklch(from var(--secondary) l c h / .25);
 }
 
 .select.is-link:not(:hover):after, .select.is-link select {
@@ -4070,11 +3962,11 @@ a.tag:hover {
 }
 
 .select.is-link select:is(:hover, .is-hovered) {
-  border-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l)  + -5%), var(--link-a));
+  border-color: oklch(from var(--link) clamp(0, l - .05, 1) c h);
 }
 
 .select.is-link select:is(:focus, .is-focused, :active, .is-active) {
-  box-shadow: var(--select-focus-box-shadow-size) hsla(var(--link-h), var(--link-s), var(--link-l), .25);
+  box-shadow: var(--select-focus-box-shadow-size) oklch(from var(--link) l c h / .25);
 }
 
 .select.is-info:not(:hover):after, .select.is-info select {
@@ -4082,11 +3974,11 @@ a.tag:hover {
 }
 
 .select.is-info select:is(:hover, .is-hovered) {
-  border-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l)  + -5%), var(--info-a));
+  border-color: oklch(from var(--info) clamp(0, l - .05, 1) c h);
 }
 
 .select.is-info select:is(:focus, .is-focused, :active, .is-active) {
-  box-shadow: var(--select-focus-box-shadow-size) hsla(var(--info-h), var(--info-s), var(--info-l), .25);
+  box-shadow: var(--select-focus-box-shadow-size) oklch(from var(--info) l c h / .25);
 }
 
 .select.is-success:not(:hover):after, .select.is-success select {
@@ -4094,11 +3986,11 @@ a.tag:hover {
 }
 
 .select.is-success select:is(:hover, .is-hovered) {
-  border-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l)  + -5%), var(--success-a));
+  border-color: oklch(from var(--success) clamp(0, l - .05, 1) c h);
 }
 
 .select.is-success select:is(:focus, .is-focused, :active, .is-active) {
-  box-shadow: var(--select-focus-box-shadow-size) hsla(var(--success-h), var(--success-s), var(--success-l), .25);
+  box-shadow: var(--select-focus-box-shadow-size) oklch(from var(--success) l c h / .25);
 }
 
 .select.is-warning:not(:hover):after, .select.is-warning select {
@@ -4106,11 +3998,11 @@ a.tag:hover {
 }
 
 .select.is-warning select:is(:hover, .is-hovered) {
-  border-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l)  + -5%), var(--warning-a));
+  border-color: oklch(from var(--warning) clamp(0, l - .05, 1) c h);
 }
 
 .select.is-warning select:is(:focus, .is-focused, :active, .is-active) {
-  box-shadow: var(--select-focus-box-shadow-size) hsla(var(--warning-h), var(--warning-s), var(--warning-l), .25);
+  box-shadow: var(--select-focus-box-shadow-size) oklch(from var(--warning) l c h / .25);
 }
 
 .select.is-danger:not(:hover):after, .select.is-danger select {
@@ -4118,11 +4010,11 @@ a.tag:hover {
 }
 
 .select.is-danger select:is(:hover, .is-hovered) {
-  border-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l)  + -5%), var(--danger-a));
+  border-color: oklch(from var(--danger) clamp(0, l - .05, 1) c h);
 }
 
 .select.is-danger select:is(:focus, .is-focused, :active, .is-active) {
-  box-shadow: var(--select-focus-box-shadow-size) hsla(var(--danger-h), var(--danger-s), var(--danger-l), .25);
+  box-shadow: var(--select-focus-box-shadow-size) oklch(from var(--danger) l c h / .25);
 }
 
 .select.is-small {
@@ -4197,19 +4089,19 @@ a.tag:hover {
 }
 
 .file.is-white:is(:hover, .is-hovered) .file-cta {
-  background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l)  + -2.5%), var(--white-a));
+  background-color: oklch(from var(--white) clamp(0, l - .025, 1) c h);
   color: var(--white-invert);
   border-color: #0000;
 }
 
 .file.is-white:is(:focus, .is-focused) .file-cta {
-  box-shadow: 0 0 .5em hsla(var(--white-h), var(--white-s), var(--white-l), .25);
+  box-shadow: 0 0 .5em oklch(from var(--white) l c h / .25);
   color: var(--white-invert);
   border-color: #0000;
 }
 
 .file.is-white:is(:active, .is-active) .file-cta {
-  background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l)  + -5%), var(--white-a));
+  background-color: oklch(from var(--white) clamp(0, l - .05, 1) c h);
   color: var(--white-invert);
   border-color: #0000;
 }
@@ -4221,19 +4113,19 @@ a.tag:hover {
 }
 
 .file.is-black:is(:hover, .is-hovered) .file-cta {
-  background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l)  + -2.5%), var(--black-a));
+  background-color: oklch(from var(--black) clamp(0, l - .025, 1) c h);
   color: var(--black-invert);
   border-color: #0000;
 }
 
 .file.is-black:is(:focus, .is-focused) .file-cta {
-  box-shadow: 0 0 .5em hsla(var(--black-h), var(--black-s), var(--black-l), .25);
+  box-shadow: 0 0 .5em oklch(from var(--black) l c h / .25);
   color: var(--black-invert);
   border-color: #0000;
 }
 
 .file.is-black:is(:active, .is-active) .file-cta {
-  background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l)  + -5%), var(--black-a));
+  background-color: oklch(from var(--black) clamp(0, l - .05, 1) c h);
   color: var(--black-invert);
   border-color: #0000;
 }
@@ -4245,19 +4137,19 @@ a.tag:hover {
 }
 
 .file.is-light:is(:hover, .is-hovered) .file-cta {
-  background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l)  + -2.5%), var(--light-a));
+  background-color: oklch(from var(--light) clamp(0, l - .025, 1) c h);
   color: var(--light-invert);
   border-color: #0000;
 }
 
 .file.is-light:is(:focus, .is-focused) .file-cta {
-  box-shadow: 0 0 .5em hsla(var(--light-h), var(--light-s), var(--light-l), .25);
+  box-shadow: 0 0 .5em oklch(from var(--light) l c h / .25);
   color: var(--light-invert);
   border-color: #0000;
 }
 
 .file.is-light:is(:active, .is-active) .file-cta {
-  background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l)  + -5%), var(--light-a));
+  background-color: oklch(from var(--light) clamp(0, l - .05, 1) c h);
   color: var(--light-invert);
   border-color: #0000;
 }
@@ -4269,19 +4161,19 @@ a.tag:hover {
 }
 
 .file.is-dark:is(:hover, .is-hovered) .file-cta {
-  background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l)  + -2.5%), var(--dark-a));
+  background-color: oklch(from var(--dark) clamp(0, l - .025, 1) c h);
   color: var(--dark-invert);
   border-color: #0000;
 }
 
 .file.is-dark:is(:focus, .is-focused) .file-cta {
-  box-shadow: 0 0 .5em hsla(var(--dark-h), var(--dark-s), var(--dark-l), .25);
+  box-shadow: 0 0 .5em oklch(from var(--dark) l c h / .25);
   color: var(--dark-invert);
   border-color: #0000;
 }
 
 .file.is-dark:is(:active, .is-active) .file-cta {
-  background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l)  + -5%), var(--dark-a));
+  background-color: oklch(from var(--dark) clamp(0, l - .05, 1) c h);
   color: var(--dark-invert);
   border-color: #0000;
 }
@@ -4293,19 +4185,19 @@ a.tag:hover {
 }
 
 .file.is-primary:is(:hover, .is-hovered) .file-cta {
-  background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l)  + -2.5%), var(--primary-a));
+  background-color: oklch(from var(--primary) clamp(0, l - .025, 1) c h);
   color: var(--primary-invert);
   border-color: #0000;
 }
 
 .file.is-primary:is(:focus, .is-focused) .file-cta {
-  box-shadow: 0 0 .5em hsla(var(--primary-h), var(--primary-s), var(--primary-l), .25);
+  box-shadow: 0 0 .5em oklch(from var(--primary) l c h / .25);
   color: var(--primary-invert);
   border-color: #0000;
 }
 
 .file.is-primary:is(:active, .is-active) .file-cta {
-  background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l)  + -5%), var(--primary-a));
+  background-color: oklch(from var(--primary) clamp(0, l - .05, 1) c h);
   color: var(--primary-invert);
   border-color: #0000;
 }
@@ -4317,19 +4209,19 @@ a.tag:hover {
 }
 
 .file.is-secondary:is(:hover, .is-hovered) .file-cta {
-  background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l)  + -2.5%), var(--secondary-a));
+  background-color: oklch(from var(--secondary) clamp(0, l - .025, 1) c h);
   color: var(--secondary-invert);
   border-color: #0000;
 }
 
 .file.is-secondary:is(:focus, .is-focused) .file-cta {
-  box-shadow: 0 0 .5em hsla(var(--secondary-h), var(--secondary-s), var(--secondary-l), .25);
+  box-shadow: 0 0 .5em oklch(from var(--secondary) l c h / .25);
   color: var(--secondary-invert);
   border-color: #0000;
 }
 
 .file.is-secondary:is(:active, .is-active) .file-cta {
-  background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l)  + -5%), var(--secondary-a));
+  background-color: oklch(from var(--secondary) clamp(0, l - .05, 1) c h);
   color: var(--secondary-invert);
   border-color: #0000;
 }
@@ -4341,19 +4233,19 @@ a.tag:hover {
 }
 
 .file.is-link:is(:hover, .is-hovered) .file-cta {
-  background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l)  + -2.5%), var(--link-a));
+  background-color: oklch(from var(--link) clamp(0, l - .025, 1) c h);
   color: var(--link-invert);
   border-color: #0000;
 }
 
 .file.is-link:is(:focus, .is-focused) .file-cta {
-  box-shadow: 0 0 .5em hsla(var(--link-h), var(--link-s), var(--link-l), .25);
+  box-shadow: 0 0 .5em oklch(from var(--link) l c h / .25);
   color: var(--link-invert);
   border-color: #0000;
 }
 
 .file.is-link:is(:active, .is-active) .file-cta {
-  background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l)  + -5%), var(--link-a));
+  background-color: oklch(from var(--link) clamp(0, l - .05, 1) c h);
   color: var(--link-invert);
   border-color: #0000;
 }
@@ -4365,19 +4257,19 @@ a.tag:hover {
 }
 
 .file.is-info:is(:hover, .is-hovered) .file-cta {
-  background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l)  + -2.5%), var(--info-a));
+  background-color: oklch(from var(--info) clamp(0, l - .025, 1) c h);
   color: var(--info-invert);
   border-color: #0000;
 }
 
 .file.is-info:is(:focus, .is-focused) .file-cta {
-  box-shadow: 0 0 .5em hsla(var(--info-h), var(--info-s), var(--info-l), .25);
+  box-shadow: 0 0 .5em oklch(from var(--info) l c h / .25);
   color: var(--info-invert);
   border-color: #0000;
 }
 
 .file.is-info:is(:active, .is-active) .file-cta {
-  background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l)  + -5%), var(--info-a));
+  background-color: oklch(from var(--info) clamp(0, l - .05, 1) c h);
   color: var(--info-invert);
   border-color: #0000;
 }
@@ -4389,19 +4281,19 @@ a.tag:hover {
 }
 
 .file.is-success:is(:hover, .is-hovered) .file-cta {
-  background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l)  + -2.5%), var(--success-a));
+  background-color: oklch(from var(--success) clamp(0, l - .025, 1) c h);
   color: var(--success-invert);
   border-color: #0000;
 }
 
 .file.is-success:is(:focus, .is-focused) .file-cta {
-  box-shadow: 0 0 .5em hsla(var(--success-h), var(--success-s), var(--success-l), .25);
+  box-shadow: 0 0 .5em oklch(from var(--success) l c h / .25);
   color: var(--success-invert);
   border-color: #0000;
 }
 
 .file.is-success:is(:active, .is-active) .file-cta {
-  background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l)  + -5%), var(--success-a));
+  background-color: oklch(from var(--success) clamp(0, l - .05, 1) c h);
   color: var(--success-invert);
   border-color: #0000;
 }
@@ -4413,19 +4305,19 @@ a.tag:hover {
 }
 
 .file.is-warning:is(:hover, .is-hovered) .file-cta {
-  background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l)  + -2.5%), var(--warning-a));
+  background-color: oklch(from var(--warning) clamp(0, l - .025, 1) c h);
   color: var(--warning-invert);
   border-color: #0000;
 }
 
 .file.is-warning:is(:focus, .is-focused) .file-cta {
-  box-shadow: 0 0 .5em hsla(var(--warning-h), var(--warning-s), var(--warning-l), .25);
+  box-shadow: 0 0 .5em oklch(from var(--warning) l c h / .25);
   color: var(--warning-invert);
   border-color: #0000;
 }
 
 .file.is-warning:is(:active, .is-active) .file-cta {
-  background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l)  + -5%), var(--warning-a));
+  background-color: oklch(from var(--warning) clamp(0, l - .05, 1) c h);
   color: var(--warning-invert);
   border-color: #0000;
 }
@@ -4437,19 +4329,19 @@ a.tag:hover {
 }
 
 .file.is-danger:is(:hover, .is-hovered) .file-cta {
-  background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l)  + -2.5%), var(--danger-a));
+  background-color: oklch(from var(--danger) clamp(0, l - .025, 1) c h);
   color: var(--danger-invert);
   border-color: #0000;
 }
 
 .file.is-danger:is(:focus, .is-focused) .file-cta {
-  box-shadow: 0 0 .5em hsla(var(--danger-h), var(--danger-s), var(--danger-l), .25);
+  box-shadow: 0 0 .5em oklch(from var(--danger) l c h / .25);
   color: var(--danger-invert);
   border-color: #0000;
 }
 
 .file.is-danger:is(:active, .is-active) .file-cta {
-  background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l)  + -5%), var(--danger-a));
+  background-color: oklch(from var(--danger) clamp(0, l - .05, 1) c h);
   color: var(--danger-invert);
   border-color: #0000;
 }
@@ -4905,6 +4797,7 @@ a.tag:hover {
   --control-radius: var(--radius);
   --control-radius-small: var(--radius-small);
   --control-border-width: 1px;
+  --control-size: var(--size-normal);
   --control-height: 2.5em;
   --control-line-height: 1.5;
   --control-padding-vertical: calc(.5em - var(--control-border-width));
@@ -5011,7 +4904,7 @@ a.tag:hover {
 }
 
 .breadcrumb a:hover {
-  --breadcrumb-item-color: var(--breadcrumb-item-hover-color);
+  color: var(--breadcrumb-item-hover-color);
 }
 
 .breadcrumb li {
@@ -5091,7 +4984,7 @@ a.tag:hover {
   --card-color: var(--text);
   --card-radius: .25rem;
   --card-header-background-color: transparent;
-  --card-header-shadow: 0 .125em .25em rgba(var(--scheme-invert-rgb), .1);
+  --card-header-shadow: 0 .125em .25em oklch(from var(--scheme-invert) l c h / .1);
   --card-header-color: var(--text-strong);
   --card-header-weight: var(--weight-bold);
   --card-header-padding: .75rem 1rem;
@@ -5264,19 +5157,19 @@ a.tag:hover {
   position: relative;
 }
 
-.dropdown-item:is(a, button), .button.dropdown-item {
+.dropdown-item:is(a, button, .button) {
   text-align: inherit;
   white-space: nowrap;
   width: 100%;
   padding-inline-end: 3rem;
 }
 
-.dropdown-item:is(a, button):hover, .button.dropdown-item:hover {
+.dropdown-item:is(a, button, .button):hover {
   background-color: var(--dropdown-item-hover-background-color);
   color: var(--dropdown-item-hover-color);
 }
 
-.dropdown-item:is(a, button).is-active, .button.dropdown-item.is-active {
+.dropdown-item:is(a, button, .button).is-active {
   background-color: var(--dropdown-item-active-background-color);
   color: var(--dropdown-item-active-color);
 }
@@ -5394,7 +5287,7 @@ a.tag:hover {
 }
 
 :root {
-  --media-border-color: rgba(var(--border-rgb), .5);
+  --media-border-color: oklch(from var(--border) l c h / .5);
   --media-border-size: 1px;
   --media-spacing: 1rem;
   --media-spacing-large: 1.5rem;
@@ -5723,7 +5616,7 @@ a.tag:hover {
 
 :root {
   --modal-z: 40;
-  --modal-background-background-color: rgba(var(--scheme-invert-rgb), .86);
+  --modal-background-background-color: oklch(from var(--scheme-invert) l c h / .86);
   --modal-content-width: 640px;
   --modal-content-margin-mobile: 20px;
   --modal-content-spacing-mobile: 160px;
@@ -5847,7 +5740,7 @@ a.tag:hover {
   --navbar-padding-horizontal: 2rem;
   --navbar-z: 30;
   --navbar-fixed-z: 30;
-  --navbar-shadow-color: rgba(var(--scheme-invert-rgb), .1);
+  --navbar-shadow-color: oklch(from var(--scheme-invert) l c h / .1);
   --navbar-item-color: var(--text);
   --navbar-item-padding: var(--item-padding);
   --navbar-item-hover-color: var(--link);
@@ -5870,7 +5763,7 @@ a.tag:hover {
   --navbar-dropdown-radius: var(--radius-large);
   --navbar-dropdown-z: 20;
   --navbar-dropdown-boxed-radius: var(--radius-large);
-  --navbar-dropdown-boxed-shadow: 0 8px 8px rgba(var(--scheme-invert-rgb), .1), 0 0 0 1px rgba(var(--scheme-invert-rgb), .1);
+  --navbar-dropdown-boxed-shadow: 0 8px 8px oklch(from var(--scheme-invert) l c h / .1), 0 0 0 1px oklch(from var(--scheme-invert) l c h / .1);
   --navbar-dropdown-item-hover-color: var(--scheme-invert);
   --navbar-dropdown-item-hover-background-color: var(--background);
   --navbar-dropdown-item-active-color: var(--link);
@@ -5898,8 +5791,7 @@ a.tag:hover {
 }
 
 .navbar.is-white .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-white .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  --navbar-item-hover-background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l)  + -5%), var(--white-a));
-  background-color: var(--navbar-item-hover-background-color);
+  background-color: oklch(from var(--white) clamp(0, l - .05, 1) c h);
   color: var(--white-invert);
 }
 
@@ -5918,8 +5810,8 @@ a.tag:hover {
   }
 
   .navbar.is-white :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-white :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l)  + -5%), var(--white-a));
-    background-color: var(--navbar-item-hover-background-color);
+    --navbar-item-hover-background-color: ;
+    background-color: oklch(from var(--white) clamp(0, l - .05, 1) c h);
     color: var(--white-invert);
   }
 
@@ -5928,8 +5820,7 @@ a.tag:hover {
   }
 
   .navbar.is-white .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l)  + -5%), var(--white-a));
-    background-color: var(--navbar-dropdown-item-hover-background-color);
+    background-color: oklch(from var(--white) clamp(0, l - .05, 1) c h);
     color: var(--white-invert);
   }
 
@@ -5950,8 +5841,7 @@ a.tag:hover {
 }
 
 .navbar.is-black .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-black .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  --navbar-item-hover-background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l)  + -5%), var(--black-a));
-  background-color: var(--navbar-item-hover-background-color);
+  background-color: oklch(from var(--black) clamp(0, l - .05, 1) c h);
   color: var(--black-invert);
 }
 
@@ -5970,8 +5860,8 @@ a.tag:hover {
   }
 
   .navbar.is-black :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-black :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l)  + -5%), var(--black-a));
-    background-color: var(--navbar-item-hover-background-color);
+    --navbar-item-hover-background-color: ;
+    background-color: oklch(from var(--black) clamp(0, l - .05, 1) c h);
     color: var(--black-invert);
   }
 
@@ -5980,8 +5870,7 @@ a.tag:hover {
   }
 
   .navbar.is-black .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l)  + -5%), var(--black-a));
-    background-color: var(--navbar-dropdown-item-hover-background-color);
+    background-color: oklch(from var(--black) clamp(0, l - .05, 1) c h);
     color: var(--black-invert);
   }
 
@@ -6002,8 +5891,7 @@ a.tag:hover {
 }
 
 .navbar.is-light .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-light .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  --navbar-item-hover-background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l)  + -5%), var(--light-a));
-  background-color: var(--navbar-item-hover-background-color);
+  background-color: oklch(from var(--light) clamp(0, l - .05, 1) c h);
   color: var(--light-invert);
 }
 
@@ -6022,8 +5910,8 @@ a.tag:hover {
   }
 
   .navbar.is-light :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-light :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l)  + -5%), var(--light-a));
-    background-color: var(--navbar-item-hover-background-color);
+    --navbar-item-hover-background-color: ;
+    background-color: oklch(from var(--light) clamp(0, l - .05, 1) c h);
     color: var(--light-invert);
   }
 
@@ -6032,8 +5920,7 @@ a.tag:hover {
   }
 
   .navbar.is-light .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l)  + -5%), var(--light-a));
-    background-color: var(--navbar-dropdown-item-hover-background-color);
+    background-color: oklch(from var(--light) clamp(0, l - .05, 1) c h);
     color: var(--light-invert);
   }
 
@@ -6054,8 +5941,7 @@ a.tag:hover {
 }
 
 .navbar.is-dark .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-dark .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  --navbar-item-hover-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l)  + -5%), var(--dark-a));
-  background-color: var(--navbar-item-hover-background-color);
+  background-color: oklch(from var(--dark) clamp(0, l - .05, 1) c h);
   color: var(--dark-invert);
 }
 
@@ -6074,8 +5960,8 @@ a.tag:hover {
   }
 
   .navbar.is-dark :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-dark :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l)  + -5%), var(--dark-a));
-    background-color: var(--navbar-item-hover-background-color);
+    --navbar-item-hover-background-color: ;
+    background-color: oklch(from var(--dark) clamp(0, l - .05, 1) c h);
     color: var(--dark-invert);
   }
 
@@ -6084,8 +5970,7 @@ a.tag:hover {
   }
 
   .navbar.is-dark .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l)  + -5%), var(--dark-a));
-    background-color: var(--navbar-dropdown-item-hover-background-color);
+    background-color: oklch(from var(--dark) clamp(0, l - .05, 1) c h);
     color: var(--dark-invert);
   }
 
@@ -6106,8 +5991,7 @@ a.tag:hover {
 }
 
 .navbar.is-primary .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-primary .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  --navbar-item-hover-background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l)  + -5%), var(--primary-a));
-  background-color: var(--navbar-item-hover-background-color);
+  background-color: oklch(from var(--primary) clamp(0, l - .05, 1) c h);
   color: var(--primary-invert);
 }
 
@@ -6126,8 +6010,8 @@ a.tag:hover {
   }
 
   .navbar.is-primary :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-primary :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l)  + -5%), var(--primary-a));
-    background-color: var(--navbar-item-hover-background-color);
+    --navbar-item-hover-background-color: ;
+    background-color: oklch(from var(--primary) clamp(0, l - .05, 1) c h);
     color: var(--primary-invert);
   }
 
@@ -6136,8 +6020,7 @@ a.tag:hover {
   }
 
   .navbar.is-primary .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l)  + -5%), var(--primary-a));
-    background-color: var(--navbar-dropdown-item-hover-background-color);
+    background-color: oklch(from var(--primary) clamp(0, l - .05, 1) c h);
     color: var(--primary-invert);
   }
 
@@ -6158,8 +6041,7 @@ a.tag:hover {
 }
 
 .navbar.is-secondary .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-secondary .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  --navbar-item-hover-background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l)  + -5%), var(--secondary-a));
-  background-color: var(--navbar-item-hover-background-color);
+  background-color: oklch(from var(--secondary) clamp(0, l - .05, 1) c h);
   color: var(--secondary-invert);
 }
 
@@ -6178,8 +6060,8 @@ a.tag:hover {
   }
 
   .navbar.is-secondary :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-secondary :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l)  + -5%), var(--secondary-a));
-    background-color: var(--navbar-item-hover-background-color);
+    --navbar-item-hover-background-color: ;
+    background-color: oklch(from var(--secondary) clamp(0, l - .05, 1) c h);
     color: var(--secondary-invert);
   }
 
@@ -6188,8 +6070,7 @@ a.tag:hover {
   }
 
   .navbar.is-secondary .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l)  + -5%), var(--secondary-a));
-    background-color: var(--navbar-dropdown-item-hover-background-color);
+    background-color: oklch(from var(--secondary) clamp(0, l - .05, 1) c h);
     color: var(--secondary-invert);
   }
 
@@ -6210,8 +6091,7 @@ a.tag:hover {
 }
 
 .navbar.is-link .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-link .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  --navbar-item-hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l)  + -5%), var(--link-a));
-  background-color: var(--navbar-item-hover-background-color);
+  background-color: oklch(from var(--link) clamp(0, l - .05, 1) c h);
   color: var(--link-invert);
 }
 
@@ -6230,8 +6110,8 @@ a.tag:hover {
   }
 
   .navbar.is-link :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-link :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l)  + -5%), var(--link-a));
-    background-color: var(--navbar-item-hover-background-color);
+    --navbar-item-hover-background-color: ;
+    background-color: oklch(from var(--link) clamp(0, l - .05, 1) c h);
     color: var(--link-invert);
   }
 
@@ -6240,8 +6120,7 @@ a.tag:hover {
   }
 
   .navbar.is-link .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l)  + -5%), var(--link-a));
-    background-color: var(--navbar-dropdown-item-hover-background-color);
+    background-color: oklch(from var(--link) clamp(0, l - .05, 1) c h);
     color: var(--link-invert);
   }
 
@@ -6262,8 +6141,7 @@ a.tag:hover {
 }
 
 .navbar.is-info .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-info .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  --navbar-item-hover-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l)  + -5%), var(--info-a));
-  background-color: var(--navbar-item-hover-background-color);
+  background-color: oklch(from var(--info) clamp(0, l - .05, 1) c h);
   color: var(--info-invert);
 }
 
@@ -6282,8 +6160,8 @@ a.tag:hover {
   }
 
   .navbar.is-info :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-info :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l)  + -5%), var(--info-a));
-    background-color: var(--navbar-item-hover-background-color);
+    --navbar-item-hover-background-color: ;
+    background-color: oklch(from var(--info) clamp(0, l - .05, 1) c h);
     color: var(--info-invert);
   }
 
@@ -6292,8 +6170,7 @@ a.tag:hover {
   }
 
   .navbar.is-info .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l)  + -5%), var(--info-a));
-    background-color: var(--navbar-dropdown-item-hover-background-color);
+    background-color: oklch(from var(--info) clamp(0, l - .05, 1) c h);
     color: var(--info-invert);
   }
 
@@ -6314,8 +6191,7 @@ a.tag:hover {
 }
 
 .navbar.is-success .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-success .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  --navbar-item-hover-background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l)  + -5%), var(--success-a));
-  background-color: var(--navbar-item-hover-background-color);
+  background-color: oklch(from var(--success) clamp(0, l - .05, 1) c h);
   color: var(--success-invert);
 }
 
@@ -6334,8 +6210,8 @@ a.tag:hover {
   }
 
   .navbar.is-success :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-success :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l)  + -5%), var(--success-a));
-    background-color: var(--navbar-item-hover-background-color);
+    --navbar-item-hover-background-color: ;
+    background-color: oklch(from var(--success) clamp(0, l - .05, 1) c h);
     color: var(--success-invert);
   }
 
@@ -6344,8 +6220,7 @@ a.tag:hover {
   }
 
   .navbar.is-success .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l)  + -5%), var(--success-a));
-    background-color: var(--navbar-dropdown-item-hover-background-color);
+    background-color: oklch(from var(--success) clamp(0, l - .05, 1) c h);
     color: var(--success-invert);
   }
 
@@ -6366,8 +6241,7 @@ a.tag:hover {
 }
 
 .navbar.is-warning .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-warning .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  --navbar-item-hover-background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l)  + -5%), var(--warning-a));
-  background-color: var(--navbar-item-hover-background-color);
+  background-color: oklch(from var(--warning) clamp(0, l - .05, 1) c h);
   color: var(--warning-invert);
 }
 
@@ -6386,8 +6260,8 @@ a.tag:hover {
   }
 
   .navbar.is-warning :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-warning :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l)  + -5%), var(--warning-a));
-    background-color: var(--navbar-item-hover-background-color);
+    --navbar-item-hover-background-color: ;
+    background-color: oklch(from var(--warning) clamp(0, l - .05, 1) c h);
     color: var(--warning-invert);
   }
 
@@ -6396,8 +6270,7 @@ a.tag:hover {
   }
 
   .navbar.is-warning .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l)  + -5%), var(--warning-a));
-    background-color: var(--navbar-dropdown-item-hover-background-color);
+    background-color: oklch(from var(--warning) clamp(0, l - .05, 1) c h);
     color: var(--warning-invert);
   }
 
@@ -6418,8 +6291,7 @@ a.tag:hover {
 }
 
 .navbar.is-danger .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-danger .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  --navbar-item-hover-background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l)  + -5%), var(--danger-a));
-  background-color: var(--navbar-item-hover-background-color);
+  background-color: oklch(from var(--danger) clamp(0, l - .05, 1) c h);
   color: var(--danger-invert);
 }
 
@@ -6438,8 +6310,8 @@ a.tag:hover {
   }
 
   .navbar.is-danger :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-danger :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l)  + -5%), var(--danger-a));
-    background-color: var(--navbar-item-hover-background-color);
+    --navbar-item-hover-background-color: ;
+    background-color: oklch(from var(--danger) clamp(0, l - .05, 1) c h);
     color: var(--danger-invert);
   }
 
@@ -6448,8 +6320,7 @@ a.tag:hover {
   }
 
   .navbar.is-danger .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    --navbar-dropdown-item-hover-background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l)  + -5%), var(--danger-a));
-    background-color: var(--navbar-dropdown-item-hover-background-color);
+    background-color: oklch(from var(--danger) clamp(0, l - .05, 1) c h);
     color: var(--danger-invert);
   }
 
@@ -6514,58 +6385,71 @@ html.has-navbar-fixed-bottom, body.has-navbar-fixed-bottom {
 }
 
 .navbar-burger {
-  color: var(--navbar-burger-color);
-  --hamburger-dimensions: var(--navbar-height);
+  --burger-color: var(--navbar-burger-color);
+  --burger-dimensions: var(--navbar-height);
+  --burger-gap: 5px;
+  --burger-item-height: .125rem;
+  --burger-item-width: 1.125rem;
   appearance: none;
+  color: var(--burger-color);
   cursor: pointer;
-  height: var(--hamburger-dimensions);
-  width: var(--hamburger-dimensions);
+  height: var(--burger-dimensions);
+  vertical-align: top;
+  width: var(--burger-dimensions);
   background: none;
   border: none;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
   margin-inline-start: auto;
-  display: block;
+  display: inline-flex;
   position: relative;
 }
 
 .navbar-burger span {
+  height: var(--burger-item-height);
   transform-origin: center;
-  height: 1px;
-  transition-duration: var(--speed);
-  transition-property: background-color, opacity, transform;
+  transition-duration: var(--duration);
+  transition-property: background-color, color, opacity, transform;
   transition-timing-function: var(--easing);
+  width: var(--burger-item-width);
   background-color: currentColor;
-  width: 16px;
   display: block;
   position: absolute;
-  inset-inline-start: calc(50% - 8px);
+  inset-inline-start: calc(50% - (50% - (var(--burger-item-width)) / 2));
 }
 
-.navbar-burger span:first-child {
-  top: calc(50% - 6px);
-}
-
-.navbar-burger span:nth-child(2) {
-  top: calc(50% - 1px);
+.navbar-burger span:first-child, .navbar-burger span:nth-child(2) {
+  top: calc(50% - (var(--burger-item-height)) / 2);
 }
 
 .navbar-burger span:nth-child(3) {
-  top: calc(50% + 4px);
+  bottom: calc(50% + var(--burger-gap));
+}
+
+.navbar-burger span:nth-child(4) {
+  top: calc(50% + var(--burger-gap));
 }
 
 .navbar-burger:hover {
-  background-color: #0000000d;
+  background-color: oklch(from var(--burger-color) l c h / .1);
 }
 
-.navbar-burger.is-active span:first-child {
-  transform: translateY(5px)rotate(45deg);
+.navbar-burger:is(:active, .is-active) {
+  background-color: oklch(from var(--burger-color) l c h / .2);
 }
 
-.navbar-burger.is-active span:nth-child(2) {
+.navbar-burger:is(:active, .is-active) span:first-child {
+  transform: rotate(-45deg);
+}
+
+.navbar-burger:is(:active, .is-active) span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.navbar-burger:is(:active, .is-active) span:nth-child(3), .navbar-burger:is(:active, .is-active) span:nth-child(4) {
   opacity: 0;
-}
-
-.navbar-burger.is-active span:nth-child(3) {
-  transform: translateY(-5px)rotate(-45deg);
 }
 
 .navbar-menu {
@@ -6943,7 +6827,7 @@ a.navbar-item:is(:focus, :focus-within, :hover, .is-active), .navbar-link:is(:fo
   --pagination-current-background-color: var(--link);
   --pagination-current-border-color: var(--link);
   --pagination-ellipsis-color: var(--grey-light);
-  --pagination-shadow-inset: inset 0 1px 2px rgba(var(--scheme-invert-rgb), .2);
+  --pagination-shadow-inset: inset 0 1px 2px oklch(from var(--scheme-invert) l c h / .2);
 }
 
 .pagination {
@@ -9784,8 +9668,8 @@ a.navbar-item:is(:focus, :focus-within, :hover, .is-active), .navbar-link:is(:fo
   color: var(--white) !important;
 }
 
-a.has-text-white:hover, a.has-text-white:focus {
-  color: hsla(var(--white-h), var(--white-s), calc(var(--white-l)  + -10%), var(--white-a)) !important;
+a.has-text-white:is(:hover, :focus) {
+  color: oklch(from var(--white) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-white {
@@ -9796,8 +9680,8 @@ a.has-text-white:hover, a.has-text-white:focus {
   color: var(--black) !important;
 }
 
-a.has-text-black:hover, a.has-text-black:focus {
-  color: hsla(var(--black-h), var(--black-s), calc(var(--black-l)  + -10%), var(--black-a)) !important;
+a.has-text-black:is(:hover, :focus) {
+  color: oklch(from var(--black) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-black {
@@ -9808,8 +9692,8 @@ a.has-text-black:hover, a.has-text-black:focus {
   color: var(--light) !important;
 }
 
-a.has-text-light:hover, a.has-text-light:focus {
-  color: hsla(var(--light-h), var(--light-s), calc(var(--light-l)  + -10%), var(--light-a)) !important;
+a.has-text-light:is(:hover, :focus) {
+  color: oklch(from var(--light) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-light {
@@ -9820,8 +9704,8 @@ a.has-text-light:hover, a.has-text-light:focus {
   color: var(--dark) !important;
 }
 
-a.has-text-dark:hover, a.has-text-dark:focus {
-  color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l)  + -10%), var(--dark-a)) !important;
+a.has-text-dark:is(:hover, :focus) {
+  color: oklch(from var(--dark) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-dark {
@@ -9832,8 +9716,8 @@ a.has-text-dark:hover, a.has-text-dark:focus {
   color: var(--primary) !important;
 }
 
-a.has-text-primary:hover, a.has-text-primary:focus {
-  color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l)  + -10%), var(--primary-a)) !important;
+a.has-text-primary:is(:hover, :focus) {
+  color: oklch(from var(--primary) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-primary {
@@ -9844,8 +9728,8 @@ a.has-text-primary:hover, a.has-text-primary:focus {
   color: var(--primary-light) !important;
 }
 
-a.has-text-primary-light:hover, a.has-text-primary-light:focus {
-  color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-light-l)  - 10%), var(--primary-a)) !important;
+a.has-text-primary-light:is(:hover, :focus) {
+  color: oklch(from var(--primary-light) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-primary-light {
@@ -9856,8 +9740,8 @@ a.has-text-primary-light:hover, a.has-text-primary-light:focus {
   color: var(--primary-dark) !important;
 }
 
-a.has-text-primary-dark:hover, a.has-text-primary-dark:focus {
-  color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-dark-l)  + 10%), var(--primary-a)) !important;
+a.has-text-primary-dark:is(:hover, :focus) {
+  color: oklch(from var(--primary-dark) clamp(0, l + .1, 1) c h) !important;
 }
 
 .has-background-primary-dark {
@@ -9868,8 +9752,8 @@ a.has-text-primary-dark:hover, a.has-text-primary-dark:focus {
   color: var(--secondary) !important;
 }
 
-a.has-text-secondary:hover, a.has-text-secondary:focus {
-  color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l)  + -10%), var(--secondary-a)) !important;
+a.has-text-secondary:is(:hover, :focus) {
+  color: oklch(from var(--secondary) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-secondary {
@@ -9880,8 +9764,8 @@ a.has-text-secondary:hover, a.has-text-secondary:focus {
   color: var(--secondary-light) !important;
 }
 
-a.has-text-secondary-light:hover, a.has-text-secondary-light:focus {
-  color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-light-l)  - 10%), var(--secondary-a)) !important;
+a.has-text-secondary-light:is(:hover, :focus) {
+  color: oklch(from var(--secondary-light) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-secondary-light {
@@ -9892,8 +9776,8 @@ a.has-text-secondary-light:hover, a.has-text-secondary-light:focus {
   color: var(--secondary-dark) !important;
 }
 
-a.has-text-secondary-dark:hover, a.has-text-secondary-dark:focus {
-  color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-dark-l)  + 10%), var(--secondary-a)) !important;
+a.has-text-secondary-dark:is(:hover, :focus) {
+  color: oklch(from var(--secondary-dark) clamp(0, l + .1, 1) c h) !important;
 }
 
 .has-background-secondary-dark {
@@ -9904,8 +9788,8 @@ a.has-text-secondary-dark:hover, a.has-text-secondary-dark:focus {
   color: var(--link) !important;
 }
 
-a.has-text-link:hover, a.has-text-link:focus {
-  color: hsla(var(--link-h), var(--link-s), calc(var(--link-l)  + -10%), var(--link-a)) !important;
+a.has-text-link:is(:hover, :focus) {
+  color: oklch(from var(--link) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-link {
@@ -9916,8 +9800,8 @@ a.has-text-link:hover, a.has-text-link:focus {
   color: var(--link-light) !important;
 }
 
-a.has-text-link-light:hover, a.has-text-link-light:focus {
-  color: hsla(var(--link-h), var(--link-s), calc(var(--link-light-l)  - 10%), var(--link-a)) !important;
+a.has-text-link-light:is(:hover, :focus) {
+  color: oklch(from var(--link-light) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-link-light {
@@ -9928,8 +9812,8 @@ a.has-text-link-light:hover, a.has-text-link-light:focus {
   color: var(--link-dark) !important;
 }
 
-a.has-text-link-dark:hover, a.has-text-link-dark:focus {
-  color: hsla(var(--link-h), var(--link-s), calc(var(--link-dark-l)  + 10%), var(--link-a)) !important;
+a.has-text-link-dark:is(:hover, :focus) {
+  color: oklch(from var(--link-dark) clamp(0, l + .1, 1) c h) !important;
 }
 
 .has-background-link-dark {
@@ -9940,8 +9824,8 @@ a.has-text-link-dark:hover, a.has-text-link-dark:focus {
   color: var(--info) !important;
 }
 
-a.has-text-info:hover, a.has-text-info:focus {
-  color: hsla(var(--info-h), var(--info-s), calc(var(--info-l)  + -10%), var(--info-a)) !important;
+a.has-text-info:is(:hover, :focus) {
+  color: oklch(from var(--info) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-info {
@@ -9952,8 +9836,8 @@ a.has-text-info:hover, a.has-text-info:focus {
   color: var(--info-light) !important;
 }
 
-a.has-text-info-light:hover, a.has-text-info-light:focus {
-  color: hsla(var(--info-h), var(--info-s), calc(var(--info-light-l)  - 10%), var(--info-a)) !important;
+a.has-text-info-light:is(:hover, :focus) {
+  color: oklch(from var(--info-light) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-info-light {
@@ -9964,8 +9848,8 @@ a.has-text-info-light:hover, a.has-text-info-light:focus {
   color: var(--info-dark) !important;
 }
 
-a.has-text-info-dark:hover, a.has-text-info-dark:focus {
-  color: hsla(var(--info-h), var(--info-s), calc(var(--info-dark-l)  + 10%), var(--info-a)) !important;
+a.has-text-info-dark:is(:hover, :focus) {
+  color: oklch(from var(--info-dark) clamp(0, l + .1, 1) c h) !important;
 }
 
 .has-background-info-dark {
@@ -9976,8 +9860,8 @@ a.has-text-info-dark:hover, a.has-text-info-dark:focus {
   color: var(--success) !important;
 }
 
-a.has-text-success:hover, a.has-text-success:focus {
-  color: hsla(var(--success-h), var(--success-s), calc(var(--success-l)  + -10%), var(--success-a)) !important;
+a.has-text-success:is(:hover, :focus) {
+  color: oklch(from var(--success) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-success {
@@ -9988,8 +9872,8 @@ a.has-text-success:hover, a.has-text-success:focus {
   color: var(--success-light) !important;
 }
 
-a.has-text-success-light:hover, a.has-text-success-light:focus {
-  color: hsla(var(--success-h), var(--success-s), calc(var(--success-light-l)  - 10%), var(--success-a)) !important;
+a.has-text-success-light:is(:hover, :focus) {
+  color: oklch(from var(--success-light) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-success-light {
@@ -10000,8 +9884,8 @@ a.has-text-success-light:hover, a.has-text-success-light:focus {
   color: var(--success-dark) !important;
 }
 
-a.has-text-success-dark:hover, a.has-text-success-dark:focus {
-  color: hsla(var(--success-h), var(--success-s), calc(var(--success-dark-l)  + 10%), var(--success-a)) !important;
+a.has-text-success-dark:is(:hover, :focus) {
+  color: oklch(from var(--success-dark) clamp(0, l + .1, 1) c h) !important;
 }
 
 .has-background-success-dark {
@@ -10012,8 +9896,8 @@ a.has-text-success-dark:hover, a.has-text-success-dark:focus {
   color: var(--warning) !important;
 }
 
-a.has-text-warning:hover, a.has-text-warning:focus {
-  color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l)  + -10%), var(--warning-a)) !important;
+a.has-text-warning:is(:hover, :focus) {
+  color: oklch(from var(--warning) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-warning {
@@ -10024,8 +9908,8 @@ a.has-text-warning:hover, a.has-text-warning:focus {
   color: var(--warning-light) !important;
 }
 
-a.has-text-warning-light:hover, a.has-text-warning-light:focus {
-  color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-light-l)  - 10%), var(--warning-a)) !important;
+a.has-text-warning-light:is(:hover, :focus) {
+  color: oklch(from var(--warning-light) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-warning-light {
@@ -10036,8 +9920,8 @@ a.has-text-warning-light:hover, a.has-text-warning-light:focus {
   color: var(--warning-dark) !important;
 }
 
-a.has-text-warning-dark:hover, a.has-text-warning-dark:focus {
-  color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-dark-l)  + 10%), var(--warning-a)) !important;
+a.has-text-warning-dark:is(:hover, :focus) {
+  color: oklch(from var(--warning-dark) clamp(0, l + .1, 1) c h) !important;
 }
 
 .has-background-warning-dark {
@@ -10048,8 +9932,8 @@ a.has-text-warning-dark:hover, a.has-text-warning-dark:focus {
   color: var(--danger) !important;
 }
 
-a.has-text-danger:hover, a.has-text-danger:focus {
-  color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l)  + -10%), var(--danger-a)) !important;
+a.has-text-danger:is(:hover, :focus) {
+  color: oklch(from var(--danger) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-danger {
@@ -10060,8 +9944,8 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   color: var(--danger-light) !important;
 }
 
-a.has-text-danger-light:hover, a.has-text-danger-light:focus {
-  color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-light-l)  - 10%), var(--danger-a)) !important;
+a.has-text-danger-light:is(:hover, :focus) {
+  color: oklch(from var(--danger-light) clamp(0, l - .1, 1) c h) !important;
 }
 
 .has-background-danger-light {
@@ -10072,8 +9956,8 @@ a.has-text-danger-light:hover, a.has-text-danger-light:focus {
   color: var(--danger-dark) !important;
 }
 
-a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
-  color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-dark-l)  + 10%), var(--danger-a)) !important;
+a.has-text-danger-dark:is(:hover, :focus) {
+  color: oklch(from var(--danger-dark) clamp(0, l + .1, 1) c h) !important;
 }
 
 .has-background-danger-dark {
@@ -10487,8 +10371,178 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   }
 }
 
+.is-overflow-auto {
+  overflow: auto !important;
+}
+
+@media screen and (width <= 1023px) {
+  .is-overflow-auto-touch {
+    overflow: auto !important;
+  }
+}
+
+.is-overflow-auto-x {
+  overflow-x: auto !important;
+}
+
+@media screen and (width <= 1023px) {
+  .is-overflow-auto-x-touch {
+    overflow-x: auto !important;
+  }
+}
+
+.is-overflow-auto-y {
+  overflow-y: auto !important;
+}
+
+@media screen and (width <= 1023px) {
+  .is-overflow-auto-y-touch {
+    overflow-y: auto !important;
+  }
+}
+
+.is-overflow-clip {
+  overflow: clip !important;
+}
+
+@media screen and (width <= 1023px) {
+  .is-overflow-clip-touch {
+    overflow: clip !important;
+  }
+}
+
+.is-overflow-clip-x {
+  overflow-x: clip !important;
+}
+
+@media screen and (width <= 1023px) {
+  .is-overflow-clip-x-touch {
+    overflow-x: clip !important;
+  }
+}
+
+.is-overflow-clip-y {
+  overflow-y: clip !important;
+}
+
+@media screen and (width <= 1023px) {
+  .is-overflow-clip-y-touch {
+    overflow-y: clip !important;
+  }
+}
+
+.is-overflow-hidden {
+  overflow: hidden !important;
+}
+
+@media screen and (width <= 1023px) {
+  .is-overflow-hidden-touch {
+    overflow: hidden !important;
+  }
+}
+
+.is-overflow-hidden-x {
+  overflow-x: hidden !important;
+}
+
+@media screen and (width <= 1023px) {
+  .is-overflow-hidden-x-touch {
+    overflow-x: hidden !important;
+  }
+}
+
+.is-overflow-hidden-y {
+  overflow-y: hidden !important;
+}
+
+@media screen and (width <= 1023px) {
+  .is-overflow-hidden-y-touch {
+    overflow-y: hidden !important;
+  }
+}
+
+.is-overflow-scroll {
+  overflow: scroll !important;
+}
+
+@media screen and (width <= 1023px) {
+  .is-overflow-scroll-touch {
+    overflow: scroll !important;
+  }
+}
+
+.is-overflow-scroll-x {
+  overflow-x: scroll !important;
+}
+
+@media screen and (width <= 1023px) {
+  .is-overflow-scroll-x-touch {
+    overflow-x: scroll !important;
+  }
+}
+
+.is-overflow-scroll-y {
+  overflow-y: scroll !important;
+}
+
+@media screen and (width <= 1023px) {
+  .is-overflow-scroll-y-touch {
+    overflow-y: scroll !important;
+  }
+}
+
+.is-overflow-visible {
+  overflow: visible !important;
+}
+
+@media screen and (width <= 1023px) {
+  .is-overflow-visible-touch {
+    overflow: visible !important;
+  }
+}
+
+.is-overflow-visible-x {
+  overflow-x: visible !important;
+}
+
+@media screen and (width <= 1023px) {
+  .is-overflow-visible-x-touch {
+    overflow-x: visible !important;
+  }
+}
+
+.is-overflow-visible-y {
+  overflow-y: visible !important;
+}
+
+@media screen and (width <= 1023px) {
+  .is-overflow-visible-y-touch {
+    overflow-y: visible !important;
+  }
+}
+
 .is-relative {
   position: relative !important;
+}
+
+.is-position-absolute {
+  position: absolute !important;
+}
+
+.is-position-fixed {
+  position: fixed !important;
+}
+
+.is-position-relative {
+  position: relative !important;
+}
+
+.is-position-static {
+  position: static !important;
+}
+
+.is-position-sticky {
+  position: sticky !important;
 }
 
 .is-marginless {
@@ -11864,6 +11918,49 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   }
 }
 
+.container {
+  flex-grow: 1;
+  width: auto;
+  margin: 0 auto;
+  position: relative;
+}
+
+.container.is-fluid {
+  width: 100%;
+  padding-inline: 32px;
+  max-width: none !important;
+}
+
+@media screen and (width >= 1024px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media screen and (width <= 1215px) {
+  .container.is-widescreen:not(.is-max-desktop) {
+    max-width: 1152px;
+  }
+}
+
+@media screen and (width <= 1407px) {
+  .container.is-fullhd:not(.is-max-desktop, .is-max-widescreen) {
+    max-width: 1344px;
+  }
+}
+
+@media screen and (width >= 1216px) {
+  .container:not(.is-max-desktop) {
+    max-width: 1152px;
+  }
+}
+
+@media screen and (width >= 1408px) {
+  .container:not(.is-max-desktop, .is-max-widescreen) {
+    max-width: 1344px;
+  }
+}
+
 :root {
   --hero-body-padding: 3rem 1.5rem;
   --hero-body-padding-tablet: 3rem 3rem;
@@ -11919,7 +12016,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-white :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: hsla(var(--white-h), var(--white-s), calc(var(--white-l)  + -5%), var(--white-a));
+  background-color: oklch(from var(--white) clamp(0, l - .05, 1) c h);
   color: var(--white-invert);
 }
 
@@ -11942,7 +12039,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-white .tabs:is(.is-boxed, .is-toggle) a:hover {
-  background-color: rgba(var(--scheme-invert-rgb), .1);
+  background-color: oklch(from var(--scheme-invert) l c h / .1);
 }
 
 .hero.is-white .tabs:is(.is-boxed, .is-toggle) li.is-active a, .hero.is-white .tabs:is(.is-boxed, .is-toggle) li.is-active a:hover {
@@ -11952,12 +12049,12 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-white.is-bold {
-  background-image: linear-gradient(141deg, hsla(calc(var(--white-h)  - 10deg), calc(var(--white-s)  + 10%), calc(var(--white-l)  - 10%), var(--white-a)) 0%, #fff 71%, hsla(calc(var(--white-h)  + 10deg), calc(var(--white-s)  + 5%), calc(var(--white-l)  + 5%), var(--white-a)) 100%);
+  background-image: linear-gradient(141deg, color-mix(in oklch, var(--white) 80%, oklch(.3 .1 calc(from var(--white) h - 20)) 20%) 0%, var(--white) 71%, color-mix(in oklch, var(--white) 85%, oklch(.9 .05 calc(from var(--white) h + 20)) 15%) 100%);
 }
 
 @media screen and (width <= 768px) {
   .hero.is-white.is-bold .navbar-menu {
-    background-image: linear-gradient(141deg, hsla(calc(var(--white-h)  - 10deg), calc(var(--white-s)  + 10%), calc(var(--white-l)  - 10%), var(--white-a)) 0%, #fff 71%, hsla(calc(var(--white-h)  + 10deg), calc(var(--white-s)  + 5%), calc(var(--white-l)  + 5%), var(--white-a)) 100%);
+    background-image: linear-gradient(141deg, color-mix(in oklch, var(--white) 80%, oklch(.3 .1 calc(from var(--white) h - 20)) 20%) 0%, var(--white) 71%, color-mix(in oklch, var(--white) 85%, oklch(.9 .05 calc(from var(--white) h + 20)) 15%) 100%);
   }
 }
 
@@ -11993,7 +12090,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-black :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: hsla(var(--black-h), var(--black-s), calc(var(--black-l)  + -5%), var(--black-a));
+  background-color: oklch(from var(--black) clamp(0, l - .05, 1) c h);
   color: var(--black-invert);
 }
 
@@ -12016,7 +12113,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-black .tabs:is(.is-boxed, .is-toggle) a:hover {
-  background-color: rgba(var(--scheme-invert-rgb), .1);
+  background-color: oklch(from var(--scheme-invert) l c h / .1);
 }
 
 .hero.is-black .tabs:is(.is-boxed, .is-toggle) li.is-active a, .hero.is-black .tabs:is(.is-boxed, .is-toggle) li.is-active a:hover {
@@ -12026,12 +12123,12 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-black.is-bold {
-  background-image: linear-gradient(141deg, hsla(calc(var(--black-h)  - 10deg), calc(var(--black-s)  + 10%), calc(var(--black-l)  - 10%), var(--black-a)) 0%, #0a0a0a 71%, hsla(calc(var(--black-h)  + 10deg), calc(var(--black-s)  + 5%), calc(var(--black-l)  + 5%), var(--black-a)) 100%);
+  background-image: linear-gradient(141deg, color-mix(in oklch, var(--black) 80%, oklch(.3 .1 calc(from var(--black) h - 20)) 20%) 0%, var(--black) 71%, color-mix(in oklch, var(--black) 85%, oklch(.9 .05 calc(from var(--black) h + 20)) 15%) 100%);
 }
 
 @media screen and (width <= 768px) {
   .hero.is-black.is-bold .navbar-menu {
-    background-image: linear-gradient(141deg, hsla(calc(var(--black-h)  - 10deg), calc(var(--black-s)  + 10%), calc(var(--black-l)  - 10%), var(--black-a)) 0%, #0a0a0a 71%, hsla(calc(var(--black-h)  + 10deg), calc(var(--black-s)  + 5%), calc(var(--black-l)  + 5%), var(--black-a)) 100%);
+    background-image: linear-gradient(141deg, color-mix(in oklch, var(--black) 80%, oklch(.3 .1 calc(from var(--black) h - 20)) 20%) 0%, var(--black) 71%, color-mix(in oklch, var(--black) 85%, oklch(.9 .05 calc(from var(--black) h + 20)) 15%) 100%);
   }
 }
 
@@ -12067,7 +12164,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-light :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: hsla(var(--light-h), var(--light-s), calc(var(--light-l)  + -5%), var(--light-a));
+  background-color: oklch(from var(--light) clamp(0, l - .05, 1) c h);
   color: var(--light-invert);
 }
 
@@ -12090,7 +12187,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-light .tabs:is(.is-boxed, .is-toggle) a:hover {
-  background-color: rgba(var(--scheme-invert-rgb), .1);
+  background-color: oklch(from var(--scheme-invert) l c h / .1);
 }
 
 .hero.is-light .tabs:is(.is-boxed, .is-toggle) li.is-active a, .hero.is-light .tabs:is(.is-boxed, .is-toggle) li.is-active a:hover {
@@ -12100,12 +12197,12 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-light.is-bold {
-  background-image: linear-gradient(141deg, hsla(calc(var(--light-h)  - 10deg), calc(var(--light-s)  + 10%), calc(var(--light-l)  - 10%), var(--light-a)) 0%, #ebebeb 71%, hsla(calc(var(--light-h)  + 10deg), calc(var(--light-s)  + 5%), calc(var(--light-l)  + 5%), var(--light-a)) 100%);
+  background-image: linear-gradient(141deg, color-mix(in oklch, var(--light) 80%, oklch(.3 .1 calc(from var(--light) h - 20)) 20%) 0%, var(--light) 71%, color-mix(in oklch, var(--light) 85%, oklch(.9 .05 calc(from var(--light) h + 20)) 15%) 100%);
 }
 
 @media screen and (width <= 768px) {
   .hero.is-light.is-bold .navbar-menu {
-    background-image: linear-gradient(141deg, hsla(calc(var(--light-h)  - 10deg), calc(var(--light-s)  + 10%), calc(var(--light-l)  - 10%), var(--light-a)) 0%, #ebebeb 71%, hsla(calc(var(--light-h)  + 10deg), calc(var(--light-s)  + 5%), calc(var(--light-l)  + 5%), var(--light-a)) 100%);
+    background-image: linear-gradient(141deg, color-mix(in oklch, var(--light) 80%, oklch(.3 .1 calc(from var(--light) h - 20)) 20%) 0%, var(--light) 71%, color-mix(in oklch, var(--light) 85%, oklch(.9 .05 calc(from var(--light) h + 20)) 15%) 100%);
   }
 }
 
@@ -12141,7 +12238,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-dark :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: hsla(var(--dark-h), var(--dark-s), calc(var(--dark-l)  + -5%), var(--dark-a));
+  background-color: oklch(from var(--dark) clamp(0, l - .05, 1) c h);
   color: var(--dark-invert);
 }
 
@@ -12164,7 +12261,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-dark .tabs:is(.is-boxed, .is-toggle) a:hover {
-  background-color: rgba(var(--scheme-invert-rgb), .1);
+  background-color: oklch(from var(--scheme-invert) l c h / .1);
 }
 
 .hero.is-dark .tabs:is(.is-boxed, .is-toggle) li.is-active a, .hero.is-dark .tabs:is(.is-boxed, .is-toggle) li.is-active a:hover {
@@ -12174,12 +12271,12 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-dark.is-bold {
-  background-image: linear-gradient(141deg, hsla(calc(var(--dark-h)  - 10deg), calc(var(--dark-s)  + 10%), calc(var(--dark-l)  - 10%), var(--dark-a)) 0%, #363636 71%, hsla(calc(var(--dark-h)  + 10deg), calc(var(--dark-s)  + 5%), calc(var(--dark-l)  + 5%), var(--dark-a)) 100%);
+  background-image: linear-gradient(141deg, color-mix(in oklch, var(--dark) 80%, oklch(.3 .1 calc(from var(--dark) h - 20)) 20%) 0%, var(--dark) 71%, color-mix(in oklch, var(--dark) 85%, oklch(.9 .05 calc(from var(--dark) h + 20)) 15%) 100%);
 }
 
 @media screen and (width <= 768px) {
   .hero.is-dark.is-bold .navbar-menu {
-    background-image: linear-gradient(141deg, hsla(calc(var(--dark-h)  - 10deg), calc(var(--dark-s)  + 10%), calc(var(--dark-l)  - 10%), var(--dark-a)) 0%, #363636 71%, hsla(calc(var(--dark-h)  + 10deg), calc(var(--dark-s)  + 5%), calc(var(--dark-l)  + 5%), var(--dark-a)) 100%);
+    background-image: linear-gradient(141deg, color-mix(in oklch, var(--dark) 80%, oklch(.3 .1 calc(from var(--dark) h - 20)) 20%) 0%, var(--dark) 71%, color-mix(in oklch, var(--dark) 85%, oklch(.9 .05 calc(from var(--dark) h + 20)) 15%) 100%);
   }
 }
 
@@ -12215,7 +12312,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-primary :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: hsla(var(--primary-h), var(--primary-s), calc(var(--primary-l)  + -5%), var(--primary-a));
+  background-color: oklch(from var(--primary) clamp(0, l - .05, 1) c h);
   color: var(--primary-invert);
 }
 
@@ -12238,7 +12335,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-primary .tabs:is(.is-boxed, .is-toggle) a:hover {
-  background-color: rgba(var(--scheme-invert-rgb), .1);
+  background-color: oklch(from var(--scheme-invert) l c h / .1);
 }
 
 .hero.is-primary .tabs:is(.is-boxed, .is-toggle) li.is-active a, .hero.is-primary .tabs:is(.is-boxed, .is-toggle) li.is-active a:hover {
@@ -12248,12 +12345,12 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-primary.is-bold {
-  background-image: linear-gradient(141deg, hsla(calc(var(--primary-h)  - 10deg), calc(var(--primary-s)  + 10%), calc(var(--primary-l)  - 10%), var(--primary-a)) 0%, #18a57d 71%, hsla(calc(var(--primary-h)  + 10deg), calc(var(--primary-s)  + 5%), calc(var(--primary-l)  + 5%), var(--primary-a)) 100%);
+  background-image: linear-gradient(141deg, color-mix(in oklch, var(--primary) 80%, oklch(.3 .1 calc(from var(--primary) h - 20)) 20%) 0%, var(--primary) 71%, color-mix(in oklch, var(--primary) 85%, oklch(.9 .05 calc(from var(--primary) h + 20)) 15%) 100%);
 }
 
 @media screen and (width <= 768px) {
   .hero.is-primary.is-bold .navbar-menu {
-    background-image: linear-gradient(141deg, hsla(calc(var(--primary-h)  - 10deg), calc(var(--primary-s)  + 10%), calc(var(--primary-l)  - 10%), var(--primary-a)) 0%, #18a57d 71%, hsla(calc(var(--primary-h)  + 10deg), calc(var(--primary-s)  + 5%), calc(var(--primary-l)  + 5%), var(--primary-a)) 100%);
+    background-image: linear-gradient(141deg, color-mix(in oklch, var(--primary) 80%, oklch(.3 .1 calc(from var(--primary) h - 20)) 20%) 0%, var(--primary) 71%, color-mix(in oklch, var(--primary) 85%, oklch(.9 .05 calc(from var(--primary) h + 20)) 15%) 100%);
   }
 }
 
@@ -12289,7 +12386,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-secondary :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: hsla(var(--secondary-h), var(--secondary-s), calc(var(--secondary-l)  + -5%), var(--secondary-a));
+  background-color: oklch(from var(--secondary) clamp(0, l - .05, 1) c h);
   color: var(--secondary-invert);
 }
 
@@ -12312,7 +12409,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-secondary .tabs:is(.is-boxed, .is-toggle) a:hover {
-  background-color: rgba(var(--scheme-invert-rgb), .1);
+  background-color: oklch(from var(--scheme-invert) l c h / .1);
 }
 
 .hero.is-secondary .tabs:is(.is-boxed, .is-toggle) li.is-active a, .hero.is-secondary .tabs:is(.is-boxed, .is-toggle) li.is-active a:hover {
@@ -12322,12 +12419,12 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-secondary.is-bold {
-  background-image: linear-gradient(141deg, hsla(calc(var(--secondary-h)  - 10deg), calc(var(--secondary-s)  + 10%), calc(var(--secondary-l)  - 10%), var(--secondary-a)) 0%, #2857a4 71%, hsla(calc(var(--secondary-h)  + 10deg), calc(var(--secondary-s)  + 5%), calc(var(--secondary-l)  + 5%), var(--secondary-a)) 100%);
+  background-image: linear-gradient(141deg, color-mix(in oklch, var(--secondary) 80%, oklch(.3 .1 calc(from var(--secondary) h - 20)) 20%) 0%, var(--secondary) 71%, color-mix(in oklch, var(--secondary) 85%, oklch(.9 .05 calc(from var(--secondary) h + 20)) 15%) 100%);
 }
 
 @media screen and (width <= 768px) {
   .hero.is-secondary.is-bold .navbar-menu {
-    background-image: linear-gradient(141deg, hsla(calc(var(--secondary-h)  - 10deg), calc(var(--secondary-s)  + 10%), calc(var(--secondary-l)  - 10%), var(--secondary-a)) 0%, #2857a4 71%, hsla(calc(var(--secondary-h)  + 10deg), calc(var(--secondary-s)  + 5%), calc(var(--secondary-l)  + 5%), var(--secondary-a)) 100%);
+    background-image: linear-gradient(141deg, color-mix(in oklch, var(--secondary) 80%, oklch(.3 .1 calc(from var(--secondary) h - 20)) 20%) 0%, var(--secondary) 71%, color-mix(in oklch, var(--secondary) 85%, oklch(.9 .05 calc(from var(--secondary) h + 20)) 15%) 100%);
   }
 }
 
@@ -12363,7 +12460,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-link :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: hsla(var(--link-h), var(--link-s), calc(var(--link-l)  + -5%), var(--link-a));
+  background-color: oklch(from var(--link) clamp(0, l - .05, 1) c h);
   color: var(--link-invert);
 }
 
@@ -12386,7 +12483,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-link .tabs:is(.is-boxed, .is-toggle) a:hover {
-  background-color: rgba(var(--scheme-invert-rgb), .1);
+  background-color: oklch(from var(--scheme-invert) l c h / .1);
 }
 
 .hero.is-link .tabs:is(.is-boxed, .is-toggle) li.is-active a, .hero.is-link .tabs:is(.is-boxed, .is-toggle) li.is-active a:hover {
@@ -12396,12 +12493,12 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-link.is-bold {
-  background-image: linear-gradient(141deg, hsla(calc(var(--link-h)  - 10deg), calc(var(--link-s)  + 10%), calc(var(--link-l)  - 10%), var(--link-a)) 0%, #2857a4 71%, hsla(calc(var(--link-h)  + 10deg), calc(var(--link-s)  + 5%), calc(var(--link-l)  + 5%), var(--link-a)) 100%);
+  background-image: linear-gradient(141deg, color-mix(in oklch, var(--link) 80%, oklch(.3 .1 calc(from var(--link) h - 20)) 20%) 0%, var(--link) 71%, color-mix(in oklch, var(--link) 85%, oklch(.9 .05 calc(from var(--link) h + 20)) 15%) 100%);
 }
 
 @media screen and (width <= 768px) {
   .hero.is-link.is-bold .navbar-menu {
-    background-image: linear-gradient(141deg, hsla(calc(var(--link-h)  - 10deg), calc(var(--link-s)  + 10%), calc(var(--link-l)  - 10%), var(--link-a)) 0%, #2857a4 71%, hsla(calc(var(--link-h)  + 10deg), calc(var(--link-s)  + 5%), calc(var(--link-l)  + 5%), var(--link-a)) 100%);
+    background-image: linear-gradient(141deg, color-mix(in oklch, var(--link) 80%, oklch(.3 .1 calc(from var(--link) h - 20)) 20%) 0%, var(--link) 71%, color-mix(in oklch, var(--link) 85%, oklch(.9 .05 calc(from var(--link) h + 20)) 15%) 100%);
   }
 }
 
@@ -12437,7 +12534,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-info :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: hsla(var(--info-h), var(--info-s), calc(var(--info-l)  + -5%), var(--info-a));
+  background-color: oklch(from var(--info) clamp(0, l - .05, 1) c h);
   color: var(--info-invert);
 }
 
@@ -12460,7 +12557,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-info .tabs:is(.is-boxed, .is-toggle) a:hover {
-  background-color: rgba(var(--scheme-invert-rgb), .1);
+  background-color: oklch(from var(--scheme-invert) l c h / .1);
 }
 
 .hero.is-info .tabs:is(.is-boxed, .is-toggle) li.is-active a, .hero.is-info .tabs:is(.is-boxed, .is-toggle) li.is-active a:hover {
@@ -12470,12 +12567,12 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-info.is-bold {
-  background-image: linear-gradient(141deg, hsla(calc(var(--info-h)  - 10deg), calc(var(--info-s)  + 10%), calc(var(--info-l)  - 10%), var(--info-a)) 0%, #3e8ed0 71%, hsla(calc(var(--info-h)  + 10deg), calc(var(--info-s)  + 5%), calc(var(--info-l)  + 5%), var(--info-a)) 100%);
+  background-image: linear-gradient(141deg, color-mix(in oklch, var(--info) 80%, oklch(.3 .1 calc(from var(--info) h - 20)) 20%) 0%, var(--info) 71%, color-mix(in oklch, var(--info) 85%, oklch(.9 .05 calc(from var(--info) h + 20)) 15%) 100%);
 }
 
 @media screen and (width <= 768px) {
   .hero.is-info.is-bold .navbar-menu {
-    background-image: linear-gradient(141deg, hsla(calc(var(--info-h)  - 10deg), calc(var(--info-s)  + 10%), calc(var(--info-l)  - 10%), var(--info-a)) 0%, #3e8ed0 71%, hsla(calc(var(--info-h)  + 10deg), calc(var(--info-s)  + 5%), calc(var(--info-l)  + 5%), var(--info-a)) 100%);
+    background-image: linear-gradient(141deg, color-mix(in oklch, var(--info) 80%, oklch(.3 .1 calc(from var(--info) h - 20)) 20%) 0%, var(--info) 71%, color-mix(in oklch, var(--info) 85%, oklch(.9 .05 calc(from var(--info) h + 20)) 15%) 100%);
   }
 }
 
@@ -12511,7 +12608,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-success :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: hsla(var(--success-h), var(--success-s), calc(var(--success-l)  + -5%), var(--success-a));
+  background-color: oklch(from var(--success) clamp(0, l - .05, 1) c h);
   color: var(--success-invert);
 }
 
@@ -12534,7 +12631,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-success .tabs:is(.is-boxed, .is-toggle) a:hover {
-  background-color: rgba(var(--scheme-invert-rgb), .1);
+  background-color: oklch(from var(--scheme-invert) l c h / .1);
 }
 
 .hero.is-success .tabs:is(.is-boxed, .is-toggle) li.is-active a, .hero.is-success .tabs:is(.is-boxed, .is-toggle) li.is-active a:hover {
@@ -12544,12 +12641,12 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-success.is-bold {
-  background-image: linear-gradient(141deg, hsla(calc(var(--success-h)  - 10deg), calc(var(--success-s)  + 10%), calc(var(--success-l)  - 10%), var(--success-a)) 0%, #48c78e 71%, hsla(calc(var(--success-h)  + 10deg), calc(var(--success-s)  + 5%), calc(var(--success-l)  + 5%), var(--success-a)) 100%);
+  background-image: linear-gradient(141deg, color-mix(in oklch, var(--success) 80%, oklch(.3 .1 calc(from var(--success) h - 20)) 20%) 0%, var(--success) 71%, color-mix(in oklch, var(--success) 85%, oklch(.9 .05 calc(from var(--success) h + 20)) 15%) 100%);
 }
 
 @media screen and (width <= 768px) {
   .hero.is-success.is-bold .navbar-menu {
-    background-image: linear-gradient(141deg, hsla(calc(var(--success-h)  - 10deg), calc(var(--success-s)  + 10%), calc(var(--success-l)  - 10%), var(--success-a)) 0%, #48c78e 71%, hsla(calc(var(--success-h)  + 10deg), calc(var(--success-s)  + 5%), calc(var(--success-l)  + 5%), var(--success-a)) 100%);
+    background-image: linear-gradient(141deg, color-mix(in oklch, var(--success) 80%, oklch(.3 .1 calc(from var(--success) h - 20)) 20%) 0%, var(--success) 71%, color-mix(in oklch, var(--success) 85%, oklch(.9 .05 calc(from var(--success) h + 20)) 15%) 100%);
   }
 }
 
@@ -12585,7 +12682,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-warning :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: hsla(var(--warning-h), var(--warning-s), calc(var(--warning-l)  + -5%), var(--warning-a));
+  background-color: oklch(from var(--warning) clamp(0, l - .05, 1) c h);
   color: var(--warning-invert);
 }
 
@@ -12608,7 +12705,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-warning .tabs:is(.is-boxed, .is-toggle) a:hover {
-  background-color: rgba(var(--scheme-invert-rgb), .1);
+  background-color: oklch(from var(--scheme-invert) l c h / .1);
 }
 
 .hero.is-warning .tabs:is(.is-boxed, .is-toggle) li.is-active a, .hero.is-warning .tabs:is(.is-boxed, .is-toggle) li.is-active a:hover {
@@ -12618,12 +12715,12 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-warning.is-bold {
-  background-image: linear-gradient(141deg, hsla(calc(var(--warning-h)  - 10deg), calc(var(--warning-s)  + 10%), calc(var(--warning-l)  - 10%), var(--warning-a)) 0%, #ffe08a 71%, hsla(calc(var(--warning-h)  + 10deg), calc(var(--warning-s)  + 5%), calc(var(--warning-l)  + 5%), var(--warning-a)) 100%);
+  background-image: linear-gradient(141deg, color-mix(in oklch, var(--warning) 80%, oklch(.3 .1 calc(from var(--warning) h - 20)) 20%) 0%, var(--warning) 71%, color-mix(in oklch, var(--warning) 85%, oklch(.9 .05 calc(from var(--warning) h + 20)) 15%) 100%);
 }
 
 @media screen and (width <= 768px) {
   .hero.is-warning.is-bold .navbar-menu {
-    background-image: linear-gradient(141deg, hsla(calc(var(--warning-h)  - 10deg), calc(var(--warning-s)  + 10%), calc(var(--warning-l)  - 10%), var(--warning-a)) 0%, #ffe08a 71%, hsla(calc(var(--warning-h)  + 10deg), calc(var(--warning-s)  + 5%), calc(var(--warning-l)  + 5%), var(--warning-a)) 100%);
+    background-image: linear-gradient(141deg, color-mix(in oklch, var(--warning) 80%, oklch(.3 .1 calc(from var(--warning) h - 20)) 20%) 0%, var(--warning) 71%, color-mix(in oklch, var(--warning) 85%, oklch(.9 .05 calc(from var(--warning) h + 20)) 15%) 100%);
   }
 }
 
@@ -12659,7 +12756,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-danger :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: hsla(var(--danger-h), var(--danger-s), calc(var(--danger-l)  + -5%), var(--danger-a));
+  background-color: oklch(from var(--danger) clamp(0, l - .05, 1) c h);
   color: var(--danger-invert);
 }
 
@@ -12682,7 +12779,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-danger .tabs:is(.is-boxed, .is-toggle) a:hover {
-  background-color: rgba(var(--scheme-invert-rgb), .1);
+  background-color: oklch(from var(--scheme-invert) l c h / .1);
 }
 
 .hero.is-danger .tabs:is(.is-boxed, .is-toggle) li.is-active a, .hero.is-danger .tabs:is(.is-boxed, .is-toggle) li.is-active a:hover {
@@ -12692,12 +12789,12 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 
 .hero.is-danger.is-bold {
-  background-image: linear-gradient(141deg, hsla(calc(var(--danger-h)  - 10deg), calc(var(--danger-s)  + 10%), calc(var(--danger-l)  - 10%), var(--danger-a)) 0%, #f14668 71%, hsla(calc(var(--danger-h)  + 10deg), calc(var(--danger-s)  + 5%), calc(var(--danger-l)  + 5%), var(--danger-a)) 100%);
+  background-image: linear-gradient(141deg, color-mix(in oklch, var(--danger) 80%, oklch(.3 .1 calc(from var(--danger) h - 20)) 20%) 0%, var(--danger) 71%, color-mix(in oklch, var(--danger) 85%, oklch(.9 .05 calc(from var(--danger) h + 20)) 15%) 100%);
 }
 
 @media screen and (width <= 768px) {
   .hero.is-danger.is-bold .navbar-menu {
-    background-image: linear-gradient(141deg, hsla(calc(var(--danger-h)  - 10deg), calc(var(--danger-s)  + 10%), calc(var(--danger-l)  - 10%), var(--danger-a)) 0%, #f14668 71%, hsla(calc(var(--danger-h)  + 10deg), calc(var(--danger-s)  + 5%), calc(var(--danger-l)  + 5%), var(--danger-a)) 100%);
+    background-image: linear-gradient(141deg, color-mix(in oklch, var(--danger) 80%, oklch(.3 .1 calc(from var(--danger) h - 20)) 20%) 0%, var(--danger) 71%, color-mix(in oklch, var(--danger) 85%, oklch(.9 .05 calc(from var(--danger) h + 20)) 15%) 100%);
   }
 }
 
@@ -12820,6 +12917,10 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   .section.is-large {
     padding: var(--section-padding-large);
   }
+}
+
+.section.is-fullheight {
+  min-height: 100vh;
 }
 
 :root {

@@ -1,6 +1,6 @@
 {
     "name": "@bulvar/buefy",
-    "version": "1.0.0-beta.2",
+    "version": "1.0.0-beta.3",
     "description": "Lightweight UI components for Vue.js based on Bulma",
     "keywords": [
         "bulma",
