@@ -90,8 +90,7 @@ $-css-vars-map: (
                 font-weight: var(--weight-semibold);
                 text-transform: var(--snackbar-button-text-transform);
 
-                &:hover,
-				:active {
+                &:is(:hover, :active) {
                     background: #{bulma-mixins-scss.darken-color(var(--dark), 5)};
                 }
             }
