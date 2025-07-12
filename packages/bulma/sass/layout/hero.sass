@@ -36,8 +36,6 @@ $-css-vars-map: ('hero-body-padding': $hero-body-padding, 'hero-body-padding-tab
       border-bottom: none
   // Colors
   @each $name, $pair in $hero-colors
-    $color: list.nth($pair, 1)
-    $color-invert: list.nth($pair, 2)
     &.is-#{$name}
       background-color: var(--#{$name})
       color: var(--#{$name}-invert)
@@ -82,19 +80,17 @@ $-css-vars-map: ('hero-body-padding': $hero-body-padding, 'hero-body-padding-tab
               border-color: var(--#{$name}-invert)
               color: var(--#{$name})
       // Modifiers
-      @if meta.type-of($color) == 'color'
-        &.is-bold
-          // Top-left: darker with subtle hue shift (mix with a darker, shifted color)
-          $gradient-top-left: color-mix(in oklch, var(--#{$name}) 80%, oklch(0.3 0.1 calc(from var(--#{$name}) h - 20)) 20%);
-          // Bottom-right: lighter with opposite hue shift
-          $gradient-bottom-right: color-mix(in oklch, var(--#{$name}) 85%, oklch(0.9 0.05 calc(from var(--#{$name}) h + 20)) 15%);
-
-          // $gradient-top-left: darken(saturate(adjust-hue($color, -10deg), 10%), 10%)
-          // $gradient-bottom-right: lighten(saturate(adjust-hue($color, 10deg), 5%), 5%)
-          background-image: linear-gradient(141deg, #{$gradient-top-left} 0%, var(--#{$name}) 71%, #{$gradient-bottom-right} 100%);
-          +utilities.mobile
-            .navbar-menu
-              background-image: linear-gradient(141deg, #{$gradient-top-left} 0%, var(--#{$name}) 71%, #{$gradient-bottom-right} 100%);
+      &.is-bold
+        // Top-left: darker with subtle hue shift (mix with a darker, shifted color)
+        $gradient-top-left: color-mix(in oklch, var(--#{$name}) 80%, oklch(0.3 0.1 calc(from var(--#{$name}) h - 20)) 20%);
+        // Bottom-right: lighter with opposite hue shift
+        $gradient-bottom-right: color-mix(in oklch, var(--#{$name}) 85%, oklch(0.9 0.05 calc(from var(--#{$name}) h + 20)) 15%)
+        // $gradient-top-left: darken(saturate(adjust-hue($color, -10deg), 10%), 10%)
+        // $gradient-bottom-right: lighten(saturate(adjust-hue($color, 10deg), 5%), 5%)
+        background-image: linear-gradient(141deg, #{$gradient-top-left} 0%, var(--#{$name}) 71%, #{$gradient-bottom-right} 100%);
+        +utilities.mobile
+          .navbar-menu
+            background-image: linear-gradient(141deg, #{$gradient-top-left} 0%, var(--#{$name}) 71%, #{$gradient-bottom-right} 100%);
   // Sizes
   &.is-small
     --hero-body-padding: var(--hero-body-padding-small)

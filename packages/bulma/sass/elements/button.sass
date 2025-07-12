@@ -170,8 +170,6 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
       color: var(--button-ghost-hover-color)
       text-decoration: var(--button-ghost-hover-decoration)
   @each $name, $pair in $button-colors
-    $color: list.nth($pair, 1)
-    $color-invert: list.nth($pair, 2)
     &.is-#{$name}
       background-color: var(--#{$name})
       border-color: transparent
@@ -250,8 +248,6 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
           color: var(--#{$name}-invert)
       // If light and dark colors are provided
       @if list.length($pair) >= 4
-        $color-light: list.nth($pair, 3)
-        $color-dark: list.nth($pair, 4)
         &.is-light
           background-color: var(--#{$name}-light)
           color: var(--#{$name}-dark)

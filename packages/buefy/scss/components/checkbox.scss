@@ -72,8 +72,6 @@ $-css-vars-map: (
                     font-weight: var(--weight-bold);
                     text-align: center;
                     @each $name, $pair in $checkbox-colors {
-                        $color: list.nth($pair, 1);
-                        $color-invert: list.nth($pair, 2);
                         &.is-#{$name} {
                             border-color: var(--#{$name});
                             background: var(--#{$name}); // url(functions.checkmark($color-invert)) no-repeat center center;
@@ -103,7 +101,6 @@ $-css-vars-map: (
                 &:checked + .check {
                     box-shadow: 0 0 0.5em var(--checkbox-focus-box-shadow-color);
                     @each $name, $pair in $checkbox-colors {
-                        $color: list.nth($pair, 1);
                         &.is-#{$name} {
                             box-shadow: 0 0 0.5em #{bulma-mixins-scss.set-color-alpha(var(--#{$name}), 0.8)};
                         }
@@ -124,7 +121,6 @@ $-css-vars-map: (
             input[type=checkbox]:not(:disabled) + .check {
                 border-color: var(--checkbox-active-background-color);
                 @each $name, $pair in $checkbox-colors {
-                    $color: list.nth($pair, 1);
                     &.is-#{$name} {
                         border-color: var(--#{$name});
                     }

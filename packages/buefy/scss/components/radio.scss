@@ -67,7 +67,6 @@ $-css-vars-map: (
                     transition: transform calc(var(--speed) * 2) var(--easing);
                 }
                 @each $name, $pair in $radio-colors {
-                    $color: list.nth($pair, 1);
                     &.is-#{$name}:before {
                         background: var(--#{$name});
                     }
@@ -76,7 +75,6 @@ $-css-vars-map: (
             &:checked + .check {
                 border-color: var(--radio-active-background-color);
                 @each $name, $pair in $radio-colors {
-                    $color: list.nth($pair, 1);
                     &.is-#{$name} {
                         border-color: var(--#{$name});
                     }
@@ -93,7 +91,6 @@ $-css-vars-map: (
                     box-shadow: 0 0 0.5em #{bulma-mixins-scss.set-color-alpha(var(--scheme-invert), 0.1)};
 
                     @each $name, $pair in $radio-colors {
-                        $color: list.nth($pair, 1);
                         &.is-#{$name} {
                             box-shadow: 0 0 0.5em #{bulma-mixins-scss.set-color-alpha(var(--#{$name}), 0.8)};
                         }
@@ -118,7 +115,6 @@ $-css-vars-map: (
             input[type=radio]:not(:disabled) + .check {
                 border-color: var(--radio-active-background-color);
                 @each $name, $pair in $radio-colors {
-                    $color: list.nth($pair, 1);
                     &.is-#{$name} {
                         border-color: var(--#{$name});
                     }

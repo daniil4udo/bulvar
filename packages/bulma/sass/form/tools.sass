@@ -40,7 +40,6 @@ $-css-vars-map: ("help-font-size": $help-font-size)
   font-size: var(--help-font-size)
   +utilities.logical-y(margin, 0.25rem, $bottom: false)
   @each $name, $pair in $label-colors
-    $color: list.nth($pair, 1)
     &.is-#{$name}
       color: var(--#{$name})
 

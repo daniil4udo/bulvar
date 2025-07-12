@@ -164,7 +164,6 @@ $-css-vars-map: (
     @include bulma-utilities.control-sizes(slider-size);
 
     @each $name, $pair in $slider-colors {
-        $color: list.nth($pair, 1);
         &.is-#{$name} {
             .b-slider-fill {
                 background: var(--#{$name}) !important;

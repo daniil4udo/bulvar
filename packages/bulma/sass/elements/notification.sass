@@ -46,15 +46,11 @@ $-css-vars-map: ("notification-background-color": $notification-background-color
     color: currentColor
   // Colors
   @each $name, $pair in $notification-colors
-    $color: list.nth($pair, 1)
-    $color-invert: list.nth($pair, 2)
     &.is-#{$name}
       --notification-background-color: var(--#{$name})
       --notification-color: var(--#{$name}-invert)
       // If light and dark colors are provided
       @if list.length($pair) >= 4
-        $color-light: list.nth($pair, 3)
-        $color-dark: list.nth($pair, 4)
         &.is-light
           --notification-background-color: var(--#{$name}-light)
           --notification-color: var(--#{$name}-dark)

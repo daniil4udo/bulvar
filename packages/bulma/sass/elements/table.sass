@@ -64,8 +64,6 @@ $-css-vars-map: ('table-color': $table-color, 'table-cell-border-width': $table-
     vertical-align: top
     // Colors
     @each $name, $pair in $table-colors
-      $color: list.nth($pair, 1)
-      $color-invert: list.nth($pair, 2)
       &.is-#{$name}
         background-color: var(--#{$name})
         border-color: var(--#{$name})

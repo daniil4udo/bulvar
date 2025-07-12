@@ -57,8 +57,6 @@ $-css-vars-map: (
         pointer-events: auto;
         text-align: center;
         @each $name, $pair in $snackbar-colors {
-            $color: list.nth($pair, 1);
-            $color-invert: list.nth($pair, 2);
             &.is-#{$name} {
                 background: var(--#{$name});
                 color: var(--#{$name}-invert);
@@ -95,7 +93,6 @@ $-css-vars-map: (
                 }
             }
             @each $name, $pair in $snackbar-colors {
-                $color: list.nth($pair, 1);
                 &.is-#{$name} {
                     .button {
                         color: var(--#{$name});

@@ -46,8 +46,6 @@ $-css-vars-map: ('file-border-color': $file-border-color, 'file-radius': $file-r
   position: relative
   // Colors
   @each $name, $pair in $file-colors
-    $color: list.nth($pair, 1)
-    $color-invert: list.nth($pair, 2)
     &.is-#{$name}
       .file-cta
         background-color: var(--#{$name})

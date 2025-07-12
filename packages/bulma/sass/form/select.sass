@@ -65,7 +65,6 @@ $-css-vars-map: ('select-arrow-color': $select-arrow-color, 'select-disabled-bor
       border-color: var(--select-hover-color)
   // Colors
   @each $name, $pair in $select-colors
-    $color: list.nth($pair, 1)
     &.is-#{$name}
       &:not(:hover)::after
         border-color: var(--#{$name})

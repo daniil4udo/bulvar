@@ -186,7 +186,6 @@ $-css-vars-map: (
                             padding: 0 .35rem;
                             .event {
                                 @each $name, $pair in $datepicker-colors {
-                                    $color: list.nth($pair, 1);
                                     &.is-#{$name} {
                                         background-color: var(--#{$name});
                                     }

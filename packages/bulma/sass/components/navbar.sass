@@ -112,8 +112,6 @@ $-css-vars-map: ("navbar-background-color": $navbar-background-color, "navbar-bo
   position: relative
   z-index: var(--navbar-z)
   @each $name, $pair in $navbar-colors
-    $color: list.nth($pair, 1)
-    $color-invert: list.nth($pair, 2)
     &.is-#{$name}
       --navbar-burger-color: var(--#{$name}-invert)
       background-color: var(--#{$name})

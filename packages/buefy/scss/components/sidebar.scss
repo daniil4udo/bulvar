@@ -35,7 +35,6 @@ $-css-vars-map: (
         background-color: var(--background);
         box-shadow: var(--sidebar-box-shadow);
         @each $name, $pair in $sidebar-colors {
-            $color: list.nth($pair, 1);
             &.is-#{$name} {
                 background-color: var(--#{$name});
             }

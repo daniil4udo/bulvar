@@ -42,7 +42,6 @@ $-css-vars-map: ('progress-height': $progress-height, 'progress-bar-background-c
     border: none
   // Colors
   @each $name, $pair in $progress-colors
-    $color: list.nth($pair, 1)
     &.is-#{$name}
       &::-webkit-progress-value
         background-color: var(--#{$name})

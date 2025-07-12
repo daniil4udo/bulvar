@@ -13,7 +13,6 @@
     .delete,
     &:is(.is-delete, .has-delete-icon) {
         @each $name, $pair in bulma-tag.$tag-colors {
-            $color: list.nth($pair, 1);
             &.is-#{$name} {
                 background: var(--#{$name});
                 &:hover {

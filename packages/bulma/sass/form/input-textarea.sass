@@ -19,7 +19,6 @@ $textarea-colors: form-shared.$form-colors !default
     box-shadow: none
   // Colors
   @each $name, $pair in $textarea-colors
-    $color: list.nth($pair, 1)
     &.is-#{$name}
       border-color: var(--#{$name})
       &:focus,

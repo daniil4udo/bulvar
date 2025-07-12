@@ -51,8 +51,6 @@ $-css-vars-map: (
             }
 
             @each $name, $pair in bulma-progress.$progress-colors {
-                $color: list.nth($pair, 1);
-                $color-invert: list.nth($pair, 2);
                 &.is-#{$name} {
                     + .progress-value {
                         color: var(--#{$name}-invert);
@@ -84,8 +82,6 @@ $-css-vars-map: (
             }
 
             @each $name, $pair in bulma-progress.$progress-colors {
-                $color: list.nth($pair, 1);
-                $color-invert: list.nth($pair, 2);
                 &.is-#{$name} {
                     background-color: var(--#{$name});
                     .progress-value {

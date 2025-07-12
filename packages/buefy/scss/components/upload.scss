@@ -41,7 +41,6 @@
         }
         &:is(:hover, .is-hovered) {
             @each $name, $pair in bulma-file.$file-colors {
-                $color: list.nth($pair, 1);
                 &.is-#{$name} {
                     border-color: var(--#{$name});
                     background: var(--#{$name}-light);

@@ -70,8 +70,6 @@ $-css-vars-map: ("panel-font-size": $panel-font-size, "panel-margin": $panel-mar
     +utilities.logical-y(margin, var(--panel-margin), $bottom: true)
   // Colors
   @each $name, $components in $panel-colors
-    $color: list.nth($components, 1)
-    $color-invert: list.nth($components, 2)
     &.is-#{$name}
       .panel-heading
         background-color: var(--#{$name})

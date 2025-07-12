@@ -9,7 +9,6 @@ $shades-helpers: vars.$shades !default
 
 // Colors
 @each $name, $pair in $colors-helpers
-  $color: list.nth($pair, 1)
   .has-text-#{$name}
     color: var(--#{$name}) !important
   a.has-text-#{$name}
@@ -18,8 +17,6 @@ $shades-helpers: vars.$shades !default
   .has-background-#{$name}
     background-color: var(--#{$name}) !important
   @if list.length($pair) >= 4
-    $color-light: list.nth($pair, 3)
-    $color-dark: list.nth($pair, 4)
     // Light
     .has-text-#{$name}-light
       color: var(--#{$name}-light) !important

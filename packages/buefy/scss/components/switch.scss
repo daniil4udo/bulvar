@@ -49,8 +49,6 @@ $-css-vars-map: (
             transition: background calc(var(--speed) * 2) var(--easing), box-shadow calc(var(--speed) * 2) var(--easing);
 
             @each $name, $pair in $switch-colors {
-                $color: list.nth($pair, 1);
-
                 &.is-#{$name}-passive,
                 &:hover {
                     background: var(--#{$name});
@@ -82,7 +80,6 @@ $-css-vars-map: (
         &:checked + .check {
             background: var(--switch-active-background-color);
             @each $name, $pair in $switch-colors {
-                $color: list.nth($pair, 1);
                 &.is-#{$name} {
                     background: var(--#{$name});
                 }
@@ -100,7 +97,6 @@ $-css-vars-map: (
             + .check {
                 box-shadow: 0 0 0.5em var(--grey-lightest);
                 @each $name, $pair in $switch-colors {
-                    $color: list.nth($pair, 1);
                     &.is-#{$name}-passive {
                         box-shadow: 0 0 0.5em #{bulma-mixins-scss.set-color-alpha(var(--#{$name}), 0.8)};
                     }
@@ -110,7 +106,6 @@ $-css-vars-map: (
                 box-shadow: 0 0 0.5em var(--grey-lighter);
 
                 @each $name, $pair in $switch-colors {
-                    $color: list.nth($pair, 1);
                     &.is-#{$name} {
                         box-shadow: 0 0 0.5em #{bulma-mixins-scss.set-color-alpha(var(--#{$name}), 0.8)};
                     }
@@ -137,7 +132,6 @@ $-css-vars-map: (
 			 + .check {
 				 background: var(--grey-lighter);
 				 @each $name, $pair in $switch-colors {
-					 $color: list.nth($pair, 1);
 					 &:is(.is-#{$name}, .is-#{$name}-passive) {
 						 background: #{bulma-mixins-scss.set-color-alpha(var(--#{$name}), 0.9)};
 					 }
@@ -166,7 +160,6 @@ $-css-vars-map: (
                 background: transparent;
 
                 @each $name, $pair in $switch-colors {
-                    $color: list.nth($pair, 1);
                     &.is-#{$name}-passive {
                         border: 0.1rem solid #{bulma-mixins-scss.set-color-alpha(var(--#{$name}), 0.9)};
 
@@ -185,7 +178,6 @@ $-css-vars-map: (
             &:checked + .check {
                 border-color: var(--switch-active-background-color);
                 @each $name, $pair in $switch-colors {
-                    $color: list.nth($pair, 1);
                     &.is-#{$name} {
                         border-color: var(--#{$name});
                         background: transparent;
@@ -210,7 +202,6 @@ $-css-vars-map: (
                 // border-color: rgba($switch-active-background-color, 0.9);
                 background: transparent;
                 @each $name, $pair in $switch-colors {
-                    $color: list.nth($pair, 1);
                     &.is-#{$name} {
                         --#{$name}-a: 0.9;
                         border-color: var(--#{$name});

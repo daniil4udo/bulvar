@@ -92,14 +92,12 @@ $-css-vars-map: (
             }
         }
         @each $name, $pair in $tooltip-colors {
-            $color: list.nth($pair, 1);
             &.is-#{$name} {
                 .tooltip-content::before {
                     @include tooltip-arrow-color($direction, var(--#{$name}))
                 }
                 // If light and dark colors are provided
                 @if list.length($pair) >= 4 {
-                    $color-light: list.nth($pair, 3);
                     &.is-light {
                         .tooltip-content::before {
                             @include tooltip-arrow-color($direction, var(--#{$name}-light))
@@ -142,8 +140,6 @@ $-css-vars-map: (
     }
     // Modifiers
     @each $name, $pair in $tooltip-colors {
-        $color: list.nth($pair, 1);
-        $color-invert: list.nth($pair, 2);
         &.is-#{$name} {
             .tooltip-content {
                 background: var(--#{$name});
@@ -151,8 +147,6 @@ $-css-vars-map: (
             }
             // If light and dark colors are provided
             @if list.length($pair) >= 4 {
-                $color-light: list.nth($pair, 3);
-                $color-dark: list.nth($pair, 4);
                 &.is-light {
                     .tooltip-content {
                         background: var(--#{$name}-light);

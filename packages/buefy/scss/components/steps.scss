@@ -204,9 +204,6 @@ $-css-vars-map: (
 
                 // Override marker color per step
                 @each $name, $pair in $steps-colors {
-                    $color: list.nth($pair, 1);
-                    $color-invert: list.nth($pair, 2);
-
                     &.is-#{$name} {
                         &::before,
                         &::after {
@@ -410,8 +407,6 @@ $-css-vars-map: (
 
                     // Override marker connector color per step
                     @each $name, $pair in $steps-colors {
-                        $color: list.nth($pair, 1);
-
                         &.is-#{$name} {
                             &::before,
                             &::after {

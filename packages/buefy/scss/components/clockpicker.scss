@@ -51,12 +51,9 @@ $-css-vars-map: (
 
     // supporting all $form-colors defined in Bulma/custom
     @each $name, $pair in $clockpicker-colors {
-        $color: list.nth($pair, 1);
-        $color-invert: list.nth($pair, 2);
         &.is-#{$name} {
             .card-header {
                 background-color: var(--#{$name});
-                // color: $inverse;
                 color: var(--#{$name}-invert);
             }
             .b-clockpicker-face {
