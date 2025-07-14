@@ -158,12 +158,13 @@
 	// @return oklch(from #{$color-property} clamp(0, calc(l + #{$decimal-amount}), 1) c h);
 
 	// Method 2: Using color-mix with white/black
-	@return color-mix(in oklch, #{$color-property}, white #{$amount}%);
+	$percentage: if(math.unit($amount) == '%', $amount, string.unquote($amount + '%'));
+	@return color-mix(in oklch, #{$color-property}, white #{$percentage});
 
 	// // Method 3: Perceptually better - mix towards high/low lightness instead of white/black
 	// // Mix towards high lightness while preserving some chroma
 	// $target: oklch(0.95 0.02 from #{$color-property} h);
-	// @return color-mix(in oklch, #{$color-property}, #{$target} #{$amount}%);
+	// @return color-mix(in oklch, #{$color-property}, #{$target} #{$percentage});
 
 	// // Method 4: Advanced - Scale lightness proportionally
 	// // Scale towards max lightness (more natural than adding)
@@ -200,12 +201,13 @@
 	// @return oklch(from #{$color-property} clamp(0, calc(l - #{$decimal-amount}), 1) c h);
 
 	// Method 2: Using color-mix with white/black
-	@return color-mix(in oklch, #{$color-property}, black #{$amount}%);
+	$percentage: if(math.unit($amount) == '%', $amount, string.unquote($amount + '%'));
+	@return color-mix(in oklch, #{$color-property}, black #{$percentage});
 
 	// // Method 3: Perceptually better - mix towards high/low lightness instead of white/black
 	// // Mix towards low lightness while preserving some chroma
 	// $target: oklch(0.15 0.02 from #{$color-property} h);
-	// @return color-mix(in oklch, #{$color-property}, #{$target} #{$amount}%);
+	// @return color-mix(in oklch, #{$color-property}, #{$target} #{$percentage});
 
 	// // Method 4: Advanced - Scale lightness proportionally
 	// // Scale towards min lightness
