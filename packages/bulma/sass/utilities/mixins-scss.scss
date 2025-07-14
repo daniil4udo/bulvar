@@ -4,7 +4,66 @@
 @use "sass:math";
 @use "sass:meta";
 @use "sass:string";
-@use "functions" as fn;
+
+@function merge-color-maps($bulma-colors, $custom-colors) {
+	// We return at least Bulma's hard-coded colors
+	$merged-colors: $bulma-colors;
+
+	// We want a map as input
+	@if meta.type-of($custom-colors) == 'map' {
+		@each $name, $components in $custom-colors {
+			// The color name should be a string
+			// and the components either a single color or a colors list with at least one element
+			@if meta.type-of($name) == 'string' and (meta.type-of($components) == 'color' or (meta.type-of($components) == 'list' and list.length($components) >= 1)) {
+				// Base use as a color always
+				$color-base: null;
+
+				// Pre-generate helper colors
+				$color-invert: get-invert-color(var(--#{$name}));
+				$color-light: get-light-color(var(--#{$name}));
+				$color-dark: get-dark-color(var(--#{$name}));
+
+				// Result value
+				$value: null;
+
+				// The param can either be a single color or a list of colors
+				@if meta.type-of($components) == 'color' {
+					$color-base: $components;
+
+				} @else if meta.type-of($components) == 'list' {
+					$color-base: list.nth($components, 1);
+					$length: list.length($components);
+
+					// If all 4 colors are provided (base, invert, light, dark)
+					@if $length >= 4 {
+						$color-invert: list.nth($components, 2);
+						$color-light: list.nth($components, 3);
+						$color-dark: list.nth($components, 4);
+					} @else if $length == 3 {
+						// If 3 colors are provided (base, invert, light) - auto-generate dark
+						$color-invert: list.nth($components, 2);
+						$color-light: list.nth($components, 3);
+					} @else if $length == 2 {
+						// If 2 colors are provided (base, invert) - auto-generate light and dark
+						$color-invert: list.nth($components, 2);
+					} @else {
+						// If only 1 color in list (base) - auto-generate all variants
+					}
+				}
+
+				$value: ($color-base, $color-invert, $color-light, $color-dark);
+
+				// We only want to merge the map if the color base is an actual color
+				@if meta.type-of($color-base) == 'color' {					// We merge this colors elements as map with Bulma's colors map
+					// (we can override them this way, no multiple definition for the same name)
+					$merged-colors: map.merge($merged-colors, ($name: $value));
+				}
+			}
+		}
+	}
+
+	@return $merged-colors;
+};
 
 /**
  * Register a single CSS custom property
@@ -13,13 +72,13 @@
  * @param {boolean} $at-root - Whether to register at :root level or current scope
  */
 @mixin register-css-property($name, $value, $at-root: true) {
-  @if $at-root {
-    @at-root :root {
-      --#{$name}: #{$value};
-    }
-  } @else {
-    --#{$name}: #{$value};
-  }
+	@if $at-root {
+		@at-root :root {
+			--#{$name}: #{$value};
+		}
+	} @else {
+		--#{$name}: #{$value};
+	}
 }
 
 /**
@@ -28,17 +87,17 @@
  * @param {boolean} $at-root - Whether to register at :root level or current scope
  */
 @mixin register-css-properties($variable-map, $at-root: true) {
-  @if $at-root {
-    @at-root :root {
-      @each $name, $value in $variable-map {
-        --#{$name}: #{$value};
-      }
-    }
-  } @else {
-    @each $name, $value in $variable-map {
-      --#{$name}: #{$value};
-    }
-  }
+	@if $at-root {
+		@at-root :root {
+			@each $name, $value in $variable-map {
+				--#{$name}: #{$value};
+			}
+		}
+	} @else {
+		@each $name, $value in $variable-map {
+			--#{$name}: #{$value};
+		}
+	}
 }
 
 /**
@@ -50,27 +109,40 @@
  * @param {boolean} $include-starts-with - Whether to include [class^="component-"] selectors
  */
 @mixin register-component-css-properties($component-classes, $variable-map, $include-starts-with: true) {
-  @if $component-classes == null or $component-classes == '' {
-    @include register-css-properties($variable-map, $at-root: true);
-  } @else {
-    $class-list: if(meta.type-of($component-classes) == 'list', $component-classes, ($component-classes));
-    $selector-list: ();
+	@if $component-classes == null or $component-classes == '' {
+		@include register-css-properties($variable-map, $at-root: true);
+	} @else {
+		$class-list: if(meta.type-of($component-classes) == 'list', $component-classes, ($component-classes));
+		$selector-list: (
+		);
 
-    @each $class-name in $class-list {
-      $selector-list: list.append($selector-list, '.#{$class-name}', comma);
+	@each $class-name in $class-list {
+		$selector-list: list.append($selector-list, '.#{$class-name}', comma);
 
-      @if $include-starts-with {
-        $selector-list: list.append($selector-list, '[class^="#{$class-name}-"]', comma);
-      }
-    }
+		@if $include-starts-with {
+			$selector-list: list.append($selector-list, '[class^="#{$class-name}-"]', comma);
+		}
+	}
 
-    #{$selector-list} {
-      @include register-css-properties($variable-map, false);
-    }
-  }
+	#{$selector-list} {
+		@include register-css-properties($variable-map, false);
+	}
+}
 }
 
 // Essential Color Manipulation Functions using color-mix (modern CSS approach)
+
+/**
+ * Smart light color using your 96% lightness target
+ * @param {string} $color-property - CSS color or variable
+ * @return {string} OKLCH color with smart lightness adjustment
+ */
+@function get-light-color($color-property, $l: 0.97, $c: 0.03) {
+	// Your logic: target 96% lightness, but don't go lighter if already > 96%
+	// In OKLCH: 0.96 lightness = your 96% target
+	// Reduce chroma to stay in-gamut at high lightness
+	@return oklch(from #{$color-property} max(l, $l) min(c, $c) h);
+}
 
 /**
  * Lightens a color by mixing it with white
@@ -79,17 +151,40 @@
  * @return {string} CSS color-mix function
  */
 @function lighten-color($color-property, $amount: 10) {
-  // Option #1: Using color-mix (modern CSS approach)
-  //   @return color-mix(in oklch, #{$color-property}, white "#{$amount}%");
+	// // Method 1: Direct L channel manipulation (your current approach)
+	// // Increase lightness while preserving chroma and hue
+	// // Use clamp to ensure we don't exceed 1.0 (100% lightness)
+	// $decimal-amount: math.div($amount, 100);
+	// @return oklch(from #{$color-property} clamp(0, calc(l + #{$decimal-amount}), 1) c h);
 
-  // Option #2: Using oklch directly for more control
-  // Convert percentage to decimal (10 → 0.1)
-  $decimal-amount: math.div($amount, 100);
+	// Method 2: Using color-mix with white/black
+	@return color-mix(in oklch, #{$color-property}, white #{$amount}%);
 
-  // Increase lightness while preserving chroma and hue
-  // Use clamp to ensure we don't exceed 1.0 (100% lightness)
-  @return oklch(from #{$color-property} clamp(0, calc(l + #{$decimal-amount}), 1) c h);
+	// // Method 3: Perceptually better - mix towards high/low lightness instead of white/black
+	// // Mix towards high lightness while preserving some chroma
+	// $target: oklch(0.95 0.02 from #{$color-property} h);
+	// @return color-mix(in oklch, #{$color-property}, #{$target} #{$amount}%);
+
+	// // Method 4: Advanced - Scale lightness proportionally
+	// // Scale towards max lightness (more natural than adding)
+	// $factor: 1 + math.div($amount, 100);
+	// @return oklch(from #{$color-property} clamp(0, calc(l + (1 - l) * #{math.div($amount, 100)}), 1) c h);
 }
+
+/**
+ * Smart dark color using your luminance-delta algorithm
+ * @param {string} $color-property - CSS color or variable
+ * @return {string} OKLCH color with smart darkness based on luminance
+ */
+@function get-dark-color($color-property) {
+	// Your algorithm translated to OKLCH:
+	// base-l = 0.29 (your 29%)
+	// middle = 0.5 (OKLCH perceptual middle, close to your 0.53)
+	// luminance-delta = (0.5 - current_lightness)
+	// target = 0.29 + (delta * 0.53)
+	@return oklch(from #{$color-property} max(0.29, calc(0.29 + (0.5 - l) * 0.53)) c h);
+}
+
 
 /**
  * Darkens a color by mixing it with black
@@ -98,16 +193,24 @@
  * @return {string} CSS color-mix function
  */
 @function darken-color($color-property, $amount: 10) {
-  // Option #1: Using color-mix (modern CSS approach)
-  //   @return color-mix(in oklch, #{$color-property}, black "#{$amount}%");
+	// // Method 1: Direct L channel manipulation (your current approach)
+	// // Decrease lightness while preserving chroma and hue
+	// // Use clamp to ensure we don't go below 0 (0% lightness)
+	// $decimal-amount: math.div($amount, 100);
+	// @return oklch(from #{$color-property} clamp(0, calc(l - #{$decimal-amount}), 1) c h);
 
-  // Option #2: Using oklch directly for more control
-  // Convert percentage to decimal (10 → 0.1)
-  $decimal-amount: math.div($amount, 100);
+	// Method 2: Using color-mix with white/black
+	@return color-mix(in oklch, #{$color-property}, black #{$amount}%);
 
-  // Decrease lightness while preserving chroma and hue
-  // Use clamp to ensure we don't go below 0 (0% lightness)
-  @return oklch(from #{$color-property} clamp(0, calc(l - #{$decimal-amount}), 1) c h);
+	// // Method 3: Perceptually better - mix towards high/low lightness instead of white/black
+	// // Mix towards low lightness while preserving some chroma
+	// $target: oklch(0.15 0.02 from #{$color-property} h);
+	// @return color-mix(in oklch, #{$color-property}, #{$target} #{$amount}%);
+
+	// // Method 4: Advanced - Scale lightness proportionally
+	// // Scale towards min lightness
+	// $factor: 1 - math.div($amount, 100);
+	// @return oklch(from #{$color-property} calc(l * #{$factor}) c h);
 }
 
 /**
@@ -117,7 +220,7 @@
  * @return {string} CSS relative color with alpha channel
  */
 @function set-color-alpha($color-property, $opacity: 0.5) {
-  @return oklch(from #{$color-property} l c h / #{$opacity});
+	@return oklch(from #{$color-property} l c h / #{$opacity});
 }
 
 /**
@@ -130,11 +233,11 @@
  */
 @function get-invert-color($color-property, $threshold: 0.55) {
 	// Apply conditional logic
-	//   @if fn.isLightColor($color-property) {
-	//     @return oklch(0.1 0 0); // dark gray
-	//   } @else {
-	//     @return oklch(0.96 0 0); // light gray
-	//   }
+	//	 @if fn.isLightColor($color-property) {
+	//		 @return oklch(0.1 0 0); // dark gray
+	//	 } @else {
+	//		 @return oklch(0.96 0 0); // light gray
+	//	 }
 
 	@return color(from $color-property xyz var(--chanel) var(--chanel) var(--chanel));
 }
@@ -147,44 +250,31 @@
  * @param {string} $prefix - Optional prefix for CSS variables
  */
 @mixin register-color-system($color-name, $color-data, $prefix: '') {
-  $base-name: if($prefix != '', $prefix + '-' + $color-name, $color-name);
+	$base-name: if($prefix != '', $prefix + '-' + $color-name, $color-name);
 
-  // Extract values with safe defaults using inline conditionals
-  $is-list: meta.type-of($color-data) == 'list';
-  $list-length: if($is-list, list.length($color-data), 1);
-  $color-value: if($is-list, list.nth($color-data, 1), $color-data);
-  $color-invert: if($list-length >= 2, list.nth($color-data, 2), null);
-  $color-light: if($list-length >= 3, list.nth($color-data, 3), null);
-  $color-dark: if($list-length >= 4, list.nth($color-data, 4), null);
+	// Extract values with safe defaults using inline conditionals
+	$is-list: meta.type-of($color-data) == 'list';
+	$list-length: if($is-list, list.length($color-data), 1);
+	$color-value: if($is-list, list.nth($color-data, 1), $color-data);
+	$color-invert: if($list-length >= 2, list.nth($color-data, 2), null);
+	$color-light: if($list-length >= 3, list.nth($color-data, 3), null);
+	$color-dark: if($list-length >= 4, list.nth($color-data, 4), null);
 
-  // Base color - the main color value
-  --#{$base-name}: #{$color-value};
+	// Base color - the main color value
+	--#{$base-name}: #{$color-value};
 
-  // Compact conditional registration using inline if statements
-  --#{$base-name}-invert: #{if($color-invert, $color-invert, get-invert-color(var(--#{$base-name})))};
-  --#{$base-name}-light: #{if($color-light, $color-light, lighten-color(var(--#{$base-name}), 25))};
-  --#{$base-name}-dark: #{if($color-dark, $color-dark, darken-color(var(--#{$base-name}), 25))};
+	// Compact conditional registration using inline if statements
+	@if $color-invert {
+		--#{$base-name}-invert: #{$color-invert};
+	}
 
-  // Professional scale (50-950) using color-mix for consistent results
-  //   --#{$base-name}-50: #{lighten-color(var(--#{$base-name}), 45)};    // Very light
-  //   --#{$base-name}-100: #{lighten-color(var(--#{$base-name}), 35)};   // Light
-  //   --#{$base-name}-200: #{lighten-color(var(--#{$base-name}), 25)};   // Same as --primary-light
-  //   --#{$base-name}-300: #{lighten-color(var(--#{$base-name}), 15)};   // Slightly light
-  //   --#{$base-name}-400: #{lighten-color(var(--#{$base-name}), 8)};    // Barely light
-  //   --#{$base-name}-500: var(--#{$base-name});                         // Base color (no change)
-  //   --#{$base-name}-600: #{darken-color(var(--#{$base-name}), 8)};     // Barely dark
-  //   --#{$base-name}-700: #{darken-color(var(--#{$base-name}), 15)};    // Slightly dark
-  //   --#{$base-name}-800: #{darken-color(var(--#{$base-name}), 25)};    // Same as --primary-dark
-  //   --#{$base-name}-900: #{darken-color(var(--#{$base-name}), 35)};    // Dark
-  //   --#{$base-name}-950: #{darken-color(var(--#{$base-name}), 45)};    // Very dark
+	@if $color-light {
+		--#{$base-name}-light: #{$color-light};
+	}
 
-  // Alpha/transparency variants for overlays, shadows, etc.
-  //   --#{$base-name}-alpha-10: #{set-color-alpha(var(--#{$base-name}), 0.1)};  // 10% opacity
-  //   --#{$base-name}-alpha-20: #{set-color-alpha(var(--#{$base-name}), 0.2)};  // 20% opacity
-  //   --#{$base-name}-alpha-30: #{set-color-alpha(var(--#{$base-name}), 0.3)};  // 30% opacity
-  //   --#{$base-name}-alpha-50: #{set-color-alpha(var(--#{$base-name}), 0.5)};  // 50% opacity
-  //   --#{$base-name}-alpha-70: #{set-color-alpha(var(--#{$base-name}), 0.7)};  // 70% opacity
-  //   --#{$base-name}-alpha-90: #{set-color-alpha(var(--#{$base-name}), 0.9)};  // 90% opacity
+	@if $color-dark {
+		--#{$base-name}-dark: #{$color-dark};
+	}
 }
 
 /**
@@ -194,9 +284,9 @@
  * @param {string} $prefix - Optional prefix for all CSS variables
  */
 @mixin register-color-systems($color-map, $prefix: '') {
-  @each $color-name, $color-data in $color-map {
-    @include register-color-system($color-name, $color-data, $prefix);
-  }
+	@each $color-name, $color-data in $color-map {
+		@include register-color-system($color-name, $color-data, $prefix);
+	}
 }
 
 /**
@@ -207,68 +297,28 @@
  * @param {boolean} $include-starts-with - Whether to include [class^="component-"] selectors
  */
 @mixin register-component-color-systems($component-classes, $color-map, $include-starts-with: true) {
-  @if $component-classes == null or $component-classes == '' {
-    // No scoping - register globally
-    :root {
-      @include register-color-systems($color-map);
-    }
-  } @else {
-    $class-list: if(meta.type-of($component-classes) == 'list', $component-classes, ($component-classes));
-    $selector-list: ();
+	@if $component-classes == null or $component-classes == '' {
+		// No scoping - register globally
+		:root {
+			@include register-color-systems($color-map);
+		}
+	} @else {
+		$class-list: if(meta.type-of($component-classes) == 'list', $component-classes, ($component-classes));
+		$selector-list: (
+		);
 
-    @each $class-name in $class-list {
-      $selector-list: append($selector-list, '.#{$class-name}', comma);
+	@each $class-name in $class-list {
+		$selector-list: append($selector-list, '.#{$class-name}', comma);
 
-      @if $include-starts-with {
-        // Also target elements with classes that start with component name
-        // e.g., .button, .button-primary, .button-large
-        $selector-list: append($selector-list, '[class^="#{$class-name}-"]', comma);
-      }
-    }
+		@if $include-starts-with {
+			// Also target elements with classes that start with component name
+			// e.g., .button, .button-primary, .button-large
+			$selector-list: append($selector-list, '[class^="#{$class-name}-"]', comma);
+		}
+	}
 
-    #{$selector-list} {
-      @include register-color-systems($color-map);
-    }
-  }
+	#{$selector-list} {
+		@include register-color-systems($color-map);
+	}
 }
-
-/*
-  Our old luminance calculation returns 0-1 scale:
-  - 0 = pure black
-  - 0.53 = perceptual middle
-  - 1 = pure white
-
-  OKLCH lightness is also 0-1 scale:
-  - 0 = pure black
-  - 0.5 = perceptual middle
-  - 1 = pure white
-
-  Key insight: OKLCH lightness IS perceptually uniform luminance!
-  So we can use OKLCH lightness directly instead of complex RGB→luminance conversion
-*/
-
-/**
- * Smart light color using your 96% lightness target
- * @param {string} $color-property - CSS color or variable
- * @return {string} OKLCH color with smart lightness adjustment
- */
-@function get-light-color($color-property, $l: 0.97, $c: 0.03) {
-  // Your logic: target 96% lightness, but don't go lighter if already > 96%
-  // In OKLCH: 0.96 lightness = your 96% target
-  // Reduce chroma to stay in-gamut at high lightness
-  @return oklch(from #{$color-property} max(l, #{$l}) min(c, #{$c}) h);
-}
-
-/**
- * Smart dark color using your luminance-delta algorithm
- * @param {string} $color-property - CSS color or variable
- * @return {string} OKLCH color with smart darkness based on luminance
- */
-@function get-dark-color($color-property) {
-  // Your algorithm translated to OKLCH:
-  // base-l = 0.29 (your 29%)
-  // middle = 0.5 (OKLCH perceptual middle, close to your 0.53)
-  // luminance-delta = (0.5 - current_lightness)
-  // target = 0.29 + (delta * 0.53)
-  @return oklch(from #{$color-property} max(0.29, calc(0.29 + (0.5 - l) * 0.53)) c h);
 }

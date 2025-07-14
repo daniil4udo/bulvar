@@ -5,6 +5,8 @@
 @use "sass:meta"
 @use "sass:string"
 
+@use "mixins-scss";
+
 @function mergeColorMaps($bulma-colors, $custom-colors)
   // We return at least Bulma's hard-coded colors
   $merged-colors: $bulma-colors
@@ -13,39 +15,44 @@
   @if meta.type-of($custom-colors) == 'map'
     @each $name, $components in $custom-colors
       // The color name should be a string
-      // and the components either a single color
-      // or a colors list with at least one element
-      @if meta.type-of($name) == 'string' and (meta.type-of($components) == 'list' or meta.type-of($components) == 'color') and list.length($components) >= 1
+      // and the components either a single color or a colors list with at least one element
+      @if meta.type-of($name) == 'string' and (meta.type-of($components) == 'color' or (meta.type-of($components) == 'list' and list.length($components) >= 1))
         $color-base: null
         $color-invert: null
         $color-light: null
         $color-dark: null
         $value: null
 
-        // The param can either be a single color
-        // or a list of 2 colors
+        // The param can either be a single color or a list of colors
         @if meta.type-of($components) == 'color'
           $color-base: $components
-          $color-invert: findColorInvert($color-base)
-          $color-light: findLightColor($color-base)
-          $color-dark: findDarkColor($color-base)
+          $color-invert: mixins-scss.get-invert-color($color-base)
+          $color-light: mixins-scss.get-light-color($color-base)
+          $color-dark: mixins-scss.get-dark-color($color-base)
         @else if meta.type-of($components) == 'list'
           $color-base: list.nth($components, 1)
-          // If Invert, Light and Dark are provided
-          @if list.length($components) > 3
+          $length: list.length($components)
+
+          // If all 4 colors are provided (base, invert, light, dark)
+          @if $length >= 4
             $color-invert: list.nth($components, 2)
             $color-light: list.nth($components, 3)
             $color-dark: list.nth($components, 4)
-            // If only Invert and Light are provided
-          @else if list.length($components) > 2
+          @else if $length == 3
+            // If 3 colors are provided (base, invert, light) - auto-generate dark
             $color-invert: list.nth($components, 2)
             $color-light: list.nth($components, 3)
-            $color-dark: findDarkColor($color-base)
-            // If only Invert is provided
-          @else
+            $color-dark: mixins-scss.get-dark-color($color-base)
+          @else if $length == 2
+            // If 2 colors are provided (base, invert) - auto-generate light and dark
             $color-invert: list.nth($components, 2)
-            $color-light: findLightColor($color-base)
-            $color-dark: findDarkColor($color-base)
+            $color-light: mixins-scss.get-light-color($color-base)
+            $color-dark: mixins-scss.get-dark-color($color-base)
+          @else
+            // If only 1 color in list (base) - auto-generate all variants
+            $color-invert: mixins-scss.get-invert-color($color-base)
+            $color-light: mixins-scss.get-light-color($color-base)
+            $color-dark: mixins-scss.get-dark-color($color-base)
 
         $value: ($color-base, $color-invert, $color-light, $color-dark)
 
@@ -53,7 +60,6 @@
         @if meta.type-of($color-base) == 'color'
           // We merge this colors elements as map with Bulma's colors map
           // (we can override them this way, no multiple definition for the same name)
-          // $merged-colors: map_merge($merged-colors, ($name: ($color-base, $color-invert, $color-light, $color-dark)))
           $merged-colors: map.merge($merged-colors, ($name: $value))
 
   @return $merged-colors
@@ -219,7 +225,7 @@ $-light-breakpoint: 0.55
   @warn "This old mixin is deprecated!"
   $name: unwrap($color)
   @if meta.type-of($name) == 'string' // and map-has-key($colors, $name)
-    $name-l: calc(var(--#{$name}-l) + #{if(math.is-unitless($amount), ($amount * 1%), $amount)})
+    $name-l: calc(var(--#{$name}-l) + (if(math.is-unitless($amount), ($amount * 1%), $amount)))
     @return hsla(var(--#{$name}-h), var(--#{$name}-s), #{$name-l}, var(--#{$name}-a))
   @return $color
 

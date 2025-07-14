@@ -17,11 +17,11 @@
 =center($width, $height: 0)
   position: absolute
   @if $height != 0
-    +logical-x(inset, calc(50% - (#{$width} * 0.5)), $right: false)
-    top: calc(50% - (#{$height} * 0.5))
+    +logical-x(inset, calc(50% - ($width * 0.5)), $right: false)
+    top: calc(50% - ($height * 0.5))
   @else
-    +logical-x(inset, calc(50% - (#{$width} * 0.5)), $right: false)
-    top: calc(50% - (#{$width} * 0.5))
+    +logical-x(inset, calc(50% - ($width * 0.5)), $right: false)
+    top: calc(50% - ($width * 0.5))
 
 =fa($size, $dimensions)
   --fa-dimensions: #{$dimensions}

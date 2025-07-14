@@ -142,7 +142,7 @@ $column-map: ('full': 100%, 'three-quarters': math.div(100% * 3, 4), 'two-thirds
   &:last-child
     +utilities.logical-y(margin, (-$column-gap), $bottom: true)
   &:not(:last-child)
-    +utilities.logical-y(margin, calc(1.5rem - #{$column-gap}), $bottom: true)
+    +utilities.logical-y(margin, calc(1.5rem - $column-gap), $bottom: true)
   // Modifiers
   &.is-centered
     justify-content: center

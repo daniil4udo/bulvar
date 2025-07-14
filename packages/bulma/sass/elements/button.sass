@@ -4,8 +4,8 @@
 @use "../utilities"
 @use "../utilities/mixins-scss"
 
-$button-color: var(--text-strong) !default
 $button-background-color: var(--scheme-main) !default
+$button-color: mixins-scss.get-invert-color($button-background-color) !default
 $button-family: false !default
 $button-font-size: var(--size-normal) !default
 
@@ -196,7 +196,7 @@ $-css-vars-map: ('button-color': $button-color, 'button-background-color': $butt
         background-color: var(--#{$name}-invert)
         color: var(--#{$name})
         &:is(:hover, .is-hovered)
-          background-color: var(--#{$name}-invert-ter) // utilities.bulmaDarken($color-invert, 5%)
+          background-color: var(--#{$name}-invert-ter)
         &[disabled],
         fieldset[disabled] &
           background-color: var(--#{$name}-invert)
