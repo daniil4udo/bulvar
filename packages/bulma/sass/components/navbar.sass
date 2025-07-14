@@ -413,8 +413,7 @@ a.navbar-item,
       +utilities.logical-x(inset, auto 0)
   .navbar-divider
     display: block
-  .navbar > .container,
-  .container > .navbar
+  :is(.navbar > .container, .container > .navbar)
     .navbar-brand
       +utilities.logical-x(margin, -0.75rem, $right: false)
     .navbar-menu
