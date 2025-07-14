@@ -18,7 +18,7 @@
         "type": "git",
         "url": "git+https://github.com/daniil4udo/bulvar.git"
     },
-    "packageManager": "pnpm@10.12.4",
+    "packageManager": "pnpm@10.13.1",
     "license": "MIT",
     "author": {
         "name": "Daniil Chumachenko",
