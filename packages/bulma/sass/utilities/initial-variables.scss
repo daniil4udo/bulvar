@@ -1,30 +1,30 @@
 // Colors
 
 // Achromatic colors (blacks, greys, whites) using OKLCH
-$black:		oklch(8% 0 0deg) !default;			// 4% lightness - pure black
-$black-bis:	oklch(15% 0 0deg) !default;		// 9% lightness
-$black-ter:	oklch(23% 0 0deg) !default;		// 14% lightness
+$black:		oklch(0.14 0.00 265) !default;
+$black-bis:	oklch(0.20 0.01 266) !default;
+$black-ter:	oklch(0.25 0.01 266) !default;
 
-$grey-darker:	oklch(35% 0 0deg) !default;	// 21% lightness
-$grey-dark:		oklch(45% 0 0deg) !default;	// 29% lightness
-$grey:			oklch(60% 0 0deg) !default;	// 48% lightness
-$grey-light:	oklch(75% 0 0deg) !default;	// 71% lightness
-$grey-lighter:	oklch(88% 0 0deg) !default;	// 86% lightness
-$grey-lightest:	oklch(94% 0 0deg) !default;	// 93% lightness
+$grey-darker:	oklch(0.32 0.02 266) !default;
+$grey-dark:		oklch(0.39 0.03 266) !default;
+$grey:			oklch(0.56 0.04 266) !default;
+$grey-light:	oklch(0.76 0.02 266) !default;
+$grey-lighter:	oklch(0.89 0.01 266) !default;
+$grey-lightest:	oklch(0.94 0.00 266) !default;
 
-$white-ter:	oklch(93% 0 0deg) !default;	// 92% lightness
-$white-bis:	oklch(97% 0 0deg) !default;	// 96% lightness
-$white:		oklch(100% 0 0deg) !default;	// 100% lightness - pure white
+$white-ter:	oklch(0.97 0.00 266) !default;
+$white-bis:	oklch(0.98 0.00 266) !default;
+$white:		oklch(1.00 0.00 0) !default;
 
 // Chromatic colors using OKLCH (better perceptual uniformity than HSL)
-$orange:	oklch(70% 0.15 45deg) !default;	// Orange - 45° hue
-$yellow:	oklch(90% 0.12 85deg) !default;	// Yellow - 85° hue
-$green:		oklch(65% 0.15 140deg) !default;	// Green - 140° hue
-$turquoise:	oklch(55% 0.12 180deg) !default;	// Turquoise - 180° hue
-$cyan:		oklch(65% 0.1 220deg) !default;	// Cyan - 220° hue
-$blue:		oklch(50% 0.15 240deg) !default;	// Blue - 240° hue
-$purple:	oklch(75% 0.2 300deg) !default;	// Purple - 300° hue
-$red:		oklch(65% 0.2 20deg) !default;		// Red - 20° hue
+$orange:	oklch(0.66 0.23 35) !default;
+$yellow:	oklch(0.83 0.17 80) !default;
+$green:		oklch(0.64 0.13 167.79) !default;
+$turquoise:	oklch(0.77 0.14 177) !default;
+$cyan:		oklch(0.82 0.12 229) !default;
+$blue:		oklch(0.47 0.13 259.35) !default;
+$purple:	oklch(0.68 0.22 305) !default;
+$red:		oklch(0.71 0.19 11) !default;
 
 // Typography
 

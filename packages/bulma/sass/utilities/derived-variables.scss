@@ -7,11 +7,11 @@
 @use "mixins-scss";
 @use "initial-variables" as *;
 
-$primary: $turquoise !default;
+$primary: $green !default;
 $secondary: $blue !default;
 $link: $blue !default;
 $info: $cyan !default;
-$success: $green !default;
+$success: $turquoise !default;
 $warning: $yellow !default;
 $danger: $red !default;
 $light: $white-ter !default;
