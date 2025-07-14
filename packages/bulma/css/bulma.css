@@ -1,5 +1,5 @@
 /*!
-  * @bulvar/bulma v1.0.0-beta.4 (https://github.com/daniil4udo/bulvar/tree/master/packages/bulma)
+  * @bulvar/bulma v1.0.0-beta.5 (https://github.com/daniil4udo/bulvar/tree/master/packages/bulma)
   * Copyright 2025 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
@@ -31,17 +31,17 @@
   --duration: .294s;
   --chanel: round(up, min(1, max(0, .3 - y)));
   --scheme-main: oklch(100% 0 0);
-  --scheme-main-bis: oklch(97% 0 0);
-  --scheme-main-ter: oklch(93% 0 0);
+  --scheme-main-bis: oklch(98% 0 266);
+  --scheme-main-ter: oklch(97% 0 266);
   --scheme-invert: color(from var(--scheme-main) xyz var(--chanel) var(--chanel) var(--chanel));
-  --scheme-invert-bis: oklch(15% 0 0);
-  --scheme-invert-ter: oklch(23% 0 0);
-  --background: oklch(93% 0 0);
-  --border: oklch(88% 0 0);
-  --border-hover: oklch(75% 0 0);
-  --border-light: oklch(94% 0 0);
-  --border-light-hover: oklch(75% 0 0);
-  --text: oklch(45% 0 0);
+  --scheme-invert-bis: oklch(20% .01 266);
+  --scheme-invert-ter: oklch(25% .01 266);
+  --background: oklch(97% 0 266);
+  --border: oklch(89% .01 266);
+  --border-hover: oklch(76% .02 266);
+  --border-light: oklch(94% 0 266);
+  --border-light-hover: oklch(76% .02 266);
+  --text: oklch(39% .03 266);
   --text-invert: color(from var(--text) xyz var(--chanel) var(--chanel) var(--chanel));
   --text-light: oklch(from var(--text) max(l, .97) min(c, .03) h);
   --text-strong: oklch(from var(--text) max(.29, .29 + (.5 - l) * .53) c h);
@@ -49,13 +49,13 @@
   --code-background: var(--background);
   --pre: var(--text);
   --pre-background: var(--background);
-  --link-visited: oklch(75% .2 300);
-  --link-hover: oklch(35% 0 0);
-  --link-hover-border: oklch(75% 0 0);
-  --link-focus: oklch(35% 0 0);
+  --link-visited: oklch(68% .22 305);
+  --link-hover: oklch(32% .02 266);
+  --link-hover-border: oklch(76% .02 266);
+  --link-focus: oklch(32% .02 266);
   --link-focus-border: var(--link);
-  --link-active: oklch(35% 0 0);
-  --link-active-border: oklch(45% 0 0);
+  --link-active: oklch(32% .02 266);
+  --link-active-border: oklch(39% .03 266);
   --family-primary: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   --family-secondary: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   --family-code: monospace;
@@ -65,51 +65,51 @@
   --size-large: 1.5rem;
   --shadow: 0 .5em 1em -.125em oklch(from var(--scheme-invert) l c h / .1), 0 0 0 1px oklch(from var(--scheme-invert) l c h / .02);
   --white: oklch(100% 0 0);
-  --white-invert: oklch(8% 0 0);
-  --black: oklch(8% 0 0);
+  --white-invert: oklch(14% 0 265);
+  --black: oklch(14% 0 265);
   --black-invert: oklch(100% 0 0);
-  --light: oklch(93% 0 0);
-  --light-invert: oklch(35% 0 0);
-  --dark: oklch(35% 0 0);
-  --dark-invert: oklch(93% 0 0);
-  --primary: oklch(55% .12 180);
+  --light: oklch(97% 0 266);
+  --light-invert: oklch(32% .02 266);
+  --dark: oklch(32% .02 266);
+  --dark-invert: oklch(97% 0 266);
+  --primary: oklch(64% .13 167.79);
   --primary-invert: color(from var(--primary) xyz var(--chanel) var(--chanel) var(--chanel));
   --primary-light: oklch(from var(--primary) max(l, .97) min(c, .03) h);
   --primary-dark: oklch(from var(--primary) max(.29, .29 + (.5 - l) * .53) c h);
-  --secondary: oklch(50% .15 240);
+  --secondary: oklch(47% .13 259.35);
   --secondary-invert: color(from var(--secondary) xyz var(--chanel) var(--chanel) var(--chanel));
   --secondary-light: oklch(from var(--secondary) max(l, .97) min(c, .03) h);
   --secondary-dark: oklch(from var(--secondary) max(.29, .29 + (.5 - l) * .53) c h);
-  --link: oklch(50% .15 240);
+  --link: oklch(47% .13 259.35);
   --link-invert: color(from var(--link) xyz var(--chanel) var(--chanel) var(--chanel));
   --link-light: oklch(from var(--link) max(l, .97) min(c, .03) h);
   --link-dark: oklch(from var(--link) max(.29, .29 + (.5 - l) * .53) c h);
-  --info: oklch(65% .1 220);
+  --info: oklch(82% .12 229);
   --info-invert: color(from var(--info) xyz var(--chanel) var(--chanel) var(--chanel));
   --info-light: oklch(from var(--info) max(l, .97) min(c, .03) h);
   --info-dark: oklch(from var(--info) max(.29, .29 + (.5 - l) * .53) c h);
-  --success: oklch(65% .15 140);
+  --success: oklch(77% .14 177);
   --success-invert: color(from var(--success) xyz var(--chanel) var(--chanel) var(--chanel));
   --success-light: oklch(from var(--success) max(l, .97) min(c, .03) h);
   --success-dark: oklch(from var(--success) max(.29, .29 + (.5 - l) * .53) c h);
-  --warning: oklch(90% .12 85);
+  --warning: oklch(83% .17 80);
   --warning-invert: color(from var(--warning) xyz var(--chanel) var(--chanel) var(--chanel));
   --warning-light: oklch(from var(--warning) max(l, .97) min(c, .03) h);
   --warning-dark: oklch(from var(--warning) max(.29, .29 + (.5 - l) * .53) c h);
-  --danger: oklch(65% .2 20);
+  --danger: oklch(71% .19 11);
   --danger-invert: color(from var(--danger) xyz var(--chanel) var(--chanel) var(--chanel));
   --danger-light: oklch(from var(--danger) max(l, .97) min(c, .03) h);
   --danger-dark: oklch(from var(--danger) max(.29, .29 + (.5 - l) * .53) c h);
-  --black-bis: oklch(15% 0 0);
-  --black-ter: oklch(23% 0 0);
-  --grey-darker: oklch(35% 0 0);
-  --grey-dark: oklch(45% 0 0);
-  --grey: oklch(60% 0 0);
-  --grey-light: oklch(75% 0 0);
-  --grey-lighter: oklch(88% 0 0);
-  --grey-lightest: oklch(94% 0 0);
-  --white-ter: oklch(93% 0 0);
-  --white-bis: oklch(97% 0 0);
+  --black-bis: oklch(20% .01 266);
+  --black-ter: oklch(25% .01 266);
+  --grey-darker: oklch(32% .02 266);
+  --grey-dark: oklch(39% .03 266);
+  --grey: oklch(56% .04 266);
+  --grey-light: oklch(76% .02 266);
+  --grey-lighter: oklch(89% .01 266);
+  --grey-lightest: oklch(94% 0 266);
+  --white-ter: oklch(97% 0 266);
+  --white-bis: oklch(98% 0 266);
 }
 
 html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
@@ -734,7 +734,7 @@ a.box:active {
 }
 
 .button.is-white:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--white), black 2.5% );
+  background-color: color-mix(in oklch, var(--white), black 2.5%);
   color: var(--white-invert);
   border-color: #0000;
 }
@@ -749,7 +749,7 @@ a.box:active {
 }
 
 .button.is-white:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--white), black 5% );
+  background-color: color-mix(in oklch, var(--white), black 5%);
   color: var(--white-invert);
   border-color: #0000;
 }
@@ -836,7 +836,7 @@ a.box:active {
 }
 
 .button.is-black:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--black), black 2.5% );
+  background-color: color-mix(in oklch, var(--black), black 2.5%);
   color: var(--black-invert);
   border-color: #0000;
 }
@@ -851,7 +851,7 @@ a.box:active {
 }
 
 .button.is-black:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--black), black 5% );
+  background-color: color-mix(in oklch, var(--black), black 5%);
   color: var(--black-invert);
   border-color: #0000;
 }
@@ -938,7 +938,7 @@ a.box:active {
 }
 
 .button.is-light:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--light), black 2.5% );
+  background-color: color-mix(in oklch, var(--light), black 2.5%);
   color: var(--light-invert);
   border-color: #0000;
 }
@@ -953,7 +953,7 @@ a.box:active {
 }
 
 .button.is-light:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--light), black 5% );
+  background-color: color-mix(in oklch, var(--light), black 5%);
   color: var(--light-invert);
   border-color: #0000;
 }
@@ -1040,7 +1040,7 @@ a.box:active {
 }
 
 .button.is-dark:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--dark), black 2.5% );
+  background-color: color-mix(in oklch, var(--dark), black 2.5%);
   color: var(--dark-invert);
   border-color: #0000;
 }
@@ -1055,7 +1055,7 @@ a.box:active {
 }
 
 .button.is-dark:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--dark), black 5% );
+  background-color: color-mix(in oklch, var(--dark), black 5%);
   color: var(--dark-invert);
   border-color: #0000;
 }
@@ -1142,7 +1142,7 @@ a.box:active {
 }
 
 .button.is-primary:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--primary), black 2.5% );
+  background-color: color-mix(in oklch, var(--primary), black 2.5%);
   color: var(--primary-invert);
   border-color: #0000;
 }
@@ -1157,7 +1157,7 @@ a.box:active {
 }
 
 .button.is-primary:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--primary), black 5% );
+  background-color: color-mix(in oklch, var(--primary), black 5%);
   color: var(--primary-invert);
   border-color: #0000;
 }
@@ -1243,13 +1243,13 @@ a.box:active {
 }
 
 .button.is-primary.is-light:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--primary-light), black 2.5% );
+  background-color: color-mix(in oklch, var(--primary-light), black 2.5%);
   color: var(--primary-dark);
   border-color: #0000;
 }
 
 .button.is-primary.is-light:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--primary-light), black 5% );
+  background-color: color-mix(in oklch, var(--primary-light), black 5%);
   color: var(--primary-dark);
   border-color: #0000;
 }
@@ -1261,7 +1261,7 @@ a.box:active {
 }
 
 .button.is-secondary:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--secondary), black 2.5% );
+  background-color: color-mix(in oklch, var(--secondary), black 2.5%);
   color: var(--secondary-invert);
   border-color: #0000;
 }
@@ -1276,7 +1276,7 @@ a.box:active {
 }
 
 .button.is-secondary:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--secondary), black 5% );
+  background-color: color-mix(in oklch, var(--secondary), black 5%);
   color: var(--secondary-invert);
   border-color: #0000;
 }
@@ -1362,13 +1362,13 @@ a.box:active {
 }
 
 .button.is-secondary.is-light:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--secondary-light), black 2.5% );
+  background-color: color-mix(in oklch, var(--secondary-light), black 2.5%);
   color: var(--secondary-dark);
   border-color: #0000;
 }
 
 .button.is-secondary.is-light:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--secondary-light), black 5% );
+  background-color: color-mix(in oklch, var(--secondary-light), black 5%);
   color: var(--secondary-dark);
   border-color: #0000;
 }
@@ -1380,7 +1380,7 @@ a.box:active {
 }
 
 .button.is-link:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--link), black 2.5% );
+  background-color: color-mix(in oklch, var(--link), black 2.5%);
   color: var(--link-invert);
   border-color: #0000;
 }
@@ -1395,7 +1395,7 @@ a.box:active {
 }
 
 .button.is-link:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--link), black 5% );
+  background-color: color-mix(in oklch, var(--link), black 5%);
   color: var(--link-invert);
   border-color: #0000;
 }
@@ -1481,13 +1481,13 @@ a.box:active {
 }
 
 .button.is-link.is-light:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--link-light), black 2.5% );
+  background-color: color-mix(in oklch, var(--link-light), black 2.5%);
   color: var(--link-dark);
   border-color: #0000;
 }
 
 .button.is-link.is-light:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--link-light), black 5% );
+  background-color: color-mix(in oklch, var(--link-light), black 5%);
   color: var(--link-dark);
   border-color: #0000;
 }
@@ -1499,7 +1499,7 @@ a.box:active {
 }
 
 .button.is-info:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--info), black 2.5% );
+  background-color: color-mix(in oklch, var(--info), black 2.5%);
   color: var(--info-invert);
   border-color: #0000;
 }
@@ -1514,7 +1514,7 @@ a.box:active {
 }
 
 .button.is-info:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--info), black 5% );
+  background-color: color-mix(in oklch, var(--info), black 5%);
   color: var(--info-invert);
   border-color: #0000;
 }
@@ -1600,13 +1600,13 @@ a.box:active {
 }
 
 .button.is-info.is-light:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--info-light), black 2.5% );
+  background-color: color-mix(in oklch, var(--info-light), black 2.5%);
   color: var(--info-dark);
   border-color: #0000;
 }
 
 .button.is-info.is-light:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--info-light), black 5% );
+  background-color: color-mix(in oklch, var(--info-light), black 5%);
   color: var(--info-dark);
   border-color: #0000;
 }
@@ -1618,7 +1618,7 @@ a.box:active {
 }
 
 .button.is-success:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--success), black 2.5% );
+  background-color: color-mix(in oklch, var(--success), black 2.5%);
   color: var(--success-invert);
   border-color: #0000;
 }
@@ -1633,7 +1633,7 @@ a.box:active {
 }
 
 .button.is-success:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--success), black 5% );
+  background-color: color-mix(in oklch, var(--success), black 5%);
   color: var(--success-invert);
   border-color: #0000;
 }
@@ -1719,13 +1719,13 @@ a.box:active {
 }
 
 .button.is-success.is-light:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--success-light), black 2.5% );
+  background-color: color-mix(in oklch, var(--success-light), black 2.5%);
   color: var(--success-dark);
   border-color: #0000;
 }
 
 .button.is-success.is-light:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--success-light), black 5% );
+  background-color: color-mix(in oklch, var(--success-light), black 5%);
   color: var(--success-dark);
   border-color: #0000;
 }
@@ -1737,7 +1737,7 @@ a.box:active {
 }
 
 .button.is-warning:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--warning), black 2.5% );
+  background-color: color-mix(in oklch, var(--warning), black 2.5%);
   color: var(--warning-invert);
   border-color: #0000;
 }
@@ -1752,7 +1752,7 @@ a.box:active {
 }
 
 .button.is-warning:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--warning), black 5% );
+  background-color: color-mix(in oklch, var(--warning), black 5%);
   color: var(--warning-invert);
   border-color: #0000;
 }
@@ -1838,13 +1838,13 @@ a.box:active {
 }
 
 .button.is-warning.is-light:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--warning-light), black 2.5% );
+  background-color: color-mix(in oklch, var(--warning-light), black 2.5%);
   color: var(--warning-dark);
   border-color: #0000;
 }
 
 .button.is-warning.is-light:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--warning-light), black 5% );
+  background-color: color-mix(in oklch, var(--warning-light), black 5%);
   color: var(--warning-dark);
   border-color: #0000;
 }
@@ -1856,7 +1856,7 @@ a.box:active {
 }
 
 .button.is-danger:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--danger), black 2.5% );
+  background-color: color-mix(in oklch, var(--danger), black 2.5%);
   color: var(--danger-invert);
   border-color: #0000;
 }
@@ -1871,7 +1871,7 @@ a.box:active {
 }
 
 .button.is-danger:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--danger), black 5% );
+  background-color: color-mix(in oklch, var(--danger), black 5%);
   color: var(--danger-invert);
   border-color: #0000;
 }
@@ -1957,13 +1957,13 @@ a.box:active {
 }
 
 .button.is-danger.is-light:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--danger-light), black 2.5% );
+  background-color: color-mix(in oklch, var(--danger-light), black 2.5%);
   color: var(--danger-dark);
   border-color: #0000;
 }
 
 .button.is-danger.is-light:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--danger-light), black 5% );
+  background-color: color-mix(in oklch, var(--danger-light), black 5%);
   color: var(--danger-dark);
   border-color: #0000;
 }
@@ -3882,7 +3882,7 @@ a.tag:hover {
 }
 
 .select.is-white select:is(:hover, .is-hovered) {
-  border-color: color-mix(in oklch, var(--white), black 5% );
+  border-color: color-mix(in oklch, var(--white), black 5%);
 }
 
 .select.is-white select:is(:focus, .is-focused, :active, .is-active) {
@@ -3894,7 +3894,7 @@ a.tag:hover {
 }
 
 .select.is-black select:is(:hover, .is-hovered) {
-  border-color: color-mix(in oklch, var(--black), black 5% );
+  border-color: color-mix(in oklch, var(--black), black 5%);
 }
 
 .select.is-black select:is(:focus, .is-focused, :active, .is-active) {
@@ -3906,7 +3906,7 @@ a.tag:hover {
 }
 
 .select.is-light select:is(:hover, .is-hovered) {
-  border-color: color-mix(in oklch, var(--light), black 5% );
+  border-color: color-mix(in oklch, var(--light), black 5%);
 }
 
 .select.is-light select:is(:focus, .is-focused, :active, .is-active) {
@@ -3918,7 +3918,7 @@ a.tag:hover {
 }
 
 .select.is-dark select:is(:hover, .is-hovered) {
-  border-color: color-mix(in oklch, var(--dark), black 5% );
+  border-color: color-mix(in oklch, var(--dark), black 5%);
 }
 
 .select.is-dark select:is(:focus, .is-focused, :active, .is-active) {
@@ -3930,7 +3930,7 @@ a.tag:hover {
 }
 
 .select.is-primary select:is(:hover, .is-hovered) {
-  border-color: color-mix(in oklch, var(--primary), black 5% );
+  border-color: color-mix(in oklch, var(--primary), black 5%);
 }
 
 .select.is-primary select:is(:focus, .is-focused, :active, .is-active) {
@@ -3942,7 +3942,7 @@ a.tag:hover {
 }
 
 .select.is-secondary select:is(:hover, .is-hovered) {
-  border-color: color-mix(in oklch, var(--secondary), black 5% );
+  border-color: color-mix(in oklch, var(--secondary), black 5%);
 }
 
 .select.is-secondary select:is(:focus, .is-focused, :active, .is-active) {
@@ -3954,7 +3954,7 @@ a.tag:hover {
 }
 
 .select.is-link select:is(:hover, .is-hovered) {
-  border-color: color-mix(in oklch, var(--link), black 5% );
+  border-color: color-mix(in oklch, var(--link), black 5%);
 }
 
 .select.is-link select:is(:focus, .is-focused, :active, .is-active) {
@@ -3966,7 +3966,7 @@ a.tag:hover {
 }
 
 .select.is-info select:is(:hover, .is-hovered) {
-  border-color: color-mix(in oklch, var(--info), black 5% );
+  border-color: color-mix(in oklch, var(--info), black 5%);
 }
 
 .select.is-info select:is(:focus, .is-focused, :active, .is-active) {
@@ -3978,7 +3978,7 @@ a.tag:hover {
 }
 
 .select.is-success select:is(:hover, .is-hovered) {
-  border-color: color-mix(in oklch, var(--success), black 5% );
+  border-color: color-mix(in oklch, var(--success), black 5%);
 }
 
 .select.is-success select:is(:focus, .is-focused, :active, .is-active) {
@@ -3990,7 +3990,7 @@ a.tag:hover {
 }
 
 .select.is-warning select:is(:hover, .is-hovered) {
-  border-color: color-mix(in oklch, var(--warning), black 5% );
+  border-color: color-mix(in oklch, var(--warning), black 5%);
 }
 
 .select.is-warning select:is(:focus, .is-focused, :active, .is-active) {
@@ -4002,7 +4002,7 @@ a.tag:hover {
 }
 
 .select.is-danger select:is(:hover, .is-hovered) {
-  border-color: color-mix(in oklch, var(--danger), black 5% );
+  border-color: color-mix(in oklch, var(--danger), black 5%);
 }
 
 .select.is-danger select:is(:focus, .is-focused, :active, .is-active) {
@@ -4081,7 +4081,7 @@ a.tag:hover {
 }
 
 .file.is-white:is(:hover, .is-hovered) .file-cta {
-  background-color: color-mix(in oklch, var(--white), black 2.5% );
+  background-color: color-mix(in oklch, var(--white), black 2.5%);
   color: var(--white-invert);
   border-color: #0000;
 }
@@ -4093,7 +4093,7 @@ a.tag:hover {
 }
 
 .file.is-white:is(:active, .is-active) .file-cta {
-  background-color: color-mix(in oklch, var(--white), black 5% );
+  background-color: color-mix(in oklch, var(--white), black 5%);
   color: var(--white-invert);
   border-color: #0000;
 }
@@ -4105,7 +4105,7 @@ a.tag:hover {
 }
 
 .file.is-black:is(:hover, .is-hovered) .file-cta {
-  background-color: color-mix(in oklch, var(--black), black 2.5% );
+  background-color: color-mix(in oklch, var(--black), black 2.5%);
   color: var(--black-invert);
   border-color: #0000;
 }
@@ -4117,7 +4117,7 @@ a.tag:hover {
 }
 
 .file.is-black:is(:active, .is-active) .file-cta {
-  background-color: color-mix(in oklch, var(--black), black 5% );
+  background-color: color-mix(in oklch, var(--black), black 5%);
   color: var(--black-invert);
   border-color: #0000;
 }
@@ -4129,7 +4129,7 @@ a.tag:hover {
 }
 
 .file.is-light:is(:hover, .is-hovered) .file-cta {
-  background-color: color-mix(in oklch, var(--light), black 2.5% );
+  background-color: color-mix(in oklch, var(--light), black 2.5%);
   color: var(--light-invert);
   border-color: #0000;
 }
@@ -4141,7 +4141,7 @@ a.tag:hover {
 }
 
 .file.is-light:is(:active, .is-active) .file-cta {
-  background-color: color-mix(in oklch, var(--light), black 5% );
+  background-color: color-mix(in oklch, var(--light), black 5%);
   color: var(--light-invert);
   border-color: #0000;
 }
@@ -4153,7 +4153,7 @@ a.tag:hover {
 }
 
 .file.is-dark:is(:hover, .is-hovered) .file-cta {
-  background-color: color-mix(in oklch, var(--dark), black 2.5% );
+  background-color: color-mix(in oklch, var(--dark), black 2.5%);
   color: var(--dark-invert);
   border-color: #0000;
 }
@@ -4165,7 +4165,7 @@ a.tag:hover {
 }
 
 .file.is-dark:is(:active, .is-active) .file-cta {
-  background-color: color-mix(in oklch, var(--dark), black 5% );
+  background-color: color-mix(in oklch, var(--dark), black 5%);
   color: var(--dark-invert);
   border-color: #0000;
 }
@@ -4177,7 +4177,7 @@ a.tag:hover {
 }
 
 .file.is-primary:is(:hover, .is-hovered) .file-cta {
-  background-color: color-mix(in oklch, var(--primary), black 2.5% );
+  background-color: color-mix(in oklch, var(--primary), black 2.5%);
   color: var(--primary-invert);
   border-color: #0000;
 }
@@ -4189,7 +4189,7 @@ a.tag:hover {
 }
 
 .file.is-primary:is(:active, .is-active) .file-cta {
-  background-color: color-mix(in oklch, var(--primary), black 5% );
+  background-color: color-mix(in oklch, var(--primary), black 5%);
   color: var(--primary-invert);
   border-color: #0000;
 }
@@ -4201,7 +4201,7 @@ a.tag:hover {
 }
 
 .file.is-secondary:is(:hover, .is-hovered) .file-cta {
-  background-color: color-mix(in oklch, var(--secondary), black 2.5% );
+  background-color: color-mix(in oklch, var(--secondary), black 2.5%);
   color: var(--secondary-invert);
   border-color: #0000;
 }
@@ -4213,7 +4213,7 @@ a.tag:hover {
 }
 
 .file.is-secondary:is(:active, .is-active) .file-cta {
-  background-color: color-mix(in oklch, var(--secondary), black 5% );
+  background-color: color-mix(in oklch, var(--secondary), black 5%);
   color: var(--secondary-invert);
   border-color: #0000;
 }
@@ -4225,7 +4225,7 @@ a.tag:hover {
 }
 
 .file.is-link:is(:hover, .is-hovered) .file-cta {
-  background-color: color-mix(in oklch, var(--link), black 2.5% );
+  background-color: color-mix(in oklch, var(--link), black 2.5%);
   color: var(--link-invert);
   border-color: #0000;
 }
@@ -4237,7 +4237,7 @@ a.tag:hover {
 }
 
 .file.is-link:is(:active, .is-active) .file-cta {
-  background-color: color-mix(in oklch, var(--link), black 5% );
+  background-color: color-mix(in oklch, var(--link), black 5%);
   color: var(--link-invert);
   border-color: #0000;
 }
@@ -4249,7 +4249,7 @@ a.tag:hover {
 }
 
 .file.is-info:is(:hover, .is-hovered) .file-cta {
-  background-color: color-mix(in oklch, var(--info), black 2.5% );
+  background-color: color-mix(in oklch, var(--info), black 2.5%);
   color: var(--info-invert);
   border-color: #0000;
 }
@@ -4261,7 +4261,7 @@ a.tag:hover {
 }
 
 .file.is-info:is(:active, .is-active) .file-cta {
-  background-color: color-mix(in oklch, var(--info), black 5% );
+  background-color: color-mix(in oklch, var(--info), black 5%);
   color: var(--info-invert);
   border-color: #0000;
 }
@@ -4273,7 +4273,7 @@ a.tag:hover {
 }
 
 .file.is-success:is(:hover, .is-hovered) .file-cta {
-  background-color: color-mix(in oklch, var(--success), black 2.5% );
+  background-color: color-mix(in oklch, var(--success), black 2.5%);
   color: var(--success-invert);
   border-color: #0000;
 }
@@ -4285,7 +4285,7 @@ a.tag:hover {
 }
 
 .file.is-success:is(:active, .is-active) .file-cta {
-  background-color: color-mix(in oklch, var(--success), black 5% );
+  background-color: color-mix(in oklch, var(--success), black 5%);
   color: var(--success-invert);
   border-color: #0000;
 }
@@ -4297,7 +4297,7 @@ a.tag:hover {
 }
 
 .file.is-warning:is(:hover, .is-hovered) .file-cta {
-  background-color: color-mix(in oklch, var(--warning), black 2.5% );
+  background-color: color-mix(in oklch, var(--warning), black 2.5%);
   color: var(--warning-invert);
   border-color: #0000;
 }
@@ -4309,7 +4309,7 @@ a.tag:hover {
 }
 
 .file.is-warning:is(:active, .is-active) .file-cta {
-  background-color: color-mix(in oklch, var(--warning), black 5% );
+  background-color: color-mix(in oklch, var(--warning), black 5%);
   color: var(--warning-invert);
   border-color: #0000;
 }
@@ -4321,7 +4321,7 @@ a.tag:hover {
 }
 
 .file.is-danger:is(:hover, .is-hovered) .file-cta {
-  background-color: color-mix(in oklch, var(--danger), black 2.5% );
+  background-color: color-mix(in oklch, var(--danger), black 2.5%);
   color: var(--danger-invert);
   border-color: #0000;
 }
@@ -4333,7 +4333,7 @@ a.tag:hover {
 }
 
 .file.is-danger:is(:active, .is-active) .file-cta {
-  background-color: color-mix(in oklch, var(--danger), black 5% );
+  background-color: color-mix(in oklch, var(--danger), black 5%);
   color: var(--danger-invert);
   border-color: #0000;
 }
@@ -5783,7 +5783,7 @@ a.tag:hover {
 }
 
 .navbar.is-white .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-white .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  background-color: color-mix(in oklch, var(--white), black 5% );
+  background-color: color-mix(in oklch, var(--white), black 5%);
   color: var(--white-invert);
 }
 
@@ -5803,7 +5803,7 @@ a.tag:hover {
 
   .navbar.is-white :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-white :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
     --navbar-item-hover-background-color: ;
-    background-color: color-mix(in oklch, var(--white), black 5% );
+    background-color: color-mix(in oklch, var(--white), black 5%);
     color: var(--white-invert);
   }
 
@@ -5812,7 +5812,7 @@ a.tag:hover {
   }
 
   .navbar.is-white .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    background-color: color-mix(in oklch, var(--white), black 5% );
+    background-color: color-mix(in oklch, var(--white), black 5%);
     color: var(--white-invert);
   }
 
@@ -5833,7 +5833,7 @@ a.tag:hover {
 }
 
 .navbar.is-black .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-black .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  background-color: color-mix(in oklch, var(--black), black 5% );
+  background-color: color-mix(in oklch, var(--black), black 5%);
   color: var(--black-invert);
 }
 
@@ -5853,7 +5853,7 @@ a.tag:hover {
 
   .navbar.is-black :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-black :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
     --navbar-item-hover-background-color: ;
-    background-color: color-mix(in oklch, var(--black), black 5% );
+    background-color: color-mix(in oklch, var(--black), black 5%);
     color: var(--black-invert);
   }
 
@@ -5862,7 +5862,7 @@ a.tag:hover {
   }
 
   .navbar.is-black .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    background-color: color-mix(in oklch, var(--black), black 5% );
+    background-color: color-mix(in oklch, var(--black), black 5%);
     color: var(--black-invert);
   }
 
@@ -5883,7 +5883,7 @@ a.tag:hover {
 }
 
 .navbar.is-light .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-light .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  background-color: color-mix(in oklch, var(--light), black 5% );
+  background-color: color-mix(in oklch, var(--light), black 5%);
   color: var(--light-invert);
 }
 
@@ -5903,7 +5903,7 @@ a.tag:hover {
 
   .navbar.is-light :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-light :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
     --navbar-item-hover-background-color: ;
-    background-color: color-mix(in oklch, var(--light), black 5% );
+    background-color: color-mix(in oklch, var(--light), black 5%);
     color: var(--light-invert);
   }
 
@@ -5912,7 +5912,7 @@ a.tag:hover {
   }
 
   .navbar.is-light .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    background-color: color-mix(in oklch, var(--light), black 5% );
+    background-color: color-mix(in oklch, var(--light), black 5%);
     color: var(--light-invert);
   }
 
@@ -5933,7 +5933,7 @@ a.tag:hover {
 }
 
 .navbar.is-dark .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-dark .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  background-color: color-mix(in oklch, var(--dark), black 5% );
+  background-color: color-mix(in oklch, var(--dark), black 5%);
   color: var(--dark-invert);
 }
 
@@ -5953,7 +5953,7 @@ a.tag:hover {
 
   .navbar.is-dark :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-dark :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
     --navbar-item-hover-background-color: ;
-    background-color: color-mix(in oklch, var(--dark), black 5% );
+    background-color: color-mix(in oklch, var(--dark), black 5%);
     color: var(--dark-invert);
   }
 
@@ -5962,7 +5962,7 @@ a.tag:hover {
   }
 
   .navbar.is-dark .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    background-color: color-mix(in oklch, var(--dark), black 5% );
+    background-color: color-mix(in oklch, var(--dark), black 5%);
     color: var(--dark-invert);
   }
 
@@ -5983,7 +5983,7 @@ a.tag:hover {
 }
 
 .navbar.is-primary .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-primary .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  background-color: color-mix(in oklch, var(--primary), black 5% );
+  background-color: color-mix(in oklch, var(--primary), black 5%);
   color: var(--primary-invert);
 }
 
@@ -6003,7 +6003,7 @@ a.tag:hover {
 
   .navbar.is-primary :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-primary :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
     --navbar-item-hover-background-color: ;
-    background-color: color-mix(in oklch, var(--primary), black 5% );
+    background-color: color-mix(in oklch, var(--primary), black 5%);
     color: var(--primary-invert);
   }
 
@@ -6012,7 +6012,7 @@ a.tag:hover {
   }
 
   .navbar.is-primary .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    background-color: color-mix(in oklch, var(--primary), black 5% );
+    background-color: color-mix(in oklch, var(--primary), black 5%);
     color: var(--primary-invert);
   }
 
@@ -6033,7 +6033,7 @@ a.tag:hover {
 }
 
 .navbar.is-secondary .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-secondary .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  background-color: color-mix(in oklch, var(--secondary), black 5% );
+  background-color: color-mix(in oklch, var(--secondary), black 5%);
   color: var(--secondary-invert);
 }
 
@@ -6053,7 +6053,7 @@ a.tag:hover {
 
   .navbar.is-secondary :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-secondary :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
     --navbar-item-hover-background-color: ;
-    background-color: color-mix(in oklch, var(--secondary), black 5% );
+    background-color: color-mix(in oklch, var(--secondary), black 5%);
     color: var(--secondary-invert);
   }
 
@@ -6062,7 +6062,7 @@ a.tag:hover {
   }
 
   .navbar.is-secondary .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    background-color: color-mix(in oklch, var(--secondary), black 5% );
+    background-color: color-mix(in oklch, var(--secondary), black 5%);
     color: var(--secondary-invert);
   }
 
@@ -6083,7 +6083,7 @@ a.tag:hover {
 }
 
 .navbar.is-link .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-link .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  background-color: color-mix(in oklch, var(--link), black 5% );
+  background-color: color-mix(in oklch, var(--link), black 5%);
   color: var(--link-invert);
 }
 
@@ -6103,7 +6103,7 @@ a.tag:hover {
 
   .navbar.is-link :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-link :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
     --navbar-item-hover-background-color: ;
-    background-color: color-mix(in oklch, var(--link), black 5% );
+    background-color: color-mix(in oklch, var(--link), black 5%);
     color: var(--link-invert);
   }
 
@@ -6112,7 +6112,7 @@ a.tag:hover {
   }
 
   .navbar.is-link .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    background-color: color-mix(in oklch, var(--link), black 5% );
+    background-color: color-mix(in oklch, var(--link), black 5%);
     color: var(--link-invert);
   }
 
@@ -6133,7 +6133,7 @@ a.tag:hover {
 }
 
 .navbar.is-info .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-info .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  background-color: color-mix(in oklch, var(--info), black 5% );
+  background-color: color-mix(in oklch, var(--info), black 5%);
   color: var(--info-invert);
 }
 
@@ -6153,7 +6153,7 @@ a.tag:hover {
 
   .navbar.is-info :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-info :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
     --navbar-item-hover-background-color: ;
-    background-color: color-mix(in oklch, var(--info), black 5% );
+    background-color: color-mix(in oklch, var(--info), black 5%);
     color: var(--info-invert);
   }
 
@@ -6162,7 +6162,7 @@ a.tag:hover {
   }
 
   .navbar.is-info .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    background-color: color-mix(in oklch, var(--info), black 5% );
+    background-color: color-mix(in oklch, var(--info), black 5%);
     color: var(--info-invert);
   }
 
@@ -6183,7 +6183,7 @@ a.tag:hover {
 }
 
 .navbar.is-success .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-success .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  background-color: color-mix(in oklch, var(--success), black 5% );
+  background-color: color-mix(in oklch, var(--success), black 5%);
   color: var(--success-invert);
 }
 
@@ -6203,7 +6203,7 @@ a.tag:hover {
 
   .navbar.is-success :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-success :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
     --navbar-item-hover-background-color: ;
-    background-color: color-mix(in oklch, var(--success), black 5% );
+    background-color: color-mix(in oklch, var(--success), black 5%);
     color: var(--success-invert);
   }
 
@@ -6212,7 +6212,7 @@ a.tag:hover {
   }
 
   .navbar.is-success .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    background-color: color-mix(in oklch, var(--success), black 5% );
+    background-color: color-mix(in oklch, var(--success), black 5%);
     color: var(--success-invert);
   }
 
@@ -6233,7 +6233,7 @@ a.tag:hover {
 }
 
 .navbar.is-warning .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-warning .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  background-color: color-mix(in oklch, var(--warning), black 5% );
+  background-color: color-mix(in oklch, var(--warning), black 5%);
   color: var(--warning-invert);
 }
 
@@ -6253,7 +6253,7 @@ a.tag:hover {
 
   .navbar.is-warning :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-warning :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
     --navbar-item-hover-background-color: ;
-    background-color: color-mix(in oklch, var(--warning), black 5% );
+    background-color: color-mix(in oklch, var(--warning), black 5%);
     color: var(--warning-invert);
   }
 
@@ -6262,7 +6262,7 @@ a.tag:hover {
   }
 
   .navbar.is-warning .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    background-color: color-mix(in oklch, var(--warning), black 5% );
+    background-color: color-mix(in oklch, var(--warning), black 5%);
     color: var(--warning-invert);
   }
 
@@ -6283,7 +6283,7 @@ a.tag:hover {
 }
 
 .navbar.is-danger .navbar-brand > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-danger .navbar-brand .navbar-link:is(:focus, :hover, .is-active) {
-  background-color: color-mix(in oklch, var(--danger), black 5% );
+  background-color: color-mix(in oklch, var(--danger), black 5%);
   color: var(--danger-invert);
 }
 
@@ -6303,7 +6303,7 @@ a.tag:hover {
 
   .navbar.is-danger :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-danger :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
     --navbar-item-hover-background-color: ;
-    background-color: color-mix(in oklch, var(--danger), black 5% );
+    background-color: color-mix(in oklch, var(--danger), black 5%);
     color: var(--danger-invert);
   }
 
@@ -6312,7 +6312,7 @@ a.tag:hover {
   }
 
   .navbar.is-danger .navbar-item.has-dropdown:is(:focus, :hover, .is-active) .navbar-link {
-    background-color: color-mix(in oklch, var(--danger), black 5% );
+    background-color: color-mix(in oklch, var(--danger), black 5%);
     color: var(--danger-invert);
   }
 
@@ -9661,7 +9661,7 @@ a.navbar-item:is(:focus, :focus-within, :hover, .is-active), .navbar-link:is(:fo
 }
 
 a.has-text-white:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--white), black 10% ) !important;
+  color: color-mix(in oklch, var(--white), black 10%) !important;
 }
 
 .has-background-white {
@@ -9673,7 +9673,7 @@ a.has-text-white:is(:hover, :focus) {
 }
 
 a.has-text-black:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--black), black 10% ) !important;
+  color: color-mix(in oklch, var(--black), black 10%) !important;
 }
 
 .has-background-black {
@@ -9685,7 +9685,7 @@ a.has-text-black:is(:hover, :focus) {
 }
 
 a.has-text-light:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--light), black 10% ) !important;
+  color: color-mix(in oklch, var(--light), black 10%) !important;
 }
 
 .has-background-light {
@@ -9697,7 +9697,7 @@ a.has-text-light:is(:hover, :focus) {
 }
 
 a.has-text-dark:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--dark), black 10% ) !important;
+  color: color-mix(in oklch, var(--dark), black 10%) !important;
 }
 
 .has-background-dark {
@@ -9709,7 +9709,7 @@ a.has-text-dark:is(:hover, :focus) {
 }
 
 a.has-text-primary:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--primary), black 10% ) !important;
+  color: color-mix(in oklch, var(--primary), black 10%) !important;
 }
 
 .has-background-primary {
@@ -9721,7 +9721,7 @@ a.has-text-primary:is(:hover, :focus) {
 }
 
 a.has-text-primary-light:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--primary-light), black 10% ) !important;
+  color: color-mix(in oklch, var(--primary-light), black 10%) !important;
 }
 
 .has-background-primary-light {
@@ -9733,7 +9733,7 @@ a.has-text-primary-light:is(:hover, :focus) {
 }
 
 a.has-text-primary-dark:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--primary-dark), white 10% ) !important;
+  color: color-mix(in oklch, var(--primary-dark), white 10%) !important;
 }
 
 .has-background-primary-dark {
@@ -9745,7 +9745,7 @@ a.has-text-primary-dark:is(:hover, :focus) {
 }
 
 a.has-text-secondary:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--secondary), black 10% ) !important;
+  color: color-mix(in oklch, var(--secondary), black 10%) !important;
 }
 
 .has-background-secondary {
@@ -9757,7 +9757,7 @@ a.has-text-secondary:is(:hover, :focus) {
 }
 
 a.has-text-secondary-light:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--secondary-light), black 10% ) !important;
+  color: color-mix(in oklch, var(--secondary-light), black 10%) !important;
 }
 
 .has-background-secondary-light {
@@ -9769,7 +9769,7 @@ a.has-text-secondary-light:is(:hover, :focus) {
 }
 
 a.has-text-secondary-dark:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--secondary-dark), white 10% ) !important;
+  color: color-mix(in oklch, var(--secondary-dark), white 10%) !important;
 }
 
 .has-background-secondary-dark {
@@ -9781,7 +9781,7 @@ a.has-text-secondary-dark:is(:hover, :focus) {
 }
 
 a.has-text-link:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--link), black 10% ) !important;
+  color: color-mix(in oklch, var(--link), black 10%) !important;
 }
 
 .has-background-link {
@@ -9793,7 +9793,7 @@ a.has-text-link:is(:hover, :focus) {
 }
 
 a.has-text-link-light:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--link-light), black 10% ) !important;
+  color: color-mix(in oklch, var(--link-light), black 10%) !important;
 }
 
 .has-background-link-light {
@@ -9805,7 +9805,7 @@ a.has-text-link-light:is(:hover, :focus) {
 }
 
 a.has-text-link-dark:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--link-dark), white 10% ) !important;
+  color: color-mix(in oklch, var(--link-dark), white 10%) !important;
 }
 
 .has-background-link-dark {
@@ -9817,7 +9817,7 @@ a.has-text-link-dark:is(:hover, :focus) {
 }
 
 a.has-text-info:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--info), black 10% ) !important;
+  color: color-mix(in oklch, var(--info), black 10%) !important;
 }
 
 .has-background-info {
@@ -9829,7 +9829,7 @@ a.has-text-info:is(:hover, :focus) {
 }
 
 a.has-text-info-light:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--info-light), black 10% ) !important;
+  color: color-mix(in oklch, var(--info-light), black 10%) !important;
 }
 
 .has-background-info-light {
@@ -9841,7 +9841,7 @@ a.has-text-info-light:is(:hover, :focus) {
 }
 
 a.has-text-info-dark:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--info-dark), white 10% ) !important;
+  color: color-mix(in oklch, var(--info-dark), white 10%) !important;
 }
 
 .has-background-info-dark {
@@ -9853,7 +9853,7 @@ a.has-text-info-dark:is(:hover, :focus) {
 }
 
 a.has-text-success:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--success), black 10% ) !important;
+  color: color-mix(in oklch, var(--success), black 10%) !important;
 }
 
 .has-background-success {
@@ -9865,7 +9865,7 @@ a.has-text-success:is(:hover, :focus) {
 }
 
 a.has-text-success-light:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--success-light), black 10% ) !important;
+  color: color-mix(in oklch, var(--success-light), black 10%) !important;
 }
 
 .has-background-success-light {
@@ -9877,7 +9877,7 @@ a.has-text-success-light:is(:hover, :focus) {
 }
 
 a.has-text-success-dark:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--success-dark), white 10% ) !important;
+  color: color-mix(in oklch, var(--success-dark), white 10%) !important;
 }
 
 .has-background-success-dark {
@@ -9889,7 +9889,7 @@ a.has-text-success-dark:is(:hover, :focus) {
 }
 
 a.has-text-warning:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--warning), black 10% ) !important;
+  color: color-mix(in oklch, var(--warning), black 10%) !important;
 }
 
 .has-background-warning {
@@ -9901,7 +9901,7 @@ a.has-text-warning:is(:hover, :focus) {
 }
 
 a.has-text-warning-light:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--warning-light), black 10% ) !important;
+  color: color-mix(in oklch, var(--warning-light), black 10%) !important;
 }
 
 .has-background-warning-light {
@@ -9913,7 +9913,7 @@ a.has-text-warning-light:is(:hover, :focus) {
 }
 
 a.has-text-warning-dark:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--warning-dark), white 10% ) !important;
+  color: color-mix(in oklch, var(--warning-dark), white 10%) !important;
 }
 
 .has-background-warning-dark {
@@ -9925,7 +9925,7 @@ a.has-text-warning-dark:is(:hover, :focus) {
 }
 
 a.has-text-danger:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--danger), black 10% ) !important;
+  color: color-mix(in oklch, var(--danger), black 10%) !important;
 }
 
 .has-background-danger {
@@ -9937,7 +9937,7 @@ a.has-text-danger:is(:hover, :focus) {
 }
 
 a.has-text-danger-light:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--danger-light), black 10% ) !important;
+  color: color-mix(in oklch, var(--danger-light), black 10%) !important;
 }
 
 .has-background-danger-light {
@@ -9949,7 +9949,7 @@ a.has-text-danger-light:is(:hover, :focus) {
 }
 
 a.has-text-danger-dark:is(:hover, :focus) {
-  color: color-mix(in oklch, var(--danger-dark), white 10% ) !important;
+  color: color-mix(in oklch, var(--danger-dark), white 10%) !important;
 }
 
 .has-background-danger-dark {
@@ -12008,7 +12008,7 @@ a.has-text-danger-dark:is(:hover, :focus) {
 }
 
 .hero.is-white :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: color-mix(in oklch, var(--white), black 5% );
+  background-color: color-mix(in oklch, var(--white), black 5%);
   color: var(--white-invert);
 }
 
@@ -12082,7 +12082,7 @@ a.has-text-danger-dark:is(:hover, :focus) {
 }
 
 .hero.is-black :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: color-mix(in oklch, var(--black), black 5% );
+  background-color: color-mix(in oklch, var(--black), black 5%);
   color: var(--black-invert);
 }
 
@@ -12156,7 +12156,7 @@ a.has-text-danger-dark:is(:hover, :focus) {
 }
 
 .hero.is-light :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: color-mix(in oklch, var(--light), black 5% );
+  background-color: color-mix(in oklch, var(--light), black 5%);
   color: var(--light-invert);
 }
 
@@ -12230,7 +12230,7 @@ a.has-text-danger-dark:is(:hover, :focus) {
 }
 
 .hero.is-dark :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: color-mix(in oklch, var(--dark), black 5% );
+  background-color: color-mix(in oklch, var(--dark), black 5%);
   color: var(--dark-invert);
 }
 
@@ -12304,7 +12304,7 @@ a.has-text-danger-dark:is(:hover, :focus) {
 }
 
 .hero.is-primary :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: color-mix(in oklch, var(--primary), black 5% );
+  background-color: color-mix(in oklch, var(--primary), black 5%);
   color: var(--primary-invert);
 }
 
@@ -12378,7 +12378,7 @@ a.has-text-danger-dark:is(:hover, :focus) {
 }
 
 .hero.is-secondary :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: color-mix(in oklch, var(--secondary), black 5% );
+  background-color: color-mix(in oklch, var(--secondary), black 5%);
   color: var(--secondary-invert);
 }
 
@@ -12452,7 +12452,7 @@ a.has-text-danger-dark:is(:hover, :focus) {
 }
 
 .hero.is-link :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: color-mix(in oklch, var(--link), black 5% );
+  background-color: color-mix(in oklch, var(--link), black 5%);
   color: var(--link-invert);
 }
 
@@ -12526,7 +12526,7 @@ a.has-text-danger-dark:is(:hover, :focus) {
 }
 
 .hero.is-info :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: color-mix(in oklch, var(--info), black 5% );
+  background-color: color-mix(in oklch, var(--info), black 5%);
   color: var(--info-invert);
 }
 
@@ -12600,7 +12600,7 @@ a.has-text-danger-dark:is(:hover, :focus) {
 }
 
 .hero.is-success :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: color-mix(in oklch, var(--success), black 5% );
+  background-color: color-mix(in oklch, var(--success), black 5%);
   color: var(--success-invert);
 }
 
@@ -12674,7 +12674,7 @@ a.has-text-danger-dark:is(:hover, :focus) {
 }
 
 .hero.is-warning :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: color-mix(in oklch, var(--warning), black 5% );
+  background-color: color-mix(in oklch, var(--warning), black 5%);
   color: var(--warning-invert);
 }
 
@@ -12748,7 +12748,7 @@ a.has-text-danger-dark:is(:hover, :focus) {
 }
 
 .hero.is-danger :is(a.navbar-item, .navbar-link):is(:hover, .is-active) {
-  background-color: color-mix(in oklch, var(--danger), black 5% );
+  background-color: color-mix(in oklch, var(--danger), black 5%);
   color: var(--danger-invert);
 }
 
