@@ -33,7 +33,7 @@
   --scheme-main: oklch(100% 0 0);
   --scheme-main-bis: oklch(98% 0 266);
   --scheme-main-ter: oklch(97% 0 266);
-  --scheme-invert: color(from var(--scheme-main) xyz var(--chanel) var(--chanel) var(--chanel));
+  --scheme-invert: oklch(from var(--scheme-main) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --scheme-invert-bis: oklch(20% .01 266);
   --scheme-invert-ter: oklch(25% .01 266);
   --background: oklch(97% 0 266);
@@ -42,7 +42,7 @@
   --border-light: oklch(94% 0 266);
   --border-light-hover: oklch(76% .02 266);
   --text: oklch(39% .03 266);
-  --text-invert: color(from var(--text) xyz var(--chanel) var(--chanel) var(--chanel));
+  --text-invert: oklch(from var(--text) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --text-light: oklch(from var(--text) max(l, .97) min(c, .03) h);
   --text-strong: oklch(from var(--text) max(.29, .29 + (.5 - l) * .53) c h);
   --code: var(--text);
@@ -73,31 +73,31 @@
   --dark: oklch(32% .02 266);
   --dark-invert: oklch(97% 0 266);
   --primary: oklch(64% .13 167.79);
-  --primary-invert: color(from var(--primary) xyz var(--chanel) var(--chanel) var(--chanel));
+  --primary-invert: oklch(from var(--primary) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --primary-light: oklch(from var(--primary) max(l, .97) min(c, .03) h);
   --primary-dark: oklch(from var(--primary) max(.29, .29 + (.5 - l) * .53) c h);
   --secondary: oklch(47% .13 259.35);
-  --secondary-invert: color(from var(--secondary) xyz var(--chanel) var(--chanel) var(--chanel));
+  --secondary-invert: oklch(from var(--secondary) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --secondary-light: oklch(from var(--secondary) max(l, .97) min(c, .03) h);
   --secondary-dark: oklch(from var(--secondary) max(.29, .29 + (.5 - l) * .53) c h);
   --link: oklch(47% .13 259.35);
-  --link-invert: color(from var(--link) xyz var(--chanel) var(--chanel) var(--chanel));
+  --link-invert: oklch(from var(--link) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --link-light: oklch(from var(--link) max(l, .97) min(c, .03) h);
   --link-dark: oklch(from var(--link) max(.29, .29 + (.5 - l) * .53) c h);
   --info: oklch(82% .12 229);
-  --info-invert: color(from var(--info) xyz var(--chanel) var(--chanel) var(--chanel));
+  --info-invert: oklch(from var(--info) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --info-light: oklch(from var(--info) max(l, .97) min(c, .03) h);
   --info-dark: oklch(from var(--info) max(.29, .29 + (.5 - l) * .53) c h);
   --success: oklch(77% .14 177);
-  --success-invert: color(from var(--success) xyz var(--chanel) var(--chanel) var(--chanel));
+  --success-invert: oklch(from var(--success) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --success-light: oklch(from var(--success) max(l, .97) min(c, .03) h);
   --success-dark: oklch(from var(--success) max(.29, .29 + (.5 - l) * .53) c h);
   --warning: oklch(83% .17 80);
-  --warning-invert: color(from var(--warning) xyz var(--chanel) var(--chanel) var(--chanel));
+  --warning-invert: oklch(from var(--warning) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --warning-light: oklch(from var(--warning) max(l, .97) min(c, .03) h);
   --warning-dark: oklch(from var(--warning) max(.29, .29 + (.5 - l) * .53) c h);
   --danger: oklch(71% .19 11);
-  --danger-invert: color(from var(--danger) xyz var(--chanel) var(--chanel) var(--chanel));
+  --danger-invert: oklch(from var(--danger) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --danger-light: oklch(from var(--danger) max(l, .97) min(c, .03) h);
   --danger-dark: oklch(from var(--danger) max(.29, .29 + (.5 - l) * .53) c h);
   --black-bis: oklch(20% .01 266);
@@ -352,18 +352,6 @@ td:not([align]), th:not([align]) {
   font-size: 1em;
 }
 
-html {
-  background-color: var(--body-background-color);
-  font-size: var(--body-font-size);
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  min-width: var(--body-min-width);
-  overflow-x: var(--body-overflow-x);
-  overflow-y: var(--body-overflow-y);
-  text-rendering: var(--body-rendering);
-  text-size-adjust: 100%;
-}
-
 :root {
   --body-background-color: var(--scheme-main);
   --body-min-width: 300px;
@@ -388,6 +376,18 @@ html {
   --pre-font-size: .875em;
   --pre-padding: 1.25rem 1.5rem;
   --pre-code-font-size: 1em;
+}
+
+html {
+  background-color: var(--body-background-color);
+  font-size: var(--body-font-size);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  min-width: var(--body-min-width);
+  overflow-x: var(--body-overflow-x);
+  overflow-y: var(--body-overflow-y);
+  text-rendering: var(--body-rendering);
+  text-size-adjust: 100%;
 }
 
 article, aside, figure, footer, header, hgroup, section {
@@ -599,7 +599,7 @@ a.box:active {
 }
 
 :root {
-  --button-color: color(from var(--scheme-main) xyz var(--chanel) var(--chanel) var(--chanel));
+  --button-color: oklch(from var(--button-background-color) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --button-background-color: var(--scheme-main);
   --button-family: false;
   --button-font-size: var(--size-normal);
@@ -734,7 +734,7 @@ a.box:active {
 }
 
 .button.is-white:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--white), black 2.5%);
+  background-color: color-mix(in oklch, var(--white), black 5%);
   color: var(--white-invert);
   border-color: #0000;
 }
@@ -749,7 +749,7 @@ a.box:active {
 }
 
 .button.is-white:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--white), black 5%);
+  background-color: color-mix(in oklch, var(--white), black 10%);
   color: var(--white-invert);
   border-color: #0000;
 }
@@ -836,7 +836,7 @@ a.box:active {
 }
 
 .button.is-black:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--black), black 2.5%);
+  background-color: color-mix(in oklch, var(--black), black 5%);
   color: var(--black-invert);
   border-color: #0000;
 }
@@ -851,7 +851,7 @@ a.box:active {
 }
 
 .button.is-black:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--black), black 5%);
+  background-color: color-mix(in oklch, var(--black), black 10%);
   color: var(--black-invert);
   border-color: #0000;
 }
@@ -938,7 +938,7 @@ a.box:active {
 }
 
 .button.is-light:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--light), black 2.5%);
+  background-color: color-mix(in oklch, var(--light), black 5%);
   color: var(--light-invert);
   border-color: #0000;
 }
@@ -953,7 +953,7 @@ a.box:active {
 }
 
 .button.is-light:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--light), black 5%);
+  background-color: color-mix(in oklch, var(--light), black 10%);
   color: var(--light-invert);
   border-color: #0000;
 }
@@ -1040,7 +1040,7 @@ a.box:active {
 }
 
 .button.is-dark:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--dark), black 2.5%);
+  background-color: color-mix(in oklch, var(--dark), black 5%);
   color: var(--dark-invert);
   border-color: #0000;
 }
@@ -1055,7 +1055,7 @@ a.box:active {
 }
 
 .button.is-dark:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--dark), black 5%);
+  background-color: color-mix(in oklch, var(--dark), black 10%);
   color: var(--dark-invert);
   border-color: #0000;
 }
@@ -1142,7 +1142,7 @@ a.box:active {
 }
 
 .button.is-primary:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--primary), black 2.5%);
+  background-color: color-mix(in oklch, var(--primary), black 5%);
   color: var(--primary-invert);
   border-color: #0000;
 }
@@ -1157,7 +1157,7 @@ a.box:active {
 }
 
 .button.is-primary:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--primary), black 5%);
+  background-color: color-mix(in oklch, var(--primary), black 10%);
   color: var(--primary-invert);
   border-color: #0000;
 }
@@ -1243,13 +1243,13 @@ a.box:active {
 }
 
 .button.is-primary.is-light:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--primary-light), black 2.5%);
+  background-color: color-mix(in oklch, var(--primary-light), black 5%);
   color: var(--primary-dark);
   border-color: #0000;
 }
 
 .button.is-primary.is-light:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--primary-light), black 5%);
+  background-color: color-mix(in oklch, var(--primary-light), black 10%);
   color: var(--primary-dark);
   border-color: #0000;
 }
@@ -1261,7 +1261,7 @@ a.box:active {
 }
 
 .button.is-secondary:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--secondary), black 2.5%);
+  background-color: color-mix(in oklch, var(--secondary), black 5%);
   color: var(--secondary-invert);
   border-color: #0000;
 }
@@ -1276,7 +1276,7 @@ a.box:active {
 }
 
 .button.is-secondary:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--secondary), black 5%);
+  background-color: color-mix(in oklch, var(--secondary), black 10%);
   color: var(--secondary-invert);
   border-color: #0000;
 }
@@ -1362,13 +1362,13 @@ a.box:active {
 }
 
 .button.is-secondary.is-light:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--secondary-light), black 2.5%);
+  background-color: color-mix(in oklch, var(--secondary-light), black 5%);
   color: var(--secondary-dark);
   border-color: #0000;
 }
 
 .button.is-secondary.is-light:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--secondary-light), black 5%);
+  background-color: color-mix(in oklch, var(--secondary-light), black 10%);
   color: var(--secondary-dark);
   border-color: #0000;
 }
@@ -1380,7 +1380,7 @@ a.box:active {
 }
 
 .button.is-link:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--link), black 2.5%);
+  background-color: color-mix(in oklch, var(--link), black 5%);
   color: var(--link-invert);
   border-color: #0000;
 }
@@ -1395,7 +1395,7 @@ a.box:active {
 }
 
 .button.is-link:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--link), black 5%);
+  background-color: color-mix(in oklch, var(--link), black 10%);
   color: var(--link-invert);
   border-color: #0000;
 }
@@ -1481,13 +1481,13 @@ a.box:active {
 }
 
 .button.is-link.is-light:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--link-light), black 2.5%);
+  background-color: color-mix(in oklch, var(--link-light), black 5%);
   color: var(--link-dark);
   border-color: #0000;
 }
 
 .button.is-link.is-light:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--link-light), black 5%);
+  background-color: color-mix(in oklch, var(--link-light), black 10%);
   color: var(--link-dark);
   border-color: #0000;
 }
@@ -1499,7 +1499,7 @@ a.box:active {
 }
 
 .button.is-info:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--info), black 2.5%);
+  background-color: color-mix(in oklch, var(--info), black 5%);
   color: var(--info-invert);
   border-color: #0000;
 }
@@ -1514,7 +1514,7 @@ a.box:active {
 }
 
 .button.is-info:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--info), black 5%);
+  background-color: color-mix(in oklch, var(--info), black 10%);
   color: var(--info-invert);
   border-color: #0000;
 }
@@ -1600,13 +1600,13 @@ a.box:active {
 }
 
 .button.is-info.is-light:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--info-light), black 2.5%);
+  background-color: color-mix(in oklch, var(--info-light), black 5%);
   color: var(--info-dark);
   border-color: #0000;
 }
 
 .button.is-info.is-light:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--info-light), black 5%);
+  background-color: color-mix(in oklch, var(--info-light), black 10%);
   color: var(--info-dark);
   border-color: #0000;
 }
@@ -1618,7 +1618,7 @@ a.box:active {
 }
 
 .button.is-success:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--success), black 2.5%);
+  background-color: color-mix(in oklch, var(--success), black 5%);
   color: var(--success-invert);
   border-color: #0000;
 }
@@ -1633,7 +1633,7 @@ a.box:active {
 }
 
 .button.is-success:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--success), black 5%);
+  background-color: color-mix(in oklch, var(--success), black 10%);
   color: var(--success-invert);
   border-color: #0000;
 }
@@ -1719,13 +1719,13 @@ a.box:active {
 }
 
 .button.is-success.is-light:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--success-light), black 2.5%);
+  background-color: color-mix(in oklch, var(--success-light), black 5%);
   color: var(--success-dark);
   border-color: #0000;
 }
 
 .button.is-success.is-light:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--success-light), black 5%);
+  background-color: color-mix(in oklch, var(--success-light), black 10%);
   color: var(--success-dark);
   border-color: #0000;
 }
@@ -1737,7 +1737,7 @@ a.box:active {
 }
 
 .button.is-warning:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--warning), black 2.5%);
+  background-color: color-mix(in oklch, var(--warning), black 5%);
   color: var(--warning-invert);
   border-color: #0000;
 }
@@ -1752,7 +1752,7 @@ a.box:active {
 }
 
 .button.is-warning:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--warning), black 5%);
+  background-color: color-mix(in oklch, var(--warning), black 10%);
   color: var(--warning-invert);
   border-color: #0000;
 }
@@ -1838,13 +1838,13 @@ a.box:active {
 }
 
 .button.is-warning.is-light:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--warning-light), black 2.5%);
+  background-color: color-mix(in oklch, var(--warning-light), black 5%);
   color: var(--warning-dark);
   border-color: #0000;
 }
 
 .button.is-warning.is-light:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--warning-light), black 5%);
+  background-color: color-mix(in oklch, var(--warning-light), black 10%);
   color: var(--warning-dark);
   border-color: #0000;
 }
@@ -1856,7 +1856,7 @@ a.box:active {
 }
 
 .button.is-danger:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--danger), black 2.5%);
+  background-color: color-mix(in oklch, var(--danger), black 5%);
   color: var(--danger-invert);
   border-color: #0000;
 }
@@ -1871,7 +1871,7 @@ a.box:active {
 }
 
 .button.is-danger:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--danger), black 5%);
+  background-color: color-mix(in oklch, var(--danger), black 10%);
   color: var(--danger-invert);
   border-color: #0000;
 }
@@ -1957,13 +1957,13 @@ a.box:active {
 }
 
 .button.is-danger.is-light:is(:hover, .is-hovered) {
-  background-color: color-mix(in oklch, var(--danger-light), black 2.5%);
+  background-color: color-mix(in oklch, var(--danger-light), black 5%);
   color: var(--danger-dark);
   border-color: #0000;
 }
 
 .button.is-danger.is-light:is(:active, .is-active) {
-  background-color: color-mix(in oklch, var(--danger-light), black 5%);
+  background-color: color-mix(in oklch, var(--danger-light), black 10%);
   color: var(--danger-dark);
   border-color: #0000;
 }
@@ -4884,7 +4884,6 @@ a.tag:hover {
 .breadcrumb {
   font-size: var(--breadcrumb-font-size);
   white-space: nowrap;
-  --breadcrumb-li-content: "/";
 }
 
 .breadcrumb a {
@@ -4952,6 +4951,10 @@ a.tag:hover {
 
 .breadcrumb.is-large {
   --breadcrumb-font-size: var(--size-large);
+}
+
+.breadcrumb {
+  --breadcrumb-li-content: "/";
 }
 
 .breadcrumb.has-arrow-separator {
@@ -5802,7 +5805,6 @@ a.tag:hover {
   }
 
   .navbar.is-white :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-white :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: ;
     background-color: color-mix(in oklch, var(--white), black 5%);
     color: var(--white-invert);
   }
@@ -5852,7 +5854,6 @@ a.tag:hover {
   }
 
   .navbar.is-black :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-black :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: ;
     background-color: color-mix(in oklch, var(--black), black 5%);
     color: var(--black-invert);
   }
@@ -5902,7 +5903,6 @@ a.tag:hover {
   }
 
   .navbar.is-light :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-light :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: ;
     background-color: color-mix(in oklch, var(--light), black 5%);
     color: var(--light-invert);
   }
@@ -5952,7 +5952,6 @@ a.tag:hover {
   }
 
   .navbar.is-dark :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-dark :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: ;
     background-color: color-mix(in oklch, var(--dark), black 5%);
     color: var(--dark-invert);
   }
@@ -6002,7 +6001,6 @@ a.tag:hover {
   }
 
   .navbar.is-primary :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-primary :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: ;
     background-color: color-mix(in oklch, var(--primary), black 5%);
     color: var(--primary-invert);
   }
@@ -6052,7 +6050,6 @@ a.tag:hover {
   }
 
   .navbar.is-secondary :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-secondary :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: ;
     background-color: color-mix(in oklch, var(--secondary), black 5%);
     color: var(--secondary-invert);
   }
@@ -6102,7 +6099,6 @@ a.tag:hover {
   }
 
   .navbar.is-link :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-link :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: ;
     background-color: color-mix(in oklch, var(--link), black 5%);
     color: var(--link-invert);
   }
@@ -6152,7 +6148,6 @@ a.tag:hover {
   }
 
   .navbar.is-info :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-info :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: ;
     background-color: color-mix(in oklch, var(--info), black 5%);
     color: var(--info-invert);
   }
@@ -6202,7 +6197,6 @@ a.tag:hover {
   }
 
   .navbar.is-success :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-success :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: ;
     background-color: color-mix(in oklch, var(--success), black 5%);
     color: var(--success-invert);
   }
@@ -6252,7 +6246,6 @@ a.tag:hover {
   }
 
   .navbar.is-warning :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-warning :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: ;
     background-color: color-mix(in oklch, var(--warning), black 5%);
     color: var(--warning-invert);
   }
@@ -6302,7 +6295,6 @@ a.tag:hover {
   }
 
   .navbar.is-danger :is(.navbar-brand, .navbar-start, .navbar-end) > a.navbar-item:is(:focus, :hover, .is-active), .navbar.is-danger :is(.navbar-brand, .navbar-start, .navbar-end) .navbar-link:is(:focus, :hover, .is-active) {
-    --navbar-item-hover-background-color: ;
     background-color: color-mix(in oklch, var(--danger), black 5%);
     color: var(--danger-invert);
   }
@@ -6394,7 +6386,6 @@ html.has-navbar-fixed-bottom, body.has-navbar-fixed-bottom {
   flex-shrink: 0;
   justify-content: center;
   align-items: center;
-  margin-inline-start: auto;
   display: inline-flex;
   position: relative;
 }
@@ -6442,6 +6433,10 @@ html.has-navbar-fixed-bottom, body.has-navbar-fixed-bottom {
 
 .navbar-burger:is(:active, .is-active) span:nth-child(3), .navbar-burger:is(:active, .is-active) span:nth-child(4) {
   opacity: 0;
+}
+
+.navbar-burger {
+  margin-inline-start: auto;
 }
 
 .navbar-menu {
@@ -6737,11 +6732,11 @@ a.navbar-item:is(:focus, :focus-within, :hover, .is-active), .navbar-link:is(:fo
     display: block;
   }
 
-  .navbar > .container .navbar-brand, .container > .navbar .navbar-brand {
+  :is(.navbar > .container, .container > .navbar) .navbar-brand {
     margin-inline-start: -.75rem;
   }
 
-  .navbar > .container .navbar-menu, .container > .navbar .navbar-menu {
+  :is(.navbar > .container, .container > .navbar) .navbar-menu {
     margin-inline-end: -.75rem;
   }
 
@@ -18539,11 +18534,6 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   --tooltip-arrow-margin: 2px;
 }
 
-.b-tooltip {
-  display: inline-flex;
-  position: relative;
-}
-
 .b-tooltip.is-top .tooltip-content {
   --tooltip-content-spacing: calc(100% + var(--tooltip-arrow-size)  + var(--tooltip-arrow-margin));
   inset-block: auto var(--tooltip-content-spacing);
@@ -18892,6 +18882,11 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
   border-inline-start-color: var(--danger-light);
 }
 
+.b-tooltip {
+  display: inline-flex;
+  position: relative;
+}
+
 .b-tooltip .tooltip-content {
   z-index: 38;
   border-radius: var(--radius-large);
@@ -19146,16 +19141,6 @@ div.b-colorpicker-square .colorpicker-square-slider-sl .sl-range-thumb:active {
 .upload.is-rounded .file-name {
   border-start-end-radius: var(--radius-rounded);
   border-end-end-radius: var(--radius-rounded);
-}
-
-@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
-  .upload input[type="file"] {
-    z-index: auto;
-  }
-
-  .upload .upload-draggable + input[type="file"] {
-    z-index: -1;
-  }
 }
 
 @keyframes fadeOut {
