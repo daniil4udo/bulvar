@@ -1,12 +1,12 @@
 /*!
-  * @bulvar/buefy v1.0.0-beta.5 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
+  * @bulvar/buefy v1.0.0-beta.6 (https://github.com/daniil4udo/bulvar/tree/master/packages/buefy)
   * Copyright 2025 Daniil Chumachenko daniil4udo@gmail.com
   * Licensed under MIT (https://github.com/daniil4udo/bulvar/blob/master/LICENSE)
   */
 
 :root {
   --family-sans-serif: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
-  --family-monospace: monospace;
+  --family-monospace: Source Code Pro, Ubuntu Mono, monospace;
   --size-1: 3rem;
   --size-2: 2.5rem;
   --size-3: 2rem;
@@ -30,18 +30,18 @@
   --speed: 86ms;
   --duration: .294s;
   --chanel: round(up, min(1, max(0, .3 - y)));
-  --scheme-main: oklch(100% 0 0);
-  --scheme-main-bis: oklch(98% 0 266);
-  --scheme-main-ter: oklch(97% 0 266);
+  --scheme-main: oklch(100% 0 271.152);
+  --scheme-main-bis: oklch(97% 0 271.152);
+  --scheme-main-ter: oklch(94% 0 271.152);
   --scheme-invert: oklch(from var(--scheme-main) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
-  --scheme-invert-bis: oklch(20% .01 266);
-  --scheme-invert-ter: oklch(25% .01 266);
-  --background: oklch(97% 0 266);
-  --border: oklch(89% .01 266);
-  --border-hover: oklch(76% .02 266);
-  --border-light: oklch(94% 0 266);
-  --border-light-hover: oklch(76% .02 266);
-  --text: oklch(39% .03 266);
+  --scheme-invert-bis: oklch(20.463% 0 271.152);
+  --scheme-invert-ter: oklch(26% 0 271.152);
+  --background: oklch(94% 0 271.152);
+  --border: oklch(89.143% 0 271.152);
+  --border-hover: oklch(77.311% 0 271.152);
+  --border-light: oklch(94.611% 0 271.152);
+  --border-light-hover: oklch(77.311% 0 271.152);
+  --text: oklch(41% 0 271.152);
   --text-invert: oklch(from var(--text) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --text-light: oklch(from var(--text) max(l, .97) min(c, .03) h);
   --text-strong: oklch(from var(--text) max(.29, .29 + (.5 - l) * .53) c h);
@@ -49,67 +49,67 @@
   --code-background: var(--background);
   --pre: var(--text);
   --pre-background: var(--background);
-  --link-visited: oklch(68% .22 305);
-  --link-hover: oklch(32% .02 266);
-  --link-hover-border: oklch(76% .02 266);
-  --link-focus: oklch(32% .02 266);
+  --link-visited: oklch(67.804% .22 305.368);
+  --link-hover: oklch(33.289% 0 271.152);
+  --link-hover-border: oklch(77.311% 0 271.152);
+  --link-focus: oklch(33.289% 0 271.152);
   --link-focus-border: var(--link);
-  --link-active: oklch(32% .02 266);
-  --link-active-border: oklch(39% .03 266);
+  --link-active: oklch(33.289% 0 271.152);
+  --link-active-border: oklch(41% 0 271.152);
   --family-primary: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   --family-secondary: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
-  --family-code: monospace;
+  --family-code: Source Code Pro, Ubuntu Mono, monospace;
   --size-small: .75rem;
   --size-normal: 1rem;
   --size-medium: 1.25rem;
   --size-large: 1.5rem;
   --shadow: 0 .5em 1em -.125em oklch(from var(--scheme-invert) l c h / .1), 0 0 0 1px oklch(from var(--scheme-invert) l c h / .02);
-  --white: oklch(100% 0 0);
-  --white-invert: oklch(14% 0 265);
-  --black: oklch(14% 0 265);
-  --black-invert: oklch(100% 0 0);
-  --light: oklch(97% 0 266);
-  --light-invert: oklch(32% .02 266);
-  --dark: oklch(32% .02 266);
-  --dark-invert: oklch(97% 0 266);
-  --primary: oklch(64% .13 167.79);
+  --white: oklch(100% 0 271.152);
+  --white-invert: oklch(14.479% 0 271.152);
+  --black: oklch(14.479% 0 271.152);
+  --black-invert: oklch(100% 0 271.152);
+  --light: oklch(94% 0 271.152);
+  --light-invert: oklch(33.289% 0 271.152);
+  --dark: oklch(33.289% 0 271.152);
+  --dark-invert: oklch(94% 0 271.152);
+  --primary: oklch(74.478% .14 160.419);
   --primary-invert: oklch(from var(--primary) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --primary-light: oklch(from var(--primary) max(l, .97) min(c, .03) h);
   --primary-dark: oklch(from var(--primary) max(.29, .29 + (.5 - l) * .53) c h);
-  --secondary: oklch(47% .13 259.35);
+  --secondary: oklch(46.7% .13473 259.826);
   --secondary-invert: oklch(from var(--secondary) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --secondary-light: oklch(from var(--secondary) max(l, .97) min(c, .03) h);
   --secondary-dark: oklch(from var(--secondary) max(.29, .29 + (.5 - l) * .53) c h);
-  --link: oklch(47% .13 259.35);
+  --link: oklch(46.7% .13473 259.826);
   --link-invert: oklch(from var(--link) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --link-light: oklch(from var(--link) max(l, .97) min(c, .03) h);
   --link-dark: oklch(from var(--link) max(.29, .29 + (.5 - l) * .53) c h);
-  --info: oklch(82% .12 229);
+  --info: oklch(62.723% .13 246.648);
   --info-invert: oklch(from var(--info) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --info-light: oklch(from var(--info) max(l, .97) min(c, .03) h);
   --info-dark: oklch(from var(--info) max(.29, .29 + (.5 - l) * .53) c h);
-  --success: oklch(77% .14 177);
+  --success: oklch(64.303% .13 167.278);
   --success-invert: oklch(from var(--success) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --success-light: oklch(from var(--success) max(l, .97) min(c, .03) h);
   --success-dark: oklch(from var(--success) max(.29, .29 + (.5 - l) * .53) c h);
-  --warning: oklch(83% .17 80);
+  --warning: oklch(91.42% .12 90.286);
   --warning-invert: oklch(from var(--warning) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --warning-light: oklch(from var(--warning) max(l, .97) min(c, .03) h);
   --warning-dark: oklch(from var(--warning) max(.29, .29 + (.5 - l) * .53) c h);
-  --danger: oklch(71% .19 11);
+  --danger: oklch(64.827% .21 13.757);
   --danger-invert: oklch(from var(--danger) clamp(0, (l / .55 - 1) * -infinity, 1) c h);
   --danger-light: oklch(from var(--danger) max(l, .97) min(c, .03) h);
   --danger-dark: oklch(from var(--danger) max(.29, .29 + (.5 - l) * .53) c h);
-  --black-bis: oklch(20% .01 266);
-  --black-ter: oklch(25% .01 266);
-  --grey-darker: oklch(32% .02 266);
-  --grey-dark: oklch(39% .03 266);
-  --grey: oklch(56% .04 266);
-  --grey-light: oklch(76% .02 266);
-  --grey-lighter: oklch(89% .01 266);
-  --grey-lightest: oklch(94% 0 266);
-  --white-ter: oklch(97% 0 266);
-  --white-bis: oklch(98% 0 266);
+  --black-bis: oklch(20.463% 0 271.152);
+  --black-ter: oklch(26% 0 271.152);
+  --grey-darker: oklch(33.289% 0 271.152);
+  --grey-dark: oklch(41% 0 271.152);
+  --grey: oklch(58% 0 271.152);
+  --grey-light: oklch(77.311% 0 271.152);
+  --grey-lighter: oklch(89.143% 0 271.152);
+  --grey-lightest: oklch(94.611% 0 271.152);
+  --white-ter: oklch(94% 0 271.152);
+  --white-bis: oklch(97% 0 271.152);
 }
 
 html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
