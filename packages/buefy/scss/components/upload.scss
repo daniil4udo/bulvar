@@ -62,14 +62,4 @@
         }
     }
 }
-// temporary IE 11 hack !!!
-@include bulma-utilities.ie11 {
-    .upload {
-        input[type="file"] {
-            z-index: auto;
-        }
-        .upload-draggable + input[type="file"] {
-            z-index: -1;
-        }
-    }
-}
+
