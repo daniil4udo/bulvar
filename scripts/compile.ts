@@ -159,9 +159,13 @@ function main({ scope, rtl = false }: Record<string, any> = {}) {
         filename,
     } = main(argv);
 
-    fsp.writeFile(`${filepath}/css/${filename}.css`, `${bannerTxt}\n${expandedCss}`);
-    fsp.writeFile(`${filepath}/css/${filename}.min.css`, `${bannerTxt}\n${minifiedCss}`);
-    fsp.writeFile(`${filepath}/css/${filename}.css.map`, JSON.stringify(sourceMap));
+	await fsp.mkdir(`${filepath}/css/`, { recursive: true });
+
+	await Promise.all([
+		fsp.writeFile(`${filepath}/css/${filename}.css`, `${bannerTxt}\n${expandedCss}`),
+		fsp.writeFile(`${filepath}/css/${filename}.min.css`, `${bannerTxt}\n${minifiedCss}`),
+		fsp.writeFile(`${filepath}/css/${filename}.css.map`, JSON.stringify(sourceMap)),
+	])
 })();
 
 // process.stdout.write(css)
