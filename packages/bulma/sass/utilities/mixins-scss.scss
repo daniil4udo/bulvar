@@ -233,7 +233,7 @@
  * @see https://blog.damato.design/posts/css-only-contrast/
  * @return {string} CSS color that provides good contrast
  */
-@function get-invert-color($color-property, $threshold: 0.55) {
+@function get-invert-color($color-property, $threshold: 0.65) {
 	// @return color(from $color-property xyz var(--chanel) var(--chanel) var(--chanel));
 
 	@return oklch(from $color-property clamp(0, (l / $threshold - 1) * -infinity, 1) c h);
