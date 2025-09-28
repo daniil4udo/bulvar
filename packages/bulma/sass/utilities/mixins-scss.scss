@@ -234,14 +234,9 @@
  * @return {string} CSS color that provides good contrast
  */
 @function get-invert-color($color-property, $threshold: 0.55) {
-	// Apply conditional logic
-	//	 @if fn.isLightColor($color-property) {
-	//		 @return oklch(0.1 0 0); // dark gray
-	//	 } @else {
-	//		 @return oklch(0.96 0 0); // light gray
-	//	 }
+	// @return color(from $color-property xyz var(--chanel) var(--chanel) var(--chanel));
 
-	@return color(from $color-property xyz var(--chanel) var(--chanel) var(--chanel));
+	@return oklch(from $color-property clamp(0, (l / $threshold - 1) * -infinity, 1) c h);
 }
 
 /**
