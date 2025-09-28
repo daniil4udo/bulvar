@@ -138,7 +138,6 @@ $-css-vars-map: ("navbar-background-color": $navbar-background-color, "navbar-bo
           & > a.navbar-item,
           .navbar-link
             &:is(:focus, :hover, .is-active)
-              --navbar-item-hover-background-color:
               background-color: #{mixins-scss.darken-color(var(--#{$name}), 5)}
               color: var(--#{$name}-invert)
           .navbar-link
