@@ -439,41 +439,6 @@
     @each $name, $value in $list
       --#{$name}: #{$value}
 
-// 🧩 register var() JUST(⚠️) for colors in $colors map
-
-=registerCSSVarColor($name, $components, $prefix: '')
-  $base: $prefix + $name
-
-  // Base color
-  $color: list.nth($components, 1)
-  --#{$base}-h: #{color.channel($color, "hue", $space: hsl)}
-  --#{$base}-s: #{color.channel($color, "saturation", $space: hsl)}
-  --#{$base}-l: #{color.channel($color, "lightness", $space: hsl)}
-  --#{$base}-a: 1
-  --#{$base}: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-l), var(--#{$base}-a))
-
-  // Invert color
-  $color-invert: list.nth($components, 2)
-  --#{$base}-invert: #{$color-invert}
-  @if meta.type-of($color-invert) == 'color'
-    --#{$base}-invert-bis: #{fn.findColorState($color-invert, 5%)}
-    --#{$base}-invert-ter: #{fn.findColorState($color-invert, 10%)}
-  @else
-    --#{$base}-invert-bis: var(--#{fn.unwrap($color-invert)}-bis)
-    --#{$base}-invert-ter: var(--#{fn.unwrap($color-invert)}-ter)
-
-  // Light color
-  $color-light: if(list.length($components) >= 3, list.nth($components, 3), fn.findLightColor($color))
-  $light-l: color.channel($color-light, "lightness", $space: hsl)
-  --#{$base}-light-l: #{$light-l}
-  --#{$base}-light: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-light-l), var(--#{$base}-a))
-
-  // Dark color
-  $color-dark: if(list.length($components) >= 4, list.nth($components, 4), fn.findDarkColor($color))
-  $dark-l: color.channel($color-dark, "lightness", $space: hsl)
-  --#{$base}-dark-l: #{$dark-l}
-  --#{$base}-dark: hsla(var(--#{$base}-h), var(--#{$base}-s), var(--#{$base}-dark-l), var(--#{$base}-a))
-
 =registerCSSVarColors($colors, $prefix: '')
   @each $name, $components in $colors
     +mixins-scss.register-color-system($name, $components, $prefix)
