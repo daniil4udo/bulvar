@@ -34,5 +34,6 @@ test/output/
 # Turbo
 .turbo
 
-# css
+packages/bulma/css
+packages/buefy/css
 # docs
