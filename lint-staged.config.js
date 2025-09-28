@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     '{!(package)*.json,*.code-snippets,.!(browserslist)*rc}': [
         'pnpm lint:prettier --parser=json',
     ],
