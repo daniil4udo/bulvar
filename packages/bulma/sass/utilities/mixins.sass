@@ -107,7 +107,7 @@
 =typography-size($target:'')
   @each $size in vars.$sizes
     $i: list.index(vars.$sizes, $size)
-    .is-size-#{$i}#{if($target == '', '', '-' + $target)}
+    .is-size-#{$i}#{if(sass($target == ""): ""; else: "-" + $target)}
       font-size: $size !important
 
 // Responsiveness
@@ -223,10 +223,10 @@
   $list: list.join($list-of-directions, ("cross-left", "cross-right", "all"))
 
   // Fix logical property mapping
-  $position-top: if(vars.$logical, "start", "top")
-  $position-bottom: if(vars.$logical, "end", "bottom")
-  $position-left: if(vars.$logical, "start", "left")
-  $position-right: if(vars.$logical, "end", "right")
+  $position-top: if(sass(vars.$logical): "start"; else: "top")
+  $position-bottom: if(sass(vars.$logical): "end"; else: "bottom")
+  $position-left: if(sass(vars.$logical): "start"; else: "left")
+  $position-right: if(sass(vars.$logical): "end"; else: "right")
 
   // Handle different argument patterns
   @if list.length($args) == 1
@@ -286,14 +286,14 @@
   @if $right == null
     #{$property}-inline: $spacing;  // Shorthand when $right not specified
   @else
-    $position: if($right, "end", "start")
+    $position: if(sass($right): "end"; else: "start")
     #{$property}-inline-#{$position}: $spacing
 
 =logical-y($property, $spacing, $bottom: null)
   @if $bottom == null
     #{$property}-block: $spacing;  // Shorthand when $bottom not specified
   @else
-    $position: if($bottom, "end", "start")
+    $position: if(sass($bottom): "end"; else: "start")
     #{$property}-block-#{$position}: $spacing
 
 // Placeholders
@@ -455,7 +455,7 @@
   @if $component-class == null or $component-class == ''
     +registerCSSVars($map, $at-root: true)
   @else
-    $list: if(meta.type-of($component-class) == 'list', $component-class, ($component-class))
+    $list: if(sass(meta.type-of($component-class) == "list"): $component-class; else: ($component-class))
     $new-list: ()
 
     @each $name in $component-class

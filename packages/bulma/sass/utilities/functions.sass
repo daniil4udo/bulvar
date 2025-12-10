@@ -225,7 +225,7 @@ $-light-breakpoint: 0.55
   @warn "This old mixin is deprecated!"
   $name: unwrap($color)
   @if meta.type-of($name) == 'string' // and map-has-key($colors, $name)
-    $name-l: calc(var(--#{$name}-l) + (if(math.is-unitless($amount), ($amount * 1%), $amount)))
+    $name-l: calc(var(--#{$name}-l) + (if(sass(math.unit($amount) == "%"): $amount; else: string.unquote($amount + "%"))))
     @return hsla(var(--#{$name}-h), var(--#{$name}-s), #{$name-l}, var(--#{$name}-a))
   @return $color
 
@@ -243,4 +243,4 @@ $-light-breakpoint: 0.55
   @else
     @if $values and $values != null and $values != ""
       $result: $values
-  @return if(list.length($result) > 0, $result, null);
+  @return if(sass(list.length($result) > 0): $result);
