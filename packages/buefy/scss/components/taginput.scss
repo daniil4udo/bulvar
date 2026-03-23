@@ -15,33 +15,44 @@ $-css-vars-map: (
 .taginput {
     .taginput-container {
         display: flex;
+
         &.is-focusable {
             @extend %input-textarea;
-            height: auto;
+
             flex-wrap: wrap;
             align-items: center;
             justify-content: flex-start;
+            height: auto;
+            cursor: text;
+
             @include bulma-utilities.logical-y(padding, calc(0.275em - 1px) 0);
             @include bulma-utilities.logical-x(padding, 0);
-            cursor: text;
         }
+
         &:not(.is-focusable) {
-            height: auto;
             flex-wrap: wrap;
             align-items: center;
             justify-content: flex-start;
+            height: auto;
+
             @include bulma-utilities.control-sizes;
         }
 
         > :is(.tag, .tags) {
             height: var(--taginput-height);
+
             @include bulma-utilities.logical-y(margin, calc(0.275em - 1px), $bottom: true);
             @include bulma-utilities.logical-x(margin, 0.275rem, $right: false);
+
             font-size: 0.9em;
+
             .tag {
                 height: var(--taginput-height);
+
                 @include bulma-utilities.logical-y(margin, 0, $bottom: true);
+
                 font-size: 0.9em;
+
                 &.is-delete {
                     width: var(--taginput-height);
                 }
@@ -51,20 +62,28 @@ $-css-vars-map: (
         .autocomplete {
             position: static;
             flex: 1;
+
             input {
                 min-width: 8em;
                 height: var(--taginput-height);
+
                 @include bulma-utilities.logical-y(padding, 0);
+
                 border: none;
+
                 @include bulma-utilities.logical-y(margin, calc(0.275em - 1px), $bottom: true);
+
                 box-shadow: none;
+
                 &:focus {
                     box-shadow: none !important;
                 }
             }
+
             .icon {
                 height: var(--taginput-height);
             }
+
             > .control.is-loading::after {
                 top: 0.375em;
             }

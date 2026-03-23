@@ -1,5 +1,4 @@
 @use "sass:list";
-
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/utilities/derived-variables" as bulma-vars;
 @use "../../../bulma/sass/components/navbar" as bulma-navbar;
@@ -11,7 +10,6 @@ $sidebar-box-shadow: 5px 0 13px 3px $sidebar-shadow-color !default;
 $sidebar-width: 260px !default;
 $sidebar-mobile-width: 80px !default;
 $sidebar-mobile-breakpoint: bulma-vars.$tablet !default;
-
 $sidebar-colors: bulma-navbar.$navbar-colors !default;
 
 // Map Local variables
@@ -34,84 +32,105 @@ $-css-vars-map: (
         width: var(--sidebar-width);
         background-color: var(--background);
         box-shadow: var(--sidebar-box-shadow);
+
         @each $name, $pair in $sidebar-colors {
             &.is-#{$name} {
                 background-color: var(--#{$name});
             }
         }
+
         &.is-fixed {
             position: fixed;
             top: 0;
+
             @include bulma-utilities.logical-x(inset, 0, $right: false);
+
             &:is(.is-right, .is-end) {
 				@include bulma-utilities.logical-x(inset, auto 0);
             }
         }
+
         &.is-absolute {
             position: absolute;
             top: 0;
+
             @include bulma-utilities.logical-x(inset, 0, $right: false);
+
             &:is(.is-right, .is-end) {
 				@include bulma-utilities.logical-x(inset, auto 0);
             }
         }
+
         &.is-mini {
             width: var(--sidebar-mobile-width);
+
             &.is-mini-expand:hover:not(.is-mini-delayed) {
                 transition: width calc(var(--speed) * 2) var(--easing);
+
                 &:not(.is-fullwidth) {
                     width: var(--sidebar-width);
+
                     &.is-mini-expand-fixed {
                         position: fixed;
                     }
                 }
             }
         }
+
         &.is-static {
             position: static;
         }
+
         &:is(.is-absolute, .is-static) {
             transition: width calc(var(--speed) * 2) var(--easing);
         }
+
         &.is-fullwidth {
             width: 100%;
             max-width: 100%;
         }
+
         &.is-fullheight {
             display: flex;
-            overflow: hidden;
-            height: 100%;
-            max-height: 100%;
             flex-direction: column;
             align-content: stretch;
+            height: 100%;
+            max-height: 100%;
+            overflow: hidden;
             overflow-y: auto;
         }
 
         @include bulma-utilities.until($sidebar-mobile-breakpoint) {
             &.is-mini-mobile {
                 width: var(--sidebar-mobile-width);
+
                 &.is-mini-expand:hover {
                     &:not(.is-fullwidth-mobile) {
                         width: var(--sidebar-width);
+
                         &.is-mini-expand-fixed {
                             position: fixed;
                         }
                     }
                 }
             }
+
             &.is-hidden-mobile {
-                overflow: hidden;
                 width: 0;
                 height: 0;
+                overflow: hidden;
             }
+
             &.is-fullwidth-mobile {
                 width: 100%;
                 max-width: 100%;
             }
         }
     }
+
     .sidebar-background {
         @extend %overlay;
+
         position: fixed;
         z-index: 38;
         background: var(--sidebar-background);

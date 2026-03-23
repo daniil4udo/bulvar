@@ -4,21 +4,25 @@
 // Helper function to replace characters in a string
 @function str-replace($string, $search, $replace: "") {
     $index: string.index($string, $search);
+
     @if $index {
         @return string.slice($string, 1, $index - 1) + $replace + str-replace(string.slice($string, $index + string.length($search)), $search, $replace);
     }
+
     @return $string;
 }
 
 // Encode svg function by http://codepen.io/jakob-e/pen/doMoML
 @function svg-encode($svg){
     // Chunk up string in order to avoid "stack level too deep" error
-    $encoded:"";
+    $encoded: "";
     $slice: 2000;
     $index: 0;
     $loops: math.ceil(math.div(string.length($svg), $slice));
+
     @for $i from 1 through $loops {
         $chunk: string.slice($svg, $index, $index + $slice - 1);
+
         // Encode
         $chunk: str-replace($chunk, '"', "\'");
         $chunk: str-replace($chunk, "%", "%25");
@@ -27,10 +31,10 @@
         $chunk: str-replace($chunk, "}", "%7D");
         $chunk: str-replace($chunk, "<", "%3C");
         $chunk: str-replace($chunk, ">", "%3E");
-
         $encoded: #{$encoded}#{$chunk};
         $index: $index + $slice;
     }
+
     @return "data:image/svg+xml,#{$encoded}";
 }
 

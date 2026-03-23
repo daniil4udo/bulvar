@@ -8,10 +8,12 @@
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
     }
 }
+
 .fadeOut {
     animation-name: fadeOut;
 }
@@ -20,11 +22,13 @@
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
         transform: translate3d(0, 100%, 0);
     }
 }
+
 .fadeOutDown {
     animation-name: fadeOutDown;
 }
@@ -33,11 +37,13 @@
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
         transform: translate3d(0, -100%, 0);
     }
 }
+
 .fadeOutUp {
     animation-name: fadeOutUp;
 }
@@ -47,10 +53,12 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
 }
+
 .fadeIn {
     animation-name: fadeIn;
 }
@@ -60,11 +68,13 @@
         opacity: 0;
         transform: translate3d(0, -100%, 0);
     }
+
     to {
         opacity: 1;
         transform: none;
     }
 }
+
 .fadeInDown {
     animation-name: fadeInDown;
 }
@@ -74,11 +84,13 @@
         opacity: 0;
         transform: translate3d(0, 100%, 0);
     }
+
     to {
         opacity: 1;
         transform: none;
     }
 }
+
 .fadeInUp {
     animation-name: fadeInUp;
 }
@@ -92,6 +104,7 @@
 .fade-leave-active {
     transition: opacity calc(var(--speed) * 2) var(--easing);
 }
+
 .fade-enter,
 .fade-leave-to {
     opacity: 0;
@@ -101,13 +114,16 @@
 .zoom-in-enter-active,
 .zoom-in-leave-active {
     transition: opacity calc(var(--speed) * 2) var(--easing);
+
     .animation-content {
         transition: transform calc(var(--speed) * 2) var(--easing);
     }
 }
+
 .zoom-in-enter,
 .zoom-in-leave-active {
     opacity: 0;
+
     .animation-content {
         transform: scale(0.95);
     }
@@ -118,13 +134,16 @@
 .zoom-out-enter-active,
 .zoom-out-leave-active {
     transition: opacity calc(var(--speed) * 2) var(--easing);
+
     .animation-content {
         transition: transform calc(var(--speed) * 2) var(--easing);
     }
 }
+
 .zoom-out-enter,
 .zoom-out-leave-active {
     opacity: 0;
+
     .animation-content {
         transform: scale(1.05);
     }
@@ -176,6 +195,7 @@
 .slide-enter-active {
     transition: calc(var(--speed) * 3) var(--easing);
 }
+
 .slide-leave-active {
     transition: calc(var(--speed) * 3) var(--easing);
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
@@ -183,12 +203,12 @@
 
 .slide-enter-to,
 .slide-leave {
-    overflow: hidden;
     max-height: 100px;
+    overflow: hidden;
 }
 
 .slide-enter,
 .slide-leave-to {
-    overflow: hidden;
     max-height: 0;
+    overflow: hidden;
 }

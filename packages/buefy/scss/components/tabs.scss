@@ -37,12 +37,15 @@ $-css-vars-map: (
 .b-tabs {
     .tabs {
         flex-shrink: 0;
+
         @include bulma-utilities.logical-y(margin, 0, $bottom: true);
+
         li {
             a:focus {
-                border-bottom-color: var(--tabs-link-focus-active-border-bottom-color);
                 outline: var(--tabs-focused-outline);
+                border-bottom-color: var(--tabs-link-focus-active-border-bottom-color);
             }
+
             &:not(.is-active) {
                 a:focus {
                     border-bottom-color: var(--tabs-link-focus-border-bottom-color);
@@ -50,9 +53,9 @@ $-css-vars-map: (
             }
 
             &.is-disabled {
+                pointer-events: none;
                 cursor: not-allowed;
                 opacity: 0.5;
-                pointer-events: none;
             }
         }
 
@@ -60,60 +63,69 @@ $-css-vars-map: (
         &.is-boxed {
             li {
                 a:focus {
-                    border-bottom-color: var(--tabs-boxed-link-focus-active-border-bottom-color);
                     background-color: var(--tabs-boxed-link-focus-active-background-color);
+                    border-bottom-color: var(--tabs-boxed-link-focus-active-border-bottom-color);
                 }
+
                 &:not(.is-active) {
                     a:focus {
-                        border-bottom-color: var(--tabs-boxed-link-focus-border-bottom-color);
                         background-color: var(--tabs-boxed-link-focus-background-color);
+                        border-bottom-color: var(--tabs-boxed-link-focus-border-bottom-color);
                     }
                 }
             }
         }
+
         &.is-toggle {
             li {
                 a:focus {
-                    border-color: var(--tabs-toggle-link-focus-active-border-color);
                     background-color: var(--tabs-toggle-link-focus-active-background-color);
+                    border-color: var(--tabs-toggle-link-focus-active-border-color);
                 }
+
                 &:not(.is-active) {
                     a:focus {
-                        border-color: var(--tabs-toggle-link-focus-border-color);
                         background-color: var(--tabs-toggle-link-focus-background-color);
+                        border-color: var(--tabs-toggle-link-focus-border-color);
                     }
                 }
             }
         }
     }
+
     .tab-content {
         position: relative;
         display: flex;
-        overflow: visible;
         flex-direction: column;
         padding: 1rem;
+        overflow: visible;
+
         .tab-item {
-            flex-basis: auto;
             flex-shrink: 0;
+            flex-basis: auto;
 
             &:focus {
                 outline: var(--tabs-items-focused-outline);
             }
         }
+
         &.is-transitioning {
             overflow: hidden;
         }
     }
+
     &:not(:last-child) {
         @include bulma-utilities.logical-y(margin, 1.5rem, $bottom: true);
     }
+
     &.is-fullwidth {
         width: 100%;
     }
+
     &.is-vertical {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-flow: row wrap;
+
         > .tabs {
             ul {
                 flex-direction: column;
@@ -132,6 +144,7 @@ $-css-vars-map: (
                 li {
                     a {
                         @include bulma-utilities.logical-border-radius(left, var(--tabs-boxed-link-radius));
+
                         border-inline-end-color: var(--tabs-border-bottom-color) !important;
                         border-bottom-color: transparent !important;
                     }
@@ -144,16 +157,19 @@ $-css-vars-map: (
                     }
                 }
             }
+
             &.is-toggle {
                 li {
                     + li {
                         @include bulma-utilities.logical-x(margin, 0, $right: false);
                     }
+
                     &:first-child {
                         a {
                             @include bulma-utilities.logical-border-radius(top, var(--tabs-toggle-link-radius));
                         }
                     }
+
                     &:last-child {
                         a {
                             @include bulma-utilities.logical-border-radius(bottom, var(--tabs-toggle-link-radius));
@@ -161,6 +177,7 @@ $-css-vars-map: (
                     }
                 }
             }
+
             &.is-fullwidth {
                 li {
                     a {
@@ -169,6 +186,7 @@ $-css-vars-map: (
                 }
             }
         }
+
         > .tab-content {
             flex-grow: 1;
         }
@@ -191,16 +209,17 @@ $-css-vars-map: (
                     li {
                         a {
                             @include bulma-utilities.logical-border-radius(right, var(--tabs-boxed-link-radius));
+
+                            border-inline-start-color: var(--tabs-border-bottom-color) !important;
                             border-inline-end-color: transparent !important;
                             border-bottom-color: transparent !important;
-                            border-inline-start-color: var(--tabs-border-bottom-color) !important;
                         }
 
                         &.is-active {
                             a {
+                                border-inline-start-color: transparent !important;
                                 border-inline-end-color: var(--tabs-border-bottom-color) !important;
                                 border-bottom-color: var(--tabs-border-bottom-color) !important;
-                                border-inline-start-color: transparent !important;
                             }
                         }
                     }
@@ -208,6 +227,7 @@ $-css-vars-map: (
             }
         }
     }
+
     &.is-multiline {
         > .tabs {
             ul {

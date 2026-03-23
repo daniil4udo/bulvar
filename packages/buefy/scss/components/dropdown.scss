@@ -20,64 +20,79 @@ $-css-vars-map: (
     & + .dropdown {
         @include bulma-utilities.logical-x(margin, 0.5em, $right: false);
     }
+
     .background {
         @extend %overlay;
+
         position: fixed;
         z-index: 40;
-        background-color: var(--dropdown-background-color);
         cursor: pointer;
+        background-color: var(--dropdown-background-color);
 
         @include bulma-utilities.from($dropdown-mobile-breakpoint) {
             display: none;
         }
     }
+
     &.dropdown-menu-animation {
         .dropdown-menu {
             display: block;
         }
     }
+
     .dropdown-menu {
         .dropdown-item {
             &.is-disabled {
                 cursor: not-allowed;
+
                 &:hover {
-                    background: inherit;
                     color: inherit;
+                    background: inherit;
                 }
             }
         }
+
         .has-link a {
             @extend .dropdown-item;
+
             @include bulma-utilities.logical-x(padding, 3rem, $right: true);
+
             white-space: nowrap;
         }
     }
+
     &.is-hoverable {
         &:not(.is-active) {
             .dropdown-menu {
                 display: none;
             }
         }
+
         &:hover {
             .dropdown-menu {
                 display: inherit;
             }
         }
     }
+
     &.is-expanded {
         width: 100%;
+
         .dropdown-trigger {
             width: 100%;
         }
+
         .dropdown-menu {
             width: 100%;
         }
+
         &.is-mobile-modal {
             .dropdown-menu {
                 max-width: 100%;
             }
         }
     }
+
     &:not(.is-disabled) {
         .dropdown-menu {
             .dropdown-item {
@@ -87,16 +102,20 @@ $-css-vars-map: (
             }
         }
     }
+
     .navbar-item {
         height: 100%;
     }
+
     &.is-disabled {
         cursor: not-allowed;
         opacity: var(--dropdown-disabled-opacity);
+
         .dropdown-trigger {
             pointer-events: none;
         }
     }
+
     &.is-inline {
         .dropdown-menu {
             position: static;
@@ -104,17 +123,20 @@ $-css-vars-map: (
             padding: 0;
         }
     }
+
     &:is(.is-top-right, .is-top-end) {
         .dropdown-menu {
 			@include bulma-utilities.logical-y(inset, auto 100%);
         }
     }
+
     &:is(.is-top-left, .is-top-start) {
         .dropdown-menu {
 			@include bulma-utilities.logical-y(inset, auto 100%);
 			@include bulma-utilities.logical-x(inset, auto 0);
         }
     }
+
     &:is(.is-bottom-left, .is-bottom-start) {
         .dropdown-menu {
 			@include bulma-utilities.logical-x(inset, auto 0);
@@ -125,16 +147,18 @@ $-css-vars-map: (
         &.is-mobile-modal {
             > .dropdown-menu {
                 position: fixed !important;
-                z-index: 50 !important;
                 top: 25% !important;
-				@include bulma-utilities.logical-x(inset, 50% auto !important);
                 bottom: auto !important;
+                z-index: 50 !important;
                 width: calc(100vw - 40px);
                 max-width: 460px;
                 max-height: calc(100vh - 120px);
                 overflow-y: auto;
-                transform: translate3d(-50%, -25%, 0);
                 white-space: normal;
+                transform: translate3d(-50%, -25%, 0);
+
+				@include bulma-utilities.logical-x(inset, 50% auto !important);
+
                 > .dropdown-content {
                     > .dropdown-item, > .has-link a {
                         padding: 1rem 1.5rem;

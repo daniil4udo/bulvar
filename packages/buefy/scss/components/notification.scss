@@ -4,7 +4,9 @@
     .progress-wrapper {
         position: absolute;
         bottom: 0;
+
 		@include bulma-utilities.logical-x(inset, 0, $right: false);
+
         width: 100%;
     }
 }

@@ -1,28 +1,31 @@
 @use "sass:list";
-
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/elements/tag" as bulma-tag;
 
 .tag {
     .has-ellipsis {
-        overflow: hidden;
         max-width: 10em;
+        overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+
     .delete,
     &:is(.is-delete, .has-delete-icon) {
         @each $name, $pair in bulma-tag.$tag-colors {
             &.is-#{$name} {
                 background: var(--#{$name});
+
                 &:hover {
                     text-decoration: none;
                 }
             }
         }
     }
+
     &.has-delete-icon {
         padding: 0;
+
         .icon:first-child:not(:last-child) {
             @include bulma-utilities.logical-x(margin, 0);
         }

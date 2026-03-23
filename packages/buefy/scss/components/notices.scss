@@ -1,5 +1,4 @@
 @use "sass:list";
-
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/elements/notification" as bulma-notification;
 @use "../../../bulma/sass/utilities/mixins-scss" as bulma-mixins-scss;
@@ -7,17 +6,14 @@
 $notices-shadow-color: bulma-mixins-scss.set-color-alpha(var(--scheme-invert), 0.12) !default;
 $notices-shadow-color-bis: bulma-mixins-scss.set-color-alpha(var(--scheme-invert), 0.04) !default;
 $notices-box-shadow: 0 1px 4px $notices-shadow-color, 0 0 6px $notices-shadow-color-bis !default;
-
 $toast-border-radius: 2em !default;
 $toast-opacity: 0.92 !default;
 $toast-box-shadow: $notices-box-shadow !default;
-
 $snackbar-background-color: var(--dark) !default; // dark is registered as var hence has hsl map
 $snackbar-color: var(--dark-invert) !default;
 $snackbar-border-radius: var(--radius) !default;
 $snackbar-button-text-transform: uppercase !default;
 $snackbar-box-shadow: $notices-box-shadow !default;
-
 $snackbar-colors: bulma-notification.$notification-colors !default;
 
 // Map Local variables
@@ -40,58 +36,67 @@ $-css-vars-map: (
 .notices {
     position: fixed;
     z-index: 1000;
+    display: flex;
+    padding: 2em;
+    overflow: hidden;
+    pointer-events: none;
+
 	@include bulma-utilities.logical-y(inset, 0);
 	@include bulma-utilities.logical-x(inset, 0);
-    display: flex;
-    overflow: hidden;
-    padding: 2em;
-    pointer-events: none;
+
     .toast {
         display: inline-flex;
         padding: 0.75em 1.5em;
-        border-radius: var(--toast-border-radius);
         margin: 0.5em 0;
-        animation-duration: calc(var(--speed) * 2);
+        text-align: center;
+        pointer-events: auto;
+        border-radius: var(--toast-border-radius);
         box-shadow: var(--toast-box-shadow);
         opacity: var(--toast-opacity);
-        pointer-events: auto;
-        text-align: center;
+        animation-duration: calc(var(--speed) * 2);
+
         @each $name, $pair in $snackbar-colors {
             &.is-#{$name} {
-                background: var(--#{$name});
                 color: var(--#{$name}-invert);
+                background: var(--#{$name});
             }
         }
     }
+
     .snackbar {
         display: inline-flex;
-        min-height: 3em;
         align-items: center;
         justify-content: space-around;
-        border-radius: var(--snackbar-border-radius);
+        min-height: 3em;
         margin: 0.5em 0;
-        animation-duration: calc(var(--speed) * 2);
-        background: var(--snackbar-background-color);
-        box-shadow: var(--snackbar-box-shadow);
         color: var(--snackbar-color);
         pointer-events: auto;
+        background: var(--snackbar-background-color);
+        border-radius: var(--snackbar-border-radius);
+        box-shadow: var(--snackbar-box-shadow);
+        animation-duration: calc(var(--speed) * 2);
+
         .text {
             padding: 0.5em 1em;
         }
+
         .action {
             padding: 0.5em;
+
             @include bulma-utilities.logical-x(padding, 0, $right: false);
             @include bulma-utilities.logical-x(margin, auto, $right: false);
+
             .button {
-                border: transparent;
-                background: var(--snackbar-background-color);
                 font-weight: var(--weight-semibold);
                 text-transform: var(--snackbar-button-text-transform);
+                background: var(--snackbar-background-color);
+                border: transparent;
 
                 &:is(:hover, :active) {
                     background: #{bulma-mixins-scss.darken-color(var(--dark), 5)};
                 }
             }
+
             @each $name, $pair in $snackbar-colors {
                 &.is-#{$name} {
                     .button {
@@ -100,20 +105,24 @@ $-css-vars-map: (
                 }
             }
         }
+
         .action.is-cancel {
             @include bulma-utilities.logical-x(padding, 0, $right: true);
         }
+
         @include bulma-utilities.mobile {
             width: 100%;
-            border-radius: 0;
             margin: 0;
+            border-radius: 0;
         }
+
         @include bulma-utilities.tablet {
-            overflow: hidden;
             min-width: 350px;
             max-width: 600px;
+            overflow: hidden;
         }
     }
+
     .notification {
         max-width: 600px;
         pointer-events: auto;
@@ -124,12 +133,15 @@ $-css-vars-map: (
         &:is(.is-top, .is-bottom) {
             align-self: center;
         }
+
         &:is(.is-top-right, .is-top-end, .is-bottom-right, .is-bottom-end) {
             align-self: flex-end;
         }
+
         &:is(.is-top-left, .is-top-start, .is-bottom-left, .is-bottom-start) {
             align-self: flex-start;
         }
+
         &.is-toast {
             opacity: var(--toast-opacity);
         }
@@ -139,6 +151,7 @@ $-css-vars-map: (
     &.is-top {
         flex-direction: column;
     }
+
     &.is-bottom {
         flex-direction: column-reverse;
 
@@ -146,11 +159,13 @@ $-css-vars-map: (
         // :not(:last-child) to :not(:first-child)
         .notification {
             @include bulma-utilities.logical-y(margin, 0, $bottom: true);
+
             &:not(:first-child) {
                 @include bulma-utilities.logical-y(margin, 1.5rem, $bottom: true);
             }
         }
     }
+
     &.has-custom-container {
         position: absolute;
     }

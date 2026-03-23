@@ -3,12 +3,14 @@
 .b-numberinput {
     &.field {
         @include bulma-utilities.logical-y(margin, 0, $bottom: true);
+
         &.is-grouped {
             div.control {
                 flex-grow: 1;
                 flex-shrink: 1;
             }
         }
+
         &.has-addons {
             &.is-expanded {
                 flex-grow: 1;
@@ -16,16 +18,20 @@
             }
         }
     }
-    input[type=number]::-webkit-inner-spin-button,
-    input[type=number]::-webkit-outer-spin-button {
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
         appearance: none;
     }
-    input[type=number] {
+
+    input[type="number"] {
         appearance: textfield;
     }
-    input[type=number] {
+
+    input[type="number"] {
         text-align: center;
     }
+
     .button {
         &.is-rounded {
             @include bulma-utilities.logical-x(padding, 1em);

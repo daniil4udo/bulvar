@@ -20,10 +20,13 @@ $-css-vars-map: (
         font-family: var(--family-monospace);
         text-transform: uppercase;
     }
+
     .colorpicker-footer {
         @include bulma-utilities.logical-y(padding, .875rem, $bottom: false);
+
         border: 1px solid var(--grey-lighter);
         border-width: 1px 0 0;
+
         @include bulma-utilities.logical-y(margin, .875rem, $bottom: false);
 
         .colorpicker-fields {
@@ -35,27 +38,30 @@ $-css-vars-map: (
                 .field-label {
                     @include bulma-utilities.logical-x(margin, .5rem, $right: true);
                 }
+
                 .control {
                     display: flex;
+
                     .input {
+                        flex-grow: 1;
                         width: 0;
                         min-width: 42px;
-                        flex-grow: 1;
-                        -webkit-appearance: none;
-                        -moz-appearance: textfield;
-                        appearance: textfield;
                         text-align: end;
+                        appearance: none;
+                        appearance: textfield;
+                        appearance: textfield;
 
                         &::-webkit-outer-spin-button,
                         &::-webkit-inner-spin-button {
                             margin: 0;
-                            -webkit-appearance: none;
+                            appearance: none;
                         }
                     }
                 }
             }
         }
     }
+
     .dropdown {
         &.is-expanded {
             .dropdown-menu,
@@ -64,6 +70,7 @@ $-css-vars-map: (
             }
         }
     }
+
     .dropdown-horizontal-colorpicker {
         display: flex;
         flex-direction: row;
@@ -71,7 +78,9 @@ $-css-vars-map: (
         .colorpicker-footer {
             @include bulma-utilities.logical-y(padding, 0, $bottom: false);
             @include bulma-utilities.logical-x(padding, 0.875rem, $right: false);
+
             border-width: 0 0 0 1px;
+
             @include bulma-utilities.logical-y(margin, 0, $bottom: false);
             @include bulma-utilities.logical-x(margin, 0.875rem, $right: false);
         }
@@ -81,6 +90,7 @@ $-css-vars-map: (
 svg.b-colorpicker-triangle {
     width: 200px;
     height: 200px;
+
     @extend %unselectable;
 
     @include bulma-utilities.mobile {
@@ -93,13 +103,13 @@ svg.b-colorpicker-triangle {
         height: 100%;
         background:
             conic-gradient(
-                #f00,
-                #ff0,
-                #0f0,
-                #0ff,
-                #00f,
-                #f0f,
-                #f00
+                #ff0000,
+                #ffff00,
+                #00ff00,
+                #00ffff,
+                #0000ff,
+                #ff00ff,
+                #ff0000
             );
     }
 
@@ -118,25 +128,28 @@ svg.b-colorpicker-triangle {
     .sl-range-thumb {
         width: calc(100% / 1 - .25em / 1);
         height: calc(100% / 1 - .25em / 1);
-        border-radius: var(--colorpicker-radius);
         margin: .125em;
-        background: transparent;
-        box-shadow:
-            inset 0 0 0 1px #fff,
-            0 0 0 1px var(--grey-lighter);
         cursor: grab;
+        background: transparent;
+        border-radius: var(--colorpicker-radius);
+        box-shadow:
+            inset 0 0 0 1px #ffffff,
+            0 0 0 1px var(--grey-lighter);
 
         &:hover {
             box-shadow:
-                inset 0 0 0 1px #fff,
+                inset 0 0 0 1px #ffffff,
                 0 0 0 1px var(--grey-light);
         }
+
         &:focus {
             box-shadow:
-                inset 0 0 0 1px #fff,
+                inset 0 0 0 1px #ffffff,
                 0 0 0 1px var(--colorpicker-hue-selected-stroke);
+
             // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
         }
+
         &:active {
             cursor: grabbing;
         }
@@ -146,66 +159,74 @@ svg.b-colorpicker-triangle {
 div.b-colorpicker-square {
     position: relative;
     aspect-ratio: 1/1;
+
     @extend %unselectable;
 
     .colorpicker-square-slider-hue {
         position: absolute;
-		@include bulma-utilities.logical-y(inset, 0);
-		@include bulma-utilities.logical-x(inset, 0);
-        border-radius: var(--colorpicker-radius);
         background:
             conic-gradient(
-                #f00,
-                #ff0,
-                #0f0,
-                #0ff,
-                #00f,
-                #f0f,
-                #f00
+                #ff0000,
+                #ffff00,
+                #00ff00,
+                #00ffff,
+                #0000ff,
+                #ff00ff,
+                #ff0000
             );
+        border-radius: var(--colorpicker-radius);
+
+		@include bulma-utilities.logical-y(inset, 0);
+		@include bulma-utilities.logical-x(inset, 0);
 
         .hue-range-thumb {
             position: absolute;
-            border-radius: calc(var(--colorpicker-radius) / 1.75);
             aspect-ratio: 1 / 1;
-            box-shadow:
-                inset 0 0 0 1px #fff,
-                0 0 0 1px var(--grey-lighter);
             cursor: grab;
+            border-radius: calc(var(--colorpicker-radius) / 1.75);
+            box-shadow:
+                inset 0 0 0 1px #ffffff,
+                0 0 0 1px var(--grey-lighter);
             transform: translate(-50%, -50%);
 
             &:hover {
                 box-shadow:
-                    inset 0 0 0 1px #fff,
+                    inset 0 0 0 1px #ffffff,
                     inset 0 0 0 2px var(--grey-light),
                     0 0 0 1px var(--grey-light);
             }
+
             &:focus {
                 box-shadow:
-                    inset 0 0 0 1px #fff,
+                    inset 0 0 0 1px #ffffff,
                     0 0 0 1px var(--colorpicker-hue-selected-stroke);
+
                 // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
             }
+
             &:active {
                 cursor: grabbing;
             }
         }
     }
+
     .colorpicker-square-slider-sl {
         position: absolute;
         top: 0;
-		@include bulma-utilities.logical-x(inset, 0);
         bottom: 0;
+        background: #ffffff;
         border-radius: calc(var(--colorpicker-radius) / 2);
-        background: #fff;
+
+		@include bulma-utilities.logical-x(inset, 0);
 
         &::before {
             position: absolute;
+            content: "";
+            background: linear-gradient(0deg, #000000, #ffffff);
+            mix-blend-mode: hard-light;
+
 			@include bulma-utilities.logical-y(inset, 0);
 			@include bulma-utilities.logical-x(inset, 0);
-            background: linear-gradient(0deg, #000, #fff);
-            content: "";
-            mix-blend-mode: hard-light;
         }
 
         .sl-range-thumb {
@@ -213,25 +234,28 @@ div.b-colorpicker-square {
             display: block;
             width: 8px;
             height: 8px;
+            cursor: grab;
             border-radius: var(--colorpicker-radius);
             box-shadow:
-                inset 0 0 0 1px #fff,
+                inset 0 0 0 1px #ffffff,
                 0 0 0 1px var(--grey-lighter);
-            cursor: grab;
             transform: translate(-50%, -50%);
 
             &:hover {
                 box-shadow:
-                    inset 0 0 0 1px #fff,
+                    inset 0 0 0 1px #ffffff,
                     inset 0 0 0 2px var(--grey-light),
                     0 0 0 1px var(--grey-light);
             }
+
             &:focus {
                 box-shadow:
-                    inset 0 0 0 1px #fff,
+                    inset 0 0 0 1px #ffffff,
                     0 0 0 1px var(--colorpicker-hue-selected-stroke);
+
                 // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
             }
+
             &:active {
                 cursor: grabbing;
             }
@@ -242,40 +266,45 @@ div.b-colorpicker-square {
 .b-colorpicker-alpha-slider {
     position: relative;
     height: 1em;
-    border-radius: var(--colorpicker-radius);
-	@include bulma-utilities.logical-y(margin, .125em .875rem);
     background-image:
         linear-gradient(45deg, #c7c7c7 25%, transparent 25%, transparent 75%, #c7c7c7 75%, #c7c7c7),
         linear-gradient(45deg, #c7c7c7 25%, transparent 25%, transparent 75%, #c7c7c7 75%, #c7c7c7);
     background-position: .5em .5em, 0 0;
     background-size: 1em 1em;
+    border-radius: var(--colorpicker-radius);
+
+	@include bulma-utilities.logical-y(margin, .125em .875rem);
 
     .alpha-range-thumb {
         position: absolute;
         top: 50%;
-        @include bulma-utilities.logical-x(inset, 0, $right: false);
         width: .4em;
         height: 1.25em;
+        cursor: grab;
         border-radius: var(--colorpicker-radius);
         box-shadow:
-            inset 0 0 0 1px #fff,
+            inset 0 0 0 1px #ffffff,
             inset 0 0 0 2px var(--grey-lighter),
             0 0 0 1px var(--grey-lighter);
-        cursor: grab;
         transform: translate(-50%, -50%);
+
+        @include bulma-utilities.logical-x(inset, 0, $right: false);
 
         &:hover {
             box-shadow:
-                inset 0 0 0 1px #fff,
+                inset 0 0 0 1px #ffffff,
                 inset 0 0 0 2px var(--grey-light),
                 0 0 0 1px var(--grey-light);
         }
+
         &:focus {
             box-shadow:
-                inset 0 0 0 1px #fff,
+                inset 0 0 0 1px #ffffff,
                 0 0 0 1px var(--colorpicker-hue-selected-stroke);
+
             // 0 0 0 .125em rgba($colorpicker-hue-selected-stroke, .25);
         }
+
         &:active {
             cursor: grabbing;
         }
@@ -284,8 +313,10 @@ div.b-colorpicker-square {
             &,
             &> .tooltip-trigger {
                 position: absolute;
+
 				@include bulma-utilities.logical-y(inset, 0);
 				@include bulma-utilities.logical-x(inset, 0);
+
                 display: block;
             }
         }

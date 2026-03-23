@@ -22,15 +22,19 @@ $-css-vars-map: (
             background-color: var(--modal-background-color);
         }
     }
+
     .animation-content {
         margin: 0 20px;
+
         .modal-card {
             margin: 0;
         }
+
         @include bulma-utilities.mobile {
             width: 100%;
         }
     }
+
     .modal-content {
         width: 100%;
     }

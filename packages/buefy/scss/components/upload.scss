@@ -1,59 +1,71 @@
 @use "sass:list";
-
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/form/file" as bulma-file;
 
 .upload {
     position: relative;
     display: inline-flex;
+
     input[type="file"] {
         position: absolute;
-        z-index: -1;
         top: 0;
-        @include bulma-utilities.logical-x(inset, 0, $right: false);
+        z-index: -1;
         width: 100%;
         height: 100%;
         cursor: pointer;
-        opacity: 0;
         outline: none;
+        opacity: 0;
+
+        @include bulma-utilities.logical-x(inset, 0, $right: false);
     }
+
     .upload-draggable {
         padding: 0.25em;
+        cursor: pointer;
         border: 1px dashed var(--grey-light);
         border-radius: var(--radius-large);
-        cursor: pointer;
+
         &.is-disabled {
             cursor: not-allowed;
             opacity: 0.5;
         }
+
         &.is-loading {
             position: relative;
-            opacity: 0.5;
             pointer-events: none;
+            opacity: 0.5;
+
             &::after {
                 @extend %loader;
+
                 top: 0;
+
 				@include bulma-utilities.logical-x(inset, calc(50% - 1.5em), $right: false);
+
                 width: 3em;
                 height: 3em;
                 border-width: 0.25em;
             }
         }
+
         &:is(:hover, .is-hovered) {
             @each $name, $pair in bulma-file.$file-colors {
                 &.is-#{$name} {
-                    border-color: var(--#{$name});
                     background: var(--#{$name}-light);
+                    border-color: var(--#{$name});
                 }
             }
         }
+
         &.is-expanded {
             width: 100%;
         }
     }
+
     &.is-expanded {
         width: 100%;
     }
+
     &.is-rounded {
         border-radius: var(--radius-rounded);
 

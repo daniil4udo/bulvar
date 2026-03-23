@@ -1,5 +1,4 @@
 @use "sass:list";
-
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/form/shared" as bulma-form;
 
@@ -21,7 +20,6 @@ $slider-tick-width: 3px !default;
 $slider-tick-radius: var(--radius) !default;
 $slider-tick-background: $slider-thumb-color !default;
 $slider-mark-size: 0.75rem !default;
-
 $slider-colors: bulma-form.$form-colors !default;
 
 // Map Local variables
@@ -70,7 +68,9 @@ $-css-vars-map: (
     .b-slider-tick-label {
         position: absolute;
         top: calc((#{$track-height} * 0.5) + 2px);
+
         @include bulma-utilities.logical-x(inset, 50%, $right: false);
+
         font-size: var(--slider-mark-size);
         transform: translateX(-50%);
     }
@@ -85,21 +85,24 @@ $-css-vars-map: (
         position: relative;
         display: flex;
         align-items: center;
-        border-radius: var(--slider-radius);
-        background: var(--slider-track-background);
         cursor: pointer;
+        background: var(--slider-track-background);
+        border-radius: var(--slider-radius);
     }
+
     .b-slider-fill {
         position: absolute;
+
         // Fix alignment in IE 11. Cancel out for others
         top: 50%;
         height: 100%;
+        background: var(--slider-track-background);
         border: var(--slider-track-border);
         border-radius: $slider-track-radius;
-        background: var(--slider-track-background);
         box-shadow: var(--slider-track-shadow);
         transform: translateY(-50%);
     }
+
     .b-slider-thumb-wrapper {
         position: absolute;
         top: 50%;
@@ -110,10 +113,11 @@ $-css-vars-map: (
         transform: translate(-50%, -50%);
 
         .b-slider-thumb {
+            background: var(--slider-thumb-background);
             border: var(--slider-thumb-border);
             border-radius: var(--slider-thumb-radius);
-            background: var(--slider-thumb-background);
             box-shadow: var(--slider-thumb-shadow);
+
             &:focus {
                 transform: scale(1.25);
             }
@@ -121,6 +125,7 @@ $-css-vars-map: (
 
         &.is-dragging {
             cursor: grabbing;
+
             .b-slider-thumb {
                 transform: scale(1.25);
             }
@@ -129,8 +134,8 @@ $-css-vars-map: (
         &.has-indicator {
             .b-slider-thumb {
                 display: flex;
-                width: auto;
                 align-items: center;
+                width: auto;
                 padding: 16px 10px;
             }
         }
@@ -139,6 +144,7 @@ $-css-vars-map: (
     &.slider-focus{
 		@include bulma-utilities.logical-y(padding, 20px);
 		@include bulma-utilities.logical-y(margin, -20px);
+
         cursor: pointer;
     }
 
@@ -147,13 +153,16 @@ $-css-vars-map: (
             border-radius: var(--radius-rounded);
         }
     }
+
     &.is-disabled {
         .b-slider-track {
             cursor: not-allowed;
             opacity: 0.5;
         }
+
         .b-slider-thumb-wrapper {
             cursor: not-allowed;
+
             .b-slider-thumb {
                 transform: scale(1);
             }
@@ -175,9 +184,10 @@ $-css-vars-map: (
         position: absolute;
         top: 50%;
         width: var(--slider-tick-width);
-        border-radius: var(--slider-tick-radius);
         background: var(--slider-tick-background);
+        border-radius: var(--slider-tick-radius);
         transform: translate(-50%, -50%);
+
         &.is-tick-hidden {
             background: transparent;
         }

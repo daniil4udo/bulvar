@@ -2,12 +2,10 @@
 
 $skeleton-color: var(--grey-lightest) !default;
 $skeleton-shine-color: var(--scheme-main-bis) !default;
-
 $skeleton-background: linear-gradient(to right, $skeleton-color 25%, $skeleton-shine-color 50%, $skeleton-color 75%) !default;
 $skeleton-border-radius: var(--radius) !default;
 $skeleton-duration: 1.5s !default;
 $skeleton-margin-top: .5rem !default;
-
 $skeleton-line-height-size: var(--size-normal) !default;
 
 // Map Local variables
@@ -27,15 +25,15 @@ $-css-vars-map: (
 
 .b-skeleton {
     display: inline-flex;
-    width: 100%;
     flex-direction: column;
+    width: 100%;
     vertical-align: middle;
 
     >.b-skeleton-item {
         width: 100%;
+        line-height: var(--skeleton-line-height-size);
         background: $skeleton-background;
         background-size: 400% 100%;
-        line-height: var(--skeleton-line-height-size);
 
         &.is-rounded {
             border-radius: var(--skeleton-border-radius)
@@ -75,6 +73,7 @@ $-css-vars-map: (
     0% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0 50%;
     }

@@ -4,11 +4,11 @@
 .notification {
     .media {
         @include bulma-utilities.logical-y(padding, 0, $bottom: false);
+
         border: 0;
     }
 
     .progress {
-
         height: 5px;
     }
 }

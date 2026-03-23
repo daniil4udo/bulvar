@@ -17,15 +17,18 @@ $-css-vars-map: (
     &.is-grouped {
         .field {
             flex-shrink: 0;
+
             &:not(:last-child) {
                 @include bulma-utilities.logical-x(margin, .75rem, $right: true);
             }
+
             &.is-expanded {
                 flex-grow: 1;
                 flex-shrink: 1;
             }
         }
     }
+
     // Nested control addons (for Autocomplete and Datepicker)
     &.has-addons .control {
         &:first-child .control {
@@ -33,17 +36,20 @@ $-css-vars-map: (
                 @include bulma-utilities.logical-border-radius(left, var(--input-radius));
             }
         }
+
         &:last-child .control {
             :is(.button, .input, .select select) {
                 @include bulma-utilities.logical-border-radius(right, var(--input-radius));
             }
         }
+
         .control {
             :is(.button, .input, .select select) {
                 border-radius: 0
             }
         }
     }
+
     // Fix for number input with addons
     &.has-addons {
         .b-numberinput {
@@ -54,6 +60,7 @@ $-css-vars-map: (
                     }
                 }
             }
+
             &:not(:last-child) {
                 .control:last-child {
                     :is(.button, .input, .select select) {
@@ -62,6 +69,7 @@ $-css-vars-map: (
                 }
             }
         }
+
         &.b-numberinput {
             .control {
                 @include bulma-utilities.logical-x(margin, unset, $right: true);
@@ -77,16 +85,17 @@ $-css-vars-map: (
         .label {
             position: absolute;
             z-index: 5;
-			@include bulma-utilities.logical-x(inset, 1em, $right: false);
-            overflow: hidden;
             max-width: calc(100% - 2em);
-            background-color: transparent;
-            font-size: calc(var(--field-label-font-size) * 0.75);
+            overflow: hidden;
             text-overflow: ellipsis;
+            font-size: calc(var(--field-label-font-size) * 0.75);
             white-space: nowrap;
+            background-color: transparent;
 
+			@include bulma-utilities.logical-x(inset, 1em, $right: false);
             @include bulma-utilities.control-sizes(field-label-font-size);
         }
+
         .taginput .counter {
             float: none;
             text-align: end;
@@ -106,30 +115,37 @@ $-css-vars-map: (
     &.is-floating-label {
         .label {
             top: -0.775em;
+
             @include bulma-utilities.logical-x(padding, 0.125em);
+
             &::before {
                 position: absolute;
-                z-index: -1;
                 top: 0.775em;
-				@include bulma-utilities.logical-x(inset, 0);
+                z-index: -1;
                 display: block;
                 height: 0.375em;
-                background-color: var(--input-background-color);
                 content: "";
+                background-color: var(--input-background-color);
+
+				@include bulma-utilities.logical-x(inset, 0);
             }
         }
+
         :is(.input, .textarea, .select select) {
             &:focus {
                 box-shadow: none;
             }
         }
+
         .taginput .taginput-container {
             @include bulma-utilities.logical-y(padding, 0.475em, $bottom: false);
+
             &.is-focused {
                 box-shadow: none;
             }
         }
     }
+
     &.is-floating-in-label {
         --field-floating-indent: calc(var(--floating-in-height) * 0.5 - (var(--size-large) * 0.75) * 0.5);
 
@@ -140,41 +156,51 @@ $-css-vars-map: (
                 &:is(.datepicker, .timepicker) {
                     .input {
                         height: var(--floating-in-height);
+
 						@include bulma-utilities.logical-y(padding, var(--field-floating-indent) 1px);
                     }
                 }
+
                 &:not(.datepicker, .timepicker, .taginput) {
                     :is(.input, .textarea, select) {
                         height: var(--floating-in-height);
+
 						@include bulma-utilities.logical-y(padding, var(--field-floating-indent) 1px);
                     }
+
                     .select:not([multiple]) {
                         height: var(--floating-in-height);
+
                         &.is-loading {
                             &::after {
                                 @include bulma-utilities.logical-y(margin, var(--field-floating-indent), $bottom: false);
                             }
                         }
+
                         &::after {
                             @include bulma-utilities.logical-y(margin, 1px, $bottom: false);
                         }
                     }
                 }
+
                 &.taginput {
                     .taginput-container {
                         // 0.275em - 1px _taginput.scss
                         @include bulma-utilities.logical-y(padding, calc(var(--field-floating-indent) + (0.275em - 1px)), $bottom: false);
                     }
                 }
+
                 &:not(.taginput) {
                     :is(.is-left, .is-start).field,
                     :is(.is-right, .is-end).icon {
                         height: var(--floating-in-height);
                     }
+
                     :is(.is-left, .is-start).icon {
                         @include bulma-utilities.logical-y(padding, var(--field-floating-indent), $bottom: false);
                     }
                 }
+
                 &.is-loading::after {
                     @include bulma-utilities.logical-y(margin, var(--field-floating-indent), $bottom: false);
                 }
@@ -187,6 +213,7 @@ $-css-vars-map: (
                         :is(.input, .textarea, select) {
 							@include bulma-utilities.logical-y(padding, var(--field-floating-indent) 1px);
                         }
+
                         :is(.input, .textarea, select, .button) {
                             height: var(--floating-in-height);
                         }
@@ -205,41 +232,49 @@ $-css-vars-map: (
             }
         }
     }
+
     &:is(.is-floating-label, .is-floating-in-label) {
         &.has-numberinput {
             .label {
                 @include bulma-utilities.logical-x(margin, calc(var(--size-normal) * 3), $right: false);
             }
+
             &.has-numberinput-is-small {
                 .label {
                     @include bulma-utilities.logical-x(margin, calc(var(--size-small) * 3), $right: false);
                 }
             }
+
             &.has-numberinput-is-medium {
                 .label {
                     @include bulma-utilities.logical-x(margin, calc(var(--size-medium) * 3), $right: false);
                 }
             }
+
             &.has-numberinput-is-large {
                 .label {
                     @include bulma-utilities.logical-x(margin, calc(var(--size-large) * 3), $right: false);
                 }
             }
         }
+
         &.has-numberinput-compact {
             .label {
                 @include bulma-utilities.logical-x(margin, calc(var(--size-normal) * 2.25), $right: false);
             }
+
             &.has-numberinput-is-small {
                 .label {
                     @include bulma-utilities.logical-x(margin, calc(var(--size-small) * 2.25), $right: false);
                 }
             }
+
             &.has-numberinput-is-medium {
                 .label {
                     @include bulma-utilities.logical-x(margin, calc(var(--size-medium) * 2.25), $right: false);
                 }
             }
+
             &.has-numberinput-is-large {
                 .label {
                     @include bulma-utilities.logical-x(margin, calc(var(--size-large) * 2.25), $right: false);
@@ -247,16 +282,20 @@ $-css-vars-map: (
             }
         }
     }
+
     &:is(.is-grouped-right, .has-addons-right) {
         &.is-floating-in-label {
             .label {
                 position: relative;
+
 				@include bulma-utilities.logical-x(inset, calc(3.25em + 2em), $right: false);
             }
         }
+
         &.is-floating-label {
             .label {
                 position: relative;
+
 				@include bulma-utilities.logical-x(inset, calc(3.25em + 2em), $right: false);
             }
         }
@@ -266,17 +305,21 @@ $-css-vars-map: (
 .control {
     .help.counter {
         @include bulma-utilities.logical-x(margin, 0.5em, $right: false);
+
         float: right;
     }
+
     .icon {
         &.is-clickable {
-            cursor: pointer;
             pointer-events: auto;
+            cursor: pointer;
         }
     }
+
     // fix Bulma 0.8.2
     &.is-loading::after {
         top: calc(50% - (1em * 0.5));
+
 		@include bulma-utilities.logical-x(inset, calc((2.5em * 0.5) - .5em), $right: true);
     }
 }

@@ -23,57 +23,75 @@ $-css-vars-map: (
 .rate {
     display: flex;
     align-items: center;
+
     &:not(:last-child) {
 		@include bulma-utilities.logical-y(margin, calc(var(--block-spacing) * 0.5), $bottom: true);
     }
+
     &.is-spaced .rate-item:not(:last-child) {
         @include bulma-utilities.logical-x(margin, var(--rate-spaced), $right: true);
     }
+
     &.is-disabled .rate-item {
         cursor: initial;
+
         &:hover {
             transform: none;
         }
     }
+
     &.is-rtl {
         .rate-item {
             order: 1;
         }
+
         .rate-text {
             @include bulma-utilities.logical-x(margin, 0 var(--rate-text-spaced));
         }
     }
+
     .rate-item {
         position: relative;
         display: inline-flex;
         cursor: pointer;
         transition: all 0.3s;
+
         &:hover {
             transform: scale(1.1);
         }
+
 		&:is(.set-on .icon, .set-half .is-half) {
             color: var(--rate-color-active);
         }
+
         &.set-half .is-half {
             position: absolute;
             top: 0;
+
             @include bulma-utilities.logical-x(inset, 0, $right: false);
+
             overflow: hidden;
         }
     }
+
     .icon {
         width: inherit;
-        color: var(--rate-color);
         line-height: 1;
+        color: var(--rate-color);
         pointer-events: none;
     }
+
     .is-half > i {
         position: absolute;
+
         @include bulma-utilities.logical-x(inset, 0, $right: false);
     }
+
     .rate-text {
         @include bulma-utilities.logical-x(margin, var(--rate-text-spaced), $right: false);
+
         font-size: calc(var(--rate-text-font-size) / 1.25);
+
         @include bulma-utilities.control-sizes(rate-text-font-size);
     }
 }

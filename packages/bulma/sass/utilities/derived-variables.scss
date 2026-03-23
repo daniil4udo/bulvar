@@ -25,7 +25,6 @@ $scheme-main-ter: $white-ter !default;
 $scheme-invert: mixins-scss.get-invert-color(var(--scheme-main)) !default;
 $scheme-invert-bis: $black-bis !default;
 $scheme-invert-ter: $black-ter !default;
-
 $background: $white-ter !default;
 $border: $grey-lighter !default;
 $border-hover: $grey-light !default;
@@ -43,7 +42,6 @@ $text-strong: mixins-scss.get-dark-color(var(--text)) !default;
 
 $code: var(--text) !default;
 $code-background: var(--background) !default;
-
 $pre: var(--text) !default;
 $pre-background: var(--background) !default;
 
@@ -96,7 +94,6 @@ $colors: mixins-scss.merge-color-maps(
 	$base-colors,
 	$custom-colors
 ) !default;
-
 $custom-shades: null !default;
 $shades: mixins-scss.merge-color-maps(
 	(
@@ -113,5 +110,4 @@ $shades: mixins-scss.merge-color-maps(
 	),
 	$custom-shades
 ) !default;
-
 $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7 !default;

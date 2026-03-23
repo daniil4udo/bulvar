@@ -1,20 +1,16 @@
 @use "sass:math";
-
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/utilities/mixins-scss" as bulma-mixins-scss;
 
 $carousel-min-height: 120px !default;
-
 $carousel-arrow-background: var(--scheme-main) !default;
 $carousel-arrow-color: var(--primary) !default;
 $carousel-arrow-icon-spaced: 1.5rem !default;
 $carousel-arrow-top: 50% !default;
-
 $carousel-indicator-background: bulma-mixins-scss.set-color-alpha(var(--scheme-invert), 0.5) !default;
 $carousel-indicator-border: var(--scheme-main) !default;
 $carousel-indicator-color: var(--primary) !default;
 $carousel-indicator-spaced: .5rem !default;
-
 $carousel-overlay-background: bulma-mixins-scss.set-color-alpha(var(--scheme-invert), 0.86) !default;
 $carousel-overlay-z: 40 !default;
 
@@ -39,106 +35,132 @@ $-css-vars-map: (
 
 .carousel {
     @extend %unselectable;
+
     position: relative;
     min-height: var(--carousel-min-height);
+
     &.is-overlay {
         position: fixed;
         z-index: var(--carousel-overlay-z);
         display: flex;
-        max-height: 100vh;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        max-height: 100vh;
         background-color: var(--carousel-overlay-background);
+
         .carousel-item img {
             cursor: default;
         }
+
         .carousel-indicator.has-background {
             background: transparent;
         }
     }
+
     .progress {
         height: 0.25rem;
         border-radius: var(--radius-small);
+
         @include bulma-utilities.logical-y(margin, 0, $bottom: true);
     }
+
     .carousel-items {
         position: relative;
         display: flex;
-        overflow: hidden;
         width: 100%;
+        overflow: hidden;
+
         &:hover .carousel-arrow.is-hovered {
             @include bulma-utilities.tablet {
                 opacity: 1;
             }
         }
+
         .carousel-item {
-            width: 100%;
             flex-shrink: 0;
+            width: 100%;
         }
     }
+
     .carousel-pause {
         position: absolute;
-        z-index: 1;
         top: 0;
-		@include bulma-utilities.logical-x(inset, 0.15rem, $right: true);
+        z-index: 1;
         pointer-events: none;
+
+		@include bulma-utilities.logical-x(inset, 0.15rem, $right: true);
     }
+
     .carousel-indicator {
         display: flex;
-        width: 100%;
         align-items: center;
         justify-content: center;
+        width: 100%;
         padding: var(--carousel-indicator-spaced);
+
         &.has-background {
             background: var(--carousel-indicator-background);
         }
+
         &.has-custom {
-            overflow: hidden;
             flex-wrap: nowrap;
             justify-content: flex-start;
+            overflow: hidden;
             overflow-x: auto;
+
             @include bulma-utilities.overflow-touch;
+
             &.is-small .indicator-item {
                 flex: 1 0 10%;
             }
+
             &.is-medium .indicator-item {
                 flex: 1 0 math.div(100, 6) * 1%;
             }
         }
+
         &.is-inside {
             position: absolute;
+
             &.is-bottom {
                 bottom: 0;
             }
+
             &.is-top {
                 top: 0;
             }
         }
+
         .indicator-item {
             &:not(:last-child) {
                 @include bulma-utilities.logical-x(margin, var(--carousel-indicator-spaced), $right: true);
             }
+
             &.is-active .indicator-style,
             .indicator-style:hover {
-                border: 1px solid var(--carousel-indicator-border);
                 background: var(--carousel-indicator-color);
+                border: 1px solid var(--carousel-indicator-border);
             }
+
             .indicator-style {
                 display: block;
-                border: 1px solid var(--carousel-indicator-color);
-                background: var(--carousel-indicator-border);
                 outline: none;
+                background: var(--carousel-indicator-border);
+                border: 1px solid var(--carousel-indicator-color);
                 transition: calc(var(--speed) * 2) var(--easing);
+
                 &.is-boxes {
                     width: 10px;
                     height: 10px;
                 }
+
                 &.is-dots {
                     width: 10px;
                     height: 10px;
                     border-radius: var(--radius-rounded);
                 }
+
                 &.is-lines {
                     width: 25px;
                     height: 5px;
@@ -150,44 +172,54 @@ $-css-vars-map: (
 
 .carousel-list {
     @extend %unselectable;
+
     position: relative;
-    overflow: hidden;
     width: 100%;
+    overflow: hidden;
+
     &.has-shadow {
         box-shadow: 0 0 10px #{bulma-mixins-scss.set-color-alpha(var(--scheme-invert), 0.25)};
     }
+
     &:hover .carousel-arrow.is-hovered {
         @include bulma-utilities.tablet {
             opacity: 1;
         }
     }
+
     .carousel-slides {
         position: relative;
         display: flex;
         width: 100%;
+
         &:not(.is-dragging) {
             transition: all calc(var(--speed) * 3) ease-out 0s;
         }
+
         &.has-grayscale {
             .carousel-slide {
                 img {
                     filter: grayscale(100%);
                 }
+
                 &.is-active img {
                     filter: grayscale(0%);
                 }
             }
         }
+
         &.has-opacity {
             .carousel-slide {
                 img {
                     opacity: 0.25
                 }
+
                 &.is-active img {
                     opacity: 1
                 }
             }
         }
+
         .carousel-slide {
             flex-shrink: 0;
             border: 2px solid transparent;
@@ -197,29 +229,35 @@ $-css-vars-map: (
 
 .carousel-arrow {
     transition: calc(var(--speed) * 2) var(--easing);
+
     &.is-hovered {
         opacity: 0;
     }
+
     .icon {
-        border: 1px solid var(--carousel-arrow-background);
-        border-radius: var(--radius-rounded);
-        background: var(--carousel-arrow-background);
         color: var(--carousel-arrow-color);
         cursor: pointer;
         outline: 0;
+        background: var(--carousel-arrow-background);
+        border: 1px solid var(--carousel-arrow-background);
+        border-radius: var(--radius-rounded);
+
         &:hover {
             border: 1px solid var(--carousel-arrow-color);
             opacity: 1;
         }
+
         &:is(.has-icons-left, .has-icons-start, .has-icons-right, .has-icons-end) {
             position: absolute;
-            z-index: 1;
             top: var(--carousel-arrow-top);
+            z-index: 1;
             transform: translateY(calc(-1 * var(--carousel-arrow-top)));
         }
+
         &:is(.has-icons-left, .has-icons-start) {
 			@include bulma-utilities.logical-x(inset, var(--carousel-arrow-icon-spaced), $right: false);
         }
+
         &:is(.has-icons-right, .has-icons-end) {
 			@include bulma-utilities.logical-x(inset, var(--carousel-arrow-icon-spaced), $right: true);
         }

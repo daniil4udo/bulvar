@@ -4,45 +4,55 @@
     .modal-card {
         width: auto;
         max-width: 460px;
+
         .modal-card-head {
             font-size: var(--size-5);
             font-weight: var(--weight-semibold);
         }
+
         .modal-card-body {
             .field {
                 @include bulma-utilities.logical-y(margin, 16px, $bottom: false);
             }
+
             &.is-titleless {
                 @include bulma-utilities.logical-border-radius(top, var(--card-radius));
             }
         }
+
         .modal-card-foot {
             justify-content: flex-end;
+
             .button {
                 display: inline; // Fix Safari centering
                 min-width: 5em;
                 font-weight: var(--weight-semibold);
             }
         }
+
         @include bulma-utilities.tablet {
             min-width: 320px;
         }
     }
+
     &.is-small {
         :is(.modal-card, .input, .button) {
             @include bulma-utilities.control-small;
         }
     }
+
     &.is-medium {
         :is(.modal-card, .input,.button) {
             @include bulma-utilities.control-medium;
         }
     }
+
     &.is-large {
         :is(.modal-card, .input,.button) {
             @include bulma-utilities.control-large;
         }
     }
+
     &.has-custom-container {
         position: absolute;
     }

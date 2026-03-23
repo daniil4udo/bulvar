@@ -13,29 +13,36 @@ $-css-vars-map: (
 
 .autocomplete {
     position: relative;
+
     .dropdown-menu {
         display: block;
         width: 100%;
+
         &.is-opened-top {
 			@include bulma-utilities.logical-y(inset, auto 100%)
         }
     }
+
     .dropdown-content {
-        overflow: auto;
         max-height: var(--dropdown-content-max-height);
+        overflow: auto;
     }
+
     .dropdown-item {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+
         &.is-hovered {
-            background: var(--dropdown-item-hover-background-color);
             color: var(--dropdown-item-hover-color);
+            background: var(--dropdown-item-hover-background-color);
         }
+
         &.is-disabled {
             cursor: not-allowed;
             opacity: 0.5;
         }
     }
+
     @include bulma-utilities.control-sizes;
 }

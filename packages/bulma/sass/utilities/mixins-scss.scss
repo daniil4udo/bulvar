@@ -113,9 +113,11 @@
 		@include register-css-properties($variable-map, $at-root: true);
 	} @else {
 		$class-list: ($component-classes);
+
 		@if meta.type-of($component-classes) == 'list' {
 			$class-list: $component-classes;
 		}
+
 		$selector-list: (
 		);
 
@@ -162,9 +164,11 @@
 
 	// Method 2: Using color-mix with white/black
 	$percentage: string.unquote($amount + '%');
+
 	@if math.unit($amount) == '%' {
 		$percentage: $amount
 	}
+
 	@return color-mix(in oklch, #{$color-property}, white #{$percentage});
 
 	// // Method 3: Perceptually better - mix towards high/low lightness instead of white/black
@@ -208,9 +212,11 @@
 
 	// Method 2: Using color-mix with white/black
 	$percentage: string.unquote($amount + '%');
+
 	@if math.unit($amount) == '%' {
 		$percentage: $amount
 	}
+
 	@return color-mix(in oklch, #{$color-property}, black #{$percentage});
 
 	// // Method 3: Perceptually better - mix towards high/low lightness instead of white/black
@@ -257,13 +263,13 @@
  */
 @mixin register-color-system($color-name, $color-data, $prefix: '') {
 	$base-name: $color-name;
+
 	@if $prefix != '' {
 		$base-name: $prefix + '-' + $color-name;
 	}
 
 	// Extract values with safe defaults using inline conditionals
 	$is-list: meta.type-of($color-data) == 'list';
-
 	$list-length: 1;
 	$color-value: $color-data;
 
@@ -273,16 +279,19 @@
 	}
 
 	$color-invert: null;
+
 	@if $list-length >= 2 {
 		$color-invert: list.nth($color-data, 2);
 	}
 
 	$color-light: null;
+
 	@if $list-length >= 3 {
 		$color-light: list.nth($color-data, 3);
 	}
 
 	$color-dark: null;
+
 	@if $list-length >= 4 {
 		$color-dark: list.nth($color-data, 4);
 	}
@@ -333,9 +342,11 @@
 		}
 	} @else {
 		$class-list: $component-classes;
+
 		@if meta.type-of($component-classes) == 'list' {
 			$class-list: ($component-classes);
 		}
+
 		$selector-list: (
 		);
 

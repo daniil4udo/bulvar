@@ -1,12 +1,10 @@
 @use "sass:list";
-
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/form/shared" as bulma-form;
 @use "../../../bulma/sass/utilities/mixins-scss" as bulma-mixins-scss;
 
 $radio-active-background-color: var(--primary) !default;
 $radio-size: 1.25em !default;
-
 $radio-colors: bulma-form.$form-colors !default;
 
 // Map Local variables
@@ -22,71 +20,86 @@ $-css-vars-map: (
 .b-radio {
     &.radio {
         @extend %unselectable;
+
         display: inline-flex;
         align-items: center;
         outline: none;
+
         &:not(.button) {
             @include bulma-utilities.logical-x(margin, 0.5em, $right: true);
+
             & + .radio:last-child {
                 @include bulma-utilities.logical-x(margin, 0, $right: true);
             }
         }
+
         // reset Bulma
         & + .radio {
             @include bulma-utilities.logical-x(margin, 0, $right: false);
         }
-        input[type=radio] {
+
+        input[type="radio"] {
             position: absolute;
             z-index: -1;
-            @include bulma-utilities.logical-x(inset, 0, $right: false);
-            opacity: 0;
             outline: none;
+            opacity: 0;
+
+            @include bulma-utilities.logical-x(inset, 0, $right: false);
+
             + .check {
                 position: relative;
                 display: flex;
+                flex-shrink: 0;
                 width: var(--radio-size);
                 height: var(--radio-size);
-                flex-shrink: 0;
+                cursor: pointer;
                 border: 2px solid var(--grey);
                 border-radius: 50%;
-                cursor: pointer;
                 transition: background calc(var(--speed) * 2) var(--easing);
+
                 &::before {
                     position: absolute;
                     bottom: 50%;
-                    @include bulma-utilities.logical-x(inset, 50%, $right: false);
                     display: flex;
                     width: var(--radio-size);
                     height: var(--radio-size);
-                    border-radius: 50%;
-                    @include bulma-utilities.logical-y(margin, calc(-0.5 * var(--radio-size)));
-                    @include bulma-utilities.logical-x(margin, calc(-0.5 * var(--radio-size)), $right: false);
-                    background-color: var(--radio-active-background-color);
                     content: "";
+                    background-color: var(--radio-active-background-color);
+                    border-radius: 50%;
                     transform: scale(0);
                     transition: transform calc(var(--speed) * 2) var(--easing);
+
+                    @include bulma-utilities.logical-x(inset, 50%, $right: false);
+                    @include bulma-utilities.logical-y(margin, calc(-0.5 * var(--radio-size)));
+                    @include bulma-utilities.logical-x(margin, calc(-0.5 * var(--radio-size)), $right: false);
                 }
+
                 @each $name, $pair in $radio-colors {
                     &.is-#{$name}:before {
                         background: var(--#{$name});
                     }
                 }
             }
+
             &:checked + .check {
                 border-color: var(--radio-active-background-color);
+
                 @each $name, $pair in $radio-colors {
                     &.is-#{$name} {
                         border-color: var(--#{$name});
                     }
                 }
+
                 &::before {
                     transform: scale(.5);
                 }
             }
+
             &:focus {
                 + .check {
                     box-shadow: 0 0 0.5em var(--grey-light);
                 }
+
                 &:checked + .check {
                     box-shadow: 0 0 0.5em #{bulma-mixins-scss.set-color-alpha(var(--scheme-invert), 0.1)};
 
@@ -98,9 +111,11 @@ $-css-vars-map: (
                 }
             }
         }
+
         .control-label {
             @include bulma-utilities.logical-x(padding, var(--control-padding-horizontal), $right: false);
         }
+
         &.button {
             display: flex;
 
@@ -108,12 +123,15 @@ $-css-vars-map: (
                 z-index: 1;
             }
         }
+
         &[disabled] {
             opacity: 0.5;
         }
+
         &:hover {
-            input[type=radio]:not(:disabled) + .check {
+            input[type="radio"]:not(:disabled) + .check {
                 border-color: var(--radio-active-background-color);
+
                 @each $name, $pair in $radio-colors {
                     &.is-#{$name} {
                         border-color: var(--#{$name});
@@ -121,6 +139,7 @@ $-css-vars-map: (
                 }
             }
         }
+
         @include bulma-utilities.control-sizes;
     }
 }

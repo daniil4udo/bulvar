@@ -1,5 +1,4 @@
 @use "sass:list";
-
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/elements/progress" as bulma-progress;
 
@@ -27,18 +26,18 @@ $-css-vars-map: (
     .progress-value {
         position: absolute;
         top: 0;
-		@include bulma-utilities.logical-x(inset, 50%, $right: false);
-        color: var(--progress-value-color);
         font-size: calc(var(--progress-value-size) / 1.5);
         font-weight: var(--weight-bold);
         line-height: var(--progress-value-size);
-        transform: translateX(-50%);
+        color: var(--progress-value-color);
         white-space: nowrap;
+        transform: translateX(-50%);
+
+		@include bulma-utilities.logical-x(inset, 50%, $right: false);
     }
 
     :is(.progress, .progress-bar) {
         @include bulma-utilities.logical-y(margin, 0, $bottom: true);
-
         @include bulma-utilities.control-sizes(progress-value-size);
 
         &::-webkit-progress-value {
@@ -66,16 +65,17 @@ $-css-vars-map: (
 
     &.is-not-native {
         @extend .progress;
-        border-radius: var(--progress-border-radius);
-        background-color: var(--progress-bar-background-color);
+
         white-space: nowrap;
+        background-color: var(--progress-bar-background-color);
+        border-radius: var(--progress-border-radius);
 
         .progress-bar {
             position: relative;
             display: inline-block;
             height: 100%;
-            background-color: var(--progress-value-background-color);
             vertical-align: top;
+            background-color: var(--progress-value-background-color);
 
             .progress-value {
                 color: var(--progress-value-color);
@@ -84,6 +84,7 @@ $-css-vars-map: (
             @each $name, $pair in bulma-progress.$progress-colors {
                 &.is-#{$name} {
                     background-color: var(--#{$name});
+
                     .progress-value {
                         color: var(--#{$name}-invert);
                     }

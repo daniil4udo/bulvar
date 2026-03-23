@@ -4,6 +4,7 @@
     &.has-navbar-centered {
         .navbar-start {
             justify-content: center;
+
             @include bulma-utilities.logical-x(margin, auto, $right: false);
         }
 
@@ -13,8 +14,8 @@
     }
 
     .navbar-dropdown.is-boxed {
-        transition-property: opacity, visibility, transform;
         visibility: hidden;
+        transition-property: opacity, visibility, transform;
     }
 
     .navbar-item.has-dropdown {
